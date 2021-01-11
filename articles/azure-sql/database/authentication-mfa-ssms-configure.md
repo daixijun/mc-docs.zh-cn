@@ -12,28 +12,28 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 08/27/2019
-ms.date: 10/29/2020
-ms.openlocfilehash: 7921935b6ba17947c9f8bb35b5dc6a48e1d7b1fc
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 01/04/2021
+ms.openlocfilehash: 1c2be785e5b40047ff28c751eaec2c99f00e115c
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470510"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829949"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>为 SQL Server Management Studio 和 Azure AD 配置多重身份验证
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-本文演示如何将 Azure Active Directory (Azure AD) 多重身份验证 (MFA) 与 SQL Server Management Studio (SSMS) 结合使用。 将 SSMS 或 SqlPackage.exe 连接到 [Azure SQL 数据库](sql-database-paas-overview.md)、[Azure SQL 托管实例](../managed-instance/sql-managed-instance-paas-overview.md)和 [Azure Synapse Analytics（以前称为“SQL 数据仓库”）](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)时，可以使用 Azure AD MFA。 有关多重身份验证的概述，请参阅 [SQL 数据库、SQL 托管实例和 Azure Synapse 的通用身份验证（SSMS 对 MFA 的 支持）](../database/authentication-mfa-ssms-overview.md)。
+本文演示如何将 Azure Active Directory (Azure AD) 多重身份验证 (MFA) 与 SQL Server Management Studio (SSMS) 结合使用。 将 SSMS 或 SqlPackage.exe 连接到 [Azure SQL 数据库](sql-database-paas-overview.md)、[Azure SQL 托管实例](../managed-instance/sql-managed-instance-paas-overview.md)和 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 时，可以使用 Azure AD MFA。 有关多重身份验证的概述，请参阅 [SQL 数据库、SQL 托管实例和 Azure Synapse 的通用身份验证（SSMS 对 MFA 的 支持）](../database/authentication-mfa-ssms-overview.md)。
 
 > [!IMPORTANT]
-> 本文其余部分将 Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse（以前称为“SQL 数据仓库”）中的数据库统称为“数据库”，并且服务器指的是为 Azure SQL 数据库和 Azure Synapse 托管数据库的[服务器](logical-servers.md)。
+> 本文其余部分将 Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse 中的数据库统称为数据库，并且服务器指的是为 Azure SQL 数据库和 Azure Synapse 托管数据库的[服务器](logical-servers.md)。
 
 ## <a name="configuration-steps"></a>配置步骤
 
-1. **配置 Azure Active Directory** - 有关详细信息，请参阅 [管理 Azure AD 目录](https://msdn.microsoft.com/library/azure/hh967611.aspx)、 [将本地标识与 Azure Active Directory 集成](../../active-directory/hybrid/whatis-hybrid-identity.md)、 [将自己的域名添加到 Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)、 [Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)和 [使用 Windows PowerShell 管理 Azure AD](https://msdn.microsoft.com/library/azure/jj151815.aspx)。
-2. **配置 MFA** - 有关分步说明，请参阅 [什么是 Azure 多重身份验证？](../../active-directory/authentication/multi-factor-authentication.md)。 
+1. **配置 Azure Active Directory** - 有关详细信息，请参阅 [管理 Azure AD 目录](https://docs.microsoft.com/previous-versions/azure/azure-services/hh967611(v=azure.100))、[将本地标识与 Azure Active Directory 集成](../../active-directory/hybrid/whatis-hybrid-identity.md)、[将自己的域名添加到 Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)、[Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)和 [使用 Windows PowerShell 管理 Azure AD](https://docs.microsoft.com/previous-versions/azure/jj151815(v=azure.100))。
+2. 配置 MFA - 有关分步说明，请参阅[什么是 Azure AD 多重身份验证？](../../active-directory/authentication/concept-mfa-howitworks.md)。 
 3. **配置 Azure AD 身份验证** - 有关分步说明，请参阅 [使用 Azure Active Directory 身份验证连接到 SQL 数据库、SQL 托管实例或 Azure Synapse](authentication-aad-overview.md)。
-4. **下载 SSMS** - 在客户端计算机上，从 [下载 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下载最新的 SSMS。
+4. **下载 SSMS** - 在客户端计算机上，从 [下载 SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 下载最新的 SSMS。
 
 ## <a name="connecting-by-using-universal-authentication-with-ssms"></a>使用通用身份验证搭配 SSMS 进行连接
 
@@ -81,5 +81,5 @@ ms.locfileid: "92470510"
 
 - 有关多重身份验证的概述，请参阅 [SQL 数据库、SQL 托管实例和 Azure Synapse 的通用身份验证（SSMS 对 MFA 的 支持）](../database/authentication-mfa-ssms-overview.md)。  
 - 授予其他人对数据库的访问权限：[SQL 数据库身份验证和授权：授予访问权限](logins-create-manage.md)  
-- 确保其他人可以通过防火墙进行连接：[通过 Azure 门户配置服务器级防火墙规则](/azure-sql/database/firewall-configure)  
-- 使用 **Active Directory - 通用且具有 MFA** 进行身份验证时，可以使用以 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 开头的 ADAL 跟踪。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别” **中，** 使用“Azure 云”的“Azure 服务”下方“选项”菜单中的“工具”，打开 ADAL 跟踪，然后在“视图”菜单中启用“输出”。 选择“Azure Active Directory 选项”时，可在输出窗口中使用跟踪。
+- 确保其他人可以通过防火墙进行连接：[通过 Azure 门户配置服务器级防火墙规则](./firewall-configure.md)  
+- 使用 **Active Directory - 通用且具有 MFA** 进行身份验证时，可以使用以 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 开头的 ADAL 跟踪。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别”**中，** 使用“Azure 云”的“Azure 服务”下方“选项”菜单中的“工具”，打开 ADAL 跟踪，然后在“视图”菜单中启用“输出”。 选择“Azure Active Directory 选项”时，可在输出窗口中使用跟踪。

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 03/27/2020
-ms.date: 11/20/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: e5d694a697e46d76c2c8229f0ad5cf318e77dcb3
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: bf9aaf224393195bffef459da1ef7d49fc93ad77
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977584"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820259"
 ---
 # <a name="prepare-data-for-custom-speech"></a>准备自定义语音识别的数据
 
@@ -48,8 +48,10 @@ ms.locfileid: "94977584"
 | 数据类型 | 用于测试 | 建议的数量 | 用于训练 | 建议的数量 |
 |-----------|-----------------|----------|-------------------|----------|
 | [音频：](#audio-data-for-testing) | 是<br>用于视觉检测 | 5 个以上的音频文件 | 否 | 空值 |
-| [音频和人为标记的听录内容](#audio--human-labeled-transcript-data-for-testingtraining) | 是<br>用于评估准确度 | 0.5-5 小时的音频 | 是 | 1-1,000 小时的音频 |
+| [音频和人为标记的听录内容](#audio--human-labeled-transcript-data-for-testingtraining) | 是<br>用于评估准确度 | 0.5-5 小时的音频 | 是 | 1-20 小时的音频 |
 | [相关文本](#related-text-data-for-training) | 否 | 不适用 | 是 | 1-200 MB 的相关文本 |
+
+训练新模型时，请从[相关文本](#related-text-data-for-training)开始。 这些数据将改善对特殊术语和短语的识别。
 
 文件应按类型分组成数据集，并作为 .zip 文件上传。 每个数据集只能包含一种数据类型。
 
@@ -75,7 +77,7 @@ ms.locfileid: "94977584"
 
 参考下表来确保正确设置用于自定义语音识别的音频文件的格式：
 
-| 属性                 | Value                 |
+| 属性                 | 值                 |
 |--------------------------|-----------------------|
 | 文件格式              | RIFF (WAV)            |
 | 采样速率              | 8,000 Hz 或 16,000 Hz |
@@ -103,7 +105,7 @@ ms.locfileid: "94977584"
 
 音频文件在录音开始和结束时可以保持静音。 如果可能，请在每个示例文件中的语音前后包含至少半秒的静音。 录音音量小或具有干扰性背景噪音的音频没什么用，但不应损害你的自定义模型。 收集音频示例之前，请务必考虑升级麦克风和信号处理硬件。
 
-| 属性                 | Value                               |
+| 属性                 | 值                               |
 |--------------------------|-------------------------------------|
 | 文件格式              | RIFF (WAV)                          |
 | 采样速率              | 8,000 Hz 或 16,000 Hz               |
@@ -118,7 +120,7 @@ ms.locfileid: "94977584"
 > [!NOTE]
 > 上传训练和测试数据时，.zip 文件大小不能超过 2 GB。 只能从单个数据集进行测试，请确保将其保持在适当的文件大小内。 另外，每个训练文件不能超过 60 秒，否则将出错。
 
-若要解决字词删除或替换等问题，需要提供大量的数据来改善识别能力。 通常，我们建议为大约 10 到 1,000 小时的音频提供逐字对照的听录。 应在单个纯文本文件中包含所有 WAV 文件的听录。 听录文件的每一行应包含一个音频文件的名称，后接相应的听录。 文件名和听录应以制表符 (\t) 分隔。
+若要解决字词删除或替换等问题，需要提供大量的数据来改善识别能力。 通常，我们建议为大约 10 到 20 小时的音频提供逐字对照的听录。 应在单个纯文本文件中包含所有 WAV 文件的听录。 听录文件的每一行应包含一个音频文件的名称，后接相应的听录。 文件名和听录应以制表符 (\t) 分隔。
 
   例如：
 ```
@@ -136,6 +138,8 @@ ms.locfileid: "94977584"
 
 > [!div class="mx-imgBorder"]
 > ![从语音门户选择音频](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+
+有关语音服务订阅的建议区域列表，请参阅[设置 Azure 帐户](custom-speech-overview.md#set-up-your-azure-account)。 在这些区域之一中设置语音订阅将减少训练模型所需的时间。
 
 ## <a name="related-text-data-for-training"></a>用于训练的相关文本数据
 
@@ -156,7 +160,7 @@ ms.locfileid: "94977584"
 
 参考下表来确保正确设置言语相关数据文件的格式：
 
-| 属性 | Value |
+| 属性 | 值 |
 |----------|-------|
 | 文本编码 | UTF-8 BOM |
 | 每行的话语数 | 1 |
@@ -194,7 +198,7 @@ ms.locfileid: "94977584"
 
 参考下表来确保相关发音数据文件的格式正确。 发音文件较小，应只占几千字节。
 
-| 属性 | Value |
+| 属性 | 值 |
 |----------|-------|
 | 文本编码 | UTF-8 BOM（英语还支持 ANSI） |
 | 每行的发音数目 | 1 |
@@ -205,4 +209,4 @@ ms.locfileid: "94977584"
 * [检查数据](how-to-custom-speech-inspect-data.md)
 * [评估数据](how-to-custom-speech-evaluate-data.md)
 * [训练模型](how-to-custom-speech-train-model.md)
-* [部署模型](how-to-custom-speech-deploy-model.md)
+* [部署模型](./how-to-custom-speech-train-model.md)

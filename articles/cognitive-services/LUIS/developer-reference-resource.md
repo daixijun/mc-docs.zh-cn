@@ -5,15 +5,15 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 origin.date: 05/19/2020
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e85a13dcddb48fbc2c404da9a765fed86c81b94c
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 955d9a5b815e257605d312a88b387072cfd9e8b9
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472510"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856819"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>用于语言理解 (LUIS) 的 SDK、REST 和 CLI 开发人员资源
 
@@ -114,7 +114,7 @@ LUIS 目前有 2 种类型的终结点：
 <!-- Devops not available in mc-->
 ## <a name="bot-framework-tools"></a>Bot Framework 工具
 
-Bot Framework 在多种语言中以 [SDK](https://github.com/Microsoft/botframework) 形式提供，并通过 [Azure 机器人服务](https://dev.botframework.com/)以服务形式提供。
+Bot Framework 在多种语言中以 [SDK](https://github.com/Microsoft/botframework) 形式提供。
 
 Bot Framework 提供有助于语言理解的[多种工具](https://github.com/microsoft/botbuilder-tools)，其中包括：
 
@@ -128,7 +128,6 @@ Bot Framework 提供有助于语言理解的[多种工具](https://github.com/mi
 ## <a name="next-steps"></a>后续步骤
 
 * 了解常见的 [HTTP 错误代码](luis-reference-response-codes.md)
-* 所有 API 和 SDK 的[参考文档](https://docs.azure.cn/index#pivot=sdkstools)
 * [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) 和 [Azure 机器人服务](https://dev.botframework.com/)
 * [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)
 * [认知容器](../cognitive-services-container-support.md)

@@ -1,23 +1,24 @@
 ---
-title: PowerShell DSC 扩展 | Azure
+title: Azure Desired State Configuration 扩展处理程序
 description: 使用 DSC 扩展在 Azure VM 中上传和应用 PowerShell DSC 配置
 services: virtual-machines-windows
-author: rockboyfor
-manager: digimobile
+manager: carmonm
 ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 origin.date: 03/26/2018
-ms.date: 10/14/2019
+author: rockboyfor
+ms.date: 01/04/2021
 ms.author: v-yeche
-ms.openlocfilehash: bf346e544534ae944e5fe0c6042d68c05c7c8cdf
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d05868fd7571042834e17f513bb2b66033b8e81c
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105573"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856702"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC 扩展
 
@@ -33,9 +34,7 @@ ms.locfileid: "93105573"
 
 DSC 扩展支持以下 OS：
 
-Windows Server 2019、Windows Server 2016、Windows Server 2012R2、Windows Server 2012、Windows Server 2008 R2 SP1、Windows Client 10
-
-<!--Not Available on Windows Client 7/8.1-->
+Windows Server 2019、Windows Server 2016、Windows Server 2012R2、Windows Server 2012、Windows Server 2008 R2 SP1、Windows Client 7/8.1/10
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
@@ -76,7 +75,7 @@ Windows Server 2019、Windows Server 2016、Windows Server 2012R2、Windows Serv
         "advancedOptions": {
             "forcePullAndApply": false,
             "downloadMappings": {
-                "specificDependencyKey": "https://myCustomDependencyLocation"
+             "specificDependencyKey": "https://myCustomDependencyLocation"
             }
         } 
     },

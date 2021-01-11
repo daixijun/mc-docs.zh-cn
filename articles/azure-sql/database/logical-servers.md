@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 03/12/2019
-ms.date: 10/12/2020
-ms.openlocfilehash: f7cad6c5ab8ab6964c673d5097e5cba9fb6c7825
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 01/04/2021
+ms.openlocfilehash: f60d32769db449ad923faf6ac5de409d23990f2e
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872409"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829703"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>什么是 Azure SQL 数据库和 Azure Synapse Analytics 中的逻辑 SQL server？
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "91872409"
 
 此服务器不同于在本地环境中你可能熟悉的 SQL Server 实例。 要说明的一点是，无法确保数据库或数据仓库数据库相对于管理它们的服务器的确切位置。 此外，Azure SQL 数据库和 Azure Synapse 都不会公开任何实例级访问权限或功能。 与此相反，托管实例中实例数据库的物理归置方式与你熟悉的本地或虚拟机环境中的 SQL Server 归置方式相同。
 
-创建服务器时，你将提供一个对该服务器上的 master 数据库以及在该服务器上创建的所有数据库具有管理权限的服务器登录帐户和密码。 这一初始帐户就是 SQL 登录帐户。 Azure SQL 数据库和 Synapse Analytics 支持 SQL 身份验证和使用 Azure Active Directory 身份验证进行身份验证。 若要详细了解登录名和身份验证，请参阅[在 Azure SQL 数据库中管理数据库和登录名](logins-create-manage.md)。 不支持 Windows 身份验证。
+创建服务器时，你将提供一个对该服务器上的 master 数据库以及在该服务器上创建的所有数据库具有管理权限的服务器登录帐户和密码。 这一初始帐户就是 SQL 登录帐户。 Azure SQL 数据库和 Azure Synapse Analytics 支持 SQL 身份验证和使用 Azure Active Directory 身份验证进行身份验证。 若要详细了解登录名和身份验证，请参阅[在 Azure SQL 数据库中管理数据库和登录名](logins-create-manage.md)。 不支持 Windows 身份验证。
 
 SQL 数据库和 Azure Synapse 中的服务器：
 
@@ -35,7 +35,7 @@ SQL 数据库和 Azure Synapse 中的服务器：
 - 是数据库、弹性池和数据仓库的父资源
 - 为数据库、弹性池和数据仓库数据库提供命名空间
 - 是具有强生存期语义的逻辑容器 - 删除服务器并删除其数据库、弹性池和 SQK 池
-- 参与 [Azure 基于角色的访问控制 (Azure RBAC)](/role-based-access-control/overview) - 服务器中的数据库、弹性池和数据仓库数据库从服务器继承访问权限
+- 参与 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md) - 服务器中的数据库、弹性池和数据仓库数据库从服务器继承访问权限
 - 是数据库、弹性池和数据仓库数据库的标识的高阶元素，用于 Azure 资源管理目的（请参阅数据库和池的 URL 方案）
 - 在区域中并置资源
 - 为数据库访问提供连接终结点 (`<serverName>`.database.chinacloudapi.cn)
@@ -103,7 +103,7 @@ SQL 数据库和 Azure Synapse 中的服务器：
 |[Get-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverfirewallrule)|获取服务器的防火墙规则|
 |[Set-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverfirewallrule)|修改服务器中的防火墙规则|
 |[Remove-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserverfirewallrule)|从服务器中删除防火墙规则。|
-| New-AzSqlServerVirtualNetworkRule | 基于作为虚拟网络服务终结点的子网创建[*虚拟网络规则*](vnet-service-endpoint-rule-overview.md)。 |
+| New-AzSqlServerVirtualNetworkRule | 基于作为虚拟网络服务终结点的子网创建 [*虚拟网络规则*](vnet-service-endpoint-rule-overview.md)。 |
 
 > [!TIP]
 > 有关 PowerShell 快速入门，请参阅[使用 PowerShell 在 Azure SQL 数据库中创建数据库](single-database-create-quickstart.md)。 有关 PowerShell 示例脚本，请参阅[使用 PowerShell 在 Azure SQL 数据库中创建数据库和配置防火墙规则](scripts/create-and-configure-database-powershell.md)和[使用 PowerShell 在 Azure SQL 数据库中监视和缩放数据库](scripts/monitor-and-scale-database-powershell.md)。

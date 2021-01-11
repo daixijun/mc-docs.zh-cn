@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 10/12/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: 56bafe6d884ac067292042e91a38da4b5ed6953b
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+origin.date: 12/09/2020
+ms.date: 01/04/2021
+ms.openlocfilehash: 38cfb7ecc4cc6b951b7adcd6c1dfd70f4fa242f1
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680500"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829985"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>排查复制活动的性能问题
 
@@ -38,7 +38,7 @@ ms.locfileid: "94680500"
 
 | Category              | 性能优化提示                                      |
 | --------------------- | ------------------------------------------------------------ |
-| 特定于数据存储   | 将数据载入 **Azure Synpase Analytics（前称为 SQL 数据仓库）** ：建议使用 PolyBase；如果 PolyBase 不可用，则使用 COPY 语句。 |
+| 特定于数据存储   | 将数据载入 Azure Synapse Analytics：建议使用 PolyBase；如果 PolyBase 不可用，则使用 COPY 语句。 |
 | &nbsp;                | 从/向 **Azure SQL 数据库** 复制数据：当 DTU 的利用率较高时，建议升级到更高的层。 |
 | &nbsp;                | 从/向 **Azure Cosmos DB** 复制数据：当 RU 的利用率较高时，建议升级到更大的 RU。 |
 |                       | 从 SAP 表复制数据：复制大量数据时，建议利用 SAP 连接器的分区选项启用并行加载并增加最大分区数。 |
@@ -99,7 +99,7 @@ ms.locfileid: "94680500"
 
 - **“传输 - 写入接收器”的工作持续时间较长：**
 
-  - 采用特定于连接器的数据加载最佳做法（如果适用）。 例如，将数据复制到 [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)（前称为 SQL 数据仓库）时，请使用 PolyBase 或 COPY 语句。 
+  - 采用特定于连接器的数据加载最佳做法（如果适用）。 例如，将数据复制到 [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) 时，请使用 PolyBase 或 COPY 语句。 
 
   - 检查 ADF 是否报告了接收器中的任何限制错误，或者数据存储是否处于高利用率状态。 如果是，请减少数据存储中的工作负荷，或者尝试联系数据存储管理员来提高限制或增加可用资源。
 
@@ -161,7 +161,7 @@ ms.locfileid: "94680500"
 
 - **“传输 - 写入接收器”的工作持续时间较长：**
 
-  - 采用特定于连接器的数据加载最佳做法（如果适用）。 例如，将数据复制到 [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)（前称为 SQL 数据仓库）时，请使用 PolyBase 或 COPY 语句。 
+  - 采用特定于连接器的数据加载最佳做法（如果适用）。 例如，将数据复制到 [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) 时，请使用 PolyBase 或 COPY 语句。 
 
   - 检查自承载 IR 计算机是否以较低的延迟连接到接收器数据存储。 如果接收器位于 Azure 中，你可以使用[此工具](http://www.azurespeed.com/Azure/Latency)检查自承载 IR 计算机与 Azure 区域之间的连接延迟，延迟值越小越好。
 
@@ -180,7 +180,7 @@ ms.locfileid: "94680500"
 * Azure Blob 存储：[Blob 存储的可伸缩性和性能目标](../storage/blobs/scalability-targets.md)和 [Blob 存储的性能与可伸缩性查检表](../storage/blobs/storage-performance-checklist.md)。
 * Azure 表存储：[表存储的可伸缩性和性能目标](../storage/tables/scalability-targets.md)和[表存储的性能与可伸缩性查检表](../storage/tables/storage-performance-checklist.md)。
 * Azure SQL 数据库：可[监视性能](../azure-sql/database/monitor-tune-overview.md)并检查数据库事务单位 (DTU) 百分比。
-* Azure Synapse Analytics（以前称为 SQL 数据仓库）：其功能以数据仓库单位 (DWU) 衡量。 请参阅[管理 Azure Synapse Analytics 中的计算能力（概述）](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)。
+* Azure Synapse Analytics：其功能以数据仓库单位 (DWU) 衡量。 请参阅[管理 Azure Synapse Analytics 中的计算能力（概述）](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)。
 * Azure Cosmos DB：[Azure Cosmos DB 中的性能级别](../cosmos-db/performance-levels.md)。
 * SQL Server：[性能监视和优化](https://docs.microsoft.com/sql/relational-databases/performance/monitor-and-tune-for-performance)。
 * 本地文件服务器：[文件服务器性能优化](https://docs.microsoft.com/previous-versions//dn567661(v=vs.85))。

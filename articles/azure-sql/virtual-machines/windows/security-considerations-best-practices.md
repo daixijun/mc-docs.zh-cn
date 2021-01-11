@@ -1,26 +1,27 @@
 ---
-title: 安全注意事项 | Azure
+title: 安全注意事项 | Microsoft Docs
 description: 本主题提供有关保护 Azure 虚拟机中运行的 SQL Server 的常规指南。
 services: virtual-machines-windows
 documentationcenter: na
-author: rockboyfor
+author: WenJason
 editor: ''
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.subservice: security
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/23/2018
-ms.date: 07/06/2020
-ms.author: v-yeche
+ms.date: 01/04/2021
+ms.author: v-jay
 ms.reviewer: jroth
-ms.openlocfilehash: d7e2c852f39352c01c33ed8ae6cbdaefead481a8
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: 616ce885c8d2593fad777d45678f050897791646
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85946184"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830044"
 ---
 <!--Verified successfully on Redirect articles-->
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Azure 虚拟机中 SQL Server 的安全注意事项
@@ -59,11 +60,11 @@ Azure 遵守多个行业法规和标准，使用户能够使用虚拟机中运�
 
 如果通过经典部署模型使用终结点，不使用它们时，请删除虚拟机上的所有终结点。 有关在终结点上使用 ACL 的说明，请参阅[管理终结点上的 ACL](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint)。 对于使用 Azure 资源管理器的 VM 来说，无需执行此操作。
 
-最后，考虑为 Azure 虚拟机中的 SQL Server 数据库引擎实例启用加密连接。 使用签名证书配置 SQL Server 实例。 有关详细信息，请参阅[启用到数据库引擎的加密连接](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)和[连接字符串语法](https://msdn.microsoft.com/library/ms254500.aspx)。
+最后，考虑为 Azure 虚拟机中的 SQL Server 数据库引擎实例启用加密连接。 使用签名证书配置 SQL Server 实例。 有关详细信息，请参阅[启用到数据库引擎的加密连接](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)和[连接字符串语法](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax)。
 
 ## <a name="encryption"></a>Encryption
 
-托管磁盘提供服务器端加密和 Azure 磁盘加密。 [服务器端加密](/virtual-machines/windows/disk-encryption)提供静态加密并保护数据，让你的组织能够信守安全性与合规性方面所做的承诺。 [Azure 磁盘加密](/security/fundamentals/azure-disk-encryption-vms-vmss)使用 Bitlocker 或 DM-Crypt 技术，并与 Azure Key Vault 集成，以便对 OS 和数据磁盘进行加密。 
+托管磁盘提供服务器端加密和 Azure 磁盘加密。 [服务器端加密](../../../virtual-machines/disk-encryption.md)提供静态加密并保护数据，让你的组织能够信守安全性与合规性方面所做的承诺。 [Azure 磁盘加密](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md)使用 Bitlocker 或 DM-Crypt 技术，并与 Azure Key Vault 集成，以便对 OS 和数据磁盘进行加密。 
 
 ## <a name="use-a-non-default-port"></a>使用非默认端口
 
@@ -78,7 +79,7 @@ Azure 遵守多个行业法规和标准，使用户能够使用虚拟机中运�
 
 - 对于 Resource Manager VM，可以在 VM 概述边栏选项卡中选择“SQL Server配置”。 这提供了更改端口的选项。
 
-    ![在门户中更改 TCP 端口](./media/security-considerations-best-practices/sql-vm-change-tcp-port.png)
+  ![在门户中更改 TCP 端口](./media/security-considerations-best-practices/sql-vm-change-tcp-port.png)
 
     <!--Not Available on virtual-machines-windows-sql-manage-portal.md-->
     <!--MOONCAKE: CUSTOMIZATION ON 08/13/2019-->
@@ -100,12 +101,12 @@ SQL Server 侦听非默认端口时，必须在连接时指定该端口。 例�
 
 - 默认情况下，Azure 在 SQL Server 虚拟机安装期间会选择 Windows 身份验证。 因此，会禁用 **SA** 登录名，并由安装程序分配密码。 建议不要使用或启用 SA 登录名。 如果必须使用 SQL 登录名，请使用以下策略之一：
 
-    - 创建一个名称唯一且具有 sysadmin 成员资格的 SQL 帐户。 可通过在预配期间启用 SQL 身份验证，从门户执行此操作。
+  - 创建一个名称唯一且具有 sysadmin 成员资格的 SQL 帐户。 可通过在预配期间启用 SQL 身份验证，从门户执行此操作。
 
-        > [!TIP] 
-        > 如果预配期间未启用 SQL 身份验证，则必须手动将身份验证模式更改为 SQL Server 和 Windows 身份验证模式。 有关详细信息，请参阅 [更改服务器身份验证模式](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode)。
+    > [!TIP] 
+    > 如果预配期间未启用 SQL 身份验证，则必须手动将身份验证模式更改为 SQL Server 和 Windows 身份验证模式。 有关详细信息，请参阅 [更改服务器身份验证模式](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode)。
 
-    - 如果必须使用 SA 登录名，请在预配后启用该登录名，并分配新的强密码。
+  - 如果必须使用 SA 登录名，请在预配后启用该登录名，并分配新的强密码。
 
 ## <a name="additional-best-practices"></a>其他最佳做法
 
@@ -113,7 +114,8 @@ SQL Server 侦听非默认端口时，必须在连接时指定该端口。 例�
 
 有关本地安全做法的详细信息，请参阅 [SQL Server 安装的安全注意事项](https://docs.microsoft.com/sql/sql-server/install/security-considerations-for-a-sql-server-installation)和[安全中心](https://docs.microsoft.com/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database)。 
 
-有关虚拟机安全性的详细信息，请参阅[虚拟机安全性概述](/security/fundamentals/virtual-machines-overview)。
+有关虚拟机安全性的详细信息，请参阅[虚拟机安全性概述](../../../security/fundamentals/virtual-machines-overview.md)。
+
 
 ## <a name="next-steps"></a>后续步骤
 

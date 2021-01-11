@@ -1,6 +1,6 @@
 ---
-title: Azure 实例元数据服务
-description: 一个 RESTful 接口，用于获取有关 VM 计算、网络和即将发生的维护事件的信息。
+title: 适用于 Windows 的 Azure 实例元数据服务
+description: 了解 Azure 实例元数据服务及其如何提供有关当前正在 Windows 中运行的虚拟机实例的信息。
 services: virtual-machines
 manager: paulmey
 ms.service: virtual-machines
@@ -9,63 +9,58 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 origin.date: 03/30/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 829bcc8b1e573ce0daebcd819538d0fcc59f44f3
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: c2241b34cdb4f07e8f589dca6a0344749f5fd6ed
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104506"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857118"
 ---
 <!--Verified Successfully-->
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
-Azure 实例元数据服务 (IMDS) 提供有关当前正在运行的虚拟机实例的信息，可用于管理和配置虚拟机。
-这些信息包括 SKU、存储、网络配置和即将发生的维护事件。 有关提供的数据的完整列表，请参阅[元数据 API](#metadata-apis)。
-实例元数据服务适用于运行虚拟机和虚拟机规模集实例。 所有 API 均支持使用 [Azure 资源管理器](https://docs.microsoft.com/rest/api/resources/)创建/管理的 VM。 只有证明和网络终结点才支持经典（非 ARM）VM，而证明终结点支持的范围有限。
+Azure 实例元数据服务 (IMDS) 提供有关当前正在运行的虚拟机实例的信息。 可以使用它来管理和配置虚拟机。
+这些信息包括 SKU、存储、网络配置和即将发生的维护事件。 有关可用的数据的完整列表，请参阅[元数据 API](#metadata-apis)。
 
-Azure 的 IMDS 是一个 REST 终结点，位于已知不可路由的 IP 地址 (`169.254.169.254`)，只能从 VM 中访问。 VM 与 IMDS 之间的通信绝不会离开主机。
-最佳做法是让 HTTP 客户端在查询 IMDS 时绕过 VM 中的 web 代理并同等对待 `169.254.169.254` 和 [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md)。
+IMDS 适用于运行虚拟机 (VM) 的实例和虚拟机规模集实例。 所有 API 均支持使用 [Azure 资源管理器](https://docs.microsoft.com/rest/api/resources/)创建和管理的 VM。 只有经过证明的终结点和网络终结点支持通过使用经典部署模型创建的 VM。 经过证明的终结点仅在有限范围内支持。
+
+IMDS 是一个 REST 终结点，可在已知的不可路由的 IP 地址 (`169.254.169.254`) 中可用。 只能从 VM 中访问该终结点。 VM 与 IMDS 之间的通信绝不会离开主机。
+让 HTTP 客户端在查询 IMDS 时绕过 VM 中的 Web 代理并同等对待 `169.254.169.254` 和 [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md)。
 
 ## <a name="security"></a>安全性
 
-此实例元数据服务终结点只能从不可路由的 IP 地址上正在运行的虚拟机实例中访问。 此外，任何包含`X-Forwarded-For`标头的请求都会被服务拒绝。
+IMDS 终结点只能从不可路由的 IP 地址上正在运行的虚拟机实例中访问。 此外，任何包含`X-Forwarded-For`标头的请求都会被服务拒绝。
 请求必须包含 `Metadata: true` 标头，以确保实际请求是直接计划好的，而不是无意重定向的一部分。
 
 > [!IMPORTANT]
-> 实例元数据服务不是用于敏感数据的通道。 该终结点面向 VM 上的所有进程开放。 应将通过此服务公开的信息视为与 VM 内运行的所有应用程序共享的信息。
+> IMDS 不是敏感数据的通道。 该终结点面向 VM 上的所有进程开放。 应将通过此服务公开的信息视为与 VM 内运行的所有应用程序共享的信息。
 
-## <a name="usage"></a>使用情况
+## <a name="usage"></a>用法
 
-### <a name="accessing-azure-instance-metadata-service"></a>访问 Azure 实例元数据服务
+### <a name="access-azure-instance-metadata-service"></a>访问 Azure 实例元数据服务
 
-若要访问实例元数据服务，请从 [Azure 资源管理器](https://docs.microsoft.com/rest/api/resources/)或 [Azure 门户](https://portal.azure.cn)创建一个 VM，并按照以下示例操作。
-有关如何查询 IMDS 的更多示例，请参阅 [Azure 实例元数据示例](https://github.com/microsoft/azureimds)。
+若要访问 IMDS，请从 [Azure 资源管理器](https://docs.microsoft.com/rest/api/resources/)或 [Azure 门户](https://portal.azure.cn)创建一个 VM，并使用以下示例。
+有关详细信息，请参阅 [Azure 实例元数据示例](https://github.com/microsoft/azureimds)。
 
-下面是用于检索实例的所有元数据的示例代码。若要访问特定数据源，请参阅[元数据 API](#metadata-apis) 部分。 
+下面是用于检索实例所有元数据的示例代码。 若要访问特定的数据源，请参阅[元数据 API](#metadata-apis) 部分。 
 
 **请求**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01 | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-09-01 | ConvertTo-Json
 ```
-
-<!--MOONCKE: CUSTOMIZATION-->
-
 > [!NOTE]
-> `-NoProxy` 参数是在 PowerShell 6.0 或更高版本中引入的，可通过以下链接检查并安装最新 PowerShell 版本：[Github.com 上的 PowerShell 安装版本](https://github.com/PowerShell/PowerShell/releases)。
->
-
-<!--MOONCKE: CUSTOMIZATION-->
+> `-NoProxy` 标志仅适用于 PowerShell 6 或更高版本。 如果没有代理设置，可以省略该标志。
 
 **响应**
 
 > [!NOTE]
-> 此响应是 JSON 字符串。 我们将 REST 查询通过 `ConvertTo-Json` cmdlet 进行管道传输，以实现良好的输出效果。
+> 此响应是 JSON 字符串。 将 REST 查询通过 `ConvertTo-Json` cmdlet 进行管道传输，以实现良好的输出效果。
 
 <!--CORRECT ON "azEnvironment": "AzureChinaCloud"-->
 
@@ -74,9 +69,15 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
     "compute": {
         "azEnvironment": "AzureChinaCloud",
         "isHostCompatibilityLayerVm": "true",
+        "licenseType":  "Windows_Client",
         "location": "chinanorth",
         "name": "examplevmname",
         "offer": "Windows",
+        "osProfile": {
+            "adminUsername": "admin",
+            "computerName": "examplevmname",
+            "disablePasswordAuthentication": "true"
+        },
         "osType": "linux",
         "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
         "plan": {
@@ -97,7 +98,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
         ],
         "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
         "resourceGroupName": "macikgo-test-may-23",
-        "resourceId": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+        "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
         "securityProfile": {
             "secureBootEnabled": "true",
             "virtualTpmEnabled": "false"
@@ -113,7 +114,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
                 },
                 "lun": "0",
                 "managedDisk": {
-                    "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
                     "storageAccountType": "Standard_LRS"
                 },
                 "name": "exampledatadiskname",
@@ -143,7 +144,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
                     "uri": ""
                 },
                 "managedDisk": {
-                    "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
                     "storageAccountType": "Standard_LRS"
                 },
                 "name": "exampleosdiskname",
@@ -154,28 +155,47 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
                 "writeAcceleratorEnabled": "false"
             }
         },
-        "subscriptionId": "8d10da13-8125-4ba9-a717-bf7490507b3d",
+        "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
         "tags": "baz:bash;foo:bar",
         "version": "15.05.22",
         "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
         "vmScaleSetName": "crpteste9vflji9",
         "vmSize": "Standard_A3",
         "zone": ""
+    },
+    "network": {
+        "interface": [{
+            "ipv4": {
+               "ipAddress": [{
+                    "privateIpAddress": "10.144.133.132",
+                    "publicIpAddress": ""
+                }],
+                "subnet": [{
+                    "address": "10.144.133.128",
+                    "prefix": "26"
+                }]
+            },
+            "ipv6": {
+                "ipAddress": [
+                 ]
+            },
+            "macAddress": "0011AAFFBB22"
+        }]
     }
 }
 ```
 
 ### <a name="data-output"></a>数据输出
 
-默认情况下，实例元数据服务会返回 JSON 格式的数据 (`Content-Type: application/json`)。 但是，某些 API 可以返回不同格式的数据（如果请求）。
-下表是有关 API 可支持的其他数据格式的参考。
+默认情况下，IMDS 以 JSON 格式返回数据 (`Content-Type: application/json`)。 但是，可请求某些的 API 返回不同格式的数据。
+下表列出了 API 可能支持的其他数据格式。
 
 API | 默认数据格式 | 其他格式
 --------|---------------------|--------------
 /attested | json | 无
 /identity | json | 无
 /instance | json | text
-/scheduledevents | json | 无
+/scheduledevents | json | none
 
 若要访问非默认响应格式，请在请求中将所请求的格式指定为查询字符串参数。 例如：
 
@@ -184,11 +204,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 ```
 
 > [!NOTE]
-> 对于 /metadata/instance 中的叶节点，`format=json` 不起作用。 对于这些查询，需要显式指定 `format=text`，因为默认格式为 json。
+> 对于 `/metadata/instance` 中的叶节点，`format=json` 不起作用。 对于这些查询，需要显式指定 `format=text`，因为默认格式为 JSON。
 
-### <a name="versioning"></a>版本控制
+### <a name="version"></a>版本
 
-实例元数据服务进行了版本控制，因此，必须在 HTTP 请求中指定 API 版本。
+IMDS 进行了版本控制，必须在 HTTP 请求中指定 API 版本。
 
 支持的 API 版本有： 
 - 2017-03-01
@@ -208,15 +228,19 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 - 2019-08-15
 - 2019-11-01
 - 2020-06-01
-
-请注意，新版本发布后，需要一段时间才能推广到所有区域。
-
-在添加更新的版本时，早期版本仍可供访问以保持兼容性（如果脚本依赖于特定的数据格式）。
-
-如果未指定版本，则会返回错误并列出受支持的最新版本。
+- 2020-07-15
+- 2020-09-01
+- 2020-10-01
 
 > [!NOTE]
-> 此响应是 JSON 字符串。 下例说明了未指定版本时出现的错误情况，为了便于阅读，响应显示非常清晰。
+> 版本 2020-10-01 不一定在每个区域都可用。
+
+在添加更新的版本时，你仍可访问早期版本以保持兼容性（如果脚本依赖于特定的数据格式）。
+
+如果不指定版本，会收到错误消息，其中会列出受支持的最新版本。
+
+> [!NOTE]
+> 此响应是 JSON 字符串。 下面的示例展示未指定版本时的错误情况。 响应显示清晰，可供阅读。
 
 **请求**
 
@@ -230,16 +254,16 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 {
     "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
     "newest-versions": [
-        "2018-10-01",
-        "2018-04-02",
-        "2018-02-01"
+        "2020-10-01",
+        "2020-09-01",
+        "2020-07-15"
     ]
 }
 ```
 
 ## <a name="metadata-apis"></a>元数据 API
 
-元数据服务包含多个 API（表示不同数据源）。
+IMDS 包含多个 API（表示不同数据源）。
 
 API | 说明 | 引入的版本
 ----|-------------|-----------------------
@@ -250,43 +274,47 @@ API | 说明 | 引入的版本
 
 ## <a name="instance-api"></a>实例 API
 
-实例 API 公开 VM 实例的重要元数据，其中包括 VM、网络和存储。 可以通过实例/计算访问以下类别：
+实例 API 公开 VM 实例的重要元数据，其中包括 VM、网络和存储。 可以通过 `instance/compute` 访问以下类别：
 
 数据 | 说明 | 引入的版本
 -----|-------------|-----------------------
-azEnvironment | VM 运行时所在的 Azure 环境 | 2018-10-01
-customData | 此功能目前已禁用。 当该功能可用时，我们将更新此文档 | 2019-02-01
-isHostCompatibilityLayerVm | 标识 VM 是否在主机兼容性层上运行 | 2020-06-01
-location | VM 在其中运行的 Azure 区域 | 2017-04-02
-name | VM 的名称 | 2017-04-02
-offer | 提供 VM 映像的信息，仅适用于从 Azure 映像库部署的映像 | 2017-04-02
-osType | Linux 或 Windows | 2017-04-02
-plan | 包含 VM 的名称、产品和发布者（如果是 Azure 市场映像）的[计划](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
-platformUpdateDomain |  正在运行 VM 的[更新域](../manage-availability.md) | 2017-04-02
-platformFaultDomain | 正在运行 VM 的[容错域](../manage-availability.md) | 2017-04-02
-provider | VM 的提供商 | 2018-10-01
-publicKeys | [公钥的集合](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey)，已分配给 VM 和路径 | 2018-04-02
-publisher | VM 映像的发布者 | 2017-04-02
-resourceGroupName | 虚拟机的[资源组](../../azure-resource-manager/management/overview.md) | 2017-08-01
-resourceId | 资源的[完全限定](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID | 2019-03-11
-sku | VM 映像的特定 SKU | 2017-04-02
-securityProfile.secureBootEnabled | 标识是否在 VM 上启用了 UEFI 安全启动 | 2020-06-01
-securityProfile.virtualTpmEnabled | 标识是否在 VM 上启用了虚拟受信任的平台模块 (TPM) | 2020-06-01
-storageProfile | 参阅[存储配置文件](#storage-metadata) | 2019-06-01
-subscriptionId | 虚拟机的 Azure 订阅 | 2017-08-01
-标记 | 虚拟机的[标记](../../azure-resource-manager/management/tag-resources.md)  | 2017-08-01
-tagsList | 格式化为 JSON 数组以方便编程分析的标记  | 2019-06-04
-版本 | VM 映像的版本 | 2017-04-02
-vmId | VM 的[唯一标识符](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
-vmScaleSetName | 虚拟机规模集的[虚拟机规模集名称](../../virtual-machine-scale-sets/overview.md) | 2017-12-01
-vmSize | [VM 大小](../sizes.md) | 2017-04-02
+azEnvironment | 正在运行 VM 的 Azure 环境。 | 2018-10-01
+customData | 此功能目前已禁用。 | 2019-02-01
+isHostCompatibilityLayerVm | 标识 VM 是否在主机兼容性层上运行。 | 2020-06-01
+LicenseType | [Azure 混合权益](https://www.azure.cn/pricing/hybrid-benefit)许可证的类型。 请注意，这仅适用于启用了 AHB 的 VM。 | 2020-09-01
+location | 正在运行 VM 的 Azure 区域。 | 2017-04-02
+name | VM 的名称。 | 2017-04-02
+offer | 为 VM 映像提供信息。 这只适用于 Azure 映像库中部署的图像。 | 2017-04-02
+osProfile.adminUsername | 指定管理员帐户的名称。 | 2020-07-15
+osProfile.computerName | 指定计算机的名称。 | 2020-07-15
+osProfile.disablePasswordAuthentication | 指定是否禁用密码身份验证。 请注意，这仅适用于 Linux VM。 | 2020-10-01
+osType | Linux 或 Windows。 | 2017-04-02
+placementGroupId | 虚拟机规模集的[放置组](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)。 | 2017-08-01
+计划 | 包含 VM 的名称、产品和发布者（如果是 Azure 市场映像）的[计划](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)。 | 2018-04-02
+platformUpdateDomain |  正在运行 VM 的[更新域](../manage-availability.md)。 | 2017-04-02
+platformFaultDomain | 正在运行 VM 的[容错域](../manage-availability.md)。 | 2017-04-02
+provider | VM 的提供商。 | 2018-10-01
+publicKeys | [公钥的集合](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey)，已分配给 VM 和路径。 | 2018-04-02
+publisher | VM 映像的发布者。 | 2017-04-02
+resourceGroupName | VM 的[资源组](../../azure-resource-manager/management/overview.md)。 | 2017-08-01
+ResourceId | 资源的[完全限定](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID。 | 2019-03-11
+sku | VM 映像的特定 SKU。 | 2017-04-02
+securityProfile.secureBootEnabled | 标识是否在 VM 上启用了 UEFI 安全启动。 | 2020-06-01
+securityProfile.virtualTpmEnabled | 标识是否在 VM 上启用了虚拟受信任的平台模块 (TPM)。 | 2020-06-01
+storageProfile | 参阅[存储配置文件](#storage-metadata)。 | 2019-06-01
+subscriptionId | VM 的 Azure 订阅。 | 2017-08-01
+标记 | VM 的[标记](../../azure-resource-manager/management/tag-resources.md)。  | 2017-08-01
+tagsList | 格式化为 JSON 数组以方便编程分析的标记。  | 2019-06-04
+版本 | VM 映像的版本。 | 2017-04-02
+vmId | VM 的[唯一标识符](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)。 | 2017-04-02
+vmScaleSetName | 虚拟机规模集的[虚拟机规模集名称](../../virtual-machine-scale-sets/overview.md)。 | 2017-12-01
+vmSize | 请参阅 [VM 大小](../sizes.md)。 | 2017-04-02
 
-<!--Not Availablle on placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)-->
 <!--Not Availablle on zone | [Availability Zone](../../availability-zones/az-overview.md)-->
 
-### <a name="sample-1-tracking-vm-running-on-azure"></a>示例 1：跟踪 Azure 上正在运行的 VM
+### <a name="sample-1-track-a-vm-running-on-azure"></a>示例 1：跟踪在 Azure 运行的 VM
 
-作为服务提供商，可能需要跟踪运行软件的 VM 数目，或者代理需要跟踪 VM 的唯一性。 为了能够获取 VM 的唯一 ID，请使用实例元数据服务中的 `vmId` 字段。
+作为服务提供商，可能需要跟踪运行软件的 VM 数目，或者代理需要跟踪 VM 的唯一性。 为了能够获取 VM 的唯一 ID，请使用 IMDS 中的 `vmId` 字段。
 
 **请求**
 
@@ -300,13 +328,13 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
-### <a name="sample-2-placement-of-containers-data-partitions-based-faultupdate-domain"></a>示例 2：基于容错/更新域放置容器、数据分区
+### <a name="sample-2-placement-of-different-data-replicas"></a>示例 2：放置不同的数据副本
 
 对于某些方案，不同数据副本的放置至关重要。 例如，对于 [HDFS 副本放置](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)或者对于通过 [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) 放置容器，可能需要知道正在运行 VM 的 `platformFaultDomain` 和 `platformUpdateDomain`。
 
 <!--Not Avaialble on You can also use [Availability Zones](../../availability-zones/az-overview.md)-->
 
-可以直接通过实例元数据服务查询此数据。
+可以通过 IMDS 直接查询此数据。
 
 **请求**
 
@@ -320,14 +348,14 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 0
 ```
 
-### <a name="sample-3-getting-more-information-about-the-vm-during-support-case"></a>示例 3：在支持案例期间获取有关 VM 的详细信息
+### <a name="sample-3-get-more-information-about-the-vm-during-support-case"></a>示例 3：在支持案例期间获取有关 VM 的详细信息
 
-作为服务提供商，你可能会接到支持电话，了解有关 VM 的详细信息。 请求客户共享计算元数据可以提供基本信息，以支持专业人员了解有关 Azure 上的 VM 类型。
+作为服务提供商，你可能会接到支持电话，了解有关 VM 的详细信息。 在这种情况下，一个有用做法是要求客户共享计算元数据。
 
 **请求**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01
 ```
 
 **响应**
@@ -340,91 +368,105 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 ```json
 {
     "azEnvironment": "AzureChinaCloud",
-    "customData": "",
-    "location": "chinaeast",
-    "name": "negasonic",
-    "offer": "lampstack",
-    "osType": "Linux",
-    "placementGroupId": "",
-    "plan": {
-        "name": "5-6",
-        "product": "lampstack",
-        "publisher": "bitnami"
+    "isHostCompatibilityLayerVm": "true",
+    "licenseType":  "Windows_Client",
+    "location": "chinanorth",
+    "name": "examplevmname",
+    "offer": "Windows",
+    "osProfile": {
+        "adminUsername": "admin",
+        "computerName": "examplevmname",
+        "disablePasswordAuthentication": "true"
     },
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
-    "provider": "Microsoft.Compute",
-    "publicKeys": [],
-    "publisher": "bitnami",
-    "resourceGroupName": "myrg",
-    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "5-6",
+    "osType": "linux",
+    "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+    "plan": {
+        "name": "planName",
+        "product": "planProduct",
+        "publisher": "planPublisher"
+    },
+    "platformFaultDomain": "36",
+    "platformUpdateDomain": "42",
+    "publicKeys": [{
+            "keyData": "ssh-rsa 0",
+            "path": "/home/user/.ssh/authorized_keys0"
+        },
+        {
+            "keyData": "ssh-rsa 1",
+            "path": "/home/user/.ssh/authorized_keys1"
+        }
+    ],
+    "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+    "resourceGroupName": "macikgo-test-may-23",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+    "securityProfile": {
+        "secureBootEnabled": "true",
+        "virtualTpmEnabled": "false"
+    },
+    "sku": "Windows-Server-2012-R2-Datacenter",
     "storageProfile": {
-        "dataDisks": [
-          {
+        "dataDisks": [{
             "caching": "None",
             "createOption": "Empty",
             "diskSizeGB": "1024",
             "image": {
-              "uri": ""
+                "uri": ""
             },
             "lun": "0",
             "managedDisk": {
-              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                "storageAccountType": "Standard_LRS"
             },
             "name": "exampledatadiskname",
             "vhd": {
-              "uri": ""
+                "uri": ""
             },
             "writeAcceleratorEnabled": "false"
-          }
-        ],
+        }],
         "imageReference": {
-          "id": "",
-          "offer": "UbuntuServer",
-          "publisher": "Canonical",
-          "sku": "16.04.0-LTS",
-          "version": "latest"
+            "id": "",
+            "offer": "UbuntuServer",
+            "publisher": "Canonical",
+            "sku": "16.04.0-LTS",
+            "version": "latest"
         },
         "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage",
-          "diskSizeGB": "30",
-          "diffDiskSettings": {
-            "option": "Local"
-          },
-          "encryptionSettings": {
-            "enabled": "false"
-          },
-          "image": {
-            "uri": ""
-          },
-          "managedDisk": {
-            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-            "storageAccountType": "Standard_LRS"
-          },
-          "name": "exampleosdiskname",
-          "osType": "Linux",
-          "vhd": {
-            "uri": ""
-          },
-          "writeAcceleratorEnabled": "false"
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "diskSizeGB": "30",
+            "diffDiskSettings": {
+                "option": "Local"
+            },
+            "encryptionSettings": {
+                "enabled": "false"
+            },
+            "image": {
+                "uri": ""
+            },
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampleosdiskname",
+            "osType": "Linux",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
         }
     },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Test;Role:WebRole",
-    "version": "7.1.1902271506",
-    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmScaleSetName": "",
-    "vmSize": "Standard_A1_v2",
-    "zone": "1"
+    "tags": "baz:bash;foo:bar",
+    "version": "15.05.22",
+    "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+    "vmScaleSetName": "crpteste9vflji9",
+    "vmSize": "Standard_A3",
+    "zone": ""
 }
 ```
-
-### <a name="sample-4-getting-azure-environment-where-the-vm-is-running"></a>示例 4：获取 VM 所在的 Azure 环境
-
 <!--CORRECT ON [Azure China Cloud](https://azure.microsoft.com/global-infrastructure/)-->
+
+### <a name="sample-4-get-the-azure-environment-where-the-vm-is-running"></a>示例 4：获取 VM 所在的 Azure 环境
 
 Azure 具有各种主权云，如 [Azure 中国云](https://azure.microsoft.com/global-infrastructure/)。 有时你需要使用 Azure 环境来做出一些运行时决策。 以下示例显示了如何实现此行为。
 
@@ -440,7 +482,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 AzureChinaCloud
 ```
 
-Azure 环境的云和值列在下面。
+Azure 环境的云和值列在此处。
 
 <!--Mooncake: Customization-->
 
@@ -455,21 +497,21 @@ Azure 环境的云和值列在下面。
 
 ## <a name="network-metadata"></a>网络元数据 
 
-网络元数据是实例 API 的一部分。 可通过实例/网络终结点获取以下网络类别。
+网络元数据是实例 API 的一部分。 可以通过 `instance/network` 终结点使用以下网络类别。
 
 数据 | 说明 | 引入的版本
 -----|-------------|-----------------------
-ipv4/privateIpAddress | VM 的本地 IPv4 地址 | 2017-04-02
-ipv4/publicIpAddress | VM 的公共 IPv4 地址 | 2017-04-02
-subnet/address | VM 的子网地址 | 2017-04-02
-subnet/prefix | 子网前缀，例如 24 | 2017-04-02
-ipv6/ipAddress | VM 的本地 IPv6 地址 | 2017-04-02
-macAddress | VM mac 地址 | 2017-04-02
+ipv4/privateIpAddress | VM 的本地 IPv4 地址。 | 2017-04-02
+ipv4/publicIpAddress | VM 的公共 IPv4 地址。 | 2017-04-02
+subnet/address | VM 的子网地址。 | 2017-04-02
+subnet/prefix | 子网前缀。 示例：24 | 2017-04-02
+ipv6/ipAddress | VM 的本地 IPv6 地址。 | 2017-04-02
+macAddress | VM mac 地址。 | 2017-04-02
 
 > [!NOTE]
 > 所有 API 响应都是 JSON 字符串。 以下所有示例响应显示清晰，可供阅读。
 
-#### <a name="sample-1-retrieving-network-information"></a>示例 1：检索网络信息
+#### <a name="sample-1-retrieve-network-information"></a>示例 1：检索网络信息
 
 **请求**
 
@@ -478,9 +520,6 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 ```
 
 **响应**
-
-> [!NOTE]
-> 此响应是 JSON 字符串。 以下示例响应显示清晰，可供阅读。
 
 ```json
 {
@@ -510,7 +549,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 ```
 
-#### <a name="sample-2-retrieving-public-ip-address"></a>示例 2：检索公共 IP 地址
+#### <a name="sample-2-retrieve-public-ip-address"></a>示例 2：检索公共 IP 地址
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
@@ -518,22 +557,22 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 
 ## <a name="storage-metadata"></a>存储元数据
 
-存储元数据是实例/计算/storageProfile 终结点下实例 API 的一部分。
+存储元数据是 `instance/compute/storageProfile` 终结点下实例 API 的一部分。
 它提供与 VM 关联的存储磁盘的详细信息。 
 
-VM 的存储配置文件分为三个类别：映像引用、OS 磁盘和数据磁盘。
+VM 的存储配置文件分为三个类别：映像引用、操作系统磁盘和数据磁盘。
 
-映像引用对象包含有关 OS 映像的以下信息：
+映像引用对象包含有关操作系统映像的以下信息：
 
 数据    | 说明
 --------|-----------------
 id      | 资源 ID
-offer   | 平台或市场映像的套餐
+offer   | 平台或映像的套餐
 publisher | 映像发布者
 sku     | 映像 SKU
-版本 | 平台或市场映像的版本
+版本 | 平台或映像的版本
 
-OS 磁盘对象包含有关 VM 所用 OS 磁盘的以下信息：
+操作系统磁盘对象包含有关 VM 所用操作系统磁盘的以下信息：
 
 数据    | 说明
 --------|-----------------
@@ -545,9 +584,9 @@ encryptionSettings | 磁盘的加密设置
 图像   | 源用户映像虚拟硬盘
 managedDisk | 托管磁盘参数
 name    | 磁盘名称
-osType  | 磁盘中包含的 OS 类型
+osType  | 磁盘中包含的操作系统类型
 vhd     | 虚拟硬盘
-writeAcceleratorEnabled | 磁盘上是否启用了 writeAccelerator
+writeAcceleratorEnabled | 磁盘上是否启用了 `writeAccelerator`
 
 数据磁盘阵列包含附加到 VM 的数据磁盘列表。 每个数据磁盘对象包含以下信息：
 
@@ -562,7 +601,7 @@ lun     | 磁盘的逻辑单元号
 managedDisk | 托管磁盘参数
 name    | 磁盘名称
 vhd     | 虚拟硬盘
-writeAcceleratorEnabled | 磁盘上是否启用了 writeAccelerator
+writeAcceleratorEnabled | 磁盘上是否启用了 `writeAccelerator`
 
 以下示例演示如何查询 VM 的存储信息。
 
@@ -635,8 +674,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 ## <a name="vm-tags"></a>VM 标记
 
-VM 标记包含在实例/计算/标记终结点下的实例 API。
-标记可能已应用到 Azure VM 中，以逻辑方式将其归入一个分类。 可使用以下请求检索分配给 VM 的标记。
+VM 标记包含在 `instance/compute/tags` 终结点下的实例 API。
+系统可能已将标记应用到 Azure VM，以便按逻辑方式将其组织成分类。 可以使用以下请求来检索分配给 VM 的标记。
 
 **请求**
 
@@ -650,7 +689,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 Department:IT;Environment:Test;Role:WebRole
 ```
 
-`tags` 字段是带有用分号分隔的标记的字符串。 如果标记本身使用了分号，则此输出可能会出现问题。 如果编写分析程序以编程方式提取标记，则应该依赖于 `tagsList` 字段。 `tagsList` 字段是不带分隔符的 JSON 数组，因此更易于分析。
+`tags` 字段是带有用分号分隔的标记的字符串。 如果标记本身使用了分号，则此输出可能会出现问题。 如果编写分析程序以编程方式提取标记，则应该依赖于 `tagsList` 字段。 `tagsList` 字段是不带分隔符的 JSON 数组，因此其更易于分析。
 
 **请求**
 
@@ -679,9 +718,9 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 ## <a name="attested-data"></a>证明数据
 
-实例元数据服务提供的部分方案是为了保证提供的数据来自 Azure。 我们对此信息的一部分进行签名，以便市场映像可以确保其映像在 Azure 上运行。
+IMDS 可帮助确保提供的数据来自 Azure。 Azure 会对此信息中的部分进行签名，以便你可以确认 Azure 市场中的映像是你正在 Azure 上运行的映像。
 
-### <a name="sample-1-getting-attested-data"></a>示例 1：获取证明数据
+### <a name="sample-1-get-attested-data"></a>示例 1：获取经过证明的数据
 
 > [!NOTE]
 > 所有 API 响应都是 JSON 字符串。 以下示例响应显示清晰，可供阅读。
@@ -693,15 +732,12 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 ```
 
 > [!NOTE]
-> 由于 IMDS 的缓存机制，可能会返回以前缓存的 nonce 值。
+> 由于 IMDS 的缓存机制，可能会返回以前缓存的 `nonce` 值。
 
-Api-version 是必填字段。 有关支持的 API 版本的信息，请参阅[使用部分](#usage)。
-Nonce 是一个可选的 10 位字符串。 如果未提供，IMDS 将在其所在位置返回当前 UTC 时间戳。
+`Api-version` 是必填字段。 有关支持的 API 版本的信息，请参阅[使用部分](#usage)。
+`Nonce` 是一个可选的 10 位字符串。 如果未提供，IMDS 将返回其所在位置当前的协调世界时时间戳。
 
 **响应**
-
-> [!NOTE]
-> 此响应是 JSON 字符串。 以下示例响应显示清晰，可供阅读。
 
 ```json
 {
@@ -709,29 +745,32 @@ Nonce 是一个可选的 10 位字符串。 如果未提供，IMDS 将在其所�
 }
 ```
 
-签名 Blob 是 [pkcs7](https://aka.ms/pkcs7) 签名的文档版本。 它包含用于签名的证书以及某些特定于 VM 的详细信息。 对于 ARM VM，这包括 vmId、sku、nonce、subscriptionId、文档创建和到期的时间戳以及关于映像的计划信息。 该计划信息只针对 Azure 市场映像进行填充。 对于经典（非 ARM）VM，只保证填充 vmId。 证书可从响应中提取，用于验证响应是否有效、是否来自 Azure。
+签名 Blob 是 [pkcs7](https://aka.ms/pkcs7) 签名的文档版本。 它包含用于签名的证书以及某些特定于 VM 的详细信息。 
+
+对于使用 Azure 资源管理器创建的 VM，这包括 `vmId`、`sku`、`nonce`、`subscriptionId`、文档创建和到期的 `timeStamp` 以及关于映像的计划信息。 该计划信息只针对 Azure 市场映像进行填充。 
+
+对于使用经典部署模型创建的 VM，仅确保填充 `vmId`。 可以从响应中提取证书，并使用它来确认响应是否有效并且来自 Azure。
+
 该文档包含以下字段：
 
-数据 | 说明
------|------------
-nonce | 可以随请求提供的可选字符串。 如果未提供 nonce，则会使用当前 UTC 时间戳
-plan | [Azure 市场映像计划](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)。 包含计划 ID（名称）、产品映像或产品/服务（产品）和发布者 ID（发布者）。
-timestamp/createdOn | 创建签名文档时的 UTC 时间戳
-timestamp/expiresOn | 签名文档到期时的 UTC 时间戳
-vmId |  VM 的[唯一标识符](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
-subscriptionId | 虚拟机的 Azure 订阅，引入自 `2019-04-30`
-sku | `2019-11-01` 中介绍了 VM 映像的特定 SKU
+数据 | 说明 | 引入的版本
+-----|-------------|-----------------------
+LicenseType | [Azure 混合权益](https://www.azure.cn/pricing/hybrid-benefit)许可证的类型。 请注意，这仅适用于启用了 AHB 的 VM。 | 2020-09-01
+nonce | 可以随请求提供的可选字符串。 如果未提供 `nonce`，则使用当前协调世界时时间戳。 | 2018-10-01
+plan | [Azure 市场映像计划](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)。 包含计划 ID（名称）、产品映像或产品/服务（产品）和发布者 ID（发布者）。 | 2018-10-01
+timestamp/createdOn | 创建签名文档时的协调世界时时间戳。 | 2018-20-01
+timestamp/expiresOn | 签名文档过期时的协调世界时时间戳。 | 2018-10-01
+vmId |  VM 的[唯一标识符](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)。 | 2018-10-01
+subscriptionId | VM 的 Azure 订阅。 | 2019-04-30
+sku | VM 映像的特定 SKU。 | 2019-11-01
 
-> [!NOTE]
-> 对于经典（非 ARM）VM，只保证填充 vmId。
+### <a name="sample-2-validate-that-the-vm-is-running-in-azure"></a>示例 2：验证 VM 是否在 Azure 中运行
 
-### <a name="sample-2-validating-that-the-vm-is-running-in-azure"></a>示例 2：验证 VM 是否在 Azure 中运行
-
-市场供应商希望确保其软件仅获许在 Azure 中运行。 如果有人将 VHD 复制到本地，则应当有能力检测到这一情况。 通过调用实例元数据服务，市场供应商可以获得签名数据，以保证响应仅来自 Azure。
+Azure 市场供应商希望确保其软件仅获许在 Azure 中运行。 如果有人将 VHD 复制到本地环境，则供应商需要能够检测到此操作。 通过 IMDS，这些供应商可以获取能确保只从 Azure 响应的签名数据。
 
 ```powershell
 # Get the signature
-$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2019-04-30
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
 # Decode the signature
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```
@@ -762,9 +801,9 @@ $json = $content | ConvertFrom-Json
 ```
 
 > [!NOTE]
-> 由于 IMDS 的缓存机制，可能会返回以前缓存的 nonce 值。
+> 由于 IMDS 的缓存机制，可能会返回以前缓存的 `nonce` 值。
 
-如果在初始请求中提供了 nonce 参数，则可以比较签名文档中的 nonce。
+如果在初始请求中提供了 `nonce` 参数，则可以比较签名文档中的 `nonce`。
 
 > [!NOTE]
 > 公有云和每个主权云的证书将有所不同。
@@ -781,17 +820,19 @@ $json = $content | ConvertFrom-Json
 <!--Mooncake: Customization-->
 
 > [!NOTE]
-> 用于签名的证书有一个已知问题。 对于公有云，证书可能不完全匹配 `metadata.azure.com`。 因此，证书验证应允许任何 `.metadata.azure.com` 子域中的公用名称。
+> 对于公有云，证书可能不完全匹配 `metadata.azure.com`。 出于此原因，证书验证应允许任何 `.metadata.azure.com` 子域中的公用名称。
 
-在验证期间，如果网络限制导致无法下载中间证书，则可以固定中间证书。 不过，Azure 将按照标准 PKI 做法滚动更新证书。 发生滚动更新时，需要更新固定证书。 每当计划进行更改以更新中间证书时，将会更新 Azure 博客并通知 Azure 客户。 [此处](https://www.microsoft.com/pki/mscorp/cps/default.htm)可找到中间证书。 每个区域的中间证书可能不同。
+如果由于验证期间出现网络限制，导致中间证书无法下载，可以固定中间证书。 请注意，Azure 会滚动更新证书，这是标准 PKI 实践。 发生滚动更新时，需要更新固定证书。 每当规划某项更改来更新中间证书，就会更新 Azure 博客并向 Azure 客户发出通知。 
+
+可在 [PKI 存储库](https://www.microsoft.com/pki/mscorp/cps/default.htm)中找到中间证书。 每个区域的中间证书可能不同。
 
 > [!NOTE]
 > Azure 中国世纪互联的中间证书将来自 DigiCert 全局根 CA（而不是 Baltimore）。
-此外，如果在更改根证书链颁发机构的过程中已固定 Azure 中国的中间证书，则必须更新中间证书。
+如果在更改根证书链颁发机构的过程中已固定 Azure 中国的中间证书，则必须更新中间证书。
 
 ## <a name="failover-clustering-in-windows-server"></a>Windows Server 中的故障转移群集
 
-在某些情况下，在使用故障转移群集查询实例元数据服务时，必须向路由表添加路由。
+使用故障转移群集查询 IMDS 时，有时需要向路由表添加路由。 下面介绍如何操作：
 
 1. 使用管理员特权打开命令提示符。
 
@@ -802,7 +843,7 @@ route print
 ```
 
 > [!NOTE]
-> 为简单起见，启用了故障转移群集的 Windows Server VM 的以下示例输出仅包含 IPv4 路由表。
+> 以下示例输出来自启用了故障转移群集的 Windows Server VM。 为简单起见，输出仅包含 IPv4 路由表。
 
 ```text
 IPv4 Route Table
@@ -833,15 +874,15 @@ Network Destination        Netmask          Gateway       Interface  Metric
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
-## <a name="managed-identity-via-metadata-service"></a>通过元数据服务使用托管标识
+## <a name="managed-identity"></a>托管标识
 
-可以在 VM 上启用系统分配的托管标识，也可以向 VM 分配一个或多个用户分配的托管标识。
-然后，可以从实例元数据服务请求托管标识的令牌。 这些令牌可用于通过其他 Azure 服务（如 Azure Key Vault）进行身份验证。
+可以在 VM 上启用由系统分配的托管标识。 还可以将一个或多个用户分配的托管标识分配给 VM。
+然后，可以从 IMDS 请求托管标识的令牌。 使用这些令牌来通过其他 Azure 服务（如 Azure Key Vault）进行身份验证。
 
 有关启用此功能的详细步骤，请参阅[获取访问令牌](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)。
 
-## <a name="scheduled-events-via-metadata-service"></a>通过元数据服务使用计划事件
-可以通过元数据服务获取计划事件的状态，然后用户可以指定要对这些事件执行的一组操作。  有关详细信息，请参阅[计划事件](scheduled-events.md)。 
+## <a name="scheduled-events"></a>计划事件
+可以使用 IMDS 获取计划事件的状态。 然后，用户可以指定一组在发生这些事件时要运行的操作。 有关详细信息，请参阅[计划事件](scheduled-events.md)。 
 
 ## <a name="regional-availability"></a>区域可用性
 
@@ -849,7 +890,7 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 
 ## <a name="sample-code-in-different-languages"></a>不同语言的示例代码
 
-在 VM 内使用不同语言调用元数据服务的示例：
+下表列出了在 VM 中使用不同语言调用 IMDS 的相关示例：
 
 语言      | 示例
 --------------|----------------
@@ -865,43 +906,57 @@ Python        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 Ruby          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 Visual Basic  | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
-## <a name="error-and-debugging"></a>错误和调试
+## <a name="errors-and-debugging"></a>错误和调试
 
-如果找不到某个数据元素，或者请求的格式不正确，则实例元数据服务返回标准 HTTP 错误。 例如：
+如果找不到某个数据元素，或者请求的格式不正确，则 IMDS 返回标准 HTTP 错误。 例如：
 
 HTTP 状态代码 | 原因
 -----------------|-------
 200 正常 |
-400 错误的请求 | 查询叶节点时缺少 `Metadata: true` 标头或缺少参数 `format=json`
-404 未找到  | 请求的元素不存在
-不允许 405 方法 | 仅支持 `GET` 请求
-410 不存在 | 在一段时间后重试最长 70 秒
-429 请求次数过多 | 该 API 当前支持每秒最多 5 个查询
-500 服务错误     | 请稍后重试
+400 错误的请求 | 查询叶节点时缺少 `Metadata: true` 标头或缺少参数 `format=json`。
+404 未找到  | 请求的元素不存在。
+不允许 405 方法 | 仅支持 `GET` 请求。
+410 不存在 | 在一段时间后重试最长 70 秒。
+429 请求次数过多 | 该 API 当前支持每秒最多 5 个查询。
+500 服务错误     | 请稍后重试。
 
-### <a name="known-issues-and-faq"></a>已知问题和常见问题解答
+### <a name="frequently-asked-questions"></a>常见问题
 
-1. 我收到错误 `400 Bad Request, Required metadata header not specified`。 这是什么意思呢？
-   * 实例元数据服务需要在请求中传递标头 `Metadata: true`。 将该标头传入 REST 调用将允许访问实例元数据服务。
-1. 为什么我无法获取我的 VM 的计算信息？
-   * 当前实例元数据服务仅支持 Azure Resource Manager 创建的实例。 将来可能会添加对云服务 VM 的支持。
-1. 我刚才通过 Azure Resource Manager 创建了我的虚拟机。 为什么我无法看到计算元数据信息？
-   * 对于 2016 年 9 月之后创建的所有 VM，请添加[标记](../../azure-resource-manager/management/tag-resources.md)以开始查看计算元数据。 对于早期 VM（在 2016 年 9 月之前创建的 VM），请在 VM 实例中添加/删除扩展或数据磁盘以刷新元数据。
-1. 我看不到为新版本填充的任何数据
-   * 对于 2016 年 9 月之后创建的所有 VM，请添加[标记](../../azure-resource-manager/management/tag-resources.md)以开始查看计算元数据。 对于早期 VM（在 2016 年 9 月之前创建的 VM），请在 VM 实例中添加/删除扩展或数据磁盘以刷新元数据。
-1. 我为什么会收到错误 `500 Internal Server Error` 或 `410 Resource Gone`？
-   * 基于指数回退系统或[暂时性故障处理](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults)中所述的其他方法重试请求。 如果问题仍然存在，请在 Azure 门户中为 VM 创建支持问题。
-1. 这是否适用于虚拟机规模集实例？
-   * 是的，元数据服务可用于规模集实例。
-1. 我在虚拟机规模集中更新了我的标记，但与单实例 VM 不同，这些标记未出现在实例中，这是怎么回事？
-   * 目前，规模集的标记仅在重启、重置映像或更改实例的磁盘时向 VM 显示。
-1. 调用服务时请求超时？
-   * 必须从分配给 VM 的主要网卡的主 IP 地址进行元数据调用。 此外，如果你更改了路由，则 VM 的本地路由表中必须存在 169.254.169.254/32 地址的路由。
+我收到错误 `400 Bad Request, Required metadata header not specified`。这是什么意思呢？
+
+IMDS 需要在请求中传递标头 `Metadata: true`。 将该标头传入 REST 调用将允许访问 IMDS。
+
+**为什么我无法获取我的 VM 的计算信息？**
+
+当前 IMDS 仅支持 Azure 资源管理器创建的实例。
+
+前段时间，我通过 Azure 资源管理器创建了 VM。为什么我看不到计算元数据信息？
+
+如果在 2016 年 9 月之后创建了 VM，请添加[标记](../../azure-resource-manager/management/tag-resources.md)以开始查看计算元数据。 如果在 2016 年 9 月之前创建了 VM，请在 VM 实例中添加或删除扩展或数据磁盘以刷新元数据。
+
+为什么我看不到为新版本填充的任何数据？
+
+如果在 2016 年 9 月之后创建了 VM，请添加[标记](../../azure-resource-manager/management/tag-resources.md)以开始查看计算元数据。 如果在 2016 年 9 月之前创建了 VM，请在 VM 实例中添加或删除扩展或数据磁盘以刷新元数据。
+
+我为什么会收到错误 `500 Internal Server Error` 或 `410 Resource Gone`？
+
+请重试请求。 有关详细信息，请参阅[临时故障处理](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults)。 如果问题仍然存在，请在 Azure 门户中为 VM 创建支持问题。
+
+这是否适用于虚拟机规模集实例？
+
+是的，IMDS 适用于虚拟机规模集实例。
+
+我在虚拟机规模集中更新了我的标记（与单实例 VM 不同），这些标记未出现在实例中。这是怎么回事？
+
+目前，虚拟机规模集的标记仅在重启、重置映像或更改实例的磁盘时向 VM 显示。
+
+为什么调用服务时请求超时？
+
+必须从分配给 VM 的主要网卡的主 IP 地址进行元数据调用。 此外，如果你更改了路由，则 VM 的本地路由表中必须存在 169.254.169.254/32 地址的路由。
    * <details>
         <summary>验证路由表</summary>
 
-        1. 转储本地路由表并查找 IMDS 条目（例如）：
-        
+        1. 转储本地路由表并查找 IMDS 条目。 例如：
             ```console
             > route print
             IPv4 Route Table
@@ -916,10 +971,8 @@ HTTP 状态代码 | 原因
               169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
             ... (continues) ...
             ```
-            
         1. 验证是否存在 `169.254.169.254` 的路由，并记下相应的网络接口（例如 `172.16.69.7`）。
         1. 转储接口配置并查找与路由表中引用的接口相对应的接口，注明 MAC（物理）地址。
-            
             ```console
             > ipconfig /all
             ... (continues) ...
@@ -935,9 +988,7 @@ HTTP 状态代码 | 原因
             Subnet Mask . . . . . . . . . . . : 255.255.255.0
             ... (continues) ...
             ```
-            
-        1. 确认该接口对应于 VM 的主 NIC 和主 IP。 可以通过在 Azure 门户中查看网络配置，或[通过 Azure CLI](https://docs.azure.cn/cli/vm/nic#az_vm_nic_show) 查找来找到主 NIC/IP。 记下公共和专用 IP（如果使用 cli，还要记下 MAC 地址）。 PowerShell CLI 示例：
-            
+        1. 确认该接口对应于 VM 的主 NIC 和主 IP。 可以通过在 Azure 门户中查看网络配置，或通过 Azure CLI 查找来找到主 NIC 和 IP。 记下公共和专用 IP（如果使用 CLI，还要记下 MAC 地址）。 下面是一个 PowerShell CLI 示例：
             ```powershell
             $ResourceGroup = '<Resource_Group>'
             $VmName = '<VM_Name>'
@@ -949,22 +1000,20 @@ HTTP 状态代码 | 原因
             }
             # Output: wintest767 True 00-0D-3A-E5-1C-C0
             ```
-        1. 如果它们不匹配，请更新路由表，以使主 NIC/IP 成为目标。
+        1. 如果它们不匹配，请更新路由表，以使主 NIC 和 IP 成为目标。
     </details>
 
-## <a name="support-and-feedback"></a>支持和反馈
+## <a name="support"></a>支持
 
-请在 https://support.azure.cn/support/contact/ 中提交反馈和评论。
+如果在多次尝试后无法获取元数据响应，则可以在 Azure 门户中创建支持问题。
+对于“问题类型”，请选择“管理” 。 为“类别”选择“实例元数据服务” 。
 
-若要获取该服务的支持，请针对长时间重试后仍无法获取元数据响应的 VM，在 Azure 门户中创建相关支持问题。
-使用“`Management`”作为“问题类型”，然后选择“`Instance Metadata Service`”作为“类别”。
-
-![实例元数据支持](./media/instance-metadata-service/InstanceMetadata-support.png "屏幕截图：在实例元数据服务出现问题时建立支持案例")
+:::image type="content" source="./media/instance-metadata-service/InstanceMetadata-support.png" alt-text="实例元数据服务支持的屏幕截图":::
 
 ## <a name="next-steps"></a>后续步骤
 
-了解有关以下方面的详细信息：
-1. [获取 VM 的访问令牌](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)。
-2. [计划事件](scheduled-events.md)
+[获取 VM 的访问令牌](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
+
+[计划事件](scheduled-events.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -4,19 +4,20 @@ description: 部署一个代理，该代理使用虚拟机扩展在虚拟机上�
 services: virtual-machines-windows
 tags: keyvault
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 origin.date: 12/02/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7299c95411af0c35405e428a1e04c54bb03a95da
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 6241499220f61a2bdff3e45067b2fbd6a3c1e07e
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590598"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857098"
 ---
 <!--Verified successfully on the extension name exists-->
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>适用于 Windows 的 Key Vault 虚拟机扩展
@@ -39,13 +40,10 @@ ms.locfileid: "94590598"
 - PEM
 
 ## <a name="prerequisities"></a>先决条件
-  - 具有证书的 Key Vault 实例。 请参阅[创建 Key Vault](https://docs.azure.cn/key-vault/quick-create-portal)
-  - VM/VMSS 必须已分配[托管标识](https://docs.azure.cn/active-directory/managed-identities-azure-resources/overview)
-  - 必须使用机密 `get` 和 `list` 权限为 VM/VMSS 托管标识设置 Key Vault 访问策略，以检索证书的机密部分。 请参阅[如何向 Key Vault 进行身份验证](https://docs.azure.cn/key-vault/general/authentication)和[分配 Key Vault 访问策略](https://docs.azure.cn/key-vault/general/assign-access-policy-cli)。
 
-    <!--MOONCAKE CORRECT ON [managed identity](https://docs.azure.cn/active-directory/managed-identities-azure-resources/overview)-->
-    <!--MOONCAKE CORRECT ON [How to Authenticate to Key Vault](https://docs.azure.cn/key-vault/general/authentication)-->
-    <!--MOONCAKE CORRECT ON [Assign a Key Vault access policy](https://docs.azure.cn/key-vault/general/assign-access-policy-cli)-->
+- 具有证书的 Key Vault 实例。 请参阅[创建 Key Vault](../../key-vault/general/quick-create-portal.md)
+- VM/VMSS 必须已分配[托管标识](../../active-directory/managed-identities-azure-resources/overview.md)
+- 必须使用机密 `get` 和 `list` 权限为 VM/VMSS 托管标识设置 Key Vault 访问策略，以检索证书的机密部分。 请参阅[如何向 Key Vault 进行身份验证](../../key-vault/general/authentication.md)和[分配 Key Vault 访问策略](../../key-vault/general/assign-access-policy-cli.md)。
 
 ## <a name="extension-schema"></a>扩展架构
 
@@ -104,7 +102,7 @@ ms.locfileid: "94590598"
 | certificateStoreName | MY | 字符串 |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine 或 CurrentUser（区分大小写） | string |
-| requiredInitialSync | 是 | boolean |
+| requireInitialSync | 是 | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.cn/secrets/mycertificate","https://myvault.vault.azure.cn/secrets/mycertificate2"] | 字符串数组
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
@@ -115,11 +113,9 @@ ms.locfileid: "94590598"
 
 虚拟机扩展的 JSON 配置必须嵌套在模板的虚拟机资源片段中，具体来说是嵌套在虚拟机模板的 `"resources": []` 对象中，对于虚拟机规模集而言，是嵌套在 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 对象下。
 
- > [!NOTE]
-> VM 扩展需要分配有系统或用户托管标识，才能向 Key Vault 进行身份验证。  请参阅[如何向 Key Vault 进行身份验证和分配 Key Vault 访问策略。](https://docs.azure.cn/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+> [!NOTE]
+> VM 扩展需要分配有系统或用户托管标识，才能向 Key Vault 进行身份验证。  请参阅[如何向 Key Vault 进行身份验证和分配 Key Vault 访问策略。](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 > 
-
-<!--MOONCAKE CORRECT OM See [How to authenticate to Key Vault and assign a Key Vault access policy.](https://docs.azure.cn/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)-->
 
 ```json
     {
@@ -226,15 +222,14 @@ ms.locfileid: "94590598"
 请注意以下限制/要求：
 - Key Vault 限制：
     - 必须在部署时存在 
-    - 必须使用托管标识为 VM/VMSS 标识设置 Key Vault 访问策略。 请参阅[如何对 Key Vault 进行身份验证](../../key-vault/general/authentication.md)。
-
-<!--Not Available on  and [Assign a Key Vault access policy](/key-vault/general/assign-access-policy-cli)-->
+    - 必须使用托管标识为 VM/VMSS 标识设置 Key Vault 访问策略。 请参阅[如何向 Key Vault 进行身份验证](../../key-vault/general/authentication.md)和[分配 Key Vault 访问策略](../../key-vault/general/assign-access-policy-cli.md)。
 
 ## <a name="troubleshoot-and-support"></a>故障排除和支持
 
 ### <a name="frequently-asked-questions"></a>常见问题
 
 * 可设置的 observedCertificates 数是否有限制？
+
   没有，Key Vault VM 扩展对 observedCertificates 数没有限制。
 
 ### <a name="troubleshoot"></a>疑难解答

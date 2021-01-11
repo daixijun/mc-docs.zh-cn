@@ -5,14 +5,14 @@ author: chenyl
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 06/11/2020
-ms.date: 10/19/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 9ac1aeee085a65a20a1ea6b37cfe4117fb646660
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 4c39ce22c08aacd557cac66f3bbe17bcd5f28821
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170808"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820257"
 ---
 # <a name="upstream-settings"></a>上游设置
 
@@ -54,6 +54,19 @@ http://host.com/chat/api/connections/connected
 http://host.com/chat/api/messages/broadcast
 ```
 
+### <a name="key-vault-secret-reference-in-url-template-settings"></a>URL 模板设置中的 Key Vault 机密引用
+
+上游的 URL 不会静态加密。 如果有任何敏感信息，建议使用 Key Vault 将其保存在访问控制更为安全的地方。 基本上可以启用 Azure SignalR 服务的托管标识，然后授予对 Key Vault 实例的读取权限，并在上游 URL 模式中使用 Key Vault 引用而不是纯文本。
+
+1. 添加系统分配的标识或用户分配的标识。 请参阅[如何在 Azure 门户中添加托管标识](./howto-use-managed-identity.md#add-a-system-assigned-identity)
+
+2. 在 Key Vault 的访问策略中授予对托管标识的机密读取权限。 请参阅[使用 Azure 门户分配 Key Vault 访问策略](https://docs.azure.cn/key-vault/general/assign-access-policy-portal)
+
+3. 在上游 URL 模式中将敏感文本替换为语法 `{@Microsoft.KeyVault(SecretUri=<secret-identity>)}`。
+
+> [!NOTE]
+> 仅在更改上游设置或托管标识时，机密内容才会重新读取。 使用 Key Vault 机密引用之前，请确保你已授予对托管标识的机密读取权限。
+
 ### <a name="rule-settings"></a>规则设置
 
 你可以分别为“中心规则”、“类别规则”和“事件规则”设置规则。 匹配规则支持三种格式。 以事件规则为例：
@@ -63,7 +76,7 @@ http://host.com/chat/api/messages/broadcast
 
 > [!NOTE]
 > 如果使用 Azure Functions 和 [SignalR 触发器](../azure-functions/functions-bindings-signalr-service-trigger.md)，则 SignalR 触发器将按以下格式公开单个终结点：`https://<APP_NAME>.chinacloudsites.cn/runtime/webhooks/signalr?code=<API_KEY>`。
-> 只需将 URL 模板配置到此 URL 即可。
+> 只需为此 URL 配置“URL 模板设置”，并将“规则设置”保留为默认值 。 有关如何查找 `<Function_App_URL>` 和 `<API_KEY>` 的详细信息，请参阅 [SignalR 服务集成](../azure-functions/functions-bindings-signalr-service-trigger.md#signalr-service-integration)。
 
 ### <a name="authentication-settings"></a>身份验证设置
 
@@ -83,7 +96,7 @@ http://host.com/chat/api/messages/broadcast
 3. 在“上游 URL 模式”下添加 URL。 然后，设置（如“中心规则”）会显示默认值。
 4. 若要设置“中心规则”、“事件规则”、“类别规则”和“上游身份验证”的设置，请选择“中心规则”的值。     此时会显示一个页面，你可以在其中编辑设置：
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="上游设置":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Upstream 设置详细信息":::
 
 5. 若要设置“上游身份验证”，请确保已先启用托管标识。 然后选择“使用托管标识”。 可以根据需要选择“身份验证资源 ID”下的任何选项。 有关详细信息，请参阅 [Azure SignalR 服务的托管标识](howto-use-managed-identity.md)。
 
@@ -116,7 +129,7 @@ http://host.com/chat/api/messages/broadcast
 
 ## <a name="serverless-protocols"></a>无服务器协议
 
-Azure SignalR 服务将消息发送到遵循以下协议的终结点。
+Azure SignalR 服务将消息发送到遵循以下协议的终结点。 可以将 [SignalR 服务触发器绑定](../azure-functions/functions-bindings-signalr-service-trigger.md)用于处理这些协议的 Function App。
 
 ### <a name="method"></a>方法
 
@@ -171,3 +184,5 @@ Hex_encoded(HMAC_SHA256(accessKey, connection-id))
 
 - [Azure SignalR 服务的托管标识](howto-use-managed-identity.md)
 - [通过 Azure SignalR 服务进行的 Azure Functions 开发和配置](signalr-concept-serverless-development-config.md)
+- [处理来自 SignalR 服务的消息（触发绑定）](../azure-functions/functions-bindings-signalr-service-trigger.md)
+- [SignalR 服务触发器绑定示例](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)

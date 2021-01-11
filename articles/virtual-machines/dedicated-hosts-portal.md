@@ -4,23 +4,22 @@ description: 使用 Azure 门户将 VM 和规模集部署到专用主机。
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-origin.date: 09/04/2020
+origin.date: 12/07/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5d51a18a0433856e774f071f5ffa4b25971e8b8e
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 8554d8b652560dc6a75e7a2d7581fe6bcf6d17d7
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106137"
----
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857032"
 ---
 <!--Verified successfully-->
 <!--Verified the Portal UI and confirmed with Peter Gu-->
-# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>使用门户将 VM 部署到专用主机
+# <a name="deploy-vms-and-scale-sets-to-dedicated-hosts-using-the-portal"></a>使用门户将 VM 和规模集部署到专用主机 
 
 本文介绍了如何创建 Azure [专用主机](dedicated-hosts.md)来托管虚拟机 (VM)。 
 
@@ -58,7 +57,7 @@ ms.locfileid: "93106137"
 1. 打开 [Azure 门户](https://portal.azure.cn)。
 1. 选择左上角的“创建资源”。
 1. 搜索“主机组”，然后从结果中选择“主机组”。
-1. 在“主机组”页中，选择“添加”。
+1. 在“主机组”页中，选择“创建”。
 1. 选择要使用的订阅，然后选择“新建”以创建新的资源组。
 1. 键入“myDedicatedHostsRG”作为“名称”，然后选择“确定”。
 1. 对于“主机组名称”，请键入“myHostGroup”。
@@ -112,7 +111,7 @@ ms.locfileid: "93106137"
     
 1. 对于大小，选择“更改大小”。 在可用大小列表中，选择 Esv3 系列其中一个，例如“标准 E2s v3”。 可能需要清除筛选器才能查看所有可用大小。
 1. 根据需要完成“基本信息”选项卡上的其余字段。
-1. 在页面顶部，选择“高级”选项卡，然后在“主机”部分，对于“主机组”，选择 myHostGroup，对于“主机”，选择 myHost 。 
+1. 如果要指定用于 VM 的主机，则在页面顶部，选择“高级”选项卡，然后在“主机”部分，对于“主机组”，选择“myHostGroup”，对于“主机”，选择“myHost” 。 否则，VM 将自动置于具有容量的主机上。
     :::image type="content" source="./media/dedicated-hosts-portal/advanced.png" alt-text="选择主机组和主机":::
 1. 保留剩余的默认值，然后选择页面底部的“查看 + 创建”按钮。
 1. 显示验证通过的消息时，选择“创建”。
@@ -120,8 +119,8 @@ ms.locfileid: "93106137"
 部署 VM 需要数分钟。
 
 <!--Not Available on ## Create a scale set (preview)-->
-<!--Not Available on 1. On the **Advanced** tab, for **Spreading algorithm** select **Max spreading**.-->
-<!--Not Availble on Spreading algorithm option till on 10/27/2020-->
+<!--Not Available on In **Host group**, select the host group from the drop-down.-->
+<!--Not Availble on Host group option till on 12/31/2020-->
 
 ## <a name="add-an-existing-vm"></a>添加现有 VM 
 

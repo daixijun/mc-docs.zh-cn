@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: sstein
 origin.date: 09/02/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 7ed91e046f9881b8363ec7a1f6ba95dd405d53d6
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 12/14/2020
+ms.openlocfilehash: eb8cfbc5ef3f47c9f0f042a45c8858a48d8a81c1
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872432"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830235"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>使用 Spark 连接器加快实时大数据分析
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "91872432"
 > [!NOTE]
 > 截至 2020 年 9 月，此连接器未进行主动维护。 但是，[适用于 SQL Server 和 Azure SQL 的 Apache Spark 连接器](https://docs.microsoft.com/sql/connect/spark/connector)现在已可用，它支持 Python 和 R 绑定，更易于使用的界面可批量插入数据，此外还有许多其他改进。 强烈建议你评估并使用新连接器而不是此连接器。 有关旧连接器的信息（此页）只保留用于存档目的。
 
-通过使用 Spark 连接器，Azure SQL 数据库、Azure SQL 托管实例和 SQL Server 中的数据库可以充当 Spark 作业的输入数据源或输出数据接收器。 由此，可在大数据分析中利用实时事务数据，并保留临时查询或报告的结果。 与内置 JDBC 连接器相比，此连接器能够将数据批量插入数据库。 它的性能可以比逐行插入快 10 倍到 20 倍。 Spark 连接器支持在连接到 Azure SQL 数据库和 Azure SQL 托管实例时执行 Azure Active Directory (Azure AD) 身份验证。 它提供与内置 JDBC 连接器类似的接口。 可以轻松迁移现有的 Spark 作业以使用此新连接器。
+通过使用 Spark 连接器，Azure SQL 数据库、Azure SQL 托管实例和 SQL Server 中的数据库可以充当 Spark 作业的输入数据源或输出数据接收器。 由此，可在大数据分析中利用实时事务数据，并保留临时查询或报告的结果。 与内置 JDBC 连接器相比，此连接器能够将数据批量插入数据库。 它的性能可以比逐行插入快 10 倍到 20 倍。 Spark 连接器支持在连接到 Azure SQL 数据库和 Azure SQL 托管实例时执行 Azure Active Directory (Azure AD) 身份验证，从而使你可以使用 Azure AD 帐户从 Azure Databricks 连接数据库。 它提供与内置 JDBC 连接器类似的接口。 可以轻松迁移现有的 Spark 作业以使用此新连接器。
 
 ## <a name="download-and-build-a-spark-connector"></a>下载并构建 Spark 连接器
 

@@ -1,23 +1,23 @@
 ---
-title: 使用 Azure 中的嵌套虚拟化排查故障 Azure VM
+title: 使用 Azure 中的嵌套虚拟化排查故障 Azure VM | Azure
 description: 如何使用 Azure 中的嵌套虚拟化排查问题 Azure VM
 services: virtual-machines-windows
-author: rockboyfor
-manager: digimobile
+manager: dcscontentpm
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 origin.date: 11/19/2019
-ms.date: 02/10/2020
+author: rockboyfor
+ms.date: 01/04/2021
 ms.author: v-yeche
-ms.openlocfilehash: 407266aa58d3d8c20997bf509e0e98e07e732104
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: d53ee4dcd8e6b7299eba7473c5a4b18765863a65
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104709"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856679"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>使用 Azure 中的嵌套虚拟化排查故障 Azure VM
 
@@ -31,9 +31,9 @@ ms.locfileid: "93104709"
 
 1. 创建一台新的救援 VM：
 
-    -  操作系统：Windows Server 2016 Datacenter
+    - 操作系统：Windows Server 2016 Datacenter
 
-    -  大小：任何支持嵌套虚拟化且至少具有双核的 V3 系列。 有关详细信息，请参阅[引入新的 Dv3 和 Ev3 VM 大小](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)。
+    - 大小：任何支持嵌套虚拟化且至少具有双核的 V3 系列。 有关详细信息，请参阅[引入新的 Dv3 和 Ev3 VM 大小](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)。
 
     - 与故障 VM 相同的位置、存储帐户和资源组。
 
@@ -85,7 +85,7 @@ ms.locfileid: "93104709"
 
 10. 选择“稍后附加虚拟硬盘”  。
 
-    ![有关“稍后附加虚拟硬盘”选项的图像](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
+    :::image type="content" source="media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png" alt-text="有关“稍后附加虚拟硬盘”选项的图像":::
 
 11. 创建 VM 后，选择“完成”  。
 
@@ -93,11 +93,11 @@ ms.locfileid: "93104709"
 
 13. 依次选择“IDE Controller 0”  、“硬盘”  ，然后单击“添加”  。
 
-    ![有关添加新硬盘的图像](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+    :::image type="content" source="media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png" alt-text="有关添加新硬盘的图像":::    
 
 14. 在“物理硬盘”  中，选择已附加到 Azure VM 的故障 VM 的磁盘。 如果没有看到任何列出的磁盘，请使用磁盘管理检查是否将磁盘设置为离线。
 
-    ![有关安装磁盘的图像](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+    :::image type="content" source="media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png" alt-text="有关安装磁盘的图像":::  
 
 15. 依次选择“应用”、“确定”   。
 
@@ -109,7 +109,7 @@ ms.locfileid: "93104709"
 
 1. 重新在线获得 VM 后，关闭 Hyper-V 管理器中的 VM。
 
-2. [卸载并分离已修复的 OS 磁盘](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk)。
+2. [卸载并分离已修复的 OS 磁盘](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk)。
 3. [将 VM 使用的 OS 磁盘替换为修复的 OS 磁盘](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm)。
 
 ## <a name="next-steps"></a>后续步骤

@@ -1,16 +1,18 @@
 ---
 title: 适用于 LUIS 应用的持续工作流
 description: 如何为“语言理解 (LUIS)”实现 DevOps 的 CI/CD 工作流。
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 08/04/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 957c151f0a74a399164aacbfef00208fb74f43f3
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 3d3928a603ba685c804d36e768abff7e032b5209
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023683"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856932"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>LUIS DevOps 持续集成和持续交付工作流
 
@@ -31,7 +33,7 @@ ms.locfileid: "88023683"
 
 * [持续交付](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) (CD) 在持续集成概念的基础上更进了一步，可将应用程序自动部署到可执行更深入测试的环境中。 CD 使我们能够及早了解我们所做的更改所带来的任何无法预料的问题，还可以了解我们的测试覆盖率与目标的差距。
 
-持续集成和持续交付的目标是确保“主服务器始终可提供服务”。 对于 LUIS 应用程序，这意味着，如果需要，我们可以从主分支 LUIS 应用中获取任何版本并将其交付生产。
+持续集成和持续交付的目标是确保“主分支始终可提供服务”。 对于 LUIS 应用程序，这意味着，如果需要，我们可以从主分支 LUIS 应用中获取任何版本并将其交付生产。
 
 ### <a name="tools-for-building-automation-workflows-for-luis"></a>LUIS 自动化工作流生成工具
 
@@ -59,7 +61,7 @@ ms.locfileid: "88023683"
 
 如果 SCM 支持，请配置分支保护规则，使操作者必须成功完成此工作流才能完成 PR。
 
-### <a name="the-master-branch-cicd-workflow"></a>主分支 CI/CD 工作流
+### <a name="the-main-branch-cicd-workflow"></a>主分支 CI/CD 工作流
 
 将此工作流配置为在 PR 中的更新合并到主分支后运行。 其目的是通过测试更新来提升主分支的质量。 如果更新满足质量要求，则此工作流将新的 LUIS 应用版本部署到可执行更深入测试的环境。
 
@@ -70,7 +72,7 @@ ms.locfileid: "88023683"
 * 定型和发布 LUIS 应用版本。
 
   > [!NOTE]
-  > 如[在自动化生成工作流中运行测试](luis-concept-devops-testing.md#running-tests-in-an-automated-build-workflow)中所述，你发布的 LUIS 应用版本必须经过测试，这样 NLU.DevOps 等工具才可以访问它。 LUIS 仅支持两个命名的发布槽：“过渡”和“生产”，用于 LUIS 应用，但也可以[直接发布版本](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish)和[按版本查询](/cognitive-services/luis/luis-migration-api-v3#changes-by-slot-name-and-version-name) 。 在自动化工作流中使用直接版本发布，以避免仅限使用命名发布槽。
+  > 如[在自动化生成工作流中运行测试](luis-concept-devops-testing.md#running-tests-in-an-automated-build-workflow)中所述，你发布的 LUIS 应用版本必须经过测试，这样 NLU.DevOps 等工具才可以访问它。 LUIS 仅支持两个命名的发布槽：“过渡”和“生产”，用于 LUIS 应用，但也可以[直接发布版本](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish)和[按版本查询](./luis-migration-api-v3.md#changes-by-slot-name-and-version-name) 。 在自动化工作流中使用直接版本发布，以避免仅限使用命名发布槽。
 
 * 运行所有[单元测试](luis-concept-devops-testing.md)。
 
@@ -84,13 +86,13 @@ ms.locfileid: "88023683"
 
 CI/CD 工作流中的 CD 作业会根据设置的条件在生成和自动化单元测试成功后运行。 其工作是自动将 LUIS 应用程序部署到可以执行更多测试的环境。
 
-不存在所谓的最佳 LUIS 应用部署解决方案，必须根据具体项目的需要来实现此部署过程。 [LUIS DevOps 模板](https://github.com/Azure-Samples/LUIS-DevOps-Template)存储库为此过程实现了一个简单的解决方案：[将新的 LUIS 应用版本发布](/cognitive-services/luis/luis-how-to-publish-app)到“生产”发布槽。 这适用于简单的设置。 但是，如果需要同时支持多个不同的生产环境（例如，“开发”、“暂存”和“UAT”），则为每个应用配置两个命名的发布槽就不够了  。
+不存在所谓的最佳 LUIS 应用部署解决方案，必须根据具体项目的需要来实现此部署过程。 [LUIS DevOps 模板](https://github.com/Azure-Samples/LUIS-DevOps-Template)存储库为此过程实现了一个简单的解决方案：[将新的 LUIS 应用版本发布](./luis-how-to-publish-app.md)到“生产”发布槽。 这适用于简单的设置。 但是，如果需要同时支持多个不同的生产环境（例如，“开发”、“暂存”和“UAT”），则为每个应用配置两个命名的发布槽就不够了  。
 
 用于部署某个应用版本的其他选项包括：
 
 * 仍然将该应用版本发布到直接版本终结点，并实现一个进程，用于根据需要使用直接版本终结点配置下游生产环境。
 * 为每个生产环境维护不同的 LUIS 应用，并编写自动化步骤，以将 `.lu` 导入到用于目标生产环境的 LUIS 应用中的新版本中，以便对其进行定型和发布。
-* 将测试过的 LUIS 应用版本导出到 [LUIS Docker 容器](/cognitive-services/luis/luis-container-howto?tabs=v3)中，并将 LUIS 容器部署到 Azure [容器实例](/container-instances/)。
+* 将测试过的 LUIS 应用版本导出到 [LUIS Docker 容器](./luis-container-howto.md?tabs=v3)中，并将 LUIS 容器部署到 Azure [容器实例](../../container-instances/index.yml)。
 
 ## <a name="release-management"></a>发布管理
 

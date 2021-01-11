@@ -15,12 +15,12 @@ ms.date: 11/09/2020
 ms.testscope: yes|no
 ms.testdate: 11/09/2020null
 ms.author: v-yeche
-ms.openlocfilehash: cd5a47e2a450f75643bce263ee02219c1691f051
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: fee3bc24434b2fae2b93ad38e241045112b40551
+ms.sourcegitcommit: a9aa7d358cd2bef2e4e35b2b720487cb22b2c461
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329356"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592795"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>快速入门：使用 Azure Policy 部署和管理 NSG 流日志 
@@ -33,7 +33,7 @@ Azure Policy 可帮助实施组织标准并大规模评估合规性。 Azure Pol
 - [策略创建教程](https://docs.azure.cn/governance/policy/assign-policy-portal#create-a-policy-assignment)。
 
 ## <a name="locate-the-policies"></a>查找策略
-1. 转到 Azure 门户 - [portal.azure.com](https://portal.azure.cn) 
+1. 转到 Azure 门户 - [portal.azure.cn](https://portal.azure.cn) 
 
     在顶部的搜索栏中搜索“策略”，导航到 Azure Policy 页面 ![策略主页](./media/network-watcher-builtin-policy/1_policy-search.png)
 

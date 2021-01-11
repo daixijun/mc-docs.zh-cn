@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 02/25/2020
 ms.date: 03/23/2020
-ms.openlocfilehash: e132af3dc410e9116b15a16f902132ddbb92d42f
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: ffc40f4dbdfb5936ae4fffb9b5499e216bcf2ad9
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552262"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830201"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>规划 Azure HDInsight 的虚拟网络
 
@@ -84,7 +84,7 @@ ms.locfileid: "94552262"
         有关详细信息，请参阅[排查网络安全组问题](../virtual-network/diagnose-network-traffic-filter-problem.md)文档。
 
         > [!IMPORTANT]  
-        > 网络安全组规则按规则优先级顺序应用。 将应用与流量模式匹配的第一条规则，而不应用该流量的其他规则。 权限级别从最高到最低排列的顺序规则。 有关详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/security-overview.md)文档。
+        > 网络安全组规则按规则优先级顺序应用。 将应用与流量模式匹配的第一条规则，而不应用该流量的其他规则。 权限级别从最高到最低排列的顺序规则。 有关详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/network-security-groups-overview.md)文档。
 
     * 用户定义路由
 
@@ -212,4 +212,4 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 * 有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
 * 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/network-security-groups-overview.md)。
 * 有关用户定义的路由的详细信息，请参阅[用户定义的路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)。
-* 有关如何控制流量的详细信息，请参阅[控制网络流量](./control-network-traffic.md)。
+* 有关如何控制流量（包括防火墙集成）的详细信息，请参阅[控制网络流量](./control-network-traffic.md)。

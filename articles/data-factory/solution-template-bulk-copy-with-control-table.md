@@ -10,20 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 12/14/2018
-ms.date: 09/21/2020
-ms.openlocfilehash: a2e915a104d196e11960e9180e48522ef7666ce8
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+origin.date: 12/09/2020
+ms.date: 01/04/2021
+ms.openlocfilehash: 2b523aaba96816acd966e47309d375b0c1aed43e
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121687"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830183"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>使用控制表从数据库进行大容量复制
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-若要将数据从 Oracle 服务器、Netezza、Teradata 或 SQL Server 中的数据仓库复制到 Azure Synapse Analytics（以前称为 SQL 数据仓库），必须从多个表加载大量数据。 通常情况下，必须在每个表中对数据分区，以便使用多个线程从单个表并行加载行。 本文介绍可以在这些方案中使用的模板。
+若要将数据从 Oracle 服务器、Netezza、Teradata 或 SQL Server 中的数据仓库复制到 Azure Synapse Analytics，必须从多个表加载大量数据。 通常情况下，必须在每个表中对数据分区，以便使用多个线程从单个表并行加载行。 本文介绍可以在这些方案中使用的模板。
 
  >!NOTE 如果要从数据量相对较小的少数几个表中将数据复制到 Azure Synapse Analytics，则使用 [Azure 数据工厂复制数据工具](copy-data-tool.md)会更高效。 本文介绍的模板超出你对该方案的需求。
 
@@ -45,7 +45,7 @@ ms.locfileid: "92121687"
 - *Data_Destination_Container* 是将数据复制到目标存储时使用的根文件夹路径。 
 - *Data_Destination_Directory* 是将数据复制到目标存储中时使用的根下的目录路径。 
 
-仅当所选目标是基于文件的存储时，最后三个参数（定义目标存储中的路径）才可见。 如果选择“Azure Synapse Analytics (以前称为 SQL DW)”作为目标存储，则不需要这些参数。 但 Azure Synapse Analytics 中的表名和架构必须与源数据库中的表名和架构相同。
+仅当所选目标是基于文件的存储时，最后三个参数（定义目标存储中的路径）才可见。 如果选择“Azure Synapse Analytics”作为目标存储，则不需要这些参数。 但 Azure Synapse Analytics 中的表名和架构必须与源数据库中的表名和架构相同。
 
 ## <a name="how-to-use-this-solution-template"></a>如何使用此解决方案模板
 
@@ -95,7 +95,7 @@ ms.locfileid: "92121687"
 
     ![查看结果](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. （可选）如果选择“Azure Synapse Analytics（以前称为 SQL DW）”作为数据目标，必须按 Azure Synapse Analytics Polybase 的要求输入用于暂存的 Azure Blob 存储的连接。 模板会自动为 Blob 存储生成容器路径。 检查是否在管道运行后创建了容器。
+9. （可选）如果选择“Azure Synapse Analytics”作为数据目标，必须按 Azure Synapse Analytics Polybase 的要求输入用于暂存的 Azure Blob 存储的连接。 模板会自动为 Blob 存储生成容器路径。 检查是否在管道运行后创建了容器。
     
     ![Polybase 设置](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

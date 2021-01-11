@@ -11,15 +11,15 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
-origin.date: 09/21/2020
-ms.date: 10/12/2020
+origin.date: 12/01/2020
+ms.date: 01/04/2021
 tags: azure-synapse
-ms.openlocfilehash: 1ec81b6789a3bd8d7fdcc6075ac9c9cbf35b1972
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.openlocfilehash: 6c3740ad45ad446cf131a50b2e53f2f4722aeb33
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872319"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830206"
 ---
 # <a name="data-discovery--classification"></a>数据发现和分类
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "91872319"
 - 控制对包含高度敏感数据的数据库的访问并增强其安全性。
 
 > [!NOTE]
-> 要了解本地 SQL Server，请参阅 [SQL 数据发现和分类](https://go.microsoft.com/fwlink/?linkid=866999)。
+> 要了解本地 SQL Server，请参阅 [SQL 数据发现和分类](https://docs.microsoft.com/sql/relational-databases/security/sql-data-discovery-and-classification)。
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>什么是数据发现和分类？
 
@@ -63,7 +63,7 @@ ms.locfileid: "91872319"
 
 数据发现和分类附带了一组内置的敏感度标签和一组内置的信息类型和发现逻辑。 现在，可以自定义此分类并专门针对你的环境定义分类构造的集合和级别。
 
-可在一个中心位置针对整个 Azure 组织定义和自定义分类。 该位置在 [Azure 安全中心](/security-center/security-center-intro)内，是安全策略的一部分。 仅对组织根管理组具有管理权限的人员可以执行此任务。
+可在一个中心位置针对整个 Azure 组织定义和自定义分类。 该位置在 [Azure 安全中心](../../security-center/security-center-introduction.md)内，是安全策略的一部分。 仅对组织根管理组具有管理权限的人员可以执行此任务。
 
 在信息保护的策略管理过程中，可定义自定义标签、对其进行分级，并将其与选定的一组信息类型相关联。 还可以添加自己的自定义信息类型，并使用字符串模式对其进行配置。 这些模式已添加到用于识别数据库中的此类型数据的发现逻辑。
 
@@ -76,7 +76,9 @@ ms.locfileid: "91872319"
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。
 
-1. 转到“Azure SQL 数据库”窗格的“安全”标题下的“数据发现和分类”。 “概述”选项卡中包含数据库当前分类状态的摘要。 该摘要包含所有分类列的详细列表，你还可以对其进行筛选，以便仅显示特定的架构部分、信息类型和标签。 如果尚未对任何列进行分类，请[跳到步骤 4](#step-4)。
+1. 转到“Azure SQL 数据库”窗格的“安全”标题下的“数据发现和分类” 。 “概述”选项卡中包含数据库当前分类状态的摘要。 该摘要包含所有分类列的详细列表，你还可以对其进行筛选，以便仅显示特定的架构部分、信息类型和标签。 如果尚未对任何列进行分类，请[跳到步骤 4](#step-4)。
+
+    ![概述](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. 若要下载 Excel 格式的报表，请选择窗格顶部菜单中的“导出”。
 
@@ -92,6 +94,8 @@ ms.locfileid: "91872319"
 
    - 若要应用所选建议，请选择“接受所选建议”。
 
+   ![针对分类的建议](./media/data-discovery-and-classification-overview/recommendation.png)
+
 1. 还可以手动对列进行分类，这是基于建议分类的替代选项：
 
    1. 选择窗格顶部菜单中的“添加分类”。
@@ -100,7 +104,10 @@ ms.locfileid: "91872319"
 
    1. 选择上下文窗口底部的“添加分类”。
 
-1. 若要完成分类并永久使用新分类元数据标记数据库列，请在窗口顶部菜单中选择“保存”。
+   ![手动添加分类](./media/data-discovery-and-classification-overview/manually-add-classification.png)
+
+
+1. 若要完成分类并永久使用新分类元数据标记数据库列，请在“分类”页中选择“保存” 。
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>审核对敏感数据的访问
 
@@ -124,7 +131,7 @@ ms.locfileid: "91872319"
 - 参与者
 - SQL 安全管理器
 
-在 [Azure RBAC](/role-based-access-control/overview) 中了解有关基于角色的权限的详细信息。
+在 [Azure RBAC](../../role-based-access-control/overview.md) 中了解有关基于角色的权限的详细信息。
 
 ## <a name="manage-classifications"></a><a id="manage-classification"></a>管理分类
 

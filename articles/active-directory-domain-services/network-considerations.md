@@ -2,20 +2,20 @@
 title: Azure AD 域服务的网络计划和连接 | Microsoft Docs
 description: 了解运行 Azure Active Directory 域服务时的一些虚拟网络设计注意事项以及连接所用的资源。
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/28/2020
 ms.author: v-junlch
-ms.openlocfilehash: 94b02422ad821b557e3c37a5300425864ec641d3
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: dd1666e2b493f88cfdabba6e66dc6ba98dfd4521
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507218"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829350"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Azure Active Directory 域服务的虚拟网络设计注意事项和配置选项
 
@@ -110,9 +110,8 @@ Azure Active Directory 域服务 (Azure AD DS) 为其他应用程序和工作负
 
 | 端口号 | 协议 | Source                             | 目标 | 操作 | 必须 | 目的 |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | 任意         | 允许  | 是      | 与 Azure AD 租户同步。 |
-| 3389        | TCP      | CorpNetSaw                         | 任意         | 允许  | 是      | 用于管理域。 |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | 任意         | 允许  | 是      | 用于管理域。 |
+| 3389        | TCP      | CorpNetSaw                         | 任意         | 允许  | 可选      | 调试以获得支持。 |
 
 创建一个要求实施这些规则的 Azure 标准负载均衡器。 此网络安全组会保护 Azure AD DS，是托管域正常运行所需的。 请勿删除此网络安全组。 如果没有此网络安全组，负载均衡器将无法正常工作。
 
@@ -127,12 +126,17 @@ Azure Active Directory 域服务 (Azure AD DS) 为其他应用程序和工作负
 >
 > Azure SLA 不适用于这样的部署：应用了配置不当的网络安全组和/或用户定义的路由表，使得 Azure AD DS 无法更新和管理域。
 
-### <a name="port-443---synchronization-with-azure-ad"></a>端口 443 - 与 Azure AD 同步
+### <a name="port-5986---management-using-powershell-remoting"></a>端口 5986 - 使用 PowerShell 远程处理进行管理
 
-* 用于将 Azure AD 租户与托管域同步。
-* 如果不允许访问此端口，则托管域不会与 Azure AD 租户同步。 用户可能无法登录，因为对其密码所做的更改不会同步到托管域。
-* 默认使用 AzureActiveDirectoryDomainServices 服务标记在此端口上限制对 IP 地址的入站访问。
-* 请勿限制由此端口实现的出站访问。
+* 用于通过托管域上的 PowerShell 远程处理来执行管理任务。
+* 如果不允许访问此端口，则无法更新、配置、备份或监视托管域。
+* 对于使用基于资源管理器的虚拟网络的托管域，可以将对此端口的入站访问限制于 AzureActiveDirectoryDomainServices 服务标记。
+    * 对于使用经典虚拟网络的旧版托管域，可以将对此端口的入站访问限制为以下源 IP 地址：52.180.183.8、23.101.0.70、52.225.184.198、52.179.126.223、13.74.249.156、52.187.117.83、52.161.13.95、104.40.156.18 和 104.40.87.209        。
+
+    > [!NOTE]
+    > 在 2017 年，Azure AD 域服务变得可以在 Azure 资源管理器网络中托管。 自那时起，我们就能够使用 Azure 资源管理器的新式功能构建更安全的服务。 由于 Azure 资源管理器部署完全取代了经典部署，因此 Azure AD DS 经典虚拟网络部署将于 2023 年 3 月 1 日停用。
+    >
+    > 有关详细信息，请查看[正式的弃用通知](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
 ### <a name="port-3389---management-using-remote-desktop"></a>端口 3389 - 使用远程桌面进行管理
 
@@ -148,18 +152,6 @@ Azure Active Directory 域服务 (Azure AD DS) 为其他应用程序和工作负
 > 例如，可以使用以下脚本创建允许 RDP 的规则： 
 >
 > `Get-AzureRmNetworkSecurityGroup -Name "nsg-name" -ResourceGroupName "resource-group-name" | Add-AzureRmNetworkSecurityRuleConfig -Name "new-rule-name" -Access "Allow" -Protocol "TCP" -Direction "Inbound" -Priority "priority-number" -SourceAddressPrefix "CorpNetSaw" -SourcePortRange "" -DestinationPortRange "3389" -DestinationAddressPrefix "" | Set-AzureRmNetworkSecurityGroup`
-
-### <a name="port-5986---management-using-powershell-remoting"></a>端口 5986 - 使用 PowerShell 远程处理进行管理
-
-* 用于通过托管域上的 PowerShell 远程处理来执行管理任务。
-* 如果不允许访问此端口，则无法更新、配置、备份或监视托管域。
-* 对于使用基于资源管理器的虚拟网络的托管域，可以将对此端口的入站访问限制于 AzureActiveDirectoryDomainServices 服务标记。
-    * 对于使用经典虚拟网络的旧版托管域，可以将对此端口的入站访问限制为以下源 IP 地址：52.180.183.8、23.101.0.70、52.225.184.198、52.179.126.223、13.74.249.156、52.187.117.83、52.161.13.95、104.40.156.18 和 104.40.87.209        。
-
-    > [!NOTE]
-    > 在 2017 年，Azure AD 域服务变得可以在 Azure 资源管理器网络中托管。 自那时起，我们就能够使用 Azure 资源管理器的新式功能构建更安全的服务。 由于 Azure 资源管理器部署完全取代了经典部署，因此 Azure AD DS 经典虚拟网络部署将于 2023 年 3 月 1 日停用。
-    >
-    > 有关详细信息，请查看[正式的弃用通知](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
 ## <a name="user-defined-routes"></a>用户定义路由
 

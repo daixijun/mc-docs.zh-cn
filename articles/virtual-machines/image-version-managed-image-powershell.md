@@ -1,31 +1,31 @@
 ---
-title: 将托管映像迁移到共享映像库
-description: 了解如何使用 Azure PowerShell 将托管映像迁移到共享映像库中的某个映像版本。
-author: rockboyfor
+title: 将托管映像克隆到共享映像库
+description: 了解如何使用 Azure PowerShell 将托管映像克隆到共享映像库中的某个映像版本。
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure
 origin.date: 05/04/2020
-ms.date: 08/31/2020
+author: rockboyfor
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: akjosh
-ms.openlocfilehash: 7a89cd50238b20bb916f337da5331dc1453e414b
-ms.sourcegitcommit: 63a4bc7c501fb6dd54a31d39c87c0e8692ac2eb0
+ms.openlocfilehash: b80acabf019e03fd8f506b6f4e5ead51d0a691e6
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052386"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857089"
 ---
-# <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>从托管映像迁移到共享映像库映像
+# <a name="clone-a-managed-image-to-a-shared-image-gallery-image"></a>将托管映像克隆到共享映像库映像
 
-如果你想要将现有托管磁盘迁移到共享映像库，可以直接从托管映像创建共享映像库映像。 测试新映像后，可以删除源托管映像。 还可以使用 [Azure CLI](image-version-managed-image-cli.md) 从托管映像迁移到共享映像库。
+如果打算将现有托管映像克隆并移动到共享映像库，可以直接从托管映像创建共享映像库映像。 测试新映像后，可以删除源托管映像。 还可以使用 [Azure CLI](image-version-managed-image-cli.md) 从托管映像迁移到共享映像库。
 
 映像库中的映像具有两个组件，我们将在此示例中创建这两个组件：
 - “映像定义”包含有关映像及其使用要求的信息。 这包括了该映像是 Windows 还是 Linux 映像、是专用映像还是通用映像、发行说明以及最低和最高内存要求。 它是某种映像类型的定义。 
-- 使用共享映像库时，将使用**映像版本**来创建 VM。 可根据环境的需要创建多个映像版本。 创建 VM 时，将使用该映像版本来为 VM 创建新磁盘。 可以多次使用映像版本。
+- 使用共享映像库时，将使用 **映像版本** 来创建 VM。 可根据环境的需要创建多个映像版本。 创建 VM 时，将使用该映像版本来为 VM 创建新磁盘。 可以多次使用映像版本。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -101,7 +101,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $imageDefinition.ResourceGroupName `
    -Location $imageDefinition.Location `
    -TargetRegion $targetRegions  `
-   -Source $managedImage.Id.ToString() `
+   -SourceImageId $managedImage.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-31' `
    -asJob 
 ```
@@ -134,6 +134,6 @@ Remove-AzImage `
 
 确认复制完成后，可以从[通用化映像](vm-generalized-image-version-powershell.md)创建 VM。
 
-<!-Not Available on For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md)-->
+有关如何提供购买计划信息的信息，请参阅[在创建映像时提供 Azure 市场购买计划信息](marketplace-images.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

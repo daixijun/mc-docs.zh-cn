@@ -7,26 +7,31 @@ tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
-origin.date: 04/13/2018
+origin.date: 11/06/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4a39c5425683016ff0faeccc91ba4cb5ec41f2f5
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 14a0314fbb967876f13b88ca89fa74e644ba9599
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106243"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857151"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>在 Azure 中创建、重启 VM 或重设其大小时排查分配失败
 
 创建虚拟机 (VM)、重启已停止（已解除分配）的 VM 或重设 VM 大小时，Azure 会为订阅分配计算资源。 我们会不断投入其他基础结构和功能，确保始终提供可用于支持客户需求的所有 VM 类型。 但是，偶尔可能因特定区域中前所未有的 Azure 服务需求增长而遇到资源分配失败的情况。 当尝试在区域中创建或启动 VM，同时 VM 显示以下错误代码和消息时，会出现此问题：
 
-**错误代码** ：AllocationFailed 或 ZonalAllocationFailed
+**错误代码**：AllocationFailed 或 ZonalAllocationFailed
 
-**错误消息** ：“分配失败。 对于此区域中请求的 VM 大小，我们的容量不够。 在 https://aka.ms/allocation-guidance 阅读有关提高分配成功可能性的详细信息”
+**错误消息**：“分配失败。 对于此区域中请求的 VM 大小，我们的容量不够。 通过以下链接详细了解如何提高分配成功的可能性：https:\//docs.azure.cn/virtual-machines/troubleshooting/allocation-failure"
+
+> [!NOTE]
+> 如果要对虚拟机规模集 (VMSS) 进行故障排除，则过程与标准 VM 相同。 若要解决此问题，应按照本文中的说明操作。
+> 
+>**错误消息**：“分配失败。 如果尝试将新的 VM 添加到具有单个放置组的虚拟机规模集，或者更新具有单个放置组的虚拟机规模集中的现有 VM 或重设其大小，请注意，此类分配仅限于单个群集，并且相应群集容量可能不足。 请通过以下链接详细了解如何提高分配成功的可能性：https:\//docs.azure.cn/virtual-machines/troubleshooting/allocation-failure"。
 
 本文说明一些常见分配故障的原因，并建议可能的补救方法。
 
@@ -107,6 +112,6 @@ Azure 数据中心的服务器分区成群集。 通常会尝试向多个群集�
 ### <a name="why-allocation-failures-happen"></a>发生分配失败的原因
 当分配请求固定到某个群集时，由于可用的资源池较小，很可能找不到可用的资源。 此外，如果分配请求固定到某个群集，但该群集不支持你所请求的资源类型，那么，即使该群集有可用的资源，请求仍会失败。 下图 3 说明由于唯一候选群集没有可用的资源，导致已固定的分配失败的情况。 图 4 说明由于唯一候选群集不支持所请求的 VM 大小（虽然群集有可用的资源），导致已固定的分配失败的情况。
 
-:::image type="content" source="./media/virtual-machines-common-allocation-failure/Allocation2.png" alt-text="分配图":::
+:::image type="content" source="./media/virtual-machines-common-allocation-failure/Allocation2.png" alt-text="固定分配故障":::
 
 <!-- Update_Description: update meta properties, wording update, update link -->

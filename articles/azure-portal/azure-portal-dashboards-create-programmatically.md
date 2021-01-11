@@ -1,24 +1,16 @@
 ---
 title: 以编程方式创建 Azure 仪表板
 description: 使用 Azure 门户中的仪表板作为模板以编程方式创建 Azure 仪表板。 包括 JSON 引用。
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 03/23/2020
-ms.date: 10/19/2020
+origin.date: 12/04/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 22712a8d9d2972e09f2e0adf512509776f31cde1
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 506213ecbbf55ee62b5ca4a39a0008de3fe91127
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170434"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820367"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>以编程方式创建 Azure 仪表板
 
@@ -659,3 +651,49 @@ id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/v
 ```
 
 通过示例了解如何使用参数化模板来部署仪表板后，就可以尝试使用 [Azure 资源管理器 REST API](https://docs.microsoft.com//rest/api/)、[Azure CLI](/cli) 或 [Azure PowerShell 命令](https://docs.microsoft.com//powershell/azure/get-started-azureps)来部署模板。
+
+## <a name="programmatically-create-a-dashboard-by-using-azure-cli"></a>使用 Azure CLI 以编程方式创建仪表板
+
+为 Azure CLI 准备环境。
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 这些示例使用以下仪表板：[portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json) 将尖括号中的内容替换为你的值。
+
+运行 [az portal dashboard create](/cli/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) 命令来创建仪表板：
+
+```azurecli
+az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+   --input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+可以使用 [az portal dashboard update](/cli/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) 命令更新仪表板：
+
+```azurecli
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+--input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+通过运行 [az portal dashboard show](/cli/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) 命令查看仪表板的详细信息：
+
+```azurecli
+az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
+```
+
+若要查看当前订阅的所有仪表板，请使用 [az portal dashboard list](/cli/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list)：
+
+```azurecli
+az portal dashboard list
+```
+
+还可以查看资源组的所有仪表板：
+
+```azurecli
+az portal dashboard list --resource-group myResourceGroup
+```
+
+## <a name="next-steps"></a>后续步骤
+
+有关桌面的详细信息，请参阅[管理 Azure 门户设置和首选项](set-preferences.md)。
+
+有关对仪表板的 Azure CLI 支持的详细信息，请参阅 [az portal dashboard](/cli/ext/portal/portal/dashboard)。

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 05/31/2019
 ms.author: v-yiso
 ms.date: 04/06/2020
-ms.openlocfilehash: f461d34c1ed52cdd3b60156377c3814021e37603
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 399b20c802c40a7464b8949ebc980849094a9288
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747135"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830094"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>在 Web 应用程序中可视化 Azure IoT 中心的实时传感器数据
 
@@ -202,7 +202,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
 8. 若要将代码部署到应用服务，请在命令窗口中输入以下命令。 系统提示输入凭据时，请输入在步骤 5 中创建的用户级部署凭据。 确保推送到应用服务远程库的主分支。
 
     ```cmd
-    git push webapp master:master
+    git push webapp main:main
     ```
 
 9. 命令窗口中的部署进度将会更新。 如果部署成功，将返回类似于以下输出的行：
@@ -212,8 +212,8 @@ set EventHubConsumerGroup=YourConsumerGroupName
     remote: Finished successfully.
     remote: Running post deployment command(s)...
     remote: Deployment successful.
-    To https://contoso-web-app-3.scm.azurewebsites.cn/contoso-web-app-3.git
-    6b132dd..7cbc994  master -> master
+    To https://contoso-web-app-3.scm.azurewebsites.net/contoso-web-app-3.git
+    6b132dd..7cbc994  main -> main
     ```
 
 10. 运行以下命令，以查询 Web 应用的状态并确保它正在运行：
@@ -222,7 +222,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
     az webapp show -n <your web app name> -g <your resource group name> --query state
     ```
 
-11. 在浏览器中导航至 `https://<your web app name>.azurewebsites.cn` 。 此时会显示一个网页，它类似于在本地运行 Web 应用时所看到的网页。 假设你的设备正在运行且正在发送数据，则应会显示该设备最近发送的 50 个温度和湿度读数的运行图。
+11. 在浏览器中导航至 `https://<your web app name>.chinacloudsites.cn` 。 此时会显示一个网页，它类似于在本地运行 Web 应用时所看到的网页。 假设你的设备正在运行且正在发送数据，则应会显示该设备最近发送的 50 个温度和湿度读数的运行图。
 
 ## <a name="troubleshooting"></a>疑难解答
 

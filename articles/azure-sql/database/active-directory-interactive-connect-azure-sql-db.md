@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 04/23/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: 12b15b3a70d2c188a8891be29411ce24368f496b
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: 4abd4cb75c38843908ae0248cf7b6f67e46623c7
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227507"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830177"
 ---
-# <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>使用 Azure 多重身份验证连接到 Azure SQL 数据库
+# <a name="connect-to-azure-sql-database-with-azure-ad-multi-factor-authentication"></a>使用 Azure AD 多重身份验证连接到 Azure SQL 数据库
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-本文提供了用于连接到 Azure SQL 数据库的 C# 程序。 该程序使用支持 [Azure 多重身份验证](/active-directory/authentication/concept-mfa-howitworks)的交互模式身份验证。
+本文提供了用于连接到 Azure SQL 数据库的 C# 程序。 该程序使用支持 [Azure AD 多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)的交互模式身份验证。
 
 有关 SQL 工具的多重身份验证支持的详细信息，请参阅 [SQL Server Data Tools (SSDT) 中的 Azure Active Directory 支持](https://docs.microsoft.com/sql/ssdt/azure-active-directory)。
 
@@ -40,7 +40,7 @@ ms.locfileid: "86227507"
 
 * 一个对话框，它要求提供系统已发送到手机的多重身份验证验证码。
 
-有关如何将 Azure AD 配置为要求多重身份验证的信息，请参阅[云中的 Azure 多重身份验证入门](/multi-factor-authentication/multi-factor-authentication-get-started-cloud)。
+有关如何将 Azure AD 配置为要求多重身份验证的信息，请参阅[云中的 Azure AD 多重身份验证入门](../../active-directory/authentication/howto-mfa-getstarted.md)。
 
 有关这些对话框的屏幕截图，请参阅[为 SQL Server Management Studio 和 Azure AD 配置多重身份验证](authentication-mfa-ssms-configure.md)。
 
@@ -55,9 +55,9 @@ ms.locfileid: "86227507"
 
 ### <a name="register-your-app-and-set-permissions"></a>注册应用并设置权限
 
-若要使用 Azure AD 身份验证，必须将 C# 程序注册为 Azure AD 应用程序。 只有 Azure AD 管理员或者分配有 Azure AD“应用程序开发人员”角色的用户才能注册应用。 有关分配角色的详细信息，请参阅[使用 Azure Active Directory 将管理员和非管理员角色分配给用户](/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)。
+若要使用 Azure AD 身份验证，必须将 C# 程序注册为 Azure AD 应用程序。 只有 Azure AD 管理员或者分配有 Azure AD“应用程序开发人员”角色的用户才能注册应用。 有关分配角色的详细信息，请参阅[使用 Azure Active Directory 将管理员和非管理员角色分配给用户](../../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)。
 
-完成应用注册后，会生成并显示一个**应用程序 ID**。 程序中必须包含此 ID 才能建立连接。
+完成应用注册后，会生成并显示一个 **应用程序 ID**。 程序中必须包含此 ID 才能建立连接。
 
 注册应用程序并为其设置所需的权限：
 
@@ -135,7 +135,7 @@ ms.locfileid: "86227507"
 
 ### <a name="verify-server-level-firewall-ip-addresses"></a>验证服务器级别防火墙 IP 地址
 
-从同一建筑物中你要运行 C# 程序的同一台计算机运行 SSMS。 可以使用任何**身份验证**模式来运行此测试。 如果有任何迹象表明服务器不接受 IP 地址，请参阅[服务器级和数据库级防火墙规则](firewall-configure.md)获得帮助。
+从同一建筑物中你要运行 C# 程序的同一台计算机运行 SSMS。 可以使用任何 **身份验证** 模式来运行此测试。 如果有任何迹象表明服务器不接受 IP 地址，请参阅[服务器级和数据库级防火墙规则](firewall-configure.md)获得帮助。
 
 ### <a name="verify-azure-active-directory-multi-factor-authentication"></a>验证 Azure Active Directory 多重身份验证
 

@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/24/2018
 ms.date: 04/29/2019
 ms.author: v-yiso
-ms.openlocfilehash: 633360f15042dc04a7971506592b14226bf87e43
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 42120ed0874a28963aa7bbf0357951a04d9477e5
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186918"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830116"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>使用 Azure IoT C SDK 针对受限制设备进行开发
 
@@ -35,13 +35,16 @@ C SDK 可通过 apt-get、NuGet 和 MBED 以程序包的形式提供。 若要�
 
 针对受限制设备构建 C SDK。
 
+> [!NOTE]
+> 嵌入式 C SDK 是支持自带网络 (BYON) 方法的受限制设备的替代项。 IoT 开发人员可以自由选择使用 MQTT 客户端、TLS 和套接字来创建设备解决方案。 [详细了解嵌入式 C SDK](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot)。
+
 ### <a name="prerequisites"></a>先决条件
 
 请按照本 [C SDK 设置指南](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)准备用于构建 C SDK 的开发环境。 在开始执行使用 cmake 进行构建的步骤前，可调用 cmake 标记来删除未使用的功能。
 
 ### <a name="remove-additional-protocol-libraries"></a>删除其他协议库
 
-C SDK 目前支持五个协议：MQTT、基于 Websocket 的 MQTT、AMQP、基于 WebSocket 的 AMQP，以及 HTTPS。 大多数方案需要在客户端上运行一到两个协议，因此可从 SDK 中删除未使用的协议库。 有关为方案选择适当通信协议的其他信息，请参阅[选择 IoT 中心通信协议](iot-hub-devguide-protocols.md)。 例如，MQTT 是一种轻量级协议，通常更适合用于受限制设备。
+C SDK 当前支持五种协议：MQTT、基于 WebSocket 的 MQTT、AMQP、基于 WebSocket 的 AMQP 和 HTTPS。 大多数方案需要在客户端上运行一到两个协议，因此可从 SDK 中删除未使用的协议库。 有关为方案选择适当通信协议的其他信息，请参阅[选择 IoT 中心通信协议](iot-hub-devguide-protocols.md)。 例如，MQTT 是一种轻量级协议，通常更适合用于受限制设备。
 
 可以使用以下 cmake 命令删除 AMQP 和 HTTP 库：
 
@@ -82,7 +85,7 @@ C SDK 具有可选的 [C SDK 序列化程序](https://github.com/Azure/azure-iot
 
 ### <a name="use-the-lower-layer-_ll_"></a>使用较低层 (_LL_)
 
-C SDK 支持两种编程模型。 其中一组拥有具有 _LL_ 中缀的 API，该中缀代表较低层。 这组 API 权重更轻且不会启动工作线程，这意味着用户必须手动控制调度。 例如，对于设备客户端，可在此[头文件](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client_ll.h)中找到 _LL_ API。 
+C SDK 支持两种编程模型。 其中一组拥有具有 _LL_ 中缀的 API，该中缀代表较低层。 这组 API 权重更轻且不会启动工作线程，这意味着用户必须手动控制调度。 例如，对于设备客户端，可在此 [头文件](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client_ll.h)中找到 _LL_ API。 
 
 另一组没有 _LL_ 索引的 API 称为便捷层，工作线程会在其中自动启动。 例如，设备客户端的便捷层 API 可以在此 [IoT 设备客户端头文件](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h)中找到。 对于每个额外的线程会占用大量系统资源的受限制设备，请考虑使用 _LL_ API。
 

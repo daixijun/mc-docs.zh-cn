@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 origin.date: 05/19/2020
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 2540493c9a1d4c2a44d9704eca56465f6348857f
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: c40814c2517cc8e60fb290a23a2b2fd071be3cc7
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472465"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856925"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>了解哪些良好的话语适用于你的 LUIS 应用
 
@@ -31,9 +31,13 @@ ms.locfileid: "92472465"
 
 ## <a name="how-to-choose-varied-utterances"></a>如何选择不同的陈述
 
-第一次开始[将示例话语 添加](luis-how-to-add-example-utterances.md)到 LUIS 模型时，请记住以下原则。
+第一次开始[将示例话语 添加](./luis-how-to-add-entities.md)到 LUIS 模型时，请记住以下原则。
 
-<!--spell check not available-->
+### <a name="utterances-arent-always-well-formed"></a>陈述并非始终格式正确
+
+它可能是一个句子，比如“为我预订到巴黎的机票”，也可能是句子的片段，比如“预订”或“巴黎航班”。  用户常犯拼写错误。 
+
+应该针对包含拼写错误的陈述训练 LUIS。
 
 ### <a name="use-the-representative-language-of-the-user"></a>使用用户的代表性语言
 
@@ -145,6 +149,5 @@ LUIS 使用由 LUIS 模型作者精心挑选的话语构建有效的模型。 �
 
 
 ## <a name="next-steps"></a>后续步骤
-有关定型 LUIS 应用以理解用户话语的信息，请参阅[添加示例话语](luis-how-to-add-example-utterances.md)。
-
+有关定型 LUIS 应用以理解用户话语的信息，请参阅[添加示例话语](./luis-how-to-add-entities.md)。
 

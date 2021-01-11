@@ -9,17 +9,66 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 08/17/2020
-ms.date: 12/10/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: a962f8ea46d430a1570162443dd42eadfdca3a9f
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 25974f963d206be6d4839fb1f3ad6f2bc0e93c91
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004161"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820274"
 ---
 # <a name="speech-service-release-notes"></a>语音服务发行说明
+
+## <a name="text-to-speech-2020-december-release"></a>文本转语音 2020 年 12 月发行版
+
+<!--
+**New neural voices in GA and preview**
+
+Released 51 new voices for a total of 129 neural voices across 54 languages/locales:
+
+- **46 new voices in GA locales**: Shakir in `ar-EG` Arabic (Egypt), Hamed in `ar-SA` Arabic (Saudi Arabia), Borislav in `bg-BG` Bulgarian (Bulgaria), Joana in `ca-ES` Catalan (Spain), Antonin in `cs-CZ` Czech (Czech Republic), Jeppe in `da-DK` Danish (Denmark), Jonas in `de-AT` German (Austria), Jan in `de-CH` German (Switzerland), Nestoras in `el-GR` Greek (Greece), Liam in `en-CA` English (Canada), Connor in `en-IE` English (Ireland), Madhur in `en-IN` Hindi (India), Mohan in `en-IN` Telugu (India), Prabhat in `en-IN` English (India), Valluvar in `en-IN` Tamil (India), Enric in `es-ES` Catalan (Spain), Kert in `et-EE` Estonian (Estonia), Harri in `fi-FI` Finnish (Finland), Selma in `fi-FI` Finnish (Finland), Fabrice in `fr-CH` French (Switzerland), Colm in `ga-IE` Irish (Ireland), Avri in `he-IL` Hebrew (Israel), Srecko in `hr-HR` Croatian (Croatia), Tamas in `hu-HU` Hungarian (Hungary), Gadis in `id-ID` Indonesian (Indonesia), Leonas in `lt-LT` Lithuanian (Lithuania), Nils in `lv-LV` Latvian (Latvia), Osman in `ms-MY` Malay (Malaysia), Joseph in `mt-MT` Maltese (Malta), Finn in `nb-NO` Norwegian, Bokmål (Norway), Pernille in `nb-NO` Norwegian, Bokmål (Norway), Fenna in `nl-NL` Dutch (Netherlands), Maarten in `nl-NL` Dutch (Netherlands), Agnieszka in `pl-PL` Polish (Poland), Marek in `pl-PL` Polish (Poland), Duarte in `pt-BR` Portuguese (Brazil), Raquel in `pt-PT` Portuguese (Potugal), Emil in `ro-RO` Romanian (Romania), Dmitry in `ru-RU` Russian (Russia), Svetlana in `ru-RU` Russian (Russia), Lukas in `sk-SK` Slovak (Slovakia), Rok in `sl-SI` Slovenian (Slovenia), Mattias in `sv-SE` Swedish (Sweden), Sofie in `sv-SE` Swedish (Sweden), Niwat in `th-TH` Thai (Thailand), Ahmet in `tr-TR` Turkish (Turkey), NamMinh in `vi-VN` Vietnamese (Vietnam), HsiaoChen in `zh-TW` Taiwanese Mandarin (Taiwan), YunJhe in `zh-TW` Taiwanese Mandarin (Taiwan), HiuMaan in `zh-HK` Chinese Cantonese (Hong Kong), WanLung in `zh-HK` Chinese Cantonese (Hong Kong).
+
+- **5 new voices in preview locales**: Kert in `et-EE` Estonian (Estonia), Colm in `ga-IE` Irish (Ireland), Nils in `lv-LV` Latvian (Latvia), Leonas in `lt-LT` Lithuanian (Lithuania), Joseph in `mt-MT` Maltese (Malta).
+
+With this release, we now support a total of 129 neural voices across 54 languages/locales. In addition, over 70 standard voices are available in 49 languages/locales. Visit [Language support](language-support.md#text-to-speech) for the full list.
+-->
+
+**音频内容创建的更新**
+- 通过语音类别和详细的语音说明改善了语音选择 UI。 
+- 针对不同语言的所有神经语音启用了语调优化。
+- 根据浏览器的语言自动执行 UI 本地化。
+- 已为所有 `zh-CN` 神经语音启用 `StyleDegree` 控件。
+若要查看新功能，请访问[音频内容创建工具](https://speech.azure.cn/audiocontentcreation)。 
+
+**zh-CN 语音的更新**
+- 已更新所有 `zh-CN` 神经语音以支持英语。
+- 已启用所有 `zh-CN` 神经语音以支持语调调整。 可以使用 SSML 或音频内容创建工具进行调整以获取最佳语调。
+- 已更新所有 `zh-CN` 多样式神经语音以支持 `StyleDegree` 控件。 可调整情感强度（弱或强）。
+- 已更新 `zh-CN-YunyeNeural` 以支持可以执行不同情感的多种风格。
+
+## <a name="text-to-speech-2020-november-release"></a>文本转语音 2020 年 11 月发行版
+
+<!--
+**New locales and voices in preview**
+- **Five new voices and languages** are introduced to the Neural TTS portfolio. They are: Grace in Maltese (Malta), Ona in Lithuanian (Lithuania), Anu in Estonian (Estonia), Orla in Irish (Ireland) and Everita in Latvian (Latvia).
+- **Five new `zh-CN` voices with multiple styles and roles support**: Xiaohan, Xiaomo, Xiaorui, Xiaoxuan and Yunxi.
+
+> These voices are available in public preview in three Azure regions: EastUS, SouthEastAsia and WestEurope.
+-->
+
+<!--
+**Neural TTS Container GA**
+- With Neural TTS Container, developers can run speech synthesis with the most natural digital voices in their own environment for specific security and data governance requirements. Check [how to install Speech Containers](speech-container-howto.md). 
+-->
+
+**新功能**
+- 自定义语音：使用户能够将语音模型从一个区域复制到另一个区域；支持终结点暂停和恢复。 转到[门户](https://speech.azure.cn/customvoice)。
+- 支持 [SSML 无声标记](speech-synthesis-markup.md#add-silence)。 
+- 一般性的 TTS 语音质量改进：在 nb-NO 中改进了单词级别的发音准确度。 将发音错误减小了 53%。
+
+> 有关详细信息，请参阅[此技术博客](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-previews-five-new-languages-with/ba-p/1907604)。
 
 ## <a name="text-to-speech-2020-october-release"></a>文本转语音 2020 年 10 月发行版
 

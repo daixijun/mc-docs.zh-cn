@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 10/30/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: 543bc2cd8aea5b3d2b276809ac94a23517fec138
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+origin.date: 12/09/2020
+ms.date: 01/04/2021
+ms.openlocfilehash: f9c16cc77ae79ab27f70b95de49b2d66046f7a40
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432513"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830190"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>使用 Azure 数据工厂将数据加载到 Azure Synapse Analytics 中
 
@@ -103,7 +103,7 @@ ms.locfileid: "96432513"
 
     a. 单击“+ 创建新连接”来添加连接
 
-    b. 从库中选择“Azure Synapse Analytics (以前称为 SQL 数据仓库)”，然后选择“继续” 。 可以在搜索框中键入“SQL”以筛选连接器。
+    b. 从库中选择“Azure Synapse Analytics”，然后选择“继续” 。
 
     ![选择 Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 

@@ -4,20 +4,20 @@ description: 本文介绍新的无服务器计算层，并将它与现有的 Azu
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: test sqldbrb=1
+ms.custom: test sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
-origin.date: 9/17/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 19758e738956df1e06ea345eb418d7f2e7a70e5a
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+origin.date: 12/8/2020
+ms.date: 01/04/2021
+ms.openlocfilehash: e8eab6d0492106ab58beddc17c9344fbb01b25fc
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872416"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830264"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL 数据库无服务器
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,7 @@ Azure SQL 数据库中单一数据库的无服务器计算层由计算自动缩�
 ### <a name="performance-configuration"></a>性能配置
 
 - “最小 vCore 数”和“最大 vCore 数”是可配置的参数，用于定义数据库可用的计算容量范围。  内存和 IO 限制与指定的 vCore 范围成正比。  
-- **自动暂停延迟**是可配置的参数，用于定义数据库在自动暂停之前必须处于非活动状态的时间段。 发生下次登录或其他活动时，数据库会自动恢复。  或者，可以禁用自动暂停。
+- **自动暂停延迟** 是可配置的参数，用于定义数据库在自动暂停之前必须处于非活动状态的时间段。 发生下次登录或其他活动时，数据库会自动恢复。  或者，可以禁用自动暂停。
 
 ### <a name="cost"></a>成本
 
@@ -139,6 +139,7 @@ Azure SQL 数据库中单一数据库的无服务器计算层由计算自动缩�
 |透明数据加密|查看透明数据加密的状况或状态|
 |漏洞评估|如果启用，则为临时扫描和定期扫描|
 |查询（性能）数据存储|修改或查看查询存储设置|
+|性能建议|查看或应用性能建议|
 |自动优化|自动优化建议的应用和验证，例如自动索引|
 |数据库复制|创建数据库作为副本。<br>导出到 BACPAC 文件。|
 |SQL 数据同步|按照可配置的时间表或手动执行中心和成员数据库之间的同步|
@@ -196,7 +197,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
-  -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
+  -e GeneralPurpose -f Gen5 --min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
 

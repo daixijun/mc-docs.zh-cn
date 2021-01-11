@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sashan, moslake, carlrab
-origin.date: 01/30/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: fb72d4b321a72cd68d92dd16d7fa0d99bd5d9fdc
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.reviewer: sashan, moslake
+origin.date: 12/14/2020
+ms.date: 01/04/2021
+ms.openlocfilehash: 795624b1561c4e7360023271c92b2b135b2a038b
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223287"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830262"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL 数据库和 Azure SQL 托管实例服务层级
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ Azure SQL 数据库还有一个服务层级：
 | **日志写入吞吐量** | SQL 数据库 | [每个 vCore 1.875 MB/秒（最大 30 MB/秒）](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/秒 | [每个 vCore 6 MB/秒（最大 96 MB/秒）](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | SQL 托管实例 | [每个 vCore 3 MB/秒（最大 22 MB/秒）](../managed-instance/resource-limits.md#service-tier-characteristics) | 空值 | [每个 vCore 4 MB/秒（最大 48 MB/秒）](../managed-instance/resource-limits.md#service-tier-characteristics) |
 |**可用性**|全部| 99.99% |  [99.95%（具有一个次要副本），99.99%（具有更多副本）](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99.99% |
-|**备份**|全部|RA-GRS，7-35 天（默认为 7 天）| RA-GRS，7 天，恒定的时间时点恢复 (PITR) | RA-GRS，7-35 天（默认为 7 天） |
+|**备份**|全部|RA-GRS，7-35 天（默认为 7 天）。 基本层的最大保留期为 7 天。 | RA-GRS，7 天，恒定的时间时点恢复 (PITR) | RA-GRS，7-35 天（默认为 7 天） |
 |**内存中 OLTP** | | 空值 | 空值 | 可用 |
 |**只读副本**| | 0 内置 <br> 0 - 4 使用[异地复制](active-geo-replication-overview.md) | 0 - 4 内置 | 1 内置，包含在价格中 <br> 0 - 4 使用[异地复制](active-geo-replication-overview.md) |
 |**定价/计费** | SQL 数据库 | [vCore、保留存储和备份存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>IOPS 不收取费用。 | [每个副本的 vCore 和已用存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>尚未收费的 IOPS。 | [vCore、保留存储和备份存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>IOPS 不收取费用。 |
@@ -93,7 +93,7 @@ Azure SQL 数据库还有一个服务层级：
 
 为数据库备份分配存储，以支持 SQL 数据库和 SQL 托管实例的时间点还原 (PITR) 和[长期保留 (LTR)](long-term-retention-overview.md) 功能。 此存储空间针对每个数据库单独分配，并根据数据库费用分开计费。
 
-- **PITR**：自动将各个数据库备份复制到[读取访问权限异地冗余存储 (RA-GRS)](../../storage/common/geo-redundant-design.md)。 创建新备份时，存储大小动态递增。 存储由每周完整备份、每日差异备份和 5 分钟复制一次的事务日志备份使用。 存储消耗量取决于数据库变化率和备份保留期。 可单独为每个数据库配置 7 到 35 天的保留期。 提供与 100%（1 倍）数据库大小相等的最小存储量，不收取额外费用。 对于大多数数据库而言，此容量足以将备份存储 7 天。
+- **PITR**：自动将各个数据库备份复制到 [读取访问权限异地冗余存储 (RA-GRS)](../../storage/common/geo-redundant-design.md)。 创建新备份时，存储大小动态递增。 存储由每周完整备份、每日差异备份和 5 分钟复制一次的事务日志备份使用。 存储消耗量取决于数据库变化率和备份保留期。 可单独为每个数据库配置 7 到 35 天的保留期。 提供与 100%（1 倍）数据库大小相等的最小存储量，不收取额外费用。 对于大多数数据库而言，此容量足以将备份存储 7 天。
 - **LTR**：还可以选择将完整备份的长期保留时长配置为最长 10 年（此功能现通过 [SQL 托管实例的有限公共预览版](long-term-retention-overview.md#sql-managed-instance-support)提供。 如果设置了 LTR 策略，则这些备份将自动存储在 RA-GRS 存储中，但你可以控制备份的复制频率。 为了满足不同的符合性要求，可为每周、每月和/或每年备份选择不同的保留期。 所选配置决定了多少存储将用于 LTR 备份。 若要估算 LTR 存储成本，可以使用 LTR 定价计算器。 有关详细信息，请参阅 [SQL 数据库长期保留](long-term-retention-overview.md)。
 
 ## <a name="next-steps"></a>后续步骤
@@ -102,5 +102,4 @@ Azure SQL 数据库还有一个服务层级：
 
 - [Azure SQL 数据库的基于 vCore 的资源限制](resource-limits-vcore-single-databases.md)。
 - [Azure SQL 数据库中共用数据库的基于 vCore 的资源限制](resource-limits-vcore-elastic-pools.md)。
-- [Azure SQL 托管实例的基于 vCore 的资源限制](../managed-instance/resource-limits.md)。 
-
+- [Azure SQL 托管实例的基于 vCore 的资源限制](../managed-instance/resource-limits.md)。

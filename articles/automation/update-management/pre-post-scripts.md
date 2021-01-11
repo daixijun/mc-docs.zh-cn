@@ -3,15 +3,15 @@ title: 在 Azure 的更新管理部署中管理操作前脚本和操作后脚本
 description: 本文介绍如何配置和管理更新部署的操作前脚本和操作后脚本。
 services: automation
 ms.subservice: update-management
-origin.date: 05/17/2019
-ms.date: 11/23/2020
+origin.date: 12/17/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: e3988f94fdddb9612122c3fe1db98f55721dd735
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 63d55b65e54afe1482603df63d0773212c4577d5
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680622"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830335"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>管理前脚本和后脚本
 
@@ -147,7 +147,7 @@ foreach($summary in $finalStatus)
 * 一个运行方式帐户
 * 要运行的 runbook
 
-若要与 Azure 计算机交互，应使用 [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) cmdlet 与 Azure VM 进行交互。 有关如何执行此操作的示例，请参阅 runbook 示例[更新管理 - 使用 Run 命令运行脚本](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)。
+若要与 Azure 计算机交互，应使用 [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet 与 Azure VM 进行交互。 有关如何执行此操作的示例，请参阅 runbook 示例[更新管理 - 使用 Run 命令运行脚本](https://github.com/azureautomation/update-management-run-script-with-run-command)。
 
 ### <a name="interact-with-non-azure-machines"></a>与非 Azure 计算机交互
 
@@ -158,7 +158,7 @@ foreach($summary in $finalStatus)
 * 要在本地运行的 Runbook
 * 父 runbook
 
-若要与非 Azure 计算机交互，需在 Azure 上下文中运行父 runbook。 此 runbook 使用 [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) cmdlet 调用子 runbook。 必须指定 `RunOn` 参数，并提供运行脚本的混合 Runbook 辅助角色的名称。 请参阅 runbook 示例[更新管理 - 在本地运行脚本](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44)。
+若要与非 Azure 计算机交互，需在 Azure 上下文中运行父 runbook。 此 runbook 使用 [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet 调用子 runbook。 必须指定 `RunOn` 参数，并提供运行脚本的混合 Runbook 辅助角色的名称。 请参阅 runbook 示例[更新管理 - 在本地运行脚本](https://github.com/azureautomation/update-management-run-script-locally)。
 
 ## <a name="abort-patch-deployment"></a>中止修补程序部署
 
@@ -174,7 +174,7 @@ if (<My custom error logic>)
 
 ## <a name="samples"></a>示例
 
-可以在[脚本中心库](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell)和 [PowerShell 库](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)中找到前脚本和后脚本的示例。
+可以在 [Azure 自动化 GitHub 组织](https://github.com/azureautomation)和 [PowerShell 库](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)中找到前脚本和后脚本的示例。 使用“更新管理”作为筛选器。
 
 或者，可按脚本名称进行搜索，如以下列表中所示：
 
@@ -242,8 +242,8 @@ $variable = Get-AutomationVariable -Name $runId
 ```
 
 > [!NOTE]
-> 对于非图形 PowerShell runbook，`Add-AzAccount` 和 `Add-AzureRMAccount` 是 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) 的别名。 可以使用这些 cmdlet，也可以在自动化帐户中[将模块更新](../automation-update-azure-modules.md)为最新版本。 即使刚刚创建了一个新的自动化帐户，也可能需要更新你的模块。
+> 对于非图形 PowerShell runbook，`Add-AzAccount` 和 `Add-AzureRMAccount` 是 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) 的别名。 可以使用这些 cmdlet，也可以在自动化帐户中[将模块更新](../automation-update-azure-modules.md)为最新版本。 即使刚刚创建了一个新的自动化帐户，也可能需要更新你的模块。
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关更新管理的详细信息，请参阅[管理 VM 的更新和修补程序](manage-updates-for-vm.md)。
+有关更新管理的详细信息，请参阅[管理 VM 的更新和修补程序](manage-updates-for-vm.md)。

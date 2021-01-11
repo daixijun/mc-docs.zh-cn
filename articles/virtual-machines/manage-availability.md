@@ -6,16 +6,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 32888fe7c196e967da725dd41270623c3f1b6c92
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 3e9e304ebe1cc6d46b649918ece28d96476fe02e
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590891"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856676"
 ---
 <!--Verified Successfully-->
 <!--Not Available on Availability Zones-->
@@ -26,13 +26,13 @@ ms.locfileid: "94590891"
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>了解 VM 重启 - 维护和停机
 有三种情况可能会导致 Azure 中的虚拟机受影响：计划外硬件维护、意外停机、计划内维护。
 
-* 当 Azure 平台预测硬件或者与物理计算机关联的任何平台组件即将发生故障时，就会发生计划外硬件维护事件。 当预测到故障时，平台会发出计划外硬件维护事件，以便减少对托管在该硬件上的虚拟机的影响。 Azure 使用[实时迁移](./maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252flinux%252ftoc.json)技术将虚拟机从故障硬件迁移到正常的物理计算机。 实时迁移是一项 VM 保留操作，只能短时间暂停虚拟机。 将会保留内存、打开的文件以及网络连接，但事件前后的性能可能会降低。 在无法使用实时迁移的情况下，VM 会出现意外停机，如下所述。
+* 当 Azure 平台预测硬件或者与物理计算机关联的任何平台组件即将发生故障时，就会发生计划外硬件维护事件。 当预测到故障时，平台会发出计划外硬件维护事件，以便减少对托管在该硬件上的虚拟机的影响。 Azure 使用[实时迁移](./maintenance-and-updates.md?bc=%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fvirtual-machines%2flinux%2ftoc.json%253ftoc%253d%2fvirtual-machines%2flinux%2ftoc.json)技术将虚拟机从故障硬件迁移到正常的物理计算机。 实时迁移是一项 VM 保留操作，只能短时间暂停虚拟机。 将会保留内存、打开的文件以及网络连接，但事件前后的性能可能会降低。 在无法使用实时迁移的情况下，VM 会出现意外停机，如下所述。
 
 * 意外停机指虚拟机的硬件或物理基础设施意外出现故障。 此类故障可能包括：本地网络故障、本地磁盘故障，或者其他机架级别的故障。 检测到此类故障时，Azure 平台会自动将虚拟机迁移到同一数据中心内的正常物理机（进行修复）。 在修复过程中，虚拟机会经历停机（重启），在某些情况下会丢失临时驱动器。 始终会保留附加的 OS 和数据磁盘。
 
-  在发生会影响整个数据中心甚至整个区域的服务中断或灾难时（这种情况很少见），虚拟机也可能会停机。 针对这些情况，Azure 提供了保护选项[配对区域](regions.md#region-pairs)。
+    在发生会影响整个数据中心甚至整个区域的服务中断或灾难时（这种情况很少见），虚拟机也可能会停机。 针对这些情况，Azure 提供了保护选项[配对区域](regions.md#region-pairs)。
 
-<!--Not Available on [availability zones](../availability-zones/az-overview.md)-->
+    <!--Not Available on [availability zones](../availability-zones/az-overview.md)-->
 
 * **计划内维护事件** 是指由 Azure 对底层 Azure 平台进行的定期更新，用于改进虚拟机运行时所在的平台基础结构的总体可靠性、性能和安全性。 大多数此类更新在执行时不会影响虚拟机或云服务（请参阅[不需要重新启动的维护](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot)）。 虽然 Azure 平台会尝试在所有可能的情况下都使用 VM 保留维护，但在罕见情况下，这些更新需要重启虚拟机，否则无法将所需更新应用到底层基础结构。 在这种情况下，可以在合适的时间窗口为 VM 启动维护，通过“维护-重新部署”操作来执行 Azure 计划内维护。 有关详细信息，请参阅[虚拟机的计划内维护](maintenance-and-updates.md)。
 
@@ -46,8 +46,6 @@ ms.locfileid: "94590891"
 * 将每个应用程序层配置到不同的可用性集中
 
 <!--Not Available on * Combine a load balancer with availability zones or sets-->
-<!--Not Available on * Use availability zones to protect from datacenter level failures-->
-
 <!--Not Available on ## Use availability zones to protect from datacenter level failures-->
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>在可用性集中配置多个虚拟机以确保冗余
@@ -118,7 +116,7 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 
 如果没有将负载均衡器配置为对多个虚拟机上的流量进行平衡，则任何计划内维护事件都会影响唯一的那个处理流量的虚拟机，导致应用程序层中断。 将同一层的多个虚拟机置于相同的负载均衡器和可用性集下可以确保至少有一个虚拟机实例能够持续处理流量。
 
-<!--Not Available on [Load balance VMs across all availability zones by using the Azure CLI](../articles/load-balancer/load-balancer-standard-public-zone-redundant-cli.md)-->
+<!--Not Available on [Tutorial: Load balance VMs across availability zones with a Standard Load Balancer using the Azure portal](../load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md)-->
 
 ## <a name="next-steps"></a>后续步骤
 若要了解对虚拟机进行负载均衡的详细信息，请参阅[对虚拟机进行负载均衡](../load-balancer/load-balancer-overview.md)。

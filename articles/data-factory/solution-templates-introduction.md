@@ -11,13 +11,13 @@ author: WenJason
 manager: digimobile
 ms.custom: seo-lt-2019
 origin.date: 01/04/2019
-ms.date: 09/21/2020
-ms.openlocfilehash: ec9b71c59104920ba0b019a8d9d2cbedca1bb4c1
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.date: 01/04/2020
+ms.openlocfilehash: 0fc041af8731473fe01bc70061f0e9987caddd51
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524048"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830180"
 ---
 # <a name="templates"></a>模板
 
@@ -29,11 +29,11 @@ ms.locfileid: "90524048"
 
 可通过以下两种方式，开始从模板创建数据工厂管道：
 
-1.  在“概述”页上选择“从模板创建管道”打开模板库。****
+1.  在“概述”页上选择“从模板创建管道”打开模板库。
 
     ![从“概述”页打开模板库](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  在资源浏览器中的“创作”选项卡上选择 **+** ，然后选择“模板中的管道”打开模板库。****
+1.  在资源浏览器中的“创作”选项卡上选择 **+** ，然后选择“模板中的管道”打开模板库。
 
     ![从“创作”页打开模板库](media/solution-templates-introduction/templates-intro-image2.png)
 
@@ -67,9 +67,9 @@ ms.locfileid: "90524048"
 
         -   从本地 SQL Server 复制到 Azure SQL 数据库
 
-        -   从本地 SQL Server 到 Azure Synapse Analytics（以前称为 SQL 数据仓库）
+        -   从本地 SQL Server 复制到 Azure Synapse Analytics
 
-        -   从本地 Oracle 到 Azure Synapse Analytics（以前称为 SQL 数据仓库）
+        -   从本地 Oracle 复制到 Azure Synapse Analytics
 
 -   SSIS 模板
 
@@ -77,11 +77,11 @@ ms.locfileid: "90524048"
 
 ### <a name="my-templates"></a>我的模板
 
-还可以通过在“管道”选项卡上选择“另存为模板”，将管道另存为模板。****
+还可以通过在“管道”选项卡上选择“另存为模板”，将管道另存为模板。
 
 ![将管道另存为模板](media/solution-templates-introduction/templates-intro-image4.png)
 
-可以在模板库的“我的模板”部分查看另存为模板的管道。**** 也可以在资源浏览器的“模板”部分查看这些管道。****
+可以在模板库的“我的模板”部分查看另存为模板的管道。 也可以在资源浏览器的“模板”部分查看这些管道。
 
 ![我的模板](media/solution-templates-introduction/templates-intro-image5.png)
 

@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 03/23/2020
-ms.date: 12/10/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 60d6043b06f2deaf6b40c674f1a21d97d557152a
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 0e3541f35ce079beaf5d1fdef45258ec81ee9962
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003561"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820305"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>通过语音合成标记语言 (SSML) 改善合成
 
@@ -33,6 +33,11 @@ SSML 的语音服务实现基于万维网联合会的[语音合成标记语言�
 从标准和神经语音中选择，或创建自己产品或品牌特有的自定义语音。 40 多种标准语音可在 10 种以上的语言和区域设置中使用，5 种神经语音可在 4 种语言和区域设置中使用。 有关支持的语言、区域设置和语音（神经和标准）的完整列表，请参阅[语言支持](language-support.md)。
 
 若要详细了解标准、神经和自定义语音，请参阅[文本转语音概述](text-to-speech.md)。
+
+
+> [!NOTE]
+> 可以使用[“文本转语音”页面](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features)听到不同风格和音调的声音阅读示例文本。
+
 
 ## <a name="special-characters"></a>特殊字符
 
@@ -57,7 +62,7 @@ SSML 的语音服务实现基于万维网联合会的[语音合成标记语言�
 
 **属性**
 
-| 属性 | 描述 | 必需/可选 |
+| 属性 | 说明 | 必需/可选 |
 |-----------|-------------|---------------------|
 | `version` | 指示用于解释文档标记的 SSML 规范的版本。 当前版本为 1.0。 | 必须 |
 | `xml:lang` | 指定根文档的语言。 该值可以包含小写的双字母语言代码（例如 `en`），或者语言代码加上大写的国家/地区代码（例如 `en-US`）。 | 必须 |
@@ -77,7 +82,7 @@ SSML 的语音服务实现基于万维网联合会的[语音合成标记语言�
 
 **属性**
 
-| 属性 | 描述 | 必需/可选 |
+| 属性 | 说明 | 必需/可选 |
 |-----------|-------------|---------------------|
 | `name` | 标识用于文本转语音输出的语音。 有关支持的语音的完整列表，请参阅[语言支持](language-support.md#text-to-speech)。 | 必须 |
 
@@ -100,7 +105,7 @@ SSML 的语音服务实现基于万维网联合会的[语音合成标记语言�
 
 **属性**
 
-| 属性 | 描述 | 必需/可选 |
+| 属性 | 说明 | 必需/可选 |
 |-----------|-------------|---------------------|
 | `name` | 标识用于文本转语音输出的语音。 有关支持的语音的完整列表，请参阅[语言支持](language-support.md#text-to-speech)。 | 必须 |
 
@@ -201,6 +206,7 @@ speechConfig!.setPropertyTo(
 * `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunyeNeural`
 * `zh-CN-YunxiNeural`（预览版）
 * `zh-CN-XiaohanNeural`（预览版）
 * `zh-CN-XiaomoNeural`（预览版）
@@ -272,7 +278,14 @@ speechConfig!.setPropertyTo(
 |                         | `style="gentle"`          | 以较低的音调和音量表达温和、礼貌和愉快的语气         |   
 |                         | `style="lyrical"`         | 以优美又带感伤的方式表达情感         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | 以友好热情的语气为客户提供支持  | 
-| `zh-CN-YunxiNeural`    | `style="cheerful"`        | 以较高的音调和音量表达欢快、热情的语气                         |
+| `zh-CN-YunyeNeural`     | `style="calm"`            | 以沉着冷静的态度说话。 语气、音调、韵律与其他语音类型相比要统一得多。    | 
+|                         | `style="cheerful"`        | 以较高的音调和音量表达欢快、热情的语气                         |
+|                         | `style="sad"`             | 以较高的音调、较低的强度和较低的音量表达悲伤的语气。 这种情绪的常见特征是说话时呜咽或哭泣。            |
+|                         | `style="angry"`           | 以较低的音调、较高的强度和较高的音量来表达恼怒的语气。 说话者处于愤怒、生气和被冒犯的状态。       |
+|                         | `style="fearful"`         | 以较高的音调、较高的音量和较快的语速来表达恐惧、紧张的语气。 说话者处于紧张和不安的状态。                          |
+|                         | `style="disgruntled"`     | 表达轻蔑和抱怨的语气。 这种情绪的语音表现出不悦和蔑视。              |
+|                         | `style="serious"`         | 表达严肃和命令的语气。 说话者的声音通常比较僵硬，节奏也不那么轻松。          |
+| `zh-CN-YunxiNeural`     | `style="cheerful"`        | 以较高的音调和音量表达欢快、热情的语气                         |
 |                         | `style="sad"`             | 以较高的音调、较低的强度和较低的音量表达悲伤的语气。 这种情绪的常见特征是说话时呜咽或哭泣。            |
 |                         | `style="angry"`           | 以较低的音调、较高的强度和较高的音量来表达恼怒的语气。 说话者处于愤怒、生气和被冒犯的状态。       |
 |                         | `style="fearful"`         | 以较高的音调、较高的音量和较快的语速来表达恐惧、紧张的语气。 说话者处于紧张和不安的状态。                          |
@@ -658,7 +671,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 | 属性 | 说明 | 必需/可选 |
 |-----------|-------------|---------------------|
-| `pitch` | 指示文本的基线音节。 可将音节表述为：<ul><li>以某个数字后接“Hz”（赫兹）表示的绝对值。 例如 `<prosody pitch="600Hz">some text</prosody>`。</li><li>以前面带有“+”或“-”的数字，后接“Hz”或“st”（用于指定音节的变化量）表示的相对值。 例如 `<prosody pitch="+80Hz">some text</prosody>` 或 `<prosody pitch="-2st">some text</prosody>`。 “st”表示变化单位为半音，即，标准全音阶中的半调（半步）。</li><li>常量值：<ul><li>x-low</li><li>low</li><li>中</li><li>high</li><li>x-high</li><li>默认值</li></ul></li></ul> | 可选 |
+| `pitch` | 指示文本的基线音节。 可将音节表述为：<ul><li>以某个数字后接“Hz”（赫兹）表示的绝对值。 例如，`<prosody pitch="600Hz">some text</prosody>` 。</li><li>以前面带有“+”或“-”的数字，后接“Hz”或“st”（用于指定音节的变化量）表示的相对值。 例如 `<prosody pitch="+80Hz">some text</prosody>` 或 `<prosody pitch="-2st">some text</prosody>`。 “st”表示变化单位为半音，即，标准全音阶中的半调（半步）。</li><li>常量值：<ul><li>x-low</li><li>low</li><li>中</li><li>high</li><li>x-high</li><li>默认值</li></ul></li></ul> | 可选 |
 | `contour` |调型现在同时支持神经语音和标准语音。 调型表示音节的变化。 这些变化以语音输出中指定时间处的目标数组形式表示。 每个目标由参数对的集定义。 例如： <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>每参数集中的第一个值以文本持续时间百分比的形式指定音节变化的位置。 第二个值使用音节的相对值或枚举值指定音节的升高或降低量（请参阅 `pitch`）。 | 可选 |
 | `range` | 表示文本音节范围的值。 可以使用用于描述 `pitch` 的相同绝对值、相对值或枚举值表示 `range`。 | 可选 |
 | `rate` | 指示文本的讲出速率。 可将 `rate` 表述为：<ul><li>以充当默认值倍数的数字表示的相对值。 例如，如果值为 *1*，则速率不会变化。 如果值为 *0.5*，则速率会减慢一半。 如果值为 *3*，则速率为三倍。</li><li>常量值：<ul><li>x-slow</li><li>slow</li><li>中</li><li>fast</li><li>x-fast</li><li>默认值</li></ul></li></ul> | 可选 |

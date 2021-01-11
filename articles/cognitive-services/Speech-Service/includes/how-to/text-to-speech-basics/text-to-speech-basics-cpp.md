@@ -3,14 +3,14 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 03/25/2020
-ms.date: 11/20/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: ae3660f945e2027c2cb7da6dd51874fe36d78333
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: bd5a6c99b4fcdd06911c175df70c7ef6d0cfb104
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95970787"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820681"
 ---
 本快速入门介绍使用语音 SDK 进行文本到语音合成的常见设计模式。 首先，请进行基本的配置和合成，然后通过更高级的示例来了解自定义应用程序开发，其中包括：
 
@@ -166,6 +166,9 @@ void synthesizeSpeech()
 若要更改音频格式，请对 `SpeechConfig` 对象使用 `SetSpeechSynthesisOutputFormat()` 函数。 此函数需要 [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat) 类型的 `enum`，用于选择输出格式。 请参阅参考文档，获取可用的[音频格式列表](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat)。
 
 可根据要求对不同的文件类型使用不同的选项。 请注意，根据定义，`Raw24Khz16BitMonoPcm` 等原始格式不包括音频标头。 仅当你知道下游实现可以解码原始位流，或者你打算基于位深度、采样率、通道数等属性手动生成标头时，才使用原始格式。
+
+> [!NOTE]
+> 语音 en-US-AriaRUS 和 en-US-GuyRUS 是基于 `Riff24Khz16BitMonoPcm` 采样率编码的示例创建的 。
 
 此示例通过对 `SpeechConfig` 对象设置 `SpeechSynthesisOutputFormat` 来指定高保真 RIFF 格式 `Riff24Khz16BitMonoPcm`。 类似于上一部分中的示例，可以使用 [`AudioDataStream`](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) 获取结果的内存中流，然后将其写入文件。
 

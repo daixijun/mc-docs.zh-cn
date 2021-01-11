@@ -11,25 +11,25 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, emlisa
-origin.date: 09/21/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 85d69ef4a54af583e95979185859bc1b877c39ff
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+origin.date: 10/26/2020
+ms.date: 12/14/2020
+ms.openlocfilehash: 6a56dd87ac3f31025b85b5276ff0169d19668146
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872367"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830237"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Azure SQL 数据库和 Azure SQL 托管实例安全功能概述
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-本文概述使用 [Azure SQL 数据库](sql-database-paas-overview.md)和 [Azure SQL 托管实例](../managed-instance/sql-managed-instance-paas-overview.md)保护应用程序数据层的基础知识。 所述的安全策略遵循如下图所示的分层深度防御方法，并从外向内移动：
+本文概述使用 [Azure SQL 数据库](sql-database-paas-overview.md)、[Azure SQL 托管实例](../managed-instance/sql-managed-instance-paas-overview.md)和 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 保护应用程序数据层的基础知识。 所述的安全策略遵循如下图所示的分层深度防御方法，并从外向内移动：
 
 ![分层深度防御的关系图。 客户数据将包含在网络安全层、访问管理层以及威胁和信息保护层中。](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>网络安全性
 
-Azure SQL 数据库和 SQL 托管实例为云和企业应用程序提供关系数据库服务。 为了帮助保护客户数据，防火墙会阻止对服务器的网络访问，直到根据 IP 地址或 Azure 虚拟网络流量源显式授予访问权限。
+Azure SQL 数据库、SQL 托管实例和 Azure Synapse Analytics 为云和企业应用程序提供关系数据库服务。 为了帮助保护客户数据，防火墙会阻止对服务器的网络访问，直到根据 IP 地址或 Azure 虚拟网络流量源显式授予访问权限。
 
 ### <a name="ip-firewall-rules"></a>IP 防火墙规则
 
@@ -37,7 +37,7 @@ IP 防火墙规则基于每个请求的起始 IP 地址授予对数据库的访�
 
 ### <a name="virtual-network-firewall-rules"></a>虚拟网络防火墙规则
 
-[虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)将虚拟网络连接扩展到 Azure 主干网，并使 Azure SQL 数据库能够识别作为流量来源的虚拟网络子网。 若要允许流量到达 Azure SQL 数据库，请使用 SQL [服务标记](../../virtual-network/security-overview.md)，以允许出站流量通过网络安全组。
+[虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)将虚拟网络连接扩展到 Azure 主干网，并使 Azure SQL 数据库能够识别作为流量来源的虚拟网络子网。 若要允许流量到达 Azure SQL 数据库，请使用 SQL [服务标记](../../virtual-network/network-security-groups-overview.md)，以允许出站流量通过网络安全组。
 
 [虚拟网络规则](vnet-service-endpoint-rule-overview.md)使 Azure SQL 数据库仅接受从虚拟网络中的所选子网发送的通信。
 
@@ -47,7 +47,7 @@ IP 防火墙规则基于每个请求的起始 IP 地址授予对数据库的访�
 ## <a name="access-management"></a>访问管理
 
 > [!IMPORTANT]
-> 管理 Azure 中的数据库和服务器由门户用户帐户的角色分配控制。 有关本文的详细信息，请参阅 [Azure 门户中基于角色的访问控制](../../role-based-access-control/overview.md)。
+> 管理 Azure 中的数据库和服务器由门户用户帐户的角色分配控制。 有关本文的详细信息，请参阅 [Azure 门户中 Azure 基于角色的访问控制](../../role-based-access-control/overview.md)。
 
 ### <a name="authentication"></a>身份验证
 
@@ -66,7 +66,7 @@ IP 防火墙规则基于每个请求的起始 IP 地址授予对数据库的访�
     其他可用的 Azure AD 身份验证选项包括[适用于 SQL Server Management Studio 的 Active Directory 通用身份验证](authentication-mfa-ssms-overview.md)连接，例如[多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)。
 
 > [!IMPORTANT]
-> 管理 Azure 中的数据库和服务器由门户用户帐户的角色分配控制。 有关本文的详细信息，请参阅 [Azure 门户中基于角色的访问控制](../../role-based-access-control/overview.md)。 使用防火墙规则控制访问权限不应用于“SQL 托管实例”。 有关所需网络配置的详细信息，请参阅以下有关[连接到托管实例](../managed-instance/connect-application-instance.md)的文章。
+> 管理 Azure 中的数据库和服务器由门户用户帐户的角色分配控制。 有关本文的详细信息，请参阅 [Azure 门户中 Azure 基于角色的访问控制](../../role-based-access-control/overview.md)。 使用防火墙规则控制访问权限不应用于“SQL 托管实例”。 有关所需网络配置的详细信息，请参阅以下有关[连接到托管实例](../managed-instance/connect-application-instance.md)的文章。
 
 ## <a name="authorization"></a>授权
 
@@ -98,11 +98,11 @@ SQL 数据库和 SQL 托管实例审核可跟踪数据库活动，通过将数�
 
 ### <a name="transport-layer-security-encryption-in-transit"></a>传输层安全性（传输中加密）
 
-SQL 数据库和 SQL 托管实例通过使用[传输层安全性 (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) 加密动态数据来保护客户数据。
+SQL 数据库、SQL 托管实例和 Azure Synapse Analytics 通过使用[传输层安全性 (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) 加密动态数据来保护客户数据。
 
-对于所有连接，SQL 数据库和 SQL 托管实例始终强制执行加密 (SSL/TLS)。 这样可以确保在客户端与服务器之间传输的所有数据经过加密，而不管连接字符串中的 **Encrypt** 或 **TrustServerCertificate** 设置如何。
+对于所有连接，SQL 数据库、SQL 托管实例和 Azure Synapse Analytics 始终强制执行加密 (SSL/TLS)。 这样可以确保在客户端与服务器之间传输的所有数据经过加密，而不管连接字符串中的 **Encrypt** 或 **TrustServerCertificate** 设置如何。
 
-作为最佳做法，建议在应用程序使用的连接字符串中指定加密的连接，而“不要”信任服务器证书__。 这会强制应用程序验证服务器证书，从而防止应用程序容易受到中间人类型的攻击。
+作为最佳做法，建议在应用程序使用的连接字符串中指定加密的连接，而“不要”信任服务器证书。 这会强制应用程序验证服务器证书，从而防止应用程序容易受到中间人类型的攻击。
 
 例如，在使用 ADO.NET 驱动程序时，这是通过 **Encrypt=True** 和 **TrustServerCertificate=False** 实现的。 如果是从 Azure 门户中获取连接字符串，则它将具有正确的设置。
 
@@ -113,7 +113,7 @@ SQL 数据库和 SQL 托管实例通过使用[传输层安全性 (TLS)](https://
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>透明数据加密（静态加密）
 
-[Azure SQL 数据库和 SQL 托管实例的透明数据加密 (TDE)](transparent-data-encryption-tde-overview.md) 进一步加强了安全性，帮助保护静态数据不受未经授权或脱机访问原始文件或备份的影响。 常见方案包括数据中心被盗或对硬件或媒体（如磁盘驱动器和备份磁带）的不安全处置。 TDE 使用 AES 加密算法加密整个数据库，无需应用程序开发人员对现有应用程序进行任何更改。
+[SQL 数据库、SQL 托管实例和 Azure Synapse Analytics 的透明数据加密 (TDE)](transparent-data-encryption-tde-overview.md) 进一步加强了安全性，帮助保护静态数据不受未经授权或脱机访问原始文件或备份的影响。 常见方案包括数据中心被盗或对硬件或媒体（如磁盘驱动器和备份磁带）的不安全处置。 TDE 使用 AES 加密算法加密整个数据库，无需应用程序开发人员对现有应用程序进行任何更改。
 
 在 Azure 中，所有新创建的数据库都默认处于加密状态，且数据库加密密钥通过一个内置的服务器证书保护。  证书维护和轮换由服务管理，无需用户输入。 喜欢控制加密密钥的客户可以管理 [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md) 中的密钥。
 

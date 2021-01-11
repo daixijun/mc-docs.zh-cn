@@ -1,23 +1,23 @@
 ---
-title: 设置警报和通知（Azure 门户）
+title: 在 Azure 门户中设置警报和通知
 description: 使用 Azure 门户创建警报，以便在满足指定的条件时触发通知或自动化操作。
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: wiassaf, sstein
 origin.date: 05/04/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: a697cb1d50e0057545f1e21159ec53468bcfa383
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 01/04/2021
+ms.openlocfilehash: 37654e7cb66f6d15036c5603de85b4912d88b79d
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872442"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830273"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>使用 Azure 门户为 Azure SQL 数据库和 Azure Synapse Analytics 创建警报
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "91872442"
 
 ## <a name="overview"></a>概述
 
-本文介绍如何使用 Azure 门户为 Azure SQL 数据库和 Azure Synapse Analytics（以前称为 SQL 数据仓库）中的数据库设置警报。 当某些指标（例如数据库大小或 CPU 使用率）达到阈值时，警报可以向你发送电子邮件或调用 Webhook。
+本文介绍如何使用 Azure 门户为 Azure SQL 数据库和 Azure Synapse Analytics 中的数据库设置警报。 当某些指标（例如数据库大小或 CPU 使用率）达到阈值时，警报可以向你发送电子邮件或调用 Webhook。
 
 > [!NOTE]
 > 有关 Azure SQL 托管实例的具体说明，请参阅[为 Azure SQL 托管实例创建警报](../managed-instance/alerts-create.md)。
@@ -46,7 +46,7 @@ ms.locfileid: "91872442"
 * [Azure 门户](../../azure-monitor/platform/alerts-classic-portal.md)
 * [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
 * [命令行接口 (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure 监视器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure 监视器 REST API](https://docs.microsoft.com/rest/api/monitor/alertrules)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>使用 Azure 门户创建指标的警报规则
 

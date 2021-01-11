@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 origin.date: 08/28/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8d5d69cde813e3d60d7677b38081a8bdedfb33c3
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b9d473c6498b303227fefae6379f924bfacfa49e
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104567"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857146"
 ---
 <!--Verify sucessfully-->
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure 对第 2 代 VM 的支持
@@ -37,9 +37,9 @@ Azure 中的所有 VM 大小都支持第 1 代 VM（Mv2 系列 VM 除外）。 A
 
 * [B 系列](sizes-b-series-burstable.md)
     
-    <!--Not Available on * [DC-series](dcv2-series.md)-->
+    <!--Not Available on * [DCsv2-series](dcv2-series.md)-->
     
-* [Dsv2 系列](dv2-dsv2-series.md) 
+* [DSv2 系列](dv2-dsv2-series.md)
 * [Dsv3 系列](dv3-dsv3-series.md)
 * [Dsv4 系列](dv4-dsv4-series.md)
     
@@ -47,9 +47,11 @@ Azure 中的所有 VM 大小都支持第 1 代 VM（Mv2 系列 VM 除外）。 A
     
 * [Ddsv4 系列](ddv4-ddsv4-series.md)
 * [Esv3 系列](ev3-esv3-series.md)
+* [Esv4 系列](ev4-esv4-series.md)
 
     <!--Not Available on * [Easv4-series](eav4-easv4-series.md)-->
     
+* [Edsv4 系列](edv4-edsv4-series.md)
 * [Fsv2 系列](fsv2-series.md)
 
     <!--Not Available on * [GS-series](sizes-previous-gen.md#gs-series)-->
@@ -66,8 +68,9 @@ Azure 中的所有 VM 大小都支持第 1 代 VM（Mv2 系列 VM 除外）。 A
 
     <!--Not Available on * [ND-series](nd-series.md)-->
     <!--Not Available on * [NVv3-series](nvv3-series.md)-->
-
-<!--Not Available on Mv2-Series on MC-->
+    <!--Not Available on * [NVv4-series](nvv4-series.md)-->
+    <!--Not Available on * [NCasT4_v3-series](nct4-v3-series.md)-->
+    <!--Not Available on Mv2-Series on MC-->
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Azure 市场中的第 2 代 VM 映像
 
@@ -78,7 +81,6 @@ Azure 中的所有 VM 大小都支持第 1 代 VM（Mv2 系列 VM 除外）。 A
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04、18.04、19.04、19.10 
-    
 * Cent OS 8.1、8.0、7.7、7.6、7.5、7.4
 
 <!--Not Available * Oracle Linux 7.7, 7.7-CI-->
@@ -118,7 +120,8 @@ Azure 目前不支持本地 Hyper-V 对第 2 代 VM 所支持的某些特性。
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | 备份/还原                    | :heavy_check_mark: | :heavy_check_mark: |
 | 共享映像库              | :heavy_check_mark: | :heavy_check_mark: |
-| Azure 磁盘加密             | :heavy_check_mark: | :x:                |
+| [Azure 磁盘加密](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [服务器端加密](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>创建第 2 代 VM
 
@@ -183,10 +186,11 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
     是的。 但是，并非所有[第 2 代 VM 大小](#generation-2-vm-sizes)都已在每个区域中推出。 第 2 代 VM 的可用性取决于 VM 大小的可用性。
 
 * **第 1 代与第 2 代 VM 的价格是否有差别？**  
-    否。
+    不是。
 
 * **我有一个来自本地第 2 代 VM 的 .vhd 文件。我可以使用该 .vhd 文件在 Azure 中创建第 2 代 VM 吗？**
-  是的，你可以将第 2 代 .vhd 文件带到 Azure，并使用该文件创建第 2 代 VM。 请使用以下步骤来执行该操作：
+    
+    是的，你可以将第 2 代 .vhd 文件带到 Azure，并使用该文件创建第 2 代 VM。 请使用以下步骤来执行该操作：
     1. 将 .vhd 上传到你要创建 VM 的同一区域中的存储帐户。
     1. 从该 .vhd 文件创建托管磁盘。 将“Hyper-V Generation”属性设置为 V2。 以下 PowerShell 命令在创建托管磁盘时设置“Hyper-V Generation”属性。
 
@@ -202,17 +206,17 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
 
 * **如何增大 OS 磁盘的大小？**  
 
-  大于 2 TiB 的 OS 磁盘是第 2 代 VM 的新配置。 默认情况下，第 2 代 VM 的 OS 磁盘小于 2 TiB。 可将磁盘大小增大至 4 TiB（建议的最大大小）。 使用 Azure CLI 或 Azure 门户增大 OS 磁盘大小。 有关如何以编程方式扩展磁盘的信息，请参阅为 [Windows](./windows/expand-os-disk.md) 或 [Linux](./linux/resize-os-disk-gpt-partition.md) 调整磁盘大小。
+    大于 2 TiB 的 OS 磁盘是第 2 代 VM 的新配置。 默认情况下，第 2 代 VM 的 OS 磁盘小于 2 TiB。 可将磁盘大小增大至 4 TiB（建议的最大大小）。 使用 Azure CLI 或 Azure 门户增大 OS 磁盘大小。 有关如何以编程方式扩展磁盘的信息，请参阅为 [Windows](./windows/expand-os-disk.md) 或 [Linux](./linux/resize-os-disk-gpt-partition.md) 调整磁盘大小。
 
-  若要在 Azure 门户中增大 OS 磁盘大小：
+    若要在 Azure 门户中增大 OS 磁盘大小：
 
-  1. 在 Azure 门户中，转到 VM 属性页。
-  1. 若要关闭并解除分配 VM，请选择“停止”按钮。
-  1. 在“磁盘”部分，选择要增大的 OS 磁盘。
-  1. 在“磁盘”部分，选择“配置”并将“大小”更新为所需的值。  
-  1. 返回到 VM 属性页并 **启动** VM。
+    1. 在 Azure 门户中，转到 VM 属性页。
+    1. 若要关闭并解除分配 VM，请选择“停止”按钮。
+    1. 在“磁盘”部分，选择要增大的 OS 磁盘。
+    1. 在“磁盘”部分，选择“配置”并将“大小”更新为所需的值。  
+    1. 返回到 VM 属性页并 **启动** VM。
 
-  你可能会看到一条警告，指出 OS 磁盘大于 2 TiB。 该警告不适用于第 2 代 VM。 但是，不支持使用大于 4 TiB 的 OS 磁盘大小。
+    你可能会看到一条警告，指出 OS 磁盘大于 2 TiB。 该警告不适用于第 2 代 VM。 但是，不支持使用大于 4 TiB 的 OS 磁盘大小。
 
 * **第 2 代 VM 是否支持加速网络？**  
     是的。 有关详细信息，请参阅[创建具有加速网络的 VM](../virtual-network/create-vm-accelerated-networking-cli.md)。

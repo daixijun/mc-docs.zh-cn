@@ -1,24 +1,24 @@
 ---
-title: Linux 救援 VM 中的 Chroot 环境
+title: Linux 救援 VM 中的 Chroot 环境。
 description: 本文介绍如何排查 Linux 中救援虚拟机 (VM) 上的 chroot 环境问题。
 mservices: virtual-machines-linux
-manager: digimobile
+manager: dcscontentpm
 ms.service: virtual-machines-linux
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 origin.date: 05/05/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: 11/16/2020
 ms.author: v-yeche
-ms.openlocfilehash: c387d8e6e2f9172f32daa97b978fe4235e69e3a3
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 21526d826f342480ff32867b49db8a2bb9de905d
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590827"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857086"
 ---
 <!--Verified the Character Content-->
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Linux 救援 VM 中的 Chroot 环境
@@ -35,7 +35,7 @@ ms.locfileid: "94590827"
 
     1. 使用以下命令以 root 用户身份访问 VM：
 
-        `#sudo su -`
+        `sudo su -`
 
     1. 使用 `dmesg` 查找磁盘（用于发现新磁盘的方法可能各不相同）。 以下示例使用 **dmesg** 根据 **SCSI** 磁盘进行筛选：
 
@@ -54,17 +54,17 @@ ms.locfileid: "94590827"
     1. 使用以下命令访问 chroot 环境：
 
         ```
-        #mkdir /rescue
-        #mount /dev/sdc1 /rescue
-        #mount /dev/sdc15 /rescue/boot/efi
-        #cd /rescue
+        mkdir /rescue
+        mount /dev/sdc1 /rescue
+        mount /dev/sdc15 /rescue/boot/efi
+        cd /rescue
 
-        #mount -t proc proc proc
-        #mount -t sysfs sys sys/
-        #mount -o bind /dev dev/
-        #mount -o bind /dev/pts dev/pts/
-        #mount -o bind /run run/
-        #chroot /rescue
+        mount -t proc proc proc
+        mount -t sysfs sys sys/
+        mount -o bind /dev dev/
+        mount -o bind /dev/pts dev/pts/
+        mount -o bind /run run/
+        chroot /rescue
         ```
 
     1. 排查 chroot 环境问题。
@@ -72,16 +72,16 @@ ms.locfileid: "94590827"
     1. 使用以下命令退出 chroot 环境：
 
         ```
-        #exit
+        exit
 
-        #umount /rescue/proc/
-        #umount /rescue/sys/
-        #umount /rescue/dev/pts
-        #umount /rescue/dev/
-        #umount /rescue/run
-        #cd /
-        #umount /rescue/boot/efi
-        #umount /rescue
+        umount /rescue/proc/
+        umount /rescue/sys/
+        umount /rescue/dev/pts
+        umount /rescue/dev/
+        umount /rescue/run
+        cd /
+        umount /rescue/boot/efi
+        umount /rescue
         ```
 
         > [!NOTE]
@@ -105,7 +105,7 @@ ms.locfileid: "94590827"
 
     1. 使用以下命令以 root 用户身份访问 VM：
 
-        `#sudo su -`
+        `sudo su -`
 
     1. 使用 `dmesg` 查找磁盘（用于发现新磁盘的方法可能各不相同）。 以下示例使用 **dmesg** 根据 **SCSI** 磁盘进行筛选：
 
@@ -124,17 +124,17 @@ ms.locfileid: "94590827"
     1. 使用以下命令访问 chroot 环境：
 
         ```
-        #mkdir /rescue
-        #mount -o nouuid /dev/sdc2 /rescue
-        #mount -o nouuid /dev/sdc1 /rescue/boot/
-        #cd /rescue
+        mkdir /rescue
+        mount -o nouuid /dev/sdc2 /rescue
+        mount -o nouuid /dev/sdc1 /rescue/boot/
+        cd /rescue
 
-        #mount -t proc proc proc
-        #mount -t sysfs sys sys/
-        #mount -o bind /dev dev/
-        #mount -o bind /dev/pts dev/pts/
-        #mount -o bind /run run/
-        #chroot /rescue
+        mount -t proc proc proc
+        mount -t sysfs sys sys/
+        mount -o bind /dev dev/
+        mount -o bind /dev/pts dev/pts/
+        mount -o bind /run run/
+        chroot /rescue
         ```
 
     1. 排查 chroot 环境问题。
@@ -142,16 +142,16 @@ ms.locfileid: "94590827"
     1. 使用以下命令退出 chroot 环境：
 
         ```
-        #exit
+        exit
 
-        #umount /rescue/proc/
-        #umount /rescue/sys/
-        #umount /rescue/dev/pts
-        #umount /rescue/dev/
-        #umount /rescue/run
-        #cd /
-        #umount /rescue/boot/
-        #umount /rescue
+        umount /rescue/proc/
+        umount /rescue/sys/
+        umount /rescue/dev/pts
+        umount /rescue/dev/
+        umount /rescue/run
+        cd /
+        umount /rescue/boot/
+        umount /rescue
         ```
 
         > [!NOTE]
@@ -162,7 +162,7 @@ ms.locfileid: "94590827"
 1. 从救援 VM 中分离磁盘，并执行与原始 VM 之间的磁盘交换。
 1. 启动原始 VM 并检查其连接状态。
 
-## <a name="rhelcentos-7x-with-lvm"></a>包含 LVM 的 RHEL/Centos 7.x
+## <a name="centos-7x-with-lvm"></a>具有 LVM 的 Centos 7.x
 
    > [!NOTE]
    > 如果原始 VM 的 OS 磁盘包含逻辑卷管理器 (LVM)，请在 OS 磁盘上使用包含 Raw 分区的映像创建救援 VM。
@@ -175,7 +175,7 @@ ms.locfileid: "94590827"
 
     1. 使用以下命令以 root 用户身份访问 VM：
 
-        `#sudo su -`
+        `sudo su -`
 
     1. 使用 `dmesg` 查找磁盘（用于发现新磁盘的方法可能各不相同）。 以下示例使用 **dmesg** 根据 **SCSI** 磁盘进行筛选：
 
@@ -194,9 +194,9 @@ ms.locfileid: "94590827"
     1. 使用以下命令激活逻辑卷组：
 
         ```
-        #vgscan --mknodes
-        #vgchange -ay
-        #lvscan
+        vgscan --mknodes
+        vgchange -ay
+        lvscan
         ```
 
     1. 使用 `lsblk` 命令检索 LVM 名称：
@@ -225,23 +225,23 @@ ms.locfileid: "94590827"
     1. 使用以下命令访问 chroot 环境：
 
         ```
-        #mkdir /rescue
-        #mount /dev/mapper/rootvg-rootlv /rescue
-        #mount /dev/mapper/rootvg-varlv /rescue/var
-        #mount /dev/mapper/rootvg-homelv /rescue/home
-        #mount /dev/mapper/rootvg-usrlv /rescue/usr
-        #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-        #mount /dev/mapper/rootvg-optlv /rescue/opt
-        #mount /dev/sdc2 /rescue/boot/
-        #mount /dev/sdc1 /rescue/boot/efi
-        #cd /rescue
+        mkdir /rescue
+        mount /dev/mapper/rootvg-rootlv /rescue
+        mount /dev/mapper/rootvg-varlv /rescue/var
+        mount /dev/mapper/rootvg-homelv /rescue/home
+        mount /dev/mapper/rootvg-usrlv /rescue/usr
+        mount /dev/mapper/rootvg-tmplv /rescue/tmp
+        mount /dev/mapper/rootvg-optlv /rescue/opt
+        mount /dev/sdc2 /rescue/boot/
+        mount /dev/sdc1 /rescue/boot/efi
+        cd /rescue
 
-        #mount -t proc proc proc
-        #mount -t sysfs sys sys/
-        #mount -o bind /dev dev/
-        #mount -o bind /dev/pts dev/pts/
-        #mount -o bind /run run/
-        #chroot /rescue
+        mount -t proc proc proc
+        mount -t sysfs sys sys/
+        mount -o bind /dev dev/
+        mount -o bind /dev/pts dev/pts/
+        mount -o bind /run run/
+        chroot /rescue
         ```
 
     1. 排查 chroot 环境问题。
@@ -249,22 +249,22 @@ ms.locfileid: "94590827"
     1. 使用以下命令退出 chroot 环境：
 
         ```
-        #exit
+        exit
 
-        #umount /rescue/proc/
-        #umount /rescue/sys/
-        #umount /rescue/dev/pts
-        #umount /rescue/dev/
-        #umount /rescue/run
-        #cd /
-        #umount /rescue/boot/efi
-        #umount /rescue/boot
-        #umount /rescue/home
-        #umount /rescue/var
-        #umount /rescue/usr
-        #umount /rescue/tmp
-        #umount /rescue/opt
-        #umount /rescue
+        umount /rescue/proc/
+        umount /rescue/sys/
+        umount /rescue/dev/pts
+        umount /rescue/dev/
+        umount /rescue/run
+        cd /
+        umount /rescue/boot/efi
+        umount /rescue/boot
+        umount /rescue/home
+        umount /rescue/var
+        umount /rescue/usr
+        umount /rescue/tmp
+        umount /rescue/opt
+        umount /rescue
         ```
 
         > [!NOTE]
@@ -275,12 +275,10 @@ ms.locfileid: "94590827"
 1. 从救援 VM 中分离磁盘，并执行与原始 VM 之间的磁盘交换。
 1. 启动原始 VM 并检查其连接状态。
 
-<!--Not Available on ## RHEL 8.x with LVM-->
-<!--Not Available on ## Oracle 7.x-->
+## <a name="centos-8x-with-lvm"></a>具有 LVM 的 CentOS 8.x
 
-## <a name="suse-sles-12-sp4-suse-sles-12-sp4-for-sap---suse-sles-15-sp1-suse-sles-15-sp1-for-sap"></a>SUSE-SLES 12 SP4、SUSE-SLES 12 SP4 For SAP 以及 ## SUSE-SLES 15 SP1、SUSE-SLES 15 SP1 For SAP
-
-<!--CORRECT TO REMOVE ## IN ABOVE H2 TITLE-->
+> [!NOTE]
+> 如果原始 VM 的 OS 磁盘包含逻辑卷管理器 (LVM)，请在 OS 磁盘上使用包含 Raw 分区的映像创建救援 VM。
 
 1. 停止或解除分配受影响的 VM。
 1. 使用托管磁盘在同一资源组 (RSG) 和位置中创建 OS 版本相同的救援 VM 映像。
@@ -290,7 +288,116 @@ ms.locfileid: "94590827"
 
     1. 使用以下命令以 root 用户身份访问 VM：
 
-        `#sudo su -`
+        `sudo su -`
+
+    1. 使用 `dmesg` 查找磁盘（用于发现新磁盘的方法可能各不相同）。 以下示例使用 **dmesg** 根据 **SCSI** 磁盘进行筛选：
+
+        `dmesg | grep SCSI`
+
+        输出类似于以下示例。 在此示例中，我们想要查找 **sdc** 磁盘：
+
+        ```
+        [    0.294784] SCSI subsystem initialized
+        [    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
+        [    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
+        [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
+        [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+        ```
+
+    1. 使用以下命令激活逻辑卷组：
+
+        ```
+        vgscan --mknodes
+        vgchange -ay
+        lvscan
+        ```
+
+    1. 使用 `lsblk` 命令检索 LVM 名称：
+
+        ```
+        [user@myvm ~]$ lsblk
+        NAME              MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+        sda                 8:0    0   64G  0 disk
+        ├─sda1              8:1    0  500M  0 part /boot
+        ├─sda2              8:2    0   63G  0 part /
+        sdb                 8:16   0    4G  0 disk
+        └─sdb1              8:17   0    4G  0 part /mnt/resource
+        sdc                 8:0    0   64G  0 disk
+        ├─sdc1              8:1    0  500M  0 part
+        ├─sdc2              8:2    0   63G  0 part
+        │ ├─rootvg-tmplv  253:0    0    2G  0 lvm  
+        │ ├─rootvg-usrlv  253:1    0   10G  0 lvm  
+        │ ├─rootvg-homelv 253:2    0    1G  0 lvm  
+        │ ├─rootvg-varlv  253:3    0    8G  0 lvm  
+        │ └─rootvg-rootlv 253:4    0    2G  0 lvm  
+        ├─sdc14             8:14   0    4M  0 part
+        └─sdc15             8:15   0  495M  0 part
+        ```
+
+    1. 使用以下命令访问 chroot 环境：
+
+        ```
+        mkdir /rescue
+        mount /dev/mapper/rootvg-rootlv /rescue
+        mount /dev/mapper/rootvg-varlv /rescue/var
+        mount /dev/mapper/rootvg-homelv /rescue/home
+        mount /dev/mapper/rootvg-usrlv /rescue/usr
+        mount /dev/mapper/rootvg-tmplv /rescue/tmp
+        mount /dev/sdc1 /rescue/boot/
+        mount /dev/sdc15 /rescue/boot/efi
+        cd /rescue
+
+        mount -t proc proc proc
+        mount -t sysfs sys sys/
+        mount -o bind /dev dev/
+        mount -o bind /dev/pts dev/pts/
+        mount -o bind /run run/
+        chroot /rescue
+        ```
+
+    1. 排查 chroot 环境问题。
+
+    1. 使用以下命令退出 chroot 环境：
+
+        ```
+        exit
+
+        umount /rescue/proc/
+        umount /rescue/sys/
+        umount /rescue/dev/pts
+        umount /rescue/dev/
+        umount /rescue/run
+        cd /
+        umount /rescue/boot/efi
+        umount /rescue/boot
+        umount /rescue/home
+        umount /rescue/var
+        umount /rescue/usr
+        umount /rescue/tmp
+        umount /rescue
+        ```
+
+        > [!NOTE]
+        > 如果收到错误 `unable to unmount /rescue`，请将 -l 选项添加到 umount 命令。
+        >
+        > 示例： `umount -l /rescue`
+
+1. 从救援 VM 中分离磁盘，并执行与原始 VM 之间的磁盘交换。
+1. 启动原始 VM 并检查其连接状态。
+
+<!--Not Available on ## Oracle 7.x-->
+
+## <a name="suse-sles-12-sp4-suse-sles-12-sp4-for-sap---suse-sles-15-sp1-suse-sles-15-sp1-for-sap"></a>SUSE-SLES 12 SP4、SUSE-SLES 12 SP4 For SAP 以及 ## SUSE-SLES 15 SP1、SUSE-SLES 15 SP1 For SAP
+
+1. 停止或解除分配受影响的 VM。
+1. 使用托管磁盘在同一资源组 (RSG) 和位置中创建 OS 版本相同的救援 VM 映像。
+1. 使用 Azure 门户创建受影响虚拟机的 OS 磁盘的快照。
+1. 基于该 OS 磁盘快照创建一个磁盘，并将该磁盘附加到救援 VM。
+1. 创建磁盘后，排查救援 VM 中的 chroot 环境问题。
+
+    1. 使用以下命令以 root 用户身份访问 VM：
+
+        `sudo su -`
 
     1. 使用 `dmesg` 查找磁盘（用于发现新磁盘的方法可能各不相同）。 以下示例使用 **dmesg** 根据 **SCSI** 磁盘进行筛选：
 
@@ -309,18 +416,18 @@ ms.locfileid: "94590827"
     1. 使用以下命令访问 chroot 环境：
 
         ```
-        #mkdir /rescue
-        #mount -o nouuid /dev/sdc4 /rescue
-        #mount -o nouuid /dev/sdc3 /rescue/boot/
-        #mount /dev/sdc2 /rescue/boot/efi
-        #cd /rescue
+        mkdir /rescue
+        mount -o nouuid /dev/sdc4 /rescue
+        mount -o nouuid /dev/sdc3 /rescue/boot/
+        mount /dev/sdc2 /rescue/boot/efi
+        cd /rescue
 
-        #mount -t proc proc proc
-        #mount -t sysfs sys sys/
-        #mount -o bind /dev dev/
-        #mount -o bind /dev/pts dev/pts/
-        #mount -o bind /run run/
-        #chroot /rescue
+        mount -t proc proc proc
+        mount -t sysfs sys sys/
+        mount -o bind /dev dev/
+        mount -o bind /dev/pts dev/pts/
+        mount -o bind /run run/
+        chroot /rescue
         ```
 
     1. 排查 chroot 环境问题。
@@ -328,17 +435,17 @@ ms.locfileid: "94590827"
     1. 使用以下命令退出 chroot 环境：
 
         ```
-        #exit
+        exit
 
-        #umount /rescue/proc/
-        #umount /rescue/sys/
-        #umount /rescue/dev/pts
-        #umount /rescue/dev/
-        #umount /rescue/run
-        #cd /
-        #umount /rescue/boot/efi
-        #umount /rescue/boot
-        #umount /rescue
+        umount /rescue/proc/
+        umount /rescue/sys/
+        umount /rescue/dev/pts
+        umount /rescue/dev/
+        umount /rescue/run
+        cd /
+        umount /rescue/boot/efi
+        umount /rescue/boot
+        umount /rescue
         ```
 
         > [!NOTE]

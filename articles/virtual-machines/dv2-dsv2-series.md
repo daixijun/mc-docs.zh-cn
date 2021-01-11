@@ -1,27 +1,27 @@
 ---
-title: Dv2 和 Dsv2 系列 - Azure 虚拟机
+title: Dv2 和 DSv2 系列 - Azure 虚拟机
 description: Dv2 和 Dsv2 系列 VM 的规范。
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 origin.date: 02/03/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: cf9273a23b612391463e35526be7ef3161ff0684
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 3ca794bbe8633e78cd3e00c92940ee34c21f04c5
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103817"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856728"
 ---
 <!--Verified successfully-->
 <!--Partical Content from verified-->
 # <a name="dv2-and-dsv2-series"></a>Dv2 和 DSv2 系列
 
-Dv2 和 Dsv2 系列是原 D 系列的后续产品，具有更强大的 CPU 和最优 CPU 到内存配置，使其适合于大多数生产工作负荷。 Dv2 系列比 D 系列快大约 35%。 Dv2 系列在采用 Intel Turbo Boost Technology 2.0 的 Intel® Xeon® Platinum 8272CL (Cascade Lake)、Intel® Xeon® 8171M 2.1GHz (Skylake)、Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 或 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行。 Dv2 系列的内存和磁盘配置与 D 系列相同。
+Dv2 和 DSv2 系列是原 D 系列的后续产品，具有更强大的 CPU 和最优 CPU 到内存配置，使其适合于大多数生产工作负荷。 Dv2 系列比 D 系列快大约 35%。 Dv2 系列在采用 Intel Turbo Boost Technology 2.0 的 Intel® Xeon® Platinum 8272CL (Cascade Lake)、Intel® Xeon® 8171M 2.1GHz (Skylake)、Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 或 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 处理器上运行。 Dv2 系列的内存和磁盘配置与 D 系列相同。
 
 ## <a name="dv2-series"></a>Dv2 系列
 

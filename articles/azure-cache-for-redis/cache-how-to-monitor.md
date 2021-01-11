@@ -5,13 +5,13 @@ author: yegu-ms
 ms.author: v-junlch
 ms.service: cache
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: 9fd91d40a0ab3c3b0006f02a696f3606a28ddf60
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.date: 12/28/2020
+ms.openlocfilehash: 141a4bc60a2060c0d21b986e4619b3decc062315
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326596"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829444"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>如何监视用于 Redis 的 Azure 缓存
 
@@ -23,7 +23,7 @@ ms.locfileid: "94326596"
 
 若要查看缓存指标，请[浏览](cache-configure.md#configure-azure-cache-for-redis-settings)到 [Azure 门户](https://portal.azure.cn)中的缓存实例。  用于 Redis 的 Azure 缓存在“概述”  边栏选项卡和“Redis 指标”  边栏选项卡上提供了一些内置图表。 通过添加或删除指标以及更改报告间隔可以自定义每个图表。
 
-![Redis 指标](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
+![显示了六个图形。 其中一个是过去一小时的缓存命中数和缓存未命中数。](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
 ## <a name="view-pre-configured-metrics-charts"></a>查看预配置的指标图表
 
@@ -50,7 +50,7 @@ ms.locfileid: "94326596"
 
 若要使用 Azure Monitor 查看 Redis 指标和创建自定义图表，从“资源菜单”  单击“指标”  ，并使用所需的指标、报告间隔、图表类型等对图表进行自定义。
 
-![Redis 指标](./media/cache-how-to-monitor/redis-cache-monitor.png)
+![在 contoso55 的左侧导航窗格中，“指标”是“监视”下的一个选项，并突出显示。 “指标”上有一个指标列表。 已选择缓存命中数和缓存未命中数。](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
 有关使用 Azure Monitor 处理指标的详细信息，请参阅 [Azure 中的指标概述](../azure-monitor/platform/data-platform.md)。
 
@@ -67,7 +67,7 @@ ms.locfileid: "94326596"
 3. 为设置命名。
 4. 选中“存档到存储帐户”。  向存储帐户发送诊断时，会针对存储和事务向你收取正常数据费率。
 4. 选择“配置”  以选择要在其中存储缓存指标的存储帐户。
-5. 在表标题“指标”  下，选中你要存储的行项（例如“AllMetrics”）旁边的复选框。  指定一个“保留期(天)”  策略。 可以指定的最大保留天数为 **365 天** 。 但是，如果要永久保留指标数据，请将“保留期(天)”设置为 0。  
+5. 在表标题“指标”  下，选中你要存储的行项（例如“AllMetrics”）旁边的复选框。  指定一个“保留期(天)”  策略。 可以指定的最大保留天数为 **365 天**。 但是，如果要永久保留指标数据，请将“保留期(天)”设置为 0。  
 6. 单击“保存”  。
 
 

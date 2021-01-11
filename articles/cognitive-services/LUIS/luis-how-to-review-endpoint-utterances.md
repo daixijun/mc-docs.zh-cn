@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: 18d5a969e9ce3423ba70f593b2628943150ab11d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: ad5d20afc29d8828331e8db253614ea7df57343e
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472423"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857060"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>如何通过评审终结点言语来改进 LUIS 应用
 
 评审终结点言语以进行正确预测的过程称为[主动学习](luis-concept-review-endpoint-utterances.md)。 主动学习捕获终结点查询并选择用户不确定的终结点话语。 评审这些言语以选择意向并标记这些真实言语的实体。 将这些更改接受到示例言语中，然后对其进行训练并将其发布。 然后 LUIS 更准确地识别话语。
 
-## <a name="enable-active-learning"></a>启用主动学习
+## <a name="log-user-queries-to-enable-active-learning"></a>记录用户查询以启用主动学习
 
 若要启用主动学习，必须记录用户查询。 这是通过 `log=true` querystring 参数和值调用[终结点查询](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint)实现的。
 
@@ -45,7 +45,7 @@ ms.locfileid: "92472423"
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>纠正意向预测以匹配言语
 
-每个陈述的“统一意向”列中都显示一个建议意向  。
+每个陈述的“统一意向”列中都显示一个建议意向。
 
 > [!div class="mx-imgBorder"]
 > [![查看 LUIS 无法确定的终结点言语](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
@@ -67,5 +67,5 @@ ms.locfileid: "92472423"
 
 ## <a name="next-steps"></a>后续步骤
 
-若要测试标记建议陈述后的性能提升情况，可通过选择顶部面板中的“测试”访问测试控制台  。 有关如何使用测试控制台测试应用的说明，请参阅[训练和测试应用](luis-interactive-test.md)。
+若要测试标记建议陈述后的性能提升情况，可通过选择顶部面板中的“测试”访问测试控制台。 有关如何使用测试控制台测试应用的说明，请参阅[训练和测试应用](luis-interactive-test.md)。
 

@@ -12,12 +12,12 @@ manager: digimobile
 ms.custom: seo-lt-2019
 origin.date: 11/25/2020
 ms.date: 01/04/2021
-ms.openlocfilehash: 0aa5b60c2c2bc076d2e2d168553a83f9748b6ab9
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: 28f917ddc74851304eb8f145c43c54df5dc49214
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830326"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894459"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>创建和配置自承载集成运行时
 
@@ -204,7 +204,7 @@ dmgcmd ACTION args...
 
     1. 或者选择“显示身份验证密钥”，以查看密钥文本。
 
-    1. 选择“注册”  。
+    1. 选择“注册”。
 
 ## <a name="high-availability-and-scalability"></a>高可用性和可伸缩性
 
@@ -405,7 +405,7 @@ dmgcmd ACTION args...
 > [!IMPORTANT]
 > 不要忘记同时更新 diahost.exe.config 和 diawp.exe.config。
 
-还需要确保 Azure 在你公司的允许列表中。 可以从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=42064)下载有效的 Azure IP 地址列表。
+还需要确保 Azure 在你公司的允许列表中。 可以从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=57062)下载有效的 Azure IP 地址列表。
 
 ### <a name="possible-symptoms-for-issues-related-to-the-firewall-and-proxy-server"></a>防火墙和代理服务器相关问题的可能症状
 

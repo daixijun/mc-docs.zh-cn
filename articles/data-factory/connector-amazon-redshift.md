@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 origin.date: 12/09/2020
 ms.date: 01/04/2021
-ms.openlocfilehash: 6c669ea873cabf9492c8905d33f35bc1f3519005
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: 2c433285cc66fd867f0067bed455a72514e6480e
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830130"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894348"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>使用 Azure 数据工厂从 Amazon Redshift 复制数据
 
@@ -41,7 +41,7 @@ ms.locfileid: "97830130"
 ## <a name="prerequisites"></a>先决条件
 
 * 如果使用[自承载集成运行时](create-self-hosted-integration-runtime.md)将数据复制到本地数据存储，请授权集成运行时（使用计算机的 IP 地址）对 Amazon Redshift 群集的访问权限。 有关说明，请参阅[授予对群集的访问权限](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html)。
-* 如果要将数据复制到 Azure 数据存储，请参阅 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)，了解 Azure 数据中心使用的计算 IP 地址和 SQL 范围。
+* 如果要将数据复制到 Azure 数据存储，请参阅 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=57062)，了解 Azure 数据中心使用的计算 IP 地址和 SQL 范围。
 
 ## <a name="getting-started"></a>入门
 

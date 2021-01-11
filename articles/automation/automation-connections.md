@@ -3,16 +3,16 @@ title: 在 Azure 自动化中管理连接
 description: 本文介绍如何管理与外部服务或应用程序之间的 Azure 自动化连接，以及如何在 runbook 中使用它们。
 services: automation
 ms.subservice: shared-capabilities
-origin.date: 01/13/2020
-ms.date: 11/02/2020
+origin.date: 12/22/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: e57c5cf59b00979e2eff1048c8eff8039cc87795
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 9f75b7a9b5dd1d568974a22d25a20168b68e8d41
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92750207"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830104"
 ---
 # <a name="manage-connections-in-azure-automation"></a>在 Azure 自动化中管理连接
 
@@ -44,10 +44,10 @@ Azure 自动化提供了以下内置连接类型：
 
 |Cmdlet|说明|
 |---|---|
-|[Get-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|检索有关连接的信息。|
-|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|创建新连接。|
-|[Remove-AzAutomationConnection](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|删除现有连接。|
-|[Set-AzAutomationConnectionFieldValue](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|设置现有连接的一个特定字段的值。|
+|[Get-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection)|检索有关连接的信息。|
+|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection)|创建新连接。|
+|[Remove-AzAutomationConnection](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationConnection)|删除现有连接。|
+|[Set-AzAutomationConnectionFieldValue](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue)|设置现有连接的一个特定字段的值。|
 
 ## <a name="internal-cmdlets-to-access-connections"></a>用于访问连接的内部 cmdlet
 
@@ -60,7 +60,7 @@ Azure 自动化提供了以下内置连接类型：
 >[!NOTE]
 >避免将变量与 `Get-AutomationConnection` 的 `Name` 参数一起使用。 如果这样使用变量，可能会导致在设计时尝试发现 runbook 或 DSC 配置与连接资产之间的依赖关系变得复杂。
 
-## <a name="python-2-functions-to-access-connections"></a>用于访问连接的 Python 2 函数
+## <a name="python-functions-to-access-connections"></a>用于访问连接的 Python 函数
 
 下表中的函数用于在 Python2 Runbook 中访问连接。
 
@@ -125,9 +125,9 @@ New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountN
 
 ## <a name="get-a-connection-in-a-runbook-or-dsc-configuration"></a>在 Runbook 或 DSC 配置中获取连接
 
-请使用 `Get-AutomationConnection` cmdlet 检索 Runbook 或 DSC 配置中的连接。 此 cmdlet 优先于 `Get-AzAutomationConnection` cmdlet，因为它检索连接值而不是有关连接的信息。 
+请使用 `Get-AutomationConnection` cmdlet 检索 Runbook 或 DSC 配置中的连接。 此 cmdlet 优先于 `Get-AzAutomationConnection` cmdlet，因为它检索连接值而不是有关连接的信息。
 
-### <a name="textual-runbook-example"></a>文本 runbook 示例
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 以下示例演示如何使用运行方式帐户在 runbook 中通过 Azure 资源管理器资源进行身份验证。 此示例使用代表运行方式帐户的连接资产，该帐户引用基于证书的服务主体。
 
@@ -136,17 +136,7 @@ $Conn = Get-AutomationConnection -Name AzureRunAsConnection
 Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint -Environment "AzureChinaCloud" 
 ```
 
-### <a name="graphical-runbook-examples"></a>图形 runbook 示例
-
-可以为内部 `Get-AutomationConnection` cmdlet 添加一个活动到图形 runbook 中。 右键单击图形编辑器库窗格中的连接，然后选择“添加到画布”。
-
-![添加到画布](media/automation-connections/connection-add-canvas.png)
-
-下图显示了在图形 Runbook 中使用连接对象的示例。 此示例使用 `Constant value` 数据集执行 `Get RunAs Connection` 活动，该活动使用连接对象进行身份验证。 此处使用了一个[管道链接](automation-graphical-authoring-intro.md#use-links-for-workflow)，因为 `ServicePrincipalCertificate` 参数需要单个对象。
-
-![获取连接](media/automation-connections/automation-get-connection-object.png)
-
-### <a name="python-2-runbook-example"></a>Python 2 runbook 示例
+# <a name="python"></a>[Python](#tab/python2)
 
 下图演示了如何在 Python 2 Runbook 中使用运行方式连接进行身份验证。
 
@@ -156,7 +146,7 @@ import azure.mgmt.resource
 import automationassets
 
 def get_automation_runas_credential(runas_connection):
-    """ Returns credentials to authenticate against Azure resoruce manager """
+    """ Returns credentials to authenticate against Azure resource manager """
     from OpenSSL import crypto
     from msrestazure import azure_active_directory
     import adal
@@ -190,6 +180,18 @@ runas_connection = automationassets.get_automation_connection(
     "AzureRunAsConnection")
 azure_credential = get_automation_runas_credential(runas_connection)
 ```
+
+---
+
+### <a name="graphical-runbook-examples"></a>图形 Runbook 示例
+
+可以为内部 `Get-AutomationConnection` cmdlet 添加一个活动到图形 runbook 中。 右键单击图形编辑器库窗格中的连接，然后选择“添加到画布”。
+
+![添加到画布](media/automation-connections/connection-add-canvas.png)
+
+下图显示了在图形 Runbook 中使用连接对象的示例。 此示例使用 `Constant value` 数据集执行 `Get RunAs Connection` 活动，该活动使用连接对象进行身份验证。 此处使用了一个[管道链接](automation-graphical-authoring-intro.md#use-links-for-workflow)，因为 `ServicePrincipalCertificate` 参数需要单个对象。
+
+![获取连接](media/automation-connections/automation-get-connection-object.png)
 
 ## <a name="next-steps"></a>后续步骤
 

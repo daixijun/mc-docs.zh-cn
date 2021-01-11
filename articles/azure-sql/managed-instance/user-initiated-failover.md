@@ -3,20 +3,20 @@ title: 在 SQL 托管实例上手动启动故障转移
 description: 了解如何在 Azure SQL 托管实例上手动对主要副本和次要副本进行故障转移。
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: douglas, sstein
-origin.date: 08/31/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: b3b7dffb16ce68b8795b017b291af0b38ce8f9af
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+origin.date: 12/16/2020
+ms.date: 01/04/2020
+ms.openlocfilehash: d4aef7befee6ef0d13d586b07d31d4360533bd8d
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872425"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830193"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL 托管实例上用户启动的手动故障转移
 
@@ -38,9 +38,9 @@ ms.locfileid: "91872425"
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>在 SQL 托管实例上启动手动故障转移
 
-### <a name="rbac-permissions-required"></a>所需的 RBAC 权限
+### <a name="azure-rbac-permissions-required"></a>所需的 Azure RBAC 权限
 
-启动故障转移的用户需要具有下列 RBAC 角色之一：
+启动故障转移的用户需要具有下列 Azure 角色之一：
 
 - “订阅所有者”角色或
 - “托管实例参与者”角色或
@@ -141,7 +141,7 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 > [!IMPORTANT]
 > 用户启动的手动故障转移的功能限制如下：
-> - 每 30 分钟在同一托管实例上可能会启动一次 (1) 故障转移。
+> - 每 15 分钟在同一托管实例上可能会启动一次 (1) 故障转移。
 > - 对于 BC 实例，若要使故障转移请求得到接受，必须存在仲裁副本。
 > - 对于 BC 实例，不能指定要在其上启动故障转移的可读辅助副本。
 

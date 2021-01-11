@@ -9,15 +9,15 @@ ms.topic: reference
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, bonova, danil
-origin.date: 06/02/2020
-ms.date: 10/29/2020
+origin.date: 11/10/2020
+ms.date: 01/04/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: c4e317d8805f7054a63dfb992bb3af513d0966ce
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 5e66540d001eb986e1063516437c79a2d5a1497f
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470039"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830195"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>SQL Server 与 Azure SQL 托管实例之间的 T-SQL 差异
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -115,7 +115,7 @@ Azure Blob 存储审核的主要 `CREATE AUDIT` 语法差异为：
 
 请参阅 [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) 和 [BACKUP CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql)。 
  
-**解决方法** ：请勿在创建证书备份后再还原该备份，而应 [先获取证书二进制文件内容和私钥，将其存储为 .sql 文件，然后从二进制文件创建证书](https://docs.microsoft.com/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database)：
+**解决方法**：请勿在创建证书备份后再还原该备份，而应 [先获取证书二进制文件内容和私钥，将其存储为 .sql 文件，然后从二进制文件创建证书](https://docs.microsoft.com/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database)：
 
 ```sql
 CREATE CERTIFICATE  
@@ -159,6 +159,8 @@ WITH PRIVATE KEY (<private_key_options>)
 
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
+
+  - 若要使用 EXECUTE AS 语句模拟用户，用户需要直接映射到 Azure AD 服务器主体（登录名）。 即使调用方对指定用户名具有模拟权限，也无法有效地使用 EXECUTE AS 语句模拟映射到 Azure AD 服务器主体中的 Azure AD 组中的用户。
 
 - SQL 托管实例中的 Azure AD 用户在使用 [SSMS V18.4 或更高版本](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)或 [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage-download) 时，可以使用 bacpac 文件进行数据库导出/导入。
   - 使用数据库 bacpac 文件时，可以使用以下配置： 
@@ -221,7 +223,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 - 不支持多个日志文件。
 - “常规用途”服务层级不支持内存中对象。 
-- 每个“常规用途”实例限制为 280 个文件，这意味着，每个数据库最多只能有 280 个文件。 “常规用途”层级中的数据文件和日志文件都会计入此限制。 [“业务关键”层级支持每个数据库 32,767 个文件](/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
+- 每个“常规用途”实例限制为 280 个文件，这意味着，每个数据库最多只能有 280 个文件。 “常规用途”层级中的数据文件和日志文件都会计入此限制。 [“业务关键”层级支持每个数据库 32,767 个文件](./resource-limits.md#service-tier-characteristics)。
 - 数据库中不能有包含文件流数据的文件组。 如果 .bak 包含 `FILESTREAM` 数据，还原将会失败。 
 - 每个文件都被放置在 Azure Blob 存储中。 每个文件的 IO 和吞吐量取决于每个单独文件的大小。
 
@@ -301,6 +303,7 @@ WITH PRIVATE KEY (<private_key_options>)
   - 尚不支持警报。
   - 不支持代理。
 - 不支持 EventLog。
+- 用户必须直接映射到 Azure AD 服务器主体（登录名），才能创建、修改或执行 SQL 代理作业。 未直接映射的用户（例如，具有创建、修改或执行 SQL 代理作业权限的 Azure AD 组中的用户）将无法有效地执行这些操作。 这是由于托管实例模拟和 [EXECUTE AS 限制](#logins-and-users)的缘故。
 
 目前不支持以下 SQL 代理功能：
 
@@ -355,7 +358,7 @@ SQL 托管实例不支持 SQL Server 中启用的未记录 DBCC 语句。
 ### <a name="distributed-transactions"></a>分布式事务
 
 对[分布式事务](../database/elastic-transactions-overview.md)的部分支持目前为公共预览版。 支持的应用场景有：
-* 参与者只包含属于[服务器信任组](/azure-sql/managed-instance/server-trust-group-overview)的 Azure SQL 托管实例的事务。
+* 参与者只包含属于[服务器信任组](./server-trust-group-overview.md)的 Azure SQL 托管实例的事务。
 * 从 .NET（TransactionScope 类）和 Transact-SQL 启动的事务。
 
 Azure SQL 托管实例当前不支持本地或 Azure 虚拟机中的 MSDTC 通常支持的其他应用场景。
@@ -404,7 +407,7 @@ SQL 托管实例中的链接服务器支持有限数量的目标：
 
 ### <a name="polybase"></a>PolyBase
 
-不支持引用 HDFS 或 Azure Blob 存储中文件的外部表。 有关 PolyBase 的信息，请参阅 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)。
+唯一可用的外部资源类型是 Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse 池的 RDBMS（公共预览版）。 有关 PolyBase 的信息，请参阅 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)。
 
 ### <a name="replication"></a>复制
 
@@ -511,12 +514,11 @@ SQL 托管实例中的链接服务器支持有限数量的目标：
 ### <a name="failover-groups"></a>故障转移组
 系统数据库不会复制到故障转移组中的辅助实例。 因此，除非在辅助实例上手动创建系统数据库中的对象，否则依赖于该对象的方案将不可能在辅助实例上出现。
 
-### <a name="failover-groups"></a>故障转移组
-系统数据库不会复制到故障转移组中的辅助实例。 因此，除非在辅助实例上手动创建系统数据库中的对象，否则依赖于该对象的方案将不可能在辅助实例上出现。
-
 ### <a name="tempdb"></a>TEMPDB
-
-在“常规用途”层级上，`tempdb` 的最大文件大小不能超过 24 GB 每核心。 在“业务关键”层级上，最大 `tempdb` 大小根据 SQL 托管实例存储大小受到限制。 在“常规用途”层级上，`Tempdb` 日志文件大小限制为 120 GB。 如果某些查询需要在 `tempdb` 中为每个核心提供 24 GB 以上的空间，或者生成 120 GB 以上的日志数据，则这些查询可能会返回错误。
+- 在“常规用途”层级上，`tempdb` 的最大文件大小不能超过 24 GB 每核心。 在“业务关键”层级上，最大 `tempdb` 大小根据 SQL 托管实例存储大小受到限制。 在“常规用途”层级上，`Tempdb` 日志文件大小限制为 120 GB。 如果某些查询需要在 `tempdb` 中为每个核心提供 24 GB 以上的空间，或者生成 120 GB 以上的日志数据，则这些查询可能会返回错误。
+- `Tempdb` 始终拆分为 12 个数据文件：1 个主要数据文件（也称为主文件）和 11 个非主要数据文件。 无法更改文件结构，并且无法将新文件添加到 `tempdb`。 
+- 不支持[内存优化的 `tempdb` 元数据](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata)（一种新的 SQL Server 2019 内存中数据库功能）。
+- 重启或故障转移后，无法在 `tempdb` 中自动创建在模型数据库中已创建的对象，因为 `tempdb` 不能从模型数据库中获取其初始对象列表。 每次重启或故障转移后，必须在 `tempdb` 中手动创建对象。
 
 ### <a name="msdb"></a>MSDB
 
@@ -540,7 +542,7 @@ SQL 托管实例中的以下 MSDB 架构必须由其相应的预定义角色拥�
 
 ### <a name="error-logs"></a>错误日志
 
-SQL 托管实例将详细信息放在错误日志中。 有很多内部系统事件记录在错误日志中。 使用自定义过程读取已筛选出某些不相关条目的错误日志。 有关详细信息，请参阅 [SQL 托管实例 - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) 或用于 Azure Data Studio 的 [SQL 托管实例扩展（预览版）](https://docs.microsoft.com/sql/azure-data-studio/azure-sql-managed-instance-extension#logs)。
+SQL 托管实例将详细信息放在错误日志中。 有很多内部系统事件记录在错误日志中。 使用自定义过程读取已筛选出某些不相关条目的错误日志。 有关详细信息，请参阅 [SQL 托管实例 - sp_readmierrorlog](https://docs.microsoft.com/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) 或用于 Azure Data Studio 的 [SQL 托管实例扩展（预览版）](https://docs.microsoft.com/sql/azure-data-studio/azure-sql-managed-instance-extension#logs)。
 
 ## <a name="next-steps"></a>后续步骤
 

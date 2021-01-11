@@ -13,12 +13,12 @@ ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 06/17/2020
 ms.date: 01/04/2020
-ms.openlocfilehash: 7f1949b3b741e703da804c3484608d20be190155
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: 677b3df883153ef97295773b784f99222b444531
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829893"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894423"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL 数据库和 Azure Synapse IP 防火墙规则
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -270,7 +270,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ## <a name="next-steps"></a>后续步骤
 
-- 确认公司网络环境允许来自 Azure 数据中心使用的计算 IP 地址范围（包括 SQL 范围）的入站通信。 可能需要将这些 IP 地址添加到允许列表。 请参阅 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)。  
+- 确认公司网络环境允许来自 Azure 数据中心使用的计算 IP 地址范围（包括 SQL 范围）的入站通信。 可能需要将这些 IP 地址添加到允许列表。 请参阅 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=57062)。  
 - 有关创建服务器级 IP 防火墙规则的快速入门，请参阅[在 Azure SQL 数据库中创建单一数据库](single-database-create-quickstart.md)。
 - 有关从开源或第三方应用程序连接到 Azure SQL 数据库时的帮助信息，请参阅 [Azure SQL 数据库的客户端快速入门代码示例](connect-query-content-reference-guide.md#libraries)。
 - 有关可能需要打开的其他端口的信息，请参阅[用于 ADO.NET 4.5 和 SQL 数据库的非 1433 端口](adonet-v12-develop-direct-route-ports.md)中的“SQL 数据库：外部与内部”部分

@@ -5,24 +5,24 @@ author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: include
 origin.date: 05/18/2018
-ms.date: 08/10/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 05/18/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: e29b6b3129e2b1516c23406db55a61625550cc33
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 78249f8a907e9601dd8c82eea7e5f7bb33030f50
+ms.sourcegitcommit: 415fb60a99f3ff239e38670f16e6daab021a675b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88753611"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97793440"
 ---
-<!--CORRECT ON [subscription](https://docs.azure.cn/billing/billing-sign-up-azure-account-and-get-a-pia-subscription)-->
+<!--NOT AVAILABLE ON [subscription](https://docs.azure.cn/billing/billing-recharge-an-existing-pia-subscription)-->
 <!--CORRECT ON /billing/billing-add-change-azure-subscription-administrator-->
 
 | 资源 | 默认限制 | 最大限制 |
 | --- | --- | --- |
-| 每个[订阅](https://docs.azure.cn/billing/billing-sign-up-azure-account-and-get-a-pia-subscription)的 vCPU 数量 <sup>1</sup> |20 |10,000 |
+| 每个订阅的 vCPU 数量 <sup>1</sup> |20 |10,000 |
 | 每个订阅的[协同管理员数](/billing/billing-add-change-azure-subscription-administrator) |200 |200 |
 | 每个订阅的[存储帐户数](../articles/storage/common/storage-create-storage-account.md)<sup>2</sup> |100 |100 |
 | 每个订阅的[云服务数](../articles/cloud-services/cloud-services-choose-me.md) |20 |200 |

@@ -12,21 +12,21 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 09/28/2020
-ms.date: 10/29/2020
+ms.date: 12/14/2020
 tags: azure-synapse
-ms.openlocfilehash: 534b80a62fe988534f3515567a8263f00e4e37de
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: e1fa5cdeec95ad32562313652cc10187e47115d5
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470506"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829935"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>使用多重 Azure Active Directory 身份验证
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse Analytics 支持使用“Azure Active Directory - 通用且具有 MFA 支持”身份验证从 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 进行连接。 本文讨论了各种身份验证选项之间的差异，以及与将 Azure Active Directory (Azure AD) 中的通用身份验证用于 Azure SQL 相关的限制。
 
-**下载最新 SSMS** - 在客户端计算机上，从 [下载 SQL Server Management Studio (SSMS)](https://aka.ms/ssms) 下载最新版本的 SSMS。 
+**下载最新 SSMS** - 在客户端计算机上，从 [下载 SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 下载最新版本的 SSMS。 
 
 [!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
 
@@ -42,13 +42,13 @@ Azure AD 有两种非交互式身份验证模型，它们可用于许多不同�
 - `Azure Active Directory - Password`
 - `Azure Active Directory - Integrated`
 
-同时支持 Azure 多重身份验证 (MFA) 的交互式方法是： 
+同时支持 Azure AD 多重身份验证 (MFA) 的交互式方法是： 
 
 - `Azure Active Directory - Universal with MFA`
 
-Azure MFA 可满足用户简单登录过程的需求，同时可帮助保护数据访问权限和应用程序。 它利用一系列简单的验证选项（电话、短信、含有 PIN 码的智能卡或移动应用通知）提供强身份验证，用户可以根据自己的偏好选择所用的方法。 配合使用 Azure AD 和交互式 MFA 时会出现用于验证的弹出式对话框。
+Azure AD MFA 可保护对数据和应用程序的访问，同时满足用户对简单登录过程的需求。 它利用一系列简单的验证选项（电话、短信、含有 PIN 码的智能卡或移动应用通知）提供强身份验证，用户可以根据自己的偏好选择所用的方法。 配合使用 Azure AD 和交互式 MFA 时会出现用于验证的弹出式对话框。
 
-有关 Azure 多重身份验证的说明，请参阅[多重身份验证](../../active-directory/authentication/multi-factor-authentication.md)。
+有关 Azure AD 多重身份验证的说明，请参阅[多重身份验证](../../active-directory/authentication/concept-mfa-howitworks.md)。
 有关配置步骤，请参阅[配置 SQL Server Management Studio 的 Azure SQL 数据库多重身份验证](authentication-mfa-ssms-configure.md)。
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD 域名称或租户 ID 参数
@@ -72,7 +72,7 @@ Azure MFA 可满足用户简单登录过程的需求，同时可帮助保护数�
 > [!IMPORTANT]
 > 公共预览版目前不支持来宾用户在不成为某个组的成员的情况下连接到 Azure SQL 数据库、SQL 托管实例和 Azure Synapse。 有关详细信息，请参阅[创建 Azure AD 来宾用户并将其设置为 Azure AD 管理员](authentication-aad-guest-users.md)。
 
-作为来宾用户受 Azure AD B2B 方案支持的 Azure AD 用户（请参阅[什么是 Azure B2B 协作](/active-directory/b2b/what-is-b2b)）只能作为在关联的 Azure AD 中创建并使用给定数据库中的 [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) 语句手动映射的组成员的一部分连接到 SQL 数据库和 Azure Synapse。 例如，如果 `steve@gmail.com` 受邀加入 Azure AD `contosotest`（具有 Azure Ad 域 `contosotest.partner.onmschina.cn`），则必须在 Azure AD 中创建包含 `steve@gmail.com` 成员的 Azure AD 组（如 `usergroup`）。 随后，必须通过执行 Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 语句，通过 Azure AD SQL 域或 Azure AD DBO 为特定数据库（例如，`MyDatabase`）创建此组。 
+作为来宾用户受 Azure AD B2B 方案支持的 Azure AD 用户（请参阅[什么是 Azure B2B 协作](../../active-directory/external-identities/what-is-b2b.md)）只能作为在关联的 Azure AD 中创建并使用给定数据库中的 [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) 语句手动映射的组成员的一部分连接到 SQL 数据库和 Azure Synapse。 例如，如果 `steve@gmail.com` 受邀加入 Azure AD `contosotest`（具有 Azure Ad 域 `contosotest.partner.onmschina.cn`），则必须在 Azure AD 中创建包含 `steve@gmail.com` 成员的 Azure AD 组（如 `usergroup`）。 随后，必须通过执行 Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 语句，通过 Azure AD SQL 域或 Azure AD DBO 为特定数据库（例如，`MyDatabase`）创建此组。 
 
 创建数据库用户后，用户 `steve@gmail.com` 随后可以使用 SSMS 身份验证选项 `Azure Active Directory – Universal with MFA` 登录 `MyDatabase`。 默认情况下，`usergroup` 仅具有连接权限。 任何进一步的数据访问权限需要由具有足够特权的用户在数据库中[授予](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql)。 
 
@@ -100,5 +100,5 @@ Azure MFA 可满足用户简单登录过程的需求，同时可帮助保护数�
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
 - [将 BACPAC 文件导入到新数据库](database-import.md)  
 - [将数据库导出到 BACPAC 文件](database-export.md)  
-- C# 接口 [IUniversalAuthProvider 接口](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
-- 使用“Azure Active Directory - 通用且具有 MFA 支持”身份验证时，从 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 开始提供 ADAL 跟踪功能。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别” **中，** 使用“Azure 云”的“Azure 服务”下方“选项”菜单中的“工具”，打开 ADAL 跟踪，然后在“视图”菜单中启用“输出”。 选择“Azure Active Directory 选项”时，可在输出窗口中使用跟踪。  
+- C# 接口 [IUniversalAuthProvider 接口](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac.iuniversalauthprovider)  
+- 使用“Azure Active Directory - 通用且具有 MFA 支持”身份验证时，从 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 开始提供 ADAL 跟踪功能。 在默认关闭的情况下，可在“ADAL 输出窗口跟踪级别”**中，** 使用“Azure 云”的“Azure 服务”下方“选项”菜单中的“工具”，打开 ADAL 跟踪，然后在“视图”菜单中启用“输出”。 选择“Azure Active Directory 选项”时，可在输出窗口中使用跟踪。

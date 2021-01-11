@@ -6,18 +6,18 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
-ms.reviewer: douglas, carlrab, sstein
+ms.reviewer: douglas, sstein
 origin.date: 06/26/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 135583a0353f46be4ed174e63c7300ee236e2d5b
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/21/2020
+ms.openlocfilehash: 800bf0f79b29be030fc72f7fecbd7f53e93d4f3e
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227888"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830194"
 ---
 # <a name="delete-a-subnet-after-deleting-a-managed-instance-of-sql-managed-instance"></a>删除 SQL 托管实例的托管实例之后删除子网
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "86227888"
 
 > [!IMPORTANT]
 > - 若要成功删除，该虚拟群集不能包含任何托管实例。 
-> - 删除虚拟群集是一项长时间运行的操作，持续约 1.5 个小时（有关最新的虚拟群集删除时间，请参见[托管实例管理操作](/sql-database/sql-database-managed-instance#managed-instance-management-operations)）。 在此过程完成之前，仍会在门户中显示虚拟群集。
+> - 删除虚拟群集是一项长时间运行的操作，持续约 1.5 个小时（有关最新的虚拟群集删除时间，请参阅[托管实例管理操作](./sql-managed-instance-paas-overview.md#management-operations)）。 在此过程完成之前，仍会在门户中显示虚拟群集。
 
 ## <a name="delete-a-virtual-cluster-from-the-azure-portal"></a>在 Azure 门户中删除虚拟群集
 

@@ -4,20 +4,18 @@ description: 本文提供了有关 Azure 自动化的常见问题解答。
 services: automation
 ms.subservice: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
-origin.date: 02/25/2020
-ms.date: 08/10/2020
-ms.openlocfilehash: 6fe46c12a9e95f7a46cd1cfdaf706fd5d022f75c
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+origin.date: 12/17/2020
+ms.date: 01/04/2021
+ms.openlocfilehash: ad8a4cf2ccb24385167a6aff91f18c6ffb3d4465
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87788345"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830240"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>Azure 自动化常见问题解答
 
-本常见问题解答文章列出了有关 Azure 自动化的常见问题。 如果对其功能还有其他任何问题，请转到论坛并发布问题。 当某个问题经常被问到时，我们会将该问题添加到本文中，以便可以轻松快捷地找到该问题。
+本常见问题解答文章列出了有关 Azure 自动化的常见问题。 如果对其功能还有其他任何问题，请转到论坛并发布问题。 如果某个问题经常被问到，我们会将其添加到本文中，以便可以快捷轻松地找到该问题。
 
 ## <a name="update-management"></a>更新管理
 
@@ -35,11 +33,11 @@ ms.locfileid: "87788345"
 
 由于更新管理在云中执行更新扩充，因此可以将更新管理中的某些更新标记为存在安全影响，但是本地计算机上不会显示该信息。 如果向 Linux 计算机应用关键更新，可能有些更新不会被标记为对该计算机具有安全影响，因此不会应用这些更新。 但是，更新管理仍可能报告该计算机不合规，因为其中包含相关更新的其他信息。
 
-在 CentOS 的 RTM 版本上无法按更新分类部署更新。 要为 CentOS 正确部署更新，请选择所有分类以确保应用更新。 对于 SUSE，如果首先要求与 zypper（包管理器）或其依赖项相关的安全更新，则仅选择“其他更新”作为分类可能会导致安装某些其他安全更新。 此行为是 zypper 的一项限制。 在某些情况下，可能需要重新运行更新部署，然后通过更新日志验证部署。
+在 CentOS 的 RTM 版本上无法按更新分类部署更新。 要为 CentOS 正确部署更新，请选择所有分类以确保应用更新。 对于 SUSE，如果其他更新与 zypper（包管理器）相关或首先需要其依赖项，则仅选择“其他更新”作为分类可能会导致安装其他一些安全更新。 此行为是 zypper 的一项限制。 在某些情况下，可能需要重新运行更新部署，然后通过更新日志验证部署。
 
 ### <a name="can-i-deploy-updates-across-azure-tenants"></a>能否在 Azure 租户之间部署更新？
 
-如果你在向“更新管理”进行报告的另一个 Azure 租户中存在需要修补的计算机，则必须使用以下解决方法来计划它们。 可以将 [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) cmdlet 与指定的 `ForUpdateConfiguration` 参数一起使用来创建计划。 可以使用 [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) cmdlet，并将另一个租户中的计算机传递给 `NonAzureComputer` 参数。 以下示例演示如何执行此操作。
+如果你在向“更新管理”进行报告的另一个 Azure 租户中存在需要修补的计算机，则必须使用以下解决方法来计划它们。 可以将 [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule) cmdlet 与指定的 `ForUpdateConfiguration` 参数一起使用来创建计划。 可以使用 [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) cmdlet，并将另一个租户中的计算机传递给 `NonAzureComputer` 参数。 以下示例演示如何执行此操作。
 
 ```azurepowershell
 $nonAzurecomputers = @("server-01", "server-02")

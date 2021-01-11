@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 12/04/2018
-ms.date: 10/12/2020
-ms.openlocfilehash: 35ec73ec1c47627e7947f04440d0b6a86d2f9618
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 12/14/2020
+ms.openlocfilehash: dbc5078d1601134b8274b66087781ebe3e5b1dd3
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872437"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830071"
 ---
 # <a name="elastic-database-tools-glossary"></a>弹性数据库工具词汇表
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,17 +32,17 @@ ms.locfileid: "91872437"
 
 **依赖于数据的路由**：使应用程序能够连接到给定了特定分片键的分片的功能。 请参阅[数据依赖型路由](elastic-scale-data-dependent-routing.md)。 与[多分片查询](elastic-scale-multishard-querying.md)进行比较。
 
-**全局分片映射**：分片集内分片键及其各自分片之间的映射。 全局分片映射存储在 **分片映射管理器**中。 与 **局部分片映射**进行比较。
+**全局分片映射**：分片集内分片键及其各自分片之间的映射。 全局分片映射存储在 **分片映射管理器** 中。 与 **局部分片映射** 进行比较。
 
-**列表分片映射**：在其中单独映射分片键的分片映射。 与 **范围分片映射**进行比较。   
+**列表分片映射**：在其中单独映射分片键的分片映射。 与 **范围分片映射** 进行比较。   
 
 **局部分片映射**：局部分片映射（存储在分片上）包含驻留在该分片上的 shardlet 的映射。
 
-**多分片查询**：能够针对多个分片发出查询；使用 UNION ALL 语义（也称为“扇出查询”）返回结果集。 与 **依赖于数据的路由**进行比较。
+**多分片查询**：能够针对多个分片发出查询；使用 UNION ALL 语义（也称为“扇出查询”）返回结果集。 与 **依赖于数据的路由** 进行比较。
 
-**多租户**和**单租户**：下面显示的是单租户数据库和多租户数据库：
+**多租户** 和 **单租户**：下面显示的是单租户数据库和多租户数据库：
 
-![单租户数据库和多租户数据库](./media/elastic-scale-glossary/multi-single-simple.png)
+![显示单租户数据库和多租户数据库的屏幕截图。](./media/elastic-scale-glossary/multi-single-simple.png)
 
 下面显示的是 **分片** 单租户数据库和多租户数据库。 
 

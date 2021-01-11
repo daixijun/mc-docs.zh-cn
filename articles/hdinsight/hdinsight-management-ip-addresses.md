@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 08/11/2020
 ms.date: 06/22/2020
-ms.openlocfilehash: 518fdec97c73a59145ea8b6b49c5c158b7f6faac
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: dbb7c53d4bc13c368e8008bf89ad29a66540f75f
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394789"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830202"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 管理 IP 地址
 
@@ -28,11 +28,12 @@ ms.locfileid: "91394789"
 
 如果需要此处未列出的区域的 IP 地址，则可以使用[服务标记发现 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) 查找所在区域的 IP 地址。 如果无法使用该 API，请下载[服务标记 JSON 文件](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)并搜索所需的区域。
 
+HDInsight 通过群集创建和扩展来验证这些规则，以防止进一步的错误。 如果验证未通过，则创建和扩展将失败。
 以下部分介绍了必须允许的特定 IP 地址。
 
 ## <a name="azure-dns-service"></a>Azure DNS 服务
 
-如果使用的是 Azure 提供的 DNS 服务，则允许通过端口 53 从 __168.63.129.16__ 进行访问。 有关详细信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文档。 如果使用的是自定义 DNS，请跳过此步骤。
+如果使用的是 Azure 提供的 DNS 服务，则对于 TCP 和 UDP，允许通过端口 53 访问 168.63.129.16。 有关详细信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文档。 如果使用的是自定义 DNS，请跳过此步骤。
 
 ## <a name="health-and-management-services-all-regions"></a>运行状况和管理服务：所有区域
 
@@ -85,8 +86,8 @@ ms.locfileid: "91394789"
 | &nbsp; | 美国西部 | 13.64.254.98</br>23.101.196.19 | \*:443 | 入站 |
 | &nbsp; | 美国西部 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | 入站 |
 | &nbsp; | 阿拉伯联合酋长国北部 | 65.52.252.96</br>65.52.252.97 | \*:443 | 入站 |
+| &nbsp; | 阿联酋中部 | 20.37.76.96</br>20.37.76.99 | \*:443 | 入站 |
 
-若要获取用于 Azure 政府版的 IP 地址的信息，请参阅 [Azure 政府智能 + 分析](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics)文档。
 
 有关详细信息，请参阅[控制网络流量](./control-network-traffic.md)。
 

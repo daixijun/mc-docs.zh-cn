@@ -7,15 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 12/29/2020
 ms.author: v-junlch
-ms.reviewer: bagovind
-ms.openlocfilehash: ae1380fe35f57b68e883a50c6ce840bef1522d06
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: b27518ea11b2e3a2c682f0272e8c0e714b64a388
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326500"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829389"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>使用 Azure 门户列出 Azure 角色分配
 
@@ -23,7 +22,7 @@ ms.locfileid: "94326500"
 
 ## <a name="list-role-assignments-for-a-user-or-group"></a>列出用户或组的角色分配
 
-要查看分配给订阅中的用户或组的角色，最简单的方法是使用“Azure 角色分配”窗格。
+若要查看分配给订阅中用户或组的角色，一种快速方法是使用“Azure 角色分配”窗格。
 
 1. 在 Azure 门户的“Azure 门户”菜单中，选择“所有服务”。
 
@@ -53,7 +52,7 @@ ms.locfileid: "94326500"
 
 1. 滚动到“所有者”部分，以查看已分配此订阅的“所有者”角色的所有用户。
 
-   ![“订阅访问控制 - 角色分配”选项卡](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
+   ![“订阅访问控制 - 角色分配”选项卡](./media/role-assignments-list-portal/sub-access-control-role-assignments-owners.png)
 
 ## <a name="list-role-assignments-at-a-scope"></a>列出某个范围内的角色分配
 
@@ -65,7 +64,7 @@ ms.locfileid: "94326500"
 
 1. 单击“角色分配”选项卡以查看在此范围内的所有角色分配。
 
-   ![“访问控制”-“角色分配”选项卡](./media/role-assignments-list-portal/access-control-role-assignments.png)
+   ![“访问控制”-“角色分配”选项卡](./media/role-assignments-list-portal/rg-access-control-role-assignments.png)
 
    在“角色分配”选项卡上，可以看到谁有权访问此范围。 请注意，有些角色的权限范围已划归到 **此资源**，还有一些角色是从另一范围 **(继承的)** 。 访问权限可以专门分配给此资源，也可以从父作用域的分配继承。
 
@@ -81,19 +80,23 @@ ms.locfileid: "94326500"
 
 1. 单击“检查访问权限”选项卡。
 
-    ![“访问控制”-“检查访问权限”选项卡](./media/role-assignments-list-portal/access-control-check-access.png)
+    ![资源组访问控制 - “检查访问权限”选项卡](./media/role-assignments-list-portal/rg-access-control-check-access.png)
 
-1. 在“查找”列表中，选择要检查访问权限的安全主体类型。
+1. 在“查找”列表中，选择要检查其访问权限的用户、组、服务主体或托管标识。
 
 1. 在搜索框中，输入字符串以在目录中搜索显示名称、电子邮件地址或对象标识符。
 
-    ![“检查访问权限”选择列表](./media/role-assignments-list-portal/check-access-select.png)
+    ![“检查访问权限”选择列表](./media/shared/rg-check-access-select.png)
 
 1. 单击安全主体以打开“分配”窗格。
 
-    ![分配窗格](./media/role-assignments-list-portal/check-access-assignments.png)
+    在此窗格上，可以查看在此范围和继承到此范围的所选安全主体的访问权限。 未列出在子范围的分配。 你会看到以下分配：
 
-    在此窗格中，可以看到分配给所选安全主体和范围的角色。 如果此范围内有任何拒绝分配或继承到此范围的角色，则会将其列出。
+    - 通过 Azure RBAC 添加的角色分配。
+    - 使用 Azure 蓝图或 Azure 托管应用添加的拒绝分配。
+    - 经典部署的经典服务管理员或共同管理员分配。 
+
+    ![分配窗格](./media/shared/rg-check-access-assignments-user.png)
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>列出托管标识的角色分配
 

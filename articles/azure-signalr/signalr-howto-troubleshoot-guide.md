@@ -1,18 +1,18 @@
 ---
 title: Azure SignalR 服务故障排除指南
 description: 了解如何排查常见问题
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 11/06/2020
-ms.date: 12/03/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: e60682ca5b3713263b4bce962c0fe2f787ea2f2e
-ms.sourcegitcommit: c4ac22d1def90dd1e249bfce58b57ec4e86537db
+ms.openlocfilehash: c6b2379a2855ce008955b0462e89135bc25ccea0
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96544832"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820349"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Azure SignalR 服务常见问题故障排除指南
 
@@ -145,7 +145,9 @@ JWT 令牌生存期的默认值目前为 1 小时。
 
 ## <a name="429-too-many-requests-returned-for-client-requests"></a>针对客户端请求返回“429 (请求过多)”
 
-如果并发连接计数超出限制，则会返回 429。
+存在两种情况。
+
+### <a name="concurrent-connection-count-exceeds-limit"></a>并发连接计数超出限制。
 
 对于免费实例，并发连接计数限制为 20。对于标准实例，每个单位的并发连接计数限制为 1K，这意味着 100 个单位允许 100 K 个并发连接。    
 

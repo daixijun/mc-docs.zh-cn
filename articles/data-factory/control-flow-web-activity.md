@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 12/19/2018
-ms.date: 08/10/2020
-ms.openlocfilehash: 1ea89a6313020beacdd15237a5e0d5527138424d
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.date: 01/04/2021
+ms.openlocfilehash: e9fcffc0165d25049313fcba971cb20f12097609
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914185"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830009"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure 数据工厂中的 Web 活动
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,6 +27,9 @@ Web 活动可用于从数据工厂管道调用自定义的 REST 终结点。 可
 
 > [!NOTE]
 > 使用自承载集成运行时，还支持 Web 活动调用专用虚拟网络中托管的 URL。 该集成运行时应可以看到 URL 终结点。 
+
+> [!NOTE]
+> 支持的最大输出响应负载大小为 4 MB。  
 
 ## <a name="syntax"></a>语法
 
@@ -82,7 +85,7 @@ body | 表示要发送到终结点的有效负载。  | 字符串（或带有 re
 authentication | 用于调用该终结点的身份验证方法。 支持的类型为“Basic”或“ClientCertificate”。 有关详细信息，请参阅[身份验证](#authentication)部分。 如果不需要身份验证，则排除此属性。 | 字符串（或带有 resultType 字符串的表达式） | 否
 datasets | 传递给终结点的数据集列表。 | 数据集引用数组。 可以是空数组。 | 是
 linkedServices | 传递给终结点的链接服务列表。 | 链接服务引用数组。 可以是空数组。 | 是
-connectVia | 用于连接到数据存储的[集成运行时](/data-factory/concepts-integration-runtime)。 可使用 Azure Integration Runtime 或自承载集成运行时（如果数据存储位于专用网络中）。 如果未指定此属性，服务会使用默认的 Azure Integration Runtime。 | 集成运行时引用。 | 否 
+connectVia | 用于连接到数据存储的[集成运行时](./concepts-integration-runtime.md)。 可使用 Azure Integration Runtime 或自承载集成运行时（如果数据存储位于专用网络中）。 如果未指定此属性，服务会使用默认的 Azure Integration Runtime。 | 集成运行时引用。 | 否 
 
 > [!NOTE]
 > Web 活动调用的 REST 终结点必须返回 JSON 类型的响应。 如果活动在 1 分钟内未收到终结点的响应，则会超时并显示错误。
@@ -131,7 +134,7 @@ connectVia | 用于连接到数据存储的[集成运行时](/data-factory/conce
 
 ### <a name="managed-identity"></a>托管标识
 
-使用数据工厂的托管标识指定要为其请求访问令牌的资源 URI。 若要调用 Azure 资源管理 API，请使用 `https://management.chinacloudapi.cn/`。 有关如何托管标识工作原理的详细信息，请参阅 [Azure 资源概述页面的托管标识](/active-directory/managed-identities-azure-resources/overview)。
+使用数据工厂的托管标识指定要为其请求访问令牌的资源 URI。 若要调用 Azure 资源管理 API，请使用 `https://management.chinacloudapi.cn/`。 有关如何托管标识工作原理的详细信息，请参阅 [Azure 资源概述页面的托管标识](../active-directory/managed-identities-azure-resources/overview.md)。
 
 ```json
 "authentication": {

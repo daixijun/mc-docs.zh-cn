@@ -3,15 +3,15 @@ title: Azure 自动化 Runbook 类型
 description: 本文介绍可以在 Azure 自动化中使用的不同 Runbook 类型，以及在确定要使用的具体类型时的注意事项。
 services: automation
 ms.subservice: process-automation
-origin.date: 03/05/2019
-ms.date: 08/10/2020
+origin.date: 12/22/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2b7b114106b14039df3e7ecd9cbcd7635fc1c82d
-ms.sourcegitcommit: e6b216b180734783219378410e13192e314a4497
+ms.openlocfilehash: add904e85c61390c7a20c9b10dbea85f59a1723e
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87788280"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830268"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure 自动化 Runbook 类型
 
@@ -34,9 +34,9 @@ ms.locfileid: "87788280"
 
 可以在 Azure 门户中使用图形编辑器创建和编辑图形 Runbook 与图形 PowerShell 工作流 Runbook。 但是，不能使用其他工具来创建或编辑这种类型的 Runbook。 图形 Runbook 的主要功能：
 
-* 可以将图形 Runbook 导出到自动化帐户中的文件中，然后将其导入到另一个自动化帐户。 
-* 生成 PowerShell 代码。 
-* 在导入过程中，可以将图形 Runbook 转换为图形 PowerShell 工作流 Runbook，也可以将图形 PowerShell 工作流 Runbook 转换为图形 Runbook。 
+* 导出到自动化帐户中的文件，然后导入到另一个自动化帐户中。
+* 生成 PowerShell 代码。
+* 在导入过程中转换为图形 PowerShell 工作流 runbook，或者由该工作流 runbook 转换而来。
 
 ### <a name="advantages"></a>优点
 
@@ -60,7 +60,7 @@ ms.locfileid: "87788280"
 
 ### <a name="advantages"></a>优点
 
-* 通过 PowerShell 代码来实现所有复杂的逻辑，没有 PowerShell 工作流的各种额外的复杂操作。
+* 通过 PowerShell 代码来实现所有复杂的逻辑，没有 PowerShell 工作流的各种其他复杂操作。
 * 与 PowerShell 工作流 Runbook 相比，它的启动速度更快，因为它们在运行前不需要经过编译。
 * 在 Azure 和适用于 Windows 和 Linux 的混合 Runbook 辅助角色上运行。
 
@@ -69,7 +69,7 @@ ms.locfileid: "87788280"
 * 你必须熟悉 PowerShell 脚本。
 * Runbook 无法使用[并行处理](automation-powershell-workflow.md#use-parallel-processing)并行执行多个操作。
 * 出现错误时，Runbook 无法使用[检查点](automation-powershell-workflow.md#use-checkpoints-in-a-workflow)恢复 Runbook。
-* 你可以使用 [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0)（用于创建新作业）仅将 PowerShell 工作流 Runbook 和图形 Runbook 以子 Runbook 的形式包括在内。
+* 你可以使用 [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook)（用于创建新作业）仅将 PowerShell 工作流 Runbook 和图形 Runbook 以子 Runbook 的形式包括在内。
 
 ### <a name="known-issues"></a>已知问题
 
@@ -77,7 +77,7 @@ ms.locfileid: "87788280"
 
 * PowerShell Runbook 无法检索未加密且值为 Null 的[变量资产](./shared-resources/variables.md)。
 * PowerShell Runbook 无法检索名称中包含 `*~*` 的变量资产。
-* 在 PowerShell Runbook 中，处于循环状态的 [Get-Process](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) 操作在经历大约 80 次迭代后可能会崩溃。
+* 在 PowerShell Runbook 中，处于循环状态的 [Get-Process](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process) 操作在经历大约 80 次迭代后可能会崩溃。
 * 如果 PowerShell Runbook 尝试一次性将大量数据写入输出流中，则可能会发生故障。 通常情况下，通过使 Runbook 仅输出处理大型对象所需的信息可以避免出现这种问题。 例如，可以让 cmdlet 仅输出所需的参数，如在 `Get-Process | Select ProcessName, CPU` 中那样，而不是不受限地使用 `Get-Process`。
 
 ## <a name="powershell-workflow-runbooks"></a>PowerShell 工作流 Runbook

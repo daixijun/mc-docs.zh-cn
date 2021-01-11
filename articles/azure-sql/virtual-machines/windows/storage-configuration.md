@@ -7,18 +7,19 @@ author: WenJason
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/26/2019
-ms.date: 10/29/2020
+ms.date: 01/04/2021
 ms.author: v-jay
-ms.openlocfilehash: 59ebe2955d3b4b20cef0cc942ce42dd7e1264711
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 928ac383b8e77700133e1252a36a825b15087c0d
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470040"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830035"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的存储配置
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -45,7 +46,7 @@ ms.locfileid: "92470040"
 
 使用 SQL Server 库映像预配 Azure VM 时，可以选择自动为新的 VM 配置存储。 可以指定存储大小、性能限制和工作负荷类型。 以下屏幕截图显示了在预配 SQL VM 期间使用的“存储配置”边栏选项卡。
 
-![预配期间的 SQL Server VM 存储配置](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![突出显示“SQL Server 设置”选项卡和“更改配置”选项的屏幕截图。](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 在 **存储优化** 下选择要为其部署 SQL Server 的工作负荷类型。 使用“常规”优化选项，默认情况下，你将拥有一个最大 IOPS 为 5000 的数据磁盘，并且你将使用此同一驱动器放置数据、事务日志和 TempDB 存储。 你还可以根据业务选择“事务处理”(OLTP) 或“数据仓库”。
 
@@ -58,7 +59,7 @@ ms.locfileid: "92470040"
 
 根据所做的选择，Azure 会在创建 VM 后执行以下存储配置任务：
 
-* 创建高级 SSD 盘并将其连接到虚拟机。
+* 创建高级 SSD 盘并将其附加到虚拟机。
 * 配置 SQL Server 可访问的数据磁盘。
 * 根据指定的大小和性能（IOPS 和吞吐量）要求，在存储池中配置数据磁盘。
 * 将存储池与虚拟机上的新驱动器相关联。
@@ -83,7 +84,6 @@ ms.locfileid: "92470040"
 可以使用以下快速入门模板通过存储优化来部署 SQL Server VM。 
 
 * [通过存储优化创建 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage/)
-* [创建使用 UltraSSD 的 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage-ultrassd)
 
 ## <a name="existing-vms"></a>现有 VM
 
@@ -140,7 +140,7 @@ Azure 根据规范创建新驱动器。 在此方案中，Azure 将执行以下�
 
 Azure 使用以下设置在 SQL Server VM 上创建存储池。
 
-| 设置 | Value |
+| 设置 | 值 |
 | --- | --- |
 | 条带大小 |256 KB（数据仓库）；64 KB（事务） |
 | 磁盘大小 |每个磁盘 1 TB |

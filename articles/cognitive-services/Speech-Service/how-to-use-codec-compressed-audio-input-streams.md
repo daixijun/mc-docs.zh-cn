@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 03/30/2019
-ms.date: 12/10/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: edcd7f074db7a3d7876f64b69807e1c59d06284c
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 12a20354d465deed7662df68537ff281767326bc
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004076"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820296"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>在语音 SDK 中使用编解码器压缩的音频输入
 
@@ -26,7 +26,7 @@ ms.locfileid: "97004076"
 
 平台 | 语言 | 支持的 GStreamer 版本
 | :--- | ---: | :---:
-Windows（不包括 UWP）  | C++、C#、Java、Python | [1.15.1](https://gstreamer.freedesktop.org/data/pkg/windows/1.15.1/)
+Windows（不包括 UWP）  | C++、C#、Java、Python | [1.15.1](https://gstreamer.freedesktop.org/releases/gstreamer/1.5.1.html)
 Linux  | C++、C#、Java、Python | [受支持的 Linux 发行版和目标体系结构](~/articles/cognitive-services/speech-service/speech-sdk.md)
 Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/)
 
@@ -36,7 +36,7 @@ Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-## <a name="prerequisites"></a>先决条件
+## <a name="gstreamer-required-to-handle-compressed-audio"></a>处理压缩音频所需的 GStreamer
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/prerequisites.md)]

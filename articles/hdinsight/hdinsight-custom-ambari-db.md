@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9971512329a64bc8f0e78445fd3c239847f1f60e
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: 676cef29cbea4c79fcdd23b746d15a97a0788367
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917280"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830087"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>设置包含自定义 Ambari DB 的 HDInsight 群集
 
 Apache Ambari 简化了 Apache Hadoop 群集的管理和监视。 Ambari 提供易于使用的 Web UI 和 REST API。 Ambari 包括在 HDInsight 群集中，用于监视群集和进行配置更改。
 
-在一般的群集创建过程中，如其他文章（例如[在 HDInsight 中设置群集](hdinsight-hadoop-provision-linux-clusters.md)）中所述，Ambari 将部署在由 HDInsight 管理的、不可供用户访问的 [S0 Azure SQL 数据库](../sql-database/sql-database-dtu-resource-limits-single-databases.md#standard-service-tier)中。
+在一般的群集创建过程中，如其他文章（例如[在 HDInsight 中设置群集](hdinsight-hadoop-provision-linux-clusters.md)）中所述，Ambari 将部署在由 HDInsight 管理的、不可供用户访问的 [S0 Azure SQL 数据库](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier)中。
 
 使用自定义 Ambari DB 功能，可以在由你管理的外部数据库中部署新群集和设置 Ambari。 部署是使用 Azure 资源管理器模板完成的。 此功能提供以下优势：
 
@@ -59,7 +59,7 @@ Apache Ambari 简化了 Apache Hadoop 群集的管理和监视。 Ambari 提供�
 可以使用 Azure CLI 开始部署。 请将 `<RESOURCEGROUPNAME>` 替换为要在其中部署群集的资源组。
 
 ```azurecli
-az group deployment create --name HDInsightAmbariDBDeployment \
+az deployment group create --name HDInsightAmbariDBDeployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file azuredeploy.json \
     --parameters azuredeploy.parameters.json

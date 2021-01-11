@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 10/12/2020
 ms.date: 12/07/2020
 ms.author: v-jay
-ms.openlocfilehash: eeac8b711d59c47701378ed62a9cfdeec467568a
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 6e6ee3f133fd57929432aecc63286b6ec696d491
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747274"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830003"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure 数据工厂中的复制活动
 
@@ -196,7 +196,7 @@ ms.locfileid: "96747274"
 
 若要以编程方式对其进行配置，请在复制活动源中添加 `additionalColumns` 属性：
 
-| 属性 | 描述 | 必需 |
+| 属性 | 说明 | 必需 |
 | --- | --- | --- |
 | additionalColumns | 添加要复制到接收器的其他数据列。<br><br>`additionalColumns` 数组下的每个对象都表示一个额外的列。 `name` 定义列名称，`value` 表示该列的数据值。<br><br>允许的数据值为：<br>-  **`$$FILEPATH`** - 一个保留变量，指示将源文件的相对路径存储在数据集中指定的文件夹路径。 应用于基于文件的源。<br>-  **`$$COLUMN:<source_column_name>`** - 保留变量模式指示将指定的源列复制为另一个列<br>- **表达式**<br>- **静态值** | 否 |
 
@@ -247,7 +247,7 @@ ms.locfileid: "96747274"
 
 将数据复制到 SQL 数据库/Azure Synapse Analytics 时，如果目标表不存在，则复制活动支持基于源数据自动创建该表。 它旨在帮助快速开始加载数据并评估 SQL 数据库/Azure Synapse Analytics。 进行数据引入之后，可以根据需要查看和调整接收器表架构。
 
-将数据从任何源复制到以下接收器数据存储时，支持此功能。 可以在“ADF 创作 UI”�>“复制活动接收器”�>“表选项”�>“自动创建表”   上，或通过复制活动接收器有效负载中的 `tableOption` 属性找到该选项。
+将数据从任何源复制到以下接收器数据存储时，支持此功能。 可以在“ADF 创作 UI” -> “复制活动接收器” -> “表选项” -> “自动创建表”上，或通过复制活动接收器有效负载中的 `tableOption` 属性找到该选项   。
 
 - [Azure SQL 数据库](connector-azure-sql-database.md)
 - [Azure SQL 数据库托管实例](connector-azure-sql-managed-instance.md)

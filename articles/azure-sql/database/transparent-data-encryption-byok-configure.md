@@ -5,25 +5,25 @@ description: 了解如何配置 Azure SQL 数据库和 Azure Synapse Analytics�
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 03/12/2019
-ms.date: 08/17/2020
-ms.openlocfilehash: d6f6cf97af1337ce9ede3a100d869e38b6081554
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 01/04/2021
+ms.openlocfilehash: 3cb12f5723439e66ad2938b6a387713543e981af
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223282"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830219"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 和 Azure CLI：使用 Azure Key Vault 中由客户管理的密钥启用透明数据加密
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-本文逐步介绍如何使用 Azure Key Vault 中的密钥对 Azure SQL 数据库或 Azure Synapse Analytics（以前成为 SQL Data Warehouse）启用透明数据加密 (TDE)。 要了解更多关于 TDE 与 Azure Key Vault 集成（即自带密钥 (BYOK) 支持）的信息，请访问[使用 Azure Key Vault 中由客户管理的密钥进行 TDE](transparent-data-encryption-byok-overview.md)。
+本文逐步介绍如何使用 Azure Key Vault 中的密钥对 Azure SQL 数据库或 Azure Synapse Analytics 启用透明数据加密 (TDE)。 要了解更多关于 TDE 与 Azure Key Vault 集成（即自带密钥 (BYOK) 支持）的信息，请访问[使用 Azure Key Vault 中由客户管理的密钥进行 TDE](transparent-data-encryption-byok-overview.md)。
 
 ## <a name="prerequisites-for-powershell"></a>PowerShell 先决条件
 
@@ -32,7 +32,7 @@ ms.locfileid: "88223282"
 - 创建用于 TDE 的 Azure Key Vault 和密钥。
   - [Key Vault 的 PowerShell 说明](/key-vault/secrets/quick-create-powershell)
     - Key Vault 必须包含用于 TDE 的以下属性：
-  - [软删除](../../key-vault/general/overview-soft-delete.md)和清除保护
+  - [软删除](../../key-vault/general/soft-delete-overview.md)和清除保护
 - 密钥必须包含用于 TDE 的以下特性：
   - 无过期日期
   - 未禁用
@@ -42,7 +42,7 @@ ms.locfileid: "88223282"
 
 有关 Az 模块安装说明，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。 若要了解具体的 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。
 
-有关 Key Vault 的具体信息，请参阅 [Key Vault 的 PowerShell 说明](../../key-vault/secrets/quick-create-powershell.md)和[如何将 Key Vault 软删除与 PowerShell 配合使用](../../key-vault/general/soft-delete-powershell.md)。
+有关 Key Vault 的具体信息，请参阅 [Key Vault 的 PowerShell 说明](../../key-vault/secrets/quick-create-powershell.md)和[如何将 Key Vault 软删除与 PowerShell 配合使用](../../key-vault/general/key-vault-recovery.md)。
 
 > [!IMPORTANT]
 > 仍然支持 PowerShell Azure 资源管理器 (RM) 模块，但是所有未来的开发都是针对 Az.Sql 模块。 AzureRM 模块至少在 2020 年 12 月之前将继续接收 bug 修补程序。  Az 模块和 AzureRm 模块中的命令参数大体上是相同的。 若要详细了解其兼容性，请参阅[新 Azure PowerShell Az 模块简介](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)。
@@ -125,7 +125,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 若要安装所需的 Azure CLI 版本（版本 2.0 或更高版本）并连接到 Azure 订阅，请参阅[安装和配置 Azure 跨平台命令行界面 2.0](/cli/install-azure-cli)。
 
-有关 Key Vault 的具体信息，请参阅[使用 CLI 2.0 管理 Key Vault](../../key-vault/general/manage-with-cli2.md) 和[如何将 Key Vault 软删除与 CLI 配合使用](../../key-vault/general/soft-delete-cli.md)。
+有关 Key Vault 的具体信息，请参阅[使用 CLI 2.0 管理 Key Vault](../../key-vault/general/manage-with-cli2.md) 和[如何将 Key Vault 软删除与 CLI 配合使用](../../key-vault/general/key-vault-recovery.md)。
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>将 Azure AD 标识分配到服务器
 

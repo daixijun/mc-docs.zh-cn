@@ -6,15 +6,15 @@ ms.author: v-junlch
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: template
-ms.date: 11/16/2020
+ms.date: 12/28/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: aee166c23709bff8929fb26f905bd8ab80f047f1
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: f7bc5f7e5c9cbb02c353c8f2a2e320537585a85a
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508582"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829381"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>教程：使用 Azure 模板在虚拟机规模集中安装应用程序
 若要在规模集中的虚拟机 (VM) 实例上运行应用程序，首先需要安装应用程序组件和所需文件。 前一篇教程介绍了如何创建自定义 VM 映像并使用它来部署 VM 实例。 使用此自定义映像可以手动安装和配置应用程序。 也可以在部署每个 VM 实例之后，将应用程序自动安装到规模集，或者更新已在规模集中运行的应用程序。 本教程介绍如何执行下列操作：
@@ -76,10 +76,10 @@ ms.locfileid: "96508582"
 az group create --name myResourceGroup --location chinanorth2
 ```
 
-现在，使用 [az group deployment create](/cli/group/deployment) 创建虚拟机规模集。 出现提示时，请提供自己的、用作每个 VM 实例的凭据的用户名和密码：
+现在，使用 [az deployment group create](/cli/deployment/group) 创建虚拟机规模集。 出现提示时，请提供自己的、用作每个 VM 实例的凭据的用户名和密码：
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy.json
 ```
@@ -134,10 +134,10 @@ az network public-ip show \
 }
 ```
 
-使用 [az group deployment create](/cli/group/deployment) 再次将自定义脚本扩展配置应用到规模集中的 VM 实例。 此 *azuredeployv2.json* 模板用于应用更新版本的应用程序。 在实践中，请根据前一部分中所示编辑现有的 *azuredeploy.json* 模板，以引用更新的安装脚本。 出现提示时，请输入首次创建规模集时使用的相同用户名和密码凭据：
+使用 [az deployment group create](/cli/deployment/group) 再次将自定义脚本扩展配置应用到规模集中的 VM 实例。 此 *azuredeployv2.json* 模板用于应用更新版本的应用程序。 在实践中，请根据前一部分中所示编辑现有的 *azuredeploy.json* 模板，以引用更新的安装脚本。 出现提示时，请输入首次创建规模集时使用的相同用户名和密码凭据：
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy_v2.json
 ```

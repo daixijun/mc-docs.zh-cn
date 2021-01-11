@@ -3,15 +3,15 @@ title: Azure 自动化更新管理概述
 description: 本文概述了为 Windows 和 Linux 计算机实现更新的更新管理功能。
 services: automation
 ms.subservice: update-management
-origin.date: 11/23/2020
-ms.date: 12/07/2020
+origin.date: 12/09/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: ddec7d7c46a597349722a7fee9c2af703c7c7f31
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 766fccf7a1071545903558d2d5545fcfcfdbb8c8
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746839"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830334"
 ---
 # <a name="update-management-overview"></a>更新管理概述
 
@@ -75,7 +75,7 @@ ms.locfileid: "96746839"
 |CentOS 6 和 7 (x64)      | Linux 代理需要具有访问更新存储库的权限。 基于分类的修补需要借助 `yum` 来返回 CentOS 的 RTM 版本中没有的安全数据。 有关 CentOS 上基于分类的修补的详细信息，请参阅 [Linux 上的更新分类](view-update-assessments.md#linux)。          |
 |Red Hat Enterprise 6 和 7 (x64)     | Linux 代理需要具有访问更新存储库的权限。        |
 |SUSE Linux Enterprise Server 12 (x64)     | Linux 代理需要具有访问更新存储库的权限。        |
-|Ubuntu 14.04 LTS、16.04 LTS 和 18.04 (x64)      |Linux 代理需要具有访问更新存储库的权限。         |
+|Ubuntu 14.04 LTS、16.04 LTS 和 18.04 LTS (x64)      |Linux 代理需要具有访问更新存储库的权限。         |
 
 > [!NOTE]
 > Azure 虚拟机规模集可通过更新管理进行管理。 更新管理适用于实例本身，而非基础映像。 你需要以增量方法计划更新，这样所有 VM 实例才不会同时更新。
@@ -193,13 +193,19 @@ Windows 代理必须配置为与 WSUS 服务器通信或需要有权访问 Micro
 >[!NOTE]
 >适用于 Linux 计算机的更新分类在支持的 Azure 中国云中使用时不可用。 没有 Linux 更新分类，它们显示在“其他更新”类别下。 更新管理使用受支持的分发版发布的数据，尤其是其发布的 [OVAL](https://oval.mitre.org/)（开放式漏洞与评估语言）文件。 由于 Internet 访问受到限制，因此更新管理无法访问和使用这些文件。
 
-对于 Linux，由于云中的数据扩充，更新管理可以区分云中的关键更新和安全更新，同时显示评估数据。 为了进行修补，更新管理依赖于计算机上提供的分类数据。 与其他发行版不同，CentOS 在 RTM 版本中未提供此信息。 如果已将 CentOS 计算机配置为返回以下命令的安全数据，则更新管理可以基于分类进行修补。
+对于 Linux，更新管理可以区分云中类别“安全性”和“其他”下的关键更新和安全更新，同时显示因云中数据扩充而产生的评估数据 。 为了进行修补，更新管理依赖于计算机上提供的分类数据。 与其他发行版不同，CentOS 在 RTM 版本中未提供此信息。 如果已将 CentOS 计算机配置为返回以下命令的安全数据，则更新管理可以基于分类进行修补。
 
 ```bash
 sudo yum -q --security check-update
 ```
 
 当前没有受支持的方法可用来在 CentOS 上提供原生分类数据。 目前，仅向可能已自行启用此功能的客户提供有限的支持。
+
+若要对 Red Hat Enterprise 版本 6 上的更新进行分类，需要安装 yum 安全插件。 在 Red Hat Enterprise Linux 7 上，yum 本身已包含该插件，无需安装任何内容。 有关详细信息，请参阅以下 Red Hat [知识文章](https://access.redhat.com/solutions/10021)。
+
+当安排要在 Linux 计算机上运行的更新时（例如，配置为仅安装与“安全性”分类匹配的更新），安装的更新可能不同于与该分类匹配的更新，或者是与该分类匹配的更新的子集。 在评估待处理的 Linux 计算机 OS 更新时，“更新管理”使用 Linux 发行版供应商提供的[开放漏洞和评估语言](https://oval.mitre.org/) (OVAL) 文件进行分类。
+
+基于 OVAL 文件将 Linux 更新分类为“安全性”或“其他”，其中包括用于解决安全问题或漏洞的更新 。 但是，当运行更新计划时，会在 Linux 计算机上使用适当的包管理器（例如 YUM、APT 或 ZYPPER）安装更新。 Linux 发行版的包管理器可能具有不同的机制来对更新进行分类，其结果可能与更新管理从 OVAL 文件获得的结果有所不同。 若要通过包管理器手动检查计算机并了解哪些更新与安全性有关，请参阅 [Linux 更新部署故障排除](../troubleshoot/update-management.md#updates-linux-installed-different)。
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>将更新管理与 Configuration Manager 集成
 

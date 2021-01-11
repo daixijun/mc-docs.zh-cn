@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 08/04/2020
-ms.date: 10/12/2020
+ms.date: 01/04/2021
 tags: azure-synpase
-ms.openlocfilehash: 7e5c19251f03252e390ec24ae5f3646e3d5b439c
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.openlocfilehash: afb12e1e22c1cf6c38478b075532e736651420bc
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872394"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830113"
 ---
 # <a name="dynamic-data-masking"></a>动态数据屏蔽 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -31,11 +31,11 @@ Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse Analytics 支持�
 
 ## <a name="dynamic-data-masking-basics"></a>动态数据掩码基础知识
 
-通过在 SQL 数据库配置窗格中的“安全性”下选择“动态数据掩码”边栏选项卡，在 Azure 门户中设置动态数据掩码策略 。 不能使用 Azure Synapse 的门户或 SQL 托管实例设置此功能（请使用 Powershell 或 REST API）。 有关详细信息，请参阅 [Dynamic Data Masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)。
+通过在 SQL 数据库配置窗格中的“安全性”下选择“动态数据掩码”边栏选项卡，在 Azure 门户中设置动态数据掩码策略 。 不能使用 SQL 托管实例的门户设置此功能（请使用 PowerShell 或 REST API）。 有关详细信息，请参阅 [Dynamic Data Masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)。
 
 ### <a name="dynamic-data-masking-permissions"></a>动态数据掩码权限
 
-Azure SQL 数据库管理员、服务器管理员或 [SQL 安全管理员](/role-based-access-control/built-in-roles#sql-security-manager)角色可以配置动态数据掩码。
+Azure SQL 数据库管理员、服务器管理员或 [SQL 安全管理员](../../role-based-access-control/built-in-roles.md#sql-security-manager)角色可以配置动态数据掩码。
 
 ### <a name="dynamic-data-masking-policy"></a>动态数据掩码策略
 

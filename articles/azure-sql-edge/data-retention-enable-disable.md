@@ -9,13 +9,13 @@ author: SQLSourabh
 ms.author: v-tawe
 ms.reviewer: sstein
 origin.date: 09/04/2020
-ms.date: 11/20/2020
-ms.openlocfilehash: 33cf3f7104a751fda4537c9898d10f8e844e8b2a
-ms.sourcegitcommit: eab8930852e77b9d88d24e5664203651a0e7dde0
+ms.date: 12/30/2020
+ms.openlocfilehash: f1230b8ce2bee123e8551cc7d7ddf0d829fcc92d
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94975208"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820330"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>启用和禁用数据保留策略
 
@@ -89,7 +89,7 @@ where is_data_deletion_filter_column =1
 and object_id = object_id(N'dbo.data_retention_table', N'U')
 ```
 
-## <a name="corelating-db-and-table-data-retention-settings"></a>关联 DB 和表数据保留设置
+## <a name="correlating-db-and-table-data-retention-settings"></a>关联 DB 和表数据保留设置
 
 数据库和表中的数据保留设置结合使用，以确定是否在表上运行对过期行的自动清理。 
 

@@ -9,14 +9,14 @@ author: WenJason
 ms.author: v-jay
 ms.topic: article
 origin.date: 09/21/2020
-ms.date: 10/29/2020
+ms.date: 01/04/2021
 ms.reviewer: ''
-ms.openlocfilehash: e51188371fd50a589f78ed626e2f0f5cf7081ee3
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 784bd83acc7f1082eafe37545c11383c331ea834
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552271"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830236"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>用于解决 Azure SQL 数据库和 Azure SQL 托管实例常见安全要求的 playbook
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,12 +29,12 @@ ms.locfileid: "94552271"
 
 ### <a name="azure-sql-database-deployment-offers-covered-in-this-guide"></a>本指南涉及的 Azure SQL 数据库部署产品/服务
 
-- [Azure SQL 数据库](/sql-database/sql-database-single-index)：[服务器](logical-servers.md)中的[单一数据库](single-database-overview.md)和[弹性池](elastic-pool-overview.md)
-- [Azure SQL 托管实例](/sql-database/sql-database-managed-instance-index)
+- [Azure SQL 数据库](./index.yml)：[服务器](logical-servers.md)中的[单一数据库](single-database-overview.md)和[弹性池](elastic-pool-overview.md)
+- [Azure SQL 托管实例](../managed-instance/sql-managed-instance-paas-overview.md)
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>本指南不涉及的部署产品/服务
 
-- Azure Synapse Analytics（以前称为 SQL 数据仓库）
+- Azure Synapse Analytics
 - Azure SQL VM (IaaS)
 - SQL Server
 
@@ -108,14 +108,14 @@ ms.locfileid: "94552271"
 > [!NOTE]
 >
 > - Azure AD 身份验证记录在 Azure SQL 审核日志中，而不是记录在 Azure AD 登录日志中。
-> - 在 Azure 中授予的 RBAC 权限不适用于 Azure SQL 数据库或 SQL 托管实例权限。 必须使用现有的 SQL 权限手动创建/映射此类权限。
+> - 在 Azure 中授予的 Azure RBAC 权限不适用于 Azure SQL 数据库或 SQL 托管实例权限。 必须使用现有的 SQL 权限手动创建/映射此类权限。
 > - 在客户端上，Azure AD 身份验证需要访问 Internet，或通过用户定义的路由 (UDR) 访问虚拟网络。
 
-### <a name="azure-multi-factor-authentication"></a>Azure 多重身份验证
+### <a name="azure-ad-multi-factor-authentication"></a>Azure AD 多重身份验证
 
 > 内容来源：OSA 做法 #2，ISO 访问控制 (AC)
 
-Azure 多重身份验证要求完成多种形式的身份验证，以此帮助提高安全性。
+Azure AD 多重身份验证要求完成多种形式的身份验证，因而有助于提高安全性。
 
 **如何实现**：
 
@@ -140,7 +140,7 @@ Azure 多重身份验证要求完成多种形式的身份验证，以此帮助�
     - [bcp 实用工具](https://docs.microsoft.com/sql/tools/bcp-utility)：选项 -G（交互式）
 
 - 实现你的应用程序，以使用支持多重身份验证的交互式身份验证连接到 Azure SQL 数据库或 Azure SQL 托管实例。
-  - 请参阅文章[使用 Azure 多重身份验证连接到 Azure SQL 数据库](active-directory-interactive-connect-azure-sql-db.md)。
+  - 请参阅文章[使用 Azure AD 多重身份验证连接到 Azure SQL 数据库](active-directory-interactive-connect-azure-sql-db.md)。
   > [!NOTE]
   > 此身份验证模式需要使用基于用户的标识。 如果使用的受信任标识模型会绕过个体 Azure AD 用户身份验证（例如，使用 Azure 资源的托管标识），则不会应用多重身份验证。
 
@@ -192,7 +192,7 @@ Azure 多重身份验证要求完成多种形式的身份验证，以此帮助�
 
 - 如果无法避免密码或机密的使用，请在 Azure Key Vault 中存储用户密码和应用程序机密，并通过 Key Vault 访问策略管理访问权限。
 
-- 各种应用开发框架还可能提供框架特定的机制来保护应用中的机密。 例如：[ASP.NET Core 应用](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-2.1&tabs=windows)。
+- 各种应用开发框架还可能提供框架特定的机制来保护应用中的机密。 例如：[ASP.NET Core 应用](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=windows&view=aspnetcore-2.1)。
 
 ### <a name="use-sql-authentication-for-legacy-applications"></a>对旧式应用程序使用 SQL 身份验证
 
@@ -295,7 +295,7 @@ SQL 身份验证是指使用用户名和密码连接到 Azure SQL 数据库或 S
   - 示例：[教程：使用证书为存储过程签名](https://docs.microsoft.com/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate)
 
 - 使用 Azure Key Vault 中客户管理的密钥实现透明数据加密 (TDE)，以便在数据所有者与安全所有者之间实现职责分离。
-  - 请参阅[通过 Azure 门户配置客户管理的密钥用于 Azure 存储加密](../../storage/common/storage-encryption-keys-portal.md)一文。
+  - 请参阅[通过 Azure 门户配置客户管理的密钥用于 Azure 存储加密](../../storage/common/customer-managed-keys-configure-key-vault.md)一文。
 
 - 为了确保 DBA 无法看到高度敏感的数据但仍可执行 DBA 任务，可将 Always Encrypted 与角色分离配合使用。
   - 请参阅文章 [Always Encrypted 密钥管理概述](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted)、[使用角色分离的密钥预配](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell#KeyProvisionWithRoles)和[使用角色分离的列主密钥轮换](https://docs.microsoft.com/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell#column-master-key-rotation-with-role-separation)。
@@ -458,7 +458,7 @@ SQL 身份验证是指使用用户名和密码连接到 Azure SQL 数据库或 S
 - 使用非对称密钥/证书（而不是密码）来保护对称密钥，以避免使用 3DES。
 
 - 通过导出/导入（bacpac 文件）使用单元级加密迁移数据库时请小心。
-  - 有关在迁移数据时如何防止丢失密钥以及其他最佳做法指导，请参阅[有关在 Azure SQL 数据库中使用单元级加密的建议](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)。
+  - 有关在迁移数据时如何防止丢失密钥以及其他最佳做法指导，请参阅[有关在 Azure SQL 数据库中使用单元级加密的建议](https://docs.microsoft.com/archive/blogs/sqlsecurity/recommendations-for-using-cell-level-encryption-in-azure-sql-database)。
 
 请记住，Always Encrypted 主要用于防止 Azure SQL 数据库的高特权用户（云操作员、DBA）查看使用中的敏感数据 - 请参阅[防止防止未经授权的高特权用户查看使用中的敏感数据](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users)。 使用 Always Encrypted 防止应用程序用户查看数据时，请注意以下难点：
 
@@ -551,7 +551,7 @@ SQL 身份验证是指使用用户名和密码连接到 Azure SQL 数据库或 S
   - 按照 [Azure 网络安全最佳做法](../../security/fundamentals/network-best-practices.md)进行操作。
   - 根据 [Azure 虚拟网络常见问题解答 (FAQ)](../../virtual-network/virtual-networks-faq.md) 和计划中所述的最佳做法规划虚拟网络配置。
   - 将虚拟网络划分为多个子网，并将类似角色的资源（例如，前端与后端资源）分配到同一子网。
-  - 使用[网络安全组 (NSG)](../../virtual-network/security-overview.md) 来控制 Azure 虚拟网络边界范围内子网之间的流量。
+  - 使用[网络安全组 (NSG)](../../virtual-network/network-security-groups-overview.md) 来控制 Azure 虚拟网络边界范围内子网之间的流量。
   - 为订阅启用 [Azure 网络观察程序](../../network-watcher/network-watcher-monitoring-overview.md)，以监视入站和出站网络流量。
 
 ### <a name="configure-power-bi-for-secure-connections-to-sql-databasesql-managed-instance"></a>配置 Power BI 以安全连接到 SQL 数据库/SQL 托管实例
@@ -635,7 +635,7 @@ SQL 身份验证是指使用用户名和密码连接到 Azure SQL 数据库或 S
 **最佳做法**：
 
 - 在服务器上配置 [SQL 数据库审核](../../azure-sql/database/auditing-overview.md)或配置[托管实例审核](../managed-instance/auditing-configure.md)以审核事件后，该服务器上所有现有的和新建的数据库都会被审核。
-- 审核策略默认包括对数据库执行的所有操作（查询、存储过程，以及成功和失败的登录），这可能会导致生成大量的审核日志。 建议客户[使用 PowerShell 对不同类型的操作和操作组配置审核](../../sql-database/sql-database-auditing.md#manage-auditing)。 此项配置有助于控制审核的操作数量，并将事件丢失的风险降到最低。 自定义审核配置可让客户仅捕获所需的审核数据。
+- 审核策略默认包括对数据库执行的所有操作（查询、存储过程，以及成功和失败的登录），这可能会导致生成大量的审核日志。 建议客户[使用 PowerShell 对不同类型的操作和操作组配置审核](./auditing-overview.md#manage-auditing)。 此项配置有助于控制审核的操作数量，并将事件丢失的风险降到最低。 自定义审核配置可让客户仅捕获所需的审核数据。
 - 可以在 [Azure 门户](https://portal.azure.cn/)中直接使用审核日志，或者从配置的存储位置使用。 
 
 > [!NOTE]

@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 10/08/2019
 ms.date: 02/17/2020
 ms.author: v-yiso
-ms.openlocfilehash: 9388395ce4b6d93aa31958439d09202728b52aa6
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 272d85cb6a48b5b402d4912fcc2dcb401d3d67ea
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471194"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830214"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 设备 SDK 平台支持
 

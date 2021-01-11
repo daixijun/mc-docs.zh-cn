@@ -5,17 +5,17 @@ ms.service: virtual-machines-windows
 ms.topic: conceptual
 origin.date: 07/13/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 320b3da5aa51f336250580f446b8ae9e35f29a43
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 2541f1de645ac79e92e3c7b8c3cb84d9eb4e35a6
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590916"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857082"
 ---
 <!--All Links Verified Successfully-->
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>适用于 Windows 虚拟机的 Azure 安全基线
@@ -80,11 +80,11 @@ ms.locfileid: "94590916"
 
 可以使用 Azure 安全中心的实时网络访问，将 Windows 虚拟机限制为在有限时间内向批准的 IP 地址公开。 此外，请使用 Azure 安全中心的自适应网络强化功能，建议基于实际流量和威胁情报限制端口和源 IP 的 NSG 配置。
 
-<!--Not Available on * [How to configure DDoS protection](../../virtual-network/manage-ddos-protection.md)-->
+<!--Not Available on * [How to configure DDoS protection](../../ddos-protection/manage-ddos-protection.md)-->
 
 * [如何部署 Azure 防火墙](../../firewall/tutorial-firewall-deploy-portal.md)
 
-<!--Not Available on * [Understand Azure Security Center Integrated Threat Intelligence](../../security-center/azure-defender.md)-->
+* [了解 Azure 安全中心集成的威胁情报](../../security-center/azure-defender.md)
 
 <!--Not Available on [Understand Azure Security Center Adaptive Network Hardening](../../security-center/security-center-adaptive-network-hardening.md)-->
 
@@ -278,7 +278,7 @@ ms.locfileid: "94590916"
 
 <!--Not Avaiilable on * [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)-->
 
-* [了解 Log Analytics 工作区](../../azure-monitor/log-query/get-started-portal.md)
+* [了解 Log Analytics 工作区](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [如何在 Azure Monitor 中执行自定义查询](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -456,9 +456,9 @@ Azure 安全中心监视：不可用
 
 **指导**：配置 Azure Active Directory 的诊断设置，以将审核日志和登录日志发送到 Log Analytics 工作区。 此外，使用 Azure Monitor 查看日志并对来自 Azure 虚拟机的日志数据执行查询。
 
-* [了解 Log Analytics 工作区](../../azure-monitor/log-query/get-started-portal.md)
+* [了解 Log Analytics 工作区](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
-<!--Not Available on * [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)-->
+* [如何将 Azure 活动日志集成到 Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 * [如何在 Azure Monitor 中执行自定义查询](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -584,7 +584,7 @@ Azure 使用传输层安全性 (TLS) 协议，在云服务和客户之间传输�
 
 **指导**：使用服务器端加密或 Azure 磁盘加密 (ADE) 对 Windows 虚拟机 (VM) 上的虚拟磁盘进行静态加密。 Azure 磁盘加密利用 Windows 的 BitLocker 功能，通过来宾 VM 中的客户托管密钥来加密托管磁盘。 使用客户托管密钥的服务器端加密改进了 ADE，它通过加密存储服务中的数据使你可以为 VM 使用任何 OS 类型和映像。
 
-* [Azure 托管磁盘的服务器端加密](./disk-encryption.md)
+* [Azure 托管磁盘的服务器端加密](../disk-encryption.md)
 
 * [适用于 Windows VM 的 Azure 磁盘加密](./disk-encryption-overview.md)
 
@@ -624,9 +624,9 @@ Azure 使用传输层安全性 (TLS) 协议，在云服务和客户之间传输�
 
 **指导**：使用 Azure 更新管理解决方案来管理虚拟机的更新和补丁。 更新管理依赖于本地配置的更新存储库来修补受支持的 Windows 系统。 可以使用 System Center Updates Publisher (Updates Publisher) 之类的工具将自定义更新发布到 Windows Server Update Services (WSUS) 中。 在这种情况下，允许更新管理使用第三方软件来修补使用 Configuration Manager 作为其更新存储库的计算机。
 
-* [Azure 中的更新管理解决方案](../../automation/update-management/update-mgmt-overview.md)
+* [Azure 中的更新管理解决方案](../../automation/update-management/overview.md)
 
-* [管理 VM 的更新和修补程序](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [管理 VM 的更新和修补程序](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure 安全中心监视**：是
 
@@ -636,9 +636,9 @@ Azure 使用传输层安全性 (TLS) 协议，在云服务和客户之间传输�
 
 **指导**：可以使用第三方补丁管理解决方案。 可以使用 Azure 更新管理解决方案来管理虚拟机的更新和补丁。 更新管理依赖于本地配置的更新存储库来修补受支持的 Windows 系统。 可以使用 System Center Updates Publisher (Updates Publisher) 之类的工具将自定义更新发布到 Windows Server Update Services (WSUS) 中。 在这种情况下，允许更新管理使用第三方软件来修补使用 Configuration Manager 作为其更新存储库的计算机。
 
-* [Azure 中的更新管理解决方案](../../automation/update-management/update-mgmt-overview.md)
+* [Azure 中的更新管理解决方案](../../automation/update-management/overview.md)
 
-* [管理 VM 的更新和修补程序](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
+* [管理 VM 的更新和修补程序](../../automation/update-management/manage-updates-for-vm.md)
 
 **Azure 安全中心监视**：不可用
 
@@ -971,9 +971,9 @@ Azure 使用传输层安全性 (TLS) 协议，在云服务和客户之间传输�
 
 **指导**：将托管服务标识与 Azure Key Vault 结合使用，以便简化和保护云应用程序的机密管理。
 
-<!--Not Available on * [How to integrate with Azure-Managed Identities](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)-->
+* [如何与 Azure 托管标识集成](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [如何创建 Key Vault](../../key-vault/secrets/quick-create-portal.md)
+* [如何创建 Key Vault](../../key-vault/general/quick-create-portal.md)
 
 * [如何向 Key Vault 进行身份验证](../../key-vault/general/authentication.md)
 
@@ -1121,9 +1121,9 @@ Azure 使用传输层安全性 (TLS) 协议，在云服务和客户之间传输�
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2：创建事件评分和优先级设定过程
 
-**指南**：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
+**指导**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
 
-此外，请明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。 你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
+此外，请用标记明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。 你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
 
 * [Azure 安全中心中的安全警报](../../security-center/security-center-alerts-overview.md)
 
@@ -1157,7 +1157,7 @@ Azure 使用传输层安全性 (TLS) 协议，在云服务和客户之间传输�
 
 **指南**：使用连续导出功能导出 Azure 安全中心警报和建议，以帮助确定 Azure 资源的风险。 使用连续导出可以手动导出或者持续导出警报和建议。 可以使用 Azure 安全中心数据连接器将警报流式传输到 Azure Sentinel。
 
-<!--Not Available on * [How to configure continuous export](../../security-center/continuous-export.md)-->
+* [如何配置连续导出](../../security-center/continuous-export.md)
 
 <!--Not Available on* [How to stream alerts into Azure Sentinel](../../sentinel/connect-azure-security-center.md)-->
 
@@ -1169,7 +1169,7 @@ Azure 使用传输层安全性 (TLS) 协议，在云服务和客户之间传输�
 
 **指导**：使用 Azure 安全中心内的工作流自动化功能，通过“逻辑应用”针对安全警报和建议自动触发响应，以保护 Azure 资源。
 
-<!--Not Available on * [How to configure Workflow Automation and Logic Apps](../../security-center/workflow-automation.md)-->
+* [如何配置工作流自动化和逻辑应用](../../security-center/workflow-automation.md)
 
 **Azure 安全中心监视**：不可用
 

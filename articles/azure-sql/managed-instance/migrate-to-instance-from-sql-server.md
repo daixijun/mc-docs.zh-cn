@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 07/11/2019
-ms.date: 10/12/2020
-ms.openlocfilehash: c09e4bc491e3403f4db3fc3d2e0ba922b9b6ef61
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 12/21/2020
+ms.openlocfilehash: 7e3c0df0005d1b1b4c68de10b8c5baaaae856d55
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872436"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830107"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>将 SQL Server 实例迁移到 Azure SQL 托管实例
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-本文介绍如何将 SQL Server 2005 或更高版本实例迁移到 [Azure SQL 托管实例](sql-managed-instance-paas-overview.md)。 有关迁移到单一数据库或弹性池的信息，请参阅[迁移到 SQL 数据库](../database/migrate-to-database-from-sql-server.md)。 有关从其他平台迁移的迁移信息，请参阅 [Azure 数据库迁移指南](/dms/)。
+本文介绍如何将 SQL Server 2005 或更高版本实例迁移到 [Azure SQL 托管实例](sql-managed-instance-paas-overview.md)。 有关迁移到单一数据库或弹性池的信息，请参阅[迁移概述：SQL Server 到 SQL 数据库](../migration-guides/database/sql-server-to-sql-database-overview.md)。 有关从其他平台进行迁移的迁移信息以及有关工具和选项的指南，请参阅[迁移到 Azure SQL](../migration-guides/index.yml)。
 
 > [!NOTE]
 > 要快速入门并试用 Azure SQL 托管实例，可转到[快速入门指南](quickstart-content-reference-guide.md)而不是本页。
@@ -117,7 +117,7 @@ SQL 托管实例支持以下数据库迁移选项（目前仅支持这些迁移�
 
 [Azure 数据库迁移服务](../../dms/dms-overview.md)是一项完全托管的服务，旨在实现在最短的停机时间内从多个数据库源无缝迁移到 Azure 数据平台。 此服务简化了将现有第三方和 SQL Server 数据库移到 Azure 所需执行的任务。 公共预览版中的部署选项包括 Azure SQL 数据库中的数据库和 Azure 虚拟机中的 SQL Server 数据库。 数据库迁移服务是迁移企业工作负载的建议方法。
 
-如果在本地 SQL Server 上使用 SQL Server Integration Services (SSIS)，虽然数据库迁移服务尚不支持迁移存储 SSIS 包的 SSIS 目录 (SSISDB)，但可在 Azure 数据工厂中预配 Azure-SSIS Integration Runtime (IR)，这会在托管实例中创建新的 SSISDB，以便你将包重新部署到其中。 请参阅[在 Azure 数据工厂中创建 Azure-SSIS IR](/data-factory/create-azure-ssis-integration-runtime)。
+如果在本地 SQL Server 上使用 SQL Server Integration Services (SSIS)，虽然数据库迁移服务尚不支持迁移存储 SSIS 包的 SSIS 目录 (SSISDB)，但可在 Azure 数据工厂中预配 Azure-SSIS Integration Runtime (IR)，这会在托管实例中创建新的 SSISDB，以便你将包重新部署到其中。 请参阅[在 Azure 数据工厂中创建 Azure-SSIS IR](../../data-factory/create-azure-ssis-integration-runtime.md)。
 
 要详细了解此方案以及数据库迁移服务的配置步骤，请参阅[使用数据库迁移服务将本地数据库迁移到托管实例](../../dms/tutorial-sql-server-to-managed-instance.md)。  
 
@@ -205,4 +205,4 @@ SQL 托管实例提供许多高级工具用于监视和故障排除，你应使�
 
 - 有关 Azure SQL 托管实例的信息，请参阅[什么是 Azure SQL 托管实例？](sql-managed-instance-paas-overview.md)。
 - 有关介绍了如何从备份还原的教程，请参阅[创建托管实例](instance-create-quickstart.md)。
-- 有关演示如何使用数据库迁移服务进行迁移的教程，请参阅[使用数据库迁移服务将本地数据库迁移到 Azure SQL 托管实例](../../dms/tutorial-sql-server-to-managed-instance.md)。  
+- 有关演示如何使用数据库迁移服务进行迁移的教程，请参阅[使用数据库迁移服务将本地数据库迁移到 Azure SQL 托管实例](../../dms/tutorial-sql-server-to-managed-instance.md)。

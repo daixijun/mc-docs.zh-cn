@@ -10,18 +10,18 @@ ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperfq2
 origin.date: 10/30/2020
 ms.date: 11/23/2020
-ms.openlocfilehash: 8548311b8b134e3128f8f73db068cac582d43627
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 227161c05840835704008e6c0e6ceca58e5ef1c5
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105120"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830106"
 ---
-# <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>为 Active Directory 与企业安全性套餐的集成配置 HDInsight 群集
+# <a name="configure-hdinsight-clusters-for-azure-active-directory-integration-with-enterprise-security-package"></a>为 Azure Active Directory 与企业安全性套餐的集成配置 HDInsight 群集
 
-本文介绍如何使用称为“企业安全性套餐 (ESP)”的功能、Azure Active Directory 域服务 (Azure AD-DS) 和现有的本地 Active Directory 来创建和配置与 Active Directory 集成的 HDInsight 群集。
+本文总结并概述了与 Azure Active Directory 集成的 HDInsight 群集的创建和配置过程。 此集成依赖于称为企业安全性套餐 (ESP) 的 HDInsight 功能、Azure Active Directory 域服务 (Azure AD-DS) 和现有的本地 Active Directory。
 
-有关在 Azure 中设置和配置域以及创建已启用 ESP 的群集的教程，请参阅[在 Azure HDInsight 中创建和配置企业安全性套餐群集](apache-domain-joined-create-configure-enterprise-security-cluster.md)。
+有关在 Azure 中设置和配置域并创建已启用 ESP 的群集然后同步本地用户的详细分步教程，请参阅[在 Azure HDInsight 中创建和配置企业安全性套餐群集](apache-domain-joined-create-configure-enterprise-security-cluster.md)。
 
 ## <a name="background"></a>背景
 
@@ -34,12 +34,13 @@ ms.locfileid: "97105120"
 
 在创建已启用 ESP 的 HDInsight 群集之前，需要满足以下几个先决条件：
 
+- 现有的本地 Active Directory 和 Azure Active Directory。
 - 启用 Azure AD-DS。
 - 检查 Azure AD-DS 运行状况以确保同步已完成。
 - 创建托管标识并为其授权。
 - 针对 DNS 和相关问题完成网络设置。
 
-下面将详细讨论其中的每一项。
+下面将详细讨论其中的每一项。 有关完成所有这些步骤的演练，请参阅[在 Azure HDInsight 中创建和配置企业安全性套餐群集](apache-domain-joined-create-configure-enterprise-security-cluster.md)。
 
 ### <a name="enable-azure-ad-ds"></a>启用 Azure AD DS
 

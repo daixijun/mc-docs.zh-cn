@@ -2,21 +2,21 @@
 title: 解决 Azure AD DS 中的网络安全组警报 | Microsoft Docs
 description: 了解如何排查和解决 Azure Active Directory 域服务的网络安全组配置警报
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 12/28/2020
 ms.author: v-junlch
-ms.openlocfilehash: abe541de0170f5e6ff1502dff54511f88cb84aef
-ms.sourcegitcommit: a5eb9a47feefb053ddbaab4b15c395972c372339
+ms.openlocfilehash: b2ad64d8292d16b831960c5bb25c79358b32ac33
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88028587"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829346"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>已知问题：Azure Active Directory 域服务中的网络配置警报
 
@@ -40,19 +40,21 @@ Microsoft 程序无法访问此托管域的域控制器。*如果虚拟网络上
 
 | 优先级 | 名称 | 端口 | 协议 | Source | 目标 | 操作 |
 |----------|------|------|----------|--------|-------------|--------|
-| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | 任意 | 允许 |
-| 201      | AllowRD | 3389 | TCP | CorpNetSaw | 任意 | 允许 |
 | 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | 任意 | 允许 |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | 任意 | 拒绝<sup>1</sup> |
 | 65000    | AllVnetInBound | 任意 | 任意 | VirtualNetwork | VirtualNetwork | 允许 |
 | 65001    | AllowAzureLoadBalancerInBound | 任意 | 任意 | AzureLoadBalancer | 任意 | 允许 |
 | 65500    | DenyAllInBound | 任意 | 任意 | 任意 | 任意 | 拒绝 |
+
+
+<sup>1</sup>对调试可选。 在高级故障排除需要时允许。
 
 > [!NOTE]
 > 如果[配置安全 LDAP][configure-ldaps]，还可使用其他规则来允许入站流量。 此附加规则是进行正确 LDAPS 通信的必需条件。
 
 ### <a name="outbound-security-rules"></a>入站安全规则
 
-| 优先级 | 名称 | 端口 | 协议 | Source | 目标 | 操作 |
+| 优先级 | 名称 | 端口 | 协议 | 源 | 目标 | 操作 |
 |----------|------|------|----------|--------|-------------|--------|
 | 65000    | AllVnetOutBound | 任意 | 任意 | VirtualNetwork | VirtualNetwork | 允许 |
 | 65001    | AllowAzureLoadBalancerOutBound | 任意 | 任意 |  任意 | Internet | 允许 |

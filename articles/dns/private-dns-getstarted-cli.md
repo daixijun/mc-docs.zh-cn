@@ -6,15 +6,15 @@ author: WenJason
 ms.service: dns
 ms.topic: quickstart
 origin.date: 10/20/2020
-ms.date: 11/16/2020
+ms.date: 01/04/2021
 ms.author: v-jay
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1aa0e0de31f7d626e72e9378c0b17b08a0a96692
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 7b3c252b25edeeaf2304f63e5c861d0177f796d4
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432480"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856870"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure 专用 DNS 区域
 
@@ -22,11 +22,13 @@ ms.locfileid: "96432480"
 
 DNS 区域用来托管某个特定域的 DNS 记录。 若要开始在 Azure DNS 中托管域，需要为该域名创建 DNS 区域。 随后会在此 DNS 区域内为每个 DNS 记录创建域。 若要向虚拟网络发布专用 DNS 区域，请指定一个列表，其中包含允许在区域中解析记录的虚拟网络。  这些虚拟网络称为链接的虚拟网络。  启用自动注册后，Azure DNS 还会在创建虚拟机、更改其 IP 地址或删除虚拟机时更新区域记录。
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>必备条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-如果你愿意，可以使用 [Azure PowerShell](private-dns-getstarted-powershell.md) 完成本快速入门中的步骤。
+- 还可以使用 [Azure PowerShell](private-dns-getstarted-powershell.md) 完成本快速入门。
 
 ## <a name="create-the-resource-group"></a>创建资源组
 
@@ -150,13 +152,13 @@ az network private-dns record-set list \
 
 1. 从 myVM02 Windows PowerShell 命令提示符下，使用自动注册的主机名对 myVM01 执行 ping 命令：
 
-   ```
+   ```powershell
    ping myVM01.private.contoso.com
    ```
 
    应看到与以下内容类似的输出：
 
-   ```
+   ```output
    PS C:\> ping myvm01.private.contoso.com
 
    Pinging myvm01.private.contoso.com [10.2.0.4] with 32 bytes of data:
@@ -174,13 +176,13 @@ az network private-dns record-set list \
 
 2. 现在，对之前创建的 **db** 名称执行 ping 命令：
 
-   ```
+   ```powershell
    ping db.private.contoso.com
    ```
 
    应看到与以下内容类似的输出：
 
-   ```
+   ```output
    PS C:\> ping db.private.contoso.com
 
    Pinging db.private.contoso.com [10.2.0.4] with 32 bytes of data:

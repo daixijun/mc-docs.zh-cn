@@ -11,15 +11,15 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, sstein
-origin.date: 09/21/2020
-ms.date: 10/12/2020
+origin.date: 12/01/2020
+ms.date: 01/04/2021
 tags: azure-synapse
-ms.openlocfilehash: 9024edd91c11842ec8c80326943bf97b173b88a9
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.openlocfilehash: dfcf9bf09ec90c3c5c062f85e54558587fb4356a
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872430"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830223"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>适用于 Azure SQL 数据库、SQL 托管实例和 Azure Synapse Analytics 的高级威胁防护
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "91872430"
 
 ## <a name="alerts"></a>警报
 
-Azure SQL 数据库的高级威胁防护可检测异常活动，指出有人在访问或利用数据库时的异常行为和可能有害的尝试。 有关 Azure SQL 数据库的警报列表，请参阅 [Azure 安全中心内关于 SQL 数据库和 Azure Synapse Analytics（以前称为“SQL 数据仓库”）的警报](/security-center/alerts-reference#alerts-sql-db-and-warehouse)。
+Azure SQL 数据库的高级威胁防护可检测异常活动，指出有人在访问或利用数据库时的异常行为和可能有害的尝试。
 
 ## <a name="explore-detection-of-a-suspicious-event"></a>浏览检测到的可疑事件
 
@@ -60,11 +60,15 @@ Azure SQL 数据库的高级威胁防护可检测异常活动，指出有人在�
 
 单击“高级威胁防护警报”以启动“Azure 安全中心警报”页，并获取在数据库中检测到的活动 SQL 威胁的概述。
 
+:::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection-alerts.png" alt-text="数据库中的高级威胁防护警报概述":::
+
+:::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection.png" alt-text="安全中心的高级威胁防护":::
+
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解 [Azure SQL 数据库和 Azure Synapse 中的高级威胁防护](threat-detection-configure.md)。
 - 详细了解 [Azure SQL 托管实例中的高级威胁防护](../managed-instance/threat-detection-configure.md)。
 - 详细了解 [Azure Defender for SQL](azure-defender-for-sql.md)。
 - 详细了解 [Azure SQL 数据库审核](../../azure-sql/database/auditing-overview.md)
-- 详细了解 [Azure 安全中心](/security-center/security-center-intro)
+- 详细了解 [Azure 安全中心](../../security-center/security-center-introduction.md)
 - 有关定价的详细信息，请参阅 [Azure SQL 数据库定价页](https://azure.cn/pricing/details/sql-database/)  

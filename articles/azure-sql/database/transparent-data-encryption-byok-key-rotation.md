@@ -5,20 +5,20 @@ description: 了解如何使用 PowerShell 和 Azure CLI 为 Azure 中由 Azure 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 03/12/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 089700293c72d24d6c1e5e7cbad2eaad6a31543b
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 12/14/2020
+ms.openlocfilehash: c7f515674d7515011b7cfbcfd815ec934cd96d96
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223281"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830251"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>轮换透明数据加密 (TDE) 保护器
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "88223281"
 本指南介绍在服务器上轮换 TDE 保护器的两个选项。
 
 > [!NOTE]
-> 需要在密钥轮换之前先恢复已暂停的 Azure Synapse Analytics SQL 池。
+> 需要在密钥轮换之前先恢复 Azure Synapse Analytics 中已暂停的专用 SQL 池。
 
 > [!IMPORTANT]
 > 在滚动更新之后，请勿删除旧版密钥。 滚动更新密钥时，某些数据仍使用以前的密钥进行加密，例如旧版数据库备份。

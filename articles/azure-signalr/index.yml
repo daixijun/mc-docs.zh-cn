@@ -8,14 +8,14 @@ metadata:
   ms.topic: landing-page
   author: v-chmccl
   origin.date: 03/11/2020
-  ms.date: 10/19/2020
+  ms.date: 12/30/2020
   ms.author: v-tawe
-  ms.openlocfilehash: 8d7d7460555dc7f0a411deb2909fe9b572b7ba4b
-  ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+  ms.openlocfilehash: 4c14d387b98734a910758745932b9fd81bc8a70f
+  ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/19/2020
-  ms.locfileid: "92170802"
+  ms.lasthandoff: 12/30/2020
+  ms.locfileid: "97820329"
 landingContent:
 - title: 关于 Azure SignalR 服务
   linkLists:

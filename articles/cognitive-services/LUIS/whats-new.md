@@ -5,20 +5,24 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
 origin.date: 05/19/2020
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: e2c9eb9d34ffd5b35e6b864a9b66210c184e613c
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 155b15899cf51598c0624f7aa6ab9d2290088972
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472280"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856884"
 ---
 # <a name="whats-new-in-language-understanding"></a>语言理解中的新增功能
 
 了解服务中的新增功能。 这些项包括发布说明、视频、博客文章和其他类型的信息。 请将本页加入书签，以随时了解该服务的最新信息。
 
 ## <a name="release-notes"></a>发行说明
+
+### <a name="december-2020"></a>2020 年 12 月
+
+* 所有 LUIS 用户都需要[迁移到 LUIS 创作资源](luis-migration-authoring.md)
 
 ### <a name="june-2020"></a>2020 年 6 月
 

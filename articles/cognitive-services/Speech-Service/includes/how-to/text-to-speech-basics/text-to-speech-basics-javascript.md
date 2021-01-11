@@ -3,15 +3,15 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 04/15/2020
-ms.date: 11/20/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
 ms.custom: devx-track-js
-ms.openlocfilehash: 8345f6c563bed11d97b2780ad5a7af9d1de2ee44
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 234efbee5312a845a35c9338e84db3c7501d81a6
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95970781"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820667"
 ---
 本快速入门介绍使用语音 SDK 进行文本到语音合成的常见设计模式。 首先，请进行基本的配置和合成，然后通过更高级的示例来了解自定义应用程序开发，其中包括：
 
@@ -203,6 +203,9 @@ function synthesizeSpeech() {
 若要更改音频格式，请使用 `SpeechConfig` 对象的 `speechSynthesisOutputFormat` 属性。 此属性需要 [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?preserve-view=true&view=azure-node-latest) 类型的 `enum`，用于选择输出格式。 请参阅参考文档，获取可用的[音频格式列表](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?preserve-view=true&view=azure-node-latest)。
 
 可根据要求对不同的文件类型使用不同的选项。 请注意，根据定义，`Raw24Khz16BitMonoPcm` 等原始格式不包括音频标头。 仅当你知道下游实现可以解码原始位流，或者你打算基于位深度、采样率、通道数等属性手动生成标头时，才使用原始格式。
+
+> [!NOTE]
+> 语音 en-US-AriaRUS 和 en-US-GuyRUS 是通过 `Riff24Khz16BitMonoPcm` 采样率编码的样本创建的 。
 
 此示例通过对 `SpeechConfig` 对象设置 `speechSynthesisOutputFormat` 来指定高保真 RIFF 格式 `Riff24Khz16BitMonoPcm`。 与上一部分中的示例类似，获取音频 `ArrayBuffer` 数据并与之进行交互。
 

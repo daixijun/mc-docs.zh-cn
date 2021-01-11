@@ -1,27 +1,18 @@
 ---
-title: Azure 门户支持的浏览器和设备 | Azure
+title: Azure 门户支持的浏览器和设备
 description: 可以在所有新式设备上通过最新的浏览器版本使用 Azure 门户。 请参阅本文以确保你的浏览器受支持。
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: lwelicki
-editor: ''
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
-ms.service: azure-portal
-ms.workload: multiple
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/18/2020
-ms.date: 12/02/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
 ms.custom: accessibility
-ms.openlocfilehash: 6b14c87a778fef4397255a35b96375f2b718780c
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.openlocfilehash: c7803ef626364ff096ab3e856436e6522fc20dbf
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541172"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820356"
 ---
 # <a name="supported-devices"></a>支持的设备
 
@@ -34,7 +25,7 @@ ms.locfileid: "96541172"
 建议使用与操作系统兼容的最新浏览器。 支持以下浏览器：
 
 * Microsoft Edge（最新版本）
-* Internet Explorer 11
+* Internet Explorer 11（支持截止至 2021 年 3 月 31 日）
 * Safari（最新版本，仅限 Mac）
 * Chrome（最新版本）
 * Firefox（最新版本）

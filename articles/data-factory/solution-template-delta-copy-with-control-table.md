@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 12/24/2018
-ms.date: 09/21/2020
-ms.openlocfilehash: cce0af0b99b9d33706fb9b6bf61059887856a2c7
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+origin.date: 12/09/2020
+ms.date: 01/04/2021
+ms.openlocfilehash: 09e6ff546813e8ed5877466d9442427424f7aa58
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524049"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830181"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>使用控制表从数据库执行增量复制
 
@@ -46,7 +46,7 @@ ms.locfileid: "90524049"
 - *Data_Source_WaterMarkColumn* 是源表中的用于识别新行或已更新行的列名。 此列的类型通常为 *datetime*、*INT* 等。
 - *Data_Destination_Container* 是在目标存储中将数据复制到的位置的根路径。
 - *Data_Destination_Directory* 是在目标存储中将数据复制到的位置的根下的目录路径。
-- *Data_Destination_Table_Name* 是目标存储中要将数据复制到的位置（在选择“Azure Synapse Analytics (以前称为 SQL DW)”作为“数据目标”时适用）。
+- Data_Destination_Table_Name 是目标存储中要将数据复制到的位置（在选择“Azure Synapse Analytics”作为“数据目标”时适用）。
 - *Data_Destination_Folder_Path* 是目标存储中要将数据复制到的位置（在选择“文件系统”作为“数据目标”时适用）。
 - *Control_Table_Table_Name* 是用于存储高水印值的外部控制表。
 - *Control_Table_Table_Name* 是外部控制表中要将高水印值存储到的列。
@@ -93,15 +93,15 @@ ms.locfileid: "90524049"
             END
     ```
     
-4. 转到“从数据库执行增量复制”模板。  与要从中复制数据的源数据库建立**新的**连接。
+4. 转到“从数据库执行增量复制”模板。  与要从中复制数据的源数据库建立 **新的** 连接。
 
     ![创建与源表的新连接](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png)
 
-5. 与要将数据复制到的目标数据存储建立**新的**连接。
+5. 与要将数据复制到的目标数据存储建立 **新的** 连接。
 
     ![创建与目标表的新连接](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable5.png)
 
-6. 与在步骤 2 和 3 中创建的外部控制表与存储过程建立**新的**连接。
+6. 与在步骤 2 和 3 中创建的外部控制表与存储过程建立 **新的** 连接。
 
     ![创建与控件表数据存储的新连接](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
@@ -119,7 +119,7 @@ ms.locfileid: "90524049"
 
     ![写入存储过程参数的内容](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
-11. 选择“调试”，输入**参数**，然后选择“完成”。  
+11. 选择“调试”，输入 **参数**，然后选择“完成”。  
 
     ![选择“调试”](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 
@@ -137,11 +137,11 @@ ms.locfileid: "90524049"
             VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
 
-14. 若要再次运行管道，请选择“调试”，输入**参数**，然后选择“完成”。  
+14. 若要再次运行管道，请选择“调试”，输入 **参数**，然后选择“完成”。  
 
     你会看到，只有新行已复制到目标。
 
-15. （可选：）如果选择 Azure Synapse Analytics（以前为 SQL DW）作为数据目标，则还需按 Azure Synapse Analytics（以前称为 SQL 数据仓库）Polybase 的要求，提供用于暂存的 Azure Blob 存储的连接。 模板会为你生成容器路径。 管道运行后，检查是否已在 Blob 存储中创建容器。
+15. （可选：）如果选择“Azure Synapse Analytics”作为数据目标，则还需按 Azure Synapse Analytics Polybase 的要求，提供与用于暂存的 Azure Blob 存储的连接。 模板会为你生成容器路径。 管道运行后，检查是否已在 Blob 存储中创建容器。
     
     ![配置 PolyBase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     

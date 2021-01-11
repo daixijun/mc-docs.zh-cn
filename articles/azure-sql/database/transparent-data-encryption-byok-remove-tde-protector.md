@@ -5,20 +5,20 @@ description: 了解如何针对使用 TDE（支持“创建自己的密钥”(BY
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 02/24/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 36e63a353c17cd4d872d3dd74d36b8bd57cac1af
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 01/04/2021
+ms.openlocfilehash: f92d7623c10dc7fa52fec8d36f043bd1a14e965e
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872427"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830252"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>使用 PowerShell 删除透明数据加密 (TDE) 保护器
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,18 +31,18 @@ ms.locfileid: "91872427"
 
 如果怀疑某个密钥已泄露，以致某个服务或用户在未经授权的情况下访问该密钥，则最好是删除该密钥。
 
-请记住，在 Key Vault 中删除了 TDE 保护器后，在长达 10 分钟的时间内，所有加密数据库将开始拒绝所有带有相应错误消息的连接，并将其状态更改为[无法访问](/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector)。
+请记住，在 Key Vault 中删除了 TDE 保护器后，在长达 10 分钟的时间内，所有加密数据库将开始拒绝所有带有相应错误消息的连接，并将其状态更改为[无法访问](./transparent-data-encryption-byok-overview.md#inaccessible-tde-protector)。
 
 本操作指南根据事件响应泄露后的预期结果介绍了两种方法：
 
 - 使 Azure SQL 数据库/Azure Synapse Analytics 中的数据库无法访问。
-- 使 Azure SQL 数据库/Azure Synapse Analytics（以前称为“SQL 数据仓库”）中的数据库无法访问。
+- 使 Azure SQL 数据库/Azure Synapse Analytics 中的数据库无法访问。
 
 ## <a name="prerequisites"></a>先决条件
 
 - 必须有一个 Azure 订阅，并且是该订阅的管理员
 - 必须安装并运行 Azure PowerShell。
-- 本操作指南假设已使用 Azure Key Vault 中的密钥作为 Azure SQL 数据库或 Azure Synapse（以前称为 SQL 数据仓库）的 TDE 保护器。 有关详细信息，请参阅[支持 BYOK 的透明数据加密](transparent-data-encryption-byok-overview.md)。
+- 本操作指南假设已使用 Azure Key Vault 中的密钥作为 Azure SQL 数据库或 Azure Synapse 的 TDE 保护器。 有关详细信息，请参阅[支持 BYOK 的透明数据加密](transparent-data-encryption-byok-overview.md)。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

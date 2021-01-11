@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 11/03/2020
-ms.date: 12/10/2020
+origin.date: 12/23/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cdcacce5b4ecef7c51c297ba9393952923cbdc72
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 6e742eee2a0244a1be78283e4ed929f377bc13b7
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004195"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820242"
 ---
 # <a name="how-to-use-batch-transcription"></a>如何使用批量听录
 
-批量听录是一组 REST API 操作，可用于听录存储中的大量音频。 可以使用典型 URI 或共享访问签名 (SAS) URI 指向音频文件并异步接收听录结果。 使用 v3.0 API，你可以听录一个或多个音频文件，或者处理整个存储容器。
+批量听录是一组 REST API 操作，可用于听录存储中的大量音频。 可以使用典型 URI 或[共享访问签名 (SAS)](../../storage/common/storage-sas-overview.md) URI 指向音频文件并异步接收听录结果。 使用 v3.0 API，你可以听录一个或多个音频文件，或者处理整个存储容器。
 
 可以使用批量听录 REST API 调用以下方法：
 
@@ -67,7 +67,7 @@ ms.locfileid: "97004195"
 
 ### <a name="configuration"></a>配置
 
-配置参数以 JSON 形式提供。
+配置参数以 JSON 形式提供。 
 
 **听录一个或多个单独的文件。** 如果要听录的文件不止一个，建议在一个请求中发送多个文件。 下面的示例使用三个文件：
 
@@ -86,7 +86,7 @@ ms.locfileid: "97004195"
 }
 ```
 
-**处理整个存储容器：**
+**处理整个存储容器。** 容器 [SAS](../../storage/common/storage-sas-overview.md) 应包含 `r`（读取）和 `l`（列表）权限：
 
 ```json
 {
@@ -178,7 +178,7 @@ ms.locfileid: "97004195"
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      Azure 中可写容器的可选 URL（包含[服务临时 SAS](../../storage/common/storage-sas-overview.md)）。 结果存储在此容器中。 不支持具有存储访问策略的 SAS。 如果未指定，Microsoft 会将结果存储在由 Microsoft 管理的存储容器中。 当通过调用[删除听录](https://chinaeast2.dev.cognitive.azure.cn/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)来删除听录时，结果数据也会被删除。
+      Azure 中可写容器的可选 URL（包含[临时 SAS](../../storage/common/storage-sas-overview.md)）。 结果存储在此容器中。 不支持具有存储访问策略的 SAS。 如果未指定，Microsoft 会将结果存储在由 Microsoft 管理的存储容器中。 当通过调用[删除听录](https://chinaeast2.dev.cognitive.azure.cn/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)来删除听录时，结果数据也会被删除。
 :::row-end:::
 
 ### <a name="storage"></a>存储
@@ -215,7 +215,7 @@ ms.locfileid: "97004195"
       "duration": "PT1.59S",            // audio duration of this phrase, ISO 8601 encoded duration
       "offsetInTicks": 700000.0,        // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
       "durationInTicks": 15900000.0,    // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
-      
+
       // possible transcriptions of the current phrase with confidences
       "nBest": [
         {
@@ -225,7 +225,7 @@ ms.locfileid: "97004195"
           "itn": "hello world",
           "maskedITN": "hello world",
           "display": "Hello world.",
-          
+
           // if wordLevelTimestampsEnabled is `true`, there will be a result for each word of the phrase, otherwise this property is not present
           "words": [
             {
@@ -246,7 +246,7 @@ ms.locfileid: "97004195"
             }
           ]
         }
-      ]    
+      ]
     }
   ]
 }

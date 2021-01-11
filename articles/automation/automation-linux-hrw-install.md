@@ -6,12 +6,12 @@ ms.subservice: process-automation
 origin.date: 11/23/2020
 ms.date: 12/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb85952c1697d374294dc353bcf1a37af76cbf4c
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: fe5773117b7cc7ee0f0f2918a5bd32ab2343c893
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746602"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830081"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>部署 Linux 混合 Runbook 辅助角色
 
@@ -104,7 +104,7 @@ Linux 混合 Runbook 辅助角色支持 Azure 自动化中有限的一组 Runboo
 
 若要安装和配置 Linux 混合 Runbook 辅助角色，请执行以下步骤。
 
-1. 通过在提升的 PowerShell 命令提示符中或在 [Azure 门户](https://portal.azure.cn)的 Cloud Shell 中运行以下命令，在 Log Analytics 工作区中启用 Azure 自动化解决方案：
+1. 通过在提升的 PowerShell 命令提示符中运行以下命令，在 Log Analytics 工作区中启用 Azure 自动化解决方案：
 
     ```powershell
     Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <resourceGroupName> -WorkspaceName <workspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true

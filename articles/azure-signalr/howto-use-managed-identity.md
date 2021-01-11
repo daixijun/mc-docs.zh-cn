@@ -5,14 +5,14 @@ author: chenyl
 ms.service: signalr
 ms.topic: article
 origin.date: 06/08/2020
-ms.date: 10/19/2020
+ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 7e3bac3616574f761cd9ac37aed1a673be5b1ee2
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 8b7f66b7d9831242fb88aaffd94592621fdd0c00
+ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170807"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97820262"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Azure SignalR 服务的托管标识
 
@@ -47,7 +47,7 @@ ms.locfileid: "92170807"
 
 5. 搜索之前创建的标识并选择它。 选择“添加”  。
 
-    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="在门户中添加系统分配的标识":::
+    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="在门户中添加用户分配的标识":::
 
 ## <a name="use-a-managed-identity-in-serverless-scenarios"></a>在无服务器方案中使用托管标识
 
@@ -57,7 +57,10 @@ Azure SignalR 服务是一种完全托管的服务，因此你不能使用托管
 
 1. 添加系统分配的标识或用户分配的标识。
 
-2. 配置上游设置并使用 **ManagedIdentity** 作为“身份验证”设置。 若要了解如何创建包含身份验证的上游设置，请参阅[上游设置](concept-upstream.md)。
+2. 添加一个上游设置，然后单击任何星号进入如下所示的详细页面。
+    :::image type="content" source="media/signalr-howto-use-managed-identity/pre-msi-settings.png" alt-text="pre-msi-setting":::
+    
+    :::image type="content" source="media/signalr-howto-use-managed-identity/msi-settings.png" alt-text="msi-setting":::
 
 3. 在托管标识身份验证设置中，对于“资源”，你可以指定目标资源。 资源将成为获取的访问令牌中的 `aud` 声明，可在上游终结点中用作验证的一部分。 资源可以是下列值之一：
     - 空
@@ -77,6 +80,37 @@ Azure SignalR 服务是一种完全托管的服务，因此你不能使用托管
 Azure Active Directory (Azure AD) 中间件具有用于验证访问令牌的内置功能。 你可以浏览我们的[示例](../active-directory/develop/sample-v2-code.md)来查找所选语言的示例。
 
 我们提供了库和代码示例，用以演示如何轻松处理令牌验证。 还有多个可用于 JSON Web 令牌 (JWT) 验证的开源合作伙伴库。 几乎针对每种平台和语言都提供了至少一个选项。 有关 Azure AD 身份验证库和代码示例的详细信息，请参阅 [Microsoft 标识平台身份验证库](../active-directory/develop/reference-v2-libraries.md)。
+
+#### <a name="authentication-in-function-app"></a>函数应用中的身份验证
+
+无需代码即可轻松有效地在函数应用中设置访问令牌验证。
+
+1. 在“身份验证/授权”页中，将“应用服务身份验证”切换为“开”  。
+
+2. 在“请求未经身份验证时需执行的操作”中，选择“使用 Azure Active Directory 登录” 。
+
+3. 在“身份验证提供程序”中，单击“Azure Active Directory”
+
+4. 在新页中。 选择“快速”和“创建新的 AD 应用”，然后单击“确定”:::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="函数 AAD":::  
+
+5. 导航到 SignalR 服务并按照[步骤](howto-use-managed-identity.md#add-a-system-assigned-identity)添加系统分配的标识或用户分配的标识。
+
+6. 在 SignalR 服务中进入“上游设置”，然后选择“使用托管标识”和“从现有应用程序中选择”  。 选择之前创建的应用程序。
+
+完成这些设置后，函数应用将拒绝标头中没有访问令牌的请求。
+
+## <a name="use-a-managed-identity-for-key-vault-reference"></a>使用托管标识实现 Key Vault 引用
+
+SignalR 服务可以使用托管标识访问 Key Vault 以获取机密。
+
+1. 为 Azure SignalR 服务添加系统分配的标识或用户分配的标识。
+
+2. 在 Key Vault 的访问策略中授予对托管标识的机密读取权限。 请参阅[使用 Azure 门户分配 Key Vault 访问策略](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+
+目前，此功能可用于以下方案：
+
+- [在上游 URL 模式中引用机密](./concept-upstream.md#key-vault-secret-reference-in-url-template-settings)
+
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -4,23 +4,24 @@ description: 提供选择适当 SQL Server 虚拟机定价模型的最佳做法�
 services: virtual-machines-windows
 documentationcenter: na
 author: WenJason
+editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 08/09/2018
-ms.date: 09/14/2020
+ms.date: 01/04/2021
 ms.author: v-jay
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3380888c67cb0fa078f32d81185455322480eea6
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.openlocfilehash: 214c90c69d9da216ca3f57f6dc4126229abcad13
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872443"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830043"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Azure VM 上 SQL Server 的定价指南
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,9 +52,9 @@ ms.locfileid: "91872443"
 | 平台 | 自由许可的映像 |
 |---|---|
 | Windows Server 2016 | [SQL Server 2017 Developer Azure VM](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016)<br/>[SQL Server 2017 Express Azure VM](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016) |
+| Red Hat Enterprise Linux | [SQL Server 2017 Developer Azure VM](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonRedHatEnterpriseLinux74)<br/>[SQL Server 2017 Express Azure VM](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonRedHatEnterpriseLinux74) |
 | Ubuntu | [SQL Server 2017 Developer Azure VM](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS)<br/>[SQL Server 2017 Express Azure VM](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS) |
 
-<!--Not Available on Red Hat Enterprise Linux  -->
 <!--Not Available on SUSE Linux Enterprise Server  -->
 
 ## <a name="paid-sql-server-editions"></a>SQL Server 付费版
@@ -63,7 +64,7 @@ ms.locfileid: "91872443"
 | SQL Server 版本 | 工作负载 |
 |-----|-----|
 | Web | 小型网站 |
-| 标准 | 中小型工作负荷 |
+| Standard | 中小型工作负荷 |
 | Enterprise | 大型或任务关键型工作负荷|
 
 <!--MOONCAKE: CORRECT ON Standard Pay-In-Advance Offer-->
@@ -89,9 +90,9 @@ ms.locfileid: "91872443"
 | 平台 | 许可的映像 |
 |---|---|
 | Windows Server 2016 | [SQL Server 2017 Web Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017WebonWindowsServer2016)<br/>[SQL Server 2017 Standard Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017StandardonWindowsServer2016)<br/>[SQL Server 2017 Enterprise Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016) |
+| Red Hat Enterprise Linux | [SQL Server 2017 Web Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017WebonRedHatEnterpriseLinux74)<br/>[SQL Server 2017 Standard Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017StandardonRedHatEnterpriseLinux74)<br/>[SQL Server 2017 Enterprise Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017EnterpriseonRedHatEnterpriseLinux74) |
 | Ubuntu | [SQL Server 2017 Web Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS)<br/>[SQL Server 2017 Standard Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS)<br/>[SQL Server 2017 Enterprise Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) |
 
-<!--Not Available on Red Hat Enterprise Linux  -->
 <!--Not Available on SUSE Linux Enterprise Server  -->
 
 > [!IMPORTANT]
@@ -105,7 +106,7 @@ ms.locfileid: "91872443"
 
 ## <a name="bring-your-own-license-byol"></a><a id="byol"></a> 自带许可证 (BYOL)
 
-“通过许可移动性使用自己的 SQL Server 许可证”（也称为**BYOL**）是指在 Azure VM 中使用带软件保障的现有 SQL Server 批量许可证。 使用 BYOL 的 SQL Server VM 仅收取 VM 运行费用，而不收取 SQL Server 许可的费用，前提是已通过批量许可计划获得许可证和软件保障。
+“通过许可移动性使用自己的 SQL Server 许可证”（也称为 **BYOL**）是指在 Azure VM 中使用带软件保障的现有 SQL Server 批量许可证。 使用 BYOL 的 SQL Server VM 仅收取 VM 运行费用，而不收取 SQL Server 许可的费用，前提是已通过批量许可计划获得许可证和软件保障。
 
 > [!IMPORTANT]
 > BYOL 映像需要具有软件保障的企业协议。 目前，它们未作为 Azure 云解决方案合作伙伴 (CSP) 的一部分提供。
@@ -147,7 +148,7 @@ ms.locfileid: "91872443"
 
 ### <a name="correctly-size-your-vm"></a><a id="machinesize"></a>正确调整 VM 的大小
 
-SQL Server 的许可成本直接与 vCPU 数相关。 请选择与 CPU、内存、存储和 I/O 带宽需求相符的 VM 大小。 有关计算机大小选项的完整列表，请参阅 [Windows VM 大小](/virtual-machines/windows/sizes)和 [Linux VM 大小](/virtual-machines/linux/sizes?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+SQL Server 的许可成本直接与 vCPU 数相关。 请选择与 CPU、内存、存储和 I/O 带宽需求相符的 VM 大小。 有关计算机大小选项的完整列表，请参阅 [Windows VM 大小](../../../virtual-machines/sizes.md)和 [Linux VM 大小](../../../virtual-machines/sizes.md?toc=%252fvirtual-machines%252flinux%252ftoc.json)。
 
 有一些新的计算机大小能够很好地适应特定类型的 SQL Server 工作负荷。 这些计算机大小保留较高级别的内存、存储和 I/O 带宽，但虚拟化核心数较少。 例如，考虑以下情况：
 
@@ -167,7 +168,7 @@ SQL Server 的许可成本直接与 vCPU 数相关。 请选择与 CPU、内存�
 
 ## <a name="next-steps"></a>后续步骤
 
-有关常规 Azure 定价指南，请参阅[通过 Azure 计费和成本管理来防止意外成本](https://docs.azure.cn/zh-cn/billing/billing-getting-started/)。 有关最新的虚拟机定价（包括 SQL Server），请参阅适用于 [Windows VM](https://www.azure.cn/pricing/details/virtual-machines/) 和 [Linux VM](https://www.azure.cn/pricing/details/virtual-machines/) 的 Azure VM Azure 定价页。
+有关常规 Azure 定价指南，请参阅[通过 Azure 计费和成本管理来防止意外成本](https://docs.azure.cn/zh-cn/billing/billing-getting-started/)。 有关最新的 Azure 虚拟机定价（包括 SQL Server），请参阅适用于 [Windows VM](https://www.azure.cn/pricing/details/virtual-machines/) 和 [Linux VM](https://www.azure.cn/pricing/details/virtual-machines/) 的 Azure 虚拟机定价页。
 
 <!--MOONCAKE: CORRECT ON https://docs.azure.cn/zh-cn/billing/billing-getting-started-->
 
