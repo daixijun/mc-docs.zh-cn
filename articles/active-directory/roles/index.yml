@@ -9,26 +9,26 @@ metadata:
   ms.subservice: roles
   manager: daveba
   ms.topic: landing-page
-  ms.date: 11/04/2020
+  ms.date: 01/07/2021
   author: curtand
   ms.author: v-junlch
-  ms.openlocfilehash: 9927f9eb5b2e92d5ddec92f539532774364a7fc4
-  ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+  ms.openlocfilehash: f817ecf4358dbb04355c623c6c647104926a8876
+  ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/06/2020
-  ms.locfileid: "94326881"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98023039"
 landingContent:
 - title: 关于 Azure AD 角色
   linkLists:
   - linkListType: overview
     links:
-    - text: 自定义角色概述
+    - text: Azure AD 基于角色的访问控制概述
       url: custom-overview.md
   - linkListType: concept
     links:
-    - text: 委托管理权限
-      url: concept-delegation.md
+    - text: 了解 Azure AD 角色
+      url: concept-understand-roles.md
     - text: 了解 Azure AD 中的管理单元
       url: administrative-units.md
     - text: 使用云组来管理角色分配

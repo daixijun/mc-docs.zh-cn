@@ -11,16 +11,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 06/22/2020
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 32c7d4023cee9857947eac240d1cf3c288994049
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b7203edc20c39474904bf2ee98e4647773fe56f9
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104157"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856681"
 ---
 # <a name="os-start-up---computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>OS 启动 - 计算机意外重启或遇到意外错误
 
@@ -38,27 +38,23 @@ ms.locfileid: "93104157"
 
 ## <a name="cause"></a>原因
 
-虚拟机在尝试初次启动[通用映像](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation)，但因正在处理的自定义应答文件 (unattend.xml) 而遇到了问题。 Azure 中不支持自定义应答文件。 
+虚拟机在尝试初次启动[通用映像](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation)，但因正在处理的自定义应答文件 (Unattend.xml) 而遇到了问题。 Azure 中不支持自定义应答文件。 
 
 应答文件是一种特殊的 XML 文件，其中包含要在安装 Windows Server 操作系统的过程中自动完成的配置设置的设置定义和值。 配置选项包括有关以下内容的说明：如何对磁盘进行分区、在何处查找要安装的 Windows 映像、要应用的产品密钥，以及要运行的其他命令。
 
-Azure 中不支持自定义应答文件。 如果使用 `sysprep /unattend:<your file's name>` 选项指定了自定义 Unattend.xml 文件，则会出现此错误。
+同样，Azure 中不支持自定义应答文件。 因此，发生这种情况的场景是，已经准备了要在 Azure 中使用的映像，但你通过将 SYSPREP 与一个标志配合使用（类似于以下命令）指定了自定义 Unattend.xml 文件：
 
-在 Azure 中，使用 Sysprep.exe 中的“进入系统全新安装体验 (OOBE)”选项，或使用 `sysprep /oobe`，而不是 Unattend.xml 文件 。
+`sysprep /oobe /generalize /unattend:<your file's name> /shutdown`
 
-此问题通常是在将 Sysprep.exe 与本地 VM 一起使用以将通用 VM 上传到 Azure 时发生。 在这种情况下，你可能还对如何正确上传通用 VM 感兴趣。
+在 Azure 中，请使用系统准备工具 GUI 中的“进入系统全新安装体验(OOBE)”选项，或者使用 `sysprep /oobe`，而不要使用 Unattend.xml 文件 。
+
+此问题通常在你将 sysprep 与本地 VM 一起使用以将通用 VM 上传到 Azure 时发生。 在这种情况下，你可能还对如何正确上传通用 VM 感兴趣。
 
 ## <a name="solution"></a>解决方案
 
-### <a name="replace-unattended-answer-file-option"></a>替换无人参与应答文件选项
+### <a name="do-not-use-unattendxml"></a>请勿使用 Unattend.xml
 
-当已准备好在 Azure 中使用某个映像，但该映像使用了 Azure 不支持的自定义应答文件，并且你使用的 SYSPREP 带有类似以下命令的标志时，会发生这种情况：
-
-`sysprep /oobe /generalize /unattend:<NameOfYourAnswerFile.XML> /shutdown`
-
-- 在前面的命令中，将 `<NameOfYourAnswerFile.XML>` 替换为你的文件名称。
-
-要修复此问题，请按照[有关准备/捕获映像的 Azure 指南](../windows/upload-generalized-managed.md)操作，并准备新的通用映像。 在 sysprep 期间，请勿使用 `/unattend:<answerfile>` 标志。 请改为仅使用下面的标志：
+要修复此问题，请按照[有关准备/捕获映像的 Azure 指南](../windows/upload-generalized-managed.md)操作，并准备新的通用映像。 在执行 sysprep 的过程中，请勿使用 `/unattend:<your file's name>` 标志。 请改为仅使用下面的标志：
 
 `sysprep /oobe /generalize /shutdown`
 

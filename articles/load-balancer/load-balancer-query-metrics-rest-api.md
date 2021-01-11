@@ -9,14 +9,14 @@ ms.service: load-balancer
 ms.custom: REST, seodec18
 ms.topic: how-to
 origin.date: 11/19/2019
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.author: v-jay
-ms.openlocfilehash: c6140213ecf8dce623db563002980baaf21e7484
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 611abbcbcfd5f7a60f058f82b169cae3e380fe7e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105288"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022439"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>使用 REST API 获取负载均衡器使用情况指标
 
@@ -45,7 +45,7 @@ GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceG
 
 | 名称 | 说明 |
 | :--- | :---------- |
-| subscriptionId | 用于标识 Azure 订阅的订阅 ID。 如果拥有多个订阅，请参阅[使用多个订阅](/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。 |
+| subscriptionId | 用于标识 Azure 订阅的订阅 ID。 如果拥有多个订阅，请参阅[使用多个订阅](/cli/manage-azure-subscriptions-azure-cli)。 |
 | resourceGroupName | 包含该资源的资源组名称。 可以从 Azure 资源管理器 API、CLI 或门户获取此值。 |
 | loadBalancerName | Azure 负载均衡器的名称。 |
 | 指标名称 | 以逗号分隔的有效[负载均衡器指标](./load-balancer-standard-diagnostics.md)列表。 |

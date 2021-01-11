@@ -2,18 +2,18 @@
 title: 没有 800 计数限制的资源
 description: 列出可以在一个资源组中有 800 多个实例的 Azure 资源类型。
 ms.topic: conceptual
-origin.date: 09/21/2020
+origin.date: 10/28/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: ca8ef4c05e3976f03675234248ab6c3805fc9037
-ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
+ms.openlocfilehash: cc59f041bd34881d2afbf01ec6676ceaf0c155a2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915090"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022921"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>没有每个资源组 800 个实例限制的资源
 

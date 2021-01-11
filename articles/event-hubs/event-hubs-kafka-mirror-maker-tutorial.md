@@ -3,14 +3,14 @@ title: 使用 Apache Kafka MirrorMaker - Azure 事件中心 | Microsoft Docs
 description: 本文介绍如何使用 Kafka MirrorMaker 来创建 Azure 事件中心中 Kafka 群集的镜像。
 ms.topic: how-to
 origin.date: 06/23/2020
-ms.date: 11/05/2020
+ms.date: 01/05/2021
 ms.author: v-tawe
-ms.openlocfilehash: 75781628327df62bde608b115a5ef1255c0fa676
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 31753d6cac6b08d6dc07489f511bf84350a2839d
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431147"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874912"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>将 Kafka MirrorMaker 与适用于 Apache Kafka 的事件中心配合使用
 
@@ -21,8 +21,10 @@ ms.locfileid: "96431147"
 > [!NOTE]
 > [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker) 上提供了此示例
 
+> [!NOTE]
+> 本文包含对术语“白名单”的引用，Microsoft 不再使用该术语。 在从软件中删除该术语后，我们会将其从本文中删除。
 
-本教程介绍如何执行下列操作：
+在本教程中，你将了解如何执行以下操作：
 > [!div class="checklist"]
 > * 创建事件中心命名空间
 > * 克隆示例项目

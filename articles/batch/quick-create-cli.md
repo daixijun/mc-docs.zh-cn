@@ -1,20 +1,21 @@
 ---
 title: 快速入门 - 使用 Azure CLI 运行第一个 Batch 作业
-description: 快速了解如何使用 Azure CLI 创建 Batch 帐户和运行 Batch 作业。
+description: 本快速入门介绍如何使用 Azure CLI 创建 Batch 帐户和运行 Batch 作业。
+ms.service: batch
 ms.topic: quickstart
 origin.date: 08/13/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 10/19/2018
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 71eb836b6fc8d9ab23cfb6ec6a59ca193b866066
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 98e14e143a5003a2a1f76ab7a2f1962b8a2d243a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95970721"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022827"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>快速入门：使用 Azure CLI 运行第一个 Batch 作业
 

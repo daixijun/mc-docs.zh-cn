@@ -2,17 +2,14 @@
 title: 检测运动，将视频录制到 Azure 媒体服务
 description: 本快速入门演示如何使用 IoT Edge 上的实时视频分析功能来检测实时视频流中的运动，并将视频剪辑录制到 Azure 媒体服务。
 ms.topic: quickstart
-author: WenJason
-ms.author: v-jay
-ms.service: media-services
 origin.date: 04/27/2020
-ms.date: 11/30/2020
-ms.openlocfilehash: 1b095a2b6073d07c54e2e30c8ed3953903bff4fe
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 01/11/2021
+ms.openlocfilehash: ef1edd00802a6d84e0837d85cd69a5625c399800
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432600"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023214"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>快速入门：检测运动，将视频录制到媒体服务
 
@@ -63,7 +60,7 @@ ms.locfileid: "96432600"
     
 ```
 {
-    "@apiVersion" : "1.0"
+    "@apiVersion" : "2.0"
 }
 ```
 
@@ -88,7 +85,7 @@ ms.locfileid: "96432600"
 
 ```
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to Assets based on motion events",
@@ -335,7 +332,7 @@ ms.locfileid: "96432600"
 ```
 
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```
@@ -478,7 +475,7 @@ ms.locfileid: "96432600"
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2",
     "properties" : {
         "topologyName" : "EVRtoAssetsOnMotionDetection",
@@ -560,7 +557,7 @@ ms.locfileid: "96432600"
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -584,7 +581,7 @@ ms.locfileid: "96432600"
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -763,7 +760,7 @@ ms.locfileid: "96432600"
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -791,7 +788,7 @@ ms.locfileid: "96432600"
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -815,7 +812,7 @@ ms.locfileid: "96432600"
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```

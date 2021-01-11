@@ -3,18 +3,18 @@ title: 教程 - 使用参数文件部署模板
 description: 使用参数文件，其中包含的值可用于部署 Azure 资源管理器模板。
 origin.date: 09/10/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 043c00d69dd5349933a9be6350b27a5a467597c7
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: bbee4c289df7abee9b9430bd3db7e8102d774329
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937540"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022252"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>教程：使用参数文件部 ARM 模板
 
@@ -159,7 +159,7 @@ ms.locfileid: "91937540"
 
 不能在参数文件中指定与模板中的参数名称不匹配的参数名称。 如果提供了未知参数，会收到错误。
 
-在 VS Code 中，创建包含以下内容的新文件。 使用名称 **azuredeploy.parameters.dev.json** 保存文件。
+在 Visual Studio Code 中，创建包含以下内容的新文件。 使用名称 _azuredeploy.parameters.dev.json_ 保存文件。
 
 ```json
 {
@@ -188,9 +188,9 @@ ms.locfileid: "91937540"
 }
 ```
 
-此文件是用于开发环境的参数文件。 请注意，它将 Standard_LRS 用于存储帐户，使用 **dev** 前缀为资源命名，并将 **Environment** 标记设置为 **Dev**。
+此文件是用于开发环境的参数文件。 请注意，它将“Standard_LRS”用于存储帐户，使用“dev”前缀为资源命名，并将 `Environment` 标记设置为“Dev”  。
 
-同样，创建包含以下内容的新文件。 使用名称 **azuredeploy.parameters.prod.json** 保存文件。
+同样，创建包含以下内容的新文件。 使用名称 _azuredeploy.parameters.prod.json_ 保存文件。
 
 ```json
 {
@@ -219,13 +219,15 @@ ms.locfileid: "91937540"
 }
 ```
 
-此文件是用于生产环境的参数文件。 请注意，它将 Standard_GRS 用于存储帐户，使用 **contoso** 前缀为资源命名，并将 **Environment** 标记设置为 **Production**。 在实际生产环境中，还需要将应用服务与非免费版 SKU 配合使用，但在本教程中，我们将继续使用该免费版 SKU。
+此文件是用于生产环境的参数文件。 请注意，它将“Standard_GRS”用于存储帐户，使用“contoso”前缀为资源命名，并将 `Environment` 标记设置为“Production”  。 在实际生产环境中，还需要将应用服务与非免费版 SKU 配合使用，但在本教程中，我们将继续使用该免费版 SKU。
 
 ## <a name="deploy-template"></a>部署模板
 
 使用 Azure CLI 或 Azure PowerShell 来部署模板。
 
 让我们创建两个新的资源组，对模板进行最终测试。 一个用于开发环境，一个用于生产环境。
+
+对于模板和参数变量，请将 `{path-to-the-template-file}`、`{path-to-azuredeploy.parameters.dev.json}`、`{path-to-azuredeploy.parameters.prod.json}` 和大括号 `{}` 替换为你的模板和参数文件路径。
 
 首先，我们部署到开发环境。
 
@@ -296,7 +298,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> 如果部署失败，请使用“详细”开关获取有关正在创建的资源的信息。 使用“调试”开关获取调试的详细信息。
+> 如果部署失败，请使用 `verbose` 开关获取有关正在创建的资源的信息。 使用 `debug` 开关获取调试的详细信息。
 
 ## <a name="verify-deployment"></a>验证部署
 
@@ -310,9 +312,9 @@ az deployment group create \
 ## <a name="clean-up-resources"></a>清理资源
 
 1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
-2. 在“按名称筛选”字段中输入资源组名称。  如果已完成此系列，则需删除三个资源组 - myResourceGroup、myResourceGroupDev 和 myResourceGroupProd。
+2. 在“按名称筛选”字段中输入资源组名称。 如果已完成此系列，则需删除三个资源组：myResourceGroup、myResourceGroupDev 和 myResourceGroupProd  。
 3. 选择资源组名称。
-4. 在顶部菜单中选择“删除资源组”。 
+4. 在顶部菜单中选择“删除资源组”。
 
 ## <a name="next-steps"></a>后续步骤
 

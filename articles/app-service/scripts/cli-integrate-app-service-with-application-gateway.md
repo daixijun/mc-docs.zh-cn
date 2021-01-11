@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 12/09/2019
-ms.date: 11/30/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 377a0712a4c1cacef0d00b377151710e0c13699e
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: fe5fab490b7e2383b5de3b7af4acee38e03f8dd5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306447"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022929"
 ---
 # <a name="integrate-app-service-with-application-gateway-using-cli"></a>使用 CLI 将应用服务与应用程序网关集成
 
@@ -115,21 +115,21 @@ az network public-ip show \
 
 此脚本使用以下命令创建资源组、应用服务应用、Cosmos DB 和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 注释 |
+| 命令 | 说明 |
 |---|---|
-| [`az group create`](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [`az network vnet create`](https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) | 创建虚拟网络。 |
-| [`az network public-ip create`](https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) | 创建公共 IP 地址。 |
-| [`az network public-ip show`](https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) | 显示公共 IP 地址的详细信息。 |
-| [`az appservice plan create`](https://docs.azure.cn/cli/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | 创建应用服务计划。 |
-| [`az webapp create`](https://docs.azure.cn/cli/webapp?view=azure-cli-latest#az-webapp-create) | 创建应用服务 Web 应用。 |
-| [`az webapp show`](https://docs.azure.cn/cli/webapp?view=azure-cli-latest#az-webapp-show) | 显示应用服务 Web 应用的详细信息。 |
-| [`az webapp config access-restriction add`](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest#az-webapp-config-access-restriction-add) | 将访问限制添加到应用服务 Web 应用。 |
-| [`az network application-gateway create`](https://docs.azure.cn/cli/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-create) | 创建应用程序网关。 |
-| [`az network application-gateway http-settings update`](https://docs.azure.cn/cli/network/application-gateway/http-settings?view=azure-cli-latest#az-network-application-gateway-http-settings-update) | 更新应用程序网关 HTTP 设置。 |
+| [`az group create`](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [`az network vnet create`](https://docs.azure.cn/cli/network/vnet#az_network_vnet_create) | 创建虚拟网络。 |
+| [`az network public-ip create`](https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_create) | 创建公共 IP 地址。 |
+| [`az network public-ip show`](https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_show) | 显示公共 IP 地址的详细信息。 |
+| [`az appservice plan create`](https://docs.azure.cn/cli/appservice/plan#az_appservice_plan_create) | 创建应用服务计划。 |
+| [`az webapp create`](https://docs.azure.cn/cli/webapp#az_webapp_create) | 创建应用服务 Web 应用。 |
+| [`az webapp show`](https://docs.azure.cn/cli/webapp#az_webapp_show) | 显示应用服务 Web 应用的详细信息。 |
+| [`az webapp config access-restriction add`](https://docs.azure.cn/cli/webapp/config/access-restriction#az_webapp_config_access_restriction_add) | 将访问限制添加到应用服务 Web 应用。 |
+| [`az network application-gateway create`](https://docs.azure.cn/cli/network/application-gateway#az_network_application_gateway_create) | 创建应用程序网关。 |
+| [`az network application-gateway http-settings update`](https://docs.azure.cn/cli/network/application-gateway/http-settings#az_network_application_gateway_http_settings_update) | 更新应用程序网关 HTTP 设置。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli)。
 
 可以在 [Azure 应用服务文档](../samples-cli.md)中找到其他应用服务 CLI 脚本示例。

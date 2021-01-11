@@ -7,18 +7,19 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3f13400f75562d991db7643765731bd894e6b0a
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: d5f2e0a38a44582d8077c14eccb94935ec103c3f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004145"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022491"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 中基于组的许可的 PowerShell 和 Graph 示例
 
@@ -70,7 +71,7 @@ location: https://microsoftgraph.chinacloudapi.cn/v2/d056d009-17b3-4106-8173-cd3
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>查看分配给组的产品许可证
 
-[Get-msolgroup](https://docs.microsoft.com/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet 可用于检索组对象并检查“许可证”属性：它会列出当前分配给组的所有产品许可证。
+[Get-msolgroup](https://docs.microsoft.com/powershell/module/msonline/get-msolgroup) cmdlet 可用于检索组对象并检查“许可证”属性：它会列出当前分配给组的所有产品许可证。
 
 ```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
@@ -665,5 +666,6 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 * [识别和解决 Azure Active Directory 中组的许可问题](licensing-groups-resolve-problems.md)
 * [如何将单个许可用户迁移到 Azure Active Directory 中基于组的许可](licensing-groups-migrate-users.md)
 * [如何在 Azure Active Directory 中使用基于组的许可在产品许可证之间迁移用户](licensing-groups-change-licenses.md)
+* [Azure Active Directory 基于组的许可的其他方案](./licensing-group-advanced.md)
 * [Azure Active Directory 中基于组的许可的 PowerShell 示例](licensing-ps-examples.md)
 

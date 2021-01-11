@@ -4,17 +4,16 @@ description: Azure Service Fabric 可靠状态管理器和可靠集合事务和�
 ms.topic: conceptual
 origin.date: 05/01/2017
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: sfrev
-ms.openlocfilehash: 0dffd7dca5b8cafa3ced955bd175197523c7f244
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 1b8e576aa9ecfe5437d05c28d1c24ae36736917d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655354"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023288"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric 可靠集合中的事务和锁模式
 
@@ -26,7 +25,7 @@ ms.locfileid: "89655354"
 
 * **原子性**：事务必须是原子工作单元。 换而言之，要么执行其所有数据修改，要么一个数据修改也不执行。
 * **一致性**：事务在完成时，必须使所有的数据都保持一致状态。 事务结束时，所有内部数据结构必须都正确。
-* **隔离**：由并发事务所做的修改必须与任何其他并发事务所做的修改隔离。 用于 [ITransaction](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) 中某个操作的隔离级别由执行该操作的 [IReliableState](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) 确定。
+* **隔离**：由并发事务所做的修改必须与任何其他并发事务所做的修改隔离。 用于 [ITransaction](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.data.itransaction) 中某个操作的隔离级别由执行该操作的 [IReliableState](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.data.ireliablestate) 确定。
 * **持续性**：事务完成后，其效果永久存在于系统中。 即使系统发生故障，修改也会保留。
 
 ### <a name="isolation-levels"></a>隔离级别
@@ -92,6 +91,6 @@ Reliable Queue 权衡严格事务性 FIFO 属性的并发。
 * [Reliable Services 通知](service-fabric-reliable-services-notifications.md)
 * [Reliable Services 备份和还原（灾难恢复）](service-fabric-reliable-services-backup-restore.md)
 * [可靠状态管理器和配置](service-fabric-reliable-services-configuration.md)
-* [Reliable Collections 的开发人员参考](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+* [Reliable Collections 的开发人员参考](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -10,12 +10,12 @@ ms.testscope: no
 ms.testdate: 10/26/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c14817ab0366008f0ff4c67f06c57d65af0530d0
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: fc89af0f56666db8b0326d41cfc1dac20e397c2d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003916"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022549"
 ---
 <!--Verified Successfully-->
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>适用于 Azure 流量管理器的 Azure 安全基线
@@ -190,7 +190,7 @@ ms.locfileid: "97003916"
 
 - [如何部署 Privileged Identity Management](https://docs.azure.cn/active-directory/privileged-identity-management/pim-deployment-plan)
 
-<!--Not Available on - [Understand Azure AD risk detection](https://docs.azure.cn/active-directory/concept-risk-events)-->
+<!--Not Available on [Understand Azure AD risk detection](https://docs.azure.cn/active-directory/concept-risk-events)-->
 
 **Azure 安全中心监视**：是
 
@@ -241,9 +241,9 @@ ms.locfileid: "97003916"
 **责任**：客户
 
 <!--Not Available on ### 3.12: Alert on account login behavior deviation-->
-<!--Not Available on - [How to view Azure AD risky sign-ins](https://docs.azure.cn/active-directory/concept-risky-sign-ins)-->
-<!--Not Available on - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)-->
-<!--Not Avaialble on - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)-->
+<!--Not Available on [How to view Azure AD risky sign-ins](https://docs.azure.cn/active-directory/concept-risky-sign-ins)-->
+<!--Not Available on [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)-->
+<!--Not Avaialble on [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)-->
 
 ## <a name="data-protection"></a>数据保护
 
@@ -330,9 +330,9 @@ Azure 流量管理器具有一个名为“流量管理器参与者”的预定�
 
 还可以创建自定义 Azure Policy 定义，以限制更精细的资源设置。
 
-<!--Not Available on - [How to create additional Azure subscriptions](https://docs.azure.cn/billing/billing-create-subscription)-->
+<!--Not Available on [How to create additional Azure subscriptions](https://docs.azure.cn/billing/billing-create-subscription)-->
 
-<!--Not Available on - [How to create management groups](https://docs.azure.cn/governance/create)-->
+<!--Not Available on [How to create management groups](https://docs.azure.cn/governance/create)-->
 
 - [如何创建和使用标记](https://docs.azure.cn/azure-resource-manager/resource-group-using-tags)
 
@@ -417,17 +417,9 @@ Azure 流量管理器具有一个名为“流量管理器参与者”的预定�
 
 **责任**：客户
 
-### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5：安全存储 Azure 资源的配置
-
-**指导**：如果使用自定义的 Azure Policy 定义，请使用 Azure DevOps 或 Azure Repos 安全地存储和管理代码。
-
-- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
-
-- [Azure Repos 文档](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
-
-**Azure 安全中心监视**：不适用
-
-**责任**：客户
+<!--Not Available on - ### 7.5: Securely store configuration of Azure resources-->
+<!--Not Available on - [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)-->
+<!--Not Available on - [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)-->
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7：部署 Azure 资源的配置管理工具
 

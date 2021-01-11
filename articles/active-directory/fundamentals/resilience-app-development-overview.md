@@ -10,13 +10,13 @@ ms.topic: how-to
 author: knicholasa
 ms.author: v-junlch
 manager: martinco
-ms.date: 12/02/2020
-ms.openlocfilehash: 15ce71ca88f22e15a2ed679148541ace94f8d562
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.date: 01/07/2021
+ms.openlocfilehash: 7134432feba04f801f9116b2f385b4a4bfc90c0f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004327"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021271"
 ---
 # <a name="increase-resilience-of-authentication-and-authorization-applications-you-develop"></a>提高你开发的身份验证和授权应用程序的复原能力
 
@@ -29,5 +29,5 @@ Microsoft 标识使用基于令牌的新式身份验证和授权。 这意味着
 - [在将用户登录的应用程序中构建复原能力](resilience-client-app.md)
 - [在没有用户的情况下将复原能力构建到应用程序中](resilience-daemon-app.md)
 - [在标识和访问管理基础结构中构建复原能力](resilience-in-infrastructure.md)
-- [在使用 Azure Active Directory B2C 的客户标识和访问管理中构建复原能力](resilience-b2c.md)
+- [在 CIAM 系统中构建复原能力](resilience-b2c.md)
 

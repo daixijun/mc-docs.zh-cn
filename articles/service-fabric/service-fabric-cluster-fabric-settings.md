@@ -4,16 +4,16 @@ description: 本文介绍可以自定义的结构设置和结构升级策略。
 ms.topic: reference
 origin.date: 08/30/2019
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4475765c007c5f066b8080828383d25f0f6df873
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 42486fe731d178cf246e670180588e412845930a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105349"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022900"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自定义 Service Fabric 群集设置
 本文介绍可以自定义的 Service Fabric 群集的各种结构设置。 对于 Azure 中托管的群集，可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板自定义设置。 对于独立群集，可通过更新 ClusterConfig.json 文件并对群集执行配置升级来自定义设置。 有关详细信息，请参阅[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -884,7 +884,7 @@ ms.locfileid: "97105349"
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|时间跨度，默认值是 Common::TimeSpan::FromSeconds(60)|静态|指定以秒为单位的时间范围。 正在传入和正在接收的端（包括安全模式下的安全协商）上连接设置的超时时间 |
 |FrameHeaderErrorCheckingEnabled|bool，默认值为 TRUE|静态|有关对非安全模式下的帧标头执行错误检查的默认设置；组件设置会重写此值。 |
-|MessageErrorCheckingEnabled|bool，默认值为 FALSE|静态|有关对非安全模式下的消息标头和正文执行错误检查的默认设置；组件设置会重写此值。 |
+|MessageErrorCheckingEnabled|布尔值，默认为 TRUE|静态|有关对非安全模式下的消息标头和正文执行错误检查的默认设置；组件设置会重写此值。 |
 |ResolveOption|string，默认值为“unspecified”|静态|确定解析 FQDN 的方法。  有效值为 "unspecified/ipv4/ipv6"。 |
 |SendTimeout|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(300)|动态|指定以秒为单位的时间范围。 检测停滞连接时的发送超时。 某个环境中的 TCP 故障报告不可靠。 可能需要根据可用网络带宽和出站数据大小 (\*MaxMessageSize\/\*SendQueueSizeLimit) 调整此值。 |
 

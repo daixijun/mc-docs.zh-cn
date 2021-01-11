@@ -20,7 +20,7 @@
           href: stream-analytics-quick-create-powershell.md
 - name: 教程
   items:
-    - name: 1 - 运行 Azure Functions
+    - name: 运行 Azure Functions
       href: stream-analytics-with-azure-functions.md
 - name: 示例
   items:
@@ -93,6 +93,8 @@
           href: repartition.md
         - name: 提高作业的吞吐量
           href: stream-analytics-scale-jobs.md
+    - name: IoT Edge
+      href: stream-analytics-edge.md
     - name: 作业的状态
       href: job-states.md
     - name: 开窗函数
@@ -131,14 +133,12 @@
           href: stream-analytics-clean-up-your-job.md
         - name: 进行作业配对以确保可靠性
           href: stream-analytics-job-reliability.md
+        - name: 加密数据
+          href: data-protection.md
         - name: 异地冗余
           href: geo-redundancy.md
     - name: 构建解决方案
       items:
-        - name: 实时欺诈检测
-          href: stream-analytics-real-time-fraud-detection.md
-        - name: 在 IoT Edge 上运行作业
-          href: stream-analytics-edge.md
         - name: 在 Azure Stack 上运行作业
           href: on-azure-stack.md
         - name: 收费站传感器数据分析
@@ -222,7 +222,7 @@
             - name: 聚合函数概述
               href: 'https://docs.microsoft.com/stream-analytics-query/aggregate-functions-azure-stream-analytics'
               maintainContext: true
-            - name: AVG
+            - name: 平均值
               href: 'https://docs.microsoft.com/stream-analytics-query/avg-azure-stream-analytics'
               maintainContext: true
             - name: COUNT
@@ -237,7 +237,7 @@
             - name: MAX
               href: 'https://docs.microsoft.com/stream-analytics-query/max-azure-stream-analytics'
               maintainContext: true
-            - name: MIN
+            - name: 最小值
               href: 'https://docs.microsoft.com/stream-analytics-query/min-azure-stream-analytics'
               maintainContext: true
             - name: Percentile_Cont

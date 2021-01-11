@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 07/06/2020
+ms.date: 01/08/2021
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d4a1a66484079145e56056ae95ab5819cbf2af1
-ms.sourcegitcommit: 92b9b1387314b60661f5f62db4451c9ff2c49500
+ms.openlocfilehash: 88d9e90143fbda2db74e317006f1c5e7b52d0f59
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86164840"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021755"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函数引用
 在 Azure AD Connect 中，函数用于在同步期间操作属性值。  
@@ -703,7 +703,7 @@ InStr 函数查找字符串中第一次出现的子字符串
 
 `num InStr(str stringcheck, str stringmatch)`  
 `num InStr(str stringcheck, str stringmatch, num start)`  
-`num InStr(str stringcheck, str stringmatch, num start , enum compare)`
+`num InStr(str stringcheck, str stringmatch, num start, enum compare)`
 
 * stringcheck：要搜索的字符串
 * stringmatch：要查找的字符串

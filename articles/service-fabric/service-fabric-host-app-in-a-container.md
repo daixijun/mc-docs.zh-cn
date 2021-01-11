@@ -4,16 +4,16 @@ description: 了解如何使用 Visual Studio 将现有 .NET 应用程序容器�
 ms.topic: tutorial
 origin.date: 07/08/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 06/08/2020
 ms.author: v-yeche
-ms.openlocfilehash: 05b6345589f8e6861825e39168a6f7b9bc08c560
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: be640e36f4395cdd9d63fbc0bf0156e1e079a7d4
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507175"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022404"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>教程：将 Windows 容器中的 .NET 应用程序部署到 Azure Service Fabric
 

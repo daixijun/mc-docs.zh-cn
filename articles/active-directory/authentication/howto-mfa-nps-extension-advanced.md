@@ -5,22 +5,25 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9dffc84048ef71c78ae23a1bb70b940536424aa
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 9a7dd23795bb869a97b8c500a93fabc8ec8d9234
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004271"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022073"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>用于多重身份验证的 NPS 扩展的高级配置选项
 
-网络策略服务器 (NPS) 扩展可将基于云的 Azure AD 多重身份验证功能扩展至本地基础结构。 本文假设你已安装扩展，并想了解如何为自身需求自定义扩展。 
+网络策略服务器 (NPS) 扩展可将基于云的 Azure AD 多重身份验证功能扩展至本地基础结构。 本文假设你已安装扩展，并想了解如何为自身需求自定义扩展。
+
+> [!NOTE]
+> 本文包含对术语“白名单”的引用，Microsoft 不再使用该术语。 在从软件中删除该术语后，我们会将其从本文中删除。
 
 ## <a name="alternate-login-id"></a>备用登录 ID
 

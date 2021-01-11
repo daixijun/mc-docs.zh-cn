@@ -1,25 +1,25 @@
 ---
 title: 快速入门：配置工作负荷隔离 - 门户
-description: 使用 Azure 门户配置工作负荷隔离。
+description: 使用 Azure 门户配置专用 SQL 池的工作负载隔离。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 05/04/2020
-ms.date: 06/15/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: b5581101b7b1b43fca4692f6b063a9e83e42df92
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: dd617fa31699c29703ea72f5febd8fd3d1c527c8
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432653"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023149"
 ---
-# <a name="quickstart-configure-synapse-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>快速入门：在 Azure 门户中使用工作负荷组配置 Synapse SQL 池工作负荷隔离
+# <a name="quickstart-configure-dedicated-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>快速入门：在 Azure 门户中使用工作负载组配置专用 SQL 池工作负载隔离
 
 在本快速入门中，你将通过创建用来预留资源的工作负荷组来配置[工作负荷隔离](sql-data-warehouse-workload-isolation.md)。  为实现本教程的目的，我们将创建用于加载数据的名为 `DataLoads` 的工作负荷组。 此工作负荷组将预留 20% 的系统资源。  如果与数据加载对应的隔离度为 20%，则可保证这些数据加载获得的资源能够满足 SLA 要求。  创建工作负荷组后，可[创建工作负荷分类器](quickstart-create-a-workload-classifier-portal.md)，将查询分配到此工作负荷组。
 
@@ -32,24 +32,24 @@ ms.locfileid: "96432653"
 登录 [Azure 门户](https://portal.azure.cn/)。
 
 > [!NOTE]
-> 在 Azure Synapse Analytics 中创建 SQL 池实例可能会产生一个新的可计费服务。  有关详细信息，请参阅 [Azure Synapse Analytics 定价](https://azure.cn/pricing/details/sql-data-warehouse/)。
+> 在 Azure Synapse Analytics 中创建专用 SQL 池实例可能会产生一个新的可计费服务。  有关详细信息，请参阅 [Azure Synapse Analytics 定价](https://azure.cn/pricing/details/sql-data-warehouse/)。
 
 ## <a name="prerequisites"></a>先决条件
 
-本快速入门假定你在 Synapse SQL 中已有一个 SQL 池实例，并且你具有 CONTROL DATABASE 权限。 如果需要创建一个 SQL 数据仓库，可使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库  。
+本快速入门假定你在 Synapse SQL 中已有一个专用 SQL 池实例，并且你具有 CONTROL DATABASE 权限。 如果需要创建一个 SQL 数据仓库，可使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库  。
 
 >[!IMPORTANT] 
->SQL 池必须联机才能配置工作负荷管理。 
+>专用 SQL 池必须联机才能配置工作负载管理。 
 
 ## <a name="configure-workload-isolation"></a>配置工作负荷隔离
-可以通过创建工作负荷组，为特定工作负荷隔离和保留 SQL 池资源。  请参阅[工作负荷隔离](sql-data-warehouse-workload-isolation.md)概念文档，详细了解工作负荷组如何帮助你实现工作负荷管理。  [创建并连接 - 门户](create-data-warehouse-portal.md)快速入门创建了 mySampleDataWarehouse  并使用 400 DWU 对其进行了初始化。 以下步骤在 mySampleDataWarehouse  中创建一个工作负荷组。
+
+可以通过创建工作负载组，为特定工作负载隔离和保留专用 SQL 池资源。  请参阅[工作负荷隔离](sql-data-warehouse-workload-isolation.md)概念文档，详细了解工作负荷组如何帮助你实现工作负荷管理。  [创建并连接 - 门户](create-data-warehouse-portal.md)快速入门创建了 mySampleDataWarehouse 并使用 DW100c 对其进行了初始化。 以下步骤在 mySampleDataWarehouse  中创建一个工作负荷组。
 
 若要创建隔离度为 20% 的工作负荷组，请执行以下操作：
-1.  在 Azure 门户的左侧页中单击“Azure Synapse Analytics (前称为 SQL 数据仓库)”。 
-2.  从“Azure Synapse Analytics (以前称为 SQL DW)”  页中选择 **mySampleDataWarehouse**。 此时将打开 SQL 池。
-3.  单击“工作负荷管理”  。
-4.  单击“新建工作负荷组”  。
-5.  单击“自定义”  。
+1.  导航到 mySampleDataWarehouse 专用 SQL 池页面。
+1.  选择“工作负载管理”。
+1.  选择“新建工作负载组”。
+1.  选择“自定义”。
 
     ![单击“自定义”](./media/quickstart-configure-workload-isolation-portal/create-wg.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "96432653"
 7.  对于“最小资源百分比”，输入 `20`。 
 8.  对于“每个请求的最小资源百分比”，输入 `5`。 
 9.  对于“资源百分比上限”，输入 `100`。 
-10.   单击“ **保存**”。
+10. 输入“保存”。
 
    ![点击“保存”](./media/quickstart-configure-workload-isolation-portal/configure-wg.png)
 
@@ -84,17 +84,13 @@ ms.locfileid: "96432653"
 
 遵循以下步骤清理资源。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)，选择你的数据仓库。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，选择你的专用 SQL 池。
 
     ![清理资源](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. 若要暂停计算，请选择“暂停”  按钮。 暂停数据仓库后，可看到“启动”  按钮。  若要恢复计算，请选择“启动”  。
 
 3. 若要删除数据仓库以免产生计算或存储费用，请选择“删除”  。
-
-4. 若要删除你创建的 SQL 服务器，请选择上图中的“sqlpoolservername.database.chinacloudapi.cn”，然后选择“删除”。    请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
-
-5. 若要删除资源组，请选择“myResourceGroup”  ，然后选择“删除资源组”  。
 
 ## <a name="next-steps"></a>后续步骤
 

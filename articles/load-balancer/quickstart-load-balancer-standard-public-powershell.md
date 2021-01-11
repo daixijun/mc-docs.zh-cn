@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/22/2020
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms:custom: seodec18
-ms.openlocfilehash: 3e8bbaa757593f901b1d26b4ea563538c177056f
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 96aeb54aed3e794e6c49ef2275d6452580ceec47
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105088"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021306"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建公共负载均衡器以对 VM 进行负载均衡
 
@@ -53,6 +53,8 @@ New-AzResourceGroup -Name 'CreatePubLBQS-rg' -Location 'chinaeast2'
 
 >[!NOTE]
 >对于生产型工作负载，建议使用标准 SKU 负载均衡器。 有关 sku 的详细信息，请参阅 [Azure 负载均衡器 SKU](skus.md)。
+
+<!--:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Standard load balancer resources created for quickstart." border="false":::-->
 
 ## <a name="create-a-public-ip-address---standard"></a>创建公共 IP 地址 - 标准
 
@@ -169,14 +171,14 @@ New-AzLoadBalancer @loadbalancer
 ## Create backend subnet config ##
 $subnet = @{
     Name = 'myBackendSubnet'
-    AddressPrefix = '10.0.0.0/24'
+    AddressPrefix = '10.1.0.0/24'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
 ## Create Azure Bastion subnet. ##
 $bastsubnet = @{
     Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.0.1.0/24'
+    AddressPrefix = '10.1.1.0/24'
 }
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 
@@ -185,7 +187,7 @@ $net = @{
     Name = 'myVNet'
     ResourceGroupName = 'CreatePubLBQS-rg'
     Location = 'chinaeast2'
-    AddressPrefix = '10.0.0.0/16'
+    AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
 $vnet = New-AzVirtualNetwork @net
@@ -446,6 +448,8 @@ $nicvm | Set-AzNetworkInterfaceIpConfig @be | Set-AzNetworkInterface
 >[!NOTE]
 >对于生产型工作负载，建议使用标准 SKU 负载均衡器。 有关 sku 的详细信息，请参阅 [Azure 负载均衡器 SKU](skus.md)。
 
+<!--:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::-->
+
 ## <a name="create-a-public-ip-address---basic"></a>创建公共 IP 地址 - 基本
 
 使用 [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) 创建公共 IP 地址。
@@ -546,14 +550,14 @@ New-AzLoadBalancer @loadbalancer
 ## Create backend subnet config ##
 $subnet = @{
     Name = 'myBackendSubnet'
-    AddressPrefix = '10.0.0.0/24'
+    AddressPrefix = '10.1.0.0/24'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
 ## Create Azure Bastion subnet. ##
 $bastsubnet = @{
     Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.0.1.0/24'
+    AddressPrefix = '10.1.1.0/24'
 }
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 
@@ -562,7 +566,7 @@ $net = @{
     Name = 'myVNet'
     ResourceGroupName = 'CreatePubLBQS-rg'
     Location = 'chinaeast2'
-    AddressPrefix = '10.0.0.0/16'
+    AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
 $vnet = New-AzVirtualNetwork @net
@@ -788,7 +792,7 @@ Remove-AzResourceGroup -Name 'CreatePubLBQS-rg'
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中
+在本快速入门：
 
 * 你创建了一个标准或基本公共负载均衡器
 * 附加了虚拟机。 

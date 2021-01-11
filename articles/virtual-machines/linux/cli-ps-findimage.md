@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.service: virtual-machines-linux
 origin.date: 01/25/2019
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 01/05/2021
 ms.author: v-johya
-ms.openlocfilehash: 0506df4fb264de705ac48328b6600f7159d584dc
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 0d9fd862bce384c25e62d968ac5726a2bb8bc4e5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057498"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022544"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>使用 Azure CLI 在 Azure 市场中查找 Linux VM 映像
 

@@ -5,20 +5,21 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 06/30/2020
+origin.date: 06/30/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: 8224b9d1d6004b9c300a63e69c51168685f23110
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 7f74e552f79d754110ee0fcf9b31c5ebdb26dc4f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162839"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022801"
 ---
 # <a name="azure-firewall-policy-dns-settings-preview"></a>Azure 防火墙策略 DNS 设置（预览）
 
 > [!IMPORTANT]
 > Azure 防火墙 DNS 设置目前处于公共预览状态。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)。
 
 可以为 Azure 防火墙策略配置自定义 DNS 服务器并启用 DNS 代理。 可以在部署防火墙时配置这些设置，或者稍后从“DNS 设置”页进行配置。
 

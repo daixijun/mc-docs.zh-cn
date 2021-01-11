@@ -4,18 +4,18 @@ description: 本文介绍了如何将 VNet 对等互连和 Azure Bastion 配合�
 services: bastion
 ms.service: bastion
 ms.topic: conceptual
-origin.date: 11/05/2020
+origin.date: 12/09/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.testscope: yes|no
 ms.testdate: 11/23/2020null
 ms.author: v-yeche
-ms.openlocfilehash: 2daa490a834ecd4dd5373e50df54800636a3b3f5
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: c5458ed1f26a16294db344f40dd008747900fa28
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849549"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022653"
 ---
 # <a name="vnet-peering-and-azure-bastion-preview"></a>VNet 对等互连和 Azure Bastion（预览版）
 

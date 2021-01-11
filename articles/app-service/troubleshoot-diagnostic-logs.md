@@ -4,15 +4,15 @@ description: 了解如何启用诊断日志记录并将检测添加到应用程�
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 origin.date: 09/17/2019
-ms.date: 12/07/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: fb65d0fa26ad21b824289e9827308f59f8e3ba7e
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: c9f3619171b0196347dda6cdc4e18541a4cf57be
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507963"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023029"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>为 Azure 应用服务中的应用启用诊断日志记录
 ## <a name="overview"></a>概述
@@ -136,6 +136,9 @@ Azure 提供内置诊断功能，可帮助调试[应用服务应用](overview.md
 
 <!-- ### In Cloud Shell -->
 
+### <a name="in-local-terminal"></a>在本地终端中
+
+若要在本地控制台中流式传输日志，请[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli) 并[登录帐户](https://docs.azure.cn/cli/authenticate-azure-cli)。 登录后，使用以下命令：
 
 ```azurecli
 az webapp log tail --name appname --resource-group myResourceGroup
@@ -151,10 +154,6 @@ az webapp log tail --name appname --resource-group myResourceGroup --filter Erro
 ```azurecli
 az webapp log tail --name appname --resource-group myResourceGroup --path http
 ```
-
-### <a name="in-local-terminal"></a>在本地终端中
-
-若要在本地控制台中流式传输日志，请[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli) 并[登录帐户](https://docs.azure.cn/cli/authenticate-azure-cli)。 登录后，使用以下命令：
 
 ## <a name="access-log-files"></a>访问日志文件
 

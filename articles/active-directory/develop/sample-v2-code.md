@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f9381e08a0262526041af4899dba637e0279eb68
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 6ff4bb765927dd22e9f975c976c2f8c61b1787f3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003892"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022534"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft 标识平台代码示例（v2.0 终结点）
 
@@ -46,8 +46,9 @@ ms.locfileid: "97003892"
 | ![此图显示了 Angular 徽标](./media/sample-v2-code/logo_angular.png) [Angular (MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| SPA 调用自定义 Web API | [ms-identity-javascript-angular-spa-aspnetcore-webapi](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi) |
 | ![此图显示了 Angular 徽标](./media/sample-v2-code/logo_angular.png) [Angular (MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | SPA 调用 B2C |[active-directory-b2c-javascript-angular-spa](https://github.com/Azure-Samples/active-directory-b2c-javascript-angular-spa) |
 | ![此图显示了 React 徽标](./media/sample-v2-code/logo_react.png) [React (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)| SPA 调用自定义 Web API，后者反过来调用 Microsoft Graph  | [ms-identity-javascript-react-spa-dotnetcore-webapi-obo](https://github.com/Azure-Samples/ms-identity-javascript-react-spa-dotnetcore-webapi-obo) |
-| ![此图显示了 JavaScript 徽标](./media/sample-v2-code/logo_js.png) [JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | SPA 调用自定义 Web API，后者反过来调用 Microsoft Graph  | [ms-identity-javascript-tutorial-chapter4-obo](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/4-1-call-api-graph) |
+| ![此图显示了 JavaScript 徽标](./media/sample-v2-code/logo_js.png) [JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | SPA 调用自定义 Web API，后者反过来调用 Microsoft Graph  | [ms-identity-javascript-tutorial-chapter4-obo](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/1-call-api-graph) |
 | ![此图显示了 Angular 徽标](./media/sample-v2-code/logo_angular.png) [Angular (MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | SPA 使用应用角色和安全组调用自定义 Web API |[ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups) |
+| ![此图显示了 Blazor 徽标](./media/sample-v2-code/logo-blazor.png) [Blazor WebAssembly (MSAL-JS)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | Blazor WebAssembly 教程：通过 Azure Active Directory 让用户登录并调用 API |[ms-identity-blazor-wasm](https://github.com/Azure-Samples/ms-identity-blazor-wasm) |
 
 ## <a name="web-applications"></a>Web 应用程序
 
@@ -64,7 +65,7 @@ ms.locfileid: "97003892"
 | ![此图显示了 Python 徽标](./media/sample-v2-code/logo_python.png)  | [Python Flask Web 应用](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md)让用户登录教程                   | [Python Flask Web 应用](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md)让用户登录并调用 Graph 教程 |
 | ![此图显示了 Python 徽标](./media/sample-v2-code/logo_python.png)  | [Python Flask Web 应用](https://github.com/Azure-Samples/ms-identity-b2c-python-flask-webapp-authentication/blob/main/README.md)让用户通过 B2C 登录教程                    |  |
 | ![此图显示了 Ruby 徽标](./media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
-
+| ![此图显示了 Blazor 徽标](./media/sample-v2-code/logo-blazor.png)</p>Blazor 服务器 | [Blazor Server 应用用户登录教程](https://github.com/Azure-Samples/ms-identity-blazor-server/tree/main/WebApp-OIDC) | [Blazor Server 应用调用 Microsoft Graph](https://github.com/Azure-Samples/ms-identity-blazor-server/tree/main/WebApp-graph-user/Call-MSGraph)</p>Chapterwise 教程：[通过 Azure Active Directory 让用户登录并调用 API 的 Blazor Server 应用](https://github.com/Azure-Samples/ms-identity-blazor-server) |
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>桌面和移动公共客户端应用
 

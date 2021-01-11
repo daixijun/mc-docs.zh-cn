@@ -2,20 +2,54 @@
 title: 排查 Azure 自动化更新管理问题
 description: 本文介绍如何排查和解决 Azure 自动化更新管理的问题。
 services: automation
-origin.date: 10/14/2020
-ms.date: 11/23/2020
+origin.date: 12/04/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: e63283b2a147cf1a18fc4af4cdf2d53e2ad03ab6
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: 8022e8e649ee304de8be4e7eee72532e297c2f29
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680521"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829830"
 ---
 # <a name="troubleshoot-update-management-issues"></a>排查“更新管理”问题
 
 本文讨论在计算机上部署更新管理功能时可能遇到的问题。 对于混合 Runbook 辅助角色代理，可使用代理故障排除程序来确定底层问题。 若要了解有关故障排除程序的详细信息，请参阅[排查 Windows 更新代理问题](update-agent-issues.md)和[排查 Linux 更新代理问题](update-agent-issues-linux.md)。 有关其他功能部署问题，请参阅[排查功能部署问题](onboarding.md)。
+
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>场景：Linux 更新显示为挂起，已安装的更新并不相同
+
+### <a name="issue"></a>问题
+
+对于 Linux 计算机，“更新管理”会在“安全性”和“其他”分类下显示可用的特定更新。 但是，在计算机上运行更新计划来安装特定更新（例如，仅安装与“安全性”分类匹配的更新）时，安装的更新将不同于之前显示的与该分类匹配的更新，或者将是那些更新的子集。
+
+### <a name="cause"></a>原因
+
+在评估 Linux 计算机的挂起的 OS 更新后，更新管理会使用 Linux 发行版供应商提供的[开放漏洞和评估语言](https://oval.mitre.org/) (OVAL) 文件进行分类。 基于 OVAL 文件的 Linux 更新分类为“安全性”或“其他”，其中指明了用于解决安全问题或漏洞的更新 。 但是，当运行更新计划时，它会使用适当的包管理器（例如 YUM、APT 或 ZYPPER）在 Linux 计算机上执行，以便进行安装。 Linux 发行版的包管理器可以通过不同的机制对更新进行分类，其结果可能不同于更新管理从 OVAL 文件获得的结果。
+
+### <a name="resolution"></a>解决方法
+
+你可以根据发行版的包管理器，手动检查 Linux 计算机、适用的更新及其分类。 若要了解哪些更新被包管理器归类为“安全性”，请运行以下命令。
+
+对于 YUM，以下命令返回由 Red Hat 归类为“安全性”的非零数量的更新列表。 请注意，对于 CentOS，它始终返回一个空列表，而不进行安全性分类。
+
+```bash
+sudo yum -q --security check-update
+```
+
+对于 ZYPPER，以下命令返回由 SUSE 归类为“安全性”的非零数量的更新列表。
+
+```bash
+sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
+```
+
+对于 APT，以下命令返回由 Canonical for Ubuntu Linux 发行版归类为“安全性”的非零数量的更新列表。
+
+```bash
+sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
+```
+
+然后，你可以根据此列表运行命令 `grep ^Inst` 来获取所有挂起的安全更新。
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>场景：收到“无法启用更新解决方案”错误
 

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 250fc67b4422702a1e012ce26289decb3c6a6223
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: b52a728a20834dbad722c27a246d12bb78715b99
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004087"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021749"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中对企业应用禁用用户登录
 
@@ -39,7 +39,7 @@ ms.locfileid: "97004087"
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>使用 Azure AD PowerShell 禁用未列出的应用
 
-如果你知道未出现在企业应用列表中的应用的 AppId（例如，因为你删除了该应用，或者由于该应用正在由 Microsoft 预授权而尚未创建服务主体），则可以手动创建该应用的服务主体，然后使用 [AzureAD PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0) 将其禁用。
+如果你知道未出现在企业应用列表中的应用的 AppId（例如，因为你删除了该应用，或者由于该应用正在由 Microsoft 预授权而尚未创建服务主体），则可以手动创建该应用的服务主体，然后使用 [AzureAD PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azuread/New-AzureADServicePrincipal) 将其禁用。
 
 ```PowerShell
 # The AppId of the app to be disabled

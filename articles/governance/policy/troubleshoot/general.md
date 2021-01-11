@@ -2,19 +2,19 @@
 title: 排查常见错误
 description: 了解如何排查为 Kubernetes 创建策略定义、各种 SDK 和加载项时遇到的问题。
 origin.date: 10/30/2020
-ms.date: 11/06/2020
+ms.date: 01/05/2021
 ms.author: v-tawe
 ms.topic: troubleshooting
-ms.openlocfilehash: 8eed8085954ef3587cc4feeb1d8b4b0a537e261e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: f9e7ea6ecc239a4a7470798285436f9545209cba
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327691"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874835"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>排查使用 Azure Policy 时出现的错误
 
-本文介绍可能会发生的各种常见错误及其解决方法。
+在创建策略定义、使用 SDK 时可能会遇到错误。 本文介绍可能会发生的各种常见错误及其解决方法。
 
 ## <a name="finding-error-details"></a>查找错误详细信息
 
@@ -99,7 +99,7 @@ Azure Policy 使用[别名](../concepts/definition-structure.md#aliases)映射�
 请按照以下步骤排查策略分配的实施问题：
 
 1. 首先，请等待一段时间来完成评估以及等待 Azure 门户或 SDK 中显示符合性结果。 若要使用 Azure PowerShell 或 REST API 开始新的评估扫描，请参阅[按需评估扫描](../how-to/get-compliance-data.md#on-demand-evaluation-scan)。
-1. 检查分配参数和分配范围是否已正确设置，以及“enforcementMode”是否为“Enabled”。 
+1. 检查分配参数和分配范围是否已正确设置，以及“enforcementMode”是否为“Enabled”。
 1. 检查[策略定义模式](../concepts/definition-structure.md#mode)：
    - 将所有资源类型的模式设置为“所有”。
    - 如果策略定义检查标记或位置，则设置“已编制索引”模式。

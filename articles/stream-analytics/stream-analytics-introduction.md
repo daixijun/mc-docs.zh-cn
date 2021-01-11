@@ -6,14 +6,14 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
-ms.custom: mvc, contperfq2
-ms.date: 11/16/2020
-ms.openlocfilehash: 4d53ad285ae06d9d6294c166030aa0bd43e94e88
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.custom: mvc, contperf-fy21q2
+ms.date: 01/07/2021
+ms.openlocfilehash: d568d310bfd223effb3e61a8482bf185f3770630
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977031"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023157"
 ---
 # <a name="welcome-to-azure-stream-analytics"></a>欢迎使用 Azure 流分析
 
@@ -91,6 +91,7 @@ Azure 流分析有内置的恢复功能，可以在事件传送失败时发挥�
 ### <a name="security"></a>安全性
 
 在安全性方面，Azure 流分析会加密所有传入和传出通信，并支持 TLS 1.2。 内置检查点也是加密的。 流分析不存储传入数据，因为所有处理都在内存中完成。 
+<!--Not available in MC: Stream Analytics Cluster-->
 
 ### <a name="compliance"></a>合规性
 

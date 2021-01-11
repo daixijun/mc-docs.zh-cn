@@ -5,15 +5,15 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 11/23/2020
+ms.date: 12/28/2020
 ms.topic: include
 ms.custom: include file, devx-track-js, cog-serv-seo-aug-2020
-ms.openlocfilehash: f3c9e4df6c5e34af0305977a249ab7e895376f45
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 3dabf3dc57758dfb253460c9f95f573c8a40d734
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306220"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97874896"
 ---
 使用适用于 Node.js 的语言理解 (LUIS) 客户端库来执行以下操作：
 
@@ -27,7 +27,7 @@ ms.locfileid: "96306220"
 ## <a name="prerequisites"></a>先决条件
 
 * [Node.js](https://nodejs.org)
-* Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/details/cognitive-services)
+* Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 有了 Azure 订阅后，在 Azure 门户中[创建语言理解创作资源](https://portal.azure.cn/#create/Microsoft.CognitiveServicesLUISAllInOne)，以获取创作密钥和终结点。 等待其部署并单击“转到资源”按钮。
     * 需要从[创建](../luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal)的资源获取密钥和终结点，以便将应用程序连接到语言理解创作。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。 可以使用免费定价层 (`F0`) 来试用该服务。
 
@@ -2186,7 +2186,7 @@ quickstart()
 
 :::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="显示门户中标记的示例言语的部分屏幕截图。":::
 
-结合应用 ID、版本 ID 和示例调用 [examples.add](https://docs.microsoft.com//javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#add-string--string--examplelabelobject--models-examplesaddoptionalparams-)。
+结合应用 ID、版本 ID 和示例调用 [examples.add](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-lates)。
 
 ```javascript
 /* To run this sample, install the following modules.

@@ -2,27 +2,27 @@
 title: include 文件
 description: include 文件
 services: cognitive-services
-author: roy-har
+author: Johnnytechn
 manager: diberry
 ms.service: cognitive-services
-ms.date: 06/19/2020
+ms.date: 12/28/2020
 origin.date: 06/04/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
-ms.author: v-tawe
-ms.openlocfilehash: 7ded39f15366598e0c82659f9444db1683ed63fc
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.author: v-johya
+ms.openlocfilehash: 90ba1324ffa6ab29e24e96bf2c990134b62fdf81
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "92472459"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874900"
 ---
 创建披萨应用。
 
 1. 选择 [pizza-app-for-luis-v6.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-app-for-luis-v6.json)，打开 `pizza-app-for-luis.json` 文件的 GitHub 页面。
 1. 右键单击或长按“原始”按钮，然后选择“将链接另存为”，将 `pizza-app-for-luis.json` 保存到计算机 。
-1. 登录到 [LUIS 门户](https://luis.azure/cn)。
+1. 登录到 [LUIS 门户](https://luis.azure.cn)。
 1. 选择[我的应用](https://luis.azure.cn/applications)。
 1. 在“我的应用”页面上，选择“+ 新建用于对话的应用” 。
 1. 选择“导入为 JSON”。
@@ -60,7 +60,7 @@ Pizza 应用中应会显示“意向”页面，其中显示了一个意向列�
 
 ## <a name="record-the-access-values-for-your-pizza-app"></a>记录 Pizza 应用的访问值
 
-若要使用新的披萨应用，你需要该披萨应用的应用 ID、授权密钥和授权终结点。
+若要使用新的披萨应用，你需要该披萨应用的应用 ID、授权密钥和授权终结点。 若要获取预测，需要单独的预测终结点和预测密钥。
 
 若要查找这些值：
 
@@ -68,5 +68,6 @@ Pizza 应用中应会显示“意向”页面，其中显示了一个意向列�
 1. 在“应用程序设置”页面，记录“应用 ID” 。
 1. 选择“Azure 资源”。
 1. 选择“创作资源”。
-1. 从“创作资源”选项卡上，记录主密钥。 此值是你的创作密钥。
+1. 从“创作资源”和“预测资源”选项卡，记录“主键”  。 此值是你的创作密钥。
 1. 记录“终结点 URL”。 此值是你的创作终结点。
+

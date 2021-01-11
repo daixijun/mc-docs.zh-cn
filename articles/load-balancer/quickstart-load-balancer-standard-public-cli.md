@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/23/2020
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: ecb7739d3966d9723fdd71ad76f7a9d1a2887325
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 296ec7d633153b6b27c87b4ea6f31f08fef034e9
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105094"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021303"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入门：使用 Azure CLI 创建公共负载均衡器以对 VM 进行负载均衡
 
@@ -57,13 +57,15 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 >[!NOTE]
 >对于生产型工作负载，建议使用标准 SKU 负载均衡器。 有关 sku 的详细信息，请参阅 [Azure 负载均衡器 SKU](skus.md)。
 
+<!--Availability Zone-->
+
 ## <a name="configure-virtual-network---standard"></a>配置虚拟网络 - 标准
 
 需要先创建支持的虚拟网络资源，然后才能部署 VM 和测试负载均衡器。
 
 ### <a name="create-a-virtual-network"></a>创建虚拟网络
 
-使用 [az network vnet create](https://docs.azure.cn/cli/network/vnet#az-network-vnet-createt) 创建虚拟网络：
+使用 [az network vnet create](https://docs.azure.cn/cli/network/vnet#az_network_vnet_createt) 创建虚拟网络：
 
 * 命名为“myVNet”。
 * 地址前缀为 10.1.0.0/16。
@@ -83,7 +85,7 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 ```
 ### <a name="create-a-public-ip-address"></a>创建公共 IP 地址
 
-使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-create) 为堡垒主机创建公共 IP：
+使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_create) 为堡垒主机创建公共 IP：
 
 * 创建名为“myBastionIP”的标准公共 IP 地址。
 * 在“CreatePubLBQS-rg”中。
@@ -96,7 +98,7 @@ az network public-ip create \
 ```
 ### <a name="create-a-bastion-subnet"></a>创建堡垒子网
 
-使用 [az network vnet subnet create](https://docs.azure.cn/cli/network/vnet/subnet#az-network-vnet-subnet-create) 创建堡垒子网：
+使用 [az network vnet subnet create](https://docs.azure.cn/cli/network/vnet/subnet#az_network_vnet_subnet_create) 创建堡垒子网：
 
 * 命名为 AzureBastionSubnet。
 * 地址前缀为 10.1.1.0/24。
@@ -263,7 +265,7 @@ az network bastion create \
 
 若要通过 Internet 访问 Web 应用，需要负载均衡器有一个公共 IP 地址。 
 
-使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-create) 执行以下操作：
+使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_create) 执行以下操作：
 
 * 创建名为“myPublicIP”的标准公共 IP 地址。
 * 在“CreatePubLBQS-rg”中。
@@ -287,7 +289,7 @@ az network bastion create \
 
 ### <a name="create-the-load-balancer-resource"></a>创建负载均衡器资源
 
-使用 [az network lb create](https://docs.azure.cn/cli/network/lb#az-network-lb-create) 创建公共负载均衡器：
+使用 [az network lb create](https://docs.azure.cn/cli/network/lb#az_network_lb_create) 创建公共负载均衡器：
 
 * 命名为 myLoadBalancer。
 * 前端池命名为 myFrontEnd。
@@ -390,7 +392,7 @@ az network bastion create \
 
 ### <a name="public-ip"></a>公共 IP
 
-使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip#az-network-public-ip-create) 为出站连接创建单个 IP。  
+使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_create) 为出站连接创建单个 IP。  
 
 * 命名为 myPublicIPOutbound。
 * 在“CreatePubLBQS-rg”中。
@@ -404,7 +406,7 @@ az network bastion create \
 
 ### <a name="public-ip-prefix"></a>公共 IP 前缀
 
-使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip/prefix#az-network-public-ip-prefix-create) 为出站连接创建公共 IP 前缀。
+使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip/prefix#az_network_public_ip_prefix_create) 为出站连接创建公共 IP 前缀。
 
 * 命名为 myPublicIPPrefixOutbound。
 * 在“CreatePubLBQS-rg”中。
@@ -516,6 +518,8 @@ az network bastion create \
 
 >[!NOTE]
 >对于生产型工作负载，建议使用标准 SKU 负载均衡器。 有关 sku 的详细信息，请参阅 [Azure 负载均衡器 SKU](skus.md)。
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="在快速入门中创建的基本负载均衡器资源。" border="false":::
 
 ## <a name="configure-virtual-network---basic"></a>配置虚拟网络 - 基本
 

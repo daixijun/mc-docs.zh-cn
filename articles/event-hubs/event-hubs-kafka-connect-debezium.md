@@ -5,19 +5,22 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: v-tawe
 origin.date: 08/11/2020
-ms.date: 11/05/2020
-ms.openlocfilehash: 162e92971380342e0a4b2675dad8e432959ec6f1
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/05/2021
+ms.openlocfilehash: 8e95b6e1f7175a11e726e45acf48cd0d68f27210
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431182"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874833"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>将 Azure 事件中心（预览版）上的 Apache Kafka Connect 支持与 Debezium 集成进行变更数据捕获
 
 **变更数据捕获 (CDC)** 是一项技术，用来跟踪为响应创建、更新和删除操作而在数据库表中进行的行级更改。 [Debezium](https://debezium.io/) 是一个基于不同数据库中提供的变更数据捕获功能（例如，[PostgreSQL 中的逻辑解码](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)）构建的分布式平台。 它提供了一组 [Kafka Connect 连接器](https://debezium.io/documentation/reference/1.2/connectors/index.html)，这些连接器会深入探索数据库表中的行级更改，然后将它们转换为事件流，这些事件流随后会发送到 [Apache Kafka](https://kafka.apache.org/)。
 
 本教程介绍了如何使用 [Azure 事件中心](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu)（适用于 Kafka）、[Azure DB for PostgreSQL](../postgresql/overview.md) 和 Debezium 在 Azure 上设置基于变更数据捕获的系统。 它将使用 [Debezium PostgreSQL 连接器](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html)将数据库修改从 PostgreSQL 流式传输到 Azure 事件中心内的 Kafka 主题。
+
+> [!NOTE]
+> 本文包含对术语“白名单”的引用，Microsoft 不再使用该术语。 在从软件中删除该术语后，我们会将其从本文中删除。
 
 在本教程中，我们将执行以下步骤：
 

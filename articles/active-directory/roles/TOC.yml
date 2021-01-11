@@ -2,21 +2,27 @@
   href: index.yml
 - name: 概述
   items:
-    - name: Azure AD 角色
+    - name: 什么是 Azure AD RBAC？
       href: custom-overview.md
+    - name: 了解 Azure AD 角色
+      href: concept-understand-roles.md
 - name: 快速入门
   items:
     - name: 创建无限次应用注册
       href: quickstart-app-registration-limits.md
+- name: 教程
+  items:
+    - name: 创建动态组
+      href: ../enterprise-users/users-revoke-access.md
 - name: 概念
   expanded: true
   items:
     - name: 委托 Azure AD 管理员角色
       href: concept-delegation.md
     - name: 比较默认用户权限
-      href: /active-directory/fundamentals/users-default-permissions
+      href: ../fundamentals/users-default-permissions.md
     - name: 比较 Azure 和 Azure AD 角色
-      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md
     - name: 了解 Azure AD 中的管理单元
       href: administrative-units.md
 - name: 操作指南
@@ -25,13 +31,15 @@
     - name: 用户和角色
       items:
         - name: 将用户分配到管理员角色
-          href: /active-directory/fundamentals/active-directory-users-assign-role-azure-portal
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md
         - name: 撤消用户的访问权限
-          href: /active-directory/enterprise-users/users-revoke-access
+          href: ../enterprise-users/users-revoke-access.md
         - name: 向来宾用户分配角色
-          href: /active-directory/b2b/add-guest-to-role?context=azure/active-directory/roles/context/ugr-context
+          href: ../external-identities/add-guest-to-role.md
         - name: 限制来宾用户访问权限
-          href: /active-directory/enterprise-users/users-restrict-guest-permissions?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../enterprise-users/users-restrict-guest-permissions.md
+        - name: 动态组和来宾
+          href: ../external-identities/use-dynamic-groups.md
     - name: 角色和权限
       expanded: true
       items:
@@ -42,14 +50,12 @@
     - name: 自定义角色
       expanded: true
       items:
-        - name: 自定义角色概述
-          href: custom-overview.md
         - name: 创建自定义角色
           href: custom-create.md
         - name: 查看自定义角色分配
           href: custom-view-assignments.md
         - name: 在 Azure 门户中分配自定义角色
-          href: /active-directory/fundamentals/active-directory-users-assign-role-azure-portal
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md
         - name: 使用 PowerShell 分配自定义角色
           href: custom-assign-powershell.md
         - name: 为企业应用分配自定义角色
@@ -115,4 +121,4 @@
     - name: 用于 Graph 的 Azure AD PowerShell
       href: 'https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0'
     - name: Azure AD 服务限制
-      href: /active-directory/enterprise-users/directory-service-limits-restrictions
+      href: ../enterprise-users/directory-service-limits-restrictions.md

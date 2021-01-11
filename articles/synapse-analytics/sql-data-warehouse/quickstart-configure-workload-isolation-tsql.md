@@ -6,20 +6,20 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 04/27/2020
-ms.date: 07/06/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 87d2d2d04b3940c4bfe427c3f94fe137e8026b52
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: c721bb82953788cbec92bf48554137f2665c464e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432650"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023146"
 ---
-# <a name="quickstart-configure-workload-isolation-using-t-sql"></a>快速入门：使用 T-SQL 配置工作负荷隔离
+# <a name="quickstart-configure-workload-isolation-in-a-dedicated-sql-pool-using-t-sql"></a>快速入门：使用 T-SQL 在专用 SQL 池中配置工作负载隔离
 
 在本快速入门中，你将快速创建工作负荷组和分类器，以便保留资源以进行数据加载。 工作负荷组将向数据加载分配 20% 的系统资源。  工作负荷分类器将向数据加载工作负荷组分配请求。  它们对数据加载实现 20% 的隔离，这两项资源都必定满足 SLA 要求。
 
@@ -30,7 +30,7 @@ ms.locfileid: "96432650"
 
 ## <a name="prerequisites"></a>先决条件
 
-本快速入门假定你已在 Azure Synapse 中有 Synapse SQL 实例，并且具有 CONTROL DATABASE 权限。 如果需要创建一个 SQL 数据仓库，可使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库。
+本快速入门假定你已在 Azure Synapse 中有 Synapse SQL 实例，并且具有 CONTROL DATABASE 权限。 如果需要创建一个 SQL 池，请参考[创建和连接 - 门户](create-data-warehouse-portal.md)创建名为 mySampleDataWarehouse 的专用 SQL 池。
 
 ## <a name="create-login-for-dataloads"></a>为 DataLoads 创建登录名
 
@@ -104,10 +104,10 @@ DROP USER [ELTLogin]
 ;
 ```
 
-我们会针对数据仓库中存储的数据，按数据仓库单位收费。 这些计算和存储资源是分开计费的。
+我们会针对专用 SQL 池中存储的数据，按数据仓库单位收费。 这些计算和存储资源是分开计费的。
 
-- 如果想要将数据保留在存储中，可以在不使用 SQL 池时暂停计算。 如果暂停计算资源，则你只需支付数据存储费用。 准备好处理数据时，可以恢复计算。
-- 如果不想支付将来的费用，则可以删除数据仓库。
+- 如果想要将数据保留在存储中，可以在不使用专用 SQL 池时暂停计算。 如果暂停计算资源，则你只需支付数据存储费用。 准备好处理数据时，可以恢复计算。
+- 若要避免将来产生费用，可以删除该专用 SQL 池。
 
 ## <a name="next-steps"></a>后续步骤
 

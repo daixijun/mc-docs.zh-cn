@@ -4,23 +4,23 @@ description: 介绍如何使用 Azure 资源管理器在 Azure 上部署和管�
 ms.topic: overview
 origin.date: 09/01/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
 ms.custom: contperfq1
-ms.openlocfilehash: c7ad13dffd4c4b6362026d3736b8f9bdac73464d
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 6a27cd47bfbc6789e287aa2b4eacfee7ed80636e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937192"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022923"
 ---
 # <a name="what-is-azure-resource-manager"></a>什么是 Azure 资源管理器？
 
 Azure 资源管理器是 Azure 的部署和管理服务。 它提供了一个管理层，用于在 Azure 帐户中创建、更新和删除资源。 部署后，可以使用访问控制、锁和标记等管理功能来保护和组织资源。
 
-若要了解 Azure 资源管理器模板，请参阅[模板部署概述](../templates/overview.md)。
+若要了解 Azure 资源管理器模板（ARM 模板），请参阅[模板部署概述](../templates/overview.md)。
 
 ## <a name="consistent-management-layer"></a>一致的管理层
 
@@ -64,7 +64,7 @@ Azure 资源管理器是 Azure 的部署和管理服务。 它提供了一个管
 
 Azure 提供四个级别的范围：[管理组](../../governance/management-groups/overview.md)、订阅、[资源组](#resource-groups)和资源。 下图显示了这些层的一个示例。
 
-:::image type="content" source="./media/overview/scope-levels.png" alt-text="资源管理器请求模型":::
+:::image type="content" source="./media/overview/scope-levels.png" alt-text="管理级别":::
 
 将在上述任何级别的作用域中应用管理设置。 所选的级别确定应用设置的广泛程度。 较低级别继承较高级别的设置。 例如，将[策略](../../governance/policy/overview.md)应用于订阅时，该策略将应用于订阅中的所有资源组和资源。 在资源组上应用策略时，该策略将应用于资源组及其所有资源。 但是，其他资源组没有该策略分配。
 
@@ -100,7 +100,7 @@ Azure 提供四个级别的范围：[管理组](../../governance/management-grou
 
 * 某些资源可能存在于资源组之外。 这些资源将部署到[订阅](../templates/deploy-to-subscription.md)、[管理组](../templates/deploy-to-management-group.md)或[租户](../templates/deploy-to-tenant.md)。 这些范围仅支持特定的资源类型。
 
-* 要创建资源组，可使用[门户](manage-resource-groups-portal.md#create-resource-groups)、[PowerShell](manage-resource-groups-powershell.md#create-resource-groups)、[Azure CLI](manage-resource-groups-cli.md#create-resource-groups) 或 [Azure 资源管理器 (ARM) 模板](../templates/deploy-to-subscription.md#resource-groups)。
+* 要创建资源组，可使用[门户](manage-resource-groups-portal.md#create-resource-groups)、[PowerShell](manage-resource-groups-powershell.md#create-resource-groups)、[Azure CLI](manage-resource-groups-cli.md#create-resource-groups) 或 [ARM 模板](../templates/deploy-to-subscription.md#resource-groups)。
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Azure 资源管理器的复原能力
 

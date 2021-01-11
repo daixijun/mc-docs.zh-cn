@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 origin.date: 07/29/2019
-ms.date: 11/23/2020
+ms.date: 12/30/2020
 ms.author: v-johya
-ms.openlocfilehash: 150471993feef7d3496ffb6f3e6b63e94e5c529b
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 23bfdb6e1ca0b2a37d12fdaf0e21b1f0a3bc18fe
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306167"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857106"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>示例：如何使用文本分析提取关键短语
 
@@ -27,17 +27,21 @@ ms.locfileid: "96306167"
 有关详细信息，请参阅[支持的语言](../language-support.md)。
 
 > [!TIP]
-> 文本分析还提供一个基于 Linux 的 Docker 容器映像，用于提取关键短语，因此可以在靠近数据的位置[安装并运行文本分析容器](text-analytics-how-to-install-containers.md)。
+> * 文本分析还提供一个基于 Linux 的 Docker 容器映像，用于提取关键短语，因此可以在靠近数据的位置[安装并运行文本分析容器](text-analytics-how-to-install-containers.md)。
+> * 你也可以使用 `/analyze` 终结点来[异步](text-analytics-how-to-call-api.md)使用此功能。
 
 ## <a name="preparation"></a>准备工作
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 提供的要处理的文本量越大，关键短语提取效果越好。 这恰好与情绪分析（文本量越小，效果越好）相反。 要从两个操作获取最佳结果，请考虑相应地重建输入。
 
 必须拥有以下格式的 JSON 文档：ID、文本、语言
 
-每个文档的大小必须为 5,120 个或更少的字符，每个集合最多可包含 1,000 个项目 (ID)。 集合在请求正文中提交。 以下示例例举了可能提交以进行关键短语提取的内容。
+每个文档的大小必须为 5,120 个或更少的字符，每个集合最多可包含 1,000 个项目 (ID)。 集合在请求正文中提交。 以下示例例举了可能提交以进行关键短语提取的内容。 
+
+若要详细了解请求和响应对象，请参阅[如何调用文本分析 API](text-analytics-how-to-call-api.md)。  
+
+### <a name="example-synchronous-request-object"></a>同步请求对象示例
+
 
 ```json
     {
@@ -71,13 +75,43 @@ ms.locfileid: "96306167"
     }
 ```
 
+### <a name="example-asynchronous-request-object"></a>异步请求对象示例
+
+从 `v3.1-preview.3` 开始，可以使用 `/analyze` 终结点来异步发送 NER 请求。
+
+
+```json
+{
+����"displayName":�"My�Job",
+����"analysisInput":�{
+��������"documents":�[
+������������{
+����������������"id":�"doc1",
+����������������"text":�"It's incredibly sunny outside! I'm so happy"
+������������},
+������������{
+����������������"id":�"doc2",
+����������������"text":�"Pike place market is my favorite Seattle attraction."
+������������}
+��������]
+����},
+    "tasks": {
+        "keyPhraseExtractionTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }],
+    }
+}
+```
+
 ## <a name="step-1-structure-the-request"></a>步骤 1：构造请求
 
 有关请求定义的信息，请参阅[如何调用文本分析 API](text-analytics-how-to-call-api.md)。 为方便起见，特重申以下几点：
 
 + 创建 POST 请求  。 查看此请求的 API 文档：[关键短语 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-0/operations/KeyPhrases)。
 
-+ 使用 Azure 上的文本分析资源或实例化的[文本分析容器](text-analytics-how-to-install-containers.md)设置 HTTP 终结点，以便提取关键短语。 必须在 URL 中包括 `/text/analytics/v3.0/keyPhrases`。 例如：`https://<your-custom-subdomain>.api.cognitiveservices.azure.cn/text/analytics/v3.0/keyPhrases`。
++ 使用 Azure 上的文本分析资源或实例化的[文本分析容器](text-analytics-how-to-install-containers.md)设置 HTTP 终结点，以便提取关键短语。 如果要以同步方式使用该 API，则必须在 URL 中包括 `/text/analytics/v3.0/keyPhrases`。 例如：`https://<your-custom-subdomain>.api.cognitiveservices.azure.cn/text/analytics/v3.0/keyPhrases`。
 
 + 设置请求头以包含文本分析操作的[访问密钥](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
 
@@ -88,7 +122,7 @@ ms.locfileid: "96306167"
 
 ## <a name="step-2-post-the-request"></a>步骤 2：发布请求
 
-在收到请求时执行分析。 有关每分钟或每秒可以发送的请求的大小和数量的信息，请参阅概述中的[数据限制](../overview.md#data-limits)部分。
+在收到请求时执行分析。 若要了解每分钟或每秒可以发送的请求的大小和数量，请参阅概述中的[数据限制](../overview.md#data-limits)部分。
 
 记住，该服务是无状态服务。 帐户中未存储任何数据。 结果会立即在响应中返回。
 
@@ -99,6 +133,8 @@ ms.locfileid: "96306167"
 系统会立即返回输出。 可将结果流式传输到接受 JSON 的应用程序，或者将输出保存到本地系统上的文件中，然后将其导入到允许对数据进行排序、搜索和操作的应用程序。
 
 下面显示的是从 v3.1-preview.2 终结点提取关键短语的输出示例：
+
+### <a name="synchronous-result"></a>同步结果
 
 ```json
     {
@@ -160,13 +196,68 @@ ms.locfileid: "96306167"
 ```
 如上所述，分析器查找和放弃不重要的字词，并保留似乎是句子主语或宾语的字词或短语。
 
+### <a name="asynchronous-result"></a>异步结果
+
+如果将 `/analyze` 终结点用于异步操作，你将会收到一个响应，其中包含你发送到 API 的任务。
+
+```json
+{
+  "displayName": "My�Analyze Job",
+  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
+  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
+  "createdDateTime": "2020-11-13T04:01:13Z",
+  "expirationDateTime": "2020-11-14T04:01:13Z",
+  "status": "running",
+  "errors": [],
+  "tasks": {
+      "details": {
+          "name": "My�Analyze Job",
+          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
+      },
+      "completed": 1,
+      "failed": 0,
+      "inProgress": 2,
+      "total": 3,
+      "keyPhraseExtractionTasks": [
+          {
+              "name": "My�Analyze Job",
+              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
+              "results": {
+                  "inTerminalState": true,
+                  "documents": [
+                      {
+                          "id": "doc1",
+                          "keyPhrases": [
+                              "sunny outside"
+                          ],
+                          "warnings": []
+                      },
+                      {
+                          "id": "doc2",
+                          "keyPhrases": [
+                              "favorite Seattle attraction",
+                              "Pike place market"
+                          ],
+                          "warnings": []
+                      }
+                  ],
+                  "errors": [],
+                  "modelVersion": "2020-07-01"
+              }
+          }
+      ]
+  }
+}
+```
+
+
 ## <a name="summary"></a>摘要
 
 在本文中，你已了解使用认知服务中的文本分析进行关键短语提取的概念和工作流。 综上所述：
 
 + [关键短语提取 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 适用于所选语言。
 + 请求正文中的 JSON 文档包括 ID、文本和语言代码。
-+ POST 请求的目标是 `/keyphrases` 终结点，方法是使用对订阅有效的个性化[访问密钥和终结点](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
++ POST 请求的目标是 `/keyphrases` 或 `/analyze` 终结点，使用了对订阅有效的个性化[访问密钥和终结点](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
 + 响应输出包含每个文档 ID 的关键单词和短语，可以流式传输到接受 JSON 的任何应用，包括 Microsoft Office Excel 和 Power BI（仅举几例）。
 
 ## <a name="see-also"></a>另请参阅
@@ -177,6 +268,6 @@ ms.locfileid: "96306167"
 ## <a name="next-steps"></a>后续步骤
 
 * [文本分析概述](../overview.md)
-* [使用文本分析客户端库](../quickstarts/text-analytics-sdk.md)
+* [使用文本分析客户端库](../quickstarts/client-libraries-rest-api.md)
 * [新增功能](../whats-new.md)
 

@@ -3,19 +3,19 @@ title: 使用 Azure PowerShell 部署和配置 Azure 防火墙
 description: 本文介绍如何使用 Azure PowerShell 部署和配置 Azure 防火墙。
 services: firewall
 ms.service: firewall
-origin.date: 11/12/2020
+origin.date: 12/03/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.topic: how-to
-ms.openlocfilehash: 7b720fc2cbddc363d3987e0f2fba7df2417d16c8
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: b41c651fa610355bcb7cda1a4f4b4bdbb153c51c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747265"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023246"
 ---
 <!--Verify Successfully by changing some of the parameters to fit Azure China-->
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>使用 Azure PowerShell 部署和配置 Azure 防火墙
@@ -68,7 +68,7 @@ New-AzResourceGroup -Name Test-FW-RG -Location "China East"
 
 ### <a name="create-a-virtual-network-and-azure-bastion-host"></a>创建虚拟网络和 Azure Bastion 主机
 
-此虚拟网络具有四个子网：
+此虚拟网络有三个子网：
 
 > [!NOTE]
 > AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。

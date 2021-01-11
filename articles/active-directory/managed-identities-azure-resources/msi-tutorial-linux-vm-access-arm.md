@@ -12,20 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a63219f475a35dc2ff695452f4a97cf38a78161a
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 97b6e2722d23235b6515394d1020690fa140fca2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509055"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021730"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>教程：使用 Linux VM 上的用户分配托管标识访问 Azure 资源管理器
-
-[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice-ua.md)]
 
 本教程介绍如何创建用户分配托管标识、将其分配给 Linux 虚拟机 (VM)，再使用此标识访问 Azure 资源管理器 API。 Azure 资源的托管标识由 Azure 自动管理。 此标识可用于向支持 Azure AD 身份验证的服务进行身份验证，这样就无需在代码中嵌入凭据了。 
 

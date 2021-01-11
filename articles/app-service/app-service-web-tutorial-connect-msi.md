@@ -4,15 +4,15 @@ description: 了解如何使用托管标识让数据库连接更安全，以及�
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 04/27/2020
-ms.date: 12/07/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 06277c902f5e2698e3700fd10a713bf841ebb902
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: f7507c738fc5392b3a5d5642869552f50499df58
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507635"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021506"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教程：使用托管标识确保从应用服务进行的 Azure SQL 数据库连接安全
 
@@ -39,7 +39,7 @@ ms.locfileid: "96507635"
 > * 使用 Azure AD 身份验证从 Visual Studio 连接到 SQL 数据库
 
 > [!NOTE]
->在本地 Active Directory 域服务 (AD DS) 中，Azure AD 身份验证不同于[集成式 Windows 身份验证](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10))。 AD DS 和 Azure AD 使用的身份验证协议完全不相同。
+>在本地 Active Directory 域服务 (AD DS) 中，Azure AD 身份验证不同于[集成式 Windows 身份验证](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10))。 AD DS 和 Azure AD 使用的身份验证协议完全不相同。 有关详细信息，请参阅 [Azure AD 域服务文档](../active-directory-domain-services/index.yml)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -57,7 +57,7 @@ ms.locfileid: "96507635"
 
 如果 Azure AD 租户还没有用户，请按照[使用 Azure Active Directory 添加或删除用户](../active-directory/fundamentals/add-users-azure-active-directory.md)中的步骤创建一个用户。
 
-使用 [`az ad user list`](/cli/ad/user?view=azure-cli-latest#az-ad-user-list) 查找 Azure AD 用户的对象 ID，并替换 \<user-principal-name>。 结果会保存到变量中。
+使用 [`az ad user list`](https://docs.azure.cn/cli/ad/user#az_ad_user_list) 查找 Azure AD 用户的对象 ID，并替换 \<user-principal-name>。 结果会保存到变量中。
 
 ```azurecli
 azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
@@ -66,7 +66,7 @@ azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-na
 > 若要查看 Azure AD 中所有用户主体名称的列表，请运行 `az ad user list --query [].userPrincipalName`。
 >
 
-使用 Azure CLI 中的 [`az sql server ad-admin create`](/cli/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) 命令，将此 Azure AD 用户添加为 Active Directory 管理员。 在以下命令中，将 \<server-name> 替换为服务器名称（不带 `.database.chinacloudapi.cn` 后缀）。
+使用 Azure CLI 中的 [`az sql server ad-admin create`](https://docs.azure.cn/cli/sql/server/ad-admin#az_sql_server_ad_admin_create) 命令，将此 Azure AD 用户添加为 Active Directory 管理员。 在以下命令中，将 \<server-name> 替换为服务器名称（不带 `.database.chinacloudapi.cn` 后缀）。
 
 ```azurecli
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
@@ -89,7 +89,7 @@ Visual Studio for Mac 未集成 Azure AD 身份验证。 不过，稍后将使�
 
 在本地计算机上安装 Azure CLI 后，请使用 Azure AD 用户通过以下命令登录 Azure CLI：
 
-```bash
+```azurecli
 az cloud set -n AzureChinaCloud
 az login --allow-no-subscriptions
 ```
@@ -209,7 +209,7 @@ az webapp identity assign --resource-group myResourceGroup --name <app-name>
 
 在 Azure CLI 中，使用 SQLCMD 命令登录到 SQL 数据库。 将 \<server-name> 替换为你的服务器名称，将 \<db-name> 替换为应用使用的数据库的名称，并将 \<aad-user-name> 和 \<aad-password> 替换为 Azure AD 用户的凭据   。
 
-```azurecli
+```bash
 sqlcmd -S <server-name>.database.chinacloudapi.cn -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 

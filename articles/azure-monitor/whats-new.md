@@ -7,12 +7,12 @@ origin.date: 03/05/2020
 author: Johnnytechn
 ms.author: v-johya
 ms.date: 07/17/2020
-ms.openlocfilehash: 5e9ebd0d34a18fdd56abc8e72dce6bad73204f17
-ms.sourcegitcommit: 83c7dd0d35815586f5266ba660c4f136e20b2cc5
+ms.openlocfilehash: 443c4d697fe8bbdb8f6142fe8043c410c8f969d1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89148604"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023109"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 文档中有哪些新增内容？
 
@@ -165,7 +165,6 @@ ms.locfileid: "89148604"
 - [适用于辅助角色服务应用（非 HTTP 应用）的 Application Insights](app/worker-service.md) - 在 C# 代码中添加了默认的日志记录级别。 更新了包引用版本。
 - [ApplicationInsights.config 参考 - Azure](app/configuration-with-applicationinsights-config.md) - 更新了示例代码。
 - [使用 PowerShell 自动化 Azure Application Insights](app/powershell.md) - 对资源管理器模板做了更新。
-- [Azure Monitor Application Insights NuGet 包](app/nuget.md) - 更新了包版本。
 - [创建新的 Azure Application Insights 资源](app/create-new-resource.md) - 添加了全局唯一名称的说明。
 - [使用实时指标流进行诊断 - Azure Application Insights](app/live-stream.md) - 更新了 ASP.NET Core SDK 版本要求。
 - [在 Azure Application Insights 中浏览 Java 跟踪日志](app/java-trace-logs.md) - 添加了 Java 代理日志记录阈值的配置。

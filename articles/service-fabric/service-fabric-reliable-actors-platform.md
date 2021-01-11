@@ -4,20 +4,20 @@ description: 介绍 Reliable Actors 如何在 Reliable Services 上进行分层�
 ms.topic: conceptual
 origin.date: 03/09/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 896788ae9c31d26e2ab7309e1749d01fddf95191
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 79efebad9e79ed43894a2f2875d0bceb8b0bf487
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655159"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021961"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Reliable Actors 如何使用 Service Fabric 平台
-本文介绍了 Reliable Actors 如何使用 Azure Service Fabric 平台。 Reliable Actors 在有状态的可靠服务（称为*执行组件服务*）的实现托管的框架中运行。 执行组件服务包含管理执行组件的生命周期和消息发送所需的所有组件：
+本文介绍了 Reliable Actors 如何使用 Azure Service Fabric 平台。 Reliable Actors 在有状态的可靠服务（称为 *执行组件服务*）的实现托管的框架中运行。 执行组件服务包含管理执行组件的生命周期和消息发送所需的所有组件：
 
 * 执行组件运行时管理生命周期、垃圾回收，并强制执行单线程访问。
 * 执行组件服务远程处理侦听器接受对执行组件的远程访问调用，并将它们发送到调度程序，以便路由到合适的执行组件实例。
@@ -93,7 +93,7 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ## <a name="next-steps"></a>后续步骤
 * [执行组件状态管理](service-fabric-reliable-actors-state-management.md)
 * [执行组件生命周期和垃圾回收](service-fabric-reliable-actors-lifecycle.md)
-* [执行组件 API 参考文档](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.actors?view=azure-dotnet)
+* [执行组件 API 参考文档](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.actors)
 * [.NET 代码示例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java 代码示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

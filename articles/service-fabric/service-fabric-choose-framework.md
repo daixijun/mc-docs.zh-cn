@@ -4,17 +4,17 @@ description: Service Fabric 提供了两个框架用于生成服务：执行组�
 ms.topic: conceptual
 origin.date: 01/07/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: sfrev
-ms.openlocfilehash: 096b2a4d298a4d3da1cbc123be4417e9637048f2
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: dc56f650e50ae9b093c834fceb1999f0f5357228
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655524"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022728"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric 编程模型概述
 

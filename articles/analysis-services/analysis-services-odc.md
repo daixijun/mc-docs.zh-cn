@@ -3,23 +3,23 @@ title: 使用 .odc 文件连接到 Azure Analysis Services | Azure
 description: 了解如何创建 Office 数据连接文件以连接到 Azure 中的 Analysis Services 服务器并从中获取数据。
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 10/30/2019
+origin.date: 12/01/2019
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6f0f80b85a0d61b81188b0a298696b67b9eecb33
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 5ec68ab3c3d2ced6a13f3a274796ab2bc0cf8d99
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470124"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023080"
 ---
 # <a name="create-an-office-data-connection-file"></a>创建 Office 数据连接文件
 
-本文中的信息描述了如何创建 Office Data Connection 文件，以从 Excel 2016 版本号 16.0.7369.2117 或更早版本或 Excel 2013 连接到 Azure Analysis Services 服务器。 还需要更新的 [MSOLAP.7 提供程序](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)。
+本文中的信息描述了如何创建 Office Data Connection 文件，以从 Excel 2016 版本号 16.0.7369.2117 或更早版本或 Excel 2013 连接到 Azure Analysis Services 服务器。 还需要更新的 [MSOLAP.7 提供程序](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)。
 
 1. 复制下面的示例连接文件，并粘贴到文本编辑器中。 
 
@@ -31,7 +31,7 @@ ms.locfileid: "92470124"
 
 3. 在 `<odc:CommandText>Model</odc:CommandText>` 中，将 `Model` 更改为你的模型或者视角的名称。 
 
-4. 将带有 `.odc` 扩展名的文件保存到 C:\Users\\*username* \Documents\My Data Sources 文件夹。
+4. 将带有 `.odc` 扩展名的文件保存到 C:\Users\\*username*\Documents\My Data Sources 文件夹。
 
 5. 右键单击文件，并单击“在 Excel 中打开”  。 或者在 Excel 的“数据”  功能区上，单击“现有连接”  、选择你的文件，并单击“打开”  。
 

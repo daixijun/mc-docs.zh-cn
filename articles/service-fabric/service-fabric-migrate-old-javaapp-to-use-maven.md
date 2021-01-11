@@ -4,17 +4,17 @@ description: 更新曾使用 Service Fabric Java SDK 的旧式 Java 应用程序
 ms.topic: conceptual
 origin.date: 08/23/2017
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.custom: devx-track-java
 ms.author: v-yeche
-ms.openlocfilehash: 9a6fe0622609034d7dcd569b60b2d8089047c35c
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: ce39b63a34beb2ffd2f6370d0e28d4c1394a62d9
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655722"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021972"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>更新旧式 Java Service Fabric 应用程序，以便从 Maven 提取 Java 库
 Service Fabric Java 二进制文件已从 Service Fabric Java SDK 移至 Maven 托管。 你可以使用 mavencentral 来提取最新的 Service Fabric Java 依赖项。 本指南将帮助你更新使用 Yeoman 模板或 Eclipse 为 Service Fabric Java SDK 创建的现有 Java 应用程序，使其与基于 Maven 的内部版本兼容。

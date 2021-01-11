@@ -7,19 +7,20 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86c1d17f155406d5282789f1e425869c104b8628
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 46abe9cb80894d894137ca26090819dfe3bd9836
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004179"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021591"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>什么是 Azure Active Directory 的自助注册？
 
@@ -72,13 +73,13 @@ AllowEmailVerifiedUsers 和 AllowAdHocSubscriptions 是可应用于托管或非�
 
 ![自助注册控件的流程图](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
-可以通过以下 powershell cmdlet Get-MsolCompanyInformation 检索此设置的详细信息。 有关详细信息，请参阅 [Get-MsolCompanyInformation](https://docs.microsoft.com/powershell/module/msonline/get-msolcompanyinformation?view=azureadps-1.0)
+可以通过以下 powershell cmdlet Get-MsolCompanyInformation 检索此设置的详细信息。 有关详细信息，请参阅 [Get-MsolCompanyInformation](https://docs.microsoft.com/powershell/module/msonline/get-msolcompanyinformation)。
 
 ```powershell
     Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions
 ```
 
-有关示例和如何使用这些参数的详细信息，请参阅 [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)。
+有关示例和如何使用这些参数的详细信息，请参阅 [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -86,6 +87,6 @@ AllowEmailVerifiedUsers 和 AllowAdHocSubscriptions 是可应用于托管或非�
 * [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure Cmdlet 参考](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings)
 
 

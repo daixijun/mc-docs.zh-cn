@@ -6,15 +6,15 @@ ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 08/25/2020
-ms.date: 12/07/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a376a2cb9dcb4878674c00a4f2b62f3f5f8b7861
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: ef69a5490761445439c9b2f14694373f356a3f25
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508008"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021526"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>教程：将现有的自定义 DNS 名称映射到 Azure 应用服务
 
@@ -131,7 +131,7 @@ ms.locfileid: "96508008"
 
 将子域映射到应用的默认域名（`<app-name>.chinacloudsites.cn`，其中 `<app-name>` 是应用的名称）。 若要为 `www` 子域创建 CNAME 映射，请创建两条记录：
 
-| 记录类型 | 主机 | 值 | 注释 |
+| 记录类型 | 主机 | Value | 注释 |
 | - | - | - |
 | CNAME | `www` | `<app-name>.chinacloudsites.cn` | 域映射本身。 |
 | TXT | `asuid.www` | [之前获得的验证 ID](#get-a-domain-verification-id) | 应用服务访问 `asuid.<subdomain>` TXT 记录以验证你对自定义域的所有权。 |
@@ -199,7 +199,7 @@ ms.locfileid: "96508008"
 
 若要将 A 记录映射到应用（通常是根域），请创建两条记录：
 
-| 记录类型 | 主机 | 值 | 注释 |
+| 记录类型 | 主机 | Value | 注释 |
 | - | - | - |
 | A | `@` | 通过[复制应用的 IP 地址](#info)获得的 IP 地址 | 域映射本身（`@` 通常表示根域）。 |
 | TXT | `asuid` | [之前获得的验证 ID](#get-a-domain-verification-id) | 应用服务访问 `asuid.<subdomain>` TXT 记录以验证你对自定义域的所有权。 对于根域，请使用 `asuid`。 |
@@ -207,10 +207,10 @@ ms.locfileid: "96508008"
 > [!NOTE]
 > 若要使用 A 记录（而不是建议的 [CNAME 记录](#map-a-cname-record)）添加子域（如 `www.contoso.com`），A 记录和 TXT 记录应如下表所示：
 >
-> | 记录类型 | 主机 | 值 |
+> | 记录类型 | 主机 | Value |
 > | - | - | - |
 > | A | `www` | 通过[复制应用的 IP 地址](#info)获得的 IP 地址 |
-> | TXT | `asuid.www` | `<app-name>.chinacloudsites.cn` |
+> | TXT | `asuid.www` | [之前获得的验证 ID](#get-a-domain-verification-id) |
 >
 
 添加记录后，DNS 记录页与以下示例相似：
@@ -229,7 +229,7 @@ ms.locfileid: "96508008"
 
 1. 键入已配置 A 记录的完全限定的域名，如 `contoso.com`。 
 
-1. 选择“验证”。 此时会显示“添加自定义域”页。
+1. 选择“验证”。  此时会显示“添加自定义域”页。
 
 1. 确保“主机名记录类型”设置为“A 记录 (example.com)”。  选择“添加自定义域”。
 
@@ -260,7 +260,7 @@ ms.locfileid: "96508008"
 
 将通配符名称 `*` 映射到应用的默认域名（`<app-name>.chinacloudsites.cn`，其中 `<app-name>` 是应用的名称）。 若要映射通配符名称，请创建两条记录：
 
-| 记录类型 | 主机 | 值 | 注释 |
+| 记录类型 | 主机 | Value | 注释 |
 | - | - | - |
 | CNAME | `*` | `<app-name>.chinacloudsites.cn` | 域映射本身。 |
 | TXT | `asuid` | [之前获得的验证 ID](#get-a-domain-verification-id) | 应用服务访问 `asuid` TXT 记录以验证你对自定义域的所有权。 |

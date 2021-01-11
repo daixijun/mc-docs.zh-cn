@@ -7,15 +7,15 @@ ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 26798eeeaea032ae0932b7b520d26042b602026a
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 557d78e872ddfaae59937de946a0c8eb70b1601c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170835"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022942"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>使用 CLI 将应用服务应用连接到存储帐户
 
@@ -23,7 +23,7 @@ ms.locfileid: "92170835"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，需要 Azure CLI 2.0 版或更高版本。 要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-lastest)。
+如果选择在本地安装并使用 CLI，需要 Azure CLI 2.0 版或更高版本。 要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 
 ## <a name="sample-script"></a>示例脚本
@@ -64,15 +64,15 @@ az webapp config appsettings set --name $appName --resource-group myResourceGrou
 
 | Command | 说明 |
 |---|---|
-| [`az group create`](/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [`az appservice plan create`](/cli/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | 创建应用服务计划。 |
-| [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create) | 创建应用服务应用。 |
-| [`az storage account create`](/cli/storage/account?view=azure-cli-latest#az-storage-account-create) | 创建存储帐户。 |
-| [`az storage account show-connection-string`](/cli/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string) | 获取存储帐户的连接字符串。 |
-| [`az webapp config appsettings set`](/cli/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | 创建或更新应用服务应用的应用设置。 应用设置将作为应用的环境变量公开。 |
+| [`az group create`](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [`az appservice plan create`](https://docs.azure.cn/cli/appservice/plan#az_appservice_plan_create) | 创建应用服务计划。 |
+| [`az webapp create`](https://docs.azure.cn/cli/webapp#az_webapp_create) | 创建应用服务应用。 |
+| [`az storage account create`](https://docs.azure.cn/cli/storage/account#az_storage_account_create) | 创建存储帐户。 |
+| [`az storage account show-connection-string`](https://docs.azure.cn/cli/storage/account#az_storage_account_show_connection_string) | 获取存储帐户的连接字符串。 |
+| [`az webapp config appsettings set`](https://docs.azure.cn/cli/webapp/config/appsettings#az_webapp_config_appsettings_set) | 创建或更新应用服务应用的应用设置。 应用设置将作为应用的环境变量公开。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview?view=azure-cli-lastest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli)。
 
 可以在 [Azure 应用服务文档](../samples-cli.md)中找到其他应用服务 CLI 脚本示例。

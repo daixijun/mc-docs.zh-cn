@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/23/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5105268d57f896c850cf3118cf86090c4baa70d6
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 141b54f352bc9851b8c7b88f24538c943c224a48
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918345"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021278"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>调用 Web API 的 Web 应用：代码配置
 
@@ -110,9 +110,9 @@ Web 应用将需要获取下游 API 的令牌。 可通过在 `.AddMicrosoftIden
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
-               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"https://microsoftgraph.chinacloudapi.cn/user.read" })
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                .AddInMemoryTokenCaches();
       // ...
      }
@@ -140,9 +140,9 @@ Web 应用将需要获取下游 API 的令牌。 可通过在 `.AddMicrosoftIden
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
-               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"https://microsoftgraph.chinacloudapi.cn/user.read" })
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                   .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
                .AddInMemoryTokenCaches();
       // ...
@@ -164,9 +164,9 @@ Web 应用将需要获取下游 API 的令牌。 可通过在 `.AddMicrosoftIden
      public void ConfigureServices(IServiceCollection services)
      {
      // ...
-     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+     services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
              .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
-               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"https://microsoftgraph.chinacloudapi.cn/user.read" })
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                   .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
                .AddInMemoryTokenCaches();
       // ...

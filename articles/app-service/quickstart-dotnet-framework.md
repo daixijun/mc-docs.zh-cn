@@ -4,15 +4,15 @@ description: 了解如何通过部署 Visual Studio 提供的默认 C# ASP.NET W
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 origin.date: 08/06/2020
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: devx-track-csharp, mvc, devcenter, seodec18
-ms.openlocfilehash: 4a68cac5765c4a6144d0555bbc75959b694c08fe
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: a0918b2898643a5cce482cca21430e3f19710916
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170546"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022963"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Framework Web 应用
 
@@ -24,7 +24,7 @@ ms.locfileid: "92170546"
 
 ## <a name="prerequisites"></a>先决条件
 
-为完成此教程，请安装支持 **ASP.NET 和 Web 开发**工作负荷的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>。
+为完成此教程，请安装支持 **ASP.NET 和 Web 开发** 工作负荷的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>。
 
 如果已安装 Visual Studio 2019：
 
@@ -78,25 +78,27 @@ ms.locfileid: "92170546"
 
    [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-1. 对于**托管计划**，请选择“新建”。
+1. 对于“托管计划”，请选择“新建”。
 
-1. 在“配置托管计划”对话框中，输入下表中的值，然后选择“确定”。
+1. 在“托管计划”对话框中，输入下表中的值，然后选择“确定” 。
 
    | 设置 | 建议的值 | 说明 |
    |-|-|-|
    | 托管计划| myAppServicePlan | 应用服务计划的名称。 |
-   | 位置 | 中国东部 | 托管 Web 应用的数据中心。 |
-   | 大小 | 免费 | [定价层](https://www.azure.cn/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)确定托管功能。 |
+   | 位置 | 西欧 | 托管 Web 应用的数据中心。 |
+   | 大小 | 免费 | [定价层](https://www.azure.cn/pricing/details/app-service/)确定托管功能。 |
 
    ![创建应用服务计划](./media/quickstart-dotnet-framework/app-service-plan-framework-vs2019.png)
 
-1. 在**名称**中，输入仅包含有效字符 `a-z`、`A-Z`、`0-9` 和 `-` 的唯一应用名称。 可以接受自动生成的唯一名称。 Web 应用的 URL 为 `http://<app_name>.chinacloudsites.cn`，其中 `<app_name>` 是应用名称。
+1. 在 **名称** 中，输入仅包含有效字符 `a-z`、`A-Z`、`0-9` 和 `-` 的唯一应用名称。 可以接受自动生成的唯一名称。 Web 应用的 URL 为 `http://<app_name>.chinacloudsites.cn`，其中 `<app_name>` 是应用名称。
 
-2. 选择“创建”开始创建 Azure 资源。
+2. 选择“创建”以创建 Azure 资源。
 
    ![配置应用名称](./media/quickstart-dotnet-framework/web-app-name-framework-vs2019.png)
 
     向导完成后，便为你创建了 Azure 资源，你就可以进行发布了。
+
+3. 选择“完成”关闭向导。
 
 3. 在“发布”页中，单击“发布”。 Visual Studio 将生成、打包应用并将其发布到 Azure，然后在默认浏览器中启动该应用。
 
@@ -108,7 +110,7 @@ ms.locfileid: "92170546"
 
 ## <a name="update-the-app-and-redeploy"></a>更新应用并重新部署
 
-1. 在**解决方案资源管理器**中你的项目下，打开“视图” > “主页” > “Index.cshtml”。
+1. 在 **解决方案资源管理器** 中你的项目下，打开“视图” > “主页” > “Index.cshtml”。
 
 1. 在顶部附近找到 `<div class="jumbotron">` HTML 标记，将整个元素替换为以下代码：
 
@@ -131,7 +133,7 @@ ms.locfileid: "92170546"
 
    ![选择应用服务](./media/quickstart-dotnet-framework/app-services.png)
 
-2. 在“应用服务”页上，选择 Web 应用的名称。
+2. 在“应用服务”页上，选择 Web 应用的名称  。
 
    ![在门户中导航到 Azure 应用](./media/quickstart-dotnet-framework/access-portal-framework-vs2019.png)
 

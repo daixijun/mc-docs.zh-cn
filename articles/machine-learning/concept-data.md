@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 733dde0d2560e754499e08f880e90806c6299519
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 8ddc7f2911e2788c86266261c16901407e48b6f0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977531"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022918"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure 机器学习中的安全数据访问
 
@@ -99,8 +99,8 @@ Azure 机器学习数据集不是你的数据的副本。 创建数据集时，�
      + [自动化 ML 试验](how-to-use-automated-ml-for-ml-models.md)
      + [设计器](tutorial-designer-automobile-price-train-score.md#import-data)
      + [笔记本](how-to-train-with-datasets.md)
-     + [Azure 机器学习管道](how-to-create-your-first-pipeline.md)
-+ 访问数据集，以使用[机器学习管道](how-to-create-your-first-pipeline.md)中的[批量推理](./tutorial-pipeline-batch-scoring-classification.md)进行评分。
+     + [Azure 机器学习管道](how-to-create-machine-learning-pipelines.md)
++ 访问数据集，以使用[机器学习管道](how-to-create-machine-learning-pipelines.md)中的[批量推理](./tutorial-pipeline-batch-scoring-classification.md)进行评分。
 + 设置数据集监视器以检测[数据偏移](#drift)。
 
 <a name="label"></a>

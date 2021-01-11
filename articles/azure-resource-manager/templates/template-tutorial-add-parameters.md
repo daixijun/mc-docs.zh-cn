@@ -3,22 +3,22 @@ title: 教程 - 将参数添加到模板
 description: 将参数添加到 Azure 资源管理器模板，使其可重复使用。
 origin.date: 03/31/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ad76d5df8304a87437841a8b14a75e4c4ba4436e
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: a83cbcd4bba644a8995c9b717cf12f9f121b28fb
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937163"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021214"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>教程：将参数添加到 ARM 模板
 
-在[前一篇教程](template-tutorial-add-resource.md)中，你已了解如何将存储帐户添加到模板，然后部署该模板。 本教程介绍如何通过添加参数来改进 Azure 资源管理器 (ARM) 模板。 完成本教程大约需要 **14 分钟**。
+在[前一篇教程](template-tutorial-add-resource.md)中，你已了解如何将存储帐户添加到模板，然后部署该模板。 本教程介绍如何通过添加参数来改进 Azure 资源管理器模板（ARM 模板）。 完成本教程大约需要 **14 分钟**。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -56,7 +56,7 @@ ms.locfileid: "91937163"
 
 ## <a name="make-template-reusable"></a>使模板可重复使用
 
-为了使模板可重复使用，让我们添加一个可用于传入存储帐户名称的参数。 以下示例中突出显示的 JSON 演示了模板中发生的更改。 **storageName** 参数已标识为字符串。 最大长度设置为 24 个字符，以防止名称过长。
+为了使模板可重复使用，让我们添加一个可用于传入存储帐户名称的参数。 以下示例中突出显示的 JSON 演示了模板中发生的更改。 `storageName` 参数已标识为字符串。 最大长度设置为 24 个字符，以防止名称过长。
 
 复制整个文件，将模板替换为该文件的内容。
 
@@ -93,7 +93,7 @@ ms.locfileid: "91937163"
 
 让我们部署该模板。 以下示例使用 Azure CLI 或 PowerShell 来部署模板。 请注意，需要为部署命令中的某个值提供存储帐户名称。 对于存储帐户名称，请提供前一篇教程中所用的相同名称。
 
-如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据[第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
+如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据[第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 `templateFile` 变量设置为模板文件的路径。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -172,7 +172,7 @@ az deployment group create \
 }
 ```
 
-**storageSKU** 参数有默认值。 如果在部署过程中未指定值，将使用此默认值。 它还有允许值列表。 这些值与创建存储帐户所需的值相匹配。 你不希望模板用户传入没有作用的 SKU。
+`storageSKU` 参数有默认值。 如果在部署过程中未指定值，将使用此默认值。 它还有允许值列表。 这些值与创建存储帐户所需的值相匹配。 你不希望模板用户传入没有作用的 SKU。
 
 ## <a name="redeploy-template"></a>重新部署模板
 
@@ -201,7 +201,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> 如果部署失败，请使用“详细”开关获取有关正在创建的资源的信息。 使用“调试”开关获取调试的详细信息。
+> 如果部署失败，请使用 `verbose` 开关获取有关正在创建的资源的信息。 使用 `debug` 开关获取调试的详细信息。
 
 若要查看模板的灵活性，请重新部署。 这一次，请将 SKU 参数设置为 **Standard_GRS**。 可以传入新名称来创建不同的存储帐户，或者使用同一个名称来更新现有的存储帐户。 这两个选项都是有效的。
 

@@ -2,21 +2,21 @@
 title: Azure CLI - 使用 SSE 启用客户管理的密钥 - 托管磁盘
 description: 通过 Azure CLI 为托管磁盘启用客户管理的密钥。
 author: Johnnytechn
-ms.date: 09/10/2020
+ms.date: 01/05/2021
 ms.topic: how-to
 ms.author: v-johya
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 47bff7c6aeada87d9c9d5c7ba9515fbd9b82b186
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: b05a71636a80d1ae0534f306d467ca18079c37d1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057941"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023196"
 ---
 # <a name="use-the-azure-cli-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>使用 Azure CLI，通过客户管理的密钥为托管磁盘启用服务器端加密
 
-Azure 磁盘存储使你能在对托管磁盘使用服务器端加密 (SSE) 时管理自己的密钥（如果你选择）。 有关使用客户管理的密钥的 SSE 以及其他托管磁盘加密类型的概念信息，请参阅磁盘加密文章的[客户管理的密钥](disk-encryption.md#customer-managed-keys)部分。
+Azure 磁盘存储使你能在对托管磁盘使用服务器端加密 (SSE) 时管理自己的密钥（如果你选择）。 有关使用客户管理的密钥的 SSE 以及其他托管磁盘加密类型的概念信息，请参阅磁盘加密文章的[客户管理的密钥](../disk-encryption.md#customer-managed-keys)部分。
 
 ## <a name="restrictions"></a>限制
 

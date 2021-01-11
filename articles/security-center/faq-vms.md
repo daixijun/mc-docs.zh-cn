@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2020
+ms.date: 01/06/2021
 ms.author: v-johya
 origin.date: 02/25/2020
-ms.openlocfilehash: 828277b79a37c4893d46a49b0adb29c1d211d4d2
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 33ecb9221e2d8d696559996c2fea9ddaa3e33484
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637850"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023199"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>常见问题解答 - 关于虚拟机的问题
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>支持哪些类型的虚拟机？
 
-使用[经典部署模式和 Resource Manager 部署模式](/azure-resource-manager/management/deployment-models)创建的虚拟机 (VM) 支持监视和建议。
+使用[经典部署模式和 Resource Manager 部署模式](../azure-resource-manager/management/deployment-models.md)创建的虚拟机 (VM) 支持监视和建议。
 
 有关支持平台的列表，请参阅[ Azure 安全中心支持的平台](security-center-os-coverage.md)。
 

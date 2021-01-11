@@ -5,15 +5,15 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: how-to
-origin.date: 11/05/2020
-ms.date: 12/14/2020
+origin.date: 12/17/2020
+ms.date: 01/11/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8dfb1d6cf46b679a81b5ca5d77c186a5d0b15347
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 9a64a18b7123f916e2593abb62078f8b9b049b6c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850821"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023273"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>通过 Azure CLI、REST API 创建和管理只读副本
 
@@ -190,7 +190,7 @@ GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceG
 停止复制到主服务器和只读副本后，无法撤消该操作。 只读副本将成为支持读取和写入的独立服务器。 独立服务器不能再次成为副本。
 
 ```http
-PATCH https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}?api-version=2017-12-01
+PATCH https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{replicaServerName}?api-version=2017-12-01
 ```
 
 ```json

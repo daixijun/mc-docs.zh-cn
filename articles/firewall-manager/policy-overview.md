@@ -5,14 +5,15 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 11/24/2020
+origin.date: 11/24/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: 2c4ff58f42b2432a66787d68787b227edc29d259
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 5bf5f253ed81111c08f2af04adeeff31d70f002a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104611"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023020"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Azure 防火墙管理器策略概述
 
@@ -58,7 +59,9 @@ Azure 防火墙支持传统规则和策略。 下表对策略和规则做了比�
 
 ## <a name="pricing"></a>定价
 
-策略根据防火墙关联计费。 存在零个或一个防火墙关联的策略是免费的。 存在多个防火墙关联的策略按固定费率计费。 有关详细信息，请参阅 [Azure 防火墙管理器定价](https://www.azure.cn/pricing/details/firewall-manager/)。
+策略根据防火墙关联计费。 存在零个或一个防火墙关联的策略是免费的。 存在多个防火墙关联的策略按固定费率计费。 有关详细信息，请参阅 [Azure 防火墙管理器定价](https://www.azure.cn/pricing/details/azure-firewall/)。
+
+<!--Not Available on https://www.azure.cn/pricing/details/firewall-manager-->
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: aba4f3f323876326054292b776d9e1606a2f55dc
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 85e275adfad46189b79275663b8d679386b01ce9
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849344"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021894"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>应用程序网关的后端运行状况和诊断日志
 
@@ -208,7 +208,6 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |---------|---------|
 |instanceId     | 处理请求的应用程序网关实例。        |
 |clientIP     | 请求的起始 IP。        |
-|clientPort     | 请求的起始端口。       |
 |httpMethod     | 请求所用的 HTTP 方法。       |
 |requestUri     | 所收到请求的 URI。        |
 |UserAgent     | HTTP 请求标头中的用户代理。        |
@@ -236,7 +235,6 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
     "properties": {
         "instanceId": "appgw_1",
         "clientIP": "191.96.249.97",
-        "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
         "userAgent": "-",
@@ -261,7 +259,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 只有在每个应用程序网关实例上启用了性能日志，才会生成此日志，如上述步骤所示。 数据存储在启用日志记录时指定的存储帐户中。 每隔 1 分钟生成性能日志数据。 性能日志数据仅适用于 v1 SKU。 对于 v2 SKU，请对性能数据使用[指标](application-gateway-metrics.md)。 将记录以下数据：
 
 
-|值  |说明  |
+|Value  |说明  |
 |---------|---------|
 |instanceId     |  正在为其生成性能数据的应用程序网关实例。 对于多实例应用程序网关，一个实例对应于一行。        |
 |healthyHostCount     | 后端池中运行正常的主机数。        |
@@ -298,7 +296,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 只有按照上述步骤为每个应用程序网关启用了防火墙日志，才会生成该日志。 此日志还需要在应用程序网关上配置 Web 应用程序防火墙。 数据存储在启用日志记录时指定的存储帐户中。 将记录以下数据：
 
 
-|值  |说明  |
+|Value  |说明  |
 |---------|---------|
 |instanceId     | 为其生成了防火墙数据的应用程序网关实例。 对于多实例应用程序网关，一个实例对应于一行。         |
 |clientIp     |   请求的起始 IP。      |

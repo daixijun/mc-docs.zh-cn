@@ -12,12 +12,12 @@ author: jpe316
 ms.reviewer: larryfr
 origin.date: 09/01/2020
 ms.date: 12/21/2020
-ms.openlocfilehash: fbf27dfb9baa6baef632f3017c9211d131c24c33
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 3b5056b0096a8bd647ef450e4ff6040dbc85a4e6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105276"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022432"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>将模型部署到 Azure Kubernetes 服务群集
 
@@ -222,7 +222,7 @@ from azureml.core.compute import AksCompute
 from azureml.core.compute import ComputeTarget
 # select a created compute
 compute = ComputeTarget(ws, 'myaks')
-namespace_name= endpointnamespace
+
 # define the endpoint and version name
 endpoint_name = "mynewendpoint"
 version_name= "versiona"

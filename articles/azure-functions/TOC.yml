@@ -29,6 +29,8 @@
               href: create-first-function-vs-code-powershell.md
             - name: TypeScript
               href: create-first-function-vs-code-typescript.md
+            - name: 其他 (Go/Rust)
+              href: create-first-function-vs-code-other.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
         - name: 命令行
@@ -362,7 +364,7 @@
             - name: 输入
               displayName: Blob storage
               href: functions-bindings-storage-blob-input.md
-            - name: Output
+            - name: 输出
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
         - name: Azure Cosmos DB
@@ -449,7 +451,16 @@
               href: functions-bindings-storage-queue-output.md
               displayName: Queue storage
         - name: RabbitMQ
-          href: 'https://github.com/azure/azure-functions-rabbitmq-extension'
+          items:
+            - name: 概述
+              href: functions-bindings-rabbitmq.md
+              displayName: RabbitMQ
+            - name: 触发器
+              href: functions-bindings-rabbitmq-trigger.md
+              displayName: RabbitMQ
+            - name: 输出
+              href: functions-bindings-rabbitmq-output.md
+              displayName: RabbitMQ
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: 服务总线
@@ -474,7 +485,7 @@
             - name: 输入
               href: functions-bindings-signalr-service-input.md
               displayName: SignalR Service
-            - name: Output
+            - name: 输出
               href: functions-bindings-signalr-service-output.md
               displayName: SignalR Service
         - name: 表存储

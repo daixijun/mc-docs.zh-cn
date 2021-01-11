@@ -1,31 +1,33 @@
 ---
-title: 快速入门：创建适用于 Linux 的 Python 应用
+title: 快速入门：在 Linux 上创建 Python 应用
 description: 将 Python 应用部署到应用服务中的 Linux 容器即可开始使用 Azure 应用服务。
 ms.topic: quickstart
 origin.date: 09/22/2020
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
-ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
-adobe-target: true
-ms.openlocfilehash: 7052bfea0c7d17069d8e7a8ce401d6cc31faea5f
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+robots: noindex
+ms.openlocfilehash: fcb6e3ef299998c962d74547404656d19fdda743
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507304"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022957"
 ---
 <!--Verified Successfully-->
-# <a name="quickstart-create-a-python-app-in-azure-app-service-for-linux"></a>快速入门：在适用于 Linux 的 Azure 应用服务中创建 Python 应用
+# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>快速入门：在 Linux 上的 Azure 应用服务中创建 Python 应用
 
 在本快速入门中，需将 Python Web 应用部署到 [Linux 上的应用服务](overview.md#app-service-on-linux)，该版本提供了一项高度可缩放、自我修补的 Azure Web 托管服务。 在 Mac、Linux 或 Windows 计算机上，可使用本地 [Azure 命令行界面 (CLI)](https://docs.azure.cn/cli/install-azure-cli) 通过 Flask 或 Django 框架来部署示例。 配置的 Web 应用使用免费的应用服务层，因此本文中的操作不会产生任何费用。
+
+有关常见术语的定义，请参阅 [Azure 术语概述](https://docs.microsoft.com/azure/developer/python/cloud-azure-terminology?toc=/azure/app-service/toc.json)。
 
 > [!TIP]
 > 如果希望通过 IDE 部署应用，请参阅[从 Visual Studio Code 将 Python 应用部署到应用服务](https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-01)。
 
 ## <a name="set-up-your-initial-environment"></a>设置初始环境
 
-1. 具有活动订阅的 Azure 帐户。 [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
+1. 具有活动订阅的 Azure 帐户。 [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
 1. 安装 <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 或更高版本</a>。
 1. 安装 <a href="https://docs.azure.cn/cli/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 或更高版本，使用它可以在任何 shell 中运行命令来预配和配置 Azure 资源。
 

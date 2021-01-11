@@ -4,17 +4,17 @@ description: 了解如何使用 Service Fabric Reliable Actors 在 C# 中创建�
 ms.topic: conceptual
 origin.date: 07/10/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 761e79debae7d2e5b07234e9aebc6e5e33a62158
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: d2b6327eeea0c3b08c4525056500e14f95bb35ff
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328823"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022390"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 入门
 > [!div class="op_single_selector"]

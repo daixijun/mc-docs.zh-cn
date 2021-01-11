@@ -3,16 +3,16 @@ title: 使用 ZIP 或 WAR 文件部署代码
 description: 了解如何使用 ZIP 文件（或者对于 Java 开发人员而言使用 WAR 文件）将应用部署到 Azure 应用服务。
 ms.topic: article
 origin.date: 08/12/2018
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 3d384078a291ab9ea8c74b055332f1a0e519ba81
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: cbfbbc9a653c1c7b1d90eda7379edd24c0730b2b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170842"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022677"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>使用 ZIP 或 WAR 文件将应用部署到 Azure 应用服务
 
@@ -46,7 +46,7 @@ WAR 文件部署将 WAR 文件部署到应用服务，以运行 Java Web 应用�
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>使用 Azure CLI 部署 ZIP 文件
 
-使用 [az webapp deployment source config-zip](/cli/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) 命令将上传的 zip 文件部署到 Web 应用。  
+使用 [az webapp deployment source config-zip](https://docs.azure.cn/cli/webapp/deployment/source#az_webapp_deployment_source_config_zip) 命令将上传的 zip 文件部署到 Web 应用。  
 
 下面的示例部署上传的 zip 文件。 使用 Azure CLI 的本地安装时，请为 `--src` 指定本地 zip 文件的路径。
 

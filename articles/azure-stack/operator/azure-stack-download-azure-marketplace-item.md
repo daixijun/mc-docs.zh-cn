@@ -3,18 +3,18 @@ title: 从 Azure 下载市场项并发布到 Azure Stack Hub
 description: 了解如何从 Azure 下载市场项并发布到 Azure Stack Hub。
 author: WenJason
 ms.topic: conceptual
-origin.date: 11/18/2020
-ms.date: 12/07/2020
+origin.date: 12/16/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: avishwan
-ms.lastreviewed: 11/18/2020
+ms.lastreviewed: 12/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 45882946c5a734162d6a4e3600dba013b494befd
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 5a434df2e681bf55417c85c9e00c49d556b20575
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507576"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894456"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>将市场项下载到 Azure Stack Hub
 
@@ -90,14 +90,21 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
   - 已建立 Internet 连接的计算机必须已安装 **Azure Stack Hub PowerShell 模块版本 1.2.11** 或更高版本。 如果未安装，请[安装 Azure Stack Hub 特定的 PowerShell 模块](powershell-install-az-module.md)。
 
   - 为了能够导入已下载的市场项，必须配置 [Azure Stack Hub 操作员的 PowerShell 环境](azure-stack-powershell-configure-admin.md)。
+  - .NET Framework 4.7 或更高版本。
 
-- 使用以下命令从 PowerShell 库下载 Azs.Syndication.Admin 模块：
+使用以下命令从 PowerShell 库下载 Azs.Syndication.Admin 模块：
+
+### <a name="az-modules"></a>Az 模块
 
   ```powershell
   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
   ```
-  
-- .NET Framework 4.7 或更高版本。
+
+### <a name="azurerm-modules"></a>AzureRM 模块
+
+  ```powershell
+  Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
+  ```
 
 注册 Azure Stack 后，可以忽略市场管理边栏选项卡上显示的以下消息，因为此消息与离线用例无关：
 
@@ -108,11 +115,11 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 > [!IMPORTANT]
 > 每当在离线场景中下载市场项时，都请确保下载市场联合工具。 此工具经常发生更改，每次下载都应使用最新版本。
 
-### <a name="az-modules"></a>[Az 模块](#tab/az)
+### <a name="az-modules"></a>Az 模块
 
 1. 在已建立 Internet 连接的计算机上，以管理员身份打开 PowerShell 控制台。
 
-2. 使用已用于注册 Azure Stack Hub 的 Azure 帐户登录到相应的 Azure 云和 AzureAD 目录租户。 若要添加该帐户，请在 PowerShell 中运行 `Add-AzureRmAccount`：
+2. 使用已用于注册 Azure Stack Hub 的 Azure 帐户登录到相应的 Azure 云和 AzureAD 目录租户。 若要添加该帐户，请在 PowerShell 中运行 `Login-AzAccount`：
 
    ```powershell  
    Login-AzAccount -Environment AzureChinaCloud -Tenant '<mydirectory>.partner.onmschina.cn'
@@ -121,7 +128,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
    系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
 
    > [!NOTE]
-   > 如果会话过期、密码已更改或你需要切换帐户，请在使用 `Add-AzRmAccount` 登录之前先运行以下 cmdlet：`Remove-AzAccount -Scope Process`。
+   > 如果会话过期、密码已更改或你需要切换帐户，请在使用 `Add-AzRmAccount` 登录之前先运行以下 cmdlet：`RemoveAzAccount -Scope Process`。
 
 3. 如果有多个订阅，请运行以下命令，以选择已用于注册的订阅：
 
@@ -176,7 +183,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
 
-### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
+### <a name="azurerm-modules"></a>AzureRM 模块
 
 1. 在已建立 Internet 连接的计算机上，以管理员身份打开 PowerShell 控制台。
 
@@ -189,7 +196,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
    系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
 
    > [!NOTE]
-   > 如果会话过期、密码已更改或你需要切换帐户，请在使用 `Add-AzureRmAccount` 登录之前先运行以下 cmdlet：`Remove-AzAccount -Scope Process`。
+   > 如果会话过期、密码已更改或你需要切换帐户，请在使用 `Add-AzureRmAccount` 登录之前先运行以下 cmdlet：`RemoveAzAccount -Scope Process`。
 
 3. 如果有多个订阅，请运行以下命令，以选择已用于注册的订阅：
 
@@ -200,7 +207,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 4. 如果尚未在先决条件步骤中完成此操作，请下载最新版本的市场联合工具：
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
+   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
    ```
 
 5. 若要选择要下载的市场项（如 VM 映像、扩展或解决方案模板），请运行以下命令：
@@ -243,8 +250,6 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
     ```powershell
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
-
----
 
 
 

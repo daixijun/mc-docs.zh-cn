@@ -2,17 +2,14 @@
 title: IoT Edge 上的实时视频分析入门 - Azure
 description: 本快速入门演示如何开始使用 IoT Edge 上的实时视频分析。 了解如何检测实时视频流中的运动。
 ms.topic: quickstart
-author: WenJason
-ms.author: v-jay
-ms.service: media-services
 origin.date: 04/27/2020
-ms.date: 11/30/2020
-ms.openlocfilehash: 24794c7510ca0811195271b98a9b237dfa388aa3
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 01/11/2021
+ms.openlocfilehash: 41c8db9652a6f6f489fbe61ab7179d97386d2a48
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431845"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023324"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>快速入门：入门 - IoT Edge 上的实时视频分析
 
@@ -39,7 +36,7 @@ ms.locfileid: "96431845"
 * IoT 中心
 * 存储帐户
 * Azure 媒体服务帐户
-* Azure 中的 Linux VM，已安装 [IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge-linux.md)
+* Azure 中的 Linux VM，已安装 [IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge.md)
 
 在本快速入门中，我们建议你使用[实时视频分析资源设置脚本](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)在 Azure 订阅中部署所需资源。 为此，请执行下列步骤：
 
@@ -109,7 +106,7 @@ RTSP 模拟器模块使用视频文件模拟实时视频流，该文件已在运
 
     ```
     {
-        "@apiVersion" : "1.0"
+        "@apiVersion" : "2.0"
     }
     ```
 
@@ -135,7 +132,7 @@ RTSP 模拟器模块使用视频文件模拟实时视频流，该文件已在运
 
 ```
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "MotionDetection",
     "properties": {
         "description": "Analyzing live video to detect motion and emit events",
@@ -298,7 +295,7 @@ RTSP 模拟器模块使用视频文件模拟实时视频流，该文件已在运
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "MotionDetection"
 }
 ```
@@ -396,7 +393,7 @@ RTSP 模拟器模块使用视频文件模拟实时视频流，该文件已在运
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1",
     "properties" : {
         "topologyName" : "MotionDetection",
@@ -456,7 +453,7 @@ RTSP 模拟器模块使用视频文件模拟实时视频流，该文件已在运
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1"
 }
 ```
@@ -480,7 +477,7 @@ RTSP 模拟器模块使用视频文件模拟实时视频流，该文件已在运
 
 ```
  {
-     "@apiVersion" : "1.0",
+     "@apiVersion" : "2.0",
      "name" : "Sample-Graph-1"
  }
  ```
@@ -613,7 +610,7 @@ RTSP 模拟器模块使用视频文件模拟实时视频流，该文件已在运
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1"
 }
 ```
@@ -639,7 +636,7 @@ RTSP 模拟器模块使用视频文件模拟实时视频流，该文件已在运
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1"
 }
 ```
@@ -663,7 +660,7 @@ RTSP 模拟器模块使用视频文件模拟实时视频流，该文件已在运
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "MotionDetection"
 }
 ```

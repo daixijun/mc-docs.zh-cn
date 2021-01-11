@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: 9da777914c224c4ee3f112962c6526ee614e4252
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: ba6e171489412215d41d9d641a0e20cc2838a65d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507602"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021873"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>如何安装使用新应用程序网关的应用程序网关入口控制器 (AGIC)
 
@@ -84,7 +84,7 @@ ms.locfileid: "96507602"
     az group create -n $resourceGroupName -l $location
 
     # modify the template as needed
-    az group deployment create \
+    az deployment group create \
             -g $resourceGroupName \
             -n $deploymentName \
             --template-file template.json \
@@ -93,7 +93,7 @@ ms.locfileid: "96507602"
 
 1. 部署完成后，将部署输出下载到名为 `deployment-outputs.json` 的文件中。
     ```azurecli
-    az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
+    az deployment group show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
 
 ## <a name="set-up-application-gateway-ingress-controller"></a>设置应用程序网关入口控制器

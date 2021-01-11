@@ -7,15 +7,15 @@ ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 5689a7f80990abd5727f6fa12083985e2835ba47
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 12b5c38498338ad47b3e464653631933bfea27ba
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170468"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022941"
 ---
 # <a name="connect-an-app-service-app-to-sql-database-using-cli"></a>使用 CLI 将应用服务应用连接到 SQL 数据库
 
@@ -23,7 +23,7 @@ ms.locfileid: "92170468"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，需要 Azure CLI 2.0 版或更高版本。 要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-lastest)。
+如果选择在本地安装并使用 CLI，需要 Azure CLI 2.0 版或更高版本。 要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -80,13 +80,13 @@ az webapp config appsettings set --name $appName --resource-group myResourceGrou
 
 | 命令 | 说明 |
 |---|---|
-| [`az group create`](/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [`az appservice plan create`](/cli/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | 创建应用服务计划。 |
-| [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create) | 创建应用服务应用。 |
-| [`az sql server create`](/cli/sql/server?view=azure-cli-latest#az-sql-server-create) | 创建服务器。  |
-| [`az sql db create`](/cli/sql/db?view=azure-cli-latest#az-sql-db-create) | 创建新数据库。 |
-| [`az sql db show-connection-string`](/cli/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) | 生成数据库的连接字符串。 |
-| [`az webapp config appsettings set`](/cli/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | 创建或更新应用服务应用的应用设置。 应用设置将作为应用的环境变量公开。 |
+| [`az group create`](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [`az appservice plan create`](https://docs.azure.cn/cli/appservice/plan#az_appservice_plan_create) | 创建应用服务计划。 |
+| [`az webapp create`](https://docs.azure.cn/cli/webapp#az_webapp_create) | 创建应用服务应用。 |
+| [`az sql server create`](https://docs.azure.cn/cli/sql/server#az_sql_server_create) | 创建服务器。  |
+| [`az sql db create`](https://docs.azure.cn/cli/sql/db#az_sql_db_create) | 创建新数据库。 |
+| [`az sql db show-connection-string`](https://docs.azure.cn/cli/sql/db#az_sql_db_show_connection_string) | 生成数据库的连接字符串。 |
+| [`az webapp config appsettings set`](https://docs.azure.cn/cli/webapp/config/appsettings#az_webapp_config_appsettings_set) | 创建或更新应用服务应用的应用设置。 应用设置将作为应用的环境变量公开。 |
 
 ## <a name="next-steps"></a>后续步骤
 

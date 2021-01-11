@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/15/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 5acbd1e03b6a1ee0429efb9c6e07da7cdec4106e
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 4e1845ac556fea6999317507d7f627872e681ddc
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655490"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021291"
 ---
 <!--Verify sucessfully before the Sample, Dialogue setting passed-->
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>使用 Azure Monitor 日志监视 Site Recovery
@@ -40,7 +40,7 @@ Azure Monitor 日志提供一个日志数据平台用于收集活动和资源日
 
 - 至少一台在恢复服务保管库中受保护的计算机。
 - 用于存储 Site Recovery 日志的 Log Analytics 工作区。 [了解](../azure-monitor/learn/quick-create-workspace.md)如何设置工作区。
-- 基本了解如何在 Log Analytics 中编写、运行和分析日志查询。 [了解详细信息](../azure-monitor/log-query/get-started-portal.md)。
+- 基本了解如何在 Log Analytics 中编写、运行和分析日志查询。 [了解详细信息](../azure-monitor/log-query/log-analytics-tutorial.md)。
 
 在开始之前，我们建议查看[常见监视问题](monitoring-common-questions.md)。
 

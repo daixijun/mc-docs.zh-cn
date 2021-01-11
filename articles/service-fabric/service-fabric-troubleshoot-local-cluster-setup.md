@@ -4,16 +4,16 @@ description: 本文就本地开发群集的故障介绍一些建议
 ms.topic: conceptual
 origin.date: 02/23/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 657fdd4a0cd87d3d97060ea054c6b66a5c32579c
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 854b74b3c5b1d313316e75af774bb6887a549c9c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655609"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023233"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>排除本地开发群集安装的故障
 如果在与本地 Azure Service Fabric 开发群集交互时遇到问题，请查看以下建议以获得可能的解决方案。

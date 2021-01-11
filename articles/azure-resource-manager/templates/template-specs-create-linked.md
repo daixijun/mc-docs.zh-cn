@@ -4,19 +4,19 @@ description: 了解如何创建具有链接模板的模板规格。
 ms.topic: conceptual
 origin.date: 11/17/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 28278852a13e3c8c06081e848723b79bc7fcad0d
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: d833a30eafdbd50e8d9df304ab9140663ceaa6fe
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003577"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021859"
 ---
-<!--Pending for PM review-->
-<!--REASON: IS PRIVATE PREVIEW TILL ON 09/22/2020-->
+<!--Verified successfully-->
+<!--REASON: IS NOT PRIVATE PREVIEW TILL ON 01/06/2021-->
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>教程：创建具有链接模板的模板规格（预览）
 
 了解如何创建具有主模板和[链接模板](linked-templates.md#linked-template)的[模板规格](template-specs.md)。 使用模板规格与组织中的其他用户共享 ARM 模板。 本文介绍如何使用部署资源的 `relativePath` 属性创建模板规格以打包主模板及其关联的模板。
@@ -25,10 +25,10 @@ ms.locfileid: "97003577"
 
 ## <a name="prerequisites"></a>先决条件
 
-具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+具有活动订阅的 Azure 帐户。 [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!NOTE]
-> 模板规格当前提供预览版。 若要使用，必须安装最新版本的 PowerShell 或 Azure CLI。 对于 Azure PowerShell，请使用[版本 5.0.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-az-ps)。 对于 Azure CLI，请使用[版本 2.14.2 或更高版本](https://docs.azure.cn/cli/install-azure-cli)。
+> 模板规格当前提供预览版。 若要将其与 Azure PowerShell 一起使用，必须安装[版本 5.0.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-az-ps)。 若要将其与 Azure CLI 一起使用，请使用[版本 2.14.2 或更高版本](https://docs.azure.cn/cli/install-azure-cli)。
 
 ## <a name="create-linked-templates"></a>创建链接模板
 

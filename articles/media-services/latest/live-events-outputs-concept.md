@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 10/23/2020
 ms.date: 11/30/2020
 ms.author: v-jay
-ms.openlocfilehash: 5a07af03a786b6cdc4e61e02cfff45bc39eb98c2
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: d978d952d71a445775d1dae76f6750188e1cae68
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300611"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894393"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>媒体服务中的实时事件和实时输出
 
@@ -100,7 +100,7 @@ ms.locfileid: "96300611"
 <br/><br/>
 如果未指定 IP 地址并且没有规则定义，则不会允许任何 IP 地址。 若要允许任何 IP 地址，请创建一个规则并设置 0.0.0.0/0。<br/>IP 地址必须采用以下格式之一：具有四个数字或 CIDR 地址范围的 IpV4 地址。
 <br/><br/>
-如果要在自己的防火墙上启用某些 IP，或者要将直播活动的输入约束到 Azure IP 地址，请从 [Azure 数据中心 IP 地址范围](https://www.microsoft.com/download/details.aspx?id=42064)下载 JSON 文件。 有关此文件的详细信息，请选择页面上的“详细信息”部分。 
+如果要在自己的防火墙上启用某些 IP，或者要将直播活动的输入约束到 Azure IP 地址，请从 [Azure 数据中心 IP 地址范围](https://www.microsoft.com/download/details.aspx?id=57062)下载 JSON 文件。 有关此文件的详细信息，请选择页面上的“详细信息”部分。 
 
 ### <a name="naming-rules"></a>命名规则
 

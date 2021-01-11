@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: 5445da628f76fb65fb86793f11c275056908eb60
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: bd7bc70d6d226e0db6607a630fd4a09922be7bbf
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003900"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022526"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>快速入门：使用授权代码流在 Node Web 应用中让用户登录并获取访问令牌
 
@@ -42,15 +42,14 @@ ms.locfileid: "97003900"
 > #### <a name="step-1-register-your-application"></a>步骤 1：注册应用程序
 >
 > 1. 登录 [Azure 门户](https://portal.azure.cn)。
-> 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，然后将门户会话设置为要使用的 Azure AD 租户。
-> 1. 选择[“应用注册”](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)。
-> 1. 选择“新注册”。
-> 1. “注册应用程序”页显示后，请输入应用程序的名称。
+> 1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
+> 1. 在“管理”下，选择“应用注册” > “新建注册”  。
+> 1. 输入应用程序的 **名称**。 应用的用户可能会看到此名称，你稍后可对其进行更改。
 > 1. 在“支持的帐户类型”下，选择“任何组织目录中的帐户”。 
 > 1. 将“重定向 URI”值设为 `http://localhost:3000/redirect`
 > 1. 选择“注册”。 
 > 1. 在应用的“概述”页上，记下“应用程序(客户端) ID”值，供稍后使用 。
-> 1. 在“证书和机密”下，选择“新建客户端密码” 。  将说明留空并保留默认过期时间，然后单击“添加”。
+> 1. 在“管理”下，选择“证书和机密” > “新建客户端机密”  。  将说明留空并保留默认过期时间，然后选择“添加”。
 > 1. 记下“客户端密码”的值以供稍后使用 。
 
 #### <a name="step-2-download-the-project"></a>步骤 2：下载项目

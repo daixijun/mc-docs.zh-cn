@@ -4,14 +4,14 @@ description: 使用 Visual Studio 来创建、开发、打包、部署和调试 
 author: rockboyfor
 ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 02/24/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: cb798664f307a32b9439ff496b95be215e2d3f28
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 238bafe030d5af12c9f0d981e0ab4c37f655c5f1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540672"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022393"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>使用 Visual Studio 简化 Service Fabric 应用程序的编写和管理
 可以通过 Visual Studio 管理 Azure Service Fabric 应用程序和服务。 [设置开发环境](service-fabric-get-started.md)之后，可以使用 Visual Studio 创建 Service Fabric 应用程序、添加服务，或在本地开发群集中打包、注册和部署应用程序。

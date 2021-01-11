@@ -5,19 +5,19 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-origin.date: 11/10/2020
+origin.date: 12/03/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 32707ab67e222a437d518db26b11b767b2302bd7
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 81379cff1ad02c368dd0257d9cf5b2ffb278540c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747079"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021160"
 ---
 # <a name="what-is-azure-firewall"></a>什么是 Azure 防火墙？
 
@@ -47,7 +47,7 @@ Azure 防火墙是托管的基于云的网络安全服务，可保护 Azure 虚�
 
 Azure 防火墙存在以下已知问题：
 
-|问题  |说明  |缓解操作  |
+|问题  |说明  |缓解措施  |
 |---------|---------|---------|
 针对非 TCP/UDP 协议（例如 ICMP）的网络筛选规则不适用于 Internet 绑定的流量|针对非 TCP/UDP 协议的网络筛选规则不支持公共 IP 地址的 SNAT。 在分支子网与 VNet 之间支持非 TCP/UDP 协议。|Azure 防火墙使用[目前不支持 IP 协议 SNAT](../load-balancer/load-balancer-overview.md) 的标准负载均衡器。 我们正在探索如何在将来的版本中推出支持此方案的选项。|
 |缺少对 ICMP 的 PowerShell 和 CLI 支持|Azure PowerShell 和 CLI 不支持使用 ICMP 作为网络规则中的有效协议。|仍然可以通过门户和 REST API 使用 ICMP 作为协议。 我们正在致力于在不久之后在 PowerShell 和 CLI 中添加 ICMP。|
@@ -71,6 +71,7 @@ Azure 防火墙存在以下已知问题：
 |自定义 DNS 不适用于强制隧道|如果启用了强制隧道，自定义 DNS 将无法使用。|我们正在研究修复措施。|
 |启动/停止操作不适用于在强制隧道模式下配置的防火墙|启动/停止操作不适用于在强制隧道模式下配置的 Azure 防火墙。 如果尝试在配置了强制隧道的情况下启动 Azure 防火墙，会导致以下错误：<br /><br />*Set-AzFirewall:AzureFirewall FW-xx 管理 IP 配置无法添加到现有防火墙中。如果要使用强制隧道支持，请使用管理 IP 配置重新部署。<br />StatusCode:400<br />ReasonPhrase：请求错误*|正在调查中。<br /><br />一种解决方法是，删除现有的防火墙，并使用相同的参数创建一个新的防火墙。|
 |无法使用门户添加防火墙策略标记|Azure 防火墙策略具有修补程序支持限制，可防止使用 Azure 门户添加标记。 生成以下错误：无法保存资源的标记。|我们正在研究修复措施。 或者，可以使用 Azure PowerShell cmdlet `Set-AzFirewallPolicy` 更新标记。
+|尚不支持 IPv6|如果将 IPv6 地址添加到规则，防火墙会失败。|仅使用 IPv4 地址。 正在调查 IPv6 支持。|
 
 <!--Not Available on See [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) for software that supports SNI.-->
 <!--Not Available on TabLine 7+1 on Availability Zones-->

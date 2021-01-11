@@ -2,14 +2,14 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/17/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: 6c3d2a20c3b99838305d824b73d222b86d9f6e02
-ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
+ms.openlocfilehash: b7889bbacf73af94fe38bbc17a7c660a7d20a6e5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95970682"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024244"
 ---
 ## <a name="run-the-function-locally"></a>在本地运行函数
 
@@ -35,7 +35,7 @@ ms.locfileid: "95970682"
     </pre>
     
     >[!NOTE]  
-    > 如果 HttpExample 未按下面所示出现，则可能是在项目的根文件夹外启动了主机。 在这种情况下，请按 **Ctrl**+**C** 停止主机，导航到项目的根文件夹，然后重新运行上一命令。
+    > 如果 HttpExample 未按如上所示出现，则可能是在项目的根文件夹外启动了主机。 在这种情况下，请按 **Ctrl**+**C** 停止主机，导航到项目的根文件夹，然后重新运行上一命令。
 
 1. 将此输出中 `HttpExample` 函数的 URL 复制到浏览器，并追加查询字符串 `?name=<YOUR_NAME>`，使完整 URL 类似于 `http://localhost:7071/api/HttpExample?name=Functions`。 浏览器应会显示类似于 `Hello Functions` 的消息：
 

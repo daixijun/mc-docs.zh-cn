@@ -4,17 +4,17 @@ description: 了解如何在 Service Fabric 中解析服务、建立连接以及
 ms.topic: conceptual
 origin.date: 11/01/2017
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 76729061644cd72b8283b88c54ec0b9ab48f7151
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: fea82c212a0fb660e679617560aaf5d1946ccc76
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328877"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022408"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>在 Service Fabric 中与服务建立连接和通信
 在 Service Fabric 中，服务在 Service Fabric 群集（通常分布在多个 VM 间）中的某个位置运行。 它可以从一个位置移动到另一个位置（由服务所有者移动或由 Service Fabric 自动移动）。 服务不以静态方式绑定到特定计算机或地址。

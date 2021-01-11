@@ -3,15 +3,15 @@ title: 使用 .NET 向/从 Azure 事件中心发送/接收事件（最新版）
 description: 本文演练如何创建一个可使用最新 Azure.Messaging.EventHubs 包向/从 Azure 事件中心发送/接收事件的 .NET Core 应用程序。
 ms.topic: quickstart
 origin.date: 09/25/2020
-ms.date: 11/05/2020
+ms.date: 01/05/2021
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7cc54f669269080df6e259d5ec52a442a9818dd3
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 0c53cf96d0e570dcb7d526357934da6c9ea0fcde
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431014"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874816"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>向 Azure 事件中心发送事件及从 Azure 事件中心接收事件 - .NET (Azure.Messaging.EventHubs) 
 本快速入门介绍如何使用 Azure.Messaging.EventHubs .NET 库向事件中心发送事件以及从事件中心接收事件。 
@@ -106,16 +106,16 @@ ms.locfileid: "96431014"
     [![验证事件中心是否已收到消息](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
     > [!NOTE]
-    > 有关包含更详细注释的完整源代码，请参阅 [GitHub 上的此文件](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample03_PublishAnEventBatch.cs)
+    > 有关包含更详细注释的完整源代码，请参阅 [GitHub 上的此文件](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample04_PublishingEvents.md)
 
 ## <a name="receive-events"></a>接收事件
 本部分介绍如何编写一个使用事件处理器从事件中心接收消息的 .NET Core 控制台应用程序。 该事件处理器通过从事件中心管理持久检查点和并行接收操作，来简化从这些事件中心接收事件的过程。 事件处理器与特定的事件中心和使用者组相关联。 它从事件中心内的多个分区接收事件，并将其传递给处理程序委托，以使用提供的代码进行处理。 
 
 
 > [!WARNING]
-> 如果在 Azure Stack Hub 上运行此代码，则将遇到运行时错误，除非你面向特定的存储 API 版本。 这是因为事件中心 SDK 使用 Azure 中提供的最新 Azure 存储 API，而此 API 可能在 Azure Stack Hub 平台上不可用。 Azure Stack Hub 支持的存储 Blob SDK 版本可能与 Azure 上通常提供的版本不同。 如果正在将 Azure Blob 存储用作检查点存储，请检查[支持用于你的 Azure Stack Hub 版本的 Azure 存储 API 版本](/azure-stack/user/azure-stack-acs-differences?#api-version)，并在你的代码中面向该版本。 
+> 如果在 Azure Stack Hub 上运行此代码，则将遇到运行时错误，除非你面向特定的存储 API 版本。 这是因为事件中心 SDK 使用 Azure 中提供的最新 Azure 存储 API，而此 API 可能在 Azure Stack Hub 平台上不可用。 Azure Stack Hub 支持的存储 Blob SDK 版本可能与 Azure 上通常提供的版本不同。 如果你正在将 Azure Blob 存储用作检查点存储，请查看[Azure Stack Hub 内部版本支持的 Azure 存储 API 版本](/azure-stack/user/azure-stack-acs-differences?#api-version)，并在代码中面向此版本。 
 >
-> 例如，如果在 Azure Stack Hub 版本 2005 上运行，则存储服务的最高可用版本为版本 2019-02-02。 默认情况下，事件中心 SDK 客户端库使用 Azure 上的最高可用版本（在 SDK 发布时为 2019-07-07）。 在这种情况下，除了执行本部分中的步骤以外，还需要添加相关代码，将存储服务 API 版本 2019-02-02 作为目标。 如需通过示例来了解如何以特定的存储 API 版本为目标，请参阅 [GitHub 上的此示例](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)。 
+> 例如，如果在 Azure Stack Hub 版本 2005 上运行，则存储服务的最高可用版本为版本 2019-02-02。 默认情况下，事件中心 SDK 客户端库使用 Azure 上的最高可用版本（在 SDK 发布时为 2019-07-07）。 在这种情况下，除了执行本部分中的步骤以外，还需要添加相关代码，将存储服务 API 版本 2019-02-02 作为目标。 如需通过示例来了解如何以特定的存储 API 版本为目标，请参阅 [GitHub 上的此示例](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/)。 
  
 
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>创建 Azure 存储和 Blob 容器
@@ -203,7 +203,7 @@ ms.locfileid: "96431014"
         static async Task ProcessEventHandler(ProcessEventArgs eventArgs)
         {
             // Write the body of the event to the console window
-            Console.WriteLine("\tRecevied event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+            Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
 
             // Update checkpoint in the blob storage so that the app receives only new events the next time it's run
             await eventArgs.UpdateCheckpointAsync(eventArgs.CancellationToken);
@@ -220,7 +220,7 @@ ms.locfileid: "96431014"
 1. 生成项目并确保没有错误。
 
     > [!NOTE]
-    > 有关包含更详细注释的完整源代码，请参阅 [GitHub 上的此文件](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.cs)。
+    > 有关包含更详细注释的完整源代码，请参阅 [GitHub 上的此文件](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.md)。
 6. 运行接收器应用程序。 
 1. 应会看到一条消息，指出已接收事件。 
 

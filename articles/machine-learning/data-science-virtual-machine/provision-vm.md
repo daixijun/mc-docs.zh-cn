@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: 25c88be29552ea1e8564426d7b22407bc2509d9e
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 565f2095dcb7e913d4deff2ebc55e28da759a409
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978195"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022619"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>快速入门：设置适用于 Windows 的 Data Science Virtual Machine
 
@@ -58,8 +58,6 @@ ms.locfileid: "94978195"
 创建并预配 VM 后，请按照列出的步骤[连接到基于 Azure 的虚拟机](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-create-using-approved-base)。 请使用创建虚拟机时在“基本信息”步骤中配置的管理员帐户凭据。 
 
 现在，可以开始使用 VM 上安装并配置的工具。 可以通过“开始”菜单磁贴和桌面图标访问许多工具。
-
-还可以将 DSVM 附加到 Azure Notebooks，以在 VM 上运行 Jupyter Notebook，并绕过免费服务层的限制。 
 
 <a name="tools"></a>
 

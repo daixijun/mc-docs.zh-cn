@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 11/02/2020
+ms.date: 12/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 4e16b7a6a8e20d0d7fd3ace07a6408c7fdcaf00b
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 9a1a35c3c13ae7a195afa4b6d4bd27f85c53958f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978181"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021824"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>使用 Azure 机器学习部署模型
 

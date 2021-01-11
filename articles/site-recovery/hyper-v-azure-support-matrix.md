@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 07/14/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: c43ff151cb5ec933489445b3dbcc0b91406b01df
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: acbe29868c2f21a6bbbd29c6a820ac70f8209eb7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655006"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023231"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>将本地 Hyper-V VM 灾难恢复到 Azure 时的支持矩阵
 
@@ -129,13 +129,14 @@ RDM | 不可用 | 不可用
 本地冗余存储 | “是” | 是
 异地冗余存储 | “是” | 是
 读取访问异地冗余存储 | 是 | 是
+区域冗余存储 | 否 | 否
 冷存储 | 否 | 否
 热存储| 否 | 否
 块 Blob | 否 | 否
 静态加密 (SSE)| 是 | 是
-静态加密 (CMK) <br /> （仅用于故障转移到托管磁盘）| 是（通过 PowerShell Az 3.3.0 及更高版本模块） | 是（通过 PowerShell Az 3.3.0 及更高版本模块）
-静态双重加密 <br /> （仅用于故障转移到托管磁盘） <br /> 详细了解 [Windows](../virtual-machines/windows/disk-encryption.md) 和 [Linux](../virtual-machines/linux/disk-encryption.md) 支持的区域 | 是（通过 PowerShell Az 3.3.0 及更高版本模块） | 是（通过 PowerShell Az 3.3.0 及更高版本模块）
-高级存储 | 是 | “是”
+静态加密 (CMK) <br></br> （仅用于故障转移到托管磁盘）| 是（通过 PowerShell Az 3.3.0 及更高版本模块） | 是（通过 PowerShell Az 3.3.0 及更高版本模块）
+静态双重加密 <br></br> （仅用于故障转移到托管磁盘） <br></br> 详细了解 [Windows](../virtual-machines/disk-encryption.md) 和 [Linux](../virtual-machines/disk-encryption.md) 支持的区域 | 是（通过 PowerShell Az 3.3.0 及更高版本模块） | 是（通过 PowerShell Az 3.3.0 及更高版本模块）
+高级存储 | “是” | 是
 标准存储 | “是” | 是
 导入/导出服务 | 否 | 否
 启用了防火墙的 Azure 存储帐户 | 是的。 适用于目标存储和缓存。 | 是的。 适用于目标存储和缓存。

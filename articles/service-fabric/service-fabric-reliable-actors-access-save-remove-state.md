@@ -4,14 +4,15 @@ description: 了解如何访问、保存和删除 Azure Service Fabric Reliable 
 author: rockboyfor
 ms.topic: conceptual
 origin.date: 03/19/2018
-ms.date: 02/24/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: da5a0658c871cd7ed95507d48dca7fecbb54e237
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e867bc16e820000e0274596576b38261c60792a3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540113"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021971"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>访问、保存和删除 Reliable Actors 状态
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) 是可封装逻辑与状态并稳定维护状态的单线程对象。 每个执行组件实例都有其自身的[状态管理器](service-fabric-reliable-actors-state-management.md)：一种类似于字典的数据结构，能够可靠地存储密钥/值对。 状态管理器是围绕状态提供程序的包装。 无论使用哪个[持久性设置](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication)，都可以使用它来存储数据。

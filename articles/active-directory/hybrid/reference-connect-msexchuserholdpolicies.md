@@ -10,22 +10,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 01/08/2021
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6408a2ee65fb895ad71db8aad66e77fb1aecadb
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 0439bcc929dc98db8a99b7d2e0317f0d14799d86
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041596"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021754"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect - msExchUserHoldPolicies 和 cloudMsExchUserHoldPolicies
 以下参考文档介绍了 Exchange 使用的这些属性，以及编辑默认同步规则的适当方式。
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>什么是 msExchUserHoldPolicies 和 cloudMsExchUserHoldPolicies？
-Exchange Server 可以使用两种类型的[保留机制](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019)：诉讼保留和就地保留。 启用诉讼保留后，所有邮箱和项都会保留。  就地保留仅保留符合你使用 In-Place eDiscovery 工具定义的搜索查询条件的项。
+Exchange Server 可以使用两种类型的[保留机制](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds)：诉讼保留和就地保留。 启用诉讼保留后，所有邮箱和项都会保留。  就地保留仅保留符合你使用 In-Place eDiscovery 工具定义的搜索查询条件的项。
 
 MsExchUserHoldPolcies 和 cloudMsExchUserHoldPolicies 属性允许本地 AD 与 Azure AD 根据用户使用的是本地 Exchange 还是联机 Exchange，来确定哪些用户处于保留状态。
 

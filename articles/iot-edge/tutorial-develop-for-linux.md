@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 07/30/2020
-ms.date: 11/13/2020
+ms.date: 01/05/2021
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 212c7adec97c2719cc773706a9294e9f1fee87b2
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: a7ba4a932f118c6d03b2058b3599a4e0efe9650d
+ms.sourcegitcommit: 40db5a4b9ab8b5877e307ff7a567fd930ca81c72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300780"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894311"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>教程：开发适用于 Linux 设备的 IoT Edge 模块
 
@@ -33,6 +33,26 @@ ms.locfileid: "96300780"
 > * 使用适用于 Visual Studio Code 的 IoT Edge Tools 创建新项目。
 > * 将项目作为容器生成并将其存储在 Azure 容器注册表中。
 > * 将代码部署到 IoT Edge 设备。
+
+## <a name="prerequisites"></a>先决条件
+
+开发计算机：
+
+* 可以使用自己的计算机或虚拟机，具体取决于开发首选项。
+  * 请确保开发计算机支持嵌套虚拟化。 此功能对于运行容器引擎是必需的，你将在下一部分中安装。
+* 大多数可以运行容器引擎的操作系统都可用于为 Linux 设备开发 IoT Edge 模块。 本教程使用 Windows 计算机，但指出 macOS 或 Linux 上的已知差异。
+* 安装 [Git](https://git-scm.com/)，以便在本教程稍后部分拉取模块模板包。  
+* [适用于 Visual Studio Code 的 C# 扩展（由 OmniSharp 提供支持）](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)。
+* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)。
+
+Linux 上的 Azure IoT Edge 设备：
+
+* 我们建议不要在开发计算机上运行 IoT Edge，而应使用单独的设备。 开发计算机和 IoT Edge 设备之间的这一区分可更准确地反映真实部署方案，并有助于区分不同的概念。
+* 如果没有第二台可用的设备，请按照快速入门文章的说明在 Azure 中使用 [Linux 虚拟机](quickstart-linux.md)创建 IoT Edge 设备。
+
+云资源：
+
+* Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -57,27 +77,6 @@ ms.locfileid: "96300780"
 >公共预览版中提供对 Linux ARM64 设备的支持。 有关详细信息，请参阅[在 Visual Studio Code（预览版）中开发和调试 ARM64 IoT Edge 模块](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)。
 
 本教程讲解适用于 Visual Studio Code 的开发步骤。 如果想要使用 Visual Studio，请参阅[使用 Visual Studio 2019 为 Azure IoT Edge 开发和调试模块](how-to-visual-studio-develop-module.md)中的说明。
-
-## <a name="prerequisites"></a>先决条件
-
-开发计算机：
-
-* 可以使用自己的计算机或虚拟机，具体取决于开发首选项。
-  * 请确保开发计算机支持嵌套虚拟化。 此功能对于运行容器引擎是必需的，你将在下一部分中安装。
-* 大多数可以运行容器引擎的操作系统都可用于为 Linux 设备开发 IoT Edge 模块。 本教程使用 Windows 计算机，但指出 macOS 或 Linux 上的已知差异。
-* 安装 [Git](https://git-scm.com/)，以便在本教程稍后部分拉取模块模板包。  
-* [适用于 Visual Studio Code 的 C# 扩展（由 OmniSharp 提供支持）](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)。
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)。
-
-Linux 上的 Azure IoT Edge 设备：
-
-* 我们建议不要在开发计算机上运行 IoT Edge，而应使用单独的设备。 开发计算机和 IoT Edge 设备之间的这一区分可更准确地反映真实部署方案，并有助于区分不同的概念。
-* 如果没有第二台可用的设备，请按照快速入门文章的说明在 Azure 中使用 [Linux 虚拟机](quickstart-linux.md)创建 IoT Edge 设备。
-
-云资源：
-
-* Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。
-
 ## <a name="install-container-engine"></a>安装容器引擎
 
 IoT Edge 模块被打包为容器，因此，需要在开发计算机上安装容器引擎来生成和管理容器。 Docker Desktop 提供广泛的功能支持且非常流行，因此我们建议使用它进行开发。 使用 Windows 上的 Docker Desktop 可在 Linux 容器和 Windows 容器之间切换，以便轻松地为不同类型的 IoT Edge 设备开发模块。

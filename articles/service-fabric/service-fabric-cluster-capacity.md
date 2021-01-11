@@ -4,17 +4,16 @@ description: 在规划 Service Fabric 群集时要考虑节点类型、持久性
 ms.topic: conceptual
 origin.date: 05/21/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.custom: sfrev
-ms.openlocfilehash: a2b96446df9d255cb92c28b1e0e1f5e336869cf9
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 9190a6d79725989ad6db31b18a2c57624d6cc3a8
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327406"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023318"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 群集容量规划注意事项
 

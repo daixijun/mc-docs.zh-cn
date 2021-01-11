@@ -4,14 +4,14 @@ description: 演示如何在 Service Fabric 中使用参数来指定应用程序
 author: rockboyfor
 ms.topic: conceptual
 origin.date: 12/06/2017
-ms.date: 02/24/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: eb13140a7fb7aca1930285a51a751ee44efffc43
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 07530f21f0afd18035c9d846d5029784b903e60a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540668"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021975"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>如何在 Service Fabric 中使用参数来指定服务的端口号
 

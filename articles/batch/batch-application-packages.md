@@ -5,20 +5,20 @@ ms.service: batch
 ms.topic: how-to
 origin.date: 09/24/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 04/29/2020
 ms.author: v-yeche
 ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
-- contperfq1
-ms.openlocfilehash: 265b076b1c21a020f4b77da2d143d60eadbccd57
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+- contperf-fy21q1
+ms.openlocfilehash: c09e7e5c1098878db8a70d3fec5f2f4d8e9e50ad
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104956"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022016"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>使用 Batch 应用程序包将应用程序部署到计算节点
 
@@ -51,7 +51,7 @@ ms.locfileid: "93104956"
 
     当池中的所有节点都将执行作业的任务时，便适合使用池应用程序包。 在创建池时，可以指定一个或多个要部署的应用程序包。 还可以添加或更新现有池的包。 若要将新包安装到现有池，必须重启其节点。
 
-- 在运行任务的命令行之前， **任务应用程序包** 只部署到计划要运行任务的计算节点。 如果节点上已有指定的应用程序包和版本，则不会重新部署，而是使用现有包。
+- 在运行任务的命令行之前，**任务应用程序包** 只部署到计划要运行任务的计算节点。 如果节点上已有指定的应用程序包和版本，则不会重新部署，而是使用现有包。
 
     任务应用程序包在共享池环境（其中，不同的作业在一个池中运行，一个作业完成时并不删除该池）中很有用。 如果作业中的任务数小于池中的节点数，任务应用程序包可以尽量减少数据传输，因为应用程序只部署到运行任务的节点。
 
@@ -83,13 +83,13 @@ Batch 服务使用 Azure 存储将应用程序包存储为块 blob。 块 blob �
 
 若要查看 Batch 帐户中的应用程序，请在左侧导航菜单中选择“应用程序”。
 
-:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="此图显示了应用程序和应用程序包的概要视图。":::
+:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Azure 门户中的“应用程序”菜单项的屏幕截图。":::
 
 选择此菜单选项可打开“应用程序”窗口。 此窗口显示帐户中每个应用程序的 ID，以及以下属性：
 
-- **包** ：与此应用程序关联的版本号。
-- **默认版本** ：如果在部署应用程序时未指定版本，则此项为将要安装的应用程序版本（如果适用）。
-- **允许更新** ：指定是否允许更新和删除包。
+- **包**：与此应用程序关联的版本号。
+- **默认版本**：如果在部署应用程序时未指定版本，则此项为将要安装的应用程序版本（如果适用）。
+- **允许更新**：指定是否允许更新和删除包。
 
 若要查看计算节点上应用程序包的[文件结构](files-and-directories.md)，请导航到 Azure 门户中的 Batch 帐户。 选择“池”。 然后选择包含计算节点的池。 选择在其上安装应用程序包的计算节点，打开 **applications** 文件夹。
 
@@ -97,9 +97,9 @@ Batch 服务使用 Azure 存储将应用程序包存储为块 blob。 块 blob �
 
 若要查看某个应用程序的详细信息，请在“应用程序”窗口中选择它。 可以配置应用程序的以下设置。
 
-- **允许更新** ：指示能否 [更新或删除](#update-or-delete-an-application-package)应用程序包。 默认值为“是”。 如果设置为“否”，则不能更新或删除现有的应用程序包，但仍可添加新的应用程序包版本。
-- **默认版本** ：部署应用程序时要使用的默认应用程序包（如果未指定任何版本）。
-- **显示名称** ：Batch 解决方案在显示应用程序相关信息时可以使用的易记名称。 例如，在通过 Batch 提供给客户的服务的 UI 中使用的名称。
+- **允许更新**：指示能否 [更新或删除](#update-or-delete-an-application-package)应用程序包。 默认值为“是”。 如果设置为“否”，则不能更新或删除现有的应用程序包，但仍可添加新的应用程序包版本。
+- **默认版本**：部署应用程序时要使用的默认应用程序包（如果未指定任何版本）。
+- **显示名称**：Batch 解决方案在显示应用程序相关信息时可以使用的易记名称。 例如，在通过 Batch 提供给客户的服务的 UI 中使用的名称。
 
 ### <a name="add-a-new-application"></a>添加新的应用程序
 
@@ -107,12 +107,12 @@ Batch 服务使用 Azure 存储将应用程序包存储为块 blob。 块 blob �
 
 在 Batch 帐户中，选择“应用程序”，然后选择“添加”。 
 
-:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="此图显示了应用程序和应用程序包的概要视图。":::
+:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="在 Azure 门户中新建应用程序的过程的屏幕截图。":::
 
 输入以下信息：
 
-- **应用程序 ID** ：新应用程序的 ID。
-- **版本** ：要上传的应用程序包的版本。
+- **应用程序 ID**：新应用程序的 ID。
+- **版本**：要上传的应用程序包的版本。
 - 应用程序包：.zip 文件，其中包含应用程序二进制文件和执行应用程序所需的支持文件。
 
 输入的 **应用程序 ID** 和 **版本** 必须满足以下要求：
@@ -134,7 +134,7 @@ Batch 服务使用 Azure 存储将应用程序包存储为块 blob。 块 blob �
 
 若要更新或删除现有的应用程序包，请在 Batch 帐户的“应用程序”部分选择该应用程序。 选择要修改的应用程序包行中的省略号，然后选择要执行的操作。
 
-:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="此图显示了应用程序和应用程序包的概要视图。":::
+:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="屏幕截图，显示 Azure 门户中应用程序包的更新和删除选项。":::
 
 如果选择“更新”，则可以上传新的 .zip 文件。 这将替换已为该版本上传的上一个 .zip 文件。
 

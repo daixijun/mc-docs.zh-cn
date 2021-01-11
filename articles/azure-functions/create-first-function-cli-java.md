@@ -1,17 +1,17 @@
 ---
 title: 通过命令行创建 Java 函数 - Azure Functions
 description: 了解如何通过命令行创建 Java 函数，然后将本地项目发布到 Azure Functions 中的无服务器托管。
-ms.date: 11/30/2020
+ms.date: 01/04/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 9c5e480e59d64987e04a2f9acead0c221b729538
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 13ebdb8bc577ec0e487bc925f457b5bd727a765b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509050"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022670"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>快速入门：在 Azure 中通过命令行创建 Java 函数
 
@@ -79,7 +79,7 @@ ms.locfileid: "96509050"
 1. Maven 会请求你提供所需的值，以在部署上完成项目的生成。   
     系统提示时提供以下值：
 
-    | Prompt | 值 | 说明 |
+    | Prompt | Value | 说明 |
     | ------ | ----- | ----------- |
     | **groupId** | `com.fabrikam` | 一个值，用于按照 Java 的[包命名规则](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7)在所有项目中标识你的项目。 |
     | **artifactId** | `fabrikam-functions` | 一个值，该值是 jar 的名称，没有版本号。 |
@@ -238,7 +238,7 @@ public class Function {
     </pre>
     
     > [!NOTE]  
-    > 如果 HttpExample 未按下面所示出现，则可能是在项目的根文件夹外启动了主机。 在这种情况下，请按 **Ctrl**+**C** 停止主机，导航到项目的根文件夹，然后重新运行上一命令。
+    > 如果 HttpExample 未按如上所示出现，则可能是在项目的根文件夹外启动了主机。 在这种情况下，请按 **Ctrl**+**C** 停止主机，导航到项目的根文件夹，然后重新运行上一命令。
 
 1. 将此输出中 `HttpExample` 函数的 URL 复制到浏览器，并追加查询字符串 `?name=<YOUR_NAME>`，使完整 URL 类似于 `http://localhost:7071/api/HttpExample?name=Functions`。 浏览器应会显示类似于 `Hello Functions` 的消息：
 

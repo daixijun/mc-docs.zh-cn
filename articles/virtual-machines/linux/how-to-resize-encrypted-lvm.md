@@ -6,13 +6,13 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: article
 ms.author: v-johya
-ms.date: 12/01/2020
-ms.openlocfilehash: 6212c92a3e25c2f548ff2a7e448c9656a54924e2
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.date: 01/05/2021
+ms.openlocfilehash: 642311a14210f1be254c3bafe7c8ceb8cefaf631
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747482"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023076"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>如何重设使用 Azure 磁盘加密的逻辑卷管理设备的大小
 
@@ -32,7 +32,7 @@ ms.locfileid: "96747482"
 
 本文假设用户具备以下条件：
 
-- 现有的 LVM 配置。 有关详细信息，请参阅[在 Linux VM 上配置 LVM](configure-lvm.md)。
+- 现有的 LVM 配置。 有关详细信息，请参阅[在 Linux VM 上配置 LVM](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/configure-lvm)。
 
 - 已由 Azure 磁盘加密进行加密的磁盘。 有关详细信息，请参阅[在加密设备上配置 LVM 和 RAID](how-to-configure-lvm-raid-on-crypt.md)。
 

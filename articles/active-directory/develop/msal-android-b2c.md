@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 2d1422f17a866aa6098d32474301168bd62fd192
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: b087454102bf846bc4698cf3ad71534e1bd91fc1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647682"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021776"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>将适用于 Android 的 MSAL 与 B2C 配合使用
 
@@ -129,7 +129,7 @@ AcquireTokenSilentParameters parameters = new AcquireTokenSilentParameters.Build
 
         @Override
         public void onError(MsalException exception) {
-            // Token request was unsuccesful, inspect the exception
+            // Token request was unsuccessful, inspect the exception
         }
     })
     .build();

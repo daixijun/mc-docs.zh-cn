@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
 origin.date: 10/01/2020
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-jay
-ms.openlocfilehash: d6a91d0048d0a6bb54fa93a0209af7f6afccf6bd
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 3bad6f32bfdd78271f543b2203cea8d0ebbdc9fe
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300732"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023071"
 ---
 # <a name="media-services-v2-vs-v3"></a>媒体服务 v2 与 v3
 
@@ -81,7 +81,6 @@ ms.locfileid: "96300732"
     * 资产拼接
     * 叠加
     * 裁剪
-    * 缩略图子画面
     * 在输入不包含音频时插入静音曲目
     * 在输入不包含视频时插入视频轨道
 * 包含转码的直播活动目前不支持静态图像插入中间流，以及通过 API 调用执行的广告标记插入。 

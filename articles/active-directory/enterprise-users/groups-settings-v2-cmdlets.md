@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdba3dbd807dec9eeb48d55a623e9bfeb891d8ae
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 81a716f6b2a20aedecca4100029f4028ed71e7e4
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326774"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021578"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>用于组管理的 Azure Active Directory 版本 2 cmdlet
 
@@ -50,7 +50,7 @@ ms.locfileid: "94326774"
     Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 ```
 
-现在可以开始使用模块中的 cmdlet 了。 有关 Azure AD 模块中 cmdlet 的完整说明，请参阅 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) 的联机参考文档。
+现在可以开始使用模块中的 cmdlet 了。 有关 Azure AD 模块中 cmdlet 的完整说明，请参阅 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) 的联机参考文档。
 
 > [!NOTE]
 > Azure AD PowerShell cmdlet 不适用于新版 Powershell 7，因为它基于 .Net Core。 我们意识到这一点，此 cmdlet 正在更新过程中。 到目前为止，我们建议使用 Windows PowerShell 5.x 模块来执行 Azure AD PowerShell 操作。 
@@ -338,7 +338,7 @@ Microsoft 365 组写回是 Azure Active Directory (Azure AD) 的一项公共预�
 
 ## <a name="next-steps"></a>后续步骤
 
-如需更多 Azure Active Directory PowerShell 文档，可参阅 [Azure Active Directory Cmdlet](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)。
+如需更多 Azure Active Directory PowerShell 文档，可参阅 [Azure Active Directory Cmdlet](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2)。
 
 * [使用 Azure Active Directory 组管理对资源的访问](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

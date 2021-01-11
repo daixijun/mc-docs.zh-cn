@@ -6,16 +6,16 @@ services: container-service
 ms.topic: article
 origin.date: 07/01/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 24b5ffb70b00ea1422a87f8476d5d9fae43e2565
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 4e295d9680a6078a2ea7d0c6d5b6248dcc0d1186
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024483"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023130"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 文件
 
@@ -63,6 +63,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```
@@ -188,6 +189,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```

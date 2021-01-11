@@ -2,26 +2,27 @@
 title: 通过 Java 使用 Azure 服务总线队列 (azure-messaging-servicebus)
 description: 本教程介绍如何使用 Java 向 Azure 服务总线队列发送消息，并从中接收消息。 使用新的 azure-messaging-servicebus 包。
 ms.devlang: Java
+ms.service: service-bus-messaging
 ms.topic: quickstart
 origin.date: 11/09/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ca3d350dafcde4f4adfc95fe490188aba282aa20
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: d7919bc374026ce2a2b05152ef327bac6a4f82e5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104782"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022999"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>向 Azure 服务总线队列发送消息并从中接收消息 (Java)
 在本快速入门中，你将创建一个 Java 应用，以便向 Azure 服务总线队列发送消息，并从中接收消息。 
 
 > [!IMPORTANT]
-> 本快速入门使用处于预览阶段的新 azure-messaging-servicebus 包。 有关使用当前正式发布 (GA) 的 azure-servicebus 包的快速入门，请参阅[使用 azure-servicebus 发送和接收消息](service-bus-java-how-to-use-queues-legacy.md)。
+> 本快速入门使用新的 azure-messaging-servicebus 包。 有关使用旧 azure-servicebus 包的快速入门，请参阅[使用 azure-servicebus 发送和接收消息](service-bus-java-how-to-use-queues-legacy.md)。
 
 ## <a name="prerequisites"></a>先决条件
 - Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 你可以激活 [MSDN 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn)或注册[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
@@ -41,7 +42,7 @@ ms.locfileid: "97104782"
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-servicebus</artifactId>
-    <version>7.0.0-beta.7</version>
+    <version>7.0.0</version>
 </dependency>
 ```
 
@@ -221,10 +222,8 @@ Stopping and closing the processor
 请参阅以下文档和示例：
 
 - [适用于 Java 的 Azure 服务总线客户端库 - 自述文件](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
-- [GitHub 上的示例](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicebus/azure-messaging-servicebus/src/samples)
-- [Java API 参考](https://docs.azure.cn/java/api/overview/servicebus?view=azure-java-preview&preserve-view=true)
-
-请参阅 [GitHub 上的更多示例](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicebus/azure-messaging-servicebus)。 
+- [GitHub 上的示例](https://docs.azure.cn/java/servicebus-samples/)
+- [Java API 参考](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 
 [Azure SDK for Java]: https://docs.microsoft.com/azure/developer/java/sdk/java-sdk-azure-get-started
 [Azure Toolkit for Eclipse]: https://docs.azure.cn/java/eclipse/azure-toolkit-for-eclipse?view=azure-java-stable

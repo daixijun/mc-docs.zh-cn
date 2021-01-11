@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcdd7e3ad4f61987f76d9565138ce878abe702b9
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 60c16de575975305fd8486046f59f0b1af26b759
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918449"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021704"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>使用 Windows VM 系统分配的托管标识访问资源管理器
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本快速入门介绍了如何使用启用了系统分配的托管标识的 Windows 虚拟机来访问 Azure 资源管理器 API。 Azure 资源的托管标识由 Azure 自动管理，可用于向支持 Azure AD 身份验证的服务进行身份验证，这样就无需在代码中插入凭据了。 学习如何：
+本教程介绍如何使用启用了系统分配的托管标识的 Windows 虚拟机来访问 Azure 资源管理器 API。 Azure 资源的托管标识由 Azure 自动管理，可用于向支持 Azure AD 身份验证的服务进行身份验证，这样就无需在代码中插入凭据了。 学习如何：
 
 > [!div class="checklist"] 
 > * 授予 VM 对 Azure 资源管理器中资源组的访问权限 
@@ -34,7 +34,11 @@ ms.locfileid: "95918449"
 
 ## <a name="prerequisites"></a>先决条件
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- 具备托管标识基础知识。 如果不熟悉 Azure 资源功能的托管标识，请参阅此[概述](overview.md)。
+- 一个 Azure 帐户，[注册试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
+- 在相应范围（订阅或资源组）内具有“所有者”权限，以执行所需的资源创建和角色管理步骤。 如果需要有关角色分配的帮助，请参阅[使用基于角色的访问控制管理对 Azure 订阅资源的访问权限](../../role-based-access-control/role-assignments-portal.md)。
+- 还需要启用了系统分配的托管标识的 Windows 虚拟机。
+  - 如需为本教程创建虚拟机，则可以按照标题为[创建启用了系统分配的标识的虚拟机](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)的文章进行操作
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>授予 VM 对资源管理器中资源组的访问权限
 

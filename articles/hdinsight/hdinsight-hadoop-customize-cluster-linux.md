@@ -10,17 +10,50 @@ ms.topic: conceptual
 origin.date: 04/21/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: 61607290da46d1af0ebf52bd2a1ef22795d11f5c
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 8bd02b443311defe92bf99477255d30d0891f495
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552514"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830244"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>使用脚本操作自定义 Azure HDInsight 群集
 
 Azure HDInsight 提供名为脚本操作的配置方法，该方法可以调用自定义脚本来自定义群集。 这些脚本用于安装其他组件以及更改配置设置。 可在创建群集期间或者之后使用脚本操作。
 
+还可以将脚本操作作为 HDInsight 应用程序发布到 Azure 市场。 
+
+## <a name="understand-script-actions"></a>了解脚本操作
+
+脚本操作是指在 HDInsight 群集的节点上运行的 Bash 脚本。 下面是脚本操作的特征和功能：
+
+- 必须存储在可从 HDInsight 群集访问的 URI 上。 下面是可能的存储位置：
+
+    - 对于常规（非 ESP）群集：
+      - Data Lake Storage Gen1/Gen2：用于访问 Data Lake Storage 的服务主体 HDInsight 必须具有对脚本的读取访问权限。 Data Lake Storage Gen2 脚本的 URI 格式为 `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
+      - Azure 存储帐户中的一个 Blob，该存储帐户可以是 HDInsight 群集的主存储帐户，也可以是其附加存储帐户。 在创建群集期间，已将这两种存储帐户的访问权限都授予 HDInsight。
+
+        > [!IMPORTANT]  
+        > 请勿在此 Azure 存储帐户上轮换存储密钥，因为这会导致对存储在其中的脚本执行后续脚本操作失败。
+
+      - 可通过 `http://` 路径访问的公共文件共享服务。 例如，Azure Blob、GitHub 或 OneDrive。 有关示例 URI，请参阅[脚本操作脚本示例](#example-script-action-scripts)。
+    - 对于具有 ESP 的群集，支持 `wasb://` 或 `wasbs://` 或 `http[s]://` URI。
+
+- 可以限制为只对特定的节点类型运行， 例如头节点或工作节点。
+- 可以是持久化的，也可以是临时的。
+
+    - 持久化脚本操作必须有唯一的名称。 持久化脚本用于自定义通过缩放操作添加到群集的新工作节点。 进行缩放操作时，持久化脚本还可以将更改应用于其他节点类型， 例如头节点。
+    - 临时脚本不是持久化脚本。 创建群集期间使用的脚本操作自动持久保存下来。 它们在运行后不会应用于添加到群集的工作节点。 然后，可以将临时脚本升级为持久化脚本，或将持久化脚本降级为临时脚本 。 即使明确指出应予保存，也不会持久保存失败的脚本。
+
+- 可以接受脚本在执行期间使用的参数。
+- 在群集节点上以根级别权限运行。
+- 可以通过 Azure 门户、Azure PowerShell、Azure CLI 或 HDInsight .NET SDK 使用。
+- 删除或修改 VM 上的服务文件的脚本操作可能会影响服务的运行状况和可用性。
+
+群集保留已运行的所有脚本的历史记录。 需要查找要升级或降级的脚本的 ID 时，历史记录很有用。
+
+> [!IMPORTANT]  
+> 没有任何自动方式可撤销脚本操作所做的更改。 需要手动还原更改，或提供可还原更改的脚本。
 
 ## <a name="permissions"></a>权限
 
@@ -33,52 +66,18 @@ Azure HDInsight 提供名为脚本操作的配置方法，该方法可以调用�
 
 ## <a name="access-control"></a>访问控制
 
-如果你不是 Azure 订阅的管理员或所有者，则你的帐户必须对包含 HDInsight 群集的资源组至少拥有“参与者”访问权限。
+如果你不是 Azure 订阅的管理员或所有者，则你的帐户必须对包含 HDInsight 群集的资源组至少拥有 `Contributor` 访问权限。
 
 至少具有对 Azure 订阅的参与者访问权限的用户必须之前已注册提供程序。 在对订阅具有参与者访问权限的用户创建资源时，会进行提供程序注册。 对于不创建资源的情况，请参阅[使用 REST 注册提供程序](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register)。
 
 获取有关使用访问权限管理的详细信息：
 
-* [Azure 门户中的访问管理入门](../role-based-access-control/overview.md)
-* [使用角色分配管理对 Azure 订阅资源的访问权限](../role-based-access-control/role-assignments-portal.md)
+- [Azure 门户中的访问管理入门](../role-based-access-control/overview.md)
+- [使用角色分配管理对 Azure 订阅资源的访问权限](../role-based-access-control/role-assignments-portal.md)
 
-## <a name="understand-script-actions"></a>了解脚本操作
+## <a name="methods-for-using-script-actions"></a>使用脚本操作的方法
 
-脚本操作是指在 HDInsight 群集的节点上运行的 Bash 脚本。 下面是脚本操作的特征和功能：
-
-* 必须存储在可从 HDInsight 群集访问的 URI 上。 下面是可能的存储位置：
-    
-    * 对于常规群集：
-      
-      * Azure 存储帐户中的一个 Blob，该存储帐户可以是 HDInsight 群集的主存储帐户，也可以是其附加存储帐户。 在创建群集期间，已将这两种存储帐户的访问权限都授予 HDInsight。
-
-        > [!IMPORTANT]  
-        > 请勿在此 Azure 存储帐户上轮换存储密钥，因为这会导致对存储在其中的脚本执行后续脚本操作失败。
-
-      * 可通过 http:// 路径访问的公共文件共享服务。 例如 Azure Blob、GitHub、OneDrive。 有关示例 URI，请参阅[脚本操作脚本示例](#example-script-action-scripts)。
-
-     * 对于具有 ESP 的群集，支持 wasb:// 或 wasbs:// 或 http[s]:// URI。
-
-* 可以限制为只对特定的节点类型运行， 例如头节点或工作节点。
-
-* 可以是持久化或即席脚本。
-
-    持久化脚本操作必须有唯一的名称。 持久化脚本用于自定义通过缩放操作添加到群集的新工作节点。 进行缩放操作时，持久化脚本还可以将更改应用于其他节点类型， 例如头节点。
-
-    即席脚本不会持久保存。 创建群集期间使用的脚本操作自动持久保存下来。 它们在运行后不会应用于添加到群集的工作节点。 然后可将即席脚本升级为持久化脚本，或将持久化脚本降级为即席脚本。 即使明确指出应予保存，也不会持久保存失败的脚本。
-
-* 可以接受脚本在执行期间使用的参数。
-
-* 在群集节点上以根级别权限运行。
-
-* 可以通过 Azure 门户、Azure PowerShell、Azure CLI 或 HDInsight .NET SDK 使用。
-
-* 删除或修改 VM 上的服务文件的脚本操作可能会影响服务的运行状况和可用性。
-
-群集保留已运行的所有脚本的历史记录。 需要查找要升级或降级的脚本的 ID 时，历史记录很有用。
-
-> [!IMPORTANT]  
-> 没有任何自动方式可撤销脚本操作所做的更改。 需要手动还原更改，或提供可还原更改的脚本。
+你可以选择配置一个脚本操作，让它在第一次创建群集时运行，或在现有群集上运行。
 
 ### <a name="script-action-in-the-cluster-creation-process"></a>群集创建过程中的脚本操作
 
@@ -298,7 +297,7 @@ HDInsight .NET SDK 提供客户端库，以方便从 .NET 应用程序使用 HDI
 
 ## <a name="script-action-to-a-running-cluster"></a>将脚本操作应用到正在运行的群集
 
-本部分说明如何将脚本操作应用于正在运行的群集。
+本部分说明如何在正在运行的群集上应用脚本操作。
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal"></a>从 Azure 门户将脚本操作应用到正在运行的群集
 
@@ -383,7 +382,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ### <a name="apply-a-script-action-to-a-running-cluster-by-using-rest-api"></a>使用 REST API 将脚本操作应用到正在运行的群集
 
-请参阅 [Azure HDInsight 中的群集 REST API](https://msdn.microsoft.com/library/azure/mt668441.aspx)。
+请参阅 [Azure HDInsight 中的群集 REST API](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster)。
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>从 HDInsight .NET SDK 将脚本操作应用到正在运行的群集
 
@@ -415,8 +414,8 @@ NodeTypes       : {HeadNode, WorkerNode}
 | --- | --- |
 | `Get-AzHDInsightPersistedScriptAction` |检索有关持久化脚本操作的信息。 此 cmdlet 不会撤消脚本执行的操作，而只会删除持久化标志。|
 | `Get-AzHDInsightScriptActionHistory` |检索已应用到群集的脚本操作的历史记录，或特定脚本的详细信息。 |
-| `Set-AzHDInsightPersistedScriptAction` |将即席脚本操作升级为持久化脚本操作。 |
-| `Remove-AzHDInsightPersistedScriptAction` |将持久化脚本操作降级为即席脚本操作。 |
+| `Set-AzHDInsightPersistedScriptAction` |将 `ad hoc` 脚本操作升级为持久化脚本操作。 |
+| `Remove-AzHDInsightPersistedScriptAction` |将持久化脚本操作降级为 `ad hoc` 脚本操作。 |
 
 以下示例脚本演示如何使用 cmdlet 来升级再降级脚本。
 

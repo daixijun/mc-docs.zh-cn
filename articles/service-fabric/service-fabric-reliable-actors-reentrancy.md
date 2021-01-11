@@ -4,17 +4,17 @@ description: 介绍 Service Fabric Reliable Actors 的可重入性（该方法�
 ms.topic: conceptual
 origin.date: 11/02/2017
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cdbc55328a111b2ea5d847936fbac97f9ca7ec9d
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 8553da8858aac5861e91709ad4c1907f900e503f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655719"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021956"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reliable Actors 可重入性
 默认情况下，Reliable Actors 运行时允许基于逻辑调用上下文的可重入性。 因此执行组件在处于相同调用上下文链中时，可进行重入操作。 例如，如果执行组件 A 将消息发送给执行组件 B，而后者将消息发送给执行组件 C。在处理消息的过程中，如果执行组件 C 调用执行组件 A，这样的消息重入是允许的。 如果消息属于不同调用上下文，则会在执行组件 A 处受阻，直到处理完现有消息为止。

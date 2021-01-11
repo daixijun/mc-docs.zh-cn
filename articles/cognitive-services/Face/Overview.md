@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
 origin.date: 07/03/2019
-ms.date: 11/23/2020
+ms.date: 12/28/2020
 ms.author: v-johya
 ms.custom: cog-serv-seo-aug-2020
 keywords: 人脸识别, 人脸识别软件, 人脸分析, 人脸匹配, 人脸识别应用, 按图像搜索人脸, 人脸识别搜索
-ms.openlocfilehash: a45665a3d8e3f49871356ef225a326d027bc468a
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 4ec89cad2f0a3666defeb0c4daf93c81114ca60b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306301"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022646"
 ---
 # <a name="what-is-the-azure-face-service"></a>什么是 Azure 人脸服务？
 
@@ -75,9 +75,9 @@ Azure 人脸服务提供用于检测、识别和分析图像中人脸的 AI 算�
 
 有关人员识别的详细信息，请参阅[人脸识别](concepts/face-recognition.md)概念指南或[识别 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 参考文档。
 
-## <a name="containers"></a>容器
+## <a name="deploy-on-premises-using-docker-containers"></a>使用 Docker 容器进行本地部署
 
-将标准化的 Docker 容器安装到靠近数据的位置后，[使用人脸容器](face-how-to-install-containers.md)来检测和识别人脸。
+[使用人脸容器（预览版）](face-how-to-install-containers.md)在本地部署 API 功能。 借助此 Docker 容器，你能够将服务进一步引入数据，以满足合规性、安全性或其他操作目的。
 
 ## <a name="sample-apps"></a>示例应用
 

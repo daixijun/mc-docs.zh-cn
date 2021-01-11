@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: bf3b99abb454d6d1696fae1ca025539a001304fa
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: b235f6fce6e06adbc4549d7cff14e35d3bc43d36
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977459"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023094"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>在 Application Insights 中收集用于警报和调试的机器学习管道日志文件
 
@@ -26,7 +26,7 @@ ms.locfileid: "94977459"
 
 ## <a name="prerequisites"></a>必备条件
 
-* 遵循相应的步骤创建 [Azure 机器学习](./how-to-manage-workspace.md)工作区并[创建第一个管道](./how-to-create-your-first-pipeline.md)
+* 遵循相应的步骤创建 [Azure 机器学习](./how-to-manage-workspace.md)工作区并[创建第一个管道](./how-to-create-machine-learning-pipelines.md)
 * [配置开发环境](./how-to-configure-environment.md)以安装 Azure 机器学习 SDK。
 * 在本地安装 [OpenCensus Azure Monitor 导出程序](https://pypi.org/project/opencensus-ext-azure/)包：
   ```python

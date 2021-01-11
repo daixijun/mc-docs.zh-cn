@@ -4,17 +4,17 @@ description: 了解如何在 Azure Service Fabric 应用程序中手动完全删
 ms.topic: conceptual
 origin.date: 03/19/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4ede69fb775bdfc7666bca3f92a2065e6dee9523
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 95262279ab2dc1629a796afc5876d72b764afb40
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655083"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021970"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>删除 Reliable Actors 及其状态
 对已停用的执行组件进行垃圾回收只会清除该执行组件对象，但是存储在执行组件的状态管理器中的数据不会被删除。 重新激活执行组件后，可通过状态管理器再次使用其数据。 如果执行组件将数据存储在状态管理器，并且已停用且始终不激活该执行组件，那么可能需要清理其数据。

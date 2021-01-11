@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/12/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f97d7a6c16af914daa17a8057745bf51d7561ede
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: f8340601eccb06205e0fea20f2a40743218b9472
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655461"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021283"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>将 VMware/物理服务器复制到辅助本地站点的体系结构
 

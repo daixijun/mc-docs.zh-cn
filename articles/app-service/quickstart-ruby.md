@@ -5,15 +5,15 @@ keywords: azure 应用服务, linux, oss, ruby, rails
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 origin.date: 07/11/2019
-ms.date: 10/19/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: cba60ade1a69be63c749b10983d701ca4071e78c
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 9d99dd0f861c0a262b60e740fcbb7db654292065
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170513"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022958"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>在应用服务中创建 Ruby on Rails 应用
 
@@ -89,7 +89,7 @@ http://<app_name>.chinacloudsites.cn
 
 ```bash
 git remote add azure <Git deployment URL from above>
-git push azure master
+git push azure main
 ```
 
 确认远程部署操作报告了成功消息。 命令生成的输出类似于以下文本：
@@ -108,7 +108,7 @@ remote: Running post deployment command(s)...
 remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
 To https://<app-name>.scm.chinacloudsites.cn/<app-name>.git
-   a6e73a2..ae34be9  master -> master
+   a6e73a2..ae34be9  main -> main
 ```
 
 部署完成后，请等待大约 10 秒，然后重启 Web 应用，再导航到 Web 应用并验证结果。

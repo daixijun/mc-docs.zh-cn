@@ -3,15 +3,15 @@ title: 创建启用了捕获的事件中心 - Azure 事件中心 | Microsoft Doc
 description: 使用 Azure 资源管理器模板创建包含一个事件中心的 Azure 事件中心命名空间并启用捕获
 ms.topic: conceptual
 origin.date: 06/23/2020
-ms.date: 09/14/2020
+ms.date: 01/05/2021
 ms.author: v-tawe
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ad7e077bc7479f9e056a1b3836f986c735e4a708
-ms.sourcegitcommit: 35b56258d738eee314dacdd19cbbe3ef5bdfbd77
+ms.openlocfilehash: 95cf936f7896c6ca800f0f76ed687c35b6bc4d4b
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90063295"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874910"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>使用模板通过事件中心创建一个命名空间并启用捕获
 
@@ -315,7 +315,7 @@ New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -Templa
 Azure Blob 存储（作为目标）：
 
 ```azurecli
-az group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
+az deployment group create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
 
 <!-- Not Availalble on Azure Data Lake Store and correspoding code -->

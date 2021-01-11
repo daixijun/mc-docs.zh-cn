@@ -6,19 +6,17 @@ ms.author: v-jay
 ms.service: azure-stack
 ms.topic: how-to
 origin.date: 12/09/2019
-ms.date: 05/18/2020
+ms.date: 01/11/2021
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 9764e28a32c698b72d718513db91258b53a4893d
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 35784c2ea7d05a01642246d863b494bb099d0a96
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83423035"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894350"
 ---
 # <a name="how-to-remove-event-hubs-on-azure-stack-hub"></a>如何删除 Azure Stack Hub 上的事件中心
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 > [!WARNING]
 > 卸载事件中心会删除（擦除）资源提供程序以及所有用户创建的事件中心群集、命名空间和事件中心资源。 这还会删除其关联的事件数据。  

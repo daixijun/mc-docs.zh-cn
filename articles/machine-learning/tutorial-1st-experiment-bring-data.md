@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: d87e728893d1afdd5a48e973ba9c3e3b2701c743
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 54639fb2d7740badc9538183bd3ee45c71fb4cfe
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977064"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023220"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>教程：使用你自己的数据（第 4 部分，共 4 部分）
 
@@ -151,8 +151,10 @@ optimizer = optim.SGD(
     momentum=args.momentum,    # get momentum from command-line argument
 )
 ```
+> [!div class="nextstepaction"]
+> [我调整了训练脚本](?success=adjust-training-script#test-locally) [我遇到了一个问题](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
 
-## <a name="test-the-script-locally"></a>在本地测试脚本
+## <a name="test-the-script-locally"></a><a name="test-locally"></a> 在本地测试脚本
 
 你的脚本现在接受数据路径作为参数。 若要开始，请在本地对其进行测试。 向教程目录结构添加一个名为 `data` 的文件夹。 目录结构应类似于：
 
@@ -182,7 +184,10 @@ python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
 
 可以通过传入数据的本地路径来避免下载 CIFAR10 数据集。 对于“学习速率”和“动量”超参数，你也可以使用不同的值进行试验，而无需在训练脚本中对这些超参数进行硬编码 。
 
-## <a name="upload-the-data-to-azure"></a>将数据上传到 Azure
+> [!div class="nextstepaction"]
+> [我在本地测试脚本](?success=test-locally#upload) [我遇到了一个问题](https://www.research.net/r/7C6W7BQ?issue=test-locally)
+
+## <a name="upload-the-data-to-azure"></a><a name="upload"></a> 将数据上传到 Azure
 
 若要在 Azure 机器学习中运行此脚本，需要使训练数据在 Azure 中可用。 Azure 机器学习工作区附带默认的数据存储。 这是一个 Azure Blob 存储帐户，你可以在其中存储训练数据。
 
@@ -220,13 +225,15 @@ Uploaded ./data\cifar-10-batches-py\data_batch_5, 9 files out of an estimated to
 Uploaded 9 files
 ```
 
+> [!div class="nextstepaction"]
+> [我上传了数据](?success=upload-data#control-script) [我遇到了一个问题](https://www.research.net/r/7C6W7BQ?issue=upload-data)
 
-## <a name="create-a-control-script"></a>创建控制脚本
+## <a name="create-a-control-script"></a><a name="control-script"></a> 创建控制脚本
 
 像之前的操作一样，新建一个名为“`06-run-pytorch-data.py`”的 Python 控制脚本：
 
 ```python
-# tutorial/06-run-pytorch-data.py
+# 06-run-pytorch-data.py
 from azureml.core import Workspace
 from azureml.core import Experiment
 from azureml.core import Environment
@@ -252,12 +259,15 @@ if __name__ == "__main__":
         )
     
     # set up pytorch environment
-    env = Environment.from_conda_specification(name='pytorch-env',file_path='.azureml/pytorch-env.yml')
+    env = Environment.from_conda_specification(
+        name='pytorch-env',
+        file_path='./.azureml/pytorch-env.yml'
+    )
     config.run_config.environment = env
 
     run = experiment.submit(config)
     aml_url = run.get_portal_url()
-    print("Submitted to an Azure Machine Learning compute cluster. Click on the link below")
+    print("Submitted to compute cluster. Click link below")
     print("")
     print(aml_url)
 ```
@@ -283,7 +293,10 @@ if __name__ == "__main__":
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-the-run-to-azure-machine-learning"></a>将该运行提交到 Azure 机器学习
+> [!div class="nextstepaction"]
+> [我创建了控制脚本](?success=control-script#submit-to-cloud) [我遇到了一个问题](https://www.research.net/r/7C6W7BQ?issue=control-script)
+
+## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-to-cloud"></a> 将该运行提交到 Azure 机器学习
 
 现在，请重新提交该运行以使用新配置：
 
@@ -293,7 +306,10 @@ python 06-run-pytorch-data.py
 
 此代码将会在 Azure 机器学习工作室中输出一个指向试验的 URL。 如果访问该链接，就可以看到代码在运行。
 
-### <a name="inspect-the-log-file"></a>检查日志文件
+> [!div class="nextstepaction"]
+> [我重新提交了运行](?success=submit-to-cloud#inspect-log) [我遇到了一个问题](https://www.research.net/r/7C6W7BQ?issue=submit-to-cloud)
+
+### <a name="inspect-the-log-file"></a><a name="inspect-log"></a> 检查日志文件
 
 在工作室中，转到试验运行（通过选择前面的 URL 输出），然后选择“输出 + 日志”。 选择 `70_driver_log.txt` 文件。 应会看到以下输出：
 
@@ -333,6 +349,9 @@ LIST FILES IN DATA PATH...
 
 - Azure 机器学习已自动为你将 Blob 存储装载到计算群集。
 - 控制脚本中使用的 ``dataset.as_named_input('input').as_mount()`` 将解析为装入点。
+
+> [!div class="nextstepaction"]
+> [我检查了日志文件](?success=inspect-log#clean-up-resources) [我遇到了一个问题](https://www.research.net/r/7C6W7BQ?issue=inspect-log)
 
 ## <a name="clean-up-resources"></a>清理资源
 

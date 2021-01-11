@@ -4,17 +4,16 @@ description: 本文概述如何使用 Azure 资源管理器管理 Azure Service 
 ms.topic: conceptual
 origin.date: 10/21/2019
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: sfrev
-ms.openlocfilehash: 97136aaf8ff120dd1542d96deb759bdbf2e9155c
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 2f07abd14fd9e9eb18231cd4c0fccae4c945daa2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104771"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022406"
 ---
 <!--Verfiy sucessfully-->
 # <a name="service-fabric-application-resource-model"></a>Service Fabric 应用程序资源模型

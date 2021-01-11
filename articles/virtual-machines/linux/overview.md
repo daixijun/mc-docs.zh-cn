@@ -5,15 +5,15 @@ author: Johnnytechn
 ms.service: virtual-machines-linux
 ms.topic: overview
 ms.workload: infrastructure
-ms.date: 12/01/2020
+ms.date: 01/05/2021
 ms.author: v-johya
 ms.custom: mvc
-ms.openlocfilehash: 359d351c9853a6ab0e85650c06150fa9c20bdb2e
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 0f1cdb2332217226c40f9a813f346c58cfbc47df
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747118"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023140"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Azure 中的 Linux 虚拟机
 
@@ -127,7 +127,7 @@ Azure 在支持它的大多数 Linux 发行版中支持 [cloud-init](https://clo
 * [虚拟网络概述](../../virtual-network/virtual-networks-overview.md)
 * [Azure 中的 IP 地址](../../virtual-network/public-ip-addresses.md)
 * [在 Azure 中打开 Linux VM 的端口](nsg-quickstart.md)
-* [在 Azure 门户中创建完全限定的域名](portal-create-fqdn.md)
+* [在 Azure 门户中创建完全限定的域名](../create-fqdn.md)
 
 
 ## <a name="next-steps"></a>后续步骤

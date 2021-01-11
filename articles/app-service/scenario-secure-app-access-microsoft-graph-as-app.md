@@ -6,32 +6,32 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-origin.date: 11/09/2020
-ms.date: 11/30/2020
+origin.date: 12/16/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
 ms.reviewer: stsoneff
-ms.openlocfilehash: ef6b058cd35350374efb44518320475244cd70e4
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.custom: azureday1
+ms.openlocfilehash: 0f664824de9d6924a8ea5588a7f44fe5528fb06b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306553"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022954"
 ---
-<!--Verified Successfully-->
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>教程：以应用身份从安全的应用访问 Microsoft Graph
 
 了解如何从 Azure 应用服务上运行的 Web 应用访问 Microsoft Graph。
 
-:::image type="content" alt-text="显示访问 Microsoft Graph 的示意图。" source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
+:::image type="content" alt-text="显示如何访问 Microsoft Graph 流的示意图。" source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-希望为 Web 应用调用 Microsoft Graph。 向 Web 应用授予数据访问权限的安全方法是使用[系统分配的托管标识](../active-directory/managed-identities-azure-resources/overview.md)。 Azure Active Directory 中的托管标识允许应用服务通过基于角色的访问控制 (RBAC) 访问资源，而不要求使用应用凭据。 向 Web 应用分配托管标识之后，Azure 会负责创建和分发证书。 你无需费心管理机密或应用凭据。
+你希望为 Web 应用调用 Microsoft Graph。 向 Web 应用授予数据访问权限的安全方法是使用[系统分配的托管标识](../active-directory/managed-identities-azure-resources/overview.md)。 Azure Active Directory 中的托管标识允许应用服务通过基于角色的访问控制 (RBAC) 访问资源，而不要求使用应用凭据。 向 Web 应用分配托管标识之后，Azure 会负责创建和分发证书。 你无需费心管理机密或应用凭据。
 
 在本教程中，你将了解：
 
 > [!div class="checklist"]
 >
 > * 在 Web 应用上创建系统分配的托管标识。
-> * 向托管标识添加 Microsoft Graph API 权限。
+> * 为托管标识添加 Microsoft Graph API 权限。
 > * 使用托管标识从 Web 应用调用 Microsoft Graph。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "96306553"
 
 ## <a name="enable-managed-identity-on-app"></a>在应用上启用托管标识
 
-如果通过 Visual Studio 创建和发布 Web 应用，则已在应用上启用了托管标识。 在应用服务的左窗格中选择“标识”，然后选择“系统分配” 。 验证“状态”是否设置为“打开” 。 如果不是，请依次选择“保存”和“是”以启用系统分配的托管标识 。 启用托管标识后，状态将设置为“打开”并且对象 ID 可用。
+如果通过 Visual Studio 创建和发布 Web 应用，则已在应用上启用了托管标识。 在应用服务中，在左侧窗格中选择“标识”，然后选择“系统分配” 。 验证“状态”是否设置为“打开” 。 如果不是，请依次选择“保存”和“是”以启用系统分配的托管标识 。 启用托管标识后，状态将设置为“启用”并且对象 ID 可用。
 
 记下“对象 ID”值，下一步骤需要使用此值。
 
@@ -72,7 +72,8 @@ $PermissionName = "User.Read.All"
 Connect-AzureAD -TenantId $TenantID -Environment AzureChinaCloud
 
 # Get the service principal for Microsoft Graph.
-$GraphServicePrincipal = Get-AzureADServicePrincipal -SearchString "Microsoft Graph"
+# First result should be AppId 00000003-0000-0000-c000-000000000000
+$GraphServicePrincipal = Get-AzureADServicePrincipal -SearchString "Microsoft Graph" | Select-Object -first 1
 
 # Assign permissions to the managed identity service principal.
 $AppRole = $GraphServicePrincipal.AppRoles | `
@@ -95,7 +96,7 @@ graphResourceId=$(az ad sp list --display-name "Microsoft Graph" --query [0].obj
 
 appRoleId=$(az ad sp list --display-name "Microsoft Graph" --query "[0].appRoles[?value=='User.Read.All' && contains(allowedMemberTypes, 'Application')].id" --output tsv)
 
-uri=https://graph.chinacloudapi.cn/v1.0/servicePrincipals/$spID/appRoleAssignments
+uri=https://graph.chinacloudapi.cn/v1.0/servicePrincipals/$spId/appRoleAssignments
 
 body="{'principalId':'$spId','resourceId':'$graphResourceId','appRoleId':'$appRoleId'}"
 
@@ -104,31 +105,33 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 
 ---
 
-执行该脚本后，可在 [Azure 门户](https://portal.azure.com)中验证是否已将请求的 API 权限分配给托管标识。
+执行该脚本后，可在 [Azure 门户](https://portal.azure.cn)中验证是否已将请求的 API 权限分配给托管标识。
 
-转到“Azure Active Directory”，然后选择“企业应用程序”。  此窗格显示租户中的所有服务主体。 在“所有应用程序”中，选择托管标识的服务主体。 
+转到“Azure Active Directory”，然后选择“企业应用程序” 。 此窗格显示租户中的所有服务主体。 在“所有应用程序”中，选择托管标识的服务主体。 
 
-如果按本教程操作，则有两个显示名称（例如“SecureWebApp2020094113531”）相同的服务主体。 具有主页 URL 的服务主体表示租户中的 Web 应用。 没有主页 URL 的服务主体表示 Web 应用的系统分配的托管标识。 托管标识的“对象 ID”值与之前创建的托管标识的对象 ID 匹配。
+如果遵循本教程，则有两个具有相同显示名称（例如“SecureWebApp2020094113531”）的服务主体。 具有主页 URL 的服务主体表示租户中的 Web 应用。 没有主页 URL 的服务主体表示 Web 应用的系统分配的托管标识。 托管标识的对象 ID 值与之前创建的托管标识的对象 ID 匹配。
 
 选择托管标识的服务主体。
 
 :::image type="content" alt-text="显示“所有应用程序”选项的屏幕截图。" source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-all-applications.png":::
 
-在“概述”中选择“权限”，你会看到为 Microsoft Graph 添加的权限 。
+在“概述”中选择“权限”，你将看到添加的 Microsoft Graph 权限 。
 
 :::image type="content" alt-text="显示“权限”窗格的屏幕截图。" source="./media/scenario-secure-app-access-microsoft-graph/enterprise-apps-permissions.png":::
 
 ## <a name="call-microsoft-graph-net"></a>调用 Microsoft Graph (.NET)
 
-[DefaultAzureCredential](https://docs.azure.cn/dotnet/api/azure.identity.defaultazurecredential) 类用于获取代码的令牌凭据，对向 Microsoft Graph 发送的请求授权。  创建 [DefaultAzureCredential](https://docs.azure.cn/dotnet/api/azure.identity.defaultazurecredential) 类的实例，该类使用托管标识提取令牌并将其附加到服务客户端。 下面的代码示例获取经过身份验证的令牌凭据，并使用它创建服务客户端对象，该对象将获取组中的用户。  
+[DefaultAzureCredential](https://docs.azure.cn/dotnet/api/azure.identity.defaultazurecredential) 类用于获取代码的令牌凭据，以对 Microsoft Graph 的请求进行授权。  创建 [DefaultAzureCredential](https://docs.azure.cn/dotnet/api/azure.identity.defaultazurecredential) 类的实例，该类使用托管标识提取令牌并将其附加到服务客户端。 下面的代码示例获取经过身份验证的令牌凭据，并使用它创建服务客户端对象，该对象将获取组中的用户。  
+
+若要查看作为示例应用程序一部分的代码，请参阅 [GitHub 上的示例](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity)。
 
 ### <a name="install-the-microsoftgraph-client-library-package"></a>安装 Microsoft.Graph 客户端库包
 
-使用 .NET Core 命令行界面或 Visual Studio 中的包管理器控制台，在项目中安装 [Microsoft.Graph NuGet 包](https://www.nuget.org/packages/Microsoft.Graph)。
+使用 .NET Core 命令行接口或 Visual Studio 中的包管理器控制台，在项目中安装 [Microsoft.Graph NuGet 包](https://www.nuget.org/packages/Microsoft.Graph)。
 
 # <a name="command-line"></a>[命令行](#tab/command-line)
 
-打开命令行，切换到包含项目文件的目录。
+打开一个命令行，并切换到包含项目文件的目录。
 
 运行安装命令。
 
@@ -216,9 +219,8 @@ public async Task OnGetAsync()
 > [!div class="checklist"]
 >
 > * 在 Web 应用上创建系统分配的托管标识。
-> * 向托管标识添加 Microsoft Graph API 权限。
+> * 为托管标识添加 Microsoft Graph API 权限。
 > * 使用托管标识从 Web 应用调用 Microsoft Graph。
 
 了解如何将 [.NET Core 应用](tutorial-dotnetcore-sqldb-app.md)、[Python 应用](tutorial-python-postgresql-app.md)、[Java 应用](tutorial-java-spring-cosmosdb.md)或 [Node.js 应用](tutorial-nodejs-mongodb-app.md)连接到数据库。
 
-<!--NEW.date: 11/30/2020-->

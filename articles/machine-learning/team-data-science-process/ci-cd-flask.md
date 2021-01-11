@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/06/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: 27fad1facb263c65392b480df2d6dc7b7443de54
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 9fd70c6c329c2bde3c619f858b0ef67fe83f8dcf
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978003"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023296"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>使用 Azure Pipelines、Docker 和 Kubernetes 为 AI 应用创建 CI/CD 管道
 
@@ -33,7 +33,7 @@ ms.locfileid: "94978003"
 
 - [源代码存储库](https://github.com/Azure/DevOps-For-AI-Apps)分叉到 GitHub 帐户
 - [Azure DevOps 组织](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
-- [Azure CLI](/cli/azure/install-azure-cli)
+- [Azure CLI](/cli/install-azure-cli)
 - [适用于 Kubernetes 的 Azure 容器服务 (AKS) 群集](https://docs.microsoft.com/previous-versions/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 - 用于运行命令并从 AKS 群集中提取配置的 [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 
 - [Azure 容器注册表 (ACR) 帐户](../../container-registry/container-registry-get-started-portal.md)

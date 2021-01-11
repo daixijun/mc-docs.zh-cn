@@ -5,16 +5,16 @@ ms.service: service-bus
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 3310ab5f163adfb3f91581629014021d8606b934
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 8eec702ed4563b2700f9749f112e563bc5eb74b8
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470057"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023002"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure 中继混合连接协议
 
@@ -143,7 +143,7 @@ HTTP 请求/响应模型为发送方提供受限程度极低的 HTTP 协议外�
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | 是      | 对于侦听器角色，该参数必须是 **sb-hc-action=listen**
 | `{path}`         | 是      | 要注册该侦听器的预配置混合连接的 URL 编码命名空间路径。 此表达式追加至固定的 `$hc/` 路径部分。
-| `sb-hc-token`    | 是\*    | 侦听器必须为命名空间或混合连接提供有效的 URL 编码的服务总线共享访问令牌，以授予“ **侦听** ”权限。
+| `sb-hc-token`    | 是\*    | 侦听器必须为命名空间或混合连接提供有效的 URL 编码的服务总线共享访问令牌，以授予“**侦听**”权限。
 | `sb-hc-id`       | 否       | 该客户端提供的可选 ID 可实现端到端诊断跟踪。
 
 如果由于混合连接路径未注册、令牌无效或丢失或其他一些错误，导致 WebSocket 连接失败，则会使用常规的 HTTP 1.1 状态反馈模型提供错误反馈。 状态说明包含可传达给 Azure 支持人员的错误跟踪 ID：
@@ -298,7 +298,7 @@ FEFEFEFEFEFEFEFEFEFEF...
 
 * **address** - URI 字符串。 这是用于此请求的会合地址。 如果传入的请求大于 64 kB，则此消息的余下部分将会留空，并且客户端必须启动等同于如下所述 `accept` 操作的会合握手。 然后，服务将在建立的 Web 套接字放置完整的 `request`。 如果响应预期可能超过 64 kB，则侦听器也必须启动会合握手，然后通过建立的 Web 套接字传输响应。
 * **id** - 字符串。 此请求的唯一标识符。
-* **requestHeaders** - 此对象包含由发送方提供给终结点的所有 HTTP 标头（ [上面](#request-operation)所述的授权信息除外），以及与网关连接严格相关的标头。 具体而言，在 [RFC7230](https://tools.ietf.org/html/rfc7230) 中定义或保留的所有标头（`Via` 除外）都会被剥离，而不会转发：
+* **requestHeaders** - 此对象包含由发送方提供给终结点的所有 HTTP 标头（[上面](#request-operation)所述的授权信息除外），以及与网关连接严格相关的标头。 具体而言，在 [RFC7230](https://tools.ietf.org/html/rfc7230) 中定义或保留的所有标头（`Via` 除外）都会被剥离，而不会转发：
 
   * `Connection`（RFC7230 第 6.1 部分）
   * `Content-Length`（RFC7230 第 3.3.2 部分）
@@ -419,7 +419,7 @@ FEFEFEFEFEFEFEFEFEFEF...
 其目标在于对端到端 WebSocket 实现最大透明度。 要连接到的地址与侦听器的相同，但是“操作”不同且令牌需要不同的权限：
 
 ```
-wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
+wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sb-hc-token=...
 ```
 
 _namespace-address_ 是托管混合连接的 Azure 中继命名空间的完全限定域名，通常格式为 `{myname}.servicebus.chinacloudapi.cn`。
@@ -432,13 +432,13 @@ _namespace-address_ 是托管混合连接的 Azure 中继命名空间的完全�
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | 是       | 对于发送方角色，该参数必须是 `sb-hc-action=connect`。
 | `{path}`       | 是       | （请参阅下文）
-| `sb-hc-token`  | 是\*     | 侦听器必须为命名空间或混合连接提供有效的 URL 编码的服务总线共享访问令牌，以授予“ **发送** ”权限。
+| `sb-hc-token`  | 是\*     | 侦听器必须为命名空间或混合连接提供有效的 URL 编码的服务总线共享访问令牌，以授予“**发送**”权限。
 | `sb-hc-id`     | 否        | 启用端到端诊断跟踪的可选 ID，在接受握手期间会将其提供至侦听器。
 
  `{path}` 是要注册此侦听器的预配置混合连接的 URL 编码命名空间路径。 `path` 表达式可以使用后缀和查询字符串表达式进行扩展，以供进一步通信。 如果混合连接注册在路径 `hyco` 下，则 `path` 表达式可以是 `hyco/suffix?param=value&...`，后跟此处定义的查询字符串参数。 完整的表达式可能如下所示：
 
 ```
-wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
+wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sb-hc-token=...
 ```
 
 `path` 表达式传递到“accept”控制消息所含地址 URI 中的侦听器。
@@ -467,7 +467,7 @@ HTTP 请求协议允许任意 HTTP 请求，但协议升级除外。
 HTTP 请求指向实体的常规运行时地址，不包括用于混合连接 Web 套接字客户端的 $hc 中缀。
 
 ```
-https://{namespace-address}/{path}?sbc-hc-token=...
+https://{namespace-address}/{path}?sb-hc-token=...
 ```
 
 _namespace-address_ 是托管混合连接的 Azure 中继命名空间的完全限定域名，通常格式为 `{myname}.servicebus.chinacloudapi.cn`。
@@ -478,7 +478,7 @@ _namespace-address_ 是托管混合连接的 Azure 中继命名空间的完全�
 
 | Param          | 必需？ | 说明
 | -------------- | --------- | ---------------- |
-| `sb-hc-token`  | 是\*     | 侦听器必须为命名空间或混合连接提供有效的 URL 编码的服务总线共享访问令牌，以授予“ **发送** ”权限。
+| `sb-hc-token`  | 是\*     | 侦听器必须为命名空间或混合连接提供有效的 URL 编码的服务总线共享访问令牌，以授予“**发送**”权限。
 
 也可以在 `ServiceBusAuthorization` 或 `Authorization` HTTP 标头中携带该令牌。 如果混合连接配置为允许匿名请求，则可以省略该令牌。
 

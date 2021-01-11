@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 origin.date: 02/04/2020
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 43957133020a7ff731f22ac4ceccfed8fc2cdc63
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: be8bd7a574922a8fde6965fecdbcc2174a0cea3e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432647"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021954"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>快速入门：使用 T-SQL 创建工作负荷分类器
 
@@ -26,13 +26,13 @@ ms.locfileid: "96432647"
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 > [!NOTE]
-> 在 Azure Synapse Analytics 中创建一个 Synapse SQL 池实例可能会产生一个新的可计费服务。  有关详细信息，请参阅 [Azure Synapse Analytics 定价](https://azure.cn/pricing/details/sql-data-warehouse/)。
+> 在 Azure Synapse Analytics 中创建专用 SQL 池实例可能会产生一个新的可计费服务。  有关详细信息，请参阅 [Azure Synapse Analytics 定价](https://azure.cn/pricing/details/sql-data-warehouse/)。
 >
 >
 
 ## <a name="prerequisites"></a>先决条件
 
-本快速入门假定你已在 Azure Synapse Analytics中预配 Synapse SQL 池，并且具有 CONTROL DATABASE 权限。 如果需要创建一个 SQL 数据仓库，可使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库  。
+本快速入门假定你已在 Azure Synapse Analytics 中预配专用 SQL 池，并且具有 CONTROL DATABASE 权限。 如果需要创建一个 SQL 池，请参考[创建和连接 - 门户](create-data-warehouse-portal.md)创建名为 mySampleDataWarehouse 的专用 SQL 池。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -88,27 +88,23 @@ DROP USER [TheCEO]
 ;
 ```
 
-我们会针对数据仓库中存储的数据，按数据仓库单位收费。 这些计算和存储资源是分开计费的。
+我们会针对专用 SQL 池中存储的数据，按数据仓库单位收费。 这些计算和存储资源是分开计费的。
 
-- 如果想要将数据保留在存储中，可以在不使用数据仓库时暂停计算。 如果暂停计算资源，则你只需支付数据存储费用。 准备好处理数据时，可以恢复计算。
-- 如果不想支付将来的费用，则可以删除数据仓库。
+- 如果想要将数据保留在存储中，可以在不使用专用 SQL 池时暂停计算。 如果暂停计算资源，则你只需支付数据存储费用。 准备好处理数据时，可以恢复计算。
+- 若要避免将来产生费用，可以删除该专用 SQL 池。
 
 遵循以下步骤清理资源。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)，选择你的数据仓库。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，选择你的专用 SQL 池。
 
     ![清理资源](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 若要暂停计算，请选择“暂停”  按钮。 暂停数据仓库后，可看到“启动”  按钮。  若要恢复计算，请选择“启动”  。
+2. 若要暂停计算，请选择“暂停”  按钮。 暂停专用 SQL 池后，会看到“启动”按钮。  若要恢复计算，请选择“启动”  。
 
-3. 若要删除数据仓库以免产生计算或存储费用，请选择“删除”  。
-
-4. 若要删除所创建的 SQL 服务器，请选择上图中的“mynewserver-20180430.database.chinacloudapi.cn”，然后选择“删除”   。  请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
-
-5. 若要删除资源组，请选择“myResourceGroup”  ，然后选择“删除资源组”  。
+3. 若要删除专用 SQL 池以免产生计算或存储费用，请选择“删除”。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 现已创建一个工作负荷分类器。 以 TheCEO 身份运行一些查询，以查看该分类器的执行情况。 参阅 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 以查看查询和分配的重要性。
-- 有关 Synapse SQL 工作负载管理的详细信息，请参阅[工作负载重要性](sql-data-warehouse-workload-importance.md)和[工作负载分类](sql-data-warehouse-workload-classification.md)。
+- 有关专用 SQL 池工作负载管理的详细信息，请参阅[工作负载重要性](sql-data-warehouse-workload-importance.md)和[工作负载分类](sql-data-warehouse-workload-classification.md)。
 - 请参阅有关[配置工作负荷重要性](sql-data-warehouse-how-to-configure-workload-importance.md)和[管理和监视工作负荷管理](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)的操作指南文章。

@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 10/1/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: fa85d341bc3feca856844f025f729f627099dc6d
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 01/11/2021
+ms.openlocfilehash: fe58219cd8ee972a190b7cfe85f25166c6487273
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470437"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022594"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的限制
 
@@ -58,6 +58,7 @@ MySQL 服务不允许直接访问基础文件系统。 不支持某些数据操�
 - DEFINER：需要创建并限制超级权限。 如果使用备份导入数据，请在执行 mysqldump 时手动删除或使用 `--skip-definer` 命令删除 `CREATE DEFINER` 命令。
 - 系统数据库：[mysql 系统数据库](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)为只读数据库，用于支持各种 PaaS 功能。 不能对 `mysql` 系统数据库进行更改。
 - `SELECT ... INTO OUTFILE`：在该服务中不受支持。
+- `LOAD_FILE(file_name)`：在该服务中不受支持。
 
 ### <a name="supported"></a>支持
 - 支持 `LOAD DATA INFILE`，但必须指定 `[LOCAL]` 参数，并将其定向到 UNC 路径（通过 SMB 装载的 Azure 存储空间）。

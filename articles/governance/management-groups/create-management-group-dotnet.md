@@ -2,16 +2,16 @@
 title: 快速入门：使用 .NET Core 创建管理组
 description: 在本快速入门中，你将使用 .NET Core 创建管理组，将资源整理到资源层次结构中。
 origin.date: 09/30/2020
-ms.date: 11/06/2020
+ms.date: 01/05/2021
 ms.author: v-tawe
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 25b030a86edcb3293fce8f9412576584b83acc72
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 151133b79b6f601ce01021a760ef9727dcc643ca
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431117"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874911"
 ---
 # <a name="quickstart-create-a-management-group-with-net-core"></a>快速入门：使用 .NET Core 创建管理组
 
@@ -21,14 +21,12 @@ ms.locfileid: "96431117"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，请创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
-
-  帐户。
+- 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
 - Azure 服务主体，包括 clientId 和 clientSecret 。 如果你没有与 Azure Policy 一起使用的服务主体，或想要创建一个新的服务主体，请参阅[用于 .NET 身份验证的 Azure 管理库](https://docs.microsoft.com/dotnet/azure/sdk/authentication#mgmt-auth)。
   跳到安装 .NET Core 包的步骤，我们将在接下来的步骤中执行此安装。
 
-- 如果未启用[层次结构保护](./how-to/protect-resource-hierarchy.md#setting---require-authorization)，则租户中的任何 Azure AD 用户即使未分配有管理组写入权限，也可创建管理组。 这个新的管理组成为根管理组或[默认管理组](./how-to/protect-resource-hierarchy.md#setting---default-management-group)的子级，并且创建者分配有“所有者”角色。 管理组服务支持此功能，因此不需要在根级别分配角色。 创建根管理组时，用户没有访问权限。 为避免在查找 Azure AD 全局管理员以开始使用管理组方面遇到阻碍，我们允许在根级别创建初始管理组。
+- 如果未启用[层次结构保护](./how-to/protect-resource-hierarchy.md#setting---require-authorization)，则租户中的任何 Azure AD 用户即使未分配有管理组写入权限，也可创建管理组。 这个新的管理组将成为根管理组的子级或[默认管理组](./how-to/protect-resource-hierarchy.md#setting---default-management-group)，并将为创建者分配“所有者”角色。 管理组服务允许此功能，因此不需要在根级别分配角色。 创建根管理组时，用户没有访问权限。 为避免在查找 Azure AD 全局管理员以开始使用管理组方面遇到阻碍，我们允许在根级别创建初始管理组。
 
 <!-- [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 
@@ -64,7 +62,7 @@ ms.locfileid: "96431117"
    using Microsoft.Rest;
    using Microsoft.Azure.Management.ManagementGroups;
    using Microsoft.Azure.Management.ManagementGroups.Models;
-
+   
    namespace mgCreate
    {
        class Program
@@ -76,12 +74,12 @@ ms.locfileid: "96431117"
                string strClientSecret = args[2];
                string strGroupId = args[3];
                string strDisplayName = args[4];
-
+   
                var authContext = new AuthenticationContext($"https://login.chinacloudapi.cn/{strTenant}");
                var authResult = await authContext.AcquireTokenAsync(
                       "https://management.core.chinacloudapi.cn",
                       new ClientCredential(strClientId, strClientSecret));
-
+   
                using (var client = new ManagementGroupsAPIClient(new TokenCredentials(authResult.AccessToken)))
                {
                    var mgRequest = new CreateManagementGroupRequest
@@ -139,7 +137,7 @@ ms.locfileid: "96431117"
 
 在本快速入门中，你创建了一个管理组来整理资源层次结构。 管理组可以包含订阅或其他管理组。
 
-若要详细了解管理组以及如何管理资源层次结构，请继续学习：
+要详细了解管理组以及如何管理资源层次结构，请继续执行以下操作：
 
 > [!div class="nextstepaction"]
-> 使用管理组管理资源
+> [使用管理组管理资源](./manage.md)

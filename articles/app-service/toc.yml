@@ -9,9 +9,9 @@
 - name: 快速入门
   expanded: true
   items:
-    - name: .NET Core
+    - name: ASP.NET Core
       href: quickstart-dotnetcore.md
-    - name: .NET Framework
+    - name: ASP.NET
       href: quickstart-dotnet-framework.md
     - name: Node.js
       href: quickstart-nodejs.md
@@ -46,9 +46,9 @@
           href: scenario-secure-app-clean-up-resources.md
     - name: 将应用与 DB 配合使用
       items:
-        - name: 将 .NET Core 与 SQL DB 配合使用
+        - name: 将 ASP.NET Core 与 SQL DB 配合使用
           href: tutorial-dotnetcore-sqldb-app.md
-        - name: 将 .NET Framework 与 SQL DB 配合使用
+        - name: 将 ASP.NET 与 SQL DB 配合使用
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: 将 PHP 与 MySQL 配合使用
           href: tutorial-php-mysql-app.md
@@ -92,8 +92,6 @@
           href: overview-authentication-authorization.md
         - name: OS 和运行时修补
           href: overview-patch-os-runtime.md
-        - name: 内置安全控件
-          href: app-service-security-controls.md
         - name: 安全概述
           href: overview-security.md
     - name: 网络功能
@@ -263,7 +261,7 @@
       href: app-service-best-practices.md
     - name: 示例
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
-    - name: 故障排除
+    - name: 疑难解答
       items:
         - name: 排查间歇性出站连接错误
           href: troubleshoot-intermittent-outbound-connection-errors.md
@@ -277,7 +275,7 @@
           href: troubleshoot-performance-degradation.md
         - name: 排查域和证书问题
           href: troubleshoot-domain-ssl-certificates.md
-        - name: 常见问题
+        - name: 常见问题解答
           items:
             - name: 可用性、性能和应用程序常见问题解答
               href: faq-availability-performance-application-issues.md

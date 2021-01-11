@@ -4,15 +4,15 @@ description: 了解如何在 Azure 中使用备份和恢复服务还原磁盘并
 ms.topic: tutorial
 author: Johnnytechn
 origin.date: 01/31/2019
-ms.date: 11/17/2020
+ms.date: 01/07/2021
 ms.author: v-johya
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: f90b848ad5feed3b6a2631a88eb22abd4fe9c709
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: f3c8592a16039284b0aaa15fe4b4b1fedb55d7ab
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978220"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022008"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>使用 Azure CLI 还原 VM
 
@@ -254,7 +254,7 @@ url=$(az storage blob url \
 现在部署模板来创建 VM，如[此处](../azure-resource-manager/templates/deploy-cli.md)所述。
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --resource-group ExampleGroup \
   --template-uri $url?$token
 ```

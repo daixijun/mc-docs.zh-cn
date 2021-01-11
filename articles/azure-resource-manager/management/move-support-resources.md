@@ -2,18 +2,18 @@
 title: 资源类型支持的移动操作
 description: 列出可移到新资源组或订阅的 Azure 资源类型。
 ms.topic: conceptual
-origin.date: 11/06/2020
+origin.date: 12/07/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8ee42f61c8c0667b5062250cea99622c9072f479
-ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
+ms.openlocfilehash: dc9f494fc50e482d4bdbd8535d826f423f3454bf
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915101"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021872"
 ---
 <!--Verify Successfully-->
 # <a name="move-operation-support-for-resources"></a>支持移动操作的资源
@@ -31,6 +31,8 @@ ms.locfileid: "94915101"
 > - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
+> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft.AppPlatform](#microsoftappplatform)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
@@ -50,6 +52,7 @@ ms.locfileid: "94915101"
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
 > - [Microsoft.DataBox](#microsoftdatabox)
+> - [Microsoft.Databricks](#microsoftdatabricks)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataMigration](#microsoftdatamigration)
 > - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
@@ -161,8 +164,21 @@ ms.locfileid: "94915101"
 > | reportfeedback | 否 | 否 |
 > | 服务 | 是 | 是 |
 
-<!--Not Available on ## Microsoft.AppConfiguration-->
-<!--Not Available on ## Microsoft.AppPlatform-->
+## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 资源组 | 订阅 |
+> | ------------- | ----------- | ---------- |
+> | configurationstores | 是 | 是 |
+> | configurationstores / eventgridfilters | 否 | 否 |
+
+## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 资源组 | 订阅 |
+> | ------------- | ----------- | ---------- |
+> | spring | 是 | 是 |
+
 <!--Not Available on ## Microsoft.AppService-->
 <!--Not Available on ## Microsoft.Attestation-->
 
@@ -259,6 +275,7 @@ ms.locfileid: "94915101"
 > | redisenterprise | 否 | 否 |
 
 <!--Not Available on ## Microsoft.Capacity-->
+
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 <!--MOONCAKE CUSTOMIZATION: PROFILES AND PROFILES / ENDPOOINTS IS NO FOR SUBSCRIPTION-->
@@ -441,7 +458,14 @@ ms.locfileid: "94915101"
 > | jobs | 否 | 否 |
 
 <!-- Not Available on ## Microsoft.DataBoxEdge-->
-<!-- Not Available on ## Microsoft.Databricks-->
+
+## <a name="microsoftdatabricks"></a>Microsoft.Databricks
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 资源组 | 订阅 |
+> | ------------- | ----------- | ---------- |
+> | workspaces | 否 | 否 |
+
 <!-- Not Available on ## Microsoft.DataCatalog-->
 <!-- Not Available on## Microsoft.DataConnect-->
 <!-- Not Available on## Microsoft.DataExchange-->
@@ -807,7 +831,7 @@ ms.locfileid: "94915101"
 > | networkinterfaces | 是 | 是 |
 > | networkprofiles | 否 | 否 |
 > | networksecuritygroups | 是 | 是 |
-> | networkwatchers | 是 | 否 |
+> | networkwatchers | 否 | 否 |
 > | networkwatchers/connectionmonitors | 是 | 否 |
 > | networkwatchers/flowlogs | 是 | 否 |
 > | networkwatchers/pingmeshes | 是 | 否 |
@@ -1138,6 +1162,7 @@ ms.locfileid: "94915101"
 
 <a name="microsofttimeseriesinsights"></a>
 
+<a name="Microsoft.TimeSeriesInsights"></a>
 ## Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]

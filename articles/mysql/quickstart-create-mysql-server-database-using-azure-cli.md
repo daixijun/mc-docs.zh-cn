@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 07/15/2020
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d7bd0291b28f57a4c5f13278e0d4c4011f19cce2
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: cc4f0d043f0ea3a4a4960f4c1b7bf4dd0d796a2c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95970821"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022419"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>快速入门：使用 Azure CLI 为 MySQL 服务器创建 Azure 数据库
 
@@ -32,7 +32,7 @@ ms.locfileid: "95970821"
 
  - 本快速入门需要 Azure CLI 版本 2.0 或更高版本。
 
-使用 [az account set](/cli/account) 命令选择帐户下的特定订阅。 记下 az login 输出中的 id 值，以用作命令中订阅参数的值。 如果有多个订阅，请选择应计费的资源所在的相应订阅。 若要获取所有订阅，请使用 [az account list](/cli/account#az-account-list)。
+ - 使用 [az account set](/cli/account) 命令选择帐户下的特定订阅。 记下 az login 输出中的 id 值，以用作命令中订阅参数的值。 如果有多个订阅，请选择应计费的资源所在的相应订阅。 若要获取所有订阅，请使用 [az account list](/cli/account#az-account-list)。
 
    ```azurecli
    az account set --subscription <subscription id>

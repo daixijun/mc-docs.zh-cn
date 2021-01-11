@@ -1,20 +1,21 @@
 ---
 title: 有关执行组件类型序列化的 Reliable Actors 说明
 description: 讨论了定义可序列化类的基本要求，这些类可用于定义 Service Fabric Reliable Actors 的状态和接口
-author: rockboyfor
 ms.topic: conceptual
+author: rockboyfor
 origin.date: 11/02/2017
-ms.date: 01/13/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: e1ac73639b7974159eae7a9413ec663c0863b227
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 65b1c8aeb27e9b8ea791fa9ed9dd072a244558ca
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75742429"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022383"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>有关 Service Fabric Reliable Actors 类型序列化的说明
-所有方法的参数、执行组件接口中每个方法返回的任务的结果类型和执行组件的状态管理器中存储的对象都必须是[数据协定可序列化](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer?view=azure-dotnet)。 这同样适用于[执行组件事件接口](service-fabric-reliable-actors-events.md)中定义的方法的参数。 （执行组件事件接口方法始终返回 void。）
+所有方法的参数、执行组件接口中每个方法返回的任务的结果类型和执行组件的状态管理器中存储的对象都必须是[数据协定可序列化](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer)。 这同样适用于[执行组件事件接口](service-fabric-reliable-actors-events.md)中定义的方法的参数。 （执行组件事件接口方法始终返回 void。）
 
 ## <a name="custom-data-types"></a>自定义数据类型
 在此示例中，以下执行组件接口定义了一个返回自定义数据类型（名为 `VoicemailBox`）的方法：

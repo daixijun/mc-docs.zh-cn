@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 32265f25e3153409d36d61c9deb879d17da88e21
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.openlocfilehash: 9d4d27bb5f00d68b5c910de639b105a0b2b68c75
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226012"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024370"
 ---
 > [!div class="op_single_selector"]
 > * [CLI](../articles/iot-hub/quickstart-send-telemetry-cli.md)
@@ -24,4 +24,3 @@ ms.locfileid: "86226012"
 > * [Python](../articles/iot-hub/quickstart-send-telemetry-python.md)
 > * [Android](../articles/iot-hub/quickstart-send-telemetry-android.md)
 > * [iOS](../articles/iot-hub/quickstart-send-telemetry-ios.md)
-> * [Xamarin.Forms](../articles/iot-hub/quickstart-send-telemetry-xamarinforms.md)

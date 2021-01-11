@@ -5,20 +5,18 @@ ms.service: service-fabric
 ms.topic: conceptual
 origin.date: 07/22/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 443e8f4286e88520743008b053aa106c5628b382
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 4b09ca6cf5e496acc560beb0c2edf38d62809161
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105350"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022732"
 ---
-<!--All Links Verified Successfully-->
-
 # <a name="azure-security-baseline-for-service-fabric"></a>Service Fabric 的 Azure 安全基线
 
 Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况的建议。
@@ -585,7 +583,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 * [如何使用最新的规模集模型对 VM 进行更新](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
-* [Azure 自动化更新管理概述](../automation/update-management/update-mgmt-overview.md)
+* [Azure 自动化更新管理概述](../automation/update-management/overview.md)
 
 **Azure 安全中心监视**：目前不可用
 

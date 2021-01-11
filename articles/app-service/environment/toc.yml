@@ -14,7 +14,7 @@
   items:
     - name: 与 WAF 集成
       href: app-service-app-service-environment-web-application-firewall.md
-    - name: 配置 TLS
+    - name: ASE 自定义设置
       href: app-service-app-service-environment-custom-settings.md
 - name: 示例
   items:

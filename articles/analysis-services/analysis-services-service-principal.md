@@ -5,17 +5,17 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 07/07/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: ec90e33d3ce62be188c3f9e5659a2bcec2b41a88
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: f8243230a311be6d8896a48491f5cca390487f8c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470492"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023033"
 ---
 # <a name="automation-with-service-principals"></a>使用服务主体进行自动化
 
@@ -96,7 +96,7 @@ Invoke-ProcessTable -Server "asazure://chinanorth.asazure.chinacloudapi.cn/myser
 
 ### <a name="amo-and-adomd"></a>AMO 和 ADOMD 
 
-通过客户端应用程序和 Web 应用进行连接时，由 NuGet 提供的 [AMO 和 ADOMD 客户端库](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) 15.0.2 及更高版本的可安装包支持在连接字符串中使用服务主体，可以使用 `app:AppID` 语法以及密码或 `cert:thumbprint`。 
+通过客户端应用程序和 Web 应用进行连接时，由 NuGet 提供的 [AMO 和 ADOMD 客户端库](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) 15.0.2 及更高版本的可安装包支持在连接字符串中使用服务主体，可以使用 `app:AppID` 语法以及密码或 `cert:thumbprint`。 
 
 以下示例使用 `appID` 和 `password` 执行模型数据库刷新操作：
 

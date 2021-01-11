@@ -2,18 +2,18 @@
 title: 提供通知的托管应用
 description: 使用 Webhook 终结点配置托管应用程序，以接收有关托管应用程序实例上的创建、更新、删除操作和错误的通知。
 ms.topic: conceptual
-author: rockboyfor
 origin.date: 11/01/2019
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f9a5e695792f88a49ca76b998436a596d69e08a2
-ms.sourcegitcommit: 601f2251c86aa11658903cab5c529d3e9845d2e2
+ms.openlocfilehash: 7068b14196e43a0fe232166d17520a8df9900e77
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88807872"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022661"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>提供通知的 Azure 托管应用程序
 
@@ -65,7 +65,7 @@ Azure 托管应用程序通知可让发布者根据托管应用程序实例的�
 ```
 ## <a name="add-azure-marketplace-managed-application-notifications"></a>添加 Azure 市场托管应用程序通知
 
-<!--Not Available on [Create an Azure application offer](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)-->
+<!--Not Available on [Create an Azure application offer](../../marketplace/create-new-azure-apps-offer.md)-->
 
 :::image type="content" source="./media/publish-notifications/marketplace-notifications.png" alt-text="Azure 门户中的 Azure 市场托管应用程序通知":::
 ## <a name="event-triggers"></a>事件触发器

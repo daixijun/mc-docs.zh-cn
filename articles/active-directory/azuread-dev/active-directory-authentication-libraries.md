@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: reference
 ms.workload: identity
-ms.date: 08/27/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 30482bc761f22cc9fc0bfc949de24f6f03002de6
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: a4c5af390d1107b74d008db9c0e79bd1f44193c8
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046291"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021907"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 身份验证库
 
@@ -39,7 +39,7 @@ ms.locfileid: "89046291"
 
 | 平台 | 库 | 下载 | 源代码 | 示例 | 参考
 | --- | --- | --- | --- | --- | --- |
-| .NET 客户端、Windows 应用商店、UWP、Xamarin iOS 和 Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [桌面应用](../develop/quickstart-v2-windows-desktop.md) |[参考](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
+| .NET 客户端、Windows 应用商店、UWP、Xamarin iOS 和 Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [桌面应用](../develop/quickstart-v2-windows-desktop.md) |[参考](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory) |
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[单页应用](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
 | iOS、macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS 应用](../develop/quickstart-v2-ios.md) | [参考](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
 | Android |ADAL |[Maven](https://search.maven.org/search?q=g:com.microsoft.aad+AND+a:adal&core=gav) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android 应用](../develop/quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.aad/adal/)|

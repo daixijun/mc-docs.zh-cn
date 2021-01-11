@@ -65,6 +65,8 @@
       items:
         - name: 对远程文件 REST 进行编码和流式传输
           href: stream-files-tutorial-with-rest.md
+        - name: REST API 的客户管理的密钥
+          href: tutorial-byok-postman.md
     - name: CLI
       items:
         - name: 对远程文件 CLI 进行编码和流式传输
@@ -73,6 +75,10 @@
       items:
         - name: 对远程文件 Node.js 进行编码和流式传输
           href: stream-files-nodejs-quickstart.md
+    - name: Azure 门户
+      items:
+        - name: 客户管理的密钥或 BYOK 教程
+          href: tutorial-byok-portal.md
 - name: 示例
   items:
     - name: 媒体服务 v3 示例
@@ -93,6 +99,11 @@
         - name: 存储帐户
           href: storage-account-concept.md
           displayName: Storage side encryption
+        - name: 托管标识和媒体服务
+          displayName: content protection
+          href: concept-managed-identities.md
+        - name: 客户管理的密钥
+          href: concept-use-customer-managed-keys-byok.md
     - name: 资产
       items:
         - name: 资产
@@ -210,6 +221,9 @@
         - name: 点播视频
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
+    - name: 媒体服务体系结构
+      displayName: architectures
+      href: architectures-concept.md
     - name: 疑难解答
       items:
         - name: 常见问题

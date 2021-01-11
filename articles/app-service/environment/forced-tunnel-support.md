@@ -5,15 +5,15 @@ author: ccompy
 ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.topic: quickstart
 origin.date: 05/29/2018
-ms.date: 08/13/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9c9fb82c20bfd338e3e6e0ec183eae802efb8e0a
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: d22d2f17e0d1f385824120a8eac24cd3be6595b7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227930"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021488"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>使用强制隧道配置应用服务环境
 
@@ -74,7 +74,7 @@ ASE 具有许多外部依赖项，详见[应用服务环境网络体系结构][n
 
 2. 为 ASE 子网启用 Azure SQL 和 Azure 存储的服务终结点。  完成此步骤以后，即可使用强制隧道来配置 VNet。
 
-若要在虚拟网络中创建 ASE，而该虚拟网络已配置为将所有流量路由到本地，则需使用资源管理器模板来创建 ASE。  无法通过门户将 ASE 创建到预先存在的子网中。  若要将 ASE 部署到 VNet 中，而该 VNet 已配置为将所有出站流量路由到本地，则需使用可指定预先存在的子网的资源管理器模板来创建 ASE。 若要详细了解如何使用模板来部署 ASE，请阅读[使用模板创建应用服务环境][template]。
+若要详细了解如何使用模板来部署 ASE，请阅读[使用模板创建应用服务环境][template]。
 
 可以通过服务终结点将多租户服务的访问权限限制给一组 Azure 虚拟网络和子网。 若要详细了解服务终结点，请参阅[虚拟网络服务终结点][serviceendpoints]文档。 
 

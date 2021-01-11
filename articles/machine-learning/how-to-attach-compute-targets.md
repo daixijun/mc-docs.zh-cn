@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 7f460598f2e39987822ec7dd6f7d86424d65b697
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.openlocfilehash: 8d92cd452a0bfb55a380ea11b5d5c5335dba0185
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978194"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021993"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>设置模型训练和部署的计算目标
 
@@ -228,6 +228,117 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 > [!WARNING]
 > 请勿在工作区中为同一 Azure Batch 创建多个同步附件。 每个新附件都会破坏先前存在的附件。
 
+### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
+
+Azure Databricks 是 Azure 云中基于 Apache Spark 的环境。 它可以用作 Azure 机器学习管道的计算目标。
+
+请先创建 Azure Databricks 工作区，然后再使用该工作区。 若要创建工作区资源，请参阅[在 Azure Databricks 中运行 Spark 作业](/databricks/scenarios/quickstart-create-databricks-workspace-portal)文档。
+
+要将 Azure Databricks 附加为计算目标，请提供以下信息：
+
+* __Databricks 计算名称__：要分配给此计算资源的名称。
+* __Databricks 工作区名称__：Azure Databricks 工作区的名称。
+* __Databricks 访问令牌__：用于对 Azure Databricks 进行身份验证的访问令牌。 若要生成访问令牌，请参阅[身份验证](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html)文档。
+
+以下代码演示如何使用 Azure 机器学习 SDK 将 Azure Databricks 附加为计算目标（Databricks 工作区需要与 AML 工作区位于同一个订阅中）：
+
+```python
+import os
+from azureml.core.compute import ComputeTarget, DatabricksCompute
+from azureml.exceptions import ComputeTargetException
+
+databricks_compute_name = os.environ.get(
+    "AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_workspace_name = os.environ.get(
+    "AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
+databricks_resource_group = os.environ.get(
+    "AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
+databricks_access_token = os.environ.get(
+    "AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+
+try:
+    databricks_compute = ComputeTarget(
+        workspace=ws, name=databricks_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('databricks_compute_name {}'.format(databricks_compute_name))
+    print('databricks_workspace_name {}'.format(databricks_workspace_name))
+    print('databricks_access_token {}'.format(databricks_access_token))
+
+    # Create attach config
+    attach_config = DatabricksCompute.attach_configuration(resource_group=databricks_resource_group,
+                                                           workspace_name=databricks_workspace_name,
+                                                           access_token=databricks_access_token)
+    databricks_compute = ComputeTarget.attach(
+        ws,
+        databricks_compute_name,
+        attach_config
+    )
+
+    databricks_compute.wait_for_completion(True)
+```
+
+有关更详细的示例，请参阅 GitHub 上的 [示例笔记本](https://aka.ms/pl-databricks)。
+
+> [!WARNING]
+> 请勿在工作区中为同一 Azure Databricks 创建多个同步附件。 每个新附件都会破坏先前存在的附件。
+
+### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
+
+Azure Data Lake Analytics 是 Azure 云中的大数据分析平台。 它可以用作 Azure 机器学习管道的计算目标。
+
+使用该平台之前，请先创建 Azure Data Lake Analytics 帐户。 
+
+若要将 Data Lake Analytics 附加为计算目标，必须使用 Azure 机器学习 SDK 并提供以下信息：
+
+* __计算名称__：要分配给此计算资源的名称。
+* __资源组__：包含 Data Lake Analytics 帐户的资源组。
+* __帐户名称__：Data Lake Analytics 帐户名。
+
+以下代码演示如何将 Data Lake Analytics 附加为计算目标：
+
+```python
+import os
+from azureml.core.compute import ComputeTarget, AdlaCompute
+from azureml.exceptions import ComputeTargetException
+
+
+adla_compute_name = os.environ.get(
+    "AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_group = os.environ.get(
+    "AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
+adla_account_name = os.environ.get(
+    "AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
+
+try:
+    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('adla_compute_name {}'.format(adla_compute_name))
+    print('adla_resource_id {}'.format(adla_resource_group))
+    print('adla_account_name {}'.format(adla_account_name))
+    # create attach config
+    attach_config = AdlaCompute.attach_configuration(resource_group=adla_resource_group,
+                                                     account_name=adla_account_name)
+    # Attach ADLA
+    adla_compute = ComputeTarget.attach(
+        ws,
+        adla_compute_name,
+        attach_config
+    )
+
+    adla_compute.wait_for_completion(True)
+```
+
+有关更详细的示例，请参阅 GitHub 上的 [示例笔记本](https://aka.ms/pl-adla)。
+
+> [!WARNING]
+> 请勿在工作区中为同一 ADLA 创建多个同步附件。 每个新附件都会破坏先前存在的附件。
+
+> [!TIP]
+> Azure 机器学习管道只能处理 Data Lake Analytics 帐户的默认数据存储中存储的数据。 如果需要处理的数据不在默认存储中，可以在训练之前使用 [`DataTransferStep`](https://docs.microsoft.com/python//api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?preserve-view=true&view=azure-ml-py) 复制数据。
 
 ## <a name="azure-container-instance"></a><a id="aci"></a>Azure 容器实例
 

@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 037466dddb2482b6d37b893ee30b070756c9b864
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 40ab5b04534730e4281915f21b3ac977ac439f76
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326777"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021584"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>用于配置组设置的 Azure Active Directory cmdlet
 
@@ -28,7 +28,7 @@ ms.locfileid: "94326777"
 > [!IMPORTANT]
 > 某些设置需要 Azure Active Directory Premium P1 许可证。 有关详细信息，请参阅[模板设置](#template-settings)表。
 
-有关如何防止非管理员用户创建安全组的详细信息，请按照 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) 中所述内容设置 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`。
+有关如何防止非管理员用户创建安全组的详细信息，请按照 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings) 中所述内容设置 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`。
 
 Microsoft 365 组设置使用 Settings 对象和 SettingsTemplate 对象配置。 起初，目录中不会显示任何设置对象，因为目录配置为默认设置。 若要更改默认设置，必须使用设置模板创建新的设置对象。 设置模板由 Microsoft 定义。 有几个不同的设置模板。 若要配置目录的 Microsoft 365 组设置，请使用名为“Group.Unified”的模板。 若要针对单个组配置 Microsoft 365 组设置，请使用名为“Group.Unified.Guest”的模板。 此模板用于管理对 Microsoft 365 组的来宾访问权限。 
 
@@ -319,7 +319,7 @@ Microsoft 365 组设置使用 Settings 对象和 SettingsTemplate 对象配置�
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Cmdlet 语法参考
-如需更多 Azure Active Directory PowerShell 文档，可参阅 [Azure Active Directory Cmdlet](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)。
+如需更多 Azure Active Directory PowerShell 文档，可参阅 [Azure Active Directory Cmdlet](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2)。
 
 ## <a name="additional-reading"></a>其他阅读材料
 

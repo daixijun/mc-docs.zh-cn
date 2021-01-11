@@ -10,12 +10,12 @@ metadata:
   ms.testscope: no
   ms.testdate: 11/09/2020
   ms.author: v-yeche
-  ms.openlocfilehash: 515928572566a4dce68e4c6965bf40393cc1a434
-  ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+  ms.openlocfilehash: ecdd53609c115c7c4f41e1667944aacdcec6f9a8
+  ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/06/2020
-  ms.locfileid: "94327368"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98021286"
 landingContent:
 - title: 关于 Service Fabric
   linkLists:
@@ -106,7 +106,7 @@ landingContent:
     - text: 群集安全性
       url: service-fabric-cluster-security.md
     - text: Service Fabric 的安全控制
-      url: service-fabric-security-controls.md
+      url: ./security-baseline.md
     - text: Service Fabric 机密存储
       url: service-fabric-application-secret-store.md
   - linkListType: how-to-guide

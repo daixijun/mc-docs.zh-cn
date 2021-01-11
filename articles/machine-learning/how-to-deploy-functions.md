@@ -11,12 +11,12 @@ author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 8fb2cd82ff11c5502b68663f2ead459612cf24e9
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: e2daceca8ed6d4e2c1593292634342f3b3ea42af
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977920"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021802"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>将机器学习模型部署到 Azure Functions（预览版）
 
@@ -31,7 +31,7 @@ ms.locfileid: "94977920"
 ## <a name="prerequisites"></a>必备条件
 
 * Azure 机器学习工作区。 有关详细信息，请参阅[创建工作区](how-to-manage-workspace.md)一文。
-* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
+* [Azure CLI](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
 * 工作区中注册的已训练的机器学习模型。 如果没有模型，请使用[图像分类教程：训练模型](tutorial-train-models-with-aml.md)来训练和注册模型。
 
     > [!IMPORTANT]

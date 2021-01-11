@@ -3,14 +3,14 @@ title: 配置 Azure 备份报表
 description: 使用 Log Analytics 和 Azure 工作簿配置和查看 Azure 备份的报表
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 09/28/2020
+ms.date: 01/07/2021
 ms.author: v-johya
-ms.openlocfilehash: 4473272c10b47d9ebeb6d28ff1984f31597d62b5
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 7111309e7839c2d2290579d5247dd40355ec3361
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871283"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021692"
 ---
 # <a name="configure-azure-backup-reports"></a>配置 Azure 备份报表
 
@@ -20,7 +20,7 @@ ms.locfileid: "91871283"
 - 审核备份和还原。
 - 确定不同粒度级别的关键趋势。
 
-如今，Azure 备份提供了一种使用 [Azure Monitor 日志](../azure-monitor/log-query/get-started-portal.md)和 [Azure 工作簿](../azure-monitor/platform/workbooks-overview.md)的报表解决方案。 这些资源有助于你跨整个备份资产获得有关备份的丰富见解。 本文介绍如何配置和查看 Azure 备份报表。
+如今，Azure 备份提供了一种使用 [Azure Monitor 日志](../azure-monitor/log-query/log-analytics-tutorial.md)和 [Azure 工作簿](../azure-monitor/platform/workbooks-overview.md)的报表解决方案。 这些资源有助于你跨整个备份资产获得有关备份的丰富见解。 本文介绍如何配置和查看 Azure 备份报表。
 
 ## <a name="supported-scenarios"></a>支持的方案
 

@@ -5,17 +5,17 @@ services: container-service
 ms.topic: tutorial
 origin.date: 09/30/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7d9d2d434f4fcb4bdfe924e983eb18fe242782f8
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 513fa80ba7b2a599742ca8bb451814b29dcdd7a3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024449"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022883"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中升级 Kubernetes
 

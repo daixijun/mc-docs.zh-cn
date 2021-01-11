@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-jay
-ms.openlocfilehash: 70e8bbb634a078795881e00e2e484cc7e282600a
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 535967c7b1437974fd4767a89068d865ac5e4fbf
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300794"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022909"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>使用按需流式处理操作导入一个 Postman 集合
 
@@ -181,7 +181,7 @@ ms.locfileid: "96300794"
                                 ]
                             }
                         }
-                    ],                  
+                    ],
                     "request": {
                         "auth": {
                             "type": "bearer",
@@ -3254,7 +3254,7 @@ ms.locfileid: "96300794"
                                     "key": "access-control-expose-headers",
                                     "value": "request-id, x-ms-request-id",
                                     "name": "access-control-expose-headers",
-                                    "description": "Lets a server whitelist headers that browsers are allowed to access."
+                                    "description": "Lets a server allowlist headers that browsers are allowed to access."
                                 },
                                 {
                                     "key": "request-id",
@@ -3457,7 +3457,7 @@ ms.locfileid: "96300794"
                                     "key": "access-control-expose-headers",
                                     "value": "request-id, x-ms-request-id",
                                     "name": "access-control-expose-headers",
-                                    "description": "Lets a server whitelist headers that browsers are allowed to access."
+                                    "description": "Lets a server allowlist headers that browsers are allowed to access."
                                 },
                                 {
                                     "key": "request-id",
@@ -5592,3 +5592,4 @@ ms.locfileid: "96300794"
     ]
 }
 ```
+

@@ -5,29 +5,44 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 10/15/2020
-ms.date: 11/13/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 5c94b5fdf9e41c6571d49c6b3cbb36278d94910c
-ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
+ms.openlocfilehash: fa0b97463395060175c11648b57e6748d4adcd55
+ms.sourcegitcommit: 40db5a4b9ab8b5877e307ff7a567fd930ca81c72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94595195"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894292"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>将 IoT Edge 设备配置为充当透明网关
 
 本文详细说明如何将 IoT Edge 设备配置为充当透明网关，供其他设备用来与 IoT 中心通信。 本文使用术语 *IoT Edge 网关* 来指代配置为透明网关的 IoT Edge 设备。 有关详细信息，请参阅[如何将 IoT Edge 设备用作网关](./iot-edge-as-gateway.md)。
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
 >当前：
 >
 > * 支持 Edge 的设备无法连接到 IoT Edge 网关。
 > * 下游设备不能使用文件上传。
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>当前：
+>
+> * 下游设备不能使用文件上传。
+
+::: moniker-end
 
 成功设置透明网关连接需要完成三个常规步骤。 本文介绍其中的第一个步骤：
 

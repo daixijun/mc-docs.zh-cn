@@ -7,12 +7,12 @@ author: rockboyfor
 ms.date: 11/02/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0ccac737b90c69ec86a62f0cb028a38907388730
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 6e8f558a2e124d41a671b75012b802e70436ea05
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106120"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021673"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>教程：使用 HTTP 触发的 Azure 函数创建容器组
 
@@ -30,15 +30,15 @@ ms.locfileid: "93106120"
 
 ## <a name="prerequisites"></a>先决条件
 
-请参阅[在 Azure 中使用 Visual Studio Code 创建你的第一个函数](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell#configure-your-environment)，了解在 OS 上安装 Visual Studio Code 并将其与 Azure Functions 扩展配合使用的先决条件。
+请参阅[在 Azure 中使用 Visual Studio Code 创建你的第一个函数](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell#configure-your-environment)，了解在 OS 上安装 Visual Studio Code 并将其与 Azure Functions 扩展配合使用的先决条件。
 
 本文中的其他步骤使用 Azure PowerShell。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell][azure-powershell-install] 和[登录到 Azure](https://docs.microsoft.com/powershell/azure/get-started-azureps#sign-in-to-azure)。
 
 ## <a name="create-a-basic-powershell-function"></a>创建基本的 PowerShell 函数
 
-请按[在 Azure 中创建第一个 PowerShell 函数](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell)中的步骤操作，使用“HTTP 触发器”模板创建 PowerShell 函数。 使用默认的 Azure 函数名称 **HttpTrigger** 。 按快速入门中的演示操作，在本地测试函数，并将项目发布到 Azure 中的函数应用。 此示例是一个基本的 HTTP 触发的函数，返回文本字符串。 在本文后面的步骤中，我们通过修改该函数来创建容器组。
+请按[在 Azure 中创建第一个 PowerShell 函数](../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-powershell)中的步骤操作，使用“HTTP 触发器”模板创建 PowerShell 函数。 使用默认的 Azure 函数名称 **HttpTrigger**。 按快速入门中的演示操作，在本地测试函数，并将项目发布到 Azure 中的函数应用。 此示例是一个基本的 HTTP 触发的函数，返回文本字符串。 在本文后面的步骤中，我们通过修改该函数来创建容器组。
 
-本文假定你在一个 Azure 资源组中使用名称 *myfunctionapp* 发布项目，该资源组自动根据函数应用名称（也是 *myfunctionapp* ）命名。 请在后面的步骤中将上述名称替换为自己的唯一函数应用名称和资源组名称。
+本文假定你在一个 Azure 资源组中使用名称 *myfunctionapp* 发布项目，该资源组自动根据函数应用名称（也是 *myfunctionapp*）命名。 请在后面的步骤中将上述名称替换为自己的唯一函数应用名称和资源组名称。
 
 ## <a name="enable-an-azure-managed-identity-in-the-function-app"></a>在函数应用中启用 Azure 托管标识
 
@@ -94,9 +94,7 @@ if ($name) {
 
 ## <a name="test-function-app-locally"></a>在本地测试函数应用
 
-请确保函数在本地运行，然后再将函数应用项目重新发布到 Azure。 在本地运行时，函数不会创建 Azure 资源。 但是，不管是否有没有在查询字符串中传递名称值，你都可以测试函数流。
-
-<!--Not Available on  To debug the function, see [Debug PowerShell Azure Functions locally](../azure-functions/functions-debug-powershell-local.md)-->
+请确保函数在本地运行，然后再将函数应用项目重新发布到 Azure。 在本地运行时，函数不会创建 Azure 资源。 但是，不管是否有没有在查询字符串中传递名称值，你都可以测试函数流。 若要调试函数，请参阅[在本地调试 PowerShell Azure Functions](../azure-functions/functions-debug-powershell-local.md)。
 
 ## <a name="republish-azure-function-app"></a>重新发布 Azure 函数应用
 
@@ -104,7 +102,7 @@ if ($name) {
 
 1. 在 Visual Studio Code 中打开命令面板。 搜索并选择 `Azure Functions: Deploy to Function App...`。
 1. 选择当前的用于压缩和部署的工作文件夹。
-1. 选择订阅，然后选择现有函数应用的名称 ( *myfunctionapp* )。 确认要覆盖以前的部署。
+1. 选择订阅，然后选择现有函数应用的名称 (*myfunctionapp*)。 确认要覆盖以前的部署。
 
 创建函数应用并应用了部署包之后，会显示一个通知。 在此通知中选择“查看输出”以查看创建和部署结果，其中包括已更新的 Azure 资源。
 

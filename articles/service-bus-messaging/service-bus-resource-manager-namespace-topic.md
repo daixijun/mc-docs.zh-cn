@@ -3,20 +3,21 @@ title: 使用模板创建 Azure 服务总线命名空间主题
 description: 快速入门 - 使用 Azure 资源管理器模板创建包含主题和订阅的服务总线命名空间
 documentationcenter: .net
 author: rockboyfor
+ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 origin.date: 06/23/2020
-ms.date: 08/31/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: b7276cdf6bbd3c58472842e55e47fc9b3cf23ebd
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: cb4b2d80a777a25522ab18e1acbfabffa60d2ae7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946992"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023275"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板创建包含主题和订阅的服务总线命名空间
 
@@ -147,7 +148,7 @@ New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<
 ## <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
-az group deployment create \<my-resource-group\> --name \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
+az deployment group create \<my-resource-group\> --name \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## <a name="next-steps"></a>后续步骤

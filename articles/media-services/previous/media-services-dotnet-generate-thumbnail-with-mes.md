@@ -16,12 +16,12 @@ origin.date: 03/18/2019
 ms.date: 09/28/2020
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 45c0565929a89eb82bd2a189a89850d6831f06d3
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 50bea4cc9f714f9d4ab5d515f514e65445d9ee2b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244924"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022421"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>如何使 Media Encoder Standard 通过 .NET 来生成缩略图
 
@@ -353,7 +353,7 @@ ms.locfileid: "91244924"
 ### <a name="xml-preset"></a><a id="xml"></a>XML 预设
 有关架构的信息，请参阅[此](./media-services-mes-schema.md)文。
 
-```csharp
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>

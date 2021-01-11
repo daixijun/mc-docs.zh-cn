@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: cb1712a7e6c47e79d751b4444733f42d8368b7c2
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: b9927c8fd760282c3625978e122e9790d634a57e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105599"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022780"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>使用 MLflow 和 Azure 机器学习跟踪 Azure Databricks ML 试验（预览版）
 
@@ -180,8 +180,8 @@ mlflow.sklearn.log_model(model, artifact_path = "model",
 可以利用 [mlflow.azureml.deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) API 将模型部署到 Azure 机器学习工作区。 如果仅向 Azure Databricks 工作区注册了模型，如[使用 MLflow 注册模型](#register-models-with-mlflow)部分中所述，请指定 `model_name` 参数以将模型注册到 Azure 机器学习工作区。 
 
 可以将 Azure Databricks 运行部署到以下终结点： 
-* [Azure 容器实例](how-to-use-mlflow.md#deploy-to-aci)
-* [Azure Kubernetes 服务](how-to-use-mlflow.md#deploy-to-aks)
+* [Azure 容器实例](how-to-deploy-models-with-mlflow.md#deploy-to-aci)
+* [Azure Kubernetes 服务](how-to-deploy-models-with-mlflow.md#deploy-to-aks)
 
 ### <a name="deploy-models-to-adb-endpoints-for-batch-scoring"></a>将模型部署到 ADB 终结点以进行批量评分 
 

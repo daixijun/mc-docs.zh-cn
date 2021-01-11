@@ -3,13 +3,13 @@ title: 在 IoT Edge 上的实时视频分析中使用直接方法 - Azure
 description: IoT Edge 上的实时视频分析公开了多种直接方法。 直接方法基于本主题中描述的约定。
 ms.topic: conceptual
 origin.date: 04/27/2020
-ms.date: 09/07/2020
-ms.openlocfilehash: 004197747f0bd56628fced12b062b99efa92398c
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 01/11/2021
+ms.openlocfilehash: f1d9512600ea25693f0108bc9305f8155710e753
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413822"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023211"
 ---
 # <a name="direct-methods"></a>直接方法
 
@@ -141,12 +141,12 @@ IoT Edge 上的实时视频分析公开了可以从 IoT 中心调用的多种直
 
 #### <a name="status-codes"></a>状态代码
 
-|条件  |状态代码    |详细错误代码|
-|---|---|---|
-|已找到实体|  200 |空值
-|一般用户错误    |400 range  ||
-|找不到实体   |404        ||
-|一般服务器错误| 500 range       ||
+| 条件 | 状态代码 | 详细错误代码 |
+|--|--|--|
+| 已找到实体 | 200 | 空值 |
+| 一般用户错误 | 400 range |  |
+| 找不到实体 | 404 |  |
+| 一般服务器错误 | 500 range |  |
 
 ### <a name="graphtopologyset"></a>GraphTopologySet
 
@@ -228,13 +228,13 @@ IoT Edge 上的实时视频分析公开了可以从 IoT 中心调用的多种直
 
 #### <a name="status-codes"></a>状态代码
 
-|条件  |状态代码    |详细错误代码|
-|---|---|---|
-|已删除实体|    200|    空值|
-|找不到实体|  204|    空值|
-|一般用户错误|   400 range   ||
-|一个或多个图形实例正在引用图形拓扑| 409 |GraphTopologyInUse|
-|一般服务器错误| 500 range   ||
+| 条件 | 状态代码 | 详细错误代码 |
+|--|--|--|
+| 已删除实体 | 200 | 空值 |
+| 找不到实体 | 204 | 空值 |
+| 一般用户错误 | 400 range |  |
+| 一个或多个图形实例正在引用图形拓扑 | 409 | GraphTopologyInUse |
+| 一般服务器错误 | 500 range |  |
 
 ### <a name="graphtopologylist"></a>GraphTopologyList
 
@@ -279,18 +279,18 @@ IoT Edge 上的实时视频分析公开了可以从 IoT 中心调用的多种直
 
 #### <a name="filter-support"></a>筛选器支持
 
-|操作      |字段   |运算符|
+|操作 |字段    |运算符|
 |---|---|---|
 |$orderby|name  |asc|
 
 
 #### <a name="status-codes"></a>状态代码
 
-|条件  |状态代码    |详细错误代码|
-|---|---|---|
-|Success|   200 |空值|
-|一般用户错误|   400 range   ||
-|一般服务器错误| 500 range   ||
+| 条件 | 状态代码 | 详细错误代码 |
+|--|--|--|
+| Success | 200 | 空值 |
+| 一般用户错误 | 400 range |  |
+| 一般服务器错误 | 500 range |  |
 
 ### <a name="graphinstanceget"></a>GraphInstanceGet
 
@@ -324,12 +324,12 @@ IoT Edge 上的实时视频分析公开了可以从 IoT 中心调用的多种直
 
 #### <a name="status-codes"></a>状态代码
 
-|条件  |状态代码    |详细错误代码|
-|---|---|---|
-|已找到实体   |200|   空值|
-|一般用户错误|   400 range   ||
-|找不到实体|  404 ||
-|一般服务器错误| 500 range   ||
+| 条件 | 状态代码 | 详细错误代码 |
+|--|--|--|
+| 已找到实体 | 200 | 空值 |
+| 一般用户错误 | 400 range |  |
+| 找不到实体 | 404 |  |
+| 一般服务器错误 | 500 range |  |
 
 ### <a name="graphinstanceset"></a>GraphInstanceSet
 
@@ -374,15 +374,15 @@ IoT Edge 上的实时视频分析公开了可以从 IoT 中心调用的多种直
 
 #### <a name="status-codes"></a>状态代码
 
-|条件  |状态代码    |详细错误代码|
-|---|---|---|
-|已更新现有实体    |200    |空值|
-|已创建新的实体|    201 |空值|
-|一般用户错误|   400 range   ||
-|图形验证错误    |400|   GraphValidationError|
-|模块验证错误|  400 |ModuleValidationError|
-|资源验证错误 |409    |ResourceValidationError|
-|一般服务器错误  |500 range||    
+| 条件 | 状态代码 | 详细错误代码 |
+|--|--|--|
+| 已更新现有实体 | 200 | 空值 |
+| 已创建新的实体 | 201 | 空值 |
+| 一般用户错误 | 400 range |  |
+| 图形验证错误 | 400 | GraphValidationError |
+| 模块验证错误 | 400 | ModuleValidationError |
+| 资源验证错误 | 409 | ResourceValidationError |
+| 一般服务器错误 | 500 range |  |  |
 
 ### <a name="graphinstancedelete"></a>GraphInstanceDelete
 
@@ -415,13 +415,13 @@ IoT Edge 上的实时视频分析公开了可以从 IoT 中心调用的多种直
 
 #### <a name="status-codes"></a>状态代码
 
-|条件  |状态代码    |详细错误代码|
-|---|---|---|
-|已成功删除图形|    200|    空值|
-|找不到图形|   204|    空值|
-|一般用户错误    |400 range  ||
-|图形不处于“已停止”状态    |409    |OperationNotAllowedInState|
-|一般服务器错误| 500 range   ||
+| 条件 | 状态代码 | 详细错误代码 |
+|--|--|--|
+| 已成功删除图形 | 200 | 空值 |
+| 找不到图形 | 204 | 空值 |
+| 一般用户错误 | 400 range |  |
+| 图形不处于“已停止”状态 | 409 | OperationNotAllowedInState |
+| 一般服务器错误 | 500 range |  |
 
 ### <a name="graphinstancelist"></a>GraphInstanceList
 
@@ -473,11 +473,11 @@ IoT Edge 上的实时视频分析公开了可以从 IoT 中心调用的多种直
 
 #### <a name="status-codes"></a>状态代码
 
-|条件  |状态代码    |详细错误代码|
-|---|---|---|
-|Success    |200    |空值|
-|一般用户错误|   400 range   ||
-|一般服务器错误| 500 range   ||
+| 条件 | 状态代码 | 详细错误代码 |
+|--|--|--|
+| Success | 200 | 空值 |
+| 一般用户错误 | 400 range |  |
+| 一般服务器错误 | 500 range |  |
 
 ### <a name="graphinstanceactivate"></a>GraphInstanceActivate
 
@@ -517,15 +517,15 @@ IoT Edge 上的实时视频分析公开了可以从 IoT 中心调用的多种直
 
 #### <a name="status-codes"></a>状态代码
 
-|条件  |状态代码    |详细错误代码|
-|---|---|---|
-|已成功激活图形   |200    |空值|
-|已创建新的实体 |201|   空值|
-|一般用户错误    |400 range  ||
-|模块验证错误   |400|   ModuleValidationError|
-|资源验证错误|    409|    ResourceValidationError|
-|图形处于“正在停用”状态 |409    |OperationNotAllowedInState|
-|一般服务器错误| 500 range   ||
+| 条件 | 状态代码 | 详细错误代码 |
+|--|--|--|
+| 已成功激活图形 | 200 | 空值 |
+| 已创建新的实体 | 201 | 空值 |
+| 一般用户错误 | 400 range |  |
+| 模块验证错误 | 400 | ModuleValidationError |
+| 资源验证错误 | 409 | ResourceValidationError |
+| 图形处于“正在停用”状态 | 409 | OperationNotAllowedInState |
+| 一般服务器错误 | 500 range |  |
 
 ### <a name="graphinstancedeactivate"></a>GraphInstanceDeactivate
 
@@ -566,13 +566,13 @@ IoT Edge 上的实时视频分析公开了可以从 IoT 中心调用的多种直
 }
 ```
 
-|条件  |状态代码    |详细错误代码|
-|---|---|---|
-|已成功激活图形   |200|   空值|
-|已创建新的实体 |201|   空值|
-|一般用户错误    |400 range  ||
-|图形处于“正在激活”状态   |409|   OperationNotAllowedInState|
-|一般服务器错误  |500 range  ||
+| 条件 | 状态代码 | 详细错误代码 |
+|--|--|--|
+| 已成功激活图形 | 200 | 空值 |
+| 已创建新的实体 | 201 | 空值 |
+| 一般用户错误 | 400 range |  |
+| 图形处于“正在激活”状态 | 409 | OperationNotAllowedInState |
+| 一般服务器错误 | 500 range |  |
 
 ## <a name="next-steps"></a>后续步骤
 

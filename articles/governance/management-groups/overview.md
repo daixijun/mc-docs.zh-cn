@@ -3,15 +3,15 @@ title: 使用管理组来组织资源 - Azure 治理
 description: 了解管理组、其权限的工作方式以及如何使用它们。
 ms.author: v-tawe
 origin.date: 11/17/2020
-ms.date: 12/02/2020
+ms.date: 01/05/2021
 ms.topic: overview
-ms.custom: contperfq1
-ms.openlocfilehash: f8aa544f772e569eba22f6ff3f832064031790f3
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 659c9584a326891a52ef51c263af08b16bc74d62
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508558"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874882"
 ---
 # <a name="what-are-azure-management-groups"></a>什么是 Azure 管理组？
 
@@ -174,6 +174,10 @@ Azure 管理组支持使用 [Azure 基于角色的访问控制 (Azure RBAC)](../
  - 不能在管理组自定义角色中定义资源提供程序数据平面操作。 存在此限制是因为，在更新数据平面资源提供程序时存在延迟问题。
    我们会解决此延迟问题，并会在角色定义中禁用这些操作以降低风险。
  - Azure 资源管理器不验证管理组是否存在于角色定义的可分配范围中。 即使存在拼写错误或者列出的管理组 ID 不正确，仍会创建角色定义。
+
+> [!IMPORTANT]
+> 将管理组添加到 `AssignableScopes` 的功能目前为预览版。 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。
+> 某些功能可能不受支持或者受限。
 
 ## <a name="moving-management-groups-and-subscriptions"></a>移动管理组和订阅 
 

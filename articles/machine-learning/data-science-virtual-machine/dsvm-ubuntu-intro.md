@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 73f5fa03bf0e12dbebf38b4ace466b04bc206a60
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 26c0dd3bd21f1c2536bf029c76395f43f4032d82
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978032"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022783"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>快速入门：设置适用于 Linux (Ubuntu) 的 Data Science Virtual Machine
 
@@ -21,7 +21,8 @@ ms.locfileid: "94978032"
 ## <a name="prerequisites"></a>先决条件
 
 要创建 Ubuntu 18.04 Data Science Virtual Machine，必须具备 Azure 订阅。 [免费试用 Azure](https://azure.com/free)。
-请注意，Azure 试用帐户不支持已启用 GPU 的虚拟机 SKU。
+>[!NOTE]
+>请注意，Azure 试用帐户不支持已启用 GPU 的虚拟机 SKU。
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>创建适用于 Linux 的数据科学虚拟机
 
@@ -59,7 +60,7 @@ ms.locfileid: "94978032"
    1. 选择“查看 + 创建”。
    1. **查看 + 创建**
       * 验证输入的所有信息是否正确。 
-      * 选择“创建”。
+      * 选择“创建” 。
     
     预配大约需要 5 分钟。 状态将显示在 Azure 门户中。
 
@@ -68,10 +69,8 @@ ms.locfileid: "94978032"
 可以通过以下三种方式之一访问 Ubuntu DSVM：
 
   * 终端会话 SSH
-  * X2Go 图形会话
+  * 图形会话 X2Go
   * Jupyter 笔记本的 JupyterHub 和 JupyterLab
-
-还可以将 Data Science Virtual Machine 附加到 Azure Notebooks，以在 VM 上运行 Jupyter Notebook，并绕过免费服务层的限制。 
 
 ### <a name="ssh"></a>SSH
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: fc2b51db9dea15ffd58d8c8204df4c72f46be936
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: d4204a5149249911755d0a9fb376cb1c5082609f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301104"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024339"
 ---
 若要运行该示例代码，请按照以下步骤执行：
 
@@ -20,7 +20,7 @@ ms.locfileid: "96301104"
 1. 在 Visual Studio Code 中，转到 src/cloud-to-device-console-app/operations.json。
 1. 在 GraphTopologySet 节点上，确保你看到以下值：
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/2.0/topology.json"`
 1. 在节点 GraphInstanceSet 和 GraphTopologyDelete 节点上，确保 `topologyName` 的值与图形拓扑中 `name` 属性的值匹配 ：
 
     `"topologyName" : "MotionDetection"`
@@ -33,7 +33,7 @@ ms.locfileid: "96301104"
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-        "@apiVersion": "1.0"
+        "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -50,7 +50,7 @@ ms.locfileid: "96301104"
          
     ```
     {
-      "@apiVersion": "1.0",
+      "@apiVersion": "2.0",
       "name": "Sample-Graph",
       "properties": {
         "topologyName": "MotionDetection",

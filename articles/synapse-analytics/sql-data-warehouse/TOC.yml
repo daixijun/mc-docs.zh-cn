@@ -1,10 +1,10 @@
-- name: Azure Synapse（前身为 SQL DW）
-  href: index.yml
+- name: 专用 SQL 池（之前称为 SQL DW）
+  href: sql-data-warehouse-overview-what-is.md
 - name: 概述
   items:
-    - name: 什么是 Azure Synapse Analytics？
+    - name: 什么是专用 SQL 池？
       href: sql-data-warehouse-overview-what-is.md
-    - name: Azure Synapse Analytics 体系结构
+    - name: 专用 SQL 池体系结构
       href: massively-parallel-processing-mpp-architecture.md
     - name: 数据仓库单位数
       href: what-is-a-data-warehouse-unit-dwu-cdwu.md
@@ -84,7 +84,7 @@
               href: /sql-database/sql-database-threat-detection-overview?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
         - name: 审核
           href: /sql-database/sql-database-auditing?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
-        - name: 网络安全性
+        - name: 网络安全
           items:
             - name: 防火墙规则
               href: /sql-database/sql-database-firewall-configure?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
@@ -108,11 +108,11 @@
               href: /sql-database/sql-database-manage-logins?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
             - name: 行级别安全性
               href: column-level-security.md
-            - name: 行级安全性
+            - name: 行级别安全性
               href: 'https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json'
         - name: 数据保护
           items:
-            - name: 动态数据掩码
+            - name: 动态数据屏蔽
               href: /sql-database/sql-database-dynamic-data-masking-get-started?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
             - name: 透明数据加密 (TDE) 概述
               href: /sql-database/transparent-data-encryption-azure-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
@@ -360,9 +360,9 @@
       items:
         - name: 完整的参考信息
           href: 'https://docs.microsoft.com/sql/t-sql/language-reference?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest'
-        - name: Azure Synapse Analytics TSQL 语言元素
+        - name: T-SQL 语言元素
           href: sql-data-warehouse-reference-tsql-language-elements.md
-        - name: Azure Synapse Analytics TSQL 语句
+        - name: T-SQL 语句
           href: sql-data-warehouse-reference-tsql-statements.md
     - name: 系统视图
       href: sql-data-warehouse-reference-tsql-system-views.md

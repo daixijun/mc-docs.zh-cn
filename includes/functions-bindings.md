@@ -2,15 +2,15 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/19/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1326ac03112fcde47f36d8acd84159aa5d34682d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 3f518356b4c934015fcd035ae5305598cd64d336
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471228"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021444"
 ---
 下表显示了 Azure Functions 运行时的主版本支持的绑定：
 
@@ -28,7 +28,7 @@ ms.locfileid: "92471228"
 | [移动应用](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [通知中心](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
 | [队列存储](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|
-| [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)<sup>2</sup>             | |✔|✔| |✔|
+| [RabbitMQ](../articles/azure-functions/functions-bindings-rabbitmq.md)<sup>2</sup>             | |✔|✔| |✔|
 | [SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md)                   |✔|✔| | |✔|
 | [服务总线](../articles/azure-functions/functions-bindings-service-bus.md)             |✔|✔|✔| |✔|
 | [SignalR](../articles/azure-functions/functions-bindings-signalr-service.md)             | |✔| |✔|✔|

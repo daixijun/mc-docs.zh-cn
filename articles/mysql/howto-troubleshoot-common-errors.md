@@ -7,15 +7,18 @@ ms.author: v-jay
 ms.custom: mvc
 ms.topic: overview
 origin.date: 8/20/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: ebd12490ee79b3642c53f30df0161e267343e799
-ms.sourcegitcommit: 5116a603d3cac3cbc2e2370ff857f871f8f51a5f
+ms.date: 01/11/2021
+ms.openlocfilehash: 92fb5a9a4b47b3841370f56a7f6b740e0f9d48c9
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512978"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022906"
 ---
 # <a name="common-errors"></a>常见错误
+
+> [!NOTE] 
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 Azure Database for MySQL 是由 MySQL 社区版本提供支持的完全托管的服务。 托管服务环境中的 MySQL 体验可能与在你自己的环境中运行 MySQL 时不同。 在本文中，你将了解用户首次迁移到 Azure Database for MySQL 服务或在该服务上开发时可能遇到的一些常见错误。
 
@@ -37,7 +40,7 @@ BEGIN
 END;
 ```
 
-**解决方法**：要解决此错误，请从门户中的[服务器参数](howto-server-parameters.md)边栏选项卡将 log_bin_trust_function_creators 设置为 1，执行 DDL 语句或导入架构来创建所需的对象，并在创建后将 log_bin_trust_function_creators parameter 参数恢复到它之前的值。
+**解决方法**：要解决此错误，请从门户中的 [服务器参数](howto-server-parameters.md)边栏选项卡将 log_bin_trust_function_creators 设置为 1，执行 DDL 语句或导入架构来创建所需的对象，并在创建后将 log_bin_trust_function_creators parameter 参数恢复到它之前的值。
 
 #### <a name="error-1227-42000-at-line-101-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation-operation-failed-with-exitcode-1"></a>第 101 行出现错误 1227 (42000)：访问被拒绝；需要（至少一项）SUPER 权限才能执行此操作。 操作失败，退出代码为 1
 
@@ -62,4 +65,34 @@ DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`AdminUserName`@`ServerName`*/ /*!50003
 DELIMITER ;
 ```
+#### <a name="error-1227-42000-at-line-295-access-denied-you-need-at-least-one-of-the-super-or-set_user_id-privileges-for-this-operation"></a>第 295 行出现错误 1227 (42000)：访问被拒绝；需要（至少一项）SUPER 或 SET_USER_ID 权限才能执行此操作
+
+在导入转储文件或运行脚本的过程中，执行 CREATE VIEW 和 DEFINER 语句时可能会发生上述错误。 Azure Database for MySQL 不允许任何用户使用 SUPER 特权或 SET_USER_ID 特权。 
+
+**解决方法**： 
+* 使用定义者用户执行 CREATE VIEW（如果可行）。 许多视图可能具有不同的定义者，而这些定义者拥有不同的权限，因此这可能不可行。  OR
+* 编辑转储文件或 CREATE VIEW 脚本，然后从转储文件中删除 DEFINER= 语句，或者 
+* 编辑转储文件或 CREATE VIEW 脚本，并将定义者值替换为拥有可执行导入或执行脚本文件的管理员权限的用户。
+
+> [!Tip] 
+> 使用 sed 或 perl 修改转储文件或 SQL 脚本以替换 DEFINER= 语句
+
+## <a name="common-connection-errors-for-server-admin-login"></a>服务器管理员登录名的常见连接错误
+
+创建 Azure Database for MySQL 服务器后，最终用户将在服务器创建过程中提供服务器管理员登录名。 服务器管理员登录名允许创建新数据库、添加新用户和授予权限。 如果删除了服务器管理员登录名、撤销了其权限或更改了其密码，则在连接时可能会开始在应用程序中看到连接错误。 下面是一些常见错误
+
+#### <a name="error-1045-28000-access-denied-for-user-usernameip-address-using-password-yes"></a>错误 1045 (28000):拒绝访问用户“用户名”@“IP 地址”（使用密码：是）
+
+如果出现以下情况，则会发生上述错误：
+
+* 用户名不存在
+* 用户用户名已删除
+* 用户密码已更改或重置。
+
+**解决方法**： 
+* 验证“用户名”是作为服务器中的有效用户存在还是被意外删除。 可以通过登录到 Azure Database for MySQL 用户来执行以下查询：
+  ```sql
+  select user from mysql.user;
+  ```
+* 如果无法登录到 MySQL 以自行执行上述查询，建议[使用 Azure 门户重置管理员密码](howto-create-manage-server-portal.md)。 Azure 门户中的“重置密码”选项将帮助重新创建用户、重置密码和还原管理员权限，这将使你可以使用服务器管理员权限进行登录并执行进一步的操作。
 

@@ -2,14 +2,14 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/17/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: 26b238bbd2287c6f352af1811e483061f5e2abc7
-ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
+ms.openlocfilehash: f9c8a3169391122e6f84d00f66ede76146fee743
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95970745"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024367"
 ---
 Azure Functions 中引发的错误可能来自以下任一来源：
 
@@ -129,6 +129,27 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
     }
 }
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+下面是 function.json 文件中的重试策略：
+
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 4,
+        "delayInterval": "00:00:10"
+    }
+}
+```
 ---
 
 #### <a name="exponential-backoff-retry"></a>指数退避重试
@@ -208,12 +229,33 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
     }
 }
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+下面是 function.json 文件中的重试策略：
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "exponentialBackoff",
+        "maxRetryCount": 5,
+        "minimumInterval": "00:00:10",
+        "maximumInterval": "00:15:00"
+    }
+}
+```
 ---
 
 |function.json 属性  |属性 | 描述 |
 |---------|---------|---------| 
 |strategy|不适用|必需。 要使用的重试策略。 有效值为 `fixedDelay` or `exponentialBackoff`进行求值的基于 SQL 语言的筛选器表达式。|
-|maxRetryCount|不适用|必需。 每个函数执行允许的最大重试次数。 `-1` 表示重试无限次数。|
+|maxRetryCount|不适用|必需。 每个函数执行允许的最大重试次数。 `-1` 表示无限重试。|
 |delayInterval|不适用|使用 `fixedDelay` 策略时会在重试之间使用的延迟。|
 |minimumInterval|不适用|使用 `exponentialBackoff` 策略时的最小重试延迟。|
 |maximumInterval|不适用|使用 `exponentialBackoff` 策略时的最大重试延迟。| 

@@ -3,18 +3,19 @@ title: 使用共享映像库创建自定义映像池
 description: 自定义映像池是配置计算节点以运行 Batch 工作负载的高效方法。
 ms.topic: conceptual
 origin.date: 11/18/2020
+ms.service: batch
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 06/29/2020
 ms.author: v-yeche
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 94b7bc31e2b83d2e718b0f446ab0bc353652f616
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 28ced94aa1ced34c340f928b239056661ecfec4e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105338"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022649"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>使用共享映像库创建自定义映像池
 
@@ -218,7 +219,7 @@ client.pool.add(new_pool)
 1. 使用托管映像的相关信息完成剩余部分。
 1. 选择“确定” 。
 
-    :::image type="content" source="media/batch-sig-images/create-custom-pool.png" alt-text="通过门户使用共享映像创建池。":::
+![通过门户使用共享映像创建池。](media/batch-sig-images/create-custom-pool.png)
 
 ## <a name="considerations-for-large-pools"></a>大型池的注意事项
 

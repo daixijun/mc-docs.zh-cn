@@ -4,17 +4,17 @@ description: 了解如何在 Azure Service Fabric 执行组件中实现备份和
 ms.topic: conceptual
 origin.date: 10/29/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 86bb2cf6a0518b1a4697e1ddd8f85e920bfe3f3b
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: d0d8d47514cc6ea02129514799f354ba97c80870
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655246"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022385"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>实现 Reliable Actors 备份和还原
 

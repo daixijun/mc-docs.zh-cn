@@ -5,17 +5,17 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 06/15/2017
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 66404cce8338a26575bab8d495f930123f69dd8b
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: ca35639ded8c189b79321797052c1bc65605d475
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104168"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857143"
 ---
 <!--Verified successfully from rename articles-->
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>有关 Azure IaaS VM 磁盘以及托管和非托管高级磁盘的常见问题解答
@@ -54,7 +54,7 @@ ms.locfileid: "93104168"
 
 **是否可以使用 Azure 存储帐户中的 VHD 文件在不同的区域中创建托管磁盘？**
 
-不是。
+否。
 
 客户使用托管磁盘是否存在任何规模限制？
 
@@ -62,7 +62,7 @@ ms.locfileid: "93104168"
 
 可用性集中的 VM 是否可以同时包含托管和非托管磁盘？
 
-不是。 可用性集中的 VM 必须全部使用托管磁盘或全部使用非托管磁盘。 创建可用性集时，可以选择要使用的磁盘类型。
+否。 可用性集中的 VM 必须全部使用托管磁盘或全部使用非托管磁盘。 创建可用性集时，可以选择要使用的磁盘类型。
 
 **托管磁盘是否是 Azure 门户中的默认选项？**
 
@@ -80,7 +80,7 @@ ms.locfileid: "93104168"
 
 设置 VM 诊断的专用存储帐户。
 
-托管磁盘支持哪类基于角色的访问控制？
+托管磁盘支持哪类 Azure 基于角色的访问控制？
 
 托管磁盘支持三个密钥默认角色：
 
@@ -114,15 +114,15 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 是否可以收缩或缩小托管磁盘？
 
-不是。 目前，不支持此功能。
+否。 目前，不支持此功能。
 
 是否可以在磁盘上中断租用？
 
-不是。 目前不支持此功能，因为租用的作用是防止磁盘在使用时被意外删除。
+否。 目前不支持此功能，因为租用的作用是防止磁盘在使用时被意外删除。
 
 当使用专用（未使用系统准备工具创建或未通用化）操作系统磁盘预配 VM 时，是否可以更改计算机名称属性？
 
-不是。 无法更新计算机名称属性。 新 VM 从创建操作系统磁盘时所用的父 VM 继承该属性。 
+否。 无法更新计算机名称属性。 新 VM 从创建操作系统磁盘时所用的父 VM 继承该属性。 
 
 在哪里可找到用于使用托管磁盘创建 VM 的示例 Azure 资源管理器模板？
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/)（使用托管磁盘的模板列表）
@@ -157,11 +157,48 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 是的，所有磁盘类型都支持单实例 VM SLA。
 
-<!--Not Available on ### Azure shared disks-->
+### <a name="azure-shared-disks"></a>Azure 共享磁盘
+
+非托管磁盘或页 blob 是否支持共享磁盘功能？
+
+不支持，目前只有 Azure 中国的高级 SSD 托管磁盘才支持该功能。
+
+<!--Not Available on ultra disks-->
+
+哪些区域支持共享磁盘？
+
+有关区域的信息，请参阅我们的[概念性文章](disks-shared.md)。
+
+共享磁盘是否可用作操作系统磁盘？
+
+不可以，只有数据磁盘才支持共享磁盘。
+
+哪些磁盘大小支持共享磁盘？
+
+有关支持的大小，请参阅我们的[概念性文章](disks-shared.md)。
+
+如果我现在有一个磁盘，是否可以对它启用共享磁盘？
+
+使用 API 版本 2019-07-01 或更高版本创建的所有托管磁盘都可以启用共享磁盘。 为此，需要从磁盘附加到的所有 VM 中卸载磁盘。 然后，编辑该磁盘上的 maxShares 属性。
+
+如果我不想再使用共享模式下的磁盘，该如何禁用它？
+
+从磁盘附加到的所有 VM 中卸载磁盘。 然后将磁盘上的 maxShare 属性编辑为 1。
+
+是否可以对共享磁盘重设大小？
+
+是的。
+
+是否可以在同时启用了共享磁盘的磁盘上启用写入加速器？
+
+不是。
+
+是否可以为启用了共享磁盘的磁盘启用主机缓存？
+
+唯一受支持的主机缓存选项为“无”。
+
 <!--Not Available on ## Ultra disks-->
 <!--Not Available on disk reservations-->
-<!--Not Available on ### Azure shared disks-->
-<!--Not Available on ## Ultra disks-->
 
 ## <a name="uploading-to-a-managed-disk"></a>上传到托管磁盘
 
@@ -223,7 +260,7 @@ Azure 标准 SSD 盘是什么？
 
 是否可以通过迁移到托管磁盘之前创建的页 Blob 快照创建托管磁盘？
 
-不是。 可将页 Blob 快照导出为页 Blob，然后从导出的页 Blob 创建托管磁盘。
+否。 可将页 Blob 快照导出为页 Blob，然后从导出的页 Blob 创建托管磁盘。
 
 是否可将 Azure Site Recovery 保护的本地计算机故障转移到包含托管磁盘的 VM？
 
@@ -376,7 +413,7 @@ Azure 支持的最大页 blob 大小是 8 TiB (8,191 GiB)。 附加到 VM 作为
 
 是的。
 
-**Azure 备份和 Microsoft Azure Site Recovery 服务支持的最大磁盘大小是多少？**
+Azure 备份和 Microsoft Site Recovery 服务支持的最大磁盘大小是多少？
 
 Azure 备份支持的最大磁盘大小是 32 TiB（加密磁盘为 4 TiB）。 Azure Site Recovery 支持的最大磁盘大小为 8 TiB。 目前 Azure Site Recovery 中尚不支持高达 32 TiB 的大型磁盘。
 
@@ -392,7 +429,7 @@ Azure 备份支持的最大磁盘大小是 32 TiB（加密磁盘为 4 TiB）。 
 
 **哪些区域支持大于 8 TiB、16 TiB 和 32 TiB 的托管磁盘大小？**
 
-Azure 全球、 Microsoft Azure 政府和 Azure 中国世纪互联涵盖的所有区域都支持 8 TiB、16 TiB 和 32 TiB 磁盘 SKU。
+Azure 全球、Azure 政府和 Azure 中国世纪互联涵盖的所有区域都支持 8 TiB、16 TiB 和 32 TiB 磁盘 SKU。
 
 <!--MOONCAKE: CORRECT ON global Azure, Microsoft Azure Government, and Azure China 21Vianet.-->
 
@@ -404,7 +441,7 @@ Azure 全球、 Microsoft Azure 政府和 Azure 中国世纪互联涵盖的所�
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>如果未在此处找到相关问题怎么办？
 
-如果未在此处找到相关问题，请联系我们获取帮助。 若要与 Azure 存储团队和其他社区成员就本文进行沟通，请使用 MSDN [有关 Azure 存储的 Microsoft Q&A 问题页面](https://docs.microsoft.com/answers/products/azure?product=storage)。
+如果未在此处找到相关问题，请联系我们获取帮助。 若要与 Azure 存储团队和其他社区成员就本文进行沟通，请使用[有关 Azure 存储的 Microsoft Q&A 问题页面](https://docs.microsoft.com/answers/products/azure?product=storage)。
 
 <!--Not Available on You can post a question at the end of this article in the comments.-->
 

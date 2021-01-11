@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: json
 ms.topic: tutorial
 origin.date: 12/02/2019
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.custom: mvc
-ms.openlocfilehash: e91a9e8c12f6c410952e966c98e02acf7e56393b
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 2ea3eb39fd6ff59883b98a6d19c80f38d3f9f521
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432589"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023168"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>教程：使用 Azure 资源管理器模板预配 Azure Database for MySQL 服务器
 
@@ -110,7 +110,7 @@ Azure 资源管理器利用基础 REST API 来声明并计划大规模部署所�
 ```azurecli
 az login
 az group create -n ExampleResourceGroup  -l "China North 2"
-az group deployment create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
+az deployment group create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
 ```
 
 ## <a name="get-the-connection-information"></a>获取连接信息

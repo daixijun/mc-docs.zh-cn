@@ -2,14 +2,14 @@
 title: Durable Functions 中的自定义业务流程状态 - Azure
 description: 了解如何为 Durable Functions 配置和使用自定义业务流程状态。
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: e2e2c4b5dd14543fb95e27a1f638989de13d1a54
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 68edf7641ad8fcb770b3bf828d82c97908231618
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222678"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023187"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Durable Functions 中的自定义业务流程状态 (Azure Functions)
 
@@ -97,7 +97,7 @@ public static async Task<HttpResponseMessage> Run(
 {
     // Function input comes from the request content.
     dynamic eventData = await req.Content.ReadAsAsync<object>();
-    string instanceId = await starter.StartNewAsync(functionName, eventData);
+    string instanceId = await starter.StartNewAsync(functionName, (string)eventData);
 
     log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
 
@@ -356,6 +356,3 @@ GET /runtime/webhooks/durabletask/instances/instance123
 > [!div class="nextstepaction"]
 > [了解持久计时器](durable-functions-timers.md)
 
-
-
-<!-- Update_Description: wording update -->

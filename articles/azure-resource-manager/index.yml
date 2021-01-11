@@ -10,14 +10,14 @@ metadata:
   ms.collection: collection
   origin.date: 03/04/2020
   author: rockboyfor
-  ms.date: 10/26/2020
+  ms.date: 01/11/2021
   ms.author: v-yeche
-  ms.openlocfilehash: 35e735f1f6d0e0faadd176fb75d81410248ec06c
-  ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+  ms.openlocfilehash: 3768101c75c10cd186d2cdd166da7952d091c45e
+  ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/23/2020
-  ms.locfileid: "92470092"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98022925"
 highlightedContent:
   items:
   - title: 什么是资源管理器？
@@ -88,9 +88,6 @@ conceptualContent:
     - url: managed-applications/create-uidefinition-overview.md
       itemType: how-to-guide
       text: 定义用于创建应用的门户窗格
-    - url: managed-applications/publish-marketplace-app.md
-      itemType: tutorial
-      text: 将应用添加到市场
     footerLink:
       url: managed-applications/index.yml
       text: 查看详细信息

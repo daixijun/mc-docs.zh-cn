@@ -5,17 +5,18 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 06/02/2020
+ms.date: 01/08/2021
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8c7510838ec87ccc3477df0bde50cd11fabe5b0
-ms.sourcegitcommit: 9811bf312e0d037cb530eb16c8d85238fd276949
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 17e5b05d40cb0a09487e850f65ec13ca0d516856
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84275314"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021760"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect：ADSyncTools PowerShell 参考
 以下文档提供了 Azure AD Connect 随附的 ADSyncTools.psm1 PowerShell 模块的参考信息。
@@ -26,7 +27,9 @@ ms.locfileid: "84275314"
 1.  使用管理权限打开 Windows PowerShell
 2.  键入或复制并粘贴以下内容： 
     ``` powershell
-    Import-module -Name "C:\Program Files\Azure Active Directory Connect\Tools\AdSyncTools"
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+        Import-module -Name "C:\Program Files\Azure Active Directory Connect\Tools\AdSyncTools"
     ```
 3.  按 Enter。
 4.  若要验证模块是否已安装，请输入或复制并粘贴以下内容“
@@ -554,7 +557,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 $sourcePath = Read-Host -Prompt "Enter your log file path with file name" #"\<Source_Path\>" $outputPath = Read-Host -Prompt "Enter your out file path with file name" #"\<Out_Path\>"
- 
+
  Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
 #### <a name="example-2"></a>示例 2
@@ -1356,4 +1359,3 @@ Accept wildcard characters: False
 此 cmdlet 支持以下常见参数：-Debug、-ErrorAction、-ErrorVariable、-InformationAction、-InformationVariable、-OutVariable、-OutBuffer、-PipelineVariable、-Verbose、-WarningAction 和 -WarningVariable。
 有关详细信息，请参阅 about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216) 。
 
-<!-- Update_Description: wording update -->

@@ -9,12 +9,12 @@ ms.custom: subject-armqs, devx-track-azurecli
 ms.author: v-jay
 origin.date: 09/14/2020
 ms.date: 12/14/2020
-ms.openlocfilehash: 6ba52abc5c13051efd940cc8295f270d4745b8b2
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 901f4a02b909289a068772a91993c421b4af8284
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105090"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021307"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建内部负载均衡器，以对 VM 进行负载均衡
 
@@ -289,6 +289,7 @@ ms.locfileid: "97105090"
 - [**Microsoft.Compute/virtualMachines**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualMachines)：虚拟机。
 
 <!--(https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular)-->
+
 ## <a name="deploy-the-template"></a>部署模板
 
 **Azure CLI**

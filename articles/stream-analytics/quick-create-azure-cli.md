@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
-ms.date: 12/11/2020
-ms.openlocfilehash: 954fc6421fab2e007ca323f67a35b0196bcb62f1
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/07/2021
+ms.openlocfilehash: 543e2ad795ea770e3eaf6a580341ec881e7f90ba
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105304"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022991"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure 流分析作业
 
@@ -25,6 +25,7 @@ ms.locfileid: "97105304"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
+<!--Customized in MC-->
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="prepare-your-environment"></a>准备环境
@@ -125,7 +126,7 @@ ms.locfileid: "97105304"
    az storage account keys list -g streamanalyticsrg -n <storage-account>
    ```
 
-3. 可以使用 [az storage container create](/cli/storage/container) 命令创建用于存储 blob 的容器。 使用存储帐户密钥来授权操作创建容器。 有关使用 Azure CLI 授权数据操作的详细信息，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](../storage/common/authorize-data-operations-cli.md)。
+3. 可以使用 [az storage container create](/cli/storage/container) 命令创建用于存储 blob 的容器。 使用存储帐户密钥来授权操作创建容器。 有关使用 Azure CLI 授权数据操作的详细信息，请参阅[使用 Azure CLI 授权访问 blob 或队列数据](../storage/blobs/authorize-data-operations-cli.md)。
 
    ```azurecli
    az storage container create \

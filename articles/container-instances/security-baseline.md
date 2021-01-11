@@ -5,17 +5,17 @@ ms.service: security
 ms.topic: conceptual
 origin.date: 05/27/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 07/20/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c803ffec4c6578fa785755615f2edfe3ca53b61b
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 3849ec39505dc8260b31816002ead95e0ce45c01
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552319"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022001"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>容器实例的 Azure 安全基线
 
@@ -25,7 +25,7 @@ ms.locfileid: "94552319"
 
 有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
-## <a name="network-security"></a>网络安全性
+## <a name="network-security"></a>网络安全
 
 有关详细信息，请参阅[安全控制：网络安全](../security/benchmarks/security-control-network-security.md)。
 
@@ -73,7 +73,7 @@ ms.locfileid: "94552319"
 
 * [如何部署 Azure 防火墙](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [了解 Azure 安全中心集成的威胁情报](../security-center/threat-protection.md)
+* [了解 Azure 安全中心集成的威胁情报](../security-center/azure-defender.md)
 
 <!--Not Available on * [Understand Azure Security Center Adaptive Network Hardening](../security-center/security-center-adaptive-network-hardening.md)-->
 
@@ -251,7 +251,7 @@ ms.locfileid: "94552319"
 
 * [使用 Azure Monitor 日志进行容器组和实例日志记录](./container-instances-log-analytics.md)
 
-* [了解 Log Analytics 工作区](../azure-monitor/log-query/get-started-portal.md)
+* [了解 Log Analytics 工作区](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [如何在 Azure Monitor 中执行自定义查询](../azure-monitor/log-query/get-started-queries.md)
 
@@ -369,7 +369,7 @@ ms.locfileid: "94552319"
 
 **指南**：将 PAW（特权访问工作站）与为登录和配置 Azure 资源而配置的 MFA 结合使用。
 
-* [了解特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+<!--Not Avaialble on [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)-->
 
 * [如何在 Azure 中启用 MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -939,7 +939,7 @@ ms.locfileid: "94552319"
 
 **指导**：将托管服务标识与 Azure Key Vault 结合使用，以便简化和保护云应用程序的机密管理。
 
-<!--Not Available on * [How to integrate with Azure Managed Identities](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)-->
+* [如何与 Azure 托管标识集成](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 * [如何创建 Key Vault](../key-vault/secrets/quick-create-portal.md)
 

@@ -7,17 +7,17 @@ ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
 origin.date: 11/09/2020
-ms.date: 11/30/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.reviewer: stsoneff
-ms.openlocfilehash: c129f743cccd1d25d4503f00cffefe93b9ae9222
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.custom: azureday1
+ms.openlocfilehash: 8dcee5d2c5f773efd66ef6e285ad378f96fa8e7d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306562"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022949"
 ---
-<!--Verified Successfully-->
 # <a name="tutorial-enable-authentication-in-app-service-and-access-storage-and-microsoft-graph"></a>教程：在应用服务中启用身份验证和访问存储以及 Microsoft Graph
 
 本教程介绍了常见的应用场景，在这些场景中你将了解如何：
@@ -33,4 +33,3 @@ ms.locfileid: "96306562"
 
 > [!div class="nextstepaction"]
 > [为 Web 应用配置身份验证](scenario-secure-app-authentication-app-service.md)
-<!--NEW.date: 11/30/2020-->

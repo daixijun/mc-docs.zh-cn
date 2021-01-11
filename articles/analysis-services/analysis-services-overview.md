@@ -3,20 +3,20 @@ title: 什么是 Azure Analysis Services | Azure
 description: 了解 Azure Analysis Services，它是一种可在云中提供企业级数据模型的完全托管平台即服务 (PaaS)。
 ms.service: azure-analysis-services
 ms.topic: overview
-origin.date: 10/19/2020
+origin.date: 12/01/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 8e74b777e230f6e6a374458d0359a9d393d8209b
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 4714540b03ec2680336133213c36270a3deaebec
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004163"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022861"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -26,7 +26,7 @@ Azure Analysis Services 是一个完全托管的平台即服务 (PaaS)，它在�
 
 :::image type="content" source="./media/analysis-services-overview/aas-overview-overall.png" alt-text="数据源":::
 
-<!-- Not Available VIDEO on [this video](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4)-->
+<!--Not Available VIDEO on [this video](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4)-->
 
 ## <a name="get-up-and-running-quickly"></a>快速启动和运行
 
@@ -123,7 +123,7 @@ Azure Analysis Services 兼容 SQL Server Analysis Services Enterprise Edition �
 
 分区可以实现增量加载、提高并行度，并减少内存消耗。 其他高级数据建模功能（例如计算表）和所有 DAX 函数均受支持。 必须刷新（处理）内存中模型才能更新数据源中的缓存数据。 借助 Azure 服务主体支持，使用 PowerShell、TOM、TMSL 和 REST 的无人参与刷新操作可灵活确保模型数据始终保持最新。 
 
-DirectQuery 模式* 利用后端关系数据库进行存储和查询执行。 支持单个 SQL Server、SQL Server 数据仓库、Azure SQL 数据库、Azure Synapse Analytics（旧称为 SQL 数据仓库）、Oracle 和 Teradata 数据源中的极大型数据集。 后端数据集可以超出可用的服务器资源内存。 不需要复杂的数据模型刷新方案。 此外还存在一些限制（例如，受限的数据源类型、DAX 公式限制），并且某些高级数据建模功能不受支持。 在确定最合适的模式之前，请参阅[直接查询模式](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular)。
+DirectQuery 模式* 利用后端关系数据库进行存储和查询执行。 支持单个 SQL Server、SQL Server 数据仓库、Azure SQL 数据库、Azure Synapse Analytics、Oracle 和 Teradata 数据源中的极大型数据集。 后端数据集可以超出可用的服务器资源内存。 不需要复杂的数据模型刷新方案。 此外还存在一些限制（例如，受限的数据源类型、DAX 公式限制），并且某些高级数据建模功能不受支持。 在确定最合适的模式之前，请参阅[直接查询模式](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular)。
 
 \* 功能是否可用取决于层。
 
@@ -216,7 +216,7 @@ Analysis Services 有一个生机勃勃的开发人员社区，他们会创建�
 
 ## <a name="monitoring-and-diagnostics"></a>监视和诊断
 
-Azure Analysis Services 与 Azure Monitor 指标集成，提供数量众多的资源特定指标来帮助你监视服务器的性能与运行状况。 有关详细信息，请参阅[监视服务器指标](analysis-services-monitor.md)。 使用[资源平台日志](../azure-monitor/platform/platform-logs-overview.md)记录指标。 监视日志并将其发送到 [Azure 存储](https://www.azure.cn/home/features/storage/)，将其流式传输到 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)，并将其导出到 [Azure](https://www.azure.cn/) 服务 [Azure Monitor 日志](https://www.azure.cn/home/features/monitor/)。 有关详细信息，请参阅[设置诊断日志记录](analysis-services-logging.md)。
+Azure Analysis Services 与 Azure Monitor 指标集成，提供数量众多的资源特定指标来帮助你监视服务器的性能与运行状况。 有关详细信息，请参阅[监视服务器指标](analysis-services-monitor.md)。 使用[资源平台日志](../azure-monitor/platform/platform-logs-overview.md)记录指标。 监视日志并将其发送到 [Azure 存储](https://azure.microsoft.com/services/storage/)，将其流式传输到 [Azure 事件中心](https://azure.microsoft.com/services/event-hubs/)，并将其导出到 [Azure](https://www.azure.cn/) 服务 [Azure Monitor 日志](https://azure.microsoft.com/services/monitor/)。 有关详细信息，请参阅[设置诊断日志记录](analysis-services-logging.md)。
 
 Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)。 DMV 基于 SQL 语法，能够与返回元数据和监视有关服务器实例的信息的架构行集相对接。
 
@@ -224,9 +224,7 @@ Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.m
 
 本部分列出了特定于 Azure Analysis Services 的文档。 使用浏览器屏幕左侧的目录可查找文章。 
 
-由于 Azure Analysis Services 中的表格模型在很大程度上与 SQL Server Analysis Services 和 Power BI Premium 数据集中的表格模型相同，因此可以参考 [Analysis Services 文档](https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current)中分享的大量数据建模教程、概念、过程、开发人员和参考文章。 共享的 Analysis Services 文档中的文章在标题下方的“适用于”段落中说明了它们是否也适用于 Azure Analysis Services。 还可以使用“目录”上方的“版本”选择器，但只能查看适用于你所用的平台的文章。
-
-<!--CORRECT ON https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current-->
+由于 Azure Analysis Services 中的表格模型在很大程度上与 SQL Server Analysis Services 和 Power BI Premium 数据集中的表格模型相同，因此可以参考 [Analysis Services 文档](https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current&preserve-view=true)中分享的大量数据建模教程、概念、过程、开发人员和参考文章。 共享的 Analysis Services 文档中的文章在标题下方的“适用于”段落中说明了它们是否也适用于 Azure Analysis Services。 还可以使用“目录”上方的“版本”选择器，但只能查看适用于你所用的平台的文章。
 
 :::image type="content" source="./media/analysis-services-overview/aas-overview-applies-to.png" alt-text="分享的文档":::
 

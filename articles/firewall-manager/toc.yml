@@ -30,8 +30,6 @@
       href: trusted-security-partners.md
     - name: 使用 Check Point Cloudguard Connect 保护中心安全
       href: check-point-overview.md
-    - name: IP 组
-      href: ip-groups.md
     - name: 规则处理逻辑
       href: rule-processing.md
     - name: 体系结构选项
@@ -72,7 +70,7 @@
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/virtualnetwork/firewallpolicies'
-    - name: Azure Resource Manager
+    - name: Azure 资源管理器
       href: ../azure-resource-manager/management/overview.md
 - name: 资源
   items:

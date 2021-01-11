@@ -4,17 +4,17 @@ description: 介绍基于虚拟执行组件模式的 Service Fabric Reliable Act
 ms.topic: conceptual
 origin.date: 11/01/2017
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 36fae8bf4a15220b7488893892dfc47cf4778cb3
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 4624ebe223cdfc852a28ad4c042eef9030eeec99
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655164"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021977"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors 简介
 Reliable Actors 是基于[虚拟执行组件](https://research.microsoft.com/projects/orleans/)模式的 Service Fabric 应用程序框架。 Reliable Actors API 提供单一线程编程模型，该模型是基于 Service Fabric 所提供的可扩展性和可靠性保证构建的。
@@ -49,7 +49,7 @@ Service Fabric 执行组件是虚拟的，这表示其生存期不依赖于其�
 * 虽然 Reliable Actors 隐式创建执行组件对象，仍然能够显示删除执行组件及其状态。
 
 ## <a name="distribution-and-failover"></a>分布和故障转移
-要提供伸缩性和可靠性，Service Fabric 在整个群集中分布执行组件，并根据需要自动将其从故障节点迁移到正常节点中。 这是对[已分区的有状态 Reliable Service](service-fabric-concepts-partitioning.md) 进行抽象。 由于执行组件在名为*执行组件服务*的有状态 Reliable Service 内部运行，因此分布、可伸缩性、可靠性和自动故障转移全都可提供。
+要提供伸缩性和可靠性，Service Fabric 在整个群集中分布执行组件，并根据需要自动将其从故障节点迁移到正常节点中。 这是对[已分区的有状态 Reliable Service](service-fabric-concepts-partitioning.md) 进行抽象。 由于执行组件在名为 *执行组件服务* 的有状态 Reliable Service 内部运行，因此分布、可伸缩性、可靠性和自动故障转移全都可提供。
 
 执行组件在执行组件服务的各个分区中分布，而这些分区在一个 Service Fabric 群集的各个节点中分布。 每个服务分区包含一组执行组件。 Service Fabric 管理服务分区的分布和故障转移。
 

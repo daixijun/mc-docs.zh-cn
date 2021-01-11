@@ -1,24 +1,25 @@
 ---
 title: 使用 CLI 对 Azure 虚拟机进行维护控制
 description: 了解如何使用维护控制和 CLI 来控制对 Azure VM 应用维护的时间。
-author: rockboyfor
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 07/06/2020
+origin.date: 11/20/2020
+author: rockboyfor
+ms.date: 01/04/2021
 ms.author: v-yeche
-ms.openlocfilehash: 051a068a8d9f2ecd51249929272fa97e0bab2824
-ms.sourcegitcommit: 89118b7c897e2d731b87e25641dc0c1bf32acbde
+ms.openlocfilehash: d3a0753bffeb8cef472bfb82caaa2b219af722a3
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85946078"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857132"
 ---
 <!--WAITING FOR STEVE NOTIFICATION-->
 <!--Verified successfully-->
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>使用维护控制和 Azure CLI 来控制更新
 
-维护控制允许你决定何时向隔离的 VM 和 Azure 专用主机应用更新。 本主题介绍维护控制的 Azure CLI 选项。 有关使用维护控制的好处、其限制和其他管理选项的详细信息，请参阅[使用维护控制管理平台更新](maintenance-control.md)。
+利用维护控制，你可以决定何时为隔离的 VM 和 Azure 专用主机的主机基础结构应用平台更新。 本主题介绍维护控制的 Azure CLI 选项。 有关使用维护控制的好处、其限制和其他管理选项的详细信息，请参阅[使用维护控制管理平台更新](maintenance-control.md)。
 
 ## <a name="create-a-maintenance-configuration"></a>创建维护配置
 
@@ -30,22 +31,45 @@ az group create \
    --name myMaintenanceRG
 az maintenance configuration create \
    -g myMaintenanceRG \
-   --name myConfig \
-   --maintenanceScope host\
+   --resource-name myConfig \
+   --maintenance-scope host\
    --location chinaeast2
 ```
 
 复制输出中的配置 ID 供以后使用。
 
-使用 `--maintenanceScope host` 可确保将维护配置用于控制对主机的更新。
+使用 `--maintenance-scope host` 可确保使用维护配置来控制对主机基础结构的更新。
 
-如果尝试创建同名的但位于不同位置的配置，则会收到错误。 配置名称必须是你的订阅特有的。
+如果尝试创建同名的但位于不同位置的配置，则会收到错误。 配置名称对于资源组必须是唯一的。
 
 可以使用 `az maintenance configuration list` 来查询可用的维护配置。
 
 ```azurecli
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>创建具有计划时段的维护配置
+你也可以声明一个 Azure 将用于在资源上应用更新的计划时段。 本示例创建名为 myConfig 的维护配置，该配置的计划时段为每月第四个星期一的 5 个小时。 在创建计划时段后，不再需要手动应用更新。
+
+```azurecli
+az maintenance configuration create \
+   -g myMaintenanceRG \
+   --resource-name myConfig \
+   --maintenance-scope host \
+   --location chinaeast2 \
+   --maintenance-window-duration "05:00" \
+   --maintenance-window-recur-every "Month Fourth Monday" \
+   --maintenance-window-start-date-time "2020-12-30 08:00" \
+   --maintenance-window-time-zone "Pacific Standard Time"
+```
+
+> [!IMPORTANT]
+> 维护持续时间必须为 2 小时或更长时间。 维护重复周期必须设置为至少 35 天内发生一次。
+
+维护重复周期可以表示为每日、每周或每月。 下面是一些示例：
+- 每日 - maintenance-window-recur-every："Day" 或 "3Days"
+- 每周 - maintenance-window-recur-every："3Weeks" 或 "Week Saturday,Sunday"
+- 每月 - maintenance-window-recur-every："Month day23,day24" 或 "Month Last Sunday" 或 "Month Fourth Monday" 
 
 ## <a name="assign-the-configuration"></a>分配配置
 
@@ -70,7 +94,7 @@ az maintenance assignment create \
 
 若要将配置应用到专用主机，需要包含 `--resource-type hosts`、带主机组名称的 `--resource-parent-name`，以及 `--resource-parent-type hostGroups`。 
 
-参数 `--resource-id` 是主机的 ID。 可以使用 [az vm host get-instance-view](https://docs.microsoft.com/cli/azure/vm/host?view=azure-cli-latest#az-vm-host-get-instance-view) 获取专用主机的 ID。
+参数 `--resource-id` 是主机的 ID。 可以使用 [az vm host get-instance-view](https://docs.microsoft.com/cli/azure/vm/host#az_vm_host_get_instance_view) 获取专用主机的 ID。
 
 ```azurecli
 az maintenance assignment create \
@@ -250,7 +274,7 @@ az maintenance applyupdate get \
 az maintenance configuration delete \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myResourceGroup \
-   --name myConfig
+   --resource-name myConfig
 ```
 
 ## <a name="next-steps"></a>后续步骤

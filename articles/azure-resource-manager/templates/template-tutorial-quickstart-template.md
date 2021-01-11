@@ -3,22 +3,22 @@ title: 教程 - 使用快速启动模板
 description: 了解如何使用 Azure 快速入门模板来完成模板开发。
 origin.date: 03/27/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 34ef38c461f6479506cca51524df30524789e708
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 7ebc945818b38b71c98b53ece3c0b4d202f05fae
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470044"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022253"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>教程：使用 Azure 快速入门模板
 
-[Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)是一个存储库，其中包含社区贡献的模板。 可以在模板开发中使用示例模板。 在本教程中，我们需找到一个网站资源定义，然后将其添加到自己的模板中。 完成该过程需要大约 **12 分钟** 。
+[Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)是一个存储库，其中包含社区贡献的模板。 可以在模板开发中使用示例模板。 在本教程中，我们需找到一个网站资源定义，然后将其添加到自己的模板中。 完成该过程需要大约 **12 分钟**。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -112,7 +112,7 @@ ms.locfileid: "92470044"
 
 1. 打开 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)
 1. 在“搜索”中，输入“部署 linux web 应用”。  
-1. 选择标题为“部署基本的 linux web 应用”的项。  如果找不到它，请单击此处的[直接链接](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux/)。
+1. 选择标题为“部署基本的 linux web 应用”的磁贴。 如果找不到它，请单击此处的[直接链接](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux/)。
 1. 选择“在 GitHub 上浏览”。 
 1. 选择“azuredeploy.json”。 
 1. 查看模板。 具体说来，请查找 `Microsoft.Web/sites` 资源。
@@ -230,15 +230,15 @@ ms.locfileid: "92470044"
 }
 ```
 
-Web 应用名称必须在 Azure 中独一无二。 为了防止出现重复名称，我们已将 **webAppPortalName** 变量从 **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** 更新为 **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** 。
+Web 应用名称必须在 Azure 中独一无二。 为了防止出现重复名称，我们已将 `webAppPortalName` 变量从 `"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"` 更新为 `"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"` 。
 
 在 `Microsoft.Web/serverfarms` 定义末尾添加一个逗号，以便将资源定义与 `Microsoft.Web/sites` 定义分开。
 
 在这个新资源中，有一些需要注意的重要功能。
 
-你会注意到，它有一个名为 **dependsOn** 的元素，该元素设置为应用服务计划。 此设置是必需的，因为在创建 Web 应用之前，必须存在应用服务计划。 **dependsOn** 元素告知资源管理器如何将用于部署的资源排序。
+你会注意到，它有一个名为 `dependsOn` 的元素，该元素设置为应用服务计划。 此设置是必需的，因为在创建 Web 应用之前，必须存在应用服务计划。 `dependsOn` 元素告知资源管理器如何将用于部署的资源排序。
 
-**serverFarmId** 属性使用 [resourceId](template-functions-resource.md#resourceid) 函数。 此函数获取资源的唯一标识符。 在此示例中，它获取应用服务计划的唯一标识符。 Web 应用与一个特定的应用服务计划相关联。
+`serverFarmId` 属性使用 [resourceId](template-functions-resource.md#resourceid) 函数。 此函数获取资源的唯一标识符。 在此示例中，它获取应用服务计划的唯一标识符。 Web 应用与一个特定的应用服务计划相关联。
 
 ## <a name="deploy-template"></a>部署模板
 
@@ -273,7 +273,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> 如果部署失败，请使用“详细”开关获取有关正在创建的资源的信息。 使用“调试”开关获取调试的详细信息。
+> 如果部署失败，请使用 `verbose` 开关获取有关正在创建的资源的信息。 使用 `debug` 开关获取调试的详细信息。
 
 ## <a name="clean-up-resources"></a>清理资源
 

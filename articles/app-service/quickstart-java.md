@@ -7,16 +7,17 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: Java
 ms.topic: quickstart
 origin.date: 08/01/2020
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 80d65558e467f082906c718da85e8c5ef5bc766f
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+adobe-target: true
+ms.openlocfilehash: b8b69f1fc7270cf90ab216b4c6ab976ee7a2d5dc
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306508"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022956"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>快速入门：在 Azure 应用服务中创建 Java 应用
 

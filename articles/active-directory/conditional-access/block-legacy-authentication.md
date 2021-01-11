@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 891d4d84db581c1f7a04091df4e16a6906aeb001
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 80f32f354eff04f568be8a2c294422f2e76b0945
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918446"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022070"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>如何：使用条件访问阻止向 Azure AD 进行旧身份验证   
 
@@ -119,7 +119,7 @@ Azure AD 支持多个最广泛使用的身份验证和授权协议，包括旧�
 
 ### <a name="sharepoint-online-and-b2b-guest-users"></a>SharePoint Online 和 B2B 来宾用户
 
-若要阻止 B2B 用户通过旧式身份验证访问 SharePoint Online，组织必须使用 `Set-SPOTenant` PowerShell 命令并将 `-LegacyAuthProtocolsEnabled` 参数设置为 `$false`，以在 SharePoint 上禁用旧式身份验证。 有关设置此参数的详细信息，请参阅有关 [Set-SPOTenant](https://docs.microsoft.com/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps) 的 SharePoint PowerShell 参考文档
+若要阻止 B2B 用户通过旧式身份验证访问 SharePoint Online，组织必须使用 `Set-SPOTenant` PowerShell 命令并将 `-LegacyAuthProtocolsEnabled` 参数设置为 `$false`，以在 SharePoint 上禁用旧式身份验证。 有关设置此参数的详细信息，请参阅有关 [Set-SPOTenant](https://docs.microsoft.com/powershell/module/sharepoint-online/set-spotenant) 的 SharePoint PowerShell 参考文档
 
 ## <a name="next-steps"></a>后续步骤
 

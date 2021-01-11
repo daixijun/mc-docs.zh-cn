@@ -12,12 +12,12 @@ ms.reviewer: sgilley
 origin.date: 09/15/2020
 ms.date: 10/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 8ad96fb5b8f2ef5528b939f0126815b14439a332
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: e1a092eb886bc5f0ecc1336a9ab144837a175783
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94976954"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021136"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>教程：训练你的第一个机器学习模型（第 3 部分，共 4 部分）
 
@@ -154,7 +154,10 @@ tutorial
 +--03-run-hello.py
 ```
 
-## <a name="create-a-python-environment"></a>创建 Python 环境
+> [!div class="nextstepaction"]
+> [我创建了训练脚本](?success=create-scripts#environment) [我遇到了一个问题](https://www.research.net/r/7CTJQQN?issue=create-scripts)
+
+## <a name="create-a-python-environment"></a><a name="environment"></a> 创建 Python 环境
 
 为了便于演示，我们将使用 Conda 环境。 （用于 pip 虚拟环境的步骤基本相同。）
 
@@ -174,7 +177,10 @@ dependencies:
 
 此环境具有你的模型和训练脚本所需的所有依赖项。 请注意，适用于 Python 的 Azure 机器学习 SDK 没有依赖项。
 
-## <a name="test-locally"></a>本地测试
+> [!div class="nextstepaction"]
+> [我创建了环境文件](?success=create-env-file#test-local) [我遇到了一个问题](https://www.research.net/r/7CTJQQN?issue=create-env-file)
+
+## <a name="test-locally"></a><a name="test-local"></a> 本地测试
 
 请使用以下代码在此环境中对脚本运行进行本地测试：
 
@@ -186,14 +192,17 @@ python src/train.py                             # train model
 
 运行此脚本后，你将会看到下载到名为 `tutorial/data` 的目录中的数据。
 
-## <a name="create-the-control-script"></a>创建控制脚本
+> [!div class="nextstepaction"]
+> [我创建了环境文件](?success=test-local#create-local) [我遇到了一个问题](https://www.research.net/r/7CTJQQN?issue=test-local)
+
+## <a name="create-the-control-script"></a><a name="create-local"></a> 创建控制脚本
 
 下面的控制脚本和用于提交“Hello world!”的脚本之间的差异 在于你额外添加了几行来设置环境。
 
 在 `tutorial` 目录中创建名为 `04-run-pytorch.py` 的新 Python 文件：
 
 ```python
-# tutorial/04-run-pytorch.py
+# 04-run-pytorch.py
 from azureml.core import Workspace
 from azureml.core import Experiment
 from azureml.core import Environment
@@ -202,10 +211,15 @@ from azureml.core import ScriptRunConfig
 if __name__ == "__main__":
     ws = Workspace.from_config()
     experiment = Experiment(workspace=ws, name='day1-experiment-train')
-    config = ScriptRunConfig(source_directory='src', script='train.py', compute_target='cpu-cluster')
+    config = ScriptRunConfig(source_directory='./src',
+                             script='train.py',
+                             compute_target='cpu-cluster')
 
     # set up pytorch environment
-    env = Environment.from_conda_specification(name='pytorch-env', file_path='.azureml/pytorch-env.yml')
+    env = Environment.from_conda_specification(
+        name='pytorch-env',
+        file_path='./.azureml/pytorch-env.yml'
+    )
     config.run_config.environment = env
 
     run = experiment.submit(config)
@@ -233,7 +247,11 @@ if __name__ == "__main__":
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-the-run-to-azure-machine-learning"></a>将该运行提交到 Azure 机器学习
+> [!div class="nextstepaction"]
+> [我创建了控制脚本](?success=control-script#submit) [我遇到了一个问题](https://www.research.net/r/7CTJQQN?issue=control-script)
+
+
+## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> 将该运行提交到 Azure 机器学习
 
 如果切换了本地环境，请确保切换回已安装了适用于 Python 的 Azure 机器学习 SDK 的环境。 
 
@@ -282,7 +300,10 @@ Azure 机器学习还维护特选环境的集合。 这些环境涵盖了常见�
 
 简而言之，使用注册的环境可以节省时间！ 有关详细信息，请阅读[如何使用环境](./how-to-use-environments.md)。
 
-## <a name="log-training-metrics"></a>记录训练指标
+> [!div class="nextstepaction"]
+> [我提交了运行](?success=test-w-environment#log) [我遇到了一个问题](https://www.research.net/r/7CTJQQN?issue=test-w-environment)
+
+## <a name="log-training-metrics"></a><a name="log"></a> 记录训练指标
 
 你已在 Azure 机器学习中进行了模型训练，可以开始跟踪一些性能指标了。
 
@@ -373,13 +394,15 @@ Azure 机器学习中的指标具有以下特点：
 - 配备了一个 UI，使你能够在工作室中可视化训练性能。
 - 设计用于进行扩展，因此即使在运行数百个试验的情况下，你也始终有这些优势。
 
+> [!div class="nextstepaction"]
+> [我修改了 train.py](?success=modify-train#log) [我遇到了一个问题](https://www.research.net/r/7CTJQQN?issue=modify-train)
+
 ### <a name="update-the-conda-environment-file"></a>更新 Conda 环境文件
 
 `train.py` 脚本只有一个依赖于 `azureml.core` 的新依赖项。 更新 `pytorch-env.yml` 以反映此更改：
 
-```yaml
-# tutorial/.azureml/pytorch-env.yml
-name: pytorch-env
+```Pyhton
+name: pytorch-aml-env
 channels:
     - defaults
     - pytorch
@@ -392,7 +415,10 @@ dependencies:
         - azureml-sdk
 ```
 
-### <a name="submit-the-run-to-azure-machine-learning"></a>将该运行提交到 Azure 机器学习
+> [!div class="nextstepaction"]
+> [我更新了环境文件](?success=update-environment#submit-again) [我遇到了一个问题](https://www.research.net/r/7CTJQQN?issue=update-environment)
+
+### <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-again"></a> 将该运行提交到 Azure 机器学习
 再次提交此脚本：
 
 ```bash
@@ -402,6 +428,9 @@ python 04-run-pytorch.py
 这一次，当你访问工作室时，请转到“指标”选项卡，此时可以看到有关模型训练损失的实时更新！
 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="“指标”选项卡中的训练损失图。":::
+
+> [!div class="nextstepaction"]
+> [我重新提交了运行](?success=resubmit-with-logging#next-steps) [我遇到了一个问题](https://www.research.net/r/7CTJQQN?issue=resubmit-with-logging)
 
 ## <a name="next-steps"></a>后续步骤
 

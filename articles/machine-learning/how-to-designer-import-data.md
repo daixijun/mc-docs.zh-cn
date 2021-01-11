@@ -10,12 +10,12 @@ ms.author: v-yiso
 ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: f4f9b01679b3453f57f8254a4e36979295ace566
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: ee606dfb57d0a3006a3c822811ba64009d65b628
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977237"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022618"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>将数据导入到 Azure 机器学习设计器
 
@@ -62,6 +62,15 @@ ms.locfileid: "94977237"
 > [!NOTE]
 > 设计器支持[数据集版本控制](how-to-version-track-datasets.md)。 在数据集模块的属性面板中指定数据集版本。
 
+### <a name="limitations"></a>限制 
+
+- 目前只能可视化设计器中的表格数据集。 如果在设计器外注册文件数据集，则无法在设计器画布中对其进行可视化。
+- 数据集存储在虚拟网络 (VNet) 中。 如果要进行可视化，则需要启用数据存储的工作区托管标识。
+    1. 转到相关的数据存储，然后单击“更新凭据”
+    :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="更新凭据":::
+    1. 选择“确定”，启用工作区托管标识。
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="启用工作区托管标识":::
+
 ## <a name="import-data-using-the-import-data-module"></a>使用“导入数据”模块导入数据
 
 尽管我们建议使用数据集来导入数据，但也可以使用[导入数据](algorithm-module-reference/import-data.md)模块。 “导入数据”模块会跳过在 Azure 机器学习中注册数据集，并直接从[数据存储](concept-data.md#datastores) 或 HTTP URL 导入数据。
@@ -88,7 +97,7 @@ ms.locfileid: "94977237"
 
 设计器在内部可以识别以下数据类型：
 
-* 字符串
+* String
 * Integer
 * 小数
 * Boolean

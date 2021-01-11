@@ -3,14 +3,14 @@
 - name: 概述
   expanded: true
   items:
-    - name: 关于安全中心
+    - name: 什么是 Azure 安全中心？
+      href: security-center-introduction.md
+    - name: 可用性
       items:
-        - name: 什么是 Azure 安全中心？
-          href: security-center-introduction.md
-        - name: 受支持的平台
+        - name: 支持的平台
           displayName: coverage
           href: security-center-os-coverage.md
-        - name: 适用于 VM 的功能覆盖范围
+        - name: 按 OS、计算机类型和云划分的覆盖范围
           href: security-center-services.md
         - name: 适用于 Azure PaaS 资源的功能覆盖范围
           href: features-paas.md
@@ -19,9 +19,6 @@
         - name: 发行说明
           displayName: 'changelog, news'
           href: release-notes.md
-        - name: 即将推出的重要更改
-          displayName: 'release notes, changelog, news'
-          href: upcoming-changes.md
         - name: 已存档的发行说明（超过 6 个月）
           displayName: 'changelog, news'
           href: release-notes-archive.md
@@ -42,6 +39,9 @@
         - name: 适用于服务器的 Azure Defender
           displayName: VM
           href: defender-for-servers-introduction.md
+        - name: 适用于 SQL 的 Azure Defender
+          displayName: database
+          href: defender-for-sql-introduction.md
         - name: 适用于 Kubernetes 的 Azure Defender
           displayName: 'clusters, k8s, aks'
           href: defender-for-kubernetes-introduction.md
@@ -62,9 +62,6 @@
       href: security-center-enable-data-collection.md
     - name: 设置电子邮件通知
       href: security-center-provide-security-contact-details.md
-    - name: 使用 ARM 模板创建对警报的自动响应
-      displayName: Resource Manager
-      href: quickstart-automation-alert.md
 - name: 教程
   items:
     - name: 规划和操作指南
@@ -113,9 +110,9 @@
           href: security-center-network-recommendations.md
         - name: 保护标识和访问权限
           href: security-center-identity-access.md
-    - name: Azure Defender 警报
+    - name: 了解安全警报
       items:
-        - name: Azure Defender 警报概述
+        - name: 安全警报概述
           href: security-center-alerts-overview.md
         - name: 警报架构
           href: alerts-schemas.md
@@ -155,7 +152,7 @@
           href: continuous-export.md
         - name: 下载所有警报的 CSV 报告
           href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
-    - name: 处理 Azure Defender 警报
+    - name: 处理安全警报
       items:
         - name: 管理安全警报
           href: security-center-managing-and-responding-alerts.md

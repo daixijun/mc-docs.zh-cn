@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 3265c1fda32786bac14dc6b98396acb06448159e
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 086822ffae393497a386de565ae13c6b2a12c92a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501767"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021632"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>配置令牌生存期策略（预览版）
 如果能够创建和管理应用、服务主体和整个组织的令牌生存期，就可以在 Azure AD 中实现各种新的方案。  

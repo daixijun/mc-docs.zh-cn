@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: 424af8da52cc7f30b6fd5ad0503feac888c61db3
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 5d291868449253973b25f3cd14a823df0f80fc93
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501637"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021781"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>通过适用于 JavaScript 的 Microsoft 身份验证库来使用 Azure AD B2C
 
@@ -209,7 +209,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
     :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Azure AD B2C 显示的密码重置流屏幕" border="false":::
 
-    有关错误代码和异常处理的详细信息，请参阅 [MSAL 错误和异常代码](msal-handling-exceptions.md)。
+    有关错误代码和异常处理的详细信息，请参阅 [MSAL 错误和异常代码](msal-error-handling-js.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

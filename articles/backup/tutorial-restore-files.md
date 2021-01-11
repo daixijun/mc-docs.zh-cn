@@ -4,15 +4,15 @@ description: 了解如何使用备份和恢复服务在 Azure VM 上执行文件
 ms.topic: tutorial
 author: Johnnytechn
 origin.date: 01/31/2019
-ms.date: 12/10/2020
+ms.date: 01/07/2021
 ms.author: v-johya
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e536f2e9ce1a533c629dbf513406bfe91bb03605
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 756b66b68746c92f12fb554cb65b30aab950dc89
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104510"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022014"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>将文件还原到 Azure 中的虚拟机
 
@@ -24,11 +24,13 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
 > * 将恢复点连接到 VM
 > * 从恢复点还原文件
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.18 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
-
 ## <a name="prerequisites"></a>先决条件
 
 本教程需要使用 Azure 备份所保护的 Linux VM。 若要模拟意外文件删除和恢复过程，请从 Web 服务器中删除一页。 如果需要运行 Web 服务器且已使用 Azure 备份保护的 Linux VM，请参阅[在 Azure 中使用 CLI 备份虚拟机](quick-backup-vm-cli.md)。
+
+准备环境：
+
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.18 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="backup-overview"></a>备份概述
 

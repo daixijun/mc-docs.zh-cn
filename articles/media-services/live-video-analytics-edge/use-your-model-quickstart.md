@@ -1,19 +1,16 @@
 ---
 title: 使用自己的 HTTP 模型分析实时视频 - Azure
-description: 在本快速入门中，你将应用计算机视觉来分析来自（模拟）IP 相机的实时视频源。
+description: 在本快速入门中，你将使用自己的 HTTP 模型应用计算机视觉来分析来自（模拟）IP 相机的实时视频源。
 ms.topic: quickstart
-author: WenJason
-ms.author: v-jay
-ms.service: media-services
 origin.date: 04/27/2020
-ms.date: 09/28/2020
+ms.date: 01/11/2021
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 179955ff687a061c12b6393ec077f6ca106ed7da
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: e271943e9204176c6a71aed49c4b2d2d4dba38c3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245601"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021302"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-http-model"></a>快速入门：使用自己的 HTTP 模型分析实时视频
 
@@ -84,4 +81,4 @@ ms.locfileid: "91245601"
 查看高级用户面临的其他挑战：
 
 * 使用支持 RTSP 的 [IP 相机](https://en.wikipedia.org/wiki/IP_camera)，而不是使用 RTSP 模拟器。 可以在 [ONVIF 符合标准的产品](https://www.onvif.org/conformant-products/)页面上搜索支持 RTSP 的 IP 摄像机。 查找符合配置文件 G、S 或 T 的设备。
-* 使用 AMD64 或 X64 Linux 设备，而不是 Azure Linux VM。 此设备必须与 IP 相机位于同一网络中。 可以按照[在 Linux 上安装 Azure IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge-linux.md)中的说明进行操作。 然后按照[将首个 IoT Edge 模块部署到虚拟 Linux 设备](../../iot-edge/quickstart-linux.md)中的说明，将设备注册到 Azure IoT 中心。
+* 使用 AMD64 或 X64 Linux 设备，而不是 Azure Linux VM。 此设备必须与 IP 相机位于同一网络中。 可以按照[在 Linux 上安装 Azure IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge.md)中的说明进行操作。 然后按照[将首个 IoT Edge 模块部署到虚拟 Linux 设备](../../iot-edge/quickstart-linux.md)中的说明，将设备注册到 Azure IoT 中心。

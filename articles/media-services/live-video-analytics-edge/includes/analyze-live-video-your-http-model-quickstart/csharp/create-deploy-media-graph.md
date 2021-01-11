@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 3cd2ae94cb04a1a495f33551f2c3a88a0d5a9b24
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 585b572af9f5ace0d3543aa580303b0f78450d9f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301123"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021299"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>检查和编辑示例文件
 
@@ -15,18 +15,18 @@ ms.locfileid: "96301123"
     部署模板是指边缘设备的部署清单。 它包含一些占位符值。 该 .env 文件包含这些变量的值。
 1. 转到 src/cloud-to-device-console-app 文件夹。 你可在此处看到 appsettings.json 文件和一些其他文件：
 
-    * c2d-console-app.csproj - Visual Studio Code 的项目文件*。
-    operations.json - 希望程序运行的操作的列表。
-    Program.cs - 示例程序代码。 此代码：
+    * c2d-console-app.csproj - Visual Studio Code 的项目文件*_。
+    _ operations.json - 希望程序运行的操作的列表。*_
+    _ Program.cs - 示例程序代码*_。 此代码：
 
-        加载应用设置。
+        _ 加载应用设置。
         * 调用 IoT Edge 模块上的实时视频分析公开的直接方法。 可以通过调用模块的[直接方法](../../../direct-methods.md)来使用该模块分析实时视频流。
         * 暂停以检查“终端”窗口中程序的输出，并检查“输出”窗口中模块生成的事件 。
         * 调用直接方法以清理资源。
 1. 编辑 operations.json 文件：
     * 将链接更改为图拓扑：
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 
     * 在 `GraphInstanceSet` 下，编辑图拓扑的名称，使其与上一个链接中的值匹配：
 
@@ -95,7 +95,7 @@ ms.locfileid: "96301123"
    Executing operation GraphTopologyList
    -----------------------  Request: GraphTopologyList  --------------------------------------------------
    {
-   "@apiVersion": "1.0"
+   "@apiVersion": "2.0"
    }
    ---------------  Response: GraphTopologyList - Status: 200  ---------------
    {
@@ -113,7 +113,7 @@ ms.locfileid: "96301123"
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
              "topologyName": "InferencingWithHttpExtension",

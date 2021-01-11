@@ -6,17 +6,18 @@ author: jasonfreeberg
 ms.devlang: java
 ms.topic: article
 origin.date: 04/12/2019
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 3cece3faf6e2f4fa4c7339a202d550cb00e1ea04
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+adobe-target: true
+ms.openlocfilehash: b0fde33018b5210283b1ee0e3c73dc6576a660c1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747107"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023007"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>为 Azure 应用服务配置 Java 应用
 
@@ -26,7 +27,9 @@ Azure 应用服务可让 Java 开发人员在完全托管服务中快速生成�
 
 ## <a name="deploying-your-app"></a>部署应用
 
-可以使用[适用于 Maven 的 Azure Web 应用插件](https://docs.microsoft.com/java/api/overview/maven/azure-webapp-maven-plugin/readme)来部署 .war 或 .jar 文件。 [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/intellij/azure-toolkit-for-intellij) 或 [Azure Toolkit for Eclipse](https://docs.microsoft.com/java/eclipse/azure-toolkit-for-eclipse) 还支持通过流行的 IDE 进行部署。
+可以使用[适用于 Maven 的 Azure Web 应用插件](https://docs.microsoft.com/java/api/overview/maven/azure-webapp-maven-plugin/readme)来部署 .war 或 .jar 文件。 [Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/) 或 [Azure Toolkit for Eclipse](https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse) 还支持通过流行的 IDE 进行部署。
+
+<!--Broken link on Global docs-->
 
 否则，则部署方法将取决于存档类型：
 
@@ -204,7 +207,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ## <a name="secure-applications"></a>安全应用程序
 
-<!--Java applications running in App Service have the same set of [security best practices](/security/security-paas-applications-using-app-services) as other applications.-->
+<!--Java applications running in App Service have the same set of [security best practices](/security/security-paas-applications-using-app-services)-->
 
 ### <a name="authenticate-users-easy-auth"></a>对用户进行身份验证（简易身份验证）
 
@@ -214,7 +217,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 #### <a name="java-se"></a>Java SE
 
-Spring Boot 开发人员可以使用 [Azure Active Directory Spring Boot Starter](https://docs.microsoft.com/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) 通过熟悉的 Spring Security 注释和 API 来保护应用程序。 务必增加 application.properties 文件中的最大标头大小。 我们建议值为 `16384`。
+Spring Boot 开发人员可以使用 [Azure Active Directory Spring Boot Starter](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) 通过熟悉的 Spring Security 注释和 API 来保护应用程序。 务必增加 application.properties 文件中的最大标头大小。 我们建议值为 `16384`。
 
 #### <a name="tomcat"></a>Tomcat
 

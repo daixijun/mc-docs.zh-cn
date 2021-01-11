@@ -5,14 +5,14 @@ ms.reviewer: srinathv
 author: Johnnytechn
 ms.topic: troubleshooting
 origin.date: 08/30/2019
-ms.date: 12/10/2020
+ms.date: 01/07/2021
 ms.author: v-johya
-ms.openlocfilehash: c34685a9cd182182e7903edc8025759f039fe22a
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: f173d836223954ad031be5d5c15c295180e111eb
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105140"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023183"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>排查 Azure 虚拟机上的备份失败问题
 
@@ -249,7 +249,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 **步骤 2**：尝试将备份计划更改到 VM 的负载较小（如 CPU 或 IOPS 较小）的某个时间
 
-**步骤 3**：尝试 [增大 VM 的大小](/virtual-machines/windows/resize-vm)并重试操作
+**步骤 3**：尝试 [增大 VM 的大小](../virtual-machines/windows/resize-vm.md)并重试操作
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001，ResourceNotFound - 无法执行操作，因为 VM 不存在/400094, BCMV2VMNotFound - 虚拟机不存在/找不到 Azure 虚拟机
 

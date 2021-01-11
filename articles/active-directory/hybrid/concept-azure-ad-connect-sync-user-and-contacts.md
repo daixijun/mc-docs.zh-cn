@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 01/08/2021
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bc1dec4a7bc26f39e4772d70307f3047dec9113
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: ae896fc475494da6e9be669d7c4cae54ee78eae0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245017"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021527"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 同步：了解用户、组和联系人
 有几个不同的原因导致你会有多个 Active Directory 林，并且还有几个不同的部署拓扑。 常见的模型包括合并和收购之后的帐户-资源部署和 GAL 同步的林。 但即使有纯模型，混合模型也是常见的模型。 Azure AD Connect 同步中的默认配置是不会假定任何特定模型，但观察到的行为可能会有所不同，这具体取决于安装指南中如何选择用户匹配。
@@ -41,7 +41,7 @@ ms.locfileid: "91245017"
 
 * Azure AD Connect 不支持将[主要组成员身份](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11))同步到 Azure AD。
 
-* Azure AD Connect 不支持将[动态分发组成员身份](https://docs.microsoft.com/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019)同步到 Azure AD。
+* Azure AD Connect 不支持将[动态分发组成员身份](https://docs.microsoft.com/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups)同步到 Azure AD。
 
 * 若要以启用邮件的组的形式将 Active Directory 组同步到 Azure AD：
 
@@ -56,7 +56,7 @@ ms.locfileid: "91245017"
       * 其 proxyAddress 属性包含值 *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe\@contoso.com"}* 的 Active Directory 组在 Azure AD 中也会启用邮件。
 
 ## <a name="contacts"></a>联系人
-合并和收购之后，不同林中具有表示用户的联系人很常见，其中，GALSync 解决方案对两个或多个 Exchange 林桥接。 联系人对象始终使用邮件属性从连接器空间联接到 metaverse。 如果已存在具有相同邮件地址的联系人对象或用户对象，则会将这些对象联接在一起。 这在规则 **In from AD - Contact Join**中进行配置。 另外，还有一条名为 **In from AD - Contact Common** 的规则，该规则具有到包含常量 **Contact** 的 metaverse 属性 **sourceObjectType** 的属性流。 如果将任何用户对象联接到相同的 metaverse 对象，则此规则的优先级非常低，并且 **In from AD - User Common** 规则会为此属性提供值 User。 在使用此规则的情况下，如果没有联接任何用户，此属性则会具有值 Contact，如果至少找到了一个用户，则会具有值 User。
+合并和收购之后，不同林中具有表示用户的联系人很常见，其中，GALSync 解决方案对两个或多个 Exchange 林桥接。 联系人对象始终使用邮件属性从连接器空间联接到 metaverse。 如果已存在具有相同邮件地址的联系人对象或用户对象，则会将这些对象联接在一起。 这在规则 **In from AD - Contact Join** 中进行配置。 另外，还有一条名为 **In from AD - Contact Common** 的规则，该规则具有到包含常量 **Contact** 的 metaverse 属性 **sourceObjectType** 的属性流。 如果将任何用户对象联接到相同的 metaverse 对象，则此规则的优先级非常低，并且 **In from AD - User Common** 规则会为此属性提供值 User。 在使用此规则的情况下，如果没有联接任何用户，此属性则会具有值 Contact，如果至少找到了一个用户，则会具有值 User。
 
 为 Azure AD 预配对象时，如果将 metaverse 属性 **sourceObjectType** 设置为 **Contact**，出站规则 **Out to AAD - Contact Join** 则会创建联系人对象。 如果将此属性设置为 **User**，**Out to AAD - User Join** 规则则会改为创建用户对象。
 当导入和同步更多源 Active Directory 时，对象很可能由 Contact 提升为 User。

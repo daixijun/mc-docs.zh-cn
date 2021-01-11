@@ -5,17 +5,17 @@ services: container-service
 ms.topic: conceptual
 origin.date: 11/28/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c9c159887d69cf1e62956328387b909ca80ce7bd
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 2d7d84e3c44ca8a8ec55547df4a43cdbcf2a7937
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021271"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022318"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中实现业务连续性和灾难恢复的最佳做法
 
@@ -115,7 +115,7 @@ AKS 区域可用性和配对区域是共同考虑的因素。 将 AKS 群集部�
 
 即使删除了 pod，应用程序也可能需要持久存储。 在 Kubernetes 中，可以使用持久性卷来持久保存数据存储。 持久性卷会装载到节点 VM，然后公开给 pod。 持久性卷遵循 pod，即使 pod 被移动到同一群集内的其他节点也是如此。
 
-使用的复制策略取决于存储解决方案。 常见的存储解决方案（例如 [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/)、[Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/)、[Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html) 和 [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps)）在灾难恢复和复制方面都提供了自身的指导。
+使用的复制策略取决于存储解决方案。 常见的存储解决方案（例如 [Gluster](https://docs.gluster.org/en/latest/Administrator-Guide/Geo-Replication/)、[Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/)、[Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html) 和 [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps)）在灾难恢复和复制方面都提供了自身的指导。
 
 典型的策略是提供一个通用存储点，应用程序可在其中写入其数据。 然后跨区域复制此数据，在本地访问。
 

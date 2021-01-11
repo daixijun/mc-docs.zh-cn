@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7baecbc2dfc6be57b5ae6857e505aa973627d80d
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: de291970696bb4c94389ce8b798dc7392961fd7d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508621"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021746"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>使用 Azure PowerShell 创建、列出和删除用户分配托管标识
-
-[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice-ua.md)]
 
 Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供了一个托管标识。 此标识可用于向支持 Azure AD 身份验证的服务进行身份验证，这样就无需在代码中输入凭据了。 
 

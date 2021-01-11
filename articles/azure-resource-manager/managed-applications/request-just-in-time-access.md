@@ -4,14 +4,14 @@ description: 介绍了 Azure 托管应用程序的发布者如何请求对托管
 ms.topic: conceptual
 origin.date: 09/25/2020
 author: rockboyfor
-ms.date: 10/12/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: 1fb9cf7db2a2ed409fd1e0aef8c4e6f4de9c55f5
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: c7a77178fc4cc874f216042e8e797871a18e2fc2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937395"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022021"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>启用和请求对 Azure 托管应用程序的实时访问权限
 
@@ -73,7 +73,7 @@ ms.locfileid: "91937395"
 
 1. 登录到[云合作伙伴发布门户](https://cloudpartner.azure.cn/)。
 
-    <!--Not Available on [Create an Azure application offer](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)-->
+    <!--Not Available on [Create an Azure application offer](../../marketplace/create-new-azure-apps-offer.md)-->
     
 1. 在“技术配置”页上，选中“启用实时(JIT)访问”复选框。
 
@@ -87,25 +87,25 @@ ms.locfileid: "91937395"
 
 若要发送 JIT 访问请求，请执行以下操作：
 
-1. 针对你需要访问的托管应用程序选择“JIT 访问”****。
+1. 针对你需要访问的托管应用程序选择“JIT 访问”。
 
-1. 选择“符合条件的角色”****，然后针对你需要的角色在“操作”列中选择“激活”****。
+1. 选择“符合条件的角色”，然后针对你需要的角色在“操作”列中选择“激活”。
 
-   :::image type="content" source="./media/request-just-in-time-access/send-request.png" alt-text="启用实时访问":::
+   :::image type="content" source="./media/request-just-in-time-access/send-request.png" alt-text="激活访问请求":::
 
-1. 在“激活角色”**** 窗体上，选择要激活的角色的开始时间和持续时间。 选择“激活”**** 以发送请求。
+1. 在“激活角色”窗体上，选择要激活的角色的开始时间和持续时间。 选择“激活”以发送请求。
 
-   :::image type="content" source="./media/request-just-in-time-access/activate-access.png" alt-text="启用实时访问"::: 
+   :::image type="content" source="./media/request-just-in-time-access/activate-access.png" alt-text="激活访问权限"::: 
 
 1. 查看通知，以查看是否已成功将新的 JIT 请求发送到使用者。
 
-   :::image type="content" source="./media/request-just-in-time-access/in-progress.png" alt-text="启用实时访问":::
+   :::image type="content" source="./media/request-just-in-time-access/in-progress.png" alt-text="通知":::
 
     现在，你必须等待使用者[批准你的请求](approve-just-in-time-access.md#approve-requests)。
 
-1. 若要查看对托管应用程序的所有 JIT 请求的状态，请依次选择“JIT 访问”**** 和“请求历史记录”****。
+1. 若要查看对托管应用程序的所有 JIT 请求的状态，请依次选择“JIT 访问”和“请求历史记录”。
 
-   :::image type="content" source="./media/request-just-in-time-access/view-status.png" alt-text="启用实时访问":::
+   :::image type="content" source="./media/request-just-in-time-access/view-status.png" alt-text="查看状态":::
 
 ## <a name="known-issues"></a>已知问题
 

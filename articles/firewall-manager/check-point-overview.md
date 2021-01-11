@@ -5,14 +5,15 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/30/2020
+origin.date: 10/30/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: dff180e40652c9788dceb51f35b097c2b221ba81
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: b68f1a19c28f395af4db0cd9613ef315d338f01b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105527"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022806"
 ---
 # <a name="secure-virtual-hubs-using-check-point-cloudguard-connect"></a>使用 Check Point Cloudguard Connect 保护虚拟中心的安全
 
@@ -26,6 +27,8 @@ Check Point 将多个安全服务统一在一起。 集成的安全流量会被�
 
 威胁模拟（沙盒）保护用户免受未知威胁和零日威胁。 Check Point SandBlast 零日防护是一种云托管的沙盒技术，可以快速隔离和检查文件。 它在虚拟沙盒中运行，在恶意行为进入网络之前发现恶意行为。 它在破坏发生之前阻止威胁，以节省员工响应威胁的宝贵时间。 
 
+
+<!--[!VIDEO https://www.youtube.com/embed/C8AuN76DEmU]-->
 
 ## <a name="next-steps"></a>后续步骤
 

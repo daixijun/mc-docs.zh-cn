@@ -48,98 +48,6 @@
       href: tutorial-lamp-stack.md
     - name: 17 - 使用 SSL 保护 Web 服务器
       href: tutorial-secure-web-server.md
-- name: 示例
-  items:
-    - name: Azure CLI
-      items:
-        - name: CLI 示例索引
-          href: cli-samples.md
-        - name: 创建 VM
-          items:
-            - name: 创建虚拟机
-              href: ../scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 创建完全配置的虚拟机
-              href: ../scripts/virtual-machines-linux-cli-sample-create-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 创建高度可用的虚拟机
-              href: ../scripts/virtual-machines-linux-cli-sample-nlb.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 创建 VM 并运行配置脚本
-              href: ../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 创建安装有 WordPress 的 VM
-              href: ../scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 从托管 OS 磁盘创建 VM
-              href: ../scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 从快照创建 VM
-              href: ../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 管理存储
-          items:
-            - name: 从 VHD 创建托管磁盘
-              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 从快照创建托管磁盘
-              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 将托管磁盘复制到相同或不同订阅
-              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 将快照作为 VHD 导出到存储帐户
-              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 将托管磁盘的 VHD 导出到存储帐户
-              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 将快照复制到相同或不同订阅
-              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 网络虚拟机
-          items:
-            - name: 保护虚拟机之间的网络流量
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 保护虚拟机
-          items:
-            - name: 对 VM 和数据磁盘进行加密
-              href: ./../scripts/virtual-machines-linux-cli-sample-encrypt-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 监视虚拟机
-          items:
-            - name: 使用 Azure Monitor 日志监视 VM
-              href: ./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 疑难解答
-          items:
-            - name: 对 VM 操作系统磁盘进行故障排除
-              href: ./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Azure PowerShell
-      items:
-        - name: PowerShell 示例索引
-          href: powershell-samples.md
-        - name: 创建虚拟机
-          items:
-            - name: 创建完全配置的虚拟机
-              href: '../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | Creates a resource group, virtual machine, and all related resources.|'
-            - name: 创建已启用 Docker 的 VM
-              href: ../scripts/virtual-machines-linux-powershell-sample-create-docker-host.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 创建 VM 并运行配置脚本
-              href: ../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 创建安装有 WordPress 的 VM
-              href: ../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 从托管 OS 磁盘创建 VM
-              href: ../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 从快照创建 VM
-              href: ../scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 管理存储
-          items:
-            - name: 在相同或不同的订阅中从 VHD 创建托管磁盘
-              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 从快照创建托管磁盘
-              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 将快照作为 VHD 导出到存储帐户
-              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 将托管磁盘的 VHD 导出到存储帐户
-              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 从 VHD 创建快照
-              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 将快照复制到相同或不同的订阅
-              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-        - name: 监视虚拟机
-          items:
-            - name: 使用 Azure Monitor 日志监视 VM
-              href: ../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 将托管磁盘复制到相同或不同的订阅
-              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 使用 PowerShell 收集订阅中所有 VM 的详细信息
-              href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
 - name: 概念
   items:
     - name: 映像
@@ -149,7 +57,7 @@
         - name: 设置
           href: provisioning.md
         - name: 共享映像库
-          href: shared-image-galleries.md
+          href: ../shared-image-galleries.md
     - name: Azure 资源管理器
       href: ../../azure-resource-manager/management/overview.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
     - name: 区域
@@ -251,6 +159,10 @@
           href: disk-scalability-targets.md
         - name: 磁盘的备份和灾难恢复
           href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
+        - name: 共享磁盘
+          href: ../disks-shared.md?toc/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
+        - name: 磁盘性能层
+          href: ../disks-change-performance.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
         - name: 临时 OS 磁盘
           href: ../ephemeral-os-disks.md
     - name: 网络
@@ -268,6 +180,10 @@
         - name: Azure Policy 的安全控件
           displayName: 'regulatory, compliance, standards, domains'
           href: ../security-controls-policy.md
+        - name: Azure 安全基准的安全基线
+          href: security-baseline.md
+        - name: Bastion
+          href: ../../bastion/bastion-overview.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
     - name: 状态和生命周期
       href: ../states-lifecycle.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
     - name: 用于创建或更新操作的 PUT 调用
@@ -302,17 +218,17 @@
         - name: 从 2023 年 3 月 1 日开始停用
           href: ../classic-vm-deprecation.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
         - name: 迁移概述
-          href: migration-classic-resource-manager-overview.md
+          href: ../migration-classic-resource-manager-overview.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
         - name: 深入了解迁移
-          href: migration-classic-resource-manager-deep-dive.md
+          href: ../migration-classic-resource-manager-deep-dive.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
         - name: 规划迁移
-          href: migration-classic-resource-manager-plan.md
+          href: ../migration-classic-resource-manager-plan.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
         - name: 使用 CLI 迁移
-          href: migration-classic-resource-manager-cli.md
+          href: ../migration-classic-resource-manager-cli.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
         - name: 常见的迁移错误
-          href: migration-classic-resource-manager-errors.md
+          href: ../migration-classic-resource-manager-errors.md?bc=%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fvirtual-machines%2flinux%2ftoc.json
         - name: 用于迁移的社区工具
-          href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
+          href: ../migration-classic-resource-manager-community-tools.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
         - name: 常见问题解答
           href: ../migration-classic-resource-manager-faq.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
     - name: 使用映像
@@ -376,7 +292,7 @@
                       href: ../image-version-vm-cli.md
                     - name: 从托管磁盘或快照
                       href: ../image-version-snapshot-cli.md
-                    - name: 从托管映像迁移
+                    - name: 克隆托管映像
                       href: ../image-version-managed-image-cli.md
                     - name: 从另一个库复制
                       href: ../image-version-another-gallery-cli.md
@@ -400,7 +316,7 @@
                       href: ../image-version-vm-powershell.md
                     - name: 从托管磁盘或快照
                       href: ../image-version-snapshot-powershell.md
-                    - name: 从托管映像迁移
+                    - name: 克隆托管映像
                       href: ../image-version-managed-image-powershell.md
                     - name: 从另一个库复制
                       href: ../image-version-another-gallery-powershell.md
@@ -453,7 +369,7 @@
             - name: 创建 Bastion 主机
               items:
                 - name: 门户
-                  href: ../../bastion/bastion-create-host-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../bastion/tutorial-create-host-portal.md?bc=%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fvirtual-machines%2flinux%2ftoc.json
                 - name: PowerShell
                   href: ../../bastion/bastion-create-host-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                 - name: CLI
@@ -707,6 +623,8 @@
               href: attach-disk-portal.md
         - name: 更改磁盘层 - PowerShell/CLI
           href: ../disks-performance-tiers.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
+        - name: 更改磁盘层 - 门户
+          href: ../disks-performance-tiers-portal.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
         - name: 分离磁盘
           href: detach-disk.md
         - name: 使用 ARM 模板部署磁盘
@@ -744,12 +662,12 @@
               href: ../how-to-enable-write-accelerator.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
             - name: 对磁盘进行基准检验
               href: disks-benchmarks.md
-            - name: 优化性能
-              href: optimization.md
         - name: 查找未附加的磁盘 - CLI
           href: find-unattached-disks.md
         - name: 查找未附加的磁盘 - 门户
           href: ../disks-find-unattached-portal.md?toc=/virtual-machines/linux/toc.json&bc=/virtual-machines/linux/breadcrumb/toc.json
+        - name: 将 Azure 磁盘映射到来宾磁盘
+          href: azure-to-guest-disk-mapping.md
         - name: 使用文件存储
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: 磁盘常见问题解答

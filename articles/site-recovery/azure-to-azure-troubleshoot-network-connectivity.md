@@ -5,16 +5,16 @@ manager: rochakm
 ms.topic: how-to
 origin.date: 04/06/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6631de49f40544a95b4230724992a356f3713534
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 11e345aee1ac5e0c187fa71edb6556002e37d145
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327478"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023201"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>排查 Azure 到 Azure VM 网络连接性问题
 
@@ -116,13 +116,13 @@ ms.locfileid: "94327478"
 
 1. 为 Storage 创建 HTTPS 出站安全规则：
 
-    - **目标服务标记** ： _存储_
-    - **目标端口范围** ： _443_
+    - **目标服务标记**：_存储_
+    - **目标端口范围**：_443_
 
 1. 为 AzureActiveDirectory 创建 HTTPS 出站安全规则。
 
-    - **目标服务标记** ： _AzureActiveDirectory_
-    - **目标端口范围** ： _443_
+    - **目标服务标记**：_AzureActiveDirectory_
+    - **目标端口范围**：_443_
 
 1. 与上述安全规则类似，为 NSG 上的“EventHub.ChinaEast”（对应于源位置）创建出站 HTTPS (443) 安全规则。 这样就可以访问 Site Recovery 监视功能。
 1. 在 NSG 上为“AzureSiteRecovery”创建出站 HTTPS (443) 安全规则。 这样就可以在任何区域访问 Site Recovery 服务。
@@ -165,8 +165,8 @@ ms.locfileid: "94327478"
 1. 移动服务代理通过 Windows 上的 IE 和 Linux 上的 `/etc/environment` 检测代理设置。
 1. 如果只想对 Azure Site Recovery 移动服务设置代理，可在位于以下路径的 ProxyInfo.conf 中提供代理详细信息：
 
-    - **Linux** ：`/usr/local/InMage/config/`
-    - **Windows** ：`C:\ProgramData\Microsoft Azure Site Recovery\Config`
+    - **Linux**：`/usr/local/InMage/config/`
+    - **Windows**：`C:\ProgramData\Microsoft Azure Site Recovery\Config`
 
 1. ProxyInfo.conf 应包含采用以下 INI 格式的代理设置：
 

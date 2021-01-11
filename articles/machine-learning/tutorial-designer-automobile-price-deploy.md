@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2a995c077a16cb6c76ffa6a343b11218f8f65215
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 64dc5ff817b715f4fd5e9f040486c38c938803b9
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977997"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021146"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>教程：使用设计器部署机器学习模型
 
@@ -123,7 +123,7 @@ ms.locfileid: "94977997"
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何在设计器中创建、部署和使用机器学习模型的重要步骤。 若要详细了解如何使用设计器解决其他类型的问题，请查看其他示例管道。
+本教程介绍了如何在设计器中创建、部署和使用机器学习模型的重要步骤。 如果要详细了解如何使用设计器，请参阅以下链接：
 
-> [!div class="nextstepaction"]
-> [设计器示例](samples-designer.md)
++ [设计器示例](samples-designer.md)：了解如何使用设计器解决其他类型的问题。
++ [在 Azure 虚拟网络中使用 Azure 机器学习工作室](how-to-enable-studio-virtual-network.md)。

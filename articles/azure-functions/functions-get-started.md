@@ -3,15 +3,15 @@ title: Azure Functions 入门
 description: 实现使用 Azure Functions 的前几个步骤。
 author: craigshoemaker
 ms.topic: overview
-ms.date: 11/30/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
 zone_pivot_groups: programming-languages-set-functions-lang-workers
-ms.openlocfilehash: 49461f8863bc7529126798bb9124d460363c1e3f
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 00a191940fb0491d5464bd411e8f0a3492808b34
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508247"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021457"
 ---
 # <a name="getting-started-with-azure-functions"></a>Azure Functions 入门
 
@@ -25,7 +25,7 @@ ms.locfileid: "96508247"
 
 | 操作 | 资源 |
 | --- | --- |
-| **创建第一个函数** | 使用以下工具之一：<br><br><li>[Visual Studio Code](./functions-create-your-first-function-visual-studio.md)<li>[Visual Studio](./create-first-function-vs-code-csharp.md)<li>[命令行](./create-first-function-cli-csharp.md) |
+| **创建第一个函数** | 使用以下工具之一：<br><br><li>[Visual Studio](./functions-create-your-first-function-visual-studio.md)<li>[Visual Studio Code](./create-first-function-vs-code-csharp.md)<li>[命令行](./create-first-function-cli-csharp.md) |
 | **查看正在运行的函数** | <li>[Azure 示例浏览器](https://docs.microsoft.com/samples/browse/?expanded=azure&languages=csharp&products=azure-functions)<li>[Azure 社区库](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=C%23) |
 | **了解交互式教程**| <li>[为业务场景选择最佳的 Azure 无服务器技术](https://docs.microsoft.com/learn/modules/serverless-fundamentals/)<li>[结构良好的框架 - 性能效率](https://docs.microsoft.com/learn/modules/azure-well-architected-performance-efficiency/)<li>[使用触发器执行 Azure 函数](https://docs.microsoft.com/learn/modules/execute-azure-function-with-triggers/) <br><br>请参阅 Microsoft Learn，查看[一系列完整的交互式教程](https://docs.microsoft.com/learn/browse/?expanded=azure&products=azure-functions)。|
 | **深入了解详细信息** | <li>了解函数如何[自动增加或减少](./functions-scale.md)实例以满足需求<li>了解可用的各种[部署方法](./functions-deployment-technologies.md)<li>使用内置的[监视工具](./functions-monitoring.md)来帮助分析函数<li>阅读 [C# 语言参考](./functions-dotnet-class-library.md)|

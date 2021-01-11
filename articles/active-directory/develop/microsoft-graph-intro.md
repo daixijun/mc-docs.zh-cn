@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 7c8d376bf851cf1bc9163120757dd68e00199744
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 55737a226c2267a60bbaeb07b6de9ad3b1574d2f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244676"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021777"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
 
@@ -34,7 +34,7 @@ Microsoft Graph 当前支持两个版本：v1.0 和 beta 版本。 v1.0 版本�
 
 若要开始使用 beta API，请参阅 [Microsoft Graph beta 终结点参考](https://docs.microsoft.com/graph/api/overview?view=graph-rest-beta)
 
-若要开始使用 v1.0 API，请参阅 [Microsoft Graph REST API v1.0 参考](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)
+若要开始使用 v1.0 API，请参阅 [Microsoft Graph REST API v1.0 参考](https://docs.microsoft.com/graph/api/overview)
 
 ## <a name="get-started"></a>入门
 

@@ -6,21 +6,20 @@ cloud: na
 documentationcenter: na
 author: Johnnytechn
 manager: rkarlin
-ms.assetid: ''
 ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/03/2020
+ms.date: 01/06/2021
 ms.author: v-johya
 origin.date: 10/28/2018
-ms.openlocfilehash: c920dabfbf69029f571137a9ba76090b5fa9510c
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 04373d6fbbbe49a3b6f2ac1cd03c6fc460c97fad
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746648"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023291"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure 安全中心的权限
 

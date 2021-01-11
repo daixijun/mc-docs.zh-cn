@@ -5,14 +5,15 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: how-to
-ms.date: 06/30/2020
+origin.date: 06/30/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: f0f807cb42843b56a59abe89cf381ecda6b11a62
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: 6e88cf46768b62a0791b7dc497554509b867ea82
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162822"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023169"
 ---
 # <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-using-powershell"></a>使用 PowerShell 将 Azure 防火墙配置迁移到 Azure 防火墙策略
 
@@ -33,7 +34,7 @@ RuleCollectionGroup 是规则集合的新顶级分组，用于将来的扩展性
 $FirewallName = "AZFW"
 $ResourceGroupName = "AzFWMigrateRG"
 $PolicyName = "fwp9"
-$Location = "WestUS"
+$Location = "chinanorth2"
 
 
 $DefaultAppRuleCollectionGroupName = "ApplicationRuleCollectionGroup"

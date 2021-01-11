@@ -8,12 +8,12 @@ origin.date: 10/18/2020
 ms.date: 11/30/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 9101753350f90c3f789b1181d8a3c5b7e78e84a3
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: c3786ea42fef32809e81e167bf11d9056e26937f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306478"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023083"
 ---
 # <a name="app-service-networking-features"></a>应用服务网络功能
 
@@ -280,4 +280,5 @@ ASE 提供最佳的隔离和专用应用托管，但它确实涉及了一些管�
 [vnetintegration]: ./web-sites-integrate-with-vnet.md
 [networkinfo]: ./environment/network-info.md
 [appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
-[privateendpoints]: ./networking/private-endpoint.md
+
+<!--[privateendpoints]: ./networking/private-endpoint.md-->

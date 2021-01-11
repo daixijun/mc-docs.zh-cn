@@ -2,18 +2,19 @@
 title: 任务运行时环境变量
 description: Azure Batch Analytics 的任务运行时环境变量指南和参考。
 ms.topic: conceptual
-origin.date: 09/12/2019
+ms.service: batch
+origin.date: 12/30/2020
 author: rockboyfor
 ms.date: 12/07/2020
 ms.testscope: no
 ms.testdate: 04/27/2019
 ms.author: v-yeche
-ms.openlocfilehash: bc8cc03daac91a93e35eff27dea8b76df566123a
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 023dc581d85a1dd3d843cb149128cc6d5a42308b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747249"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022245"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 运行时环境变量
 

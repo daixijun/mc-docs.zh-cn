@@ -6,15 +6,15 @@ author: Johnnytechn
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 12/03/2020
+ms.date: 01/06/2021
 ms.author: v-johya
 origin.date: 09/10/2019
-ms.openlocfilehash: cf4bd707f3bec16dc1853b02b48f74f1ebd84afc
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 5c4c8f4be1db0a4c4112742c94935cdad617f307
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746912"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022128"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>从 Azure 安全中心自动预配代理和扩展
 
@@ -208,8 +208,8 @@ ms.locfileid: "96746912"
 
 1. 若要使用 PowerShell 部署代理，请按照虚拟机文档中的说明进行操作：
 
-    - [对于 Windows 计算机](../virtual-machines/extensions/oms-windows.md?toc=%252fazure%252fazure-monitor%252ftoc.json#powershell-deployment)
-    - [对于 Linux 计算机](../virtual-machines/extensions/oms-linux.md?toc=%252fazure%252fazure-monitor%252ftoc.json#azure-cli-deployment)
+    - [对于 Windows 计算机](../virtual-machines/extensions/oms-windows.md?toc=%2fazure-monitor%2ftoc.json#powershell-deployment)
+    - [对于 Linux 计算机](../virtual-machines/extensions/oms-linux.md?toc=%2fazure-monitor%2ftoc.json#azure-cli-deployment)
 
 > [!TIP]
 > 有关如何使用 PowerShell 加入安全中心的说明，请参阅[使用PowerShell 自动加入 Azure 安全中心](security-center-powershell-onboarding.md)。

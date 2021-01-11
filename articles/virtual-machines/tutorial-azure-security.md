@@ -11,12 +11,12 @@ ms.date: 01/04/2021
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 41e4fe5ff6ce2d8d7a845d1bc72c1d7e21e97dee
-ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
+ms.openlocfilehash: 036c010080aa562806f177b053babd3ea33834a4
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97856680"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022721"
 ---
 <!--Security Center now is available on Azure China -->
 # <a name="tutorial-use-azure-security-center-to-monitor-virtual-machines"></a>教程：使用 Azure 安全中心监视虚拟机
@@ -120,6 +120,6 @@ Azure 安全中心可以帮助你深入了解 Azure 资源安全做法。 安全
 
 <!--Not Available on ## Next steps-->
 
-<!--Not Avaialble on [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](https://docs.azure.cn/developer/jenkins/pipeline-with-github-and-docker)-->
+<!--Not Avaialble on [Create CI/CD infrastructure with Jenkins GitHub and Docker](https://docs.azure.cn/developer/jenkins/pipeline-with-github-and-docker)-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

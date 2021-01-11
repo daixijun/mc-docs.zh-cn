@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5ef789043d3c7888961da3d6305a1faf9c9b8d4
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 32f6e96b3026b464402306b542ecfb6a11a7642a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509043"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023200"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>教程：配置 Log Analytics 向导
 
@@ -32,7 +32,7 @@ ms.locfileid: "96509043"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 至少包含一个 P1 许可管理员的 Azure 订阅。如果没有 Azure 订阅，可以[注册试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+- 至少包含一个 P1 许可管理员的 Azure 订阅。如果没有 Azure 订阅，可以[注册试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)。
 
 - Azure AD 租户。
 
@@ -172,7 +172,7 @@ ms.locfileid: "96509043"
 
 使用内部联接合并审核和登录日志：
 
-`AuditLogs |where OperationName contains "Add User" |extend UserPrincipalName = tostring(TargetResources[0].userPrincipalName) | |project TimeGenerated , UserPrincipalName |join kind = inner (SigninLogs) on UserPrincipalName |summarize arg_min(TimeGenerated, *) by UserPrincipalName |extend SigninDate = TimeGenerated` 
+`AuditLogs |where OperationName contains "Add User" |extend UserPrincipalName = tostring(TargetResources[0].userPrincipalName) | |project TimeGenerated, UserPrincipalName |join kind = inner (SigninLogs) on UserPrincipalName |summarize arg_min(TimeGenerated, *) by UserPrincipalName |extend SigninDate = TimeGenerated` 
 
 
 按客户端应用类型查看登录数：

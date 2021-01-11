@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9f13465d0bb6223a8278f500e0226670db7e9d1a
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: d545246c79aab21a2091e5bb7ff824a46e4df35c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978355"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023097"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>如何将工作区用于自定义 DNS 服务器
 
@@ -32,7 +32,7 @@ ms.locfileid: "94978355"
 - 具有专用终结点的 Azure 机器学习工作区。 有关详细信息，请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。
 
 
-- （可选）[Azure CLI](/cli/azure/install-azure-cli) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+- （可选）[Azure CLI](/cli/install-azure-cli) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 ## <a name="find-the-ip-addresses"></a>查找 IP 地址
 

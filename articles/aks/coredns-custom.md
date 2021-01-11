@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 03/15/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 03/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: f10160a2283d7f2dfbfd14e1b50422ddcc0b890a
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 53b8a09cf31a2756e8607f5637efaa47d8e24f98
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021546"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023125"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>使用 Azure Kubernetes 服务自定义 CoreDNS
 
@@ -25,7 +25,7 @@ Azure Kubernetes 服务 (AKS) 可将适用于管理和解决群集 DNS 问题的
 本文介绍如何在 AKS 中将 ConfigMap 用于 CoreDNS 的基本自定义选项。 此方法不同于在其他上下文中配置 CoreDNS，例如使用 CoreFile。 验证正在运行的 CoreDNS 的版本，因为配置值可能会在不同版本之间发生变化。
 
 > [!NOTE]
-> `kube-dns` 通过 Kubernetes 配置映射提供不同的[自定义选项][kubednsblog]。 CoreDNS **不**后向兼容 kube-dns。 以前使用的任何自定义项都必须在更新后才能与 CoreDNS 配合使用。
+> `kube-dns` 通过 Kubernetes 配置映射提供不同的[自定义选项][kubednsblog]。 CoreDNS **不** 后向兼容 kube-dns。 以前使用的任何自定义项都必须在更新后才能与 CoreDNS 配合使用。
 
 ## <a name="before-you-begin"></a>开始之前
 

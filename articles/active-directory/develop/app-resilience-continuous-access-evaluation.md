@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: bf70e3ba0de17c4a0a2bba8ce9f01d1b6d6b6b8d
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 8a5dce4b20837a8977c2b72fcb64c4aaff515776
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004244"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021637"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>如何在应用程序中使用启用了连续访问评估的 API
 
@@ -27,9 +27,9 @@ ms.locfileid: "97004244"
 
 ## <a name="implementation-considerations"></a>实现注意事项
 
-若要使用连续访问评估，应用及其访问的资源 API 必须已启用 CAE。 但是，准备代码以使用启用了 CAE 的资源不会阻止你使用未启用 CAE 的 API。 
+若要使用连续访问评估，应用及其访问的资源 API 必须已启用 CAE。 但是，准备代码以使用启用了 CAE 的资源不会阻止你使用未启用 CAE 的 API。
 
-如果资源 API 实现了 CAE，并且你的应用程序声明它可以处理 CAE，那么你的应用将会获取该资源的 CAE 标记。 出于此原因，如果声明了应用已 CAE 就绪，那么你的应用程序必须为所有接受 Microsoft 标识访问令牌的资源 API 处理 CAE 声明质询。 如果未在这些 API 调用中处理 CAE 响应，你的应用程序可能会在使用一个仍处于已返回的令牌生存期内，但由于 CAE 而被撤销的令牌来重试 API 调用的循环中结束。 
+如果资源 API 实现了 CAE，并且你的应用程序声明它可以处理 CAE，那么你的应用将会获取该资源的 CAE 标记。 出于此原因，如果声明了应用已 CAE 就绪，那么你的应用程序必须为所有接受 Microsoft 标识访问令牌的资源 API 处理 CAE 声明质询。 如果未在这些 API 调用中处理 CAE 响应，你的应用程序可能会在使用一个仍处于已返回的令牌生存期内，但由于 CAE 而被撤销的令牌来重试 API 调用的循环中结束。
 
 ## <a name="the-code"></a>代码
 
@@ -40,9 +40,9 @@ ms.locfileid: "97004244"
 ```console
 HTTP 401; Unauthorized
 WWW-Authenticate=Bearer
- authorization_uri="https://login.chinacloudapi.cn/common/oauth2/authorize",
- error="insufficient_claims",
- claims="eyJhY2Nlc3NfdG9rZW4iOnsibmJmIjp7ImVzc2VudGlhbCI6dHJ1ZSwgInZhbHVlIjoiMTYwNDEwNjY1MSJ9fX0="
+  authorization_uri="https://login.chinacloudapi.cn/common/oauth2/authorize",
+  error="insufficient_claims",
+  claims="eyJhY2Nlc3NfdG9rZW4iOnsibmJmIjp7ImVzc2VudGlhbCI6dHJ1ZSwgInZhbHVlIjoiMTYwNDEwNjY1MSJ9fX0="
 ```
 
 你的应用将检查以下内容：
@@ -57,7 +57,7 @@ WWW-Authenticate=Bearer
 ```csharp
 if (APIresponse.IsSuccessStatusCode)
 {
-    // . . .
+    // ...
 }
 else
 {
@@ -99,7 +99,7 @@ catch (MsalUiRequiredException)
             .ExecuteAsync()
             .ConfigureAwait(false);
     }
-    // . . .
+    // ...
 ```
 
 一旦你的应用程序准备好处理启用了 CAE 的资源返回的声明质询，你就可以告诉 Microsoft 标识你的应用已 CAE 就绪。 若要在 MSAL 应用程序中执行此操作，请使用“cp1”的客户端功能构建公共客户端。

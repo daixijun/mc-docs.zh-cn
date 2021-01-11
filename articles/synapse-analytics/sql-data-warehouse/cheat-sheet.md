@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Analytics（以前称为 SQL DW）的速查表
-description: 查找链接和最佳做法，以便快速生成 Azure Synapse Analytics（以前称为 SQL DW）解决方案。
+title: 专用 SQL 池（之前称为 SQL DW）的速查表
+description: 查找链接和最佳做法，以便快速在 Azure Synapse Analytics 中生成专用 SQL 池（之前称为 SQL DW）。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,21 +8,21 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
 origin.date: 11/04/2019
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 4fff12f09c00afb921dd406f3b23089faaa86a09
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 9ace06fbd5d4775136a068ff15e4a2078850f872
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152987"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023264"
 ---
-# <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics（以前称为 SQL DW）的速查表
+# <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Azure Synapse Analytics 中的专用 SQL 池（之前称为 SQL DW）的速查表
 
-此速查表提供有关生成 Azure Synapse 解决方案的有用提示和最佳做法。
+此速查表提供有关生成专用 SQL 池（之前称为 SQL DW）解决方案的有用提示和最佳做法。
 
-下图显示了设计数据仓库的过程：
+下图显示了使用专用 SQL 池（之前称为 SQL DW）设计数据仓库的过程：
 
 ![草图](./media/cheat-sheet/picture-flow.png)
 
@@ -122,17 +122,17 @@ ms.locfileid: "96152987"
 
 如果发现查询所需时间过长，请确保用户未在大型资源类中运行。 大型资源类会占用许多并发槽。 它们可能导致其他查询排队等待。
 
-最后，通过使用第 2 代的 [SQL 池](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)，每个资源类可比第 1 代获得多 2.5 倍的内存。
+最后，通过使用第 2 代的[专用 SQL 池（之前称为 SQL DW）](sql-data-warehouse-overview-what-is.md)，每个资源类可比第 1 代获得多 2.5 倍的内存。
 
 详细了解如何使用[资源类和并发](resource-classes-for-workload-management.md)。
 
 ## <a name="lower-your-cost"></a>降低成本
 
-Azure Synapse 的一个重要功能是可以[管理计算资源](sql-data-warehouse-manage-compute-overview.md)。 你可在不使用 SQL 池时进行暂停，这会停止计算资源的计费。 可以缩放资源以满足性能需求。 若要暂停，请使用 [Azure 门户](pause-and-resume-compute-portal.md)或 [PowerShell](pause-and-resume-compute-powershell.md)。 若要缩放，请使用 [Azure 门户](quickstart-scale-compute-portal.md)、[Powershell](quickstart-scale-compute-powershell.md)、[T-SQL](quickstart-scale-compute-tsql.md) 或 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)。
+Azure Synapse 的一个重要功能是可以[管理计算资源](sql-data-warehouse-manage-compute-overview.md)。 你可在不使用专用 SQL 池（之前称为 SQL DW）时进行暂停，这会停止计算资源的计费。 可以缩放资源以满足性能需求。 若要暂停，请使用 [Azure 门户](pause-and-resume-compute-portal.md)或 [PowerShell](pause-and-resume-compute-powershell.md)。 若要缩放，请使用 [Azure 门户](quickstart-scale-compute-portal.md)、[Powershell](quickstart-scale-compute-powershell.md)、[T-SQL](quickstart-scale-compute-tsql.md) 或 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)。
 
 ## <a name="optimize-your-architecture-for-performance"></a>优化体系结构以提高性能
 
 建议考虑在中心辐射型体系结构中使用 SQL 数据库和 Azure Analysis Services。 该解决方案可以在不同的用户组之间提供工作负荷隔离，同时还能使用 SQL 数据库和 Azure Analysis Services 的高级安全功能。 这也是一种向用户提供无限并发的方式。
 
-详细了解[利用 Azure Synapse 的典型体系结构](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)。
+详细了解[可利用 Azure Synapse Analytics 中的专用 SQL 池（之前称为 SQL DW）的典型体系结构](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)。
 

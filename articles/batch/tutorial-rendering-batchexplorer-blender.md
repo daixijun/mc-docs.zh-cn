@@ -1,19 +1,20 @@
 ---
-title: 使用 Azure Batch 和 Batch Explorer 渲染 Blender 场景
+title: 教程 - 使用 Azure Batch 和 Batch Explorer 渲染 Blender 场景
 description: 教程 - 如何使用 Azure Batch 和 Batch Explorer 客户端应用程序渲染 Blender 场景中的多个帧
+ms.service: batch
 origin.date: 08/02/2018
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 01/11/2021
 ms.testscope: yes|no
 ms.testdate: 08/24/2020null
 ms.author: v-yeche
 ms.topic: tutorial
-ms.openlocfilehash: 2d9077a0114f23f64a562a64cf55a9436bf1b80a
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: bb912f8bb71d3d89070f0d931ba0bc21fca05713
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654978"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021347"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>教程：使用 Batch Explorer 渲染 Blender 场景
 
@@ -82,10 +83,10 @@ ms.locfileid: "88654978"
 
 * 选择“创建以后使用的池”按钮
     * 保留池名称“blender-windows”
-    * 将“专用 VM 计数”设置为“3”
+    * 将“专用 VM 计数”设置为“0”
 
         <!--Not Available on FEATURE Low priority-->
-        
+
     * 将“节点大小”设置为“Standard_F16”- 可以选择其他 VM 大小，但渲染帧所需的时间将主要取决于核心数。
 * 选择用于创建池的绿色按钮
     * 池差不多会立即创建，但分配和启动 VM 需要数分钟。
@@ -144,8 +145,20 @@ ms.locfileid: "88654978"
 * 可以在右键单击后选择“删除”，也可选择池上方的垃圾桶图标
 
 ## <a name="next-steps"></a>后续步骤
-* 通过 Batch Explorer 在“库”部分浏览可用的渲染应用程序。
-* 每个应用程序都有多个可用的模板，这些模板会随时间而扩展。  例如，Blender 的模板可将单个图像拆分成多个图块，这样就可以并行渲染图像的各个部分。
-* 如需渲染功能的全面介绍，请查看[此处](./batch-rendering-service.md)提供的一系列文章。
+
+在本教程中，你了解了如何执行以下操作：
+
+> [!div class="checklist"]
+> * 将 Blender 场景上传到 Azure 存储
+> * 创建包含多个节点的 Batch 池，以便执行渲染操作
+> * 渲染多个帧
+> * 查看并下载渲染的帧文件
+
+通过 Batch Explorer 在“库”部分浏览可用的渲染应用程序以继续。 每个应用程序都有多个可用的模板，这些模板会随时间而扩展。 例如，Blender 的模板可将单个图像拆分成多个图块，这样就可以并行渲染图像的各个部分。
+
+若要详细了解云规模的渲染，请查看 Batch 渲染服务的选项。
+
+> [!div class="nextstepaction"]
+> [Batch Rendering 服务](batch-rendering-service.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

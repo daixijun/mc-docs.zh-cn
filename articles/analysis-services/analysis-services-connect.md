@@ -3,20 +3,20 @@ title: 连接到 Azure Analysis Services 服务器 | Azure
 description: 了解如何连接到 Azure 中的 Analysis Services 服务器并从中获取数据。
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 09/04/2020
+origin.date: 12/01/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 59ddda8d6fb95d4609e22e6a03feea46cd3173fb
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 5e12bea1b8e07ca0301ca771e73748f1a21ae9a3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470152"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022875"
 ---
 # <a name="connecting-to-servers"></a>连接到服务器
 
@@ -24,11 +24,9 @@ ms.locfileid: "92470152"
 
 ## <a name="client-libraries"></a>客户端库
 
-[获取最新的客户端库](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
+[获取最新的客户端库](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)
 
 与服务器的所有连接（无论连接类型）都需要更新后的 AMO、ADOMD.NET 和 OLEDB 客户端库才能连接到 Analysis Services 服务器。 对于 SSMS、Visual Studio、Excel 2016 及更高版本和 Power BI，最新的客户端库会与每月发布一起安装或更新。 但是在某些情况下，应用程序可能不是最新版本。 例如，当策略延迟更新或 Microsoft 365 更新在延期频道上时。
-
-<!--CORRECT ON Microsoft 365-->
 
 > [!NOTE]
 > 客户端库无法通过需要用户名和密码的代理服务器连接到 Azure Analysis Services。 
@@ -40,7 +38,7 @@ ms.locfileid: "92470152"
 ```
 <protocol>://<region>/<servername>
 ```
- 其中，协议是字符串 **asazure** ，区域是在其中创建服务器的 URI（例如 chinanorth.asazure.chinacloudapi.cn），服务器名称是该区域中的唯一服务器名称。
+ 其中，协议是字符串 **asazure**，区域是在其中创建服务器的 URI（例如 chinanorth.asazure.chinacloudapi.cn），服务器名称是该区域中的唯一服务器名称。
 
 ### <a name="get-the-server-name"></a>获取服务器名称
 
@@ -82,7 +80,7 @@ ms.locfileid: "92470152"
 
 ## <a name="connect-as-a-linked-server-from-sql-server"></a>从 SQL Server 以链接服务器的形式连接
 
-可以通过指定 MSOLAP 作为数据源提供程序，将 SQL Server 以[链接服务器](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine)的形式连接到 Azure Analysis Services 资源。 配置链接服务器连接之前，请确保安装最新的 [MSOLAP 客户端库](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)（提供程序）。 
+可以通过指定 MSOLAP 作为数据源提供程序，将 SQL Server 以[链接服务器](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine)的形式连接到 Azure Analysis Services 资源。 配置链接服务器连接之前，请确保安装最新的 [MSOLAP 客户端库](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)（提供程序）。 
 
 <!--CORRECT ON https://docs.microsoft.com/ PREFIX-->
 

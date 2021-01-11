@@ -5,20 +5,18 @@ author: WenJason
 ms.author: v-jay
 ms.service: azure-stack
 ms.topic: how-to
-origin.date: 11/27/2019
-ms.date: 12/07/2020
+origin.date: 12/11/2020
+ms.date: 01/11/2021
 ms.reviewer: jfggdl
-ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 4196f90c2713c3a81c2bb9cb3e4e8d6ef0a2fb03
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.lastreviewed: 12/11/2020
+ms.openlocfilehash: c9fd5cf94e3f8e027f2f1f1dace465c8d8602322
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507939"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894339"
 ---
 # <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Azure Stack Hub 上的事件中心的概述
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 使用 Azure Stack Hub 上的事件中心可以实现混合云方案。 支持使用基于流式处理和事件的解决方案进行本地处理和 Azure 云处理。 无论方案是混合（联网）还是离线的，解决方案都支持大规模的事件/流处理。 方案仅受事件中心群集大小的约束，但你可以根据需要预配群集大小。 
 

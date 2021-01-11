@@ -5,23 +5,23 @@ services: container-service
 ms.topic: article
 origin.date: 11/06/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 05/06/2020
 ms.author: v-yeche
 ms.custom: github-actions-azure
-ms.openlocfilehash: ab29bbc18c64cfbcba8dee1764a46abd7b93d0b4
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 1ff9a363085cc608176a623065db2311181df0f1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004204"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022328"
 ---
 <!--CONFIRME WITH DONG LIU SUCCESSFULLY-->
 <!--NEW FEATURES HAS BEEN RELEASED ON AZURE CHINA CLOUD-->
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>用于将容器部署到 Kubernetes 服务的 GitHub Actions
 
-可以通过 [GitHub Actions](https://help.github.com/en/articles/about-github-actions) 灵活地生成自动化软件开发生命周期工作流。 可以使用多个 Kubernetes 操作通过 GitHub Actions 将 Azure 容器注册表中的容器部署到 Azure Kubernetes 服务。 
+可以通过 [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) 灵活地生成自动化软件开发生命周期工作流。 可以使用多个 Kubernetes 操作通过 GitHub Actions 将 Azure 容器注册表中的容器部署到 Azure Kubernetes 服务。 
 
 ## <a name="prerequisites"></a>先决条件 
 
@@ -102,7 +102,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
 
     # Connect to Azure Container registry (ACR)
     - uses: azure/docker-login@v1
@@ -167,7 +167,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
 
     # Connect to Azure Container registry (ACR)
     - uses: azure/docker-login@v1

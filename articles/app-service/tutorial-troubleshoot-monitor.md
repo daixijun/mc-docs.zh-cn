@@ -5,13 +5,13 @@ author: msangapu-msft
 ms.author: v-tawe
 ms.topic: tutorial
 origin.date: 06/20/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: f36878da9d38cc247efbbb9300f2fb15c47d5071
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.date: 01/11/2021
+ms.openlocfilehash: a35f47cd9d3e6bcc9ca9078e009455f50157b50e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507709"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021893"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>教程：使用 Azure Monitor 排查应用服务应用的问题
 
@@ -53,7 +53,7 @@ az webapp deployment user set --user-name <username> --password <password>
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
 git remote add azure <url_from_previous_step>
-git push azure master
+git push azure main
 ```
 
 ## <a name="configure-azure-monitor-preview"></a>配置 Azure Monitor（预览版）
@@ -244,7 +244,7 @@ for ($x=0; $x<$maxImages; $x++){
 
 ```bash
 git commit -am "Load images on-demand in process.php"
-git push azure master
+git push azure main
 ```
 
 ### <a name="browse-to-the-azure-app"></a>转到 Azure 应用

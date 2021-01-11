@@ -4,15 +4,15 @@ description: 适用于流分析的 Azure 安全基线
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 01/07/2021
 ms.author: v-johya
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 78e732ff6d64821773c2c072c7850258afa54aa9
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 61ae02dc6e07e91a5da70547485ca586324b1fc6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978143"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023164"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>适用于流分析的 Azure 安全基线
 
@@ -22,7 +22,7 @@ ms.locfileid: "94978143"
 
 有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
-## <a name="network-security"></a>网络安全性
+## <a name="network-security"></a>网络安全
 
 有关详细信息，请参阅[安全控制：网络安全](../security/benchmarks/security-control-network-security.md)。
 
@@ -156,7 +156,7 @@ ms.locfileid: "94978143"
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4：从操作系统收集安全日志
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -180,7 +180,7 @@ ms.locfileid: "94978143"
 
 **指导**：分析和监视日志中的异常行为，并定期审查流分析资源的结果。 使用 Azure Monitor 的 Log Analytics 工作区查看日志并对日志数据执行查询。 或者，可以启用将数据加入 Azure Sentinel 或第三方 SIEM 的功能。
 
-* [有关 Log Analytics 工作区的详细信息](../azure-monitor/log-query/get-started-portal.md)
+* [有关 Log Analytics 工作区的详细信息](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 * [如何在 Azure Monitor 中执行自定义查询](../azure-monitor/log-query/get-started-queries.md)
 
@@ -218,7 +218,7 @@ ms.locfileid: "94978143"
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10：启用命令行审核日志记录
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -378,6 +378,8 @@ ms.locfileid: "94978143"
 
 **指导**：通过将输入、输出和存储帐户放在同一订阅中来隔离流分析作业。 你可以限制流分析，以控制对应用程序和企业环境所需流分析资源的访问级别。 可以通过 Azure AD RBAC 控制对 Azure 流分析的访问。
 
+* [如何创建管理组](../governance/management-groups/create-management-group-portal.md)
+
 * [如何创建和使用标记](../azure-resource-manager/management/tag-resources.md)
 
 * [理解 Azure 流分析的输入](./stream-analytics-add-inputs.md)
@@ -432,7 +434,7 @@ ms.locfileid: "94978143"
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7：使用基于主机的数据丢失防护来强制实施访问控制
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -441,6 +443,8 @@ ms.locfileid: "94978143"
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8：静态加密敏感信息
 
 **指导**：流分析不存储传入数据，因为所有处理都在内存中完成。 任何私有数据（包括流分析需要保留的查询和功能）都存储在配置的存储帐户中。 使用客户管理的密钥 (CMK) 对存储帐户中的输出静态数据进行加密。 即使没有 CMK，流分析也会自动在其基础架构中采用一流的加密标准来加密和保护数据。
+
+* [Azure 流分析中的数据保护](./data-protection.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -474,7 +478,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2：部署自动操作系统修补管理解决方案
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -490,7 +494,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4：比较连续进行的漏洞扫描
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -580,7 +584,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6：监视计算资源中未批准的软件应用程序
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -596,7 +600,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="68-use-only-approved-applications"></a>6.8：仅使用已批准的应用程序
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -636,7 +640,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12：限制用户在计算资源中执行脚本的功能
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -670,7 +674,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2：建立安全的操作系统配置
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -706,7 +710,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6：安全存储自定义操作系统映像
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -742,7 +746,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10：为操作系统实施自动配置监视
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -751,6 +755,8 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 ### <a name="711-manage-azure-secrets-securely"></a>7.11：安全管理 Azure 机密
 
 **指导**：流分析作业使用的输入或输出资源的连接详细信息存储在配置的存储帐户中。 加密存储帐户以保护你的所有数据。 此外，定期轮换流分析作业的输入或输出凭据。
+
+* [Azure 流分析中的数据保护](./data-protection.md)
 
 * [轮转流分析作业的输入和输出的登录凭据](./stream-analytics-login-credentials-inputs-outputs.md)
 
@@ -778,7 +784,7 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1：使用集中管理的反恶意软件
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -814,6 +820,8 @@ Microsoft 对支持 Azure 流分析的基础系统执行漏洞管理。
 
 还可以使用生命周期管理功能将数据备份到存档层。 此外，为存储在存储帐户中的备份启用软删除。
 
+* [Azure 流分析中的数据保护](./data-protection.md#private-data-assets-that-are-stored)
+
 * [了解 Azure 存储冗余和服务级别协议](../storage/common/storage-redundancy.md)
 
 * [管理 Azure Blob 存储生命周期](../storage/blobs/storage-lifecycle-management-concepts.md)
@@ -829,6 +837,8 @@ Azure 存储 Blob 的软删除：/storage/blobs/storage-blob-soft-delete?tabs=az
 **指导**：内部数据（包括用户定义的函数、查询、数据快照）存储在配置的存储帐户中，你可以定期备份该帐户。
 
 从存储帐户支持的服务备份数据，有多种可用方法，包括使用 azcopy 或第三方工具。 Azure Blob 存储的不可变存储可让用户以 WORM（一次写入，多次读取）状态存储业务关键型数据对象。 此状态可以根据用户指定的时间间隔使数据保持不可擦除且不可修改的状态。
+
+* [Azure 流分析中的数据保护](./data-protection.md#private-data-assets-that-are-stored)
 
 * [AzCopy 入门](../storage/common/storage-use-azcopy-v10.md)
 
@@ -853,6 +863,8 @@ Azure 存储 Blob 的软删除：/storage/blobs/storage-blob-soft-delete?tabs=az
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4：确保保护备份和客户管理的密钥
 
 **指导**：默认情况下，存储在 Azure 存储中的流分析备份支持加密，并且无法关闭。 你应将备份视为敏感数据，并应用相关的访问和数据保护控制作为此基线的一部分。
+
+* [Azure 流分析中的数据保护](./data-protection.md#private-data-assets-that-are-stored)
 
 * [授予访问 Azure 存储中的数据的权限](../storage/common/storage-auth.md)
 
@@ -880,9 +892,9 @@ Azure 存储 Blob 的软删除：/storage/blobs/storage-blob-soft-delete?tabs=az
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2：创建事件评分和优先级设定过程
 
-**指南**：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
+**指导**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
 
-此外，请明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。 你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
+此外，请用标记明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。 你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
 
 * [Azure 安全中心中的安全警报](../security-center/security-center-alerts-overview.md)
 

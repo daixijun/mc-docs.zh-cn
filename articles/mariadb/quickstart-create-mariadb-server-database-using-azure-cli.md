@@ -7,14 +7,14 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 3/18/2020
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b07db97a530fee25affdd4e28048c05bd3e8c423
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 79971ec4edbbc8bf4bb0f1c5f40e0370273cba49
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432669"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022910"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for MariaDB 服务器
 
@@ -22,7 +22,9 @@ Azure CLI 可用于从命令行或脚本创建和管理 Azure 资源。 本快�
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-就本快速入门来说，必须运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要安装或升级 CLI，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- 本文需要 Azure CLI 版本 2.0 或更高版本。
 
 如果有多个订阅，请选择要计费的资源所在的订阅，或者本身要计费的订阅。 若要选择帐户中的特定订阅 ID，请使用 [az account set](/cli/account#az-account-set) 命令：
 
@@ -49,7 +51,7 @@ az group create --name myresourcegroup --location chinaeast2
 name | **mydemoserver** | 输入用于标识 Azure Database for MariaDB 服务器的唯一名称。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 它必须包含 3 到 63 个字符。
 resource-group |  myresourcegroup | 输入 Azure 资源组的名称。
 sku-name | **GP_Gen5_2** | SKU 的名称。 请遵循简写约定：*定价层*\_*计算代*\_*vCore 数*。 有关 **sku-name** 参数的详细信息，请查看此表后面的部分。
-backup-retention | **7** | 保留备份的时长。 单位为天。 范围：7 到 35。 
+backup-retention | **7** | 备份保留时间。 单位为天。 范围：7 到 35。 
 geo-redundant-backup | **已禁用** | 是否应该为此服务启用异地冗余备份。 允许的值：**Enabled**、**Disabled**。
 location | **chinaeast2** | 服务器的 Azure 位置。
 ssl-enforcement | **已启用** | 是否应该为此服务器启用 SSL。 允许的值：**Enabled**、**Disabled**。

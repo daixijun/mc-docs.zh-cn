@@ -349,6 +349,133 @@
               href: howto-move-regions-portal.md
         - name: 主版本升级
           href: how-to-upgrade-using-dump-and-restore.md
+- name: 灵活服务器（预览版）
+  expanded: true
+  items:
+    - name: 灵活服务器文档
+      href: flexible-server/index.yml
+    - name: 概述
+      href: flexible-server/overview.md
+    - name: 快速入门
+      expanded: true
+      items:
+        - name: 创建服务器和数据库
+          items:
+            - name: Azure 门户
+              href: flexible-server/quickstart-create-server-portal.md
+            - name: Azure CLI
+              href: flexible-server/quickstart-create-server-cli.md
+            - name: ARM 模板
+              displayName: Resource Manager
+              href: flexible-server/quickstart-create-server-arm-template.md
+        - name: 连接和查询
+          items:
+            - name: Python
+              href: flexible-server/connect-python.md
+    - name: 教程
+      items:
+        - name: 使用 AKS 生成
+          items:
+            - name: 在 Kubernetes 上部署 Python 应用
+              href: flexible-server/tutorial-django-aks-database.md
+        - name: 使用应用程序服务生成
+          items:
+            - name: 在虚拟网络中创建 Web 应用
+              href: flexible-server/tutorial-webapp-server-vnet.md
+            - name: 在应用服务上部署 Django 应用
+              href: flexible-server/tutorial-django-app-service-postgres.md
+    - name: 概念
+      items:
+        - name: 服务器
+          href: flexible-server/concepts-servers.md
+        - name: 支持的版本
+          href: flexible-server/concepts-supported-versions.md
+        - name: 计算和存储
+          href: flexible-server/concepts-compute-storage.md
+        - name: 网络
+          href: flexible-server/concepts-networking.md
+          displayName: 'virtual networks, vnet, IP address, public access'
+        - name: 限制
+          href: flexible-server/concepts-limits.md
+        - name: 扩展
+          href: flexible-server/concepts-extensions.md
+        - name: 计划性维护
+          href: flexible-server/concepts-maintenance.md
+        - name: 业务连续性
+          items:
+            - name: 备份和还原
+              href: flexible-server/concepts-backup-restore.md
+        - name: 监视和优化
+          items:
+            - name: 监视和优化概述
+              href: flexible-server/concepts-monitoring.md
+              displayName: 'monitor, metrics'
+            - name: 日志
+              href: flexible-server/concepts-logging.md
+              displayName: 'monitor, server logs'
+            - name: 审核日志
+              href: flexible-server/concepts-audit.md
+        - name: 复制
+          href: flexible-server/concepts-logical.md
+          displayName: logical decoding
+    - name: 操作指南
+      items:
+        - name: 管理服务器
+          items:
+            - name: Azure 门户
+              href: flexible-server/how-to-manage-server-portal.md
+            - name: Azure CLI
+              href: flexible-server/how-to-manage-server-cli.md
+            - name: 连接和查询指南
+              href: flexible-server/how-to-connect-query-guide.md
+        - name: 计划性维护
+          items:
+            - name: Azure 门户
+              href: flexible-server/how-to-maintenance-portal.md
+        - name: 网络
+          items:
+            - name: 专用访问（VNet 集成）
+              items:
+                - name: Azure 门户
+                  href: flexible-server/how-to-manage-virtual-network-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-virtual-network-cli.md
+            - name: 公共访问（允许的 IP 地址）
+              items:
+                - name: Azure 门户
+                  href: flexible-server/how-to-manage-firewall-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-firewall-cli.md
+            - name: TLS/SSL
+              items:
+                - name: 使用 TLS/SSL 连接
+                  href: flexible-server/how-to-connect-tls-ssl.md
+        - name: 配置服务器参数
+          items:
+            - name: Azure 门户
+              href: flexible-server/howto-configure-server-parameters-using-portal.md
+              displayName: 'application development, server parameters'
+            - name: Azure CLI
+              href: flexible-server/howto-configure-server-parameters-using-cli.md
+              displayName: 'application development, server parameters'
+        - name: 缩放服务器
+          items:
+            - name: Azure 门户
+              href: flexible-server/how-to-scale-compute-storage-portal.md
+        - name: 重启服务器
+          items:
+            - name: Azure 门户
+              href: flexible-server/how-to-restart-server-portal.md
+        - name: 还原服务器
+          items:
+            - name: Azure 门户
+              href: flexible-server/how-to-restore-server-portal.md
+        - name: 监视
+          items:
+            - name: 针对指标创建警报
+              href: flexible-server/howto-alert-on-metrics.md
+            - name: 配置和访问日志
+              href: flexible-server/howto-configure-and-access-logs.md
 - name: 参考
   items:
     - name: Azure CLI

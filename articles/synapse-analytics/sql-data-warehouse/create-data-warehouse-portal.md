@@ -1,6 +1,6 @@
 ---
-title: 快速入门：创建并查询 Synapse SQL 池（Azure 门户）
-description: 使用 Azure 门户创建并查询 Synapse SQL 池
+title: 快速入门：创建和查询专用 SQL 池（之前称为 SQL DW）（Azure 门户）
+description: 使用 Azure 门户创建和查询专用 SQL 池（之前称为 SQL DW）
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,27 +8,27 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 origin.date: 05/28/2019
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e1ac7a0da10e5d22a30ab6a0817d7f5f6deb5944
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 94a36e6c74bc850b3bca883286e8076fac743b09
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004202"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023269"
 ---
-# <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建并查询 Synapse SQL 池
+# <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure Synapse Analytics 中创建和查询专用 SQL 池（之前称为 SQL DW）
 
-使用 Azure 门户在 Azure Synapse Analytics（以前称为 SQL DW）中快速创建和查询 Synapse SQL 池（数据仓库）。
+使用 Azure 门户在 Azure Synapse Analytics 中快速创建和查询专用 SQL 池（之前称为 SQL DW）。
 
 ## <a name="prerequisites"></a>先决条件
 
 1. 如果没有 Azure 订阅，请在开始前创建一个[试用](https://www.microsoft.com/china/azure/index.html?fromtype=cn)帐户。
 
    > [!NOTE]
-   > 在 Azure Synapse 中创建 SQL 池可能会产生新的可计费服务。 有关详细信息，请参阅 [Azure Synapse Analytics 定价](https://www.azure.cn/pricing/details/sql-data-warehouse/)。
+   > 在 Azure Synapse 中创建专用 SQL 池（之前称为 SQL DW）可能会产生新的计费服务。 有关详细信息，请参阅 [Azure Synapse Analytics 定价](https://www.azure.cn/pricing/details/sql-data-warehouse/)。
 
 2. 下载并安装最新版本的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS)。
 
@@ -38,25 +38,25 @@ ms.locfileid: "97004202"
 
 ## <a name="create-a-sql-pool"></a>创建 SQL 池
 
-数据仓库是使用 Azure Synapse Analytics 中的 SQL 池创建的。 SQL 池是使用定义的一组[计算资源](memory-concurrency-limits.md)创建的。 数据库在 [Azure 资源组](../../azure-resource-manager/management/overview.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)和[逻辑 SQL 服务器](../../azure-sql/database/logical-servers.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)中创建。
+使用 Azure Synapse Analytics 中的专用 SQL 池（之前称为 SQL DW）创建数据仓库。 专用 SQL 池（之前称为 SQL DW）是使用定义的一组[计算资源](memory-concurrency-limits.md)创建的。 数据库在 [Azure 资源组](../../azure-resource-manager/management/overview.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)和[逻辑 SQL 服务器](../../azure-sql/database/logical-servers.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)中创建。
 
-按照这些步骤创建包含 **AdventureWorksDW** 示例数据的 SQL 池。
+按照这些步骤创建包含 AdventureWorksDW 示例数据的专用 SQL 池（之前称为 SQL DW）。
 
 1. 在 Azure 门户的左上角选择“创建资源”。
 
    ![在 Azure 门户中创建资源](./media/create-data-warehouse-portal/create-a-resource.png)
 
-2. 在“新建”页上选择“数据库”，然后在“特色”列表中选择“Azure Synapse Analytics (前称为 SQL 数据仓库)”。   
+2. 在搜索栏中键入“专用 SQL 池”，选择专用 SQL 池（之前称为 SQL DW）。 在打开的页面上选择“创建”。
 
    ![创建空的数据仓库](./media/create-data-warehouse-portal/create-a-data-warehouse.png)
 
-3. 在“基本信息”中，提供订阅、资源组、SQL 池名称和服务器名称：
+3. 在“基本信息”中，提供订阅、资源组、专用 SQL 池（之前称为 SQL DW）名称和服务器名称：
 
    | 设置 | 建议的值 | 说明 |
    | :------ | :-------------- | :---------- |
    | **订阅** | 订阅  | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
    | **资源组** | myResourceGroup | 如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)（命名规则和限制）。 |
-   | **SQL 池名称** | 任何全局唯一的名称（例如 *mySampleDataWarehouse*） | 如需有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)（数据库标识符）。 请注意，SQL 池是一种数据库。 |
+   | **SQL 池名称** | 任何全局唯一的名称（例如 *mySampleDataWarehouse*） | 如需有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)（数据库标识符）。  |
    | **Server** | 任何全局唯一名称 | 选择现有的服务器，或者选择“新建”创建新的服务器名称。 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)（命名规则和限制）。 |
 
    ![创建数据仓库 - 基本详细信息](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
@@ -121,11 +121,11 @@ Azure Synapse 服务将在服务器级别创建防火墙。 此防火墙会阻�
 
 3. 在数据库的“Azure 门户”页的“概要”窗格中，找到并复制“服务器名称”。   在此示例中，完全限定名称为“sqlpoolservername.database.chinacloudapi.cn”。
 
-    ![连接信息](./media/create-data-warehouse-portal/find-server-name-copy.png)
+    ![连接信息](./media/create-data-warehouse-portal/find-server-name.png)
 
 ## <a name="connect-to-the-server-as-server-admin"></a>以服务器管理员的身份连接到服务器
 
-本部分使用 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (SSMS) 来建立与服务器的连接。
+本部分使用 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) 来建立与服务器的连接。
 
 1. 打开 SQL Server Management Studio。
 
@@ -169,21 +169,21 @@ Azure Synapse Analytics 使用 T-SQL 作为查询语言。 打开一个查询窗
 
 ## <a name="clean-up-resources"></a>清理资源
 
-针对 SQL 池的数据仓库单元数和存储的数据收费。 这些计算和存储资源是分开计费的。
+我们会根据数据仓库单位数和存储专用 SQL 池（之前称为 SQL DW）的数据向你收取费用。 这些计算和存储资源是分开计费的。
 
-- 如果想要将数据保留在存储中，可以在不使用 SQL 池时暂停计算。 如果暂停计算资源，则你只需支付数据存储费用。 只要准备好处理数据，便可以恢复计算。
+- 如果想要将数据保留在存储中，可以在不使用专用 SQL 池（之前称为 SQL DW）时暂停计算。 如果暂停计算资源，则你只需支付数据存储费用。 只要准备好处理数据，便可以恢复计算。
 
-- 若要避免将来产生费用，可以删除该 SQL 池。
+- 若要避免将来产生费用，可以删除该专用 SQL 池（之前称为 SQL DW）。
 
 按照以下步骤清理不再需要的资源。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)，选择你的 SQL 池。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，选择你的专用 SQL 池（之前称为 SQL DW）。
 
    ![清理资源](./media/create-data-warehouse-portal/clean-up-resources.png)
 
-2. 若要暂停计算，请选择“暂停”按钮。 暂停 SQL 池后，会看到“恢复”按钮。 若要恢复计算，请选择“恢复”。
+2. 若要暂停计算，请选择“暂停”按钮。 暂停专用 SQL 池（之前称为 SQL DW）后，会看到“继续”按钮。 若要恢复计算，请选择“恢复”。
 
-3. 若要删除 SQL 池以免产生计算或存储费用，请选择“删除”。
+3. 若要删除专用 SQL 池（之前称为 SQL DW）以免产生计算或存储费用，请选择“删除”。
 
 4. 若要删除你创建的服务器，请选择上图中的“sqlpoolservername.database.chinacloudapi.cn”，然后选择“删除” 。 请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
 
@@ -191,4 +191,4 @@ Azure Synapse Analytics 使用 T-SQL 作为查询语言。 打开一个查询窗
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解如何将数据加载到 SQL 池中，请阅读[将数据加载到 SQL 池](load-data-from-azure-blob-storage-using-polybase.md)一文。
+若要详细了解如何将数据加载到专用 SQL 池（之前称为 SQL DW）中，请继续阅读[将数据加载到专用 SQL 池](load-data-from-azure-blob-storage-using-copy.md)一文。

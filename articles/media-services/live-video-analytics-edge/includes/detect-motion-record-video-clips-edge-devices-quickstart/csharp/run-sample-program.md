@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 14ef62d6f3e465f4eaf9d25b3a020408ac77c190
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: a4fbeed096982201026de2ceda47ad702a2de675
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301106"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021314"
 ---
 1. 在 Visual Studio Code 中，打开“扩展”选项卡（或按 Ctrl+Shift+X），然后搜索“Azure IoT 中心”。
 1. 右键单击并选择“扩展设置”。
@@ -23,7 +23,7 @@ ms.locfileid: "96301106"
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -41,7 +41,7 @@ ms.locfileid: "96301106"
   
   ```
   {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "Sample-Graph",
     "properties": {
       "topologyName": "EVRToFilesOnMotionDetection",

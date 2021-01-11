@@ -5,15 +5,15 @@ author: Johnnytechn
 ms.service: virtual-machines-linux
 ms.topic: how-to
 origin.date: 06/13/2018
-ms.date: 09/03/2020
+ms.date: 01/05/2021
 ms.author: v-johya
 ms.subservice: disks
-ms.openlocfilehash: 3cac3e8b17667c9bc28bb3886e2b1c2f0fd98210
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: acf30a48542e95c25cd26156d4c0c65489b1d890
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057613"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022348"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>将磁盘添加到 Linux VM
 
@@ -149,7 +149,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail  
 > [!NOTE]
 > 之后，在不编辑 fstab 的情况下删除数据磁盘可能会导致 VM 无法启动。 大多数分发版都提供 *nofail* 和/或 *nobootwait* fstab 选项。 这些选项使系统在磁盘无法装载的情况下也能启动。 有关这些参数的详细信息，请查阅分发文档。
 >
-> 即使文件系统已损坏或磁盘在引导时不存在， *nofail* 选项也能确保 VM 启动。 如果不使用此选项，可能会遇到 [Cannot SSH to Linux VM due to FSTAB errors](https://docs.microsoft.com//archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
+> 即使文件系统已损坏或磁盘在引导时不存在， *nofail* 选项也能确保 VM 启动。 如果不使用此选项，可能会遇到 [Cannot SSH to Linux VM due to FSTAB errors](https://docs.microsoft.com/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
 
 <!--Not Available on [Serial Console documentation](/virtual-machines/troubleshooting/serial-console-linux)-->
 
@@ -186,6 +186,6 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail  
 ## <a name="next-steps"></a>后续步骤
 
 * 为确保正确配置 Linux VM，请查看有关[优化 Linux 计算机性能](optimization.md)的建议。
-* 可以添加更多的磁盘来扩展存储容量，[配置 RAID](configure-raid.md) 来提高性能。
+* 可以添加更多的磁盘来扩展存储容量，[配置 RAID](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/configure-raid) 来提高性能。
 
 <!--Update_Description: update meta properties, update link, wording update -->

@@ -6,15 +6,15 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 03/27/2020
-ms.date: 11/13/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 15882276806a91681cda6239ca31eaa11e129161
-ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
+ms.openlocfilehash: f195aea40ac4231e75bd0def49d3a9881c567f8f
+ms.sourcegitcommit: 40db5a4b9ab8b5877e307ff7a567fd930ca81c72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94595146"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894301"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio 2019 开发和调试适用于 Azure IoT Edge 的模块
 

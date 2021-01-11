@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 01/05/2021
 ms.author: v-johya
-ms.openlocfilehash: bb2b6cc9022e6de41e9e167887b47e3c1b02723a
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 5f7de3b30f43b6733737d88f400aacd497e74e1d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057663"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022532"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>为 Azure 准备基于 Red Hat 的虚拟机
 在本文中，将了解如何准备 Red Hat Enterprise Linux (RHEL) 虚拟机，以供在 Azure 中使用。 本文介绍的 RHEL 版本为 6.7+ 和 7.1+。 本文所述的用于准备工作的虚拟机监控程序为 Hyper-V、基于内核的虚拟机 (KVM) 和 VMware。 有关参与 Red Hat 云访问计划的资格要求的详细信息，请参阅 [Red Hat 的云访问网站](https://www.redhat.com/en/technologies/cloud-computing/cloud-access)和[在 Azure 上运行 RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure)。
@@ -30,7 +30,7 @@ ms.locfileid: "90057663"
 * Azure 不支持 VHDX 格式。 Azure 仅支持固定 VHD。 可使用 Hyper-V 管理器将磁盘转换为 VHD 格式，也可以使用 convert-vhd cmdlet。 如果使用 VirtualBox，则选择“固定大小”，而不是在创建磁盘时默认动态分配选项。
 * Azure 支持 Gen1（BIOS 引导）和Gen2（UEFI 引导）虚拟机。
 * VHD 允许的最大大小为 1,023 GB。
-* 支持逻辑卷管理器 (LVM)，该管理器可以在 Azure 虚拟机中的 OS 磁盘或数据磁盘上使用。 但是，通常建议在 OS 磁盘上使用标准分区而不是 LVM。 这种做法可以避免 LVM 名称与克隆的虚拟机冲突，尤其是当需要将操作系统磁盘附加到另一台相同的虚拟机进行故障排除时。 另请参阅 [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 和 [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 文档。
+* 支持逻辑卷管理器 (LVM)，该管理器可以在 Azure 虚拟机中的 OS 磁盘或数据磁盘上使用。 但是，通常建议在 OS 磁盘上使用标准分区而不是 LVM。 这种做法可以避免 LVM 名称与克隆的虚拟机冲突，尤其是当需要将操作系统磁盘附加到另一台相同的虚拟机进行故障排除时。 另请参阅 [LVM](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 和 [RAID](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 文档。
 * 需要装载通用磁盘格式 (UDF) 文件系统的内核支持。 在 Azure 上首次启动时，附加到来宾的 UDF 格式媒体会将预配配置传递到 Linux 虚拟机。 Azure Linux 代理必须能够装载 UDF 文件系统才能读取其配置和预配虚拟机。
 * 不要在操作系统磁盘上配置交换分区。 可以配置 Linux 代理，并在临时资源磁盘上创建交换文件。  可以在以下步骤中找到有关此内容的详细信息。
 * Azure 上的所有 VHD 必须已将虚拟大小调整为 1MB。 从原始磁盘转换为 VHD 时，必须确保在转换前原始磁盘大小是 1MB 的倍数。 可以在以下步骤中找到更多详细信息。 有关详细信息，另请参阅 [Linux 安装说明](create-upload-generic.md#general-linux-installation-notes)。
@@ -1126,7 +1126,7 @@ ms.locfileid: "90057663"
 
 1. 启动虚拟机。 当安装指南出现时，请按 **Tab** 键来配置启动选项。
 
-1. 在启动选项的末尾输入 `inst.ks=<the location of the kickstart file>` ，并按 **Enter**键。
+1. 在启动选项的末尾输入 `inst.ks=<the location of the kickstart file>` ，并按 **Enter** 键。
 
 1. 等待安装完成。 完成后，虚拟机自动关闭。 现在，准备将 Linux VHD 上传到 Azure。
 

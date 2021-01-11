@@ -10,19 +10,19 @@ author: gargi-sinha
 ms.author: v-junlch
 manager: martinco
 ms.reviewer: ''
-ms.date: 12/02/2020
+ms.date: 01/07/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69732edaeff12920ffcf50887330325178e213ff
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: ca4be1c66a0a43bd57a0579bde7d18ffd8b7c240
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004311"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021573"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>通过监视和分析实现复原能力
 
-监视可以最大程度地提高应用程序和服务的可用性和性能。 它提供了一个全面的解决方案，用于从你的基础结构和应用程序收集、分析和处理遥测数据。 当发现你的服务或应用程序出现问题时，警报会主动通知你。 有了警报，你就可以在服务的最终用户注意到问题之前确定并解决这些问题。 [Azure AD Log Analytics](https://www.azure.cn/home/features/monitor) 可帮助你分析、搜索审核日志和登录日志，以及构建自定义视图。
+监视可以最大程度地提高应用程序和服务的可用性和性能。 它提供了一个全面的解决方案，用于从你的基础结构和应用程序收集、分析和处理遥测数据。 当发现你的服务或应用程序出现问题时，警报会主动通知你。 有了警报，你就可以在服务的最终用户注意到问题之前确定并解决这些问题。 [Azure AD Log Analytics](https://www.azure.cn/home/features/monitor/?OCID=AID2100131_SEM_6d16332c03501fc9c1f46c94726d2264:G:s&ef_id=6d16332c03501fc9c1f46c94726d2264:G:s&msclkid=6d16332c03501fc9c1f46c94726d2264#features) 可帮助你分析、搜索审核日志和登录日志，以及构建自定义视图。
 
 ## <a name="monitor-and-get-notified-through-alerts"></a>通过警报进行监视并获得通知
 

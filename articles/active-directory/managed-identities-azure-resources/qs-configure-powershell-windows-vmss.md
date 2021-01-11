@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffa21138f7629f09c4f73589390d8b4b40263645
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 8b89252f59e4200cb7b3bcf28388c98f5f6de57f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509070"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021725"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>使用 PowerShell 在虚拟机规模集上配置 Azure 资源的托管标识
 
@@ -29,6 +29,7 @@ ms.locfileid: "96509070"
 Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供了一个自动托管标识。 此标识可用于通过支持 Azure AD 身份验证的任何服务的身份验证，这样就无需在代码中插入凭据了。 
 
 在本文中，你将了解如何使用 PowerShell 在虚拟机规模集上执行 Azure 资源的托管标识操作：
+
 - 在虚拟机规模集上启用和禁用系统分配的托管标识
 - 在虚拟机规模集上添加和删除用户分配的托管标识
 
@@ -38,7 +39,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 - 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#managed-identity-types)。
 
-- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)，然后再继续。
+- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)，然后再继续。
 
 - 若要执行本文中的管理操作，帐户需要以下基于 Azure 角色的访问控制分配：
 

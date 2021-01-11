@@ -4,14 +4,14 @@ description: 在本教程中，了解如何使用 Azure CLI 将 Azure VM 上运�
 author: Johnnytechn
 ms.topic: tutorial
 origin.date: 11/7/2019
-ms.date: 11/17/2020
+ms.date: 01/07/2021
 ms.author: v-johya
-ms.openlocfilehash: 3ff3e35372c04c232bb25a3ec0ec8da99f3b5117
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 8737f604aac60331fc10c65067190ca19aa0b3ec
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978219"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023072"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>教程：使用 Azure CLI 备份 Azure VM 中的 SAP HANA 数据库
 
@@ -126,8 +126,8 @@ saphanadatabase;hxe;hxe        SAPHanaDatabase          HXE           hxehost   
 ```azurecli
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
     --policy-name saphanaPolicy \
-    --protectable-item-name saphanadatabase;hxe;hxe  \
-    --protectable-item-type SAPHANADatabse \
+    --protectable-item-name "saphanadatabase;hxe;hxe"  \
+    --protectable-item-type SAPHANADatabase \
     --server-name hxehost \
     --workload-type SAPHANA \
     --output table

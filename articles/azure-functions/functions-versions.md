@@ -3,13 +3,13 @@ title: Azure Functions 运行时版本概述
 description: Azure Functions 支持多个版本的运行时。 了解这些版本之间的差异以及如何选择最适合你的版本。
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 11/30/2020
-ms.openlocfilehash: 266cbbf21fb8beeddc17a90455ba1883182fbb32
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.date: 01/04/2021
+ms.openlocfilehash: 8c86c58ebcedf2f0de6d9202b664be135a21fc2c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507743"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021448"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 运行时版本概述
 
@@ -116,7 +116,7 @@ Azure 中的已发布应用使用的 Functions 运行时版本由 [`FUNCTIONS_EX
 ##### <a name="version-1x"></a>版本 1.x
 
 ```xml
-<TargetFramework>net461</TargetFramework>
+<TargetFramework>net472</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 

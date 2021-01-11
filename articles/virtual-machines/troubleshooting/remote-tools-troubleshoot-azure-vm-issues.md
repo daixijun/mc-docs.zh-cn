@@ -11,16 +11,16 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 01/11/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: c2f00ef127b088ef96b1a3edbc91a07904fc98bc
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 9cd3efd90c616450c20adca9721cc7b67489c6a4
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105416"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856867"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用远程工具排查 Azure VM 问题
 
@@ -111,18 +111,100 @@ Get-AzSubscription -SubscriptionId $subscriptionID | Select-AzSubscription
 
 #Set up the access to the storage account, and upload the script.
 $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageRG -Name $storageAccount).Value[0]
-$context = New-AzStorageContext -Environment AzureChinaCloud -StorageAccountName $storageAccount -StorageAccountKey $storageKey
+$context = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $storageAccount -StorageAccountKey $storageKey
 $container = "cse" + (Get-Date -Format yyyyMMddhhmmss)
-New-AzStorageContainer -Name $container -Permission Off -Context $context
-Set-AzStorageBlobContent -File $localScript -Container $container -Blob $blobName -Context $context
+New-AzureStorageContainer -Name $container -Permission Off -Context $context
+Set-AzureStorageBlobContent -File $localScript -Container $container -Blob $blobName  -Context $context
 
 #Push the script into the VM.
 Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $vmResourceGroup -VMName $vmName -Location $vmLocation -StorageAccountName $storageAccount -StorageAccountKey $storagekey -ContainerName $container -FileName $blobName -Run $blobName
 ```
 
-<!--Not Available on AzureStorage: The term 'New-AzureStorageContainer' is not recognized as the name of a cmdlet-->
+<!--Verified successfully Remote PowerShell on 12/30/2020-->
 
-<!--Not Available on ## Remote PowerShell-->
+## <a name="remote-powershell"></a>远程 PowerShell
+
+>[!NOTE]
+>必须打开 TCP 端口 5986 (HTTPS)，以便能够使用此选项。
+>
+>对于 Azure 资源管理器 VM，必须在网络安全组 (NSG) 上打开端口 5986。 有关详细信息，请参阅“安全组”。 
+>
+>对于 RDFE VM，必须有一个配备专用端口 (5986) 和公共端口的终结点。 然后，还必须在 NSG 中打开该公共端口。
+
+### <a name="set-up-the-client-computer"></a>设置客户端计算机
+
+若要使用 PowerShell 远程连接到 VM，首先需要设置客户端计算机，以允许建立连接。 为此，请相应地运行以下命令，将 VM 添加到 PowerShell 信任的主机列表。
+
+若要将一个 VM 添加到受信任主机列表，请运行：
+
+```powershell
+Set-Item wsman:\localhost\Client\TrustedHosts -value <ComputerName>
+```
+
+若要将多个 VM 添加到受信任主机列表，请运行：
+
+```powershell
+Set-Item wsman:\localhost\Client\TrustedHosts -value <ComputerName1>,<ComputerName2>
+```
+
+将所有计算机添加到信任的主机列表：
+
+```powershell
+Set-Item wsman:\localhost\Client\TrustedHosts -value *
+```
+
+### <a name="enable-remoteps-on-the-vm"></a>在 VM 上启用 RemotePS
+
+对于使用经典部署模型创建的 VM，请使用自定义脚本扩展来运行以下脚本：
+
+```powershell
+Enable-PSRemoting -Force
+New-NetFirewallRule -Name "Allow WinRM HTTPS" -DisplayName "WinRM HTTPS" -Enabled True -Profile Any -Action Allow -Direction Inbound -LocalPort 5986 -Protocol TCP
+$thumbprint = (New-SelfSignedCertificate -DnsName $env:COMPUTERNAME -CertStoreLocation Cert:\LocalMachine\My).Thumbprint
+$command = "winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostname=""$env:computername""; CertificateThumbprint=""$thumbprint""}"
+cmd.exe /C $command
+```
+
+对于 Azure 资源管理器 VM，请从门户中使用运行命令来运行 EnableRemotePS 脚本：
+
+:::image type="content" source="./media/remote-tools-troubleshoot-azure-vm-issues/run-command.png" alt-text="运行命令":::
+
+### <a name="connect-to-the-vm"></a>连接到 VM
+
+根据客户端计算机的位置运行以下命令：
+
+* 在虚拟网络或部署之外
+
+    * 对于使用经典部署模型创建的 VM，请运行以下命令：
+
+        ```powershell
+        $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
+        Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.chinacloudapp.cn>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
+        ```
+
+    * 对于 Azure 资源管理器 VM，请先为公共 IP 地址添加 DNS 名称。 有关详细步骤，请参阅[在 Azure 门户中创建 Windows VM 的完全限定域名](../create-fqdn.md)。 然后，运行以下命令：
+
+        ```powershell
+        $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
+        Enter-PSSession -ComputerName "<<DNSname.DataCenter.cloudapp.chinacloudapi.cn>>" -port "5986" -Credential (Get-Credential) -useSSL -SessionOption $Skip
+        ```
+
+* 在虚拟网络或部署之内，请运行以下命令：
+
+    ```powershell
+    $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
+    Enter-PSSession -ComputerName  "<<HOSTNAME>>" -port 5986 -Credential (Get-Credential) -useSSL -SessionOption $Skip
+    ```
+
+>[!NOTE] 
+>如果设置 SkipCaCheck 标志，则启动会话时无需将证书导入 VM。
+
+也可以使用 Invoke-Command cmdlet 在 VM 上远程运行脚本。
+
+```powershell
+Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
+```
+
 ## <a name="remote-registry"></a>远程注册表
 
 >[!NOTE]
@@ -140,7 +222,7 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 
 3. 在“输入要选择的对象名称”框中输入目标 VM 的主机名或动态 IP（首选），以找到该 VM。   
 
-    :::image type="content" source="./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png" alt-text="注册表编辑器"::: 
+    :::image type="content" source="./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png" alt-text="“输入要选择的对象名称”框"::: 
 
 4. 输入目标 VM 的凭据。
 
@@ -161,11 +243,11 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 
 3. 选择“连接到另一台计算机”。 
 
-    :::image type="content" source="./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png" alt-text="注册表编辑器":::
+    :::image type="content" source="./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png" alt-text="远程服务":::
 
 4. 输入目标 VM 的动态 IP。
 
-    :::image type="content" source="./media/remote-tools-troubleshoot-azure-vm-issues/input-ip-address.png" alt-text="注册表编辑器":::
+    :::image type="content" source="./media/remote-tools-troubleshoot-azure-vm-issues/input-ip-address.png" alt-text="输入动态 IP":::
 
 5. 对服务进行任何必要的更改。
 

@@ -1,21 +1,22 @@
 ---
-title: 使用 .NET API 运行并行工作负荷
+title: 教程 - 使用 .NET API 运行并行工作负载
 description: 教程 - 在 Azure Batch 中使用 Batch .NET 客户端库通过 ffmpeg 并行转码媒体文件
 ms.devlang: dotnet
+ms.service: batch
 ms.topic: tutorial
 origin.date: 09/29/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 04/26/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 93ba7ba5efa54048ba05c8985f66bb6f157fc001
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 2a75054ce1df544c27c02afbef9fc92eca53c66c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978218"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023176"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>教程：使用 .NET API 通过 Azure Batch 运行并行工作负荷
 
@@ -337,7 +338,7 @@ batchClient.JobOperations.TerminateJob(jobId);
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何：
+在本教程中，你了解了如何执行以下操作：
 
 > [!div class="checklist"]
 > * 将应用程序包添加到 Batch 帐户
@@ -353,6 +354,6 @@ batchClient.JobOperations.TerminateJob(jobId);
 > [!div class="nextstepaction"]
 > [Batch C# 示例](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
 
-设置实例变量 LowPriorityNodeCount=0 和 DedicatedNodeCount=5 修复了该问题并允许作业完成。
+
 
 <!-- Update_Description: update meta properties, wording update, update link -->

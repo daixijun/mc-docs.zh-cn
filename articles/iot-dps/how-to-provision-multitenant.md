@@ -4,32 +4,32 @@ description: 如何使用你的设备预配服务 (DPS) 实例来预配多租户
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 04/10/2019
-ms.date: 09/30/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 19a44597fb0bedb3ed277d3d53276458fc86d78e
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 4ec5b64352960ca356ae7b8f866dc58b60b24538
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564390"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874821"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>如何预配多租户 
 
 本文演示如何使用[分配策略](concepts-service.md#allocation-policy)将多个对称密钥设备安全地预配到一组 IoT 中心。 通过预配服务定义的分配策略支持各种不同的分配方案。 两个常见的方案是：
 
-* 地理位置/GeoLatency****：当设备在两位置之间移动时，通过将设备预配到距离每个位置最近的 IoT 中心来改善网络延迟。 在此方案中，为注册选择跨越区域的一组 IoT 中心。 为这些注册选择“最低延迟”**** 分配策略。 此策略会使设备预配服务评估设备延迟，并从一组 IoT 中心确定最接近的 IoT 中心。 
+* 地理位置/GeoLatency：当设备在两位置之间移动时，通过将设备预配到距离每个位置最近的 IoT 中心来改善网络延迟。 在此方案中，为注册选择跨越区域的一组 IoT 中心。 为这些注册选择“最低延迟”分配策略。 此策略会使设备预配服务评估设备延迟，并从一组 IoT 中心确定最接近的 IoT 中心。 
 
-* 多租户****：IoT 解决方案中使用的设备可能需要被分配到一个特定 IoT 中心或一组 IoT 中心。 解决方案可能要求特定租户的所有设备与一组特定的 IoT 中心进行通信。 在某些情况下，租户可能拥有 IoT 中心并要求设备被分配到其 IoT 中心。
+* 多租户：IoT 解决方案中使用的设备可能需要被分配到一个特定 IoT 中心或一组 IoT 中心。 解决方案可能要求特定租户的所有设备与一组特定的 IoT 中心进行通信。 在某些情况下，租户可能拥有 IoT 中心并要求设备被分配到其 IoT 中心。
 
 通常会将这两种方案结合使用。 例如，多租户 IoT 解决方案通常使用跨区域分散的一组 IoT 中心来分配租户设备。 这些租户设备可被分配到基于地理位置具有最低延迟的组中的 IoT 中心。
 
 本文使用 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 中的模拟设备示例来演示如何在跨区域的多租户方案中预配设备。 你将在本文中执行以下步骤：
 
-* 使用 Azure CLI 创建两个区域 IoT 中心（**中国东部**和**中国北部**）
+* 使用 Azure CLI 创建两个区域 IoT 中心（**中国东部** 和 **中国北部**）
 * 创建多租户注册
-* 使用 Azure CLI 创建两个区域 Linux VM，以充当相同区域（**中国东部**和**中国北部**）中的设备
+* 使用 Azure CLI 创建两个区域 Linux VM，以充当相同区域（**中国东部** 和 **中国北部**）中的设备
 * 在这两个 Linux VM 上为 Azure IoT C SDK 设置开发环境
 * 模拟设备，以确保为最近区域中同一租户预配设备。
 
@@ -40,7 +40,6 @@ ms.locfileid: "91564390"
 ## <a name="prerequisites"></a>先决条件
 
 * 完成[通过 Azure 门户设置 IoT 中心设备预配服务](./quick-setup-auto-provision.md)快速入门。
-
 
 
 ## <a name="create-two-regional-iot-hubs"></a>创建两个区域 IoT 中心
@@ -56,9 +55,9 @@ ms.locfileid: "91564390"
     az group create --name contoso-us-resource-group --location chinanorth
     ```
 
-2. 在 Azure CLI 中，使用 [az iot hub create](/cli/iot/hub#az-iot-hub-create) 命令在“chinanorth”区域中创建一个 IoT 中心。 IoT 中心将被添加到 contoso-us-resource-group**。
+2. 在 Azure CLI 中，使用 [az iot hub create](/cli/iot/hub#az-iot-hub-create) 命令在“chinanorth”区域中创建一个 IoT 中心。 IoT 中心将被添加到 contoso-us-resource-group。
 
-    以下示例在“chinanorth”位置创建一个名为“contoso-east-hub”的 IoT 中心。 你必须使用自己的唯一中心名称来替代 contoso-east-hub****。
+    以下示例在“chinanorth”位置创建一个名为“contoso-east-hub”的 IoT 中心。 你必须使用自己的唯一中心名称来替代 contoso-east-hub。
 
     ```azurecli 
     az iot hub create --name contoso-east-hub --resource-group contoso-us-resource-group --location chinanorth --sku S1
@@ -66,9 +65,9 @@ ms.locfileid: "91564390"
     
     此命令可能需要花费几分钟时间完成。
 
-3. 在 Azure CLI 中，使用 [az iot hub create](/cli/iot/hub#az-iot-hub-create) 命令在“chinaeast”区域中创建一个 IoT 中心。 此 IoT 中心也将被添加到 contoso-us-resource-group**。
+3. 在 Azure CLI 中，使用 [az iot hub create](/cli/iot/hub#az-iot-hub-create) 命令在“chinaeast”区域中创建一个 IoT 中心。 此 IoT 中心也将被添加到 contoso-us-resource-group。
 
-    以下示例在“chinaeast”位置创建一个名为“contoso-west-hub”的 IoT 中心。 你必须使用自己的唯一中心名称来替代 contoso-west-hub****。
+    以下示例在“chinaeast”位置创建一个名为“contoso-west-hub”的 IoT 中心。 你必须使用自己的唯一中心名称来替代 contoso-west-hub。
 
     ```azurecli 
     az iot hub create --name contoso-west-hub --resource-group contoso-us-resource-group --location chinaeast --sku S1
@@ -86,53 +85,53 @@ ms.locfileid: "91564390"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)，并打开你的设备预配服务实例。
 
-2. 选择“管理注册”**** 选项卡，然后单击页面顶部的“添加注册组”**** 按钮。 
+2. 选择“管理注册”选项卡，然后单击页面顶部的“添加注册组”按钮。 
 
-3. 在“添加注册组”**** 中输入以下信息，然后单击“保存”**** 按钮。
+3. 在“添加注册组”中输入以下信息，然后单击“保存”按钮。
 
-    组名称****：输入 contoso-us-devices****。
+    组名称：输入 contoso-us-devices。
 
-    **证明类型**：选择**对称密钥**。
+    **证明类型**：选择 **对称密钥**。
 
-    自动生成密钥****：此复选框应已处于选中状态。
+    自动生成密钥：此复选框应已处于选中状态。
 
-    选择要如何将设备分配到中心****：选择“最低延迟”****。
+    选择要如何将设备分配到中心：选择“最低延迟”。
 
     ![为对称密钥证明添加多租户注册组](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
 
-4. 在“添加注册组”**** 上，单击“链接新的 IoT 中心”****，以链接这两个区域中心。
+4. 在“添加注册组”上，单击“链接新的 IoT 中心”，以链接这两个区域中心。
 
-    订阅****：如果你有多个订阅，请选择创建区域 IoT 中心的订阅。
+    订阅：如果你有多个订阅，请选择创建区域 IoT 中心的订阅。
 
-    IoT 中心****：选择你创建的区域中心之一。
+    IoT 中心：选择你创建的区域中心之一。
 
-    访问策略****：选择“iothubowner”****。
+    访问策略：选择“iothubowner”。
 
     ![使用预配服务链接区域 IoT 中心](./media/how-to-provision-multitenant/link-regional-hubs.png)
 
 
-5. 在链接这两个区域 IoT 中心后，必须为注册组选择它们，并单击“保存”****，以为注册创建区域 IoT 中心组。
+5. 在链接这两个区域 IoT 中心后，必须为注册组选择它们，并单击“保存”，以为注册创建区域 IoT 中心组。
 
     ![为注册创建区域中心组](./media/how-to-provision-multitenant/enrollment-regional-hub-group.png)
 
 
-6. 保存注册后，重新打开它，并记录“主键”****。 必须先保存注册，才能生成密钥。 此密钥稍后将会在为这两个模拟设备生成唯一设备密钥时使用。
+6. 保存注册后，重新打开它，并记录“主键”。 必须先保存注册，才能生成密钥。 此密钥稍后将会在为这两个模拟设备生成唯一设备密钥时使用。
 
 
 ## <a name="create-regional-linux-vms"></a>创建区域 Linux VM
 
 在这一部分，你将创建两个区域 Linux 虚拟机 (VM)。 这些 VM 将从每个区域运行设备模拟示例，以演示这两个区域中针对租户设备的设备预配。
 
-为了更易清理资源，这些 VM 将被添加到包含创建的 IoT 中心的同一资源组 contoso-us-resource-group**。 但是，这些 VM 将在不同的区域（**中国东部**和**中国北部**）中运行。
+为了更易清理资源，这些 VM 将被添加到包含创建的 IoT 中心的同一资源组 contoso-us-resource-group。 但是，这些 VM 将在不同的区域（**中国东部** 和 **中国北部**）中运行。
 
 1. 在 Azure CLI 中，在命令中更改以下参数后，执行该命令以创建“中国北部”区域 VM：
 
     **--name**：为“中国北部”区域设备 VM 输入一个唯一名称。 
 
-    --admin-username****：使用你自己的管理员用户名称。
+    --admin-username：使用你自己的管理员用户名称。
 
-    --admin-password****：使用你自己的管理员密码。
+    --admin-password：使用你自己的管理员密码。
 
     ```azurecli
     az vm create \
@@ -151,9 +150,9 @@ ms.locfileid: "91564390"
 
     **--name**：为“中国东部”区域设备 VM 输入一个唯一名称。 
 
-    --admin-username****：使用你自己的管理员用户名称。
+    --admin-username：使用你自己的管理员用户名称。
 
-    --admin-password****：使用你自己的管理员密码。
+    --admin-password：使用你自己的管理员密码。
 
     ```azurecli
     az vm create \
@@ -209,7 +208,7 @@ ms.locfileid: "91564390"
 
     应该预料到此操作需要几分钟才能完成。
 
-1. 对于这两个 VM，在存储库内创建一个新的 cmake**** 文件夹，并更改为该文件夹。
+1. 对于这两个 VM，在存储库内创建一个新的 cmake 文件夹，并更改为该文件夹。
 
     ```bash
     mkdir ~/azure-iot-sdk-c/cmake
@@ -252,13 +251,13 @@ ms.locfileid: "91564390"
 
 不要在设备代码中包含你的组主键。
 
-使用 Bash shell 示例为使用 openssl**** 的每个设备创建派生的设备密钥。
+使用 Bash shell 示例为使用 openssl 的每个设备创建派生的设备密钥。
 
-- 将密钥**** 值替换为之前注册时所记录的主键****。
+- 将密钥值替换为之前注册时所记录的主键。
 
-- 针对每个设备，将 REG_ID**** 的值替换为你自己的唯一注册 ID。 使用小写字母数字和短划线（“-”）字符定义这两个 ID。
+- 针对每个设备，将 REG_ID 的值替换为你自己的唯一注册 ID。 使用小写字母数字和短划线（“-”）字符定义这两个 ID。
 
-contoso-simdevice-east** 的示例设备密钥生成：
+contoso-simdevice-east 的示例设备密钥生成：
 
 ```bash
 KEY=rLuyBPpIJ+hOre2SFIP9Ajvdty3j0EwSP/WvTVH9eZAw5HpDuEmf13nziHy5RRXmuTy84FCLpOnhhBPASSbHYg==
@@ -272,7 +271,7 @@ echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | ba
 p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=
 ```
 
-contoso-simdevice-west** 的示例设备密钥生成：
+contoso-simdevice-west 的示例设备密钥生成：
 
 ```bash
 KEY=rLuyBPpIJ+hOre2SFIP9Ajvdty3j0EwSP/WvTVH9eZAw5HpDuEmf13nziHy5RRXmuTy84FCLpOnhhBPASSbHYg==
@@ -299,11 +298,11 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 示例代码模拟将预配请求发送到你的设备预配服务实例的设备启动序列。 启动序列将会使设备被识别，并基于延迟被分配到最邻近的 IoT 中心。
 
-1. 在 Azure 门户中，选择设备预配服务的“概述”选项卡，记下“ID 范围”的值。******__**
+1. 在 Azure 门户中，选择设备预配服务的“概述”选项卡，记下“ID 范围”的值。****
 
     ![从门户边栏选项卡中提取设备预配服务终结点信息](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-1. 打开 ~/azure-iot-sdk-c/provisioning\_client/samples/prov\_dev\_client\_sample/prov\_dev\_client\_sample.c****，在这两个 VM 上进行编辑。
+1. 打开 ~/azure-iot-sdk-c/provisioning\_client/samples/prov\_dev\_client\_sample/prov\_dev\_client\_sample.c，在这两个 VM 上进行编辑。
 
     ```bash
     vi ~/azure-iot-sdk-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c
@@ -356,7 +355,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
     cmake --build . --target prov_dev_client_sample --config Debug
     ```
 
-1. 成功生成后，在这两个 VM 上运行 prov\_dev\_client\_sample.exe****，以模拟来自每个区域的租户设备。 请注意，每个设备将被分配到最邻近模拟设备区域的租户 IoT 中心。
+1. 成功生成后，在这两个 VM 上运行 prov\_dev\_client\_sample.exe，以模拟来自每个区域的租户设备。 请注意，每个设备将被分配到最邻近模拟设备区域的租户 IoT 中心。
 
     运行模拟：
     ```bash
@@ -401,7 +400,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 如果打算继续使用本文中创建的资源，则可以保留它们。 如果不打算继续使用这些资源，请使用以下步骤删除本文创建的所有资源，以避免不必要的费用。
 
-此处的步骤假定你按照名为 contoso-us-resource-group**** 的同一资源组的指示创建了本文中的所有资源。
+此处的步骤假定你按照名为 contoso-us-resource-group 的同一资源组的指示创建了本文中的所有资源。
 
 > [!IMPORTANT]
 > 删除资源组的操作不可逆。 资源组以及包含在其中的所有资源将被永久删除。 请确保不会意外删除错误的资源组或资源。 如果在现有的包含要保留资源的资源组中创建了 IoT 中心，则只删除 IoT 中心资源本身，而不要删除资源组。
@@ -411,11 +410,11 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)，并单击“资源组”。
 
-2. 在“按名称筛选...”**** 文本框中，键入包含资源的资源组名称“contoso-us-resource-group”****。 
+2. 在“按名称筛选...”文本框中，键入包含资源的资源组名称“contoso-us-resource-group”。 
 
-3. 在结果列表中的资源组右侧，单击“...”，然后单击“删除资源组”********。
+3. 在结果列表中的资源组右侧，单击“...”，然后单击“删除资源组”。
 
-4. 系统会要求确认是否删除资源组。 再次键入资源组的名称进行确认，然后单击“删除”****。 片刻之后，将会删除该资源组及其包含的所有资源。
+4. 系统会要求确认是否删除资源组。 再次键入资源组的名称进行确认，然后单击“删除”。 片刻之后，将会删除该资源组及其包含的所有资源。
 
 ## <a name="next-steps"></a>后续步骤
 

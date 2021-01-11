@@ -4,16 +4,16 @@ description: 提供 Azure Site Recovery 服务中的新功能和最新更新的�
 ms.topic: conceptual
 origin.date: 10/22/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: ec941b50edfc8b7a36904f0e448c93bca44f7265
-ms.sourcegitcommit: a6aca2f2d1295cd5ed07e38bf9f18f8c345ba409
+ms.openlocfilehash: e6303b8dbde3217339dd5624d861e8e77019878b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96190274"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023059"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 中的新增功能
 
@@ -33,9 +33,9 @@ ms.locfileid: "96190274"
 [汇总 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [汇总 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [汇总 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
-[汇总 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | HyperV 计算机 - 2.0.9183.0 <br /> VMware 计算机 - 2.0.9177.0
 
 [详细了解](service-updates-how-to.md)更新安装和支持。
+<!--**VMware VM/physical disaster recovery to Azure** | Now supported for VMs running RHEL 8.3, Oracle Linux 7.9/8.3.-->
 
 ## <a name="updates-october-2020"></a>更新（2020 年 10 月）
 

@@ -2,14 +2,14 @@
 title: Azure Functions Java 开发人员参考
 description: 了解如何使用 Java 开发函数。
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 6dbf26a8feed9d50183453d55e394ecab13c4424
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 8181351af3b244b172fea43ed3d57c9f69e8eccb
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849355"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021438"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -49,11 +49,23 @@ Java 函数是一个 `public` 方法，使用注释 `@FunctionName` 进行修饰
 
 以下命令使用此原型生成新的 Java 函数项目：
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-archetype 
+    -DarchetypeArtifactId=azure-functions-archetype
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+mvn archetype:generate ^
+    -DarchetypeGroupId=com.microsoft.azure ^
+    -DarchetypeArtifactId=azure-functions-archetype
+```
+
+---
 
 若要开始使用此原型，请参阅 [Java 快速入门](./create-first-function-cli-java.md)。
 
@@ -239,19 +251,40 @@ Maven 还允许指定用于在 Azure 中运行函数应用的操作系统。 使
 
 可使用 [az functionapp config appsettings set](/cli/functionapp/config/appsettings) 命令设置 `JAVA_OPTS`，如下例中所示：
 
-#### <a name="consumption-plan"></a>[消耗计划](#tab/consumption)
+# <a name="consumption-plan"></a>[消耗计划](#tab/consumption/bash)
+
 ```azurecli
 az functionapp config appsettings set \
---settings "JAVA_OPTS=-Djava.awt.headless=true" \
-"WEBSITE_USE_PLACEHOLDER=0" \
---name <APP_NAME> --resource-group <RESOURCE_GROUP>
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" \
+    "WEBSITE_USE_PLACEHOLDER=0" \
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
-#### <a name="dedicated-plan--premium-plan"></a>[专用计划/高级计划](#tab/dedicated+premium)
+
+# <a name="consumption-plan"></a>[消耗计划](#tab/consumption/cmd)
+
+```azurecli
+az functionapp config appsettings set ^
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" ^
+    "WEBSITE_USE_PLACEHOLDER=0" ^
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+
+# <a name="dedicated-plan--premium-plan"></a>[专用计划/高级计划](#tab/dedicated+premium/bash)
+
 ```azurecli
 az functionapp config appsettings set \
---settings "JAVA_OPTS=-Djava.awt.headless=true" \
---name <APP_NAME> --resource-group <RESOURCE_GROUP>
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" \
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
+
+# <a name="dedicated-plan--premium-plan"></a>[专用计划/高级计划](#tab/dedicated+premium/cmd)
+
+```azurecli
+az functionapp config appsettings set ^
+    --settings "JAVA_OPTS=-Djava.awt.headless=true" ^
+    --name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+
 ---
 
 此示例将启用无外设模式。 将 `<APP_NAME>` 替换为函数应用的名称，将 `<RESOURCE_GROUP>` 替换为资源组。 
@@ -489,15 +522,36 @@ public class Function {
 
 下面说明了如何使用 Azure CLI 将函数应用配置为写入应用程序日志：
 
+# <a name="bash"></a>[Bash](#tab/bash)
+
 ```azurecli
 az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
 ```
 
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+---
+
 若要使用 Azure CLI 流式传输函数应用的日志记录输出，请打开新的命令行提示符、Bash 或终端会话，并输入以下命令：
+
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```azurecli
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+
+---
+
 [az webapp log tail](/cli/webapp/log) 命令可使用 `--provider` 选项筛选输出。 
 
 若要使用 Azure CLI 下载单个 ZIP 文件形式的日志文件，请打开新的命令提示符、Bash 或终端会话，并输入以下命令：

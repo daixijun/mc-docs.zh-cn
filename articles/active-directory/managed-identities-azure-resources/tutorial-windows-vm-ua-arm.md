@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bb7379dc63f5318e8731d577d58d65611058f25
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 2a8a35ec6829c03ce5d6b76e7fce420639f973ac
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041582"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021693"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>教程：使用 Windows VM 上用户分配的托管标识访问 Azure 资源管理器
-
-[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice-ua.md)]
 
 本教程介绍了如何创建用户分配的标识、将其分配给 Windows 虚拟机 (VM)，然后再使用此标识访问 Azure 资源管理器 API。 托管服务标识由 Azure 自动管理。 此标识可用于向支持 Azure AD 身份验证的服务进行身份验证，这样就无需在代码中嵌入凭据了。 
 
@@ -152,9 +150,9 @@ CanDelegate: False
 
 1. 通过 [https://portal.azure.cn](https://portal.azure.cn) 登录到 Azure 门户
 
-2. 在门户中，导航到“虚拟机”  并转到 Windows 虚拟机，然后在“概述”  中单击“连接”  。
+2. 在门户中，导航到“虚拟机”并转到 Windows 虚拟机，然后在“概述”中单击“连接”。
 
-3. 输入创建 Windows VM 时使用的“用户名”  和“密码”  。
+3. 输入创建 Windows VM 时使用的“用户名”和“密码”。
 
 4. 现在，已经创建了与虚拟机的远程桌面连接，请在远程会话中打开 PowerShell。
 

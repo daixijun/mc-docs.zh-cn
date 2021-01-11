@@ -4,16 +4,16 @@ description: 以基础结构即代码方式管理 Azure Service Fabric 的最佳
 ms.topic: conceptual
 origin.date: 01/23/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f759aec1ca9c25b1db7b1f31d45ddd22e48214f5
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: b1c6aa06c4f43d43c402f43252d0dd46675e68ac
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655112"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023237"
 ---
 <!--Verify successfully-->
 # <a name="infrastructure-as-code"></a>基础结构即代码
@@ -50,7 +50,7 @@ ResourceGroupName="sfclustergroup"
 Location="chinanorth"
 
 az group create --name $ResourceGroupName --location $Location 
-az group deployment create --name $DeploymentName --resource-group $ResourceGroupName  --template-file azuredeploy.json --parameters @azuredeploy.parameters.json
+az group deployment create --name $ResourceGroupName  --template-file azuredeploy.json --parameters @azuredeploy.parameters.json
 ```
 
 使用 PowerShell 创建资源
@@ -64,7 +64,7 @@ $Template="azuredeploy.json"
 $Parameters="azuredeploy.parameters.json"
 
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location
-New-AzResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
+New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
 ```
 
 ## <a name="azure-service-fabric-resources"></a>Azure Service Fabric 资源

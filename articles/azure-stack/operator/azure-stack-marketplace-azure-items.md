@@ -3,17 +3,17 @@ title: 可用于 Azure Stack Hub 的 Azure 市场项
 description: 了解哪些 Azure 市场项可以在 Azure Stack Hub 中使用。
 author: WenJason
 ms.topic: article
-origin.date: 09/09/2020
-ms.date: 12/07/2020
+origin.date: 12/9/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: gara
-ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 3f3d079a7b14d5fde5865ab363a8c2eab17b0f42
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.lastreviewed: 12/9/2020
+ms.openlocfilehash: dbba15e1725becaeff8278dae598ef546b63f857
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507593"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894447"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>可用于 Azure Stack Hub 的 Azure 市场项
 
@@ -49,7 +49,7 @@ Azure Stack Hub 支持下述 Azure 市场 VM 和解决方案模板。 请根据�
 | 图像 | 项名称 | 说明 | 发布者 |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://market.azure.cn/zh-cn/marketplace/apps/CoreOS.CoreOS?tab=Overview) | 一个针对 Intel 体系结构优化的参考性 Linux 发行版 | Clear Linux Project |
-| ![CoreOS Linux (Stable)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (Stable)](https://market.azure.cn/zh-cn/marketplace/apps/CoreOS.CoreOS?tab=Overview) | CoreOS 是一种新式的最小型 Linux 发行版，可以方便地运行容器、管理群集以及无缝地更新服务器 - 所有组件都支持仓库级计算。 | CoreOS |
+| ![CoreOS Linux (Stable)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (Stable)](https://coreos.com/os/docs/latest/booting-on-azure.html) | CoreOS 是一种新式的最小型 Linux 发行版，可以方便地运行容器、管理群集以及无缝地更新服务器 - 所有组件都支持仓库级计算。 | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://market.azure.cn/zh-cn/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu Server 是全球流行的 Linux 云环境。 | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8“Jessie”](https://market.azure.cn/zh-cn/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux 是最流行的 Linux 分发版之一。 | credativ |
 | ![基于 CentOS 的 7.6](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的 7.6](https://market.azure.cn/marketplace/apps/openlogic.centos) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic） |

@@ -2,25 +2,26 @@
 title: 通过 Java 使用 Azure 服务总线主题和订阅 (azure-messaging-servicebus)
 description: 在本快速入门中，你将使用 azure-messaging-servicebus package 包编写 Java 代码，以将消息发送到 Azure 服务总线主题，然后从该主题的订阅接收消息。
 ms.devlang: Java
+ms.service: service-bus-messaging
 ms.topic: quickstart
 origin.date: 11/09/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7eb4a27f48be6749e885b846d3941b8190b32532
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 1175b44ce9ee3aaab76dc794509a41c7274a6d37
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104779"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022998"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>向 Azure 服务总线主题发送消息，并从该主题的订阅接收消息 (Java)
 在本快速入门中，你将使用 azure-messaging-servicebus package 包编写 Java 代码，以将消息发送到 Azure 服务总线主题，然后从该主题的订阅接收消息。
 
 > [!IMPORTANT]
-> 本快速入门使用新的 Azure.Messaging.ServiceBus 包。 有关使用旧的 Microsoft.Azure.ServiceBus 包的快速入门，请参阅[使用 Microsoft.Azure.ServiceBus 包发送和接收消息](service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md)。
+> 本快速入门使用新的 azure-messaging-servicebus 包。 有关使用旧 azure-servicebus 包的快速入门，请参阅[使用 azure-servicebus 发送和接收消息](service-bus-java-how-to-use-topics-subscriptions-legacy.md)。
 
 ## <a name="prerequisites"></a>先决条件
 

@@ -3,14 +3,14 @@ title: 使用 OpenVINO™ Model Server（由 Intel 提供的 AI 扩展）来分�
 description: 在本教程中，将使用由 Intel 提供的 AI 模型服务器来分析（模拟的） IP 相机中的实时视频源。
 ms.topic: tutorial
 origin.date: 09/08/2020
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 titleSuffix: Azure
-ms.openlocfilehash: 6d76875407be7fb077d2299c0a92dadab057b357
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 602c5661f15368d6dd155ee705d73437164f968d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432366"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021294"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>教程：使用 OpenVINO™ Model Server（由 Intel 提供的 AI 扩展）来分析实时视频 
 
@@ -44,11 +44,11 @@ ms.locfileid: "96432366"
 ## <a name="overview"></a>概述
 
 > [!div class="mx-imgBorder"]
-> 概述
+> :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.svg" alt-text="概述":::
 
-此图显示本快速入门中信号的流动方式。 [Edge 模块](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)模拟托管实时流式处理协议 (RTSP) 服务器的 IP 相机。 [RTSP 源](media-graph-concept.md#rtsp-source)节点从该服务器拉取视频源，并将视频帧发送到[帧速率筛选器处理器](media-graph-concept.md#frame-rate-filter-processor)节点。 该处理器会限制到达 [HTTP 扩展处理器](media-graph-concept.md#http-extension-processor)节点的视频流的帧速率。 
+此图显示本快速入门中信号的流动方式。 [Edge 模块](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)模拟托管实时流式处理协议 (RTSP) 服务器的 IP 相机。 [RTSP 源](media-graph-concept.md#rtsp-source)节点从该服务器拉取视频源，并将视频帧发送到 [HTTP 扩展处理器](media-graph-concept.md#http-extension-processor)节点。 
 
-HTTP 扩展节点扮演代理的角色。 它将视频帧转换为指定的图像类型。 然后，它将图像通过 REST 转发到另一个 Edge 模块，该模块在 HTTP 终结点后运行 AI 模型。 在本例中，该 Edge 模块是 OpenVINO™ Model Server（由 Intel 提供的 AI 扩展）。 HTTP 扩展处理器节点收集检测结果并将事件发布到 [IoT 中心接收器](media-graph-concept.md#iot-hub-message-sink)节点。 然后该节点将这些事件发送到 [IoT Edge 中心](../../iot-edge/iot-edge-glossary.md#iot-edge-hub)。
+HTTP 扩展节点扮演代理的角色。 它对 `samplingOptions` 字段设置的传入视频帧采样，还会将视频帧转换为指定的图像类型。 然后，它将图像通过 REST 转发到另一个 Edge 模块，该模块在 HTTP 终结点后运行 AI 模型。 在本例中，该 Edge 模块是 OpenVINO™ Model Server（由 Intel 提供的 AI 扩展）。 HTTP 扩展处理器节点收集检测结果并将事件发布到 [IoT 中心接收器](media-graph-concept.md#iot-hub-message-sink)节点。 然后该节点将这些事件发送到 [IoT Edge 中心](../../iot-edge/iot-edge-glossary.md#iot-edge-hub)。
 
 在本教程中，将：
 
@@ -85,9 +85,9 @@ Intel® 分发版 [OpenVINO™ 工具套件](https://software.intel.com/content/
 
 1. 转到 src/cloud-to-device-console-app 文件夹。 你可在此处看到 appsettings.json 文件和一些其他文件：
 
-    * c2d-console-app.csproj - Visual Studio Code 的项目文件*_。
-    _ operations.json - 希望程序运行的操作的列表。*_
-    _ Program.cs - 示例程序代码*_。 此代码：
+    * ***c2d-console-app.csproj** _ - Visual Studio Code 的项目文件。
+    _ ***operations.json** _ - 希望程序运行的操作的列表。
+    _ ***Program.cs** _ - 示例程序代码。 此代码：
 
         _ 加载应用设置。
         * 调用 IoT Edge 模块上的实时视频分析公开的直接方法。 可以通过调用模块的[直接方法](direct-methods.md)来使用该模块分析实时视频流。
@@ -393,4 +393,4 @@ HTTP 扩展处理器节点从 OpenVINO™ Model Server（AI 扩展模块）接�
 查看高级用户面临的其他挑战：
 
 * 使用支持 RTSP 的 [IP 相机](https://en.wikipedia.org/wiki/IP_camera)，而不是使用 RTSP 模拟器。 可以在 [ONVIF 符合标准的产品](https://www.onvif.org/conformant-products/)页面上搜索支持 RTSP 的 IP 摄像机。 查找符合配置文件 G、S 或 T 的设备。
-* 使用 AMD64 或 X64 Linux 设备，而不是 Azure Linux VM。 此设备必须与 IP 相机位于同一网络中。 可以按照[在 Linux 上安装 Azure IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge-linux.md)中的说明进行操作。 然后按照[将首个 IoT Edge 模块部署到虚拟 Linux 设备](../../iot-edge/quickstart-linux.md)中的说明，将设备注册到 Azure IoT 中心。
+* 使用 AMD64 或 X64 Linux 设备，而不是 Azure Linux VM。 此设备必须与 IP 相机位于同一网络中。 可以按照[在 Linux 上安装 Azure IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge.md)中的说明进行操作。 然后按照[将首个 IoT Edge 模块部署到虚拟 Linux 设备](../../iot-edge/quickstart-linux.md)中的说明，将设备注册到 Azure IoT 中心。

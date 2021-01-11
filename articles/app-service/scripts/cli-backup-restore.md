@@ -6,16 +6,16 @@ tags: azure-service-management
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 12/07/2017
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 506c9fd2d30fd778b8177134ae04165544def1ad
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: bfd85029bca80303b93cce31f3afbb7d242da9ef
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170485"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022947"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-cli"></a>使用 CLI 从备份中还原 Web 应用
 
@@ -54,11 +54,11 @@ az webapp config backup restore --resource-group $groupname --webapp-name $webap
 
 | Command | 说明 |
 |---|---|
-| [`az webapp config backup list`](/cli/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | 获取 Web 应用的备份列表。 |
-| [`az webapp config backup restore`](/cli/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-restore) | 从备份中恢复 web 应用。 |
+| [`az webapp config backup list`](https://docs.azure.cn/cli/webapp/config/backup#az_webapp_config_backup_list) | 获取 Web 应用的备份列表。 |
+| [`az webapp config backup restore`](https://docs.azure.cn/cli/webapp/config/backup#az_webapp_config_backup_restore) | 从备份中恢复 web 应用。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview?view=azure-cli-lastest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli)。
 
 可以在 [Azure 应用服务文档](../samples-cli.md)中找到其他应用服务 CLI 脚本示例。

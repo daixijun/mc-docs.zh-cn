@@ -4,14 +4,14 @@ description: 服务到服务通信是 Service Fabric 应用程序的关键集成
 author: rockboyfor
 ms.topic: conceptual
 origin.date: 11/02/2017
-ms.date: 01/13/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: 23f5272af280f208a18e1fda58ce698a93cc3efc
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 8149af98c9b7ca2a7f2bdfcbac3fa6756c308ff6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75742120"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023235"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric 可测试性方案：服务通信
 Azure Service Fabric 中自然显露了微服务和面向服务的体系结构风格。 在这些类型的分布式体系结构中，组件化微服务应用程序通常由需要相互通信的多个服务组成。 即使在最简单的情况下，一般至少有一个无状态 Web 服务和一个有状态数据存储服务需要进行通信。

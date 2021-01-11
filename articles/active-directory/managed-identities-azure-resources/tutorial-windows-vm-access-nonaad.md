@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb675392a6b2e36f1fe67bd2ddfe3b107a7c67bc
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: fca7b7a2d379a297dd1ae03139b72e101f8186ac
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004220"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021701"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>教程：使用 Windows VM 系统分配的托管标识访问 Azure Key Vault 
 
@@ -61,6 +61,20 @@ ms.locfileid: "97004220"
 1. 选择“查看 + 创建”
 1. 选择“创建”
 
+### <a name="create-a-secret"></a>创建机密
+
+接下来，将机密添加到 Key Vault，以便稍后可以使用在 VM 中运行的代码检索此机密。 本教程使用的是 PowerShell，但相同的概念适用于在此虚拟机中执行的任何代码。
+
+1. 导航到新创建的密钥保管库。
+1. 选择“密钥”，然后单击“添加”。
+1. 选择“生成/导入”
+1. 在“创建机密”屏幕的“上传选项”中，将“手动”保留为选中状态  。
+1. 输入密钥的名称和值。  该值可以是任何需要的内容。 
+1. 明确指定激活日期和到期日期，并将“已启用”设置为“是”。 
+1. 单击“创建”以创建密钥。
+
+   ![创建机密](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
+
 ## <a name="grant-access"></a>授予访问权限
 
 需要对虚拟机使用的托管标识授予访问权限，以便读取将存储在密钥保管库中的机密。
@@ -76,19 +90,6 @@ ms.locfileid: "97004220"
 1. 选择“添加”
 1. 选择“保存”。
 
-## <a name="create-a-secret"></a>创建机密
-
-接下来，将机密添加到 Key Vault，以便稍后可以使用在 VM 中运行的代码检索此机密。 本教程使用的是 PowerShell，但相同的概念适用于在此虚拟机中执行的任何代码。
-
-1. 导航到新创建的密钥保管库。
-1. 选择“密钥”，然后单击“添加”。
-1. 选择“生成/导入”
-1. 在“创建机密”屏幕的“上传选项”中，将“手动”保留为选中状态  。
-1. 输入密钥的名称和值。  该值可以是任何需要的内容。 
-1. 明确指定激活日期和到期日期，并将“已启用”设置为“是”。 
-1. 单击“创建”以创建密钥。
-
-   ![创建机密](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
 
 ## <a name="access-data"></a>访问数据  
 

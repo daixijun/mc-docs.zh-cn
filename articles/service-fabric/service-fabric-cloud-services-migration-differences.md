@@ -4,16 +4,16 @@ description: 有关将应用程序从云服务迁移到 Service Fabric 的概念
 ms.topic: conceptual
 origin.date: 11/02/2017
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 37b568d9c22ee3fdda5279db3afeee243adc4b16
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 9faf305608babea6f0e287611cc7d274e4346fac
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327410"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022734"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>迁移应用程序之前了解云服务与 Service Fabric 之间的差异。
 Azure Service Fabric 是面向高度可缩放、高度可靠的分布式应用程序的下一代云应用程序平台。 其中引入了许多用于打包、部署、更新和管理分布式云应用程序的新功能。 

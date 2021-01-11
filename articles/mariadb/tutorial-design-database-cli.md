@@ -7,14 +7,14 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 3/18/2020
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7e19fe1d7043f4444772957ea91865fd037331cd
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: e97b01451d16c5dfd8414337800d6d35b03072b0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431652"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023170"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for MariaDB
 
@@ -31,9 +31,9 @@ Azure Database for MariaDB 是云中基于 MariaDB 社区版数据库引擎的�
 
 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-可以在自己的计算机上[安装 Azure CLI](/cli/install-azure-cli) 来运行本教程中的代码块。
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-本文要求运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
+- 本文需要 Azure CLI 版本 2.0 或更高版本。
 
 如果有多个订阅，请选择资源所在的相应订阅或对资源进行计费的订阅。 使用 [az account set](/cli/account#az-account-set) 命令选择帐户下的特定订阅 ID。
 ```azurecli
@@ -169,7 +169,7 @@ SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>将数据库还原到以前的时间点
-假设意外删除了此表。 这是你不能轻易还原的内容。 借助 Azure Database for MariaDB，可返回到最近 35 天内的任意时间点并将此时间点还原到新的服务器。 可以使用此新服务器恢复已删除的数据。 以下步骤将示例服务器还原到添加此表之前的时间点。
+假设意外删除了此表。 这是不能轻易还原的内容。 借助 Azure Database for MariaDB，可返回到最近 35 天内的任意时间点并将此时间点还原到新的服务器。 可以使用此新服务器恢复已删除的数据。 以下步骤将示例服务器还原到添加此表之前的时间点。
 
 执行还原需要以下信息：
 
@@ -196,7 +196,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 该命令是同步的，且会在服务器还原后返回。 还原完成后，找到创建的新服务器。 验证数据是否按预期还原。
 
 ## <a name="next-steps"></a>后续步骤
-本教程介绍：
+本教程介绍了：
 > [!div class="checklist"]
 > * 创建 Azure Database for MariaDB 服务器
 > * 配置服务器防火墙

@@ -4,16 +4,16 @@ description: 了解 Azure 应用服务和 Azure Functions 中内置的身份验�
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 origin.date: 07/08/2020
-ms.date: 11/30/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 5c3e540c698cc65d9ea5057f9179d2d757b0d290
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 6d75ac1a26ff39dbf0e08474b134dba501fd4c95
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306506"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022976"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure 应用服务和 Azure Functions 中的身份验证和授权
 
@@ -153,6 +153,7 @@ The authentication and authorization module runs in a separate container, isolat
 
 ## <a name="more-resources"></a>更多资源
 
+<!-- [Tutorial: Authenticate and authorize users in a web app that accesses Azure Storage and Azure Graph](scenario-secure-app-authentication-app-service.md)-->
 <!-- [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](tutorial-auth-aad.md)   -->
 <!-- [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md) -->
 

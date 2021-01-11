@@ -10,16 +10,16 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: a856d88dd8120f0e0a74cfa9926b8d387ab74297
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: e09c38f0b48f3e39dc6d3f3e362e84114ca7e9f2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749970"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022048"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>适用于 Android 的 ADAL 到 MSAL 迁移指南
 
@@ -87,7 +87,7 @@ MSAL 公共 API 引入了重要的更改，其中包括：
 > [!CAUTION]
 > 不能同时设置范围和资源 ID。尝试同时设置两者会导致 `IllegalArgumentException`。
 
- 这与使用 v1 时的行为相同。 在应用注册中请求的所有权限是用户首次交互期间从用户请求的。
+这与使用 v1 时的行为相同。 在应用注册中请求的所有权限是用户首次交互期间从用户请求的。
 
 ### <a name="authenticate-and-request-permissions-only-as-needed"></a>仅在有需要时才进行身份验证并请求权限
 
@@ -129,13 +129,13 @@ MSAL 不提供用于启用或禁用颁发机构验证的标志。 颁发机构�
 ### <a name="logging"></a>日志记录
 现在可在配置中以声明方式配置日志记录，如下所示：
 
- ```
- "logging": {
-    "pii_enabled": false,
-    "log_level": "WARNING",
-    "logcat_enabled": true
-  }
-  ```
+```json
+"logging": {
+  "pii_enabled": false,
+  "log_level": "WARNING",
+  "logcat_enabled": true
+}
+```
 
 ## <a name="migrate-from-userinfo-to-account"></a>从 UserInfo 迁移到帐户
 
@@ -276,31 +276,31 @@ MSAL 中提供异常层次结构，每个异常具有自身的一组关联的特
 // New interface
   StringBuilder logs = new StringBuilder();
   Logger.getInstance().setExternalLogger(new ILoggerCallback() {
-            @Override
-            public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
-                logs.append(message).append('\n');
-            }
-        });
+      @Override
+      public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
+          logs.append(message).append('\n');
+      }
+  });
 
 // New Log Levels:
 public enum LogLevel
 {
-        /**
-         * Error level logging.
-         */
-        ERROR,
-        /**
-         * Warning level logging.
-         */
-        WARNING,
-        /**
-         * Info level logging.
-         */
-        INFO,
-        /**
-         * Verbose level logging.
-         */
-        VERBOSE
+    /**
+     * Error level logging.
+     */
+    ERROR,
+    /**
+     * Warning level logging.
+     */
+    WARNING,
+    /**
+     * Info level logging.
+     */
+    INFO,
+    /**
+     * Verbose level logging.
+     */
+    VERBOSE
 }
 ```
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 063839afd30c05327bdfa6aa9b3607ffffb6dd86
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: adc771608d345356f5c110bf00564b6151633a87
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501768"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021629"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>如何：使用多租户应用程序模式让任何 Azure Active Directory 用户登录
 
@@ -185,6 +185,8 @@ https://sts.chinacloudapi.cn/{tenantid}/
 * [Microsoft Graph API 权限范围][MSFT-Graph-permission-scopes]
 
 ## <a name="next-steps"></a>后续步骤
+
+本文介绍了如何构建可使用户从任何 Azure AD 租户进行登录的应用程序。 
 
 若要详细了解如何对 Azure AD 和 Microsoft 365 服务（如 Exchange、SharePoint、OneDrive、OneNote 等）进行 API 调用，请访问 [Microsoft Graph API][MSFT-Graph-overview]。
 

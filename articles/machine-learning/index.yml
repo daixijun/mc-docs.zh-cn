@@ -13,12 +13,12 @@ metadata:
   ms.author: jmartens
   ms.date: 09/21/2020
   ms.custom: contperfq1
-  ms.openlocfilehash: 4cb0c3a45493cf7989c6fd8a8bb097e604258816
-  ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+  ms.openlocfilehash: f0e716c8ba8d0a7abbe146da3214899f316fd2e2
+  ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92118496"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98022416"
 landingContent:
 - title: 入门：代码优先
   linkLists:
@@ -76,3 +76,11 @@ landingContent:
       url: https://docs.microsoft.com/rest/api/azureml/
     - text: 机器学习 CLI
       url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+- title: 查找工作室（经典版）
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 工作室（经典版）登陆
+      url: /classic/
+    - text: 工作室（经典版）与工作室
+      url: overview-what-is-machine-learning-studio.md

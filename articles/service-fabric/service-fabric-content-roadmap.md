@@ -4,16 +4,16 @@ description: 了解 Azure Service Fabric 的核心概念和主要应用领域。
 ms.topic: conceptual
 origin.date: 12/08/2017
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 8d6f40628916770dcb00fca3b3787fe1bf80032f
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: d3fe757454fe936a506fb0d87c4dec0941ccb2d6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104767"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023317"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>想要了解 Service Fabric 吗？
 Service Fabric 是分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务。  不过，Service Fabric 的外围应用领域广泛，有很多东西需要学习。  本文简要说明了 Service Fabric，并介绍了核心概念、编程模型、应用程序生命周期、测试、群集和运行状况监视。 请参阅[概述](service-fabric-overview.md)和[什么是微服务？](service-fabric-overview-microservices.md)，概览相关信息，并了解如何使用 Service Fabric 创建微服务。 本文包含的内容列表虽不完整，但确实提供了 Service Fabric 每个应用领域的概述和入门文章链接。 

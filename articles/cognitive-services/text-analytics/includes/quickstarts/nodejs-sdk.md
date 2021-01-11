@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 11/23/2020
+ms.date: 12/30/2020
 ms.author: v-johya
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8e2ce1180992b6965c1024ba43a64cd184075494
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: b02a58da0ce17afca21869c201621dde6ca15692
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306599"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024171"
 ---
 <a name="HOLTop"></a>
 
@@ -37,11 +37,12 @@ ms.locfileid: "96306599"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/details/cognitive-services/)
+* Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 最新版本的 [Node.js](https://nodejs.org/)。
 * 你有了 Azure 订阅后，<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesTextAnalytics"  title="创建文本分析资源"  target="_blank">将在 Azure 门户中创建文本分析资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，以获取你的密钥和终结点。 部署后，单击“转到资源”。
     * 你需要从创建的资源获取密钥和终结点，以便将应用程序连接到文本分析 API。 你稍后会在快速入门中将密钥和终结点粘贴到下方的代码中。
     * 可以使用免费定价层 (`F0`) 试用该服务，然后再升级到付费层进行生产。
+* 若要使用“分析”功能，需要标准 (S) 定价层的“文本分析”资源。
 
 ## <a name="setting-up"></a>设置
 
@@ -67,7 +68,7 @@ npm init
 安装 `@azure/ai-text-analytics` NPM 包：
 
 ```console
-npm install --save @azure/ai-text-analytics@5.1.0-beta.1
+npm install --save @azure/ai-text-analytics@5.1.0-beta.3
 ```
 
 > [!TIP]
@@ -90,7 +91,7 @@ npm install --save @azure/ai-text-analytics@5.0.0
 安装 `@azure/cognitiveservices-textanalytics` NPM 包：
 
 ```console
-npm install --save @azure/cognitiveservices-textanalytics
+npm install --save @azure/cognitiveservices-textanalytics @azure/ms-rest-js
 ```
 
 > [!TIP]
@@ -122,7 +123,9 @@ const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-anal
 ```javascript
 "use strict";
 
-const { TextAnalyticsClient, CognitiveServicesCredential } = require("@azure/cognitiveservices-textanalytics");
+const os = require("os");
+const CognitiveServicesCredentials = require("@azure/ms-rest-js");
+const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics");
 ```
 ---
 
@@ -414,15 +417,16 @@ async function sentimentAnalysisWithOpinionMining(client){
             console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
             console.log(`\t\tSentences Scores:`);
             console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
-            console.log("    Mined opinions");
+            console.log("\tMined opinions");
             for (const { aspect, opinions } of sentence.minedOpinions) {
-                console.log(`      - Aspect text: ${aspect.text}`);
-                console.log(`        Aspect sentiment: ${aspect.sentiment}`);
-                console.log("        Aspect confidence scores:", aspect.confidenceScores);
-                console.log("        Aspect opinions");
-                for (const { text, sentiment } of opinions) {
-                console.log(`        - Text: ${text}`);
-                console.log(`          Sentiment: ${sentiment}`);
+                console.log(`\t\tAspect text: ${aspect.text}`);
+                console.log(`\t\tAspect sentiment: ${aspect.sentiment}`);
+                console.log(`\t\tAspect Positive: ${aspect.confidenceScores.positive.toFixed(2)} \tNegative: ${aspect.confidenceScores.negative.toFixed(2)}`);
+                console.log("\t\tAspect opinions:");
+                for (const { text, sentiment, confidenceScores } of opinions) {
+                    console.log(`\t\tOpinion text: ${text}`);
+                    console.log(`\t\tOpinion sentiment: ${sentiment}`);
+                    console.log(`\t\tOpinion Positive: ${confidenceScores.positive.toFixed(2)} \tNegative: ${confidenceScores.negative.toFixed(2)}`);
                 }
             }
         });
@@ -437,32 +441,35 @@ sentimentAnalysisWithOpinionMining(textAnalyticsClient)
 
 ```console
 ID: 0
-        // Document Sentiment: positive
-        // Document Scores:
-                // Positive: 0.84  Negative: 0.16  Neutral: 0.00
-        // Sentences Sentiment(1):
-                // Sentence sentiment: positive
-                // Sentences Scores:
-                // Positive: 0.84  Negative: 0.16  Neutral: 0.00
-    // Mined opinions
-      // - Aspect text: food
-        // Aspect sentiment: negative
-        // Aspect confidence scores: { positive: 0.01, negative: 0.99 }
-        // Aspect opinions
-        // - Text: unacceptable
-          // Sentiment: negative
-      // - Aspect text: service
-        // Aspect sentiment: negative
-        // Aspect confidence scores: { positive: 0.01, negative: 0.99 }
-        // Aspect opinions
-        // - Text: unacceptable
-          // Sentiment: negative
-      // - Aspect text: concierge
-        // Aspect sentiment: positive
-        // Aspect confidence scores: { positive: 1, negative: 0 }
-        // Aspect opinions
-        // - Text: nice
-          // Sentiment: positive
+        Document Sentiment: positive
+        Document Scores:
+                Positive: 0.84  Negative: 0.16  Neutral: 0.00
+        Sentences Sentiment(1):
+                Sentence sentiment: positive
+                Sentences Scores:
+                Positive: 0.84  Negative: 0.16  Neutral: 0.00
+        Mined opinions
+                Aspect text: food
+                Aspect sentiment: negative
+                Aspect Positive: 0.01   Negative: 0.99
+                Aspect opinions:
+                Opinion text: unacceptable
+                Opinion sentiment: negative
+                Opinion Positive: 0.01  Negative: 0.99
+                Aspect text: service
+                Aspect sentiment: negative
+                Aspect Positive: 0.01   Negative: 0.99
+                Aspect opinions:
+                Opinion text: unacceptable
+                Opinion sentiment: negative
+                Opinion Positive: 0.01  Negative: 0.99
+                Aspect text: concierge
+                Aspect sentiment: positive
+                Aspect Positive: 1.00   Negative: 0.00
+                Aspect opinions:
+                Opinion text: nice
+                Opinion sentiment: positive
+                Opinion Positive: 1.00  Negative: 0.00
 ```
 
 # <a name="version-30"></a>[版本 3.0](#tab/version-3)
@@ -1618,6 +1625,71 @@ entityRecognition(textAnalyticsClient);
     { id: '3', keyPhrases: [ 'fútbol' ] }
 ]
 ```
+
+---
+
+## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>使用“分析”操作异步使用 API
+
+# <a name="version-31-preview"></a>[版本 3.1 预览](#tab/version-3-1)
+
+> [!CAUTION]
+> 若要使用“分析”操作，必须使用标准 (S) 定价层的“文本分析”资源。  
+
+创建名为 `analyze_example()` 的新函数，它将调用 `beginAnalyze()` 函数。 结果将是一个长期操作，将轮询该操作以获得结果。
+
+```javascript
+const documents = [
+  "Microsoft was founded by Bill Gates and Paul Allen.",
+];
+
+async function analyze_example(client) {
+  console.log("== Analyze Sample ==");
+
+  const tasks = {
+    entityRecognitionTasks: [{ modelVersion: "latest" }]
+  };
+  const poller = await client.beginAnalyze(documents, tasks);
+  const resultPages = await poller.pollUntilDone();
+
+  for await (const page of resultPages) {
+    const entitiesResults = page.entitiesRecognitionResults![0];
+    for (const doc of entitiesResults) {
+      console.log(`- Document ${doc.id}`);
+      if (!doc.error) {
+        console.log("\tEntities:");
+        for (const entity of doc.entities) {
+          console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
+        }
+      } else {
+        console.error("  Error:", doc.error);
+      }
+    }
+  }
+}
+
+analyze_example(textAnalyticsClient);
+```
+
+### <a name="output"></a>Output
+
+```console
+== Analyze Sample ==
+- Document 0
+        Entities:
+        - Entity Microsoft of type Organization
+        - Entity Bill Gates of type Person
+        - Entity Paul Allen of type Person
+```
+
+还可以使用“分析”操作来检测 PII 和关键短语提取。 请参阅 GitHub 上的 [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/javascript/beginAnalyze.js) 和 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/typescript/src/beginAnalyze.ts) 分析示例。
+
+# <a name="version-30"></a>[版本 3.0](#tab/version-3)
+
+此功能在版本 3.0 中不可用。
+
+# <a name="version-21"></a>[版本 2.1](#tab/version-2)
+
+此功能在版本 2.1 中不可用。
 
 ---
 

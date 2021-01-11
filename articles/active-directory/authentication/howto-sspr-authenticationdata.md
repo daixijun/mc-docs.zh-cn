@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 909b4bb9b90a11dac14a5e7395f487b7d7a54a40
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: bf44c83e9a3c2cbe10e128a43a719789dad8501f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749839"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022071"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>为 Azure Active Directory 自助式密码重置 (SSPR) 预填用户身份验证联系信息
 
@@ -114,7 +114,7 @@ Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,Mobi
 
 #### <a name="read-the-authentication-phone-and-authentication-email-options"></a>读取“身份验证电话”和“身份验证电子邮件”选项
 
-若要在使用 PowerShell 版本 1 时读取 **身份验证电话** 和 **身份验证电子邮件** ，请使用以下命令：
+若要在使用 PowerShell 版本 1 时读取 **身份验证电话** 和 **身份验证电子邮件**，请使用以下命令：
 
 ```PowerShell
 Connect-MsolService -AzureEnvironment AzureChinaCloud
@@ -124,7 +124,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>使用 PowerShell 版本 2
 
-若要开始使用，请[下载并安装 Azure AD 版本 2 PowerShell 模块](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0)。
+若要开始使用，请[下载并安装 Azure AD 版本 2 PowerShell 模块](https://docs.microsoft.com/powershell/module/azuread/)。
 
 若要从支持 `Install-Module` 的 PowerShell 的最近版本中快速安装，请运行以下命令。 第一行检查是否已安装该模块：
 

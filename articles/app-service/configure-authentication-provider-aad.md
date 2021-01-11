@@ -4,15 +4,15 @@ description: 了解如何将 Azure Active Directory 身份验证配置为应用�
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 origin.date: 04/14/2020
-ms.date: 11/30/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: a0a4f836fff4f6cd907810202d1e2530cdb28c9c
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: d55df1d42132c137f35d8df29050b028536dd4bf
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306430"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021499"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>将应用服务或 Azure Functions 应用配置为使用 Azure AD 登录
 
@@ -139,6 +139,7 @@ ms.locfileid: "96306430"
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
+<!-- * [Tutorial: Authenticate and authorize users in a web app that accesses Azure Storage and Azure Graph](scenario-secure-app-authentication-app-service.md)-->
 <!-- * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md) -->
 <!-- URLs. -->
 

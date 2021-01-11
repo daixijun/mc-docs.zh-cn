@@ -7,14 +7,14 @@ ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
-origin.date: 5/26/2019
-ms.date: 11/23/2020
-ms.openlocfilehash: e68b7d227abf748b1bfcf839b484acb1aea5f885
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+origin.date: 12/11/2020
+ms.date: 01/11/2021
+ms.openlocfilehash: 3fbc08709276d68f3dac5a53c5bc02bf35838b72
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432624"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021107"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Node.js 进行连接并查询 Azure Database for MySQL 中的数据
 
@@ -57,7 +57,13 @@ ms.locfileid: "96432624"
 1. 运行以下命令安装 **Node.js** 和 **npm**（适用于 Node.js 的包管理器）。
 
    ```bash
-   sudo apt-get install -y nodejs npm
+    # Using Ubuntu
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+
+    # Using Debian, as root
+    curl -sL https://deb.nodesource.com/setup_14.x | bash -
+    apt-get install -y nodejs
    ```
 
 2. 运行以下命令以创建项目文件夹 `mysqlnodejs`，并在该文件夹中安装 mysql 包。
@@ -72,12 +78,8 @@ ms.locfileid: "96432624"
 
 ### <a name="macos"></a>macOS
 
-1. 输入以下命令安装 brew（适用于 macOS 和 Node.js 的易用程序包管理器） 。
+1. 请访问 [Node.js 下载页](https://nodejs.org/en/download/)，然后选择 macOS 安装程序。
 
-   ```bash
-   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-   brew install node
-   ```
 2. 运行以下命令以创建项目文件夹 `mysqlnodejs`，并在该文件夹中安装 mysql 包。
 
    ```bash
@@ -96,7 +98,7 @@ ms.locfileid: "96432624"
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 在 Azure 门户的左侧菜单中，选择“所有资源”，然后搜索已创建的服务器（例如 mydemoserver）。
 3. 选择服务器名称。
-4. 从服务器的“概览”面板中记下“服务器名称”和“服务器管理员登录名”。   如果忘记了密码，也可通过此面板来重置密码。
+4. 从服务器的“概览”面板中记下“服务器名称”和“服务器管理员登录名”。 如果忘记了密码，也可通过此面板来重置密码。
  :::image type="content" source="./media/connect-nodejs/server-name-azure-database-mysql.png" alt-text="Azure Database for MySQL 服务器名称":::
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>在 Node.js 中运行 JavaScript 代码
@@ -139,38 +141,38 @@ conn.connect(
     {
        console.log("Connection established.");
            queryDatabase();
-    }   
+    }
 });
 
 function queryDatabase(){
-       conn.query('DROP TABLE IF EXISTS inventory;', function (err, results, fields) { 
-            if (err) throw err; 
-            console.log('Dropped inventory table if existed.');
-        })
-       conn.query('CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);', 
+    conn.query('DROP TABLE IF EXISTS inventory;', function (err, results, fields) { 
+        if (err) throw err; 
+        console.log('Dropped inventory table if existed.');
+    })
+        conn.query('CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);', 
             function (err, results, fields) {
                 if (err) throw err;
-            console.log('Created inventory table.');
-        })
-       conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['banana', 150], 
+        console.log('Created inventory table.');
+    })
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['banana', 150], 
             function (err, results, fields) {
                 if (err) throw err;
-            else console.log('Inserted ' + results.affectedRows + ' row(s).');
+        else console.log('Inserted ' + results.affectedRows + ' row(s).');
         })
-       conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['orange', 154], 
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['orange', 154], 
             function (err, results, fields) {
                 if (err) throw err;
-            console.log('Inserted ' + results.affectedRows + ' row(s).');
+        console.log('Inserted ' + results.affectedRows + ' row(s).');
         })
-       conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['apple', 100], 
-        function (err, results, fields) {
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['apple', 100], 
+    function (err, results, fields) {
                 if (err) throw err;
-            console.log('Inserted ' + results.affectedRows + ' row(s).');
+        console.log('Inserted ' + results.affectedRows + ' row(s).');
         })
-       conn.end(function (err) { 
-        if (err) throw err;
-        else  console.log('Done.') 
-        });
+    conn.end(function (err) { 
+    if (err) throw err;
+    else  console.log('Done.') 
+    });
 };
 ```
 
@@ -206,24 +208,24 @@ conn.connect(
         else {
             console.log("Connection established.");
             readData();
-        }   
+        }
     });
 
 function readData(){
-        conn.query('SELECT * FROM inventory', 
-            function (err, results, fields) {
-                if (err) throw err;
-                else console.log('Selected ' + results.length + ' row(s).');
-                for (i = 0; i < results.length; i++) {
-                    console.log('Row: ' + JSON.stringify(results[i]));
-                }
-                console.log('Done.');
-            })
-       conn.end(
-           function (err) { 
-                if (err) throw err;
-                else  console.log('Closing connection.') 
-        });
+    conn.query('SELECT * FROM inventory', 
+        function (err, results, fields) {
+            if (err) throw err;
+            else console.log('Selected ' + results.length + ' row(s).');
+            for (i = 0; i < results.length; i++) {
+                console.log('Row: ' + JSON.stringify(results[i]));
+            }
+            console.log('Done.');
+        })
+    conn.end(
+        function (err) { 
+            if (err) throw err;
+            else  console.log('Closing connection.') 
+    });
 };
 ```
 
@@ -259,7 +261,7 @@ conn.connect(
         else {
             console.log("Connection established.");
             updateData();
-        }   
+        }
     });
 
 function updateData(){
@@ -267,7 +269,7 @@ function updateData(){
             function (err, results, fields) {
                 if (err) throw err;
                 else console.log('Updated ' + results.affectedRows + ' row(s).');
-        })
+           })
        conn.end(
            function (err) { 
                 if (err) throw err;
@@ -308,7 +310,7 @@ conn.connect(
         else {
             console.log("Connection established.");
             deleteData();
-        }   
+        }
     });
 
 function deleteData(){
@@ -316,7 +318,7 @@ function deleteData(){
             function (err, results, fields) {
                 if (err) throw err;
                 else console.log('Deleted ' + results.affectedRows + ' row(s).');
-        })
+           })
        conn.end(
            function (err) { 
                 if (err) throw err;

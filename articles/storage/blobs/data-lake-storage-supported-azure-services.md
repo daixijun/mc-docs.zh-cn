@@ -9,12 +9,12 @@ origin.date: 08/05/2020
 ms.date: 12/14/2020
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: d6b74a4464c0df11cd6017631c9974926971ab96
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 29a38c58ed014882e6e054aba2d747dfb8f39047
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850779"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023271"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>支持 Azure Data Lake Storage Gen2 的 Azure 服务
 
@@ -35,7 +35,7 @@ ms.locfileid: "96850779"
 |Azure 事件网格|正式发布|是|是|[教程：实现数据湖捕获模式以更新 Databricks Delta 表](data-lake-storage-events.md)|
 |Azure 逻辑应用|正式发布|否|是|[概述 - 什么是 Azure 逻辑应用？](../../logic-apps/logic-apps-overview.md)|
 |Azure 流分析|正式发布|是|是|[快速入门：使用 Azure 门户创建流分析作业](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Azure Data Lake Gen2 流出量](../../stream-analytics/stream-analytics-define-outputs.md)|
-|HDInsight |正式发布|是|是|[将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[将 HDFS CLI 与 Data Lake Storage Gen2 配合使用](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[教程：使用 Apache Hive on Azure HDInsight 提取、转换和加载数据](data-lake-storage-tutorial-extract-transform-load-hive.md)|
+|HDInsight |正式发布|是|是|[将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fstorage%2fblobs%2ftoc.json)<br>[将 HDFS CLI 与 Data Lake Storage Gen2 配合使用](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[教程：使用 Apache Hive on Azure HDInsight 提取、转换和加载数据](data-lake-storage-tutorial-extract-transform-load-hive.md)|
 |IoT 中心 |正式发布|否|是|[使用 IoT 中心消息路由将设备到云的消息发送到不同的终结点](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
 |Power BI|正式发布|是|是|[使用 Power BI 分析 Data Lake Storage Gen2 中的数据](https://docs.microsoft.com/power-query/connectors/datalakestorage)|
 |Azure Synapse Analytics（以前称为 SQL 数据仓库）|正式发布|是|是|[用于 Azure Synapse Analytics（以前称为 SQL 数据仓库）](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fstorage%2fblobs%2ftoc.json)|

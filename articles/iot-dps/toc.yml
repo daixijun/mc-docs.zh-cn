@@ -13,7 +13,8 @@
           href: quick-setup-auto-provision.md
         - name: Azure CLI
           href: quick-setup-auto-provision-cli.md
-        - name: Azure RM 模板
+        - name: ARM 模板
+          displayName: Resource Manager
           href: quick-setup-auto-provision-rm.md
     - name: 预配对称密钥设备
       items:

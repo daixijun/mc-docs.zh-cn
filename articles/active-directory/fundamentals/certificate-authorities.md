@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 ms.reviewer: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d5d5ac5fba1f1ce975107143b1164a62f226e3c
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 05f769476bfbe53a5dad13ef96d2431771b1d631
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501978"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022466"
 ---
 # <a name="certificate-authorities-used-by-azure-active-directory"></a>Azure Active Directory 使用的证书颁发机构
 
@@ -46,5 +46,5 @@ ms.locfileid: "94501978"
 | DigiCert 基本 RSA CN CA G2| 02f7e1f982bad 009aff47dc95741b2f6| 2020 年 3 月 4 日<br>2030 年 3 月 4 日| 4d1fa5d1fb1ac3917c08e 43f65015e6aea571179| [AIA](http://cacerts.digicert.cn/DigiCertBasicRSACNCAG2.crt)<br>[CDP](http://crl.digicert.cn/DigiCertBasicRSACNCAG2.crl)<br>[OCSP](http://ocsp.digicert.cn/) |
 
 ## <a name="next-steps"></a>后续步骤
-[了解 Microsoft 365 加密链](https://docs.microsoft.com/microsoft-365/compliance/encryption-office-365-certificate-chains?view=o365-worldwide)
+[了解 Microsoft 365 加密链](https://docs.microsoft.com/microsoft-365/compliance/encryption-office-365-certificate-chains)
 

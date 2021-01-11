@@ -115,6 +115,8 @@
           href: concepts-supported-versions.md
         - name: 限制
           href: concepts-limits.md
+        - name: 操作最佳实践
+          href: concept-operation-excellence-best-practices.md
         - name: 定价层
           items:
             - name: 定价层
@@ -178,6 +180,10 @@
             - name: 性能建议
               href: concepts-performance-recommendations.md
               displayName: recommendation
+            - name: 监视最佳做法
+              href: concept-monitoring-best-practices.md
+            - name: 性能最佳做法
+              href: concept-performance-best-practices.md
         - name: 应用程序开发
           items:
             - name: 应用程序开发概述
@@ -370,6 +376,146 @@
             - name: Azure 门户
               href: howto-move-regions-portal.md
               displayName: move servers across regions
+- name: 灵活服务器（预览版）
+  items:
+    - name: 灵活服务器文档
+      href: flexible-server/index.yml
+    - name: 概述
+      items:
+        - name: 什么是灵活服务器？
+          href: flexible-server/overview.md
+    - name: 快速入门
+      expanded: true
+      items:
+        - name: 创建服务器
+          expanded: true
+          items:
+            - name: Azure 门户
+              href: flexible-server/quickstart-create-server-portal.md
+            - name: Azure CLI
+              href: flexible-server/quickstart-create-server-cli.md
+            - name: ARM 模板
+              displayName: Resource Manager
+              href: flexible-server/quickstart-create-arm-template.md
+        - name: 连接和查询
+          items:
+            - name: PHP
+              href: flexible-server/connect-php.md
+            - name: MySQL Workbench
+              href: flexible-server/connect-workbench.md
+            - name: Python
+              href: flexible-server/connect-python.md
+    - name: 教程
+      items:
+        - name: Azure Kubernetes 上的 WordPress
+          href: flexible-server/tutorial-deploy-wordpress-on-aks.md
+        - name: 通过数据库生成 PHP (Laravel) 应用
+          href: flexible-server/tutorial-php-database-app.md
+        - name: 与专用 Web 应用连接
+          href: flexible-server/tutorial-webapp-server-vnet.md
+    - name: 概念
+      items:
+        - name: 服务器
+          href: flexible-server/concept-servers.md
+        - name: 支持的版本
+          href: flexible-server/concepts-supported-versions.md
+        - name: 限制
+          href: flexible-server/concepts-limitations.md
+        - name: 计算和存储
+          href: flexible-server/concepts-compute-storage.md
+        - name: 网络
+          href: flexible-server/concepts-networking.md
+          displayName: 'virtual network, IP address, public access'
+        - name: 维护
+          href: flexible-server/concepts-maintenance.md
+        - name: 业务连续性
+          items:
+            - name: 备份和还原
+              href: flexible-server/concepts-backup-restore.md
+        - name: 监视和日志
+          items:
+            - name: 服务器参数
+              href: flexible-server/concepts-server-parameters.md
+            - name: 慢查询日志
+              href: flexible-server/concepts-slow-query-logs.md
+            - name: 审核日志
+              href: flexible-server/concepts-audit-logs.md
+            - name: 指标
+              href: flexible-server/concepts-monitoring.md
+        - name: 复制
+          items:
+            - name: 只读副本
+              href: flexible-server/concepts-read-replicas.md
+    - name: 操作指南
+      items:
+        - name: 管理服务器
+          items:
+            - name: Azure 门户
+              href: flexible-server/how-to-manage-server-portal.md
+            - name: Azure CLI
+              href: flexible-server/how-to-manage-server-cli.md
+        - name: 维护
+          items:
+            - name: Azure 门户
+              href: flexible-server/how-to-maintenance-portal.md
+        - name: 停止/启动服务器
+          items: null
+        - name: 还原服务器
+          items:
+            - name: Azure 门户
+              href: flexible-server/how-to-restore-server-portal.md
+        - name: 网络
+          items:
+            - name: 专用访问（VNet 集成）
+              items:
+                - name: Azure 门户
+                  href: flexible-server/how-to-manage-virtual-network-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-virtual-network-cli.md
+            - name: 公共访问（允许的 IP 地址）
+              items:
+                - name: Azure 门户
+                  href: flexible-server/how-to-manage-firewall-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-firewall-cli.md
+            - name: TLS/SSL
+              items:
+                - name: 使用 TLS/SSL 连接
+                  href: flexible-server/how-to-connect-tls-ssl.md
+        - name: 配置服务器参数
+          items:
+            - name: Azure 门户
+              href: flexible-server/how-to-configure-server-parameters-portal.md
+              displayName: server parameters
+            - name: Azure CLI
+              href: flexible-server/how-to-configure-server-parameters-cli.md
+              displayName: 'server parameters, cli'
+        - name: 监视和日志
+          items:
+            - name: 针对指标创建警报
+              href: flexible-server/how-to-alert-on-metric.md
+            - name: 慢查询日志
+              items:
+                - name: Azure 门户
+                  href: flexible-server/how-to-configure-slow-query-logs-portal.md
+            - name: 审核日志
+              items:
+                - name: Azure 门户
+                  href: flexible-server/how-to-configure-audit-logs-portal.md
+        - name: 重新启动服务器
+          items:
+            - name: Azure 门户
+              href: flexible-server/how-to-restart-server-portal.md
+        - name: 复制
+          items:
+            - name: 创建只读副本 Azure 门户
+              href: flexible-server/how-to-read-replicas-portal.md
+            - name: 创建只读副本 Azure CLI
+              href: flexible-server/how-to-read-replicas-cli.md
+        - name: 故障排除
+          items:
+            - name: 连接错误
+              href: flexible-server/how-to-troubleshoot-common-connection-issues.md
 - name: 参考
   items:
     - name: Azure CLI

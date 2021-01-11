@@ -5,16 +5,16 @@ description: 了解 Azure Stack Hub 上的 SQL 资源提供程序维护操作。
 author: WenJason
 ms.topic: article
 origin.date: 9/22/2020
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 17193a564742892166b91ef444b353ad41b60347
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: 6db622bd186159164e05453699f4dce6b0b57e4b
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330582"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894364"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 
@@ -109,7 +109,7 @@ SQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维护
 |参数|说明|注释|
 |-----|-----|-----|
 |AzureEnvironment|用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 受支持的环境名称是 **AzureChinaCloud**。|可选|
-|AzCredential|Azure Stack Hub 服务管理员帐户凭据。|必需|
+|AzCredential|Azure Stack Hub 服务管理员帐户凭据。 如果用于 AzCredential 的帐户需要多重身份验证 (MFA)，则脚本将失败。|必需|
 |CloudAdminCredential|Azure Stack Hub 云管理域帐户凭据。|必需|
 |PrivilegedEndpoint|用于访问 Get-AzureStackStampInformation 的特权终结点。|必需|
 |DiagnosticsUserPassword|诊断用户帐户密码。|可选|

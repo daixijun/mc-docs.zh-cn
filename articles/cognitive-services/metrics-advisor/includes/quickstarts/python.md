@@ -7,20 +7,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 11/27/2020
+ms.date: 01/04/2021
 ms.author: v-johya
-ms.openlocfilehash: 6eaca1dfec25d702c33c8b0cfa8cdde6a7020685
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: e4e9dd7ab2d7d1a8eeac08a02329bf7bcbb68cd6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306538"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024190"
 ---
 [参考文档](https://azuresdkdocs.blob.core.chinacloudapi.cn/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.html) | [库源代码](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/README.md) | [包 (PiPy)](https://pypi.org/project/azure-ai-metricsadvisor/) | [示例](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/samples/README.md)
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/details/cognitive-services/)
+* Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * [Python 3.x](https://www.python.org/)
 * 获得 Azure 订阅后，<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesMetricsAdvisor"  title="“创建指标顾问”资源"  target="_blank">在 Azure 门户中创建“指标顾问”资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，以部署“指标顾问”实例。  
 * 带有时序数据的 SQL 数据库。
@@ -55,7 +55,7 @@ import datetime
 > [!IMPORTANT]
 > 转到 Azure 门户。 如果在“先决条件”部分中创建的指标顾问资源已成功部署，请单击“后续步骤”下的“转到资源”按钮  。 在资源的“密钥和终结点”页的“资源管理”下可以找到订阅密钥和终结点 。 <br><br>若要检索 API 密钥，必须转到 [https://metricsadvisor.chinacloudsites.cn](https://metricsadvisor.chinacloudsites.cn)。 为资源选择相应的“目录”、“订阅”和“工作区”，然后选择“入门”   。 然后，你就能够从 [https://metricsadvisor.chinacloudsites.cn/api-key](https://metricsadvisor.chinacloudsites.cn/api-key) 检索 API 密钥。   
 >
-> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](/cognitive-services/cognitive-services-security)文章。
+> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](../../../cognitive-services-security.md)文章。
 
 ```python
 subscription_key = "<paste-your-metrics-advisor-subscription-key-here>"

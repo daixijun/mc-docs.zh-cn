@@ -7,17 +7,17 @@ ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
 origin.date: 11/09/2020
-ms.date: 12/07/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.reviewer: stsoneff
-ms.openlocfilehash: 63127f218a32793a0f97fc7afc362871e02f9714
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.custom: azureday1
+ms.openlocfilehash: e685e0aedcdfc4fb5751ea43450279b7d267fc39
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507865"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022951"
 ---
-<!--Verified Successfully-->
 # <a name="tutorial-add-authentication-to-your-web-app-running-on-azure-app-service"></a>教程：向 Azure 应用服务上运行的 Web 应用添加身份验证
 
 了解如何为 Azure 应用服务上运行的 Web 应用启用身份验证，并仅限组织中的用户访问应用。
@@ -91,4 +91,3 @@ ms.locfileid: "96507865"
 > [!div class="nextstepaction"]
 > [应用服务访问存储](scenario-secure-app-access-storage.md)
 
-<!--NEW.date: 11/30/2020-->

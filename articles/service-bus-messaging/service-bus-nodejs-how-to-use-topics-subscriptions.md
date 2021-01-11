@@ -2,20 +2,21 @@
 title: 使用包含主题和订阅的预览版 JavaScript azure/service-bus
 description: 了解如何编写使用最新预览版的 @azure/service-bus 包的 JavaScript 程序，以便将消息发送到服务总线主题，并从主题的订阅接收消息。
 ms.devlang: nodejs
+ms.service: service-bus-messaging
 ms.topic: quickstart
 origin.date: 11/09/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: a2fab64adb39a51e8a06d4cccb1c8acf0270283f
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 16d21f0ad60d1239d3982933ca207760a28aa638
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105239"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023290"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>快速入门：使用 Node.js 和预览版 azure/service-bus 包的服务总线主题与订阅
 本教程介绍如何使用 JavaScript 程序中的 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 包将消息发送到服务总线主题，并从该主题的服务总线订阅接收消息。

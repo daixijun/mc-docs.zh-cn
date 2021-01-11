@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 01/05/2021
 ms.custom: seodec18
-ms.openlocfilehash: 81716fd3bf8c66c4ec3877941fb0456a06f7b35f
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: e4cdfbc6ddb38d38c6293e58c7635f7f942221b7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507381"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023254"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>诊断和排查 Azure 时序见解第 2 代环境的问题
 
@@ -124,14 +124,6 @@ ms.locfileid: "96507381"
 如果环境未定义时序模型层次结构，则可能会发生此问题。 有关详细信息，请了解如何[使用时序模型](./time-series-insights-overview.md)。
 
   [![无父级实例将显示警告。](./media/preview-troubleshoot/unparented-instances.png)](./media/preview-troubleshoot/unparented-instances.png#lightbox)
-
-## <a name="problem-power-bi-connector-shows-unable-to-connect"></a>问题：Power BI 连接器显示“无法连接”
-
-如果未在 Power BI Desktop 中使用最新版本的 Power BI 连接器，可能会出现此问题。
-
-[![屏幕截图显示了“无法连接”对话框。](./media/preview-troubleshoot/power-bi-unable-to-connect.png)](./media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
-
-- 请检查 Power BI Desktop 的版本，并确保使用的是 2020 年 7 月版。 如果不是，请更新 Power BI Desktop 并再次运行该连接器。
 
 ## <a name="next-steps"></a>后续步骤
 

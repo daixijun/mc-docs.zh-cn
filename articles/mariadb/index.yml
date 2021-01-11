@@ -6,15 +6,15 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 09/05/2019
-  ms.date: 09/30/2019
+  ms.date: 01/11/2021
   ms.service: mariadb
   ms.topic: landing-page
-  ms.openlocfilehash: 4f82b8047904c956cfb4a7f363530b5a5346f2ca
-  ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+  ms.openlocfilehash: 1d448062a973c81d8026137810db397ca61fbc01
+  ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "71307752"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98021295"
 landingContent:
 - title: 关于 Azure Database for MariaDB
   linkLists:
@@ -107,12 +107,12 @@ landingContent:
   - linkListType: get-started
     links:
     - text: 用于常见任务的 Azure CLI 脚本
-      url: /mariadb/sample-scripts-azure-cli/
+      url: ./sample-scripts-azure-cli.md
   - linkListType: reference
     links:
     - text: Azure CLI 开发人员参考
-      url: https://docs.microsoft.com/rest/api/mariadb/
+      url: /cli/mariadb/
     - text: REST API 开发人员参考
-      url: /cli/mariadb
+      url: https://docs.microsoft.com/rest/api/mariadb/
     - text: Azure 资源管理器模板
       url: https://docs.microsoft.com/azure/templates/microsoft.dbformariadb/allversions

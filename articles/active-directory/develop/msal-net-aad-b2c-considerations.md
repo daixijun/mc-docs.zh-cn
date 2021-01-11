@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6ab6dc92b76a09249e6cf5cbd680b650d40c9638
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 4ce3aee2241b298048c1f06f53bb116008d1d84d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004068"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021756"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>使用 MSAL.NET 通过社交标识将用户登录
 
@@ -159,7 +159,7 @@ ROPC 流仅适用于本地帐户，在本地帐户中用户已使用电子邮件
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Azure AD B2C 的已知问题
 
-MSAL.NET 支持[令牌缓存](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet)。 令牌缓存密钥基于标识提供者 (IdP) 返回的声明。
+MSAL.NET 支持[令牌缓存](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.tokencache)。 令牌缓存密钥基于标识提供者 (IdP) 返回的声明。
 
 目前，MSAL.NET 需要两个声明来生成令牌缓存密钥：
 

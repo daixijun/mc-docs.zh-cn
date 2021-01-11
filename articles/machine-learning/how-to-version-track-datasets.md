@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 origin.date: 11/04/2019
 ms.date: 03/16/2020
 ms.custom: ''
-ms.openlocfilehash: 3e7f15151ba681923f3c8560ecda787bdefc4e60
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: faca720b96548d052339d3264809b31281069a23
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105271"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022429"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>在试验中对数据集进行版本控制和跟踪
 
@@ -120,7 +120,7 @@ dataset2.register(workspace = workspace,
 
 可以使用数据集作为每个 [ML 管道](concept-ml-pipelines.md)步骤的输入和输出。 重新运行管道时，每个管道步骤的输出将注册为一个新的数据集版本。
 
-ML 管道每次重新运行时都会将每个步骤的输出填充到一个新文件夹中。 此行为使得已进行版本控制的输出数据集可重现。 详细了解 [管道中的数据集](how-to-create-your-first-pipeline.md#steps)。
+ML 管道每次重新运行时都会将每个步骤的输出填充到一个新文件夹中。 此行为使得已进行版本控制的输出数据集可重现。 详细了解 [管道中的数据集](how-to-create-machine-learning-pipelines.md#steps)。
 
 ```Python
 from azureml.core import Dataset

@@ -5,17 +5,17 @@ ms.service: bastion
 ms.topic: conceptual
 origin.date: 11/20/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 699b6018e49b59f8fafb2ca20153a90c9efe3101
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: be7170d1f25ffd2ef418c7c2ec6557f3609f6cb3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004293"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022647"
 ---
 <!--Verified successfully-->
 # <a name="azure-security-baseline-for-azure-bastion"></a>适用于 Azure Bastion 的 Azure 安全基线
@@ -26,7 +26,7 @@ ms.locfileid: "97004293"
 
 ## <a name="network-security"></a>网络安全
 
-[有关详细信息，请参阅 *Azure 安全基线：* 网络安全性](https://docs.azure.cn/security/benchmarks/security-controls-v2-network-security)。
+[有关详细信息，请参阅 *Azure 安全基线：* 网络安全性](../security/benchmarks/security-controls-v2-network-security.md)。
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1：实现内部流量的安全性
 
@@ -67,7 +67,7 @@ Azure Bastion 服务需要打开以下端口才能正常运行：
 
 ## <a name="identity-management"></a>标识管理
 
-有关详细信息，请参阅 [Azure 安全基准：标识管理](https://docs.azure.cn/security/benchmarks/security-controls-v2-identity-management)。
+有关详细信息，请参阅 [Azure 安全基准：标识管理](../security/benchmarks/security-controls-v2-identity-management.md)。
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1：将 Azure Active Directory 标准化为中央标识和身份验证系统
 
@@ -96,7 +96,7 @@ Azure Bastion 服务需要打开以下端口才能正常运行：
 
 **指导**：向虚拟机资源进行身份验证时，Azure Bastion 不支持通过 SSO 进行身份验证，仅支持 SSH 或用户名/密码。 但是，Azure Bastion 使用 Azure Active Directory (Azure AD) 在整个服务中提供标识和访问管理。 用户可以通过向 Azure AD 进行身份验证来访问和管理其 Azure Bastion 资源，并通过 Azure AD Connect 使用自己的同步企业标识来体验无缝单一登录。 
 
-<!--Not Available on - [Understand Application SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)-->
+<!--Not Available on [Understand Application SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)-->
 
 - [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md)
 
@@ -114,10 +114,12 @@ Azure Bastion 服务需要打开以下端口才能正常运行：
 - 多重身份验证：启用 Azure AD MFA，并遵循 Azure 安全中心标识和访问管理建议来设置你的 MFA。 可以基于登录条件和风险因素，对所有用户、特选用户或单个用户强制执行 MFA。 
 
 - 无密码身份验证：有三个无密码身份验证选项可用：Windows Hello for Business、Microsoft Authenticator 应用和本地身份验证方法（例如智能卡）。 
-
+    
+    <!--CORRECT ON Microsoft Authenticator app-->
+    
 - [如何在 Azure 中启用 MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
-<!--Not Available on - [Introduction to passwordless authentication options for Azure Active Directory](../active-directory/authentication/concept-authentication-passwordless.md)-->
+<!--Not Available on [Introduction to passwordless authentication options for Azure Active Directory](../active-directory/authentication/concept-authentication-passwordless.md)-->
 
 **Azure 安全中心监视**：不适用
 
@@ -138,7 +140,7 @@ Azure Bastion 服务需要打开以下端口才能正常运行：
 
 - [常见的条件访问策略](../active-directory/conditional-access/concept-conditional-access-policy-common.md)
 
-<!--Not Available on - [Configure authentication session management with conditional access](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)-->
+<!--Not Available on [Configure authentication session management with conditional access](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)-->
 
 **Azure 安全中心监视**：不适用
 
@@ -146,7 +148,7 @@ Azure Bastion 服务需要打开以下端口才能正常运行：
 
 ## <a name="privileged-access"></a>特权访问
 
-有关详细信息，请参阅 [Azure 安全基准：特权访问](https://docs.azure.cn/security/benchmarks/security-controls-v2-privileged-access)。
+有关详细信息，请参阅 [Azure 安全基准：特权访问](../security/benchmarks/security-controls-v2-privileged-access.md)。
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2：限制对关键业务型系统的管理访问权限
 
@@ -158,11 +160,11 @@ Azure Bastion 服务需要打开以下端口才能正常运行：
 
 - [使用 Azure Bastion 访问虚拟机所需的角色](bastion-faq.md#roles)
 
-<!--Not Available on - [Azure Components and Reference model](https://docs.azure.cn/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)-->
+<!--Not Available on [Azure Components and Reference model](https://docs.azure.cn/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)-->
 
 - [访问管理组](../governance/management-groups/overview.md#management-group-access)
 
-<!--Not Available on - [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)-->
+<!--Not Available on [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)-->
 
 **Azure 安全中心监视**：不适用
 
@@ -176,7 +178,7 @@ Azure Bastion 服务需要打开以下端口才能正常运行：
 
 - [在 Privileged Identity Management (PIM) 中创建对 Azure 资源角色的访问评审](../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
 
-<!--Not Available on - [Removing access to a delegation](../lighthouse/how-to/remove-delegation.md)-->
+<!--Not Available on [Removing access to a delegation](../lighthouse/how-to/remove-delegation.md)-->
 
 - [如何使用 Azure AD 标识和访问评审](../active-directory/governance/access-reviews-overview.md)
 
@@ -190,7 +192,7 @@ Azure Bastion 服务需要打开以下端口才能正常运行：
 
 应确保妥善保管紧急访问帐户的凭据（例如密码、证书或智能卡），仅将其告诉只能在紧急情况下有权使用它们的个人。
 
-- [在 Azure AD 中管理紧急访问帐户](https://docs.azure.cn/active-directory/users-groups-roles/directory-emergency-access)
+- [在 Azure AD 中管理紧急访问帐户](../active-directory/roles/security-emergency-access.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -202,16 +204,16 @@ Azure Bastion 服务需要打开以下端口才能正常运行：
 
 - [什么是 Azure AD 访问评审](../active-directory/governance/access-reviews-overview.md)
 
-<!--Not Available on - [What is Azure AD entitlement management](../active-directory/governance/entitlement-management-overview.md)-->
+- [什么是 Azure AD 权利管理](../active-directory/governance/entitlement-management-overview.md)
 
 **Azure 安全中心监视**：目前不可用
 
 **责任**：客户
 
 <!--Not Available on ### PA-6: Use privileged access workstations-->
-<!--Not Available on - [Understand privileged access workstations](../active-directory/devices/concept-azure-managed-workstation.md)-->
+<!--Not Available on [Understand privileged access workstations](../active-directory/devices/concept-azure-managed-workstation.md)-->
 
-<!--Not Available on - [Deploy a privileged access workstation](../active-directory/devices/howto-azure-managed-workstation.md)-->
+<!--Not Available on [Deploy a privileged access workstation](../active-directory/devices/howto-azure-managed-workstation.md)-->
 
 ### <a name="pa-7-follow-just-enough-administration-least-privilege-principle"></a>PA-7：遵循 Just Enough Administration（最小特权原则） 
 
@@ -236,7 +238,7 @@ Azure Bastion 服务需要打开以下端口才能正常运行：
 
 ## <a name="asset-management"></a>资产管理
 
-有关详细信息，请参阅 [Azure 安全基准：资产管理](https://docs.azure.cn/security/benchmarks/security-controls-v2-asset-management)。
+有关详细信息，请参阅 [Azure 安全基准：资产管理](../security/benchmarks/security-controls-v2-asset-management.md)。
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1：确保安全团队可以了解与资产相关的风险
 
@@ -264,7 +266,7 @@ Azure Bastion 服务需要打开以下端口才能正常运行：
 
 - [Azure 安全中心资产库存管理](../security-center/asset-inventory.md)
 
-<!--Not Available on - [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.azure.cn/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure-resource-manager/management/toc.json)-->
+<!--Not Available on [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.azure.cn/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure-resource-manager%2fmanagement%2ftoc.json)-->
 
 **Azure 安全中心监视**：是
 
@@ -290,7 +292,7 @@ Azure Bastion 服务需要打开以下端口才能正常运行：
 
 - [删除或强制断开远程会话](session-monitoring.md#view)
 
-- [Azure 网络 CLI](https://docs.microsoft.com/powershell/module/az.network/?view=azps-5.1.0#networking&amp;preserve-view=true)
+- [Azure 网络 CLI](https://docs.microsoft.com/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
 **Azure 安全中心监视**：不适用
 
@@ -299,6 +301,8 @@ Azure Bastion 服务需要打开以下端口才能正常运行：
 ### <a name="am-5-limit-users-ability-to-interact-with-azure-resource-manager"></a>AM-5：限制用户与 Azure 资源管理器进行交互的能力
 
 **指导**：Azure Bastion 通过与 Azure Active Directory (Azure AD) 集成来进行标识管理和身份验证。 你可以使用 Azure 条件访问来限制用户与 Azure 资源管理器交互的能力，操作方法：为“Microsoft Azure 管理”应用配置“阻止访问”。
+
+<!--CORRECT ON Microsoft Azure Management-->
 
 - [如何配置条件访问来阻止对 Azure 资源管理器的访问](../role-based-access-control/conditional-access-azure-management.md)
 
@@ -325,13 +329,13 @@ Azure AD 提供以下用户日志，可在 Azure AD 报表中进行查看，也�
 
 Azure 安全中心还可针对某些可疑活动发出警报，这些活动包括失败的身份验证尝试次数太多，以及帐户已在订阅中遭到弃用。 除了基本的安全卫生监视，Azure 安全中心的威胁防护模块还可从单个 Azure 计算资源（例如虚拟机、容器、应用服务）、数据资源（例如 SQL 数据库和存储）以及 Azure 服务层中收集信息更丰富的安全警报。 通过此功能可查看单个资源中的帐户异常情况。
 
-<!--Not Available on - [Azure Bastion resource logs](diagnostic-logs.md)-->
+<!--Not Available on [Azure Bastion resource logs](diagnostic-logs.md)-->
 
 - [Azure AD 中的审核活动报告](../active-directory/reports-monitoring/concept-audit-logs.md)
 
-<!--Not Available on - [Enable Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)-->
+<!--Not Available on [Enable Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)-->
 
-- [Azure 安全中心的威胁防护](https://docs.azure.cn/security-center/threat-protection)
+- [Azure 安全中心的威胁防护](../security-center/azure-defender.md)
 
 **Azure 安全中心监视**：是
 
@@ -343,7 +347,7 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 在网络安全组上启用和收集网络安全组 (NSG) 资源日志和 NSG 流日志，这些组将应用于已部署 Azure Bastion 资源的虚拟网络。 然后，这些日志可用于分析网络安全，并支持事件调查、威胁搜寻和安全警报生成。 可将流日志发送到 Azure Monitor Log Analytics 工作区，然后使用流量分析提供见解。
 
-<!--Not Available on - [Enable and work with Azure Bastion logs](diagnostic-logs.md)-->
+<!--Not Available on [Enable and work with Azure Bastion logs](diagnostic-logs.md)-->
 
 - [如何启用网络安全组流日志](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -365,7 +369,7 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [了解 Azure 中的日志记录和不同的日志类型](../azure-monitor/platform/platform-logs-overview.md)
 
-<!--Not Available on - [Enable Azure resource logs for Azure Bastion ](diagnostic-logs.md)-->
+<!--Not Available on [Enable Azure resource logs for Azure Bastion ](diagnostic-logs.md)-->
 
 **Azure 安全中心监视**：不适用
 
@@ -383,7 +387,7 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [如何使用 Azure Monitor 收集平台日志和指标](../azure-monitor/platform/diagnostic-settings.md)
 
-<!--Not Available on - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)-->
+<!--Not Available on [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)-->
 
 **Azure 安全中心监视**：不适用
 
@@ -397,9 +401,9 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 - [如何配置 Log Analytics 工作区保留期](../azure-monitor/platform/manage-cost-storage.md)
 
-- [在 Azure 存储帐户中存储资源日志](https://docs.azure.cn/azure-monitor/platform/resource-logs-collect-storage)
+- [在 Azure 存储帐户中存储资源日志](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
-<!--Not Available on - [Enable and work with Azure Bastions logs](diagnostic-logs.md)-->
+<!--Not Available on [Enable and work with Azure Bastions logs](diagnostic-logs.md)-->
 
 **Azure 安全中心监视**：目前不可用
 
@@ -407,13 +411,13 @@ Azure 安全中心还可针对某些可疑活动发出警报，这些活动包�
 
 ## <a name="incident-response"></a>事件响应
 
-[有关详细信息，请参阅 *Azure 安全基线：* 事件响应](https://docs.azure.cn/security/benchmarks/security-controls-v2-incident-response)。
+[有关详细信息，请参阅 *Azure 安全基线：* 事件响应](../security/benchmarks/security-controls-v2-incident-response.md)。
 
 ### <a name="ir-1-preparation---update-incident-response-process-for-azure"></a>IR-1：准备 - 更新 Azure 的事件响应流程
 
 **指导**：确保组织具有响应安全事件的流程，已为 Azure 更新这些流程，并定期运用这些流程来确保就绪性。
 
-<!--Not Available on - [Implement security across the enterprise environment](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)-->
+<!--Not Available on [Implement security across the enterprise environment](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)-->
 
 - [事件响应参考指南](https://docs.microsoft.com/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
@@ -443,7 +447,7 @@ Azure 安全中心可跨许多 Azure 资产提供高质量的警报。 可以使
 
 - [如何配置导出](../security-center/continuous-export.md)
 
-<!--Not Available on - [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)-->
+<!--Not Available on [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)-->
 
 **Azure 安全中心监视**：目前不可用
 
@@ -473,7 +477,7 @@ Azure Sentinel 提供几乎针对任何日志源的广泛数据分析，并提�
 
 - [Azure 支持诊断信息和内存转储收集](https://www.azure.cn/support/legal/support-diagnostic-information-collection/) 
 
-<!--Not Available on - [Investigate incidents with Azure Sentinel](../sentinel/tutorial-investigate-cases.md)-->
+<!--Not Available on [Investigate incidents with Azure Sentinel](../sentinel/tutorial-investigate-cases.md)-->
 
 **Azure 安全中心监视**：不适用
 
@@ -489,7 +493,7 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 
 - [Azure 安全中心中的安全警报](../security-center/security-center-alerts-overview.md)
 
-- [使用标记整理 Azure 资源](https://docs.azure.cn/azure-resource-manager/resource-group-using-tags)
+- [使用标记整理 Azure 资源](../azure-resource-manager/management/tag-resources.md)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -503,7 +507,7 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 
 - [在 Azure 安全中心设置自动威胁响应](../security-center/tutorial-security-incident.md#triage-security-alerts)
 
-<!--Not Available on - [Set up automated threat responses in Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)-->
+<!--Not Available on [Set up automated threat responses in Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)-->
 
 **Azure 安全中心监视**：目前不可用
 
@@ -517,13 +521,13 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 
 **指导**：使用 Azure Policy 为 Azure Bastion 定义和实施标准安全配置。 在“Microsoft.Network”命名空间中使用 Azure Policy 别名创建自定义策略，以审核或强制实施 Azure Bastion 的网络配置。 客户还可以利用 Azure 蓝图或 ARM 模板来安全、一致地部署 Bastion 资源，从而建立安全配置。
 
-- [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [了解 ARM 模板](../azure-resource-manager/templates/overview.md)
 
-<!--Not Available on - [Overview about Azure Blueprints](../governance/blueprints/overview.md)-->
+<!--Not Available on [Overview about Azure Blueprints](../governance/blueprints/overview.md)-->
 
 **Azure 安全中心监视**：不适用
 
@@ -533,7 +537,7 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 
 **指导**：使用 Azure Policy 为 Azure Bastion 定义和实施标准安全配置。 在“Microsoft.Network”命名空间中使用 Azure Policy 别名创建自定义策略，以审核或强制实施 Bastion 资源的网络配置。
 
-- [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -559,7 +563,7 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 
 ## <a name="governance-and-strategy"></a>治理和策略
 
-有关详细信息，请参阅 [Azure 安全基准：治理和策略](https://docs.azure.cn/security/benchmarks/security-controls-v2-governance-strategy)。
+有关详细信息，请参阅 [Azure 安全基准：治理和策略](../security/benchmarks/security-controls-v2-governance-strategy.md)。
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1：定义资产管理和数据保护策略 
 
@@ -584,11 +588,12 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 - 合适的加密标准
 
 有关详细信息，请参阅以下资源：
-- [Azure 安全体系结构建议 - 存储、数据和加密](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+
+<!--Not Available on [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)-->
 
 - [Azure 安全基础知识 - Azure 数据安全、加密和存储](../security/fundamentals/encryption-overview.md)
 
-- [云采用框架 - Azure 数据安全和加密最佳做法](https://docs.azure.cn/security/fundamentals/data-encryption-best-practices)
+- [云采用框架 - Azure 数据安全和加密最佳做法](../security/fundamentals/data-encryption-best-practices.md?bc=%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fcloud-adoption-framework%2ftoc.json)
 
 - [Azure 安全基准 - 资产管理](https://docs.azure.cn/security/benchmarks/security-controls-v2-asset-management)
 
@@ -599,9 +604,9 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 **责任**：客户
 
 <!--Not Available on ### GS-2: Define enterprise segmentation strategy-->
-<!--Not Available on - [Guidance on segmentation strategy in Azure (video)](https://docs.azure.cn/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)-->
-<!--Not Available on - [Guidance on segmentation strategy in Azure (document)](https://docs.azure.cn/security/compass/governance#enterprise-segmentation-strategy)-->
-<!--Not Available on - [Align network segmentation with enterprise segmentation strategy](https://docs.azure.cn/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)-->
+<!--Not Available on [Guidance on segmentation strategy in Azure (video)](https://docs.azure.cn/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)-->
+<!--Not Available on [Guidance on segmentation strategy in Azure (document)](https://docs.azure.cn/security/compass/governance#enterprise-segmentation-strategy)-->
+<!--Not Available on [Align network segmentation with enterprise segmentation strategy](https://docs.azure.cn/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)-->
 
 ### <a name="gs-3-define-security-posture-management-strategy"></a>GS-3：定义安全状况管理策略
 
@@ -614,9 +619,9 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 **责任**：客户
 
 <!--Not Available on ### GS-4: Align organization roles, responsibilities, and accountabilities-->
-<!--Not Available on - [Azure Security Best Practice 1 - People: Educate Teams on Cloud Security Journey](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)-->
-<!--Not Available on - [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)-->
-<!--Not Available on - [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)-->
+<!--Not Available on [Azure Security Best Practice 1 - People: Educate Teams on Cloud Security Journey](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)-->
+<!--Not Available on [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#2-people-educate-teams-on-cloud-security-technology)-->
+<!--Not Available on [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)-->
 
 ### <a name="gs-5-define-network-security-strategy"></a>GS-5：定义网络安全策略
 
@@ -638,13 +643,13 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 
 有关详细信息，请参阅以下资源：
 
-<!--Not Available on - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)-->
+<!--Not Available on [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)-->
 
 - [Azure 安全基准 - 网络安全](https://docs.azure.cn/security/benchmarks/security-controls-v2-network-security)
 
 - [Azure 网络安全概述](../security/fundamentals/network-overview.md)
 
-<!--Not Available on - [Enterprise network architecture strategy](https://docs.azure.cn/cloud-adoption-framework/ready/enterprise-scale/architecture)-->
+<!--Not Available on [Enterprise network architecture strategy](https://docs.azure.cn/cloud-adoption-framework/ready/enterprise-scale/architecture)-->
 
 **Azure 安全中心监视**：不适用
 
@@ -672,7 +677,7 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 
 - [Azure 安全基准 - 特权访问](https://docs.azure.cn/security/benchmarks/security-controls-v2-privileged-access)
 
-<!--Not Available on - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)-->
+<!--Not Available on [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)-->
 
 - [Azure 标识管理安全概述](../security/fundamentals/identity-management-overview.md)
 
@@ -706,11 +711,11 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 
 - [Azure 安全基准 - 事件响应](https://docs.azure.cn/security/benchmarks/security-controls-v2-incident-response)
 
-<!--Not Available on - [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)-->
+<!--Not Available on [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://docs.azure.cn/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)-->
 
-<!--Not Available on - [Azure Adoption Framework, logging, and reporting decision guide](https://docs.azure.cn/cloud-adoption-framework/decision-guides/logging-and-reporting/)-->
+<!--Not Available on [Azure Adoption Framework, logging, and reporting decision guide](https://docs.azure.cn/cloud-adoption-framework/decision-guides/logging-and-reporting/)-->
 
-<!--Not Available on - [Azure enterprise scale, management, and monitoring](https://docs.azure.cn/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)-->
+<!--Not Available on [Azure enterprise scale, management, and monitoring](https://docs.azure.cn/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)-->
 
 **Azure 安全中心监视**：不适用
 
@@ -718,8 +723,7 @@ Azure 安全中心为每条警报分配严重性，方便你根据优先级来�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 参阅 [Azure 安全基准 V2 概述](https://docs.azure.cn/security/benchmarks/overview)
-- 详细了解 [Azure 安全基线](https://docs.azure.cn/security/benchmarks/security-baselines-overview)
+- 参阅 [Azure 安全基准 V2 概述](../security/benchmarks/overview.md)
+- 详细了解 [Azure 安全基线](../security/benchmarks/security-baselines-overview.md)
 
-<!-- Update_Description: new article about security baseline -->
-<!--NEW.date: 12/14/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

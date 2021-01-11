@@ -4,17 +4,17 @@ description: 介绍 Service Fabric Reliable Actor 生命周期、垃圾回收和
 ms.topic: conceptual
 origin.date: 10/06/2017
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 19c2fe0ba26eb676300cb723def3f3c631758b42
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: bc1c10762b4261d730e4644ebb6e98bdba10ebc2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655642"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021966"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>执行组件生命周期、自动垃圾回收和手动删除
 当第一次调用执行组件的任何方法时即可激活该执行组件。 如果在可配置的一段时间内未使用执行组件，则此执行组件将停用（执行组件运行时对其进行垃圾回收）。 还可以在任何时候手动删除执行组件及其状态。
@@ -39,7 +39,7 @@ ms.locfileid: "89655642"
 >
 
 ### <a name="actor-garbage-collection"></a>执行组件垃圾回收
-停用某个执行组件后，将释放对此执行组件对象的引用，并且通常使用公共语言运行时 (CLR) 或 Java 虚拟机 (JVM) 垃圾回收器对其进行回收。 垃圾回收只清除执行组件对象；它**不会**删除存储在执行组件的状态管理器中的状态。 当下次激活此执行组件时，将创建一个新的执行组件对象，并还原其状态。
+停用某个执行组件后，将释放对此执行组件对象的引用，并且通常使用公共语言运行时 (CLR) 或 Java 虚拟机 (JVM) 垃圾回收器对其进行回收。 垃圾回收只清除执行组件对象；它 **不会** 删除存储在执行组件的状态管理器中的状态。 当下次激活此执行组件时，将创建一个新的执行组件对象，并还原其状态。
 
 就停用和垃圾回收而言，什么样的执行组件可视为“正在使用”？
 
@@ -91,7 +91,7 @@ public class Program
 ```
 对于每个活动的执行组件，执行组件运行时会持续跟踪其处于空闲状态（即未使用）的时间。 执行组件运行时每隔 `ScanIntervalInSeconds` 检查每个执行组件，以查看是否可以对它进行垃圾回收，并且如果它已空闲 `IdleTimeoutInSeconds`，则对其进行标记。
 
-任何时候只要使用了执行组件，其空闲时间都会重置为 0。 此后，仅在此执行组件再次空闲 `IdleTimeoutInSeconds`，才会对其执行垃圾回收。 如果执行执行组件接口方法或执行组件提醒回调，则想到执行组件被视为已使用。 如果执行其计时器回调，则执行组件**不**被视为已使用。
+任何时候只要使用了执行组件，其空闲时间都会重置为 0。 此后，仅在此执行组件再次空闲 `IdleTimeoutInSeconds`，才会对其执行垃圾回收。 如果执行执行组件接口方法或执行组件提醒回调，则想到执行组件被视为已使用。 如果执行其计时器回调，则执行组件 **不** 被视为已使用。
 
 下图通过单个执行组件的生命周期来说明这些概念。
 

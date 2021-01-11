@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 5182a3ea2cfe05fb3083a128ea2988cfa9ef3d7d
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/11/2021
+ms.openlocfilehash: 24125c174bee215702c699f375e9128897b1d909
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105217"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023112"
 ---
 # <a name="keys-and-values"></a>键和值
 

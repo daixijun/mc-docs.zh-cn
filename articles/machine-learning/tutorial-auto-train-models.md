@@ -1,7 +1,7 @@
 ---
 title: 回归教程：自动化机器学习
 titleSuffix: Azure Machine Learning
-description: 本教程介绍如何使用自动化机器学习生成机器学习模型。 Azure 机器学习可以通过自动化方式为你执行数据预处理、算法选择和超参数选择操作。
+description: 创建自动的机器学习试验，该试验会根据提供的训练数据和配置设置生成回归模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 origin.date: 08/14/2020
 ms.date: 09/07/2020
-ms.openlocfilehash: 7e6faf198c511ebd226274d5efac01b5292a6aea
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 91bc97780c1d4911fcc02aa5718e043ebefcc4de
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105263"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021140"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>教程：使用自动化机器学习预测出租车费
 
@@ -208,9 +208,9 @@ x_train, x_test = train_test_split(final_df, test_size=0.2, random_state=223)
 
 定义用于训练的试验参数和模型设置。 查看[设置](how-to-configure-auto-train.md)的完整列表。 提交带这些默认设置的试验大约需要 5-20 分钟，但如果需要缩短运行时间，可减小 `experiment_timeout_hours` 参数。
 
-|properties| 本教程中的值 |说明|
+|属性| 本教程中的值 |说明|
 |----|----|---|
-|**iteration_timeout_minutes**|2|每个迭代的时间限制（分钟）。 减小此值可缩短总运行时。|
+|**iteration_timeout_minutes**|10|每个迭代的时间限制（分钟）。 对于每次迭代需要更多时间的更大数据集，增加此值。|
 |**experiment_timeout_hours**|0.3|在试验结束之前，所有合并的迭代所花费的最大时间量（以小时为单位）。|
 |**enable_early_stopping**|True|如果分数在短期内没有提高，则进行标记，以提前终止。|
 |**primary_metric**| spearman_correlation | 要优化的指标。 将根据此指标选择最佳拟合模型。|
@@ -222,7 +222,7 @@ x_train, x_test = train_test_split(final_df, test_size=0.2, random_state=223)
 import logging
 
 automl_settings = {
-    "iteration_timeout_minutes": 2,
+    "iteration_timeout_minutes": 10,
     "experiment_timeout_hours": 0.3,
     "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',

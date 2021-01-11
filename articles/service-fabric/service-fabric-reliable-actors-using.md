@@ -4,17 +4,17 @@ description: 介绍如何以继承 StatefulService 时所使用的方式编写�
 ms.topic: conceptual
 origin.date: 03/19/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 870b43589dea3054ef893e29ffc74c32d8a82650
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 9bf61b6f9a74b25225cfc8a322d7e60c4f597b8a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655718"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021953"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>在执行组件服务中实现服务级功能
 

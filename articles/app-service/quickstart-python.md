@@ -3,21 +3,23 @@ title: 快速入门：创建 Python 应用
 description: 将第一个 Python 应用部署到 Azure 应用服务中的 Linux 容器即可开始使用 Azure 应用服务。
 ms.topic: quickstart
 origin.date: 11/10/2020
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: 00a102a113993cf8f120f863b8033b22fa0f8c1f
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: f7d83e3fefbee91bdd342825d9800a1e20874fc5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507302"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022955"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>快速入门：在 Linux 上的 Azure 应用服务中创建 Python 应用
 
 在本快速入门中，需将 Python Web 应用部署到 [Linux 上的应用服务](overview.md#app-service-on-linux)，该版本提供了一项高度可缩放、自我修补的 Azure Web 托管服务。 在 Mac、Linux 或 Windows 计算机上，可使用本地 [Azure 命令行界面 (CLI)](/cli/install-azure-cli) 通过 Flask 或 Django 框架来部署示例。 配置的 Web 应用使用免费的应用服务层，因此本文中的操作不会产生任何费用。
+
+有关常见术语的定义，请参阅 [Azure 术语概述](https://docs.microsoft.com/azure/developer/python/cloud-azure-terminology?toc=/app-service/toc.json)。
 
 > [!TIP]
 > 如果更喜欢使用 Visual Studio Code，请按照 [Visual Studio Code 应用服务快速入门](https://docs.microsoft.com/azure/developer/python/tutorial-deploy-app-service-on-linux-01)进行操作。
@@ -77,23 +79,11 @@ az login
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-然后导航到该文件夹：
-
-```terminal
-cd python-docs-hello-world
-```
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-django
-```
-
-然后导航到该文件夹：
-
-```terminal
-cd python-docs-hello-django
 ```
 ::: zone-end
 
@@ -104,7 +94,11 @@ cd python-docs-hello-django
 ## <a name="run-the-sample"></a>运行示例
 
 ::: zone pivot="python-framework-flask"
-1. 确保位于 python-docs-hello-world 文件夹中。 
+1. 导航到 python-docs-hello-world 文件夹：
+
+    ```terminal
+    cd python-docs-hello-world
+    ```
 
 1. 创建虚拟环境并安装依赖项：
 
@@ -118,7 +112,11 @@ cd python-docs-hello-django
     flask run
     ```
     
-    默认情况下，该服务器假定应用的条目模块位于示例使用的 app.py 中。 （如果使用其他模块名称，请将 `FLASK_APP` 环境变量设置为该名称。）
+    默认情况下，该服务器假定应用的条目模块位于示例使用的 app.py 中。
+
+    如果使用其他模块名称，请将 `FLASK_APP` 环境变量设置为该名称。
+
+    如果遇到错误“找不到 Flask 应用程序。 未提供‘FLASK_APP’环境变量，在当前目录中找不到 wsgi.py 或 app.py 模块。”，请确保你位于包含示例的 `python-docs-hello-world` 文件夹中。
 
 1. 打开 Web 浏览器并转到 `http://localhost:5000/` 处的示例应用。 该应用显示“Hello, World!”消息。
 
@@ -128,7 +126,11 @@ cd python-docs-hello-django
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. 确保位于 python-docs-hello-django 文件夹中。 
+1. 导航到 python-docs-hello-django 文件夹：
+
+    ```terminal
+    cd python-docs-hello-django
+    ```
 
 1. 创建虚拟环境并安装依赖项：
 

@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/27/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a8553884a8bdb67e2094cb18442e2d7a70964c2
-ms.sourcegitcommit: daf7317c80f13e459469bbc507786520c8fa6d70
+ms.openlocfilehash: 131c55d020bcb6949adaa3fb22cb94cc55ed8e02
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046406"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022978"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中激活 Azure 资源角色
 
@@ -42,7 +42,7 @@ ms.locfileid: "89046406"
 
 1. 选择“Azure 资源角色”  查看符合条件的 Azure 资源角色列表。
 
-   ![“我的角色 - Azure 资源角色”页](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
+    ![“我的角色 - Azure 资源角色”页](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
 
 1. 在“Azure 资源角色”列表中，找到要激活的角色。 
 
@@ -50,17 +50,17 @@ ms.locfileid: "89046406"
 
 1. 选择“激活”打开“激活”页。
 
-     ![打开的“激活”窗格，其中包含范围、开始时间、持续时间和原因](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
+    ![打开的“激活”窗格，其中包含范围、开始时间、持续时间和原因](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
 
-1. 如果角色需要多重身份验证，请选择“验证你的身份，然后继续”。**** 只需在每个会话中执行身份验证一次。
+1. 如果角色需要多重身份验证，请选择“验证你的身份，然后继续”。 只需在每个会话中执行身份验证一次。
 
     ![在激活角色之前使用 MFA 验证身份](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
 
-1. 选择“验证我的身份”，并按照说明提供其他安全验证。****
+1. 选择“验证我的身份”，并按照说明提供其他安全验证。
 
     ![用于提供安全验证（例如 PIN 码）的屏幕](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
-1. 如果要指定缩小的范围，请选择“范围”**** 以打开“资源筛选器”窗格。
+1. 如果要指定缩小的范围，请选择“范围”以打开“资源筛选器”窗格。
 
     它是仅请求访问所需资源的最佳做法。 在“资源筛选器”窗格中，可以指定需要访问的资源组或资源。
 
@@ -68,7 +68,7 @@ ms.locfileid: "89046406"
 
 1. 根据需要指定自定义的激活开始时间。 成员将在选定时间后激活。
 
-1. 在“原因”框中，输入该激活请求的原因。****
+1. 在“原因”框中，输入该激活请求的原因。
 
     ![“已完成激活”窗格，其中包含范围、开始时间、持续时间和原因](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
 
@@ -84,11 +84,11 @@ ms.locfileid: "89046406"
 
 1. 打开 Azure AD Privileged Identity Management。
 
-1. 选择“我的请求”，查看你的 Azure AD 角色和 Azure 资源角色请求列表。****
+1. 选择“我的请求”，查看你的 Azure AD 角色和 Azure 资源角色请求列表。
 
     ![显示挂起的请求的“我的请求 - Azure 资源”页](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
-1. 向右滚动以查看“请求状态”**** 列。
+1. 向右滚动以查看“请求状态”列。
 
 ## <a name="cancel-a-pending-request"></a>取消挂起的请求
 
@@ -96,9 +96,9 @@ ms.locfileid: "89046406"
 
 1. 打开 Azure AD Privileged Identity Management。
 
-1. 选择“我的请求”。****
+1. 选择“我的请求”。
 
-1. 针对想要取消的角色，选择“取消”链接。****
+1. 针对想要取消的角色，选择“取消”链接。
 
     选择“取消”会取消该请求。 若要再次激活该角色，必须提交新的激活请求。
 

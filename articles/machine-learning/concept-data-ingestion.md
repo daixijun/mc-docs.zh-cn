@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 9f1eeb53ae51eeb511d50f2d774808910fed6eb3
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 8f2121df717f09ec43fe0d273749cdb4020f3f46
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118532"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023242"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Azure 机器学习工作流的数据引入选项
 
@@ -60,7 +60,7 @@ Azure 数据工厂数据流的嵌入式数据世系功能|
 
 ## <a name="azure-machine-learning-python-sdk"></a>Azure 机器学习 Python SDK 
 
-使用 [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml) 可将数据引入任务合并到 [Azure 机器学习管道](how-to-create-your-first-pipeline.md)步骤中。
+使用 [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml) 可将数据引入任务合并到 [Azure 机器学习管道](how-to-create-machine-learning-pipelines.md)步骤中。
 
 下表汇总了对数据引入任务使用 SDK 和 ML 管道步骤的优点和缺点。
 

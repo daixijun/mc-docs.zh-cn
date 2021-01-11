@@ -5,16 +5,16 @@ description: 了解如何从 Azure Stack Hub 部署中删除 SQL 资源提供程
 author: WenJason
 ms.topic: article
 origin.date: 10/02/2019
-ms.date: 03/23/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2019
-ms.openlocfilehash: a38eee98e71c70514bd89909130fa4801a7679a7
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 4210c5d5844a877685c137b6c6728605ae2a2a4b
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79547078"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894360"
 ---
 # <a name="remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 
@@ -42,7 +42,7 @@ ms.locfileid: "79547078"
     * **PrivilegedEndpoint**：特权终结点的 IP 地址或 DNS 名称。
     * **AzureEnvironment**：用于部署 Azure Stack Hub 的 Azure 环境。 仅对于 Azure AD 部署是必需的。
     * **CloudAdminCredential**：访问特权终结点时所需的云管理员凭据。
-    * **AzCredential**：Azure Stack Hub 服务管理员帐户的凭据。 使用部署 Azure Stack Hub 时所用的相同凭据。
+    * **AzCredential**：Azure Stack Hub 服务管理员帐户的凭据。 使用部署 Azure Stack Hub 时所用的相同凭据。 如果用于 AzCredential 的帐户需要多重身份验证 (MFA)，则脚本将失败。
 
 ## <a name="next-steps"></a>后续步骤
 

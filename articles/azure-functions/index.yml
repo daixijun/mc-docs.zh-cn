@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Azure Functions 文档
-summary: Azure Functions 是一种无服务器计算服务，使用它可以运行事件触发的代码，而无需显式预配或管理基础结构。
+summary: Azure Functions 是一种无服务器计算服务，使用它可以运行事件触发的代码，而无需显式预配或管理基础结构。 其“按需计算”可实现轻量级集成和一次性支持功能。 还可用它来提供 Web API、响应数据库更改、处理 IoT 数据流和管理消息队列。
 metadata:
   title: Azure Functions 文档
-  description: Azure Functions 是一种无服务器计算服务，使用它可以运行事件触发的代码，而无需显式预配或管理基础结构。
+  description: Azure Functions 是一种无服务器计算服务，使用它可以运行事件触发的代码，而无需显式预配或管理基础结构。 其“按需计算”可实现轻量级集成和一次性支持功能。 还可用它来提供 Web API、响应数据库更改、处理 IoT 数据流和管理消息队列。
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: v-junlch
-  ms.date: 11/30/2020
-  ms.openlocfilehash: e40dcd7792268405e6068fbc8903e68c6ae36622
-  ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+  ms.date: 01/04/2021
+  ms.openlocfilehash: 18956157268cc0b16e9b5613399d5c67e25f43c4
+  ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/02/2020
-  ms.locfileid: "96508019"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98021441"
 landingContent:
 - title: 关于 Azure Functions
   linkLists:
@@ -36,12 +36,16 @@ landingContent:
     links:
     - text: 创建第一个函数 (C#)
       url: create-first-function-vs-code-csharp.md
+    - text: 创建第一个函数 (Go)
+      url: create-first-function-vs-code-other.md?tabs=go
     - text: 创建第一个函数 (Java)
       url: create-first-function-vs-code-java.md
     - text: 创建第一个函数 (JavaScript)
       url: create-first-function-vs-code-node.md
     - text: 创建第一个函数 (PowerShell)
       url: create-first-function-vs-code-powershell.md
+    - text: 创建第一个函数 (Rust)
+      url: create-first-function-vs-code-other.md?tabs=rust
     - text: 创建你的第一个函数 (TypeScript)
       url: create-first-function-vs-code-typescript.md
   - linkListType: learn

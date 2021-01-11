@@ -5,17 +5,17 @@ services: container-service
 ms.topic: article
 origin.date: 06/02/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6c50e93f8de26d332fdaec8505224cc8916ac7a0
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 11d22d8cb65c664245983532b532af12c2ac776f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024472"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023129"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中结合自己的 IP 地址范围使用 kubenet 网络
 
@@ -235,7 +235,6 @@ Kubenet 网络需要使用经过规划和组织的路由表规则才能成功路
 的限制：
 
 * 必须在创建群集之前分配权限，请确保使用的服务主体具有对自定义子网和自定义路由表的写入权限。
-* kubenet 中的自定义路由表当前不支持托管标识。
 * 在创建 AKS 群集之前，需要将自定义路由表与子网关联。
 * 创建群集后，无法更新关联的路由表资源。 虽然无法更新路由表资源，但可以在路由表上修改自定义规则。
 * 每个 AKS 群集必须为与群集关联的所有子网使用同一个唯一的路由表。 由于可能存在重叠的 Pod CIDR 和发生路由规则冲突，无法对多个群集重复使用同一个路由表。

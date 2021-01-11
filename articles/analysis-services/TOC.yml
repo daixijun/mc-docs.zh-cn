@@ -30,9 +30,9 @@
     - name: 使用服务主体进行自动化
       href: analysis-services-service-principal.md
     - name: 客户端库
-      href: 'https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current'
+      href: 'https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true'
     - name: 兼容级别
-      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current'
+      href: 'https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current&preserve-view=true'
     - name: 连接到本地数据源
       href: analysis-services-gateway.md
     - name: 连接到服务器
@@ -71,6 +71,8 @@
           href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
         - name: 将服务主体添加到服务器管理员角色
           href: analysis-services-addservprinc-admins.md
+        - name: 在区域之间移动
+          href: move-between-regions.md
     - name: “模型”
       items:
         - name: 表格建模
@@ -106,9 +108,9 @@
     - name: Power Query M
       href: 'https://docs.microsoft.com/powerquery-m/power-query-m-reference'
     - name: 表格模型脚本语言 (TMSL)
-      href: 'https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference?view=asallproducts-allversions'
+      href: 'https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference?view=azure-analysis-services-current&preserve-view=true'
     - name: 表格对象模型 (TOM)
-      href: 'https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo?view=asallproducts-allversions'
+      href: 'https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo?view=azure-analysis-services-current&preserve-view=true'
     - name: 资源和对象限制
       href: analysis-services-capacity-limits.md
 - name: 资源

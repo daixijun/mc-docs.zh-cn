@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 10/10/2019
-  ms.openlocfilehash: 04e3d2429cc2db634fb16ead09f3893c6e12beb3
-  ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+  ms.date: 12/28/2020
+  ms.openlocfilehash: a8c0ea7dacf8b01817c3817a43715e7ec0aa0ced
+  ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/11/2020
-  ms.locfileid: "97104862"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98022797"
 landingContent:
 - title: 了解 Azure 防火墙管理器
   linkLists:
@@ -37,6 +37,8 @@ landingContent:
     links:
     - text: 什么是安全合作伙伴提供程序？
       url: trusted-security-partners.md
+    - text: 使用 Check Point Cloudguard Connect 保护虚拟中心的安全
+      url: check-point-overview.md
   - linkListType: how-to-guide
     links:
     - text: 部署安全合作伙伴提供程序

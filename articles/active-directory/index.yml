@@ -12,12 +12,12 @@ metadata:
   ms.author: v-junlch
   manager: daveba
   ms.date: 12/09/2020
-  ms.openlocfilehash: b870f04ba3f8ac10e3887db263be77ed722fdd34
-  ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+  ms.openlocfilehash: ab0f060ea98e866f6c0d1b9a4f8fe69e8481a44e
+  ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/10/2020
-  ms.locfileid: "97004053"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98021758"
 highlightedContent:
   items:
   - title: 什么是 Azure AD？
@@ -32,9 +32,9 @@ highlightedContent:
   - title: Azure AD 部署清单
     itemType: concept
     url: ./fundamentals/active-directory-deployment-checklist-p2.md
-  - title: 将订阅添加到租户
-    itemType: how-to-guide
-    url: ./fundamentals/active-directory-how-subscriptions-associated-directory.md
+  - title: 使用 Azure AD 在标识和访问管理中融入复原能力
+    itemType: overview
+    url: ./fundamentals/resilience-overview.md
 conceptualContent:
   items:
   - title: 应用程序管理
@@ -72,6 +72,20 @@ conceptualContent:
       text: 基于位置的条件
     footerLink:
       url: ./conditional-access/index.yml
+      text: 查看详细信息
+  - title: 设备管理
+    links:
+    - url: ./devices/overview.md
+      itemType: overview
+      text: 什么是设备管理？
+    - url: ./devices/hybrid-azuread-join-plan.md
+      itemType: how-to-guide
+      text: 计划混合 Azure AD 加入
+    - url: ./devices/azureadjoin-plan.md
+      itemType: how-to-guide
+      text: 计划 Azure AD 加入
+    footerLink:
+      url: ./devices/index.yml
       text: 查看详细信息
   - title: 域服务
     links:
@@ -190,9 +204,9 @@ conceptualContent:
   - title: 角色
     links:
     - url: ./roles/groups-assign-role.md
-      itemType: how-to-guide
-      text: 向云组分配角色
-    - url: ./roles/custom-create.md
+      itemType: concept
+      text: 了解 Azure AD 角色
+    - url: ./roles/concept-understand-roles.md
       itemType: how-to-guide
       text: 创建自定义角色
     - url: ./roles/groups-view-assignments.md

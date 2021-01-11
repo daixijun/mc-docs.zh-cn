@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.reviewer: luleon
-ms.openlocfilehash: c571319a7ffb507a7b722b28289fd59307dac0a1
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 6da93ae1aff8e62d592202e5bdb46e5a23ee5ec6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003877"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021751"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>在 Azure Active Directory 中管理应用的用户分配
 
@@ -71,7 +71,7 @@ ms.locfileid: "97003877"
     # Assign the user to the app role
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
-有关如何将用户分配到应用程序角色的详细信息，请参阅 [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0) 的文档。
+有关如何将用户分配到应用程序角色的详细信息，请参阅 [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment) 的文档。
 
 ### <a name="example"></a>示例
 

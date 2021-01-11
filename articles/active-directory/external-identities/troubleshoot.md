@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 08/17/2020
+ms.date: 01/06/2021
 tags: active-directory
 ms.author: v-junlch
 author: msmimart
@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 379dfeb5933c4f30259996612d0a808bdea64a69
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 47bfb66f0f47ca1450aaeff9b441f9b1cbb1df44
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648117"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022486"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 协作故障排除
 
@@ -49,7 +49,7 @@ ms.locfileid: "88648117"
 
 ### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>当发生以下情况时，被邀请者的管理员禁止在其租户中创建电子邮件验证的用户
 
-受邀用户所在组织正在使用 Azure Active Directory，但其中不存在特定用户帐户（例如，用户不存在于 AAD contoso.comAzure AD contoso.com 中）。 contoso.com 的管理员可能会设置一个策略以阻止创建用户。 用户必须向其管理员进行核实以确定是否允许外部用户。 外部用户的管理员可能需要在其域中允许电子邮件验证的用户（请参阅有关允许电子邮件验证的用户的此[文章](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)）。
+受邀用户所在组织正在使用 Azure Active Directory，但其中不存在特定用户帐户（例如，用户不存在于 AAD contoso.comAzure AD contoso.com 中）。 contoso.com 的管理员可能会设置一个策略以阻止创建用户。 用户必须向其管理员进行核实以确定是否允许外部用户。 外部用户的管理员可能需要在其域中允许电子邮件验证的用户（请参阅有关允许电子邮件验证的用户的此[文章](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings)）。
 
 ![错误，指出租户不允许经电子邮件验证的用户](./media/troubleshoot/allow-email-verified-users.png)
 

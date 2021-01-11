@@ -6,15 +6,15 @@ tags: azure-service-management
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 12/12/2017
-ms.date: 11/30/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 34f1a6ca0c1c9ec76d7ab2d11b63db4ae533d395
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 27e1a4506ef8d4b59304447af4a4c7451192aaa5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306451"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022938"
 ---
 # <a name="create-an-app-service-app-and-deploy-files-with-ftp-using-azure-cli"></a>使用 Azure CLI 创建应用服务应用并通过 FTP 部署文件
 
@@ -66,15 +66,15 @@ echo http://$webappname.chinacloudsites.cn
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 注释 |
+| 命令 | 说明 |
 |---|---|
-| [`az group create`](/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [`az appservice plan create`](/cli/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | 创建应用服务计划。 |
-| [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create) | 创建应用服务应用。 |
-| [`az webapp deployment list-publishing-profiles`](/cli/webapp/deployment?view=azure-cli-latest#az-webapp-deployment-list-publishing-profiles) | 获取可用应用部署配置文件的详细信息。 |
+| [`az group create`](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [`az appservice plan create`](https://docs.azure.cn/cli/appservice/plan#az_appservice_plan_create) | 创建应用服务计划。 |
+| [`az webapp create`](https://docs.azure.cn/cli/webapp#az_webapp_create) | 创建应用服务应用。 |
+| [`az webapp deployment list-publishing-profiles`](https://docs.azure.cn/cli/webapp/deployment#az_webapp_deployment_list_publishing_profiles) | 获取可用应用部署配置文件的详细信息。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview?view=azure-cli-lastest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli)。
 
 可以在 [Azure 应用服务文档](../samples-cli.md)中找到其他应用服务 CLI 脚本示例。

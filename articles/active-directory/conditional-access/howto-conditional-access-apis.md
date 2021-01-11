@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343fe56fb921e96dbf578f7693672a2f349af497
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 687795c51fcb896830ec5fcc10f34386183e3eaf
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003784"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022059"
 ---
 # <a name="conditional-access-programmatic-access"></a>条件访问：以编程方式访问
 
@@ -96,7 +96,7 @@ Microsoft Graph 提供了一个统一的可编程性模型，组织可使用该�
 
 - [Microsoft Graph 概述](https://docs.microsoft.com/graph/overview)
 
-- [条件访问 API](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-1.0)
+- [条件访问 API](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy)
 
-- [命名位置 API](https://docs.microsoft.com/graph/api/resources/namedlocation?view=graph-rest-1.0)
+- [命名位置 API](https://docs.microsoft.com/graph/api/resources/namedlocation)
 

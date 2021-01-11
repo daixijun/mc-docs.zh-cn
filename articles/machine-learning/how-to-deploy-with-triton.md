@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: d889c5073b5ef063991e6e0446398591909cf0e5
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 9ca0ed7483f5325126dac59b33c10fbb95190d77
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104587"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022616"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>利用 Triton 推理服务器实现的高性能服务（预览） 
 
@@ -34,7 +34,7 @@ Triton 是针对推理进行了优化的框架。 它提供更好的 GPU 利用�
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://aka.ms/AMLFree)。
+* 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 熟悉[如何使用 Azure 机器学习部署模型以及部署到的位置](how-to-deploy-and-where.md)。
 * [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) 或 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 和[机器学习扩展](reference-azure-machine-learning-cli.md)。
 * 用于本地测试的 Docker 的工作安装。 有关安装和验证 Docker 的信息，请参阅 docker 文档中的[方向和设置](https://docs.docker.com/get-started/)。

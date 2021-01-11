@@ -1,21 +1,22 @@
 ---
 title: Azure 服务总线队列入门 (Azure.Messaging.ServiceBus)
 description: 在本教程中，你将创建 .NET Core C# 应用程序，用于向/从服务总线队列发送/接收消息。
+ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 origin.date: 11/13/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 34acb5581db6f3cf48eecf81923c2d49f0e7d1a0
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 8e9675672a543f18ad0f4cc3a39fc2cf5e3dabc2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104821"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023289"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>向/从服务总线队列发送/接收消息 (.NET)
 在本教程中，你将使用 Azure.Messaging.ServiceBus 包创建 .NET Core C# 控制台应用程序，用于向/从 Azure 服务总线队列发送/接收消息。 
@@ -60,29 +61,9 @@ ms.locfileid: "97104821"
         static string queueName = "<QUEUE NAME>";
     ```
 
-    以 `ServiceBusConnectionString` 变量的形式输入命名空间的连接字符串。 输入队列名称。
+    以 `connectionString` 变量的形式输入命名空间的连接字符串。 输入队列名称。
 
-1. 将 `Main()` 方法替换为以下 **async** `Main` 方法。 它调用 `SendMessagesAsync()` 方法（将在下一步中添加），以将消息发送到队列。 
-
-    ```csharp
-    public static async Task Main(string[] args)
-    {    
-        const int numberOfMessages = 10;
-        queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
-
-        Console.WriteLine("======================================================");
-        Console.WriteLine("Press ENTER key to exit after sending all the messages.");
-        Console.WriteLine("======================================================");
-
-        // Send messages.
-        await SendMessagesAsync(numberOfMessages);
-
-        Console.ReadKey();
-
-        await queueClient.CloseAsync();
-    }
-    ```
-1. 在 `Main()` 方法后直接添加以下 `SendMessagesAsync()` 方法，以便执行发送 `numberOfMessagesToSend` 所指定的消息数（当前设置为 10）的工作：
+1. 紧跟在 `Main()` 方法的后面，添加以下 `SendMessagesAsync()` 方法来发送消息：
 
     ```csharp
         static async Task SendMessageAsync()
@@ -109,9 +90,9 @@ ms.locfileid: "97104821"
         {
             // create a queue containing the messages and return it to the caller
             Queue<ServiceBusMessage> messages = new Queue<ServiceBusMessage>();
-            messages.Enqueue(new ServiceBusMessage("First message"));
-            messages.Enqueue(new ServiceBusMessage("Second message"));
-            messages.Enqueue(new ServiceBusMessage("Third message"));
+            messages.Enqueue(new ServiceBusMessage("First message in the batch"));
+            messages.Enqueue(new ServiceBusMessage("Second message in the batch"));
+            messages.Enqueue(new ServiceBusMessage("Third message in the batch"));
             return messages;
         }
     ```

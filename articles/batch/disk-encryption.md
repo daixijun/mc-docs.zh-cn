@@ -1,20 +1,21 @@
 ---
 title: 在启用磁盘加密的情况下创建池
 description: 了解如何使用磁盘加密配置通过平台管理的密钥来加密节点。
+ms.service: batch
 ms.topic: how-to
 origin.date: 10/08/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 09/21/2020
 ms.author: v-yeche
 ms.custom: references_regions
-ms.openlocfilehash: a3a708fdbf07b903454e36b21ff3dd7e6ca37699
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b675301e04776bf0ab80073214a690f3f5bd6350
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104098"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021841"
 ---
 <!--Verified successfully on 09/17/2020-->
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>在启用磁盘加密的情况下创建池
@@ -113,7 +114,7 @@ az batch pool create \
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解 [Azure 磁盘存储的服务器端加密](../virtual-machines/windows/disk-encryption.md)。
+- 详细了解 [Azure 磁盘存储的服务器端加密](../virtual-machines/disk-encryption.md)。
 - 有关 Batch 的详细概述，请参阅 [Batch 服务工作流和资源](batch-service-workflow-features.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -6,18 +6,18 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-origin.date: 11/09/2020
-ms.date: 11/30/2020
+origin.date: 11/30/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.reviewer: stsoneff
-ms.openlocfilehash: 91cd7efaeaf5bf704f3d164229379431ce96d7d1
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.custom: azureday1
+ms.openlocfilehash: cc4c650175a37c53330053e211c8b50eaadb8a2b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507866"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022952"
 ---
-<!--Verified Successfully-->
 # <a name="tutorial-access-azure-storage-from-a-web-app"></a>教程：从 Web 应用访问 Azure 存储
 
 了解如何使用托管标识为 Azure 应用服务上运行的 Web 应用（不是登录用户）访问 Azure 存储。
@@ -213,6 +213,8 @@ az role assignment create --assignee $spID --role 'Storage Blob Data Contributor
 
 [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) 类用于获取代码的令牌凭据，以授权对 Azure 存储的请求。  创建 [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) 类的实例，该类使用托管标识提取令牌并将其附加到服务客户端。 下面的代码示例获取经过身份验证的令牌凭据，并使用它创建服务客户端对象，该对象将上传新的 Blob。  
 
+若要查看作为示例应用程序一部分的代码，请参阅 [GitHub 上的示例](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/1-WebApp-storage-managed-identity)。
+
 ### <a name="install-client-library-packages"></a>安装客户端库包
 
 安装 [Blob 存储 NuGet 包](https://www.nuget.org/packages/Azure.Storage.Blobs/)以便与 Blob 存储一起使用，并安装[适用于 .NET NuGet 包的 Azure 标识客户端库](https://www.nuget.org/packages/Azure.Identity/)来使用 Azure AD 凭据进行身份验证。 使用 .NET Core 命令行接口或 Visual Studio 中的包管理器控制台，在项目中安装客户端库。
@@ -304,4 +306,3 @@ static public async Task UploadBlob(string accountName, string containerName, st
 > [!div class="nextstepaction"]
 > [应用服务代表用户访问 Microsoft Graph](scenario-secure-app-access-microsoft-graph-as-user.md)
 
-<!--NEW.date: 11/30/2020-->

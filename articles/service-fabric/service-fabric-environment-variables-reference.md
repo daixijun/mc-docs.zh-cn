@@ -4,14 +4,14 @@ description: 了解 Azure Service Fabric 中的环境变量。 包含变量及�
 author: rockboyfor
 ms.topic: reference
 origin.date: 12/07/2017
-ms.date: 02/24/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: bc9390517a17f8832304bee9a3644ea32d66c4e3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 3654e5c865aec8e70a09611e191c75ed6325c6bc
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540671"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022899"
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric 环境变量
 

@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/22/2020
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: dcda85724a2b79671b36565787ceb74d7ec41f8d
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 7742a601e2c31cfc473b8bd93a6434b5c7afd624
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105087"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021297"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建公共负载均衡器，以便对 VM 进行负载均衡
 
@@ -42,6 +42,8 @@ ms.locfileid: "97105087"
 >[!NOTE]
 >对于生产型工作负载，建议使用标准 SKU 负载均衡器。  有关 SKU 的详细信息，请参阅 [Azure 负载均衡器 SKU](skus.md)。
 
+<!--:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Standard load balancer resources created for quickstart." border="false":::-->
+
 在本部分，你将创建一个负载均衡器来对虚拟机进行负载均衡。 
 
 创建公共负载均衡器时，还会为该负载均衡器创建一个配置为前端（默认情况下命名为“LoadBalancerFrontend”）的新公共 IP 地址。
@@ -50,7 +52,7 @@ ms.locfileid: "97105087"
 
 2. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息： 
 
-    | 设置                 | 值                                              |
+    | 设置                 | Value                                              |
     | --- | --- |
     | 订阅               | 选择订阅。    |    
     | 资源组         | 选择“新建”并在文本框中输入“CreatePubLBQS-rg” 。|
@@ -100,7 +102,7 @@ ms.locfileid: "97105087"
 
 2. 在“设置”下，依次选择“运行状况探测”、“添加”。
 
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | 名称 | 输入 **myHealthProbe**。 |
     | 协议 | 选择“HTTP”。 |
@@ -128,7 +130,7 @@ ms.locfileid: "97105087"
 
 3. 使用以下值配置负载均衡规则：
 
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | 名称 | 输入 **myHTTPRule**。 |
     | IP 版本 | 选择“IPv4” |
@@ -140,7 +142,7 @@ ms.locfileid: "97105087"
     | 运行状况探测 | 选择“myHealthProbe”。 |
     | 空闲超时（分钟） | 将滑块移动到 15 分钟。 |
     | TCP 重置 | 选择“启用”。  |
-    | 出站源网络地址转换 (SNAT) | 选择“(建议)使用出站规则为后端池成员提供对 Internet 的访问权限”。 |
+    | 出站源网络地址转换 (SNAT) | 选择“(建议)使用出站规则为后端池成员提供对 Internet 的访问权限。” |
 
 4. 将剩余的字段保留默认设置，然后选择“确定”。
 
@@ -281,7 +283,7 @@ ms.locfileid: "97105087"
 
 3. 使用以下值配置出站规则：
 
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | 名称 | 输入 myOutboundRule。 |
     | 前端 IP 地址 | 选择“新建”。 </br> 在“名称”中输入“LoadBalancerFrontEndOutbound”。 </br> 选择“IP 地址”或“IP 前缀”。 </br> 在“公共 IP 地址”或“公共 IP 前缀”下选择“新建”。 </br> 对于“名称”，请输入“myPublicIPOutbound”或“myPublicIPPrefixOutbound”。 </br> 选择“添加”  。|
@@ -317,6 +319,8 @@ ms.locfileid: "97105087"
 >[!NOTE]
 >对于生产型工作负载，建议使用标准 SKU 负载均衡器。  有关 SKU 的详细信息，请参阅 [Azure 负载均衡器 SKU](skus.md)。
 
+<!--:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Basic load balancer resources created in quickstart." border="false":::-->
+
 在本部分，你将创建一个负载均衡器来对虚拟机进行负载均衡。 
 
 创建公共负载均衡器时，还会为该负载均衡器创建一个配置为前端（默认情况下命名为“LoadBalancerFrontend”）的新公共 IP 地址。
@@ -325,7 +329,7 @@ ms.locfileid: "97105087"
 
 2. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息： 
 
-    | 设置                 | 值                                              |
+    | 设置                 | Value                                              |
     | --- | --- |
     | 订阅               | 选择订阅。    |    
     | 资源组         | 选择“新建”并在文本框中键入“CreatePubLBQS-rg” 。|
@@ -414,7 +418,7 @@ ms.locfileid: "97105087"
 
 3. 在“添加后端池”页上，输入或选择：
 
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | 名称 | 输入“myBackendPool”。 |
     | 虚拟网络 | 选择“myVNet”。 |
@@ -432,7 +436,7 @@ ms.locfileid: "97105087"
 
 2. 在“设置”下，依次选择“运行状况探测”、“添加”。
 
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | 名称 | 输入 **myHealthProbe**。 |
     | 协议 | 选择“HTTP”。 |
@@ -460,7 +464,7 @@ ms.locfileid: "97105087"
 
 3. 使用以下值配置负载均衡规则：
 
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | 名称 | 输入 **myHTTPRule**。 |
     | IP 版本 | 选择“IPv4” |
@@ -569,7 +573,7 @@ ms.locfileid: "97105087"
 
 ## <a name="install-iis"></a>安装 IIS
 
-1. 在左侧菜单中选择“所有服务”，选择“所有资源”，然后在资源列表中选择位于“CreateStdLBQS-rg”资源组中的“myVM1”   。
+1. 在左侧菜单中选择“所有服务”，选择“所有资源”，然后在资源列表中选择位于“CreatePubLBQS-rg”资源组中的“myVM1”   。
 
 2. 在“概述”页上，选择“连接”，然后选择“Bastion”  。
 

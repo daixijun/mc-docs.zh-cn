@@ -4,17 +4,16 @@ description: 了解文档其余部分中使用的关键 Service Fabric 术语和
 ms.topic: conceptual
 origin.date: 09/17/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 02/24/2020
 ms.author: v-yeche
-ms.custom: sfrev
-ms.openlocfilehash: d181b5727162ecbc297b94317d0b78d1775e9388
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: bd9b6ab99cd14643f62336d0cab66cb5d3658e23
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655620"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023082"
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric 术语概述
 
@@ -150,7 +149,7 @@ Service Fabric 是一种开放源平台技术，多种不同的服务和产品�
 <!--Not Available on - **Azure Service Fabric Mesh**:-->
 
 - **Azure Service Fabric**：Azure 托管的 Service Fabric 群集服务/产品。 它提供 Service Fabric 和 Azure 基础结构之间的集成，以及 Service Fabric 群集的升级和配置管理。
-- **Service Fabric 独立**：一组安装和配置工具，可[在任何位置部署 Service Fabric 群集](./service-fabric-deploy-anywhere.md)（在本地或任何云提供程序）。 不由 Azure 管理。
+- **Service Fabric 独立**：一组安装和配置工具，可 [在任何位置部署 Service Fabric 群集](./service-fabric-deploy-anywhere.md)（在本地或任何云提供程序）。 不由 Azure 管理。
 - **Service Fabric 开发群集**：在 Windows、Linux 或 Mac 上提供本地开发经验，用于开发 Service Fabric 应用程序。
 
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>环境、框架和部署模型支持矩阵

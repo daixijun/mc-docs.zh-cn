@@ -1,5 +1,5 @@
 ---
-title: 在 VMSS 上配置托管标识 - Azure AD
+title: 在虚拟机规模集上配置托管标识 - Azure AD
 description: 分步说明如何使用 Azure 门户在虚拟机规模集上配置 Azure 资源的托管标识。
 services: active-directory
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b12d784c3980ba0465906ac4015e01ff5c736fd9
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: b3fc7851d30fa0d4ee6721c63f48cf3a82257639
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509068"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021729"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>使用 Azure 门户在虚拟机规模集上配置 Azure 资源的托管标识
+# <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-vmss-using-the-azure-portal"></a>使用 Azure 门户在虚拟机规模集 (VMSS) 上配置 Azure 资源的托管标识
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -31,7 +31,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 在本文中，将了解如何使用 PowerShell 在虚拟机规模集上执行以下 Azure 资源的托管服务标识操作：
 
 - 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。
-- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)，然后再继续。
+- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)，然后再继续。
 - 若要执行本文中的管理操作，帐户需要以下 Azure 角色分配：
 
     > [!NOTE]

@@ -6,13 +6,13 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 935d901e1a456fa74b90986e2cd46cac2fb1f582
-ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+ms.date: 01/07/2021
+ms.openlocfilehash: 3fde3edfea56aadd44fe75965b31e7dd4d635f4f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936862"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023166"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>来自 Azure 流分析的事件中心输出
 
@@ -48,7 +48,7 @@ ms.locfileid: "91936862"
 
 可将查询列作为用户属性附加到传出的消息。 这些列不会进入有效负载。 这些属性以字典形式在输出消息中提供。 键是列名，值是属性字典中的列值。  支持除“记录”和“数组”以外的其他所有流分析数据类型。
 
-在以下示例中，字段 `DeviceId` 和 `DeviceStatus` 添加到了元数据。
+在以下示例中，字段 `DeviceId` 和 `DeviceStatus` 将添加到元数据中。
 
 1. 使用以下查询：
 
@@ -60,14 +60,11 @@ ms.locfileid: "91936862"
 
    :::image type="content" source="media/event-hubs-output/property-columns.png" alt-text="属性列":::
 
-下图显示了在事件中心使用[服务总线资源管理器](https://github.com/paolosalvatori/ServiceBusExplorer)检查的预期输出消息属性。
+下图显示了在事件中心使用 [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) 检查的预期输出消息属性。
 
-:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="属性列":::
+:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="事件自定义属性":::
 
 ## <a name="next-steps"></a>后续步骤
 
 * [快速入门：使用 Azure 门户创建流分析作业](stream-analytics-quick-create-portal.md)
-* [快速入门：使用 Azure CLI 创建 Azure 流分析作业](quick-create-azure-cli.md)
-* [快速入门：使用 ARM 模板创建 Azure 流分析作业](quick-create-azure-resource-manager.md)
-* [快速入门：使用 Azure PowerShell 创建流分析作业](stream-analytics-quick-create-powershell.md)
 

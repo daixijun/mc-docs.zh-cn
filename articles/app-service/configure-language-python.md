@@ -3,16 +3,16 @@ title: 配置 Linux Python 应用
 description: 了解如何使用 Azure 门户和 Azure CLI 配置运行 Web 应用的 Python 容器。
 ms.topic: quickstart
 origin.date: 11/06/2020
-ms.date: 11/30/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: ef7cf92e282e73650cc012cd50ece18158e0c2e2
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 0941ff2043797f6ce3846406af87091f6fce070c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306419"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023008"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>为 Azure 应用服务配置 Linux Python 应用
 
@@ -104,21 +104,21 @@ ms.locfileid: "96306419"
 1. **源存储库**：在适当的存储库（如 GitHub）中维护源代码，确保可以在此过程的稍后部分设置持续部署。
     1. requirements.txt 文件必须位于存储库的根目录，应用服务才能自动安装必需的包。    
 
-1. **数据库**：如果应用依赖于数据库，则还应在 Azure 上预配必需的资源。 请参阅[教程：使用 PostgreSQL 部署 Django Web 应用 - 创建数据库](tutorial-python-postgresql-app.md#create-postgres-database-in-azure)，以了解示例。
+1. **数据库**：如果应用依赖于数据库，则还应在 Azure 上预配必需的资源。 请参阅[教程：使用 PostgreSQL 部署 Django Web 应用 - 创建数据库](tutorial-python-postgresql-app.md#3-create-postgres-database-in-azure)，以了解示例。
 
-1. **应用服务资源**：创建资源组、应用服务计划和应用服务 Web 应用来承载你的应用程序。 若要最轻松地实现这一点，可以使用 Azure CLI 命令 `az webapp up` 执行代码的初始部署，如[教程：使用 PostgreSQL 部署 Django Web 应用 - 部署代码](tutorial-python-postgresql-app.md#deploy-the-code-to-azure-app-service)所示。 替换资源组、应用服务计划和 Web 应用的名称，使其更适合你的应用程序。
+1. **应用服务资源**：创建资源组、应用服务计划和应用服务 Web 应用来承载你的应用程序。 若要最轻松地实现这一点，可以使用 Azure CLI 命令 `az webapp up` 执行代码的初始部署，如[教程：使用 PostgreSQL 部署 Django Web 应用 - 部署代码](tutorial-python-postgresql-app.md#4-deploy-the-code-to-azure-app-service)所示。 替换资源组、应用服务计划和 Web 应用的名称，使其更适合你的应用程序。
 
-1. **环境变量**：如果应用程序需要使用任意环境变量，请创建等效的[应用服务应用程序设置](configure-common.md#configure-app-settings)。 这些应用服务设置在代码中显示为环境变量，如[访问环境变量](#access-app-settings-as-environment-variables)中所述。
-    - 例如，通常通过此类设置来管理数据库连接，如[教程：使用 PostgreSQL 部署 Django Web 应用 - 配置变量以连接数据库](tutorial-python-postgresql-app.md#configure-environment-variables-to-connect-the-database)所示。
+1. **环境变量**：如果应用程序需要使用任意环境变量，请创建等效的 [应用服务应用程序设置](configure-common.md#configure-app-settings)。 这些应用服务设置在代码中显示为环境变量，如[访问环境变量](#access-app-settings-as-environment-variables)中所述。
+    - 例如，通常通过此类设置来管理数据库连接，如[教程：使用 PostgreSQL 部署 Django Web 应用 - 配置变量以连接数据库](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database)所示。
     - 有关典型 Django 应用的具体设置，请参阅 [Django 应用的生产设置](#production-settings-for-django-apps)。
 
-1. **应用启动**：查看后文中的[容器启动过程](#container-startup-process)部分，了解应用服务如何尝试运行应用。 默认情况下，应用服务使用 Gunicorn Web 服务器，该服务器必须能够找到应用对象或 wsgi.py 文件夹。 如有必要，可以[自定义启动命令](#customize-startup-command)。
+1. **应用启动**：查看后文中的 [容器启动过程](#container-startup-process)部分，了解应用服务如何尝试运行应用。 默认情况下，应用服务使用 Gunicorn Web 服务器，该服务器必须能够找到应用对象或 wsgi.py 文件夹。 如有必要，可以[自定义启动命令](#customize-startup-command)。
 
     <!--1. **Continuous deployment**-->
     <!--[Continuous deployment to Azure App Service](deploy-continuous-deployment.md)-->
-    <!--[Deploy to App Service using GitHub Actions](deploy-github-actions.md) if using GitHub actions.-->
+    <!--[Deploy to App Service using GitHub Actions](deploy-github-actions.md)-->
 
-1. **自定义操作**：若要在托管应用的应用服务容器内执行操作（例如 Django 数据库迁移），可以[通过 SSH 连接到容器](configure-linux-open-ssh-session.md)。 有关运行 Django 数据库迁移的示例，请参阅[教程：使用 PostgreSQL 部署 Django Web 应用 - 运行数据库迁移](tutorial-python-postgresql-app.md#run-django-database-migrations)。
+1. **自定义操作**：若要在托管应用的应用服务容器内执行操作（例如 Django 数据库迁移），可以 [通过 SSH 连接到容器](configure-linux-open-ssh-session.md)。 有关运行 Django 数据库迁移的示例，请参阅[教程：使用 PostgreSQL 部署 Django Web 应用 - 运行数据库迁移](tutorial-python-postgresql-app.md#43-run-django-database-migrations)。
     - 使用持续部署时，可以使用生成后命令执行这些操作，如前面的[自定义生成自动化](#customize-build-automation)所述。
 
 完成这些步骤后，你应能够将更改提交到源存储库，并将这些更新自动部署到应用服务。
@@ -131,10 +131,10 @@ ms.locfileid: "96306419"
 
 | Django 设置 | Azure 说明 |
 | --- | --- |
-| `SECRET_KEY` | 如[访问作为环境变量的应用设置](#access-app-settings-as-environment-variables)所述，请将值存储在应用服务设置中。 也可以[在 Azure Key Vault 中将该值存储为“机密”](/key-vault/secrets/quick-create-python)。 |
+| `SECRET_KEY` | 如[访问作为环境变量的应用设置](#access-app-settings-as-environment-variables)所述，请将值存储在应用服务设置中。 也可以[在 Azure Key Vault 中将该值存储为“机密”](../key-vault/secrets/quick-create-python.md)。 |
 | `DEBUG` | 在应用服务上创建一个值为 0 (false) 的 `DEBUG` 设置，然后将该值加载为环境变量。 在开发环境中，创建一个值为 1 (true) 的 `DEBUG` 环境变量。 |
 | `ALLOWED_HOSTS` | 在生产环境中，Django 要求在 settings.py 的 `ALLOWED_HOSTS` 数组中包含应用的 URL。 可使用 `os.environ['WEBSITE_HOSTNAME']` 代码在运行时检索此 URL。 应用服务会自动将 `WEBSITE_HOSTNAME` 环境变量设置为应用的 URL。 |
-| `DATABASES` | 在应用服务中为数据库连接定义设置，并将这些设置加载为环境变量以填充 [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) 字典。 也可以将值（尤其是用户名和密码）存储为 [Azure Key Vault 机密](/key-vault/secrets/quick-create-python)。 |
+| `DATABASES` | 在应用服务中为数据库连接定义设置，并将这些设置加载为环境变量以填充 [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) 字典。 也可以将值（尤其是用户名和密码）存储为 [Azure Key Vault 机密](../key-vault/secrets/quick-create-python.md)。 |
 
 ## <a name="container-characteristics"></a>容器特征
 

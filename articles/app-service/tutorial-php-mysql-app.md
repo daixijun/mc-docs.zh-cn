@@ -5,16 +5,16 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 origin.date: 06/15/2020
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 6d9450ca09f12377525d02e2fc2d5dfd8b0e656a
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 438973015062326ea1002c9cd94da7e8462fdf88
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170740"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022869"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>教程：在 Azure 应用服务中生成 PHP 和 MySQL 应用
 
@@ -48,11 +48,12 @@ ms.locfileid: "92170740"
 
 完成本教程：
 
-* [安装 Git](https://git-scm.com/)
-* [安装 PHP 5.6.4 或更高版本](https://php.net/downloads.php)
-* [安装 Composer](https://getcomposer.org/doc/00-intro.md)
-* 启用 Laravel 所需的以下 PHP 扩展：OpenSSL、PDO-MySQL、Mbstring、Tokenizer、XML
-* [安装并启动 MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+- [安装 Git](https://git-scm.com/)
+- [安装 PHP 5.6.4 或更高版本](https://php.net/downloads.php)
+- [安装 Composer](https://getcomposer.org/doc/00-intro.md)
+- 启用 Laravel 所需的以下 PHP 扩展：OpenSSL、PDO-MySQL、Mbstring、Tokenizer、XML
+- [安装并启动 MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## <a name="prepare-local-mysql"></a>准备本地 MySQL
 
@@ -500,7 +501,7 @@ remote: Running deployment command...
 
 浏览到 `http://<app-name>.chinacloudsites.cn` 并在列表中添加一些任务。
 
-:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="标题为“任务列表”的 PHP 应用示例的屏幕截图。":::
+:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="标题为“任务列表”的 Azure 应用示例的屏幕截图，显示了添加的新任务。":::
 
 恭喜，你的数据驱动的 PHP 应用正在 Azure 应用服务中运行。
 
@@ -681,7 +682,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 转到 [Azure 门户](https://portal.azure.cn)管理已创建的应用。
 
-在左侧菜单中单击**应用程序服务**，然后单击 Azure 应用的名称。
+在左侧菜单中单击 **应用程序服务**，然后单击 Azure 应用的名称。
 
 ![在门户中导航到 Azure 应用](./media/tutorial-php-mysql-app/access-portal.png)
 

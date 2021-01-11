@@ -2,25 +2,26 @@
 title: 教程 - 通过数据工厂运行 Python 脚本
 description: 了解如何使用 Azure Batch 通过 Azure 数据工厂将 Python 脚本作为管道的一部分运行。
 ms.devlang: python
+ms.service: batch
 ms.topic: tutorial
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 737d2bce31e92d62a4087dabff2de4d76742332b
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 462186cd9c1a692ff7f2e67fc952ee0ddf0b5911
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747229"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022822"
 ---
 <!--Verified successfully-->
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>教程：使用 Azure Batch 通过 Azure 数据工厂运行 Python 脚本
 
-本教程介绍以下操作：
+在本教程中，你将了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 通过 Batch 和存储帐户进行身份验证
@@ -154,9 +155,21 @@ python main.py
 1. 单击具有失败退出代码的任务。
 1. 查看 `stdout.txt` 和 `stderr.txt` 以调查和诊断问题。
 
+## <a name="clean-up-resources"></a>清理资源
+
+虽然作业和任务本身不收费，但计算节点收费。 因此，建议只在需要的时候分配池。 删除池时会删除节点上的所有任务输出。 但是，输入和输出文件保留在存储帐户中。 当不再需要时，还可以删除 Batch 帐户和存储帐户。
+
 ## <a name="next-steps"></a>后续步骤
 
-本教程探讨的示例演示了如何使用 Azure Batch 通过 Azure 数据工厂将 Python 脚本作为管道的一部分运行。
+在本教程中，你了解了如何执行以下操作：
+
+> [!div class="checklist"]
+> * 通过 Batch 和存储帐户进行身份验证
+> * 在 Python 中开发和运行脚本
+> * 创建运行应用程序所需的计算节点池
+> * 计划 Python 工作负荷
+> * 监视分析管道
+> * 访问日志文件
 
 若要详细了解 Azure 数据工厂，请参阅：
 

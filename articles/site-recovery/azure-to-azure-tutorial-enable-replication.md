@@ -4,17 +4,17 @@ description: 在本教程中，使用 Site Recovery 服务将 Azure VM 的灾难
 ms.topic: tutorial
 origin.date: 11/03/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: eb44fe9e4df68e470bebc7e6c96be925ae3a247f
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: fa60093d08a21e102e515e24ff1d41cf935a504d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508013"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022903"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>教程：为 Azure VM 设置灾难恢复
 
@@ -61,7 +61,7 @@ Azure 帐户需要某些权限才能创建恢复服务保管以及在目标区�
 
 ### <a name="verify-target-settings"></a>验证目标设置
 
-在发现恢复过程中，从源区域进行故障转移时，将在目标区域中创建 VM。 
+在灾难恢复过程中，从源区域进行故障转移时，将在目标区域中创建 VM。 
 
 检查订阅在目标区域中是否有足够的资源。 需要能够创建大小与源区域中的 VM 匹配的 VM。 设置灾难恢复时，Site Recovery 会为目标 VM 选择相同的大小（或尽可能接近的大小）。
 

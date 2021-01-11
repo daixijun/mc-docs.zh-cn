@@ -4,17 +4,16 @@ description: 了解 Service Fabric 群集中基于证书的身份验证，以及
 ms.topic: conceptual
 origin.date: 03/16/2020
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.custom: sfrev
-ms.openlocfilehash: 0e093a8ae766a94695958918e91003254c8a8077
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 9df3fb75658baffe560d79d7a19665cf4c573ff8
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655560"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022992"
 ---
 <!--Verified succcessfully on Character content only-->
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Service Fabric 群集中基于 X.509 证书的身份验证

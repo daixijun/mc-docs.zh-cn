@@ -4,14 +4,14 @@ description: 为 Visual Studio 中的 C# 函数和 VS Code 中的 JavaScript 函
 author: craigshoemaker
 ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
-ms.date: 11/18/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: 42ae971afac4d9331aef50f8097e9a4bd0e5f620
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 7940b82bad2f1576ee0a08702cee98c4242c8cf8
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849264"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021447"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中测试代码的策略
 
@@ -28,7 +28,7 @@ ms.locfileid: "94849264"
 
 ## <a name="c-in-visual-studio"></a>Visual Studio 中的 C#
 
-以下示例描述如何在 Visual Studio 中创建 C# 函数应用，并使用 [xUnit](https://xunit.github.io) 运行和测试该应用。
+以下示例描述如何在 Visual Studio 中创建 C# 函数应用，并使用 [xUnit](https://github.com/xunit/xunit) 运行和测试该应用。
 
 ![使用 Visual Studio 中的 C# 测试 Azure Functions](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "94849264"
 1. [创建新函数应用](./functions-create-first-azure-function.md)并将其命名为 **Functions**
 2. [从模板创建 HTTP 函数](./functions-create-first-azure-function.md)并将其命名为“MyHttpTrigger”。
 3. [从模板创建计时器函数](./functions-create-scheduled-function.md)并将其命名为“MyTimerTrigger”。
-4. 在解决方案中[创建 xUnit 测试应用](https://xunit.github.io/docs/getting-started-dotnet-core)并将其命名为“Functions.Tests”。
+4. 在解决方案中[创建 xUnit 测试应用](https://xunit.net/docs/getting-started/netcore/cmdline)并将其命名为“Functions.Tests”。
 5. 使用 NuGet 从测试应用添加对 [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/) 的引用
 6. [从 Functions.Tests 应用引用 Functions 应用](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)。
 

@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: Johnnytechn
 origin.date: 13/05/2020
 ms.author: v-johya
-ms.date: 09/28/2020
-ms.openlocfilehash: ee9c44ccce17afb27548c1e540f4a78f2a815db7
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.date: 01/07/2021
+ms.openlocfilehash: 1dd2d4ce6717e39cee47fa17ba10f4f8eaf97322
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871276"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022826"
 ---
 # <a name="azure-backup-compliance-offerings"></a>Azure 备份合规性产品
 
@@ -25,29 +25,20 @@ ms.locfileid: "91871276"
 * [CSA-Star-Certification](https://docs.microsoft.com/microsoft-365/compliance/offering-csa-star-certification)
 * [CSA-STAR-Self-Assessment](https://docs.microsoft.com/microsoft-365/compliance/offering-csa-star-self-assessment)
 * [ISO 20000-1:2011](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-20000-1-2011)
-* [ISO 22301](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-22301)
+* [ISO 22301](https://docs.microsoft.com/compliance/regulatory/offering-iso-22301)
 * [ISO 27001](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27017)
 * [ISO 27017](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27017)
 * [ISO 27018](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27018)
 * [ISO 9001](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-9001)
 * [SOC 1,2,3](https://docs.microsoft.com/microsoft-365/compliance/offering-soc)
 
-## <a name="us-government"></a>美国政府
-
-* [DoD DISA L2, L4, L5](https://docs.microsoft.com/microsoft-365/compliance/offering-dod-disa-l2-l4-l5)
-* [FedRAMP](https://docs.microsoft.com/microsoft-365/compliance/offering-fedramp)
-* [FIPS 140-2](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2)
 
 ## <a name="industry"></a>行业
 
-* [HIPAA](https://docs.microsoft.com/microsoft-365/compliance/offering-hipaa-hitech)
+* [HIPAA](https://docs.microsoft.com/compliance/regulatory/offering-hipaa-hitech)
 * [HITRUST](https://docs.microsoft.com/microsoft-365/compliance/offering-hitrust)
 * [PCI DSS](https://docs.microsoft.com/microsoft-365/compliance/offering-pci-dss)
 
-## <a name="regional"></a>区域
-
-* [CCSL/IRAP（澳大利亚）](https://docs.microsoft.com/microsoft-365/compliance/offering-ccsl-irap-australia)
-* [GDPR（欧盟）](https://www.microsoft.com/trustcenter/privacy/gdpr)
 
 ## <a name="next-steps"></a>后续步骤
 

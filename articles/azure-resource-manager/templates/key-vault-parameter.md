@@ -2,15 +2,16 @@
 title: 密钥保管库机密与模板
 description: 说明在部署期间如何以参数形式从密钥保管库传递机密。
 ms.topic: conceptual
-origin.date: 01/06/2020
-ms.date: 06/22/2020
+origin.date: 12/17/2020
+author: rockboyfor
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: f8e8bd2cab3957bdb15855be764bd1cc14c85ef3
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: f2f7f9fa235f16e51ae24f513621dcaf63305f1c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098729"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022289"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署过程中使用 Azure Key Vault 传递安全参数值
 
@@ -151,13 +152,13 @@ Set-AzKeyVaultAccessPolicy `
 
     此示例在资源组级别为用户分配自定义角色。
 
-使用 Key Vault 部署[托管应用程序](../managed-applications/overview.md)的模板时，必须授予对设备资源提供程序**** 服务主体的访问权限。 有关详细信息，请参阅[部署 Azure 托管应用程序时访问 Key Vault 机密](../managed-applications/key-vault-access.md)。
+使用 Key Vault 部署[托管应用程序](../managed-applications/overview.md)的模板时，必须授予对设备资源提供程序服务主体的访问权限。 有关详细信息，请参阅[部署 Azure 托管应用程序时访问 Key Vault 机密](../managed-applications/key-vault-access.md)。
 
 ## <a name="reference-secrets-with-static-id"></a>通过静态 ID 引用机密
 
 使用此方法，可以在参数文件（而不是在模板）中引用密钥保管库。 下图显示了参数文件如何引用机密并将该值传递到模板。
 
-![资源管理器密钥保管库集成静态 ID 图](./media/key-vault-parameter/statickeyvault.png)
+:::image type="content" source="./media/key-vault-parameter/statickeyvault.png" alt-text="资源管理器密钥保管库集成静态 ID 图":::
 
 [教程：在资源管理器模板部署中集成 Azure Key Vault](./template-tutorial-use-key-vault.md) 使用了此方法。
 
@@ -267,7 +268,7 @@ New-AzResourceGroupDeployment `
 
 在父模板中添加嵌套模板，然后传入包含动态生成的资源 ID 的参数。 下图显示链接模板中的参数如何引用机密。
 
-![动态 ID](./media/key-vault-parameter/dynamickeyvault.png)
+:::image type="content" source="./media/key-vault-parameter/dynamickeyvault.png" alt-text="动态 ID":::
 
 以下模板动态创建 Key Vault ID 并将其作为参数传递。
 
@@ -383,5 +384,7 @@ New-AzResourceGroupDeployment `
 
 - 有关密钥保管库的一般信息，请参阅[什么是 Azure 密钥保管库？](../../key-vault/general/overview.md)。
 - 有关引用密钥机密的完整示例，请参阅 [密钥保管库示例](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)。
+
+<!--Not Available on [Manage complex cloud deployments by using advanced ARM template features](https://docs.microsoft.com/learn/modules/manage-deployments-advanced-arm-template-features/)-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

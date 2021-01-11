@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 origin.date: 04/01/2018
-ms.date: 11/16/2020
-ms.openlocfilehash: 2f202d7b6515e78059e002630a626da85adb4329
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.date: 01/07/2021
+ms.openlocfilehash: 33b2090842051fff0b4fee462c025ed2eb7e59cb
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977030"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023156"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Azure 流分析中 JavaScript 用户定义的函数
  
@@ -45,7 +45,7 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
 
 然后，你必须提供以下属性并选择“保存”。
 
-|properties|说明|
+|属性|说明|
 |--------|-----------|
 |函数别名|输入一个名称以在查询中调用函数。|
 |输出类型|JavaScript 用户定义的函数将向流分析查询返回的类型。|
@@ -84,8 +84,8 @@ Azure 流分析 JavaScript 用户定义的函数支持标准的内置 JavaScript
 bigint | Number（JavaScript 只能精确呈现最大 2^53 的整数）
 DateTime | Date（JavaScript 仅支持毫秒）
 Double | Number
-nvarchar(MAX) | 字符串
-Record | Object
+nvarchar(MAX) | String
+Record | 对象
 Array | Array
 Null | Null
 
@@ -95,8 +95,8 @@ JavaScript | 流分析
 --- | ---
 Number | 如果数字已舍入并介于 long.MinValue 和 long.MaxValue 之间，则为 Bigint；否则为 double
 Date | DateTime
-字符串 | nvarchar(MAX)
-Object | Record
+String | nvarchar(MAX)
+对象 | Record
 Array | Array
 Null、Undefined | Null
 其他任何类型（例如函数或错误） | 不支持（导致运行时错误）
@@ -183,5 +183,43 @@ INTO
 FROM
     input A
 ```
+
+### <a name="tolocalestring"></a>toLocaleString()
+JavaScript 中的 toLocaleString 方法可用于返回一个区分语言的字符串，该字符串表示调用此方法的日期时间数据。
+尽管 Azure 流分析只接受 UTC 日期时间作为系统时间戳，但此方法可用于将系统时间戳转换为其他区域设置和时区。
+此方法遵循的实现行为与 Internet Explorer 中提供的行为相同。
+
+**JavaScript 用户定义的函数定义：**
+
+```javascript
+function main(datetime){
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return event.toLocaleDateString('de-DE', options);
+}
+```
+
+示例查询：将日期/时间作为输入值传递
+```SQL
+SELECT
+    udf.toLocaleString(input.datetime) as localeString
+INTO
+    output
+FROM
+    input
+```
+
+此查询的输出将是 de-DE 中的输入日期时间，其中包含提供的选项。
+```
+Samstag, 28. Dezember 2019
+```
+
+## <a name="user-logging"></a>用户日志记录
+使用日志记录机制，可以在作业运行时捕获自定义信息。 可以使用日志数据实时调试或评估自定义代码的正确性。 此机制通过 Console.Log() 方法提供。
+
+```javascript
+console.log('my error message');
+```
+
+可以通过[诊断日志](data-errors.md)访问日志消息。
 
 <!--Not available in MC: /stream-analytics/machine-learning-udf, /stream-analytics/stream-analytics-edge-csharp-udf-methods -->

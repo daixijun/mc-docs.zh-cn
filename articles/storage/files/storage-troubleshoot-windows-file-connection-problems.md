@@ -8,12 +8,12 @@ origin.date: 09/13/2019
 ms.date: 12/14/2020
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: d29a69af7aed4f7c6aea263bf1a8c8c329c151c8
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 2098e085d63977dbf8bdb22815ca12619ce18d20
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850785"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894402"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>在 Windows 中排查 Azure 文件存储问题 (SMB)
 
@@ -94,7 +94,7 @@ TcpTestSucceeded : True
 ### <a name="solution-for-cause-1"></a>原因 1 的解决方案
 
 #### <a name="solution-1---unblock-port-445-with-help-of-your-ispit-admin"></a>解决方案 1 - 在 ISP/IT 管理员的帮助下取消阻止端口 445
-与 IT 部门或 ISP 配合，向 [Azure IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)开放端口 445 出站通信。
+与 IT 部门或 ISP 配合，向 [Azure IP 范围](https://www.microsoft.com/download/details.aspx?id=57062)开放端口 445 出站通信。
 
 #### <a name="solution-2---use-rest-api-based-tools-like-storage-explorerpowershell"></a>解决方案 2 - 使用基于 REST API 的工具，例如存储资源管理器/Powershell
 除了 SMB，Azure 文件存储还支持 REST。 REST 访问通过端口 443（标准 TCP）工作。 使用 REST API 编写的各种工具可实现丰富的 UI 体验。 [存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)是其中之一。 [下载并安装存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)，然后连接到 Azure 文件支持的文件共享。 也可使用 [PowerShell](./storage-how-to-use-files-powershell.md)，此工具也使用 REST API。

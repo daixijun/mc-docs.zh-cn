@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 09/01/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: 25e6abb98585f3f101dc176a325897c6f8c484a7
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: cdec0ca7faa55358f4744f52df9128d2aa5b6c62
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004134"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023131"
 ---
 <!--Verified successfully-->
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>对 Azure Kubernetes Service (AKS) 中的 Azure 磁盘使用自带密钥 (BYOK)
@@ -54,10 +54,10 @@ az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --
 
 ```azurecli
 # Retrieve the Key Vault Id and store it in a variable
-keyVaultId=$(az keyvault show --name myKeyVaultName --query [id] -o tsv)
+keyVaultId=$(az keyvault show --name myKeyVaultName --query "[id]" -o tsv)
 
 # Retrieve the Key Vault key URL and store it in a variable
-keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query [key.kid] -o tsv)
+keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query "[key.kid]" -o tsv)
 
 # Create a DiskEncryptionSet
 az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
@@ -69,7 +69,7 @@ az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  
 
 ```azurecli
 # Retrieve the DiskEncryptionSet value and set a variable
-desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup --query [identity.principalId] -o tsv)
+desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup --query "[identity.principalId]" -o tsv)
 
 # Update security policy settings
 az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIdentity --key-permissions wrapkey unwrapkey get
@@ -84,7 +84,7 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 
 ```azurecli
 # Retrieve the DiskEncryptionSet value and set a variable
-diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query [id] -o tsv)
+diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query "[id]" -o tsv)
 
 # Create a resource group for the AKS cluster
 az group create -n myResourceGroup -l myAzureRegionName

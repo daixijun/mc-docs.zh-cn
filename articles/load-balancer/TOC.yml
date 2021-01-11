@@ -50,7 +50,7 @@
           href: load-balancer-insights.md
         - name: 标准负载均衡器指标和诊断
           href: load-balancer-standard-diagnostics.md
-        - name: 基本负载均衡器的 Azure Monitor 日志
+        - name: 负载均衡器的 Azure Monitor 日志
           href: load-balancer-monitor-log.md
         - name: 使用 REST 获取负载均衡器指标
           href: load-balancer-query-metrics-rest-api.md

@@ -4,17 +4,16 @@ description: Service Fabric 中云应用程序的类别概述。 介绍使用有
 ms.topic: conceptual
 origin.date: 01/08/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: sfrev
-ms.openlocfilehash: b7fecd3c8473a071d6dfb5a4d1b9f29377b55dd9
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 2b439e4774bed43ae7c3fd987db36295675aaaef
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328577"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023084"
 ---
 # <a name="service-fabric-application-scenarios"></a>Service Fabric 应用程序方案
 
@@ -28,7 +27,7 @@ Service Fabric 的独特体系结构使你可以在应用程序中执行近实�
 
 对于以下类型的应用程序，请考虑使用 Service Fabric 平台：
 
-* **数据收集、处理和 IoT** ：Service Fabric 通过其有状态服务实现大规模处理和低延迟。 它可以帮助你处理数百万台设备上的数据（其中的设备数据和计算数据共置在一起）。
+* **数据收集、处理和 IoT**：Service Fabric 通过其有状态服务实现大规模处理和低延迟。 它可以帮助你处理数百万台设备上的数据（其中的设备数据和计算数据共置在一起）。
 
     已使用 Service Fabric 构建 IoT 服务的客户包括 [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure)、[PCL Construction](https://customers.microsoft.com/story/pcl-construction-professional-services-azure)、[Crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure)、[BMW](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/)、[Schneider Electric](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric) 和 [Mesh Systems](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions)。
 
@@ -38,11 +37,11 @@ Service Fabric 的独特体系结构使你可以在应用程序中执行近实�
     <!--Not Available on [Digamore](https://customers.microsoft.com/story/digamore-entertainment-scores-with-a-new-gaming-platform-based-on-azure-service-fabric/)-->
     <!--Not Available on [Honeywell with Hololens](https://customers.microsoft.com/story/honeywell-manufacturing-hololens)-->
 
-* **数据分析和工作流处理** ：必须可靠处理事件或数据流的应用程序可受益于 Service Fabric 中的优化读取和写入。 Service Fabric 还支持应用程序处理管道，其中的结果必须能够可靠地传递到下一个处理阶段而不会丢失。 这些管道包括交易和财务系统，其中的数据一致性和计算保证至关重要。
+* **数据分析和工作流处理**：必须可靠处理事件或数据流的应用程序可受益于 Service Fabric 中的优化读取和写入。 Service Fabric 还支持应用程序处理管道，其中的结果必须能够可靠地传递到下一个处理阶段而不会丢失。 这些管道包括交易和财务系统，其中的数据一致性和计算保证至关重要。
 
     已构建业务工作流服务的客户包括 [Zeiss Group](https://customers.microsoft.com/story/zeiss-group-focuses-on-azure-service-fabric-for-key-integration-platform)、[Quorum Business Solutions](https://customers.microsoft.com/story/quorum-business-solutions-expand-energy-managemant-solutions-using-azure-service-fabric) 和 [Société General](https://customers.microsoft.com/story/societe-generale-speeds-real-time-market-quotes-using-azure-service-fabric)。
 
-* **数据计算** ：使用 Service Fabric 可以构建有状态应用程序来执行密集的数据计算。 Service Fabric 允许在应用程序中共置处理（计算）和数据。 
+* **数据计算**：使用 Service Fabric 可以构建有状态应用程序来执行密集的数据计算。 Service Fabric 允许在应用程序中共置处理（计算）和数据。 
 
     一般情况下，当应用程序需要访问数据时，与外部数据缓存或存储层相关的网络延迟会限制计算时间。 使用 Service Fabric 有状态服务可消除这种延迟，使读取和写入得到进一步的优化。
 
@@ -50,9 +49,9 @@ Service Fabric 的独特体系结构使你可以在应用程序中执行近实�
 
     已构建计算服务的客户包括 [Solidsoft Reply](https://customers.microsoft.com/story/solidsoft-reply-platform-powers-e-verification-of-pharmaceuticals) 和 [Infosupport](https://customers.microsoft.com/story/service-fabric-customer-profile-info-support-and-fudura)。
 
-* **高度可用的服务** ：Service Fabric 通过创建多个辅助服务副本提供快速的故障转移。 节点、进程或单独的服务因硬件或其他故障而不可用时，其中一个辅助副本会提升为主副本，将对服务的损失降到最低。
+* **高度可用的服务**：Service Fabric 通过创建多个辅助服务副本提供快速的故障转移。 节点、进程或单独的服务因硬件或其他故障而不可用时，其中一个辅助副本会提升为主副本，将对服务的损失降到最低。
 
-* **可缩放的服务** ：可对单独的服务进行分区，以允许在群集范围内扩大状态。 此外，还可动态创建和删除各项服务。 可将少量节点上的少量实例中的服务横向扩展为许多节点上的数千个实例，以后可根据需要再次缩减。 可以使用 Service Fabric 生成这些服务并管理其整个生命周期。
+* **可缩放的服务**：可对单独的服务进行分区，以允许在群集范围内扩大状态。 此外，还可动态创建和删除各项服务。 可将少量节点上的少量实例中的服务横向扩展为许多节点上的数千个实例，以后可根据需要再次缩减。 可以使用 Service Fabric 生成这些服务并管理其整个生命周期。
 
 ## <a name="application-design-case-studies"></a>应用程序设计案例研究
 

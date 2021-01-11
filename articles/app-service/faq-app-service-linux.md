@@ -5,15 +5,15 @@ keywords: Azure 应用服务, Web 应用, 常见问题解答, Linux, oss, 用于
 author: msangapu-msft
 ms.topic: article
 origin.date: 10/30/2018
-ms.date: 11/30/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 1422f1d55b0b46b7bcebacd4b4d698a518baa57e
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: e4ae0228fdeb4e8448fb9ede272e4dc964cfb414
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306423"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022454"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure 应用服务常见问题解答
 
@@ -174,7 +174,7 @@ image: <server-name>.azurecr.cn/<image-name>:<tag>
 
 - 设置为容器名称的应用程序设置 `WEBSITES_WEB_CONTAINER_NAME`
 - 第一个定义端口 80 或 8080 的容器
-- 如果以上规则均不适用，则文件中定义的第一个容器将可供访问（公开）-->
+- 如果以上规则均不适用，则文件中定义的第一个容器将可供访问（公开）
 
 
 ## <a name="web-sockets"></a>Web 套接字

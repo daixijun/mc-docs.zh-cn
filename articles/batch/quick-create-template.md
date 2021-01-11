@@ -1,21 +1,21 @@
 ---
 title: Azure 快速入门 - 创建 Batch 帐户 - Azure 资源管理器模板
-description: 快速了解如何使用 Azure CLI 运行批处理作业。 从命令行或通过脚本创建和管理 Azure 资源。
+description: 本快速入门介绍如何使用 ARM 模板创建 Batch 帐户。
 ms.topic: quickstart
 ms.service: batch
 origin.date: 08/17/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
 ms.custom: subject-armqs
-ms.openlocfilehash: 98d9c9333de414322154e5de93d6d3105c1cf645
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: c1b75acc65bbfd62bc96b6602df0321ee0e60891
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146744"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022828"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>快速入门：使用 ARM 模板创建批处理帐户
@@ -172,5 +172,4 @@ ms.locfileid: "91146744"
 > [!div class="nextstepaction"]
 > [Azure Batch 教程](./tutorial-parallel-dotnet.md)
 
-<!-- Update_Description: new article about quick create template -->
-<!--NEW.date: 08/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

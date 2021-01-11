@@ -9,16 +9,16 @@ metadata:
   ms.collection: na
   origin.date: 01/02/2020
   author: rockboyfor
-  ms.date: 10/26/2020
+  ms.date: 01/11/2021
   ms.testscope: yes
   ms.testdate: 08/24/2020
   ms.author: v-yeche
-  ms.openlocfilehash: 234314700df5c9f4d909a5bd7d1c8f3a2d2b1576
-  ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+  ms.openlocfilehash: c2b641ec584280f243225effc5e3281b8171103c
+  ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/23/2020
-  ms.locfileid: "92470321"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98023186"
 landingContent:
 - title: 关于托管应用程序
   linkLists:
@@ -46,8 +46,6 @@ landingContent:
     links:
     - text: 创建定义文件
       url: publish-service-catalog-app.md
-    - text: 发布市场应用程序
-      url: publish-marketplace-app.md
   - linkListType: how-to-guide
     links:
     - text: 使用来自 Key Vault 的机密

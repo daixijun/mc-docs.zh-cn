@@ -5,14 +5,15 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
+ms.custom: references_regions
 origin.date: 10/21/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: 5c835207312499ca4e140a2f99098b3ba49d2488
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.date: 01/11/2021
+ms.openlocfilehash: 1abb78aeb02e068daa903489c60657eb18dc8fe7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94908951"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023089"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>在 Azure Database for MariaDB 中进行监视
 监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for MariaDB 提供了各种指标来帮助用户深入了解服务器的行为。
@@ -61,5 +62,5 @@ ms.locfileid: "94908951"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要深入了解如何使用 Azure 门户、REST API 或 CLI 访问和导出指标，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
+- 若要深入了解如何使用 Azure 门户、REST API 或 CLI 访问和导出指标，请参阅 [Azure 指标概述](../azure-monitor/platform/data-platform.md)。
 - 有关如何基于指标创建警报的指南，请参阅[如何设置警报](howto-alert-metric.md)。

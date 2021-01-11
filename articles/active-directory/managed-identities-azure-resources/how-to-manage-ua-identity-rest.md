@@ -12,19 +12,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/12/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a860742e9349033a6379f0e20a5cc71fa9b6a740
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: eb671a81cecf01df4c3901d1e1d59b57ed985625
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509010"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021738"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>使用 REST API 调用创建、列出或删除用户分配托管标识
-
-[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice-ua.md)]
 
 Azure 资源托管标识使 Azure 服务能够向支持 Azure AD 身份验证的服务进行身份验证，而无需在代码中输入凭据。 
 

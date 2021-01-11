@@ -2,17 +2,14 @@
 title: 将基于事件的视频录制到云中并从云播放教程 - Azure
 description: 在本教程中，你将了解如何使用 Azure IoT Edge 上的 Azure 实时视频分析将基于事件的视频录制到云中并从云中播放。
 ms.topic: tutorial
-author: WenJason
-ms.author: v-jay
-ms.service: media-services
 origin.date: 05/27/2020
-ms.date: 11/30/2020
-ms.openlocfilehash: 0d8f5078dba5bec82d3d490809a17be0ab653351
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.date: 01/11/2021
+ms.openlocfilehash: 8323bc86fc3618f8793dd3db142f05a5e1e659f5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300170"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023278"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>教程：将基于事件的视频录制到云中并从云中播放
 
@@ -56,7 +53,7 @@ ms.locfileid: "96300170"
 * Azure IoT 中心
 * Azure 存储帐户
 * Azure 媒体服务帐户
-* Azure 中的 Linux VM，已安装 [IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge-linux.md)
+* Azure 中的 Linux VM，已安装 [IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge.md)
 
 ## <a name="concepts"></a>概念
 
@@ -72,13 +69,13 @@ ms.locfileid: "96300170"
 该图以图画形式呈现了[媒体图](media-graph-concept.md)以及用于完成所需方案的其他模块。 共涉及四个 IoT Edge 模块：
 
 * IoT Edge 上的实时视频分析模块。
-* Edge 模块，它在 HTTP 终结点后面运行 AI 模型。 此 AI 模块使用 [YOLO v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) 模型，该模型能够检测许多类型的对象。
+* Edge 模块，它在 HTTP 终结点后面运行 AI 模型。 此 AI 模块使用 [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) 模型，该模型能够检测许多类型的对象。
 * 一个用于筛选对象并对其进行计数的自定义模块，该模块在图中称为对象计数器。 在本教程中，你将生成一个对象计数器并对其进行部署。
 * [RTSP 模拟器模块](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)用于模拟 RTSP 摄像机。
     
 如图所示，你将使用媒体图中的 [RTSP 源](media-graph-concept.md#rtsp-source)节点捕获模拟的实时视频（高速公路上的交通流视频），并将该视频发送到两条路径：
 
-* 第一条路径的目的地是[帧速率筛选处理器](media-graph-concept.md#frame-rate-filter-processor)节点，该节点以指定（降低的）帧速率输出视频帧。 这些视频帧将发送到 HTTP 扩展节点。 然后，该节点将这些帧作为图像转发到 AI 模块 YOLO v3（一个对象检测器）。 该节点接收结果，这些结果是模型检测到的对象（交通流中的车辆）。 然后，HTTP 扩展节点会通过 IoT 中心消息接收器节点向 IoT Edge 中心发布结果。
+* 第一个路径是 HTTP 扩展节点。 该节点对视频帧进行采样，结果将作为使用 `samplingOptions` 字段设置的值，然后将这些帧作为图像中继到 AI 模块 YOLOv3，这是一个对象检测器。 该节点接收结果，这些结果是模型检测到的对象（交通流中的车辆）。 然后，HTTP 扩展节点会通过 IoT 中心消息接收器节点向 IoT Edge 中心发布结果。
 * 设置了 objectCounter 模块，目的是从 IoT Edge 中心接收消息，其中包括对象检测结果（交通流中的车辆）。 该模块将检查这些消息，并查找通过设置进行配置的特定类型的对象。 当找到此类对象时，此模块将向 IoT Edge 中心发送消息。 然后系统将这些“找到对象”消息路由到媒体图的 IoT 中心源节点。 接收到此类消息后，媒体图中的 IoT 中心源节点会触发[信号入口处理器](media-graph-concept.md#signal-gate-processor)节点。 然后，信号入口处理器节点会在配置的时间内处于开启状态。 在此持续时间内，视频流会经过入口到达资产接收器节点。 然后，实时流的这一部分将通过[资产接收器](media-graph-concept.md#asset-sink)节点被记录到 Azure 媒体服务帐户中的[资产](terminology.md#asset)内。
 
 ## <a name="set-up-your-development-environment"></a>设置开发环境
@@ -428,4 +425,4 @@ applicationProperties 中的 subject 部分引用图形中的资产接收器节�
 ## <a name="next-steps"></a>后续步骤
 
 * 使用支持 RTSP 的 [IP 相机](https://en.wikipedia.org/wiki/IP_camera)，而不是使用 RTSP 模拟器。 可以在 [ONVIF 一致性产品页](https://www.onvif.org/conformant-products/)上查找符合配置文件 G、S 或 T 的设备来搜索支持 RTSP 的 IP 照相机。
-* 使用 AMD64 或 X64 Linux 设备（与使用 Azure Linux VM 相比）。 此设备必须与 IP 相机位于同一网络中。 按照[在 Linux 上安装 Azure IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge-linux.md)中的说明进行操作。 然后按照[将首个 IoT Edge 模块部署到虚拟 Linux 设备](../../iot-edge/quickstart-linux.md)快速入门中的说明进行操作，将设备注册到 Azure IoT 中心。
+* 使用 AMD64 或 X64 Linux 设备（与使用 Azure Linux VM 相比）。 此设备必须与 IP 相机位于同一网络中。 按照[在 Linux 上安装 Azure IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge.md)中的说明进行操作。 然后按照[将首个 IoT Edge 模块部署到虚拟 Linux 设备](../../iot-edge/quickstart-linux.md)快速入门中的说明进行操作，将设备注册到 Azure IoT 中心。

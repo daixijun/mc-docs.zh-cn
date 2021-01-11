@@ -5,15 +5,15 @@ description: 本文概述了应用程序网关上的 Web 应用程序防火墙 (
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/10/2020
+ms.date: 01/05/2021
 ms.author: v-junlch
 ms.topic: conceptual
-ms.openlocfilehash: 057d8ce43a52c75d3d97dd52119408ab78da9ddc
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 05ce39e59d3b3c6a0de2b109fb02d39120e84106
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553024"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023118"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>什么是 Azure 应用程序网关上的 Azure Web 应用程序防火墙？
 
@@ -23,10 +23,7 @@ Azure 应用程序网关提供的 Azure Web 应用程序防火墙 (WAF) 可以�
 
 下面列出了 WAF 策略中存在的所有 WAF 功能。 可以创建多个策略，并可将它们与应用程序网关或应用程序网关上的单个侦听器或基于路径的路由规则相关联。 这样，如果需要，你可以为应用程序网关后面的每个站点提供单独的策略。
 
-   > [!NOTE]
-   > 每个 URI 的 WAF 策略均为公共预览版。 这意味着此功能受 Microsoft 补充使用条款的约束。 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/)。
-
-![应用程序网关 WAF 示意图](media/ag-overview/waf1.png)
+![应用程序网关 WAF 关系图](media/ag-overview/waf1.png)
 
 应用程序网关作为应用程序传送控制器 (ADC) 运行。 它提供了传输层安全性 (TLS)（以前称为安全套接字层 (SSL)）、终止、基于 Cookie 的会话相关性、轮循负载分发、基于内容的路由、托管多个网站的功能，以及安全增强功能。
 
@@ -132,7 +129,7 @@ OWASP 有两种模式，用于决定是否阻止流量：传统模式和异常�
 
 在异常评分模式下，当防火墙处于阻止模式时，不会立即阻止与任何规则匹配的流量。 规则具有一定的严重性：“严重”、“错误”、“警告”或“通知”。 此严重性会影响请求的数值，该数值称为异常分数。 例如，一个“警告”规则匹配对应的分数为 3。 一个“严重”规则匹配对应的分数为 5。
 
-|严重性  |值  |
+|严重性  |Value  |
 |---------|---------|
 |严重     |5|
 |错误        |4|

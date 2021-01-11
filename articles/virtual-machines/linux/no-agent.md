@@ -6,15 +6,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/11/2020
+ms.date: 01/05/2021
 ms.author: v-johya
 ms.reviewer: cynthn
-ms.openlocfilehash: ae75208718a1910309cd7afa12743a0a15e35dea
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 6476e04a91881b2e45add59faae63391644f5803
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638015"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023142"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>创建不含预配代理的通用映像
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 此 systemd 服务在基本预配过程中执行以下三项操作：
 
 1. 向 Azure 报告就绪状态（指示它已成功启动）。
-1. 通过从 [Azure 实例元数据服务 (IMDS)](./instance-metadata-service.md) 中拉取此数据，根据用户提供的 VM 名称重命名 VM。 请注意，IMDS 还提供了其他[实例元数据](./instance-metadata-service.md#accessing-azure-instance-metadata-service)（例如 SSH 公钥），以便可以设置主机名以外的项。
+1. 通过从 [Azure 实例元数据服务 (IMDS)](./instance-metadata-service.md) 中拉取此数据，根据用户提供的 VM 名称重命名 VM。 请注意，IMDS 还提供了其他[实例元数据](./instance-metadata-service.md#access-azure-instance-metadata-service)（例如 SSH 公钥），以便可以设置主机名以外的项。
 1. 禁用此服务自身，以使其仅在首次启动时运行，在后续启动时不运行。
 
 将此单元添加到文件系统后，运行以下命令来启用它：

@@ -6,14 +6,14 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.custom: contperfq1
-ms.date: 11/16/2020
-ms.openlocfilehash: 8869b319ebbc9890eecb628a62a6d3e417a0474e
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.custom: contperf-fy21q1
+ms.date: 01/07/2021
+ms.openlocfilehash: 1608612c43955347c0cad18ba2e6466b71ad344e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978345"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023158"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>使用资源日志排查 Azure 流分析问题
 

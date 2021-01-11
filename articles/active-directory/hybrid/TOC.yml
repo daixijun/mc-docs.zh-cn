@@ -85,6 +85,8 @@
           href: how-to-connect-install-existing-tenant.md
         - name: 安装后任务
           href: how-to-connect-post-installation.md
+        - name: 卸载 Azure AD Connect
+          href: how-to-connect-uninstall.md
     - name: 规划和设计
       items:
         - name: 设计概念
@@ -105,6 +107,10 @@
               href: how-to-connect-migrate-groups.md
     - name: 管理 Azure AD Connect
       items:
+        - name: 启用设备写回
+          href: how-to-connect-device-writeback.md
+        - name: 设备选项
+          href: how-to-connect-device-options.md
         - name: Azure AD Connect 中的其他功能
           href: how-to-connect-preview.md
         - name: 防止意外删除
@@ -198,7 +204,7 @@
     - name: 混合标识所需的端口和协议
       href: reference-connect-ports.md
     - name: 连接器版本历史记录
-      href: reference-connect-sync-connector-version-history.md
+      href: 'https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history'
     - name: 帐户和权限
       href: reference-connect-accounts-permissions.md
     - name: Azure AD Connect 常见问题
@@ -223,3 +229,5 @@
       href: reference-connect-adconnectivitytools.md
     - name: msExchUserHoldPolicies 和 cloudMSExchUserHoldPolicies
       href: reference-connect-msexchuserholdpolicies.md
+    - name: 了解 Azure AD Connect 1.4.xx.x 设备消失
+      href: reference-connect-device-disappearance.md

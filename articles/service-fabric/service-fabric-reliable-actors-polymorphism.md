@@ -1,17 +1,18 @@
 ---
 title: Reliable Actors 框架中的多态性技术
 description: 在 Reliable Actors 框架中构建 .NET 接口和类型的层次结构，以便重用功能和 API 定义。
-author: rockboyfor
 ms.topic: conceptual
+author: rockboyfor
 origin.date: 11/02/2017
-ms.date: 01/13/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: 97810241d4ec3b68bee18cc91f68dc7d6dce3dc3
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 65a7d269ed618a75168dc32228c61852ede4ccf2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75742427"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022382"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Reliable Actors 框架中的多态性技术
 Reliable Actors 框架允许使用许多在面向对象的设计中使用的相同技术来生成执行组件。 其中一种技术是多态性技术，它允许类型和接口从多个通用父类中继承。 Reliable Actors 框架中的继承通常遵循 .NET 模型，并会受到一些附加限制。 在 Java/Linux 中，它遵循 Java 模型。

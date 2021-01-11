@@ -5,19 +5,21 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 07/09/2020
+origin.date: 07/09/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: d5d4560a5d0da660a1f6261e430f49bcf631e6ad
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 7f4779277994c4e55f8b859bfc47c8c7b6dfe735
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105436"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023022"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses"></a>部署具有多个公共 IP 地址的 Azure 防火墙
 
 若要使用 Azure 防火墙保护虚拟中心，可以使用 Azure PowerShell 部署具有多个公共 IP 地址的防火墙。
 
+<!--[cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)-->
 
 ## <a name="deploy-the-firewall"></a>部署防火墙
 

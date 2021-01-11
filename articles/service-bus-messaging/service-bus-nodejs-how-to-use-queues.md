@@ -2,20 +2,21 @@
 title: 如何通过 JavaScript 使用 azure/service-bus 队列
 description: 了解如何编写使用最新预览版的 @azure/service-bus 包的 JavaScript 程序，以便将消息发送到服务总线队列，并从中接收消息。
 ms.devlang: nodejs
+ms.service: service-bus-messaging
 ms.topic: quickstart
 origin.date: 11/09/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/17/2020
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 7e7513d19fa24a1389f4ede6c32e2e05d0a76f65
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 10eb9870338f9624bfbb9e8716b7092561d10ca3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105240"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022742"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>向 Azure 服务总线队列发送消息并从中接收消息 (JavaScript)
 本教程介绍如何使用 JavaScript 程序中的 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 包向服务总线队列发送消息并从中接收消息。
@@ -208,7 +209,7 @@ npm install @azure/service-bus
 ## <a name="next-steps"></a>后续步骤
 请参阅以下文档和示例： 
 
-- [适用于 Python 的 Azure 服务总线客户端库](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
+- [适用于 JS 的 Azure 服务总线客户端库](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
 - [示例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples)。 javascript 文件夹包含 JavaScript 示例，typescript 包含 TypeScript 示例 。 
 - [azure-servicebus 参考文档](https://docs.microsoft.com/javascript/api/overview/azure/service-bus)
 

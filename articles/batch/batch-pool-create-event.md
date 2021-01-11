@@ -5,16 +5,16 @@ ms.service: batch
 ms.topic: reference
 origin.date: 10/08/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7071fe24b7c2be57647cdc74a34527b5002e9fe8
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 5e8c3a6596f7bb89f17a09f0bd4c9145577d2708
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104810"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023171"
 ---
 # <a name="pool-create-event"></a>池创建事件
 

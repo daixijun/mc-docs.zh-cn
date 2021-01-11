@@ -4,17 +4,17 @@ description: 概述 Service Fabric 服务的其他放置策略和规则
 ms.topic: conceptual
 origin.date: 08/18/2017
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f47174cd29148ea89ad42991bca84f9a0fdd5fd6
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 61ab841019998eadbcc52745257fe7086a718828
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328549"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022724"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Service Fabric 服务的放置策略
 放置策略是可用于在某些不常见的特定情况下控制服务位置的附加规则。 这些情况的一些示例包括：

@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: 5f5a213b7b318ba9055cbfbb43056d588df0fe5b
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 5b0c6d9560a74f962eaa089fba0933a956e5de72
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507603"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021877"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>安装使用现有应用程序网关的应用程序网关入口控制器 (AGIC)
 
@@ -324,7 +324,7 @@ kubectl get AzureIngressProhibitedTargets prohibit-all-targets -o yaml
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>为现有的 AGIC 安装启用
-假设我们的群集中已有一个正常运行的 AKS、应用程序网关且已配置 AGIC。 我们有 `prod.contosor.com` 的入口，并且能够成功地从 AKS 为它提供流量。 我们想要将 `staging.contoso.com` 添加到现有的应用程序网关，但需要将此网关托管在 [VM](https://www.azure.cn/home/features/virtual-machines/) 上。 我们将重复使用现有的应用程序网关，并为 `staging.contoso.com` 手动配置侦听器和后端池。 但是，手动调整应用程序网关配置（通过[门户](https://portal.azure.cn)、[ARM API](https://docs.microsoft.com/rest/api/resources/) 或 [Terraform](https://www.terraform.io/)）将与 AGIC 拥有完全所有权的事实相冲突。 应用更改后不久，AGIC 将会覆盖或删除这些更改。
+假设我们的群集中已有一个正常运行的 AKS、应用程序网关且已配置 AGIC。 我们有 `prod.contoso.com` 的入口，并且能够成功地从 AKS 为它提供流量。 我们想要将 `staging.contoso.com` 添加到现有的应用程序网关，但需要将此网关托管在 [VM](https://www.azure.cn/home/features/virtual-machines/) 上。 我们将重复使用现有的应用程序网关，并为 `staging.contoso.com` 手动配置侦听器和后端池。 但是，手动调整应用程序网关配置（通过[门户](https://portal.azure.cn)、[ARM API](https://docs.microsoft.com/rest/api/resources/) 或 [Terraform](https://www.terraform.io/)）将与 AGIC 拥有完全所有权的事实相冲突。 应用更改后不久，AGIC 将会覆盖或删除这些更改。
 
 我们可以禁止 AGIC 对一部分配置进行更改。
 

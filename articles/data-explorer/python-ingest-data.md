@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/03/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: ddf514aca34f8ce9e343db6d59c93685d455f831
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: fa29d1b8d7a01be8194f3dbd35dee330340b5933
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431031"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874891"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>使用 Azure 数据资源管理器 Python 库引入数据
 
@@ -112,7 +112,7 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.chinacloudapi.cn/" + \
 
 ## <a name="create-a-table-on-your-cluster"></a>在群集上创建表
 
-创建与 StormEvents.csv 文件中的数据架构匹配的表。 运行此代码时，它会返回如下消息：若要登录，请使用 Web 浏览器打开页面 https://microsoft.com/devicelogin ，然后输入代码 F3W4VWZDM 进行身份验证。 按照步骤登录，然后返回运行下一个代码块。 建立连接的后续代码块将要求你再次登录。
+创建与 StormEvents.csv 文件中的数据架构匹配的表。 运行此代码时，它会返回如下消息：若要登录，请使用 Web 浏览器打开页面 https://microsoft.com/deviceloginchina ，然后输入代码 F3W4VWZDM 进行身份验证。 按照步骤登录，然后返回运行下一个代码块。 建立连接的后续代码块将要求你再次登录。
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB_DATA)

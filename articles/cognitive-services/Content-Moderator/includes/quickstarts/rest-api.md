@@ -8,18 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: include
-ms.date: 12/28/2020
+ms.date: 01/04/2021
 ms.author: v-johya
-ms.openlocfilehash: 56cc3366fe198607705a55e65be1e38664a8350c
-ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
+ms.openlocfilehash: b0e4da1406f5d92a96fa4a8a883f1819018d95c3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857113"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024191"
 ---
 开始使用 Azure 内容审查器 REST API。 
 
-内容审查器是一种 AI 服务，可用于处理可能的冒犯性、危险或不可取内容。 使用 AI 支持型内容审核服务扫描文本、图像和视频，并自动应用内容标志。 然后，将应用与审阅工具进行集成，为人工审阅者团队提供一个联机审查环境。 在应用中内置内容筛选软件，以符合法规或维护用户的预期环境。
+<!--Not available in MC: Review tool-->
+内容审查器是一种 AI 服务，可用于处理可能的冒犯性、危险或不可取内容。 使用 AI 支持型内容审核服务扫描文本、图像和视频，并自动应用内容标志。
 
 使用内容审查器 REST API：
 
@@ -196,7 +197,7 @@ curl -v -X POST "https://api.cognitive.azure.cn/contentmoderator/moderate/v1.0/P
 
 如果想要清理并删除认知服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。
 
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [门户](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>后续步骤

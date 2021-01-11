@@ -3,16 +3,16 @@ title: 配置部署凭据
 description: 了解 Azure 应用服务中有哪些类型的部署凭据，以及如何配置和使用这些凭据。
 ms.topic: article
 origin.date: 08/14/2019
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c34ae1465e1ea977259f8eb776e7751962459018
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 4a83fed2c937edaeee949334dc9b63b6f685ed01
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170595"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022690"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>为 Azure 应用服务配置部署凭据
 [Azure 应用服务](./overview.md)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](deploy-local-git.md)和 [FTP/S 部署](deploy-ftp.md)。 这些凭据与 Azure 订阅凭据不同。
@@ -25,7 +25,7 @@ ms.locfileid: "92170595"
 
 ### <a name="in-the-azure-cli"></a>在 Azure CLI 中
 
-若要在 [Azure CLI](/cli/) 中配置部署用户，请运行 [az webapp deployment user set](/cli/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) 命令。 将 \<username> 和 \<password> 替换为部署用户的用户名和密码。 
+若要在 [Azure CLI](/cli/) 中配置部署用户，请运行 [az webapp deployment user set](/cli/webapp/deployment/user#az-webapp-deployment-user-set) 命令。 将 \<username> 和 \<password> 替换为部署用户的用户名和密码。 
 
 - 用户名在 Azure 中必须唯一，并且为了本地Git推送，不能包含“@”符号。 
 - 密码必须至少为 8 个字符，且具有字母、数字和符号这三种元素中的两种。 
@@ -54,7 +54,7 @@ JSON 输出会将该密码显示为 `null`。 如果收到 `'Conflict'. Details:
 
 ![演示如何在应用“概述”页上查找 Git 部署用户名。](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-如果配置了 Git 部署，则该页显示 **Git/部署用户名** ；否则，显示 **FTP/部署用户名** 。
+如果配置了 Git 部署，则该页显示 **Git/部署用户名**；否则，显示 **FTP/部署用户名**。
 
 > [!NOTE]
 > Azure 不会显示用户级部署密码。 如果忘记密码，可以按照本部分的步骤重置凭据。
@@ -98,7 +98,7 @@ az resource update --resource-group <resource-group> --name ftp --namespace Micr
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-若要确认发布配置文件凭据在 WebDeploy 上被阻止，请尝试[使用 Visual Studio 2019 发布 Web 应用](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)。
+若要确认发布配置文件凭据在 WebDeploy 上被阻止，请尝试[使用 Visual Studio 2019 发布 Web 应用](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure)。
 
 ### <a name="disable-access-to-the-api"></a>禁止对 API 的访问
 

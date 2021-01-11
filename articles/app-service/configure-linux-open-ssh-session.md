@@ -6,15 +6,15 @@ author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
 origin.date: 02/25/2019
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 37a016e6ba61c950f5a615f000d286bd739d126b
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 53e244cf23c7b8a99f5208763426714f3f620256
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170825"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023005"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>在 Azure 应用服务中打开 Linux 容器的 SSH 会话
 
@@ -40,7 +40,7 @@ See [Configure SSH in a custom container](configure-custom-container.md#enable-s
 
 使用 TCP 隧道，可以通过经身份验证的 WebSocket 连接在开发计算机与适用于容器的 Web 应用之间创建网络连接。 这样就可以通过所选客户端使用在应用服务中运行的容器打开一个 SSH 会话。
 
-若要开始，需安装 [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。 了解它在不安装 Azure CLI 的情况下的工作方式。 
+若要开始，需安装 [Azure CLI](/cli/install-azure-cli)。 了解它在不安装 Azure CLI 的情况下的工作方式。 
 
 使用 [az webapp remote-connection create](https://docs.microsoft.com/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 命令打开到应用的远程连接。 为应用指定 \<subscription-id>、\<group-name> 和 \_\<app-name>_。
 
@@ -48,8 +48,7 @@ See [Configure SSH in a custom container](configure-custom-container.md#enable-s
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
 ```
 
-> [!TIP]
-> 命令末尾的 `&` 只是为了方便起见（如果你是使用 Cloud Shell）。 它在后台运行此进程，因此你可以在同一 shell 中运行下一命令。
+<!--Cloud Shell-->
 
 命令输出提供的信息是打开 SSH 会话所需的。
 
@@ -119,6 +118,9 @@ Load average: 0.07 0.04 0.08 4/765 45738
 有关用于容器的 Web 应用的详细信息，请参阅：
 
 * [Introducing remote debugging of Node.js apps on Azure App Service from VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)（使用 VS Code 对 Azure 应用服务上的 Node.js 应用进行远程调试简介）
+
+    <!-- * [Quickstart: Run a custom container on App Service](quickstart-custom-container.md?pivots=container-linux)-->
+
 * [在 Linux 上的 Azure 应用服务中使用 Ruby](quickstart-ruby.md)
 * [用于容器的 Azure 应用服务 Web 应用常见问题解答](faq-app-service-linux.md)
 

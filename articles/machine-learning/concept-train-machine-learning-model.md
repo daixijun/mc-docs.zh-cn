@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5cffecc4dc74bcd691fa635d111b6c0597027eeb
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: e0cb8485a9dd82f2645dd706bd9b92a7ddcbd77d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977932"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023330"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>使用 Azure 机器学习训练模型
 
@@ -76,7 +76,7 @@ Azure 机器学习提供多种方法来训练模型，从使用 SDK 的代码优
 机器学习管道可以使用前面提到的训练方法。 管道更多的是关于创建工作流，因此它们包含的不仅仅是模型训练。 在管道中，你可以使用自动化机器学习或运行配置来训练模型。
 
 * [什么是 Azure 机器学习 ML 管道？](concept-ml-pipelines.md)
-* [使用 Azure 机器学习 SDK 创建和运行机器学习管道](how-to-create-your-first-pipeline.md)
+* [使用 Azure 机器学习 SDK 创建和运行机器学习管道](how-to-create-machine-learning-pipelines.md)
 * [教程：使用 Azure 机器学习管道进行批处理评分](tutorial-pipeline-batch-scoring-classification.md)
 * [示例：Jupyter Notebook 机器学习管道示例](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [示例：使用自动化机器学习的管道](https://aka.ms/pl-automl)

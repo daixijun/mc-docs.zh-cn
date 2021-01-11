@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69a4aee0c0fe1a9531f0380478997ae987b6b4ce
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: bc7f6a2c5f6678c214ffdea529cea7c8745e7aff
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327127"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021596"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>在 Azure Active Directory 中删除一个租户
 
@@ -65,7 +65,7 @@ ms.locfileid: "94327127"
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>我有一个影响删除的试用订阅
 
-对于 Power BI、Rights Management Services、Microsoft Power Apps 或 Dynamics 365 等[自助服务注册产品](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide)，个人用户可通过 Microsoft 365 注册，这也会在 Azure AD 组织中创建来宾用户以用于身份验证。 这些自助服务产品会阻止删除目录，直到这些产品从组织中完全删除，以避免数据丢失。 它们只能由 Azure AD 管理员删除，无论用户是单独注册还是分配了产品。
+对于 Power BI、Rights Management Services、Microsoft Power Apps 或 Dynamics 365 等[自助服务注册产品](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up)，个人用户可通过 Microsoft 365 注册，这也会在 Azure AD 组织中创建来宾用户以用于身份验证。 这些自助服务产品会阻止删除目录，直到这些产品从组织中完全删除，以避免数据丢失。 它们只能由 Azure AD 管理员删除，无论用户是单独注册还是分配了产品。
 
 自助服务注册产品的分配方式有两种： 
 
@@ -74,9 +74,9 @@ ms.locfileid: "94327127"
 
 开始删除自助服务注册产品时，该操作将永久删除数据并删除用户对该服务的所有访问权限。 然后，将阻止任何已单独分配产品/服务或组织级别的用户登录或访问任何现有数据。 如果想要防止自助服务注册产品（如 [Power BI 仪表板](https://docs.microsoft.com/power-bi/service-export-to-pbix)）的数据丢失，请确保将数据备份并保存到其他位置。
 
-若要详细了解当前可用的自助服务注册产品和服务，请参阅[可用的自助服务计划](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs)。
+若要详细了解当前可用的自助服务注册产品和服务，请参阅[可用的自助服务计划](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up#available-self-service-programs)。
 
-有关 Microsoft 365 订阅试用到期后需执行的操作（不包括付费合作伙伴/CSP、企业协议或批量许可），请参阅下表。 如需深入了解 Microsoft 365 数据保留期和订阅生命周期，请参阅 [Microsoft 365 商业版订阅结束后我的数据和访问会出现什么情况？](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide)。
+有关 Microsoft 365 订阅试用到期后需执行的操作（不包括付费合作伙伴/CSP、企业协议或批量许可），请参阅下表。 如需深入了解 Microsoft 365 数据保留期和订阅生命周期，请参阅 [Microsoft 365 商业版订阅结束后我的数据和访问会出现什么情况？](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires)。
 
 产品状态 | 数据 | 对数据的访问
 ------------- | ---- | --------------

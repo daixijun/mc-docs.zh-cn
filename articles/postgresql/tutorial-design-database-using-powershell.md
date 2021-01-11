@@ -7,14 +7,14 @@ ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 origin.date: 06/08/2020
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 7af942991827178ecda9dd941289ceb04248673a
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 7d319b616f6fb5386290ed95fc27ad5ef6ab067f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850783"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023294"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>教程：使用 PowerShell 设计 Azure Database for PostgreSQL - 单一服务器
 
@@ -98,7 +98,7 @@ New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup 
 ```
 
 > [!NOTE]
-> 连接到 Azure Database for PostgreSQL 时，经端口 3306 进行通信。 如果尝试从企业网络内部进行连接，则可能不允许经端口 3306 的出站流量。 这种情况下，只有在 IT 部门打开了端口 3306 时，才能连接到服务器。
+> 连接到 Azure Database for PostgreSQL 时，经端口 5432 进行通信。 如果尝试从企业网络内部进行连接，则可能不允许经端口 5432 的出站流量。 这种情况下，只有在 IT 部门打开了端口 5432 时，才能连接到服务器。
 
 ## <a name="get-the-connection-information"></a>获取连接信息
 

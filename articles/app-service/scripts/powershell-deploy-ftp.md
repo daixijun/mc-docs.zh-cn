@@ -5,15 +5,15 @@ tags: azure-service-management
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
 ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 5bf21c4ef3d026d43eb60d8c35e1f2b1eb565515
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 317b4ea176cdab9a94cf4c9d5ecb06a2f6314f2b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170601"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021477"
 ---
 # <a name="upload-files-to-a-web-app-using-ftp"></a>使用 FTP 将文件上传到 Web 应用
 
@@ -22,7 +22,6 @@ ms.locfileid: "92170601"
 必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/)中的说明安装 Azure PowerShell，并运行 `Connect-AzAccount -Environment AzureChinaCloud` 创建与 Azure 的连接。
 
 ## <a name="sample-script"></a>示例脚本
-
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 ```powershell

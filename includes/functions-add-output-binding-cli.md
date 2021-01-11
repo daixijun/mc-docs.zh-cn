@@ -2,64 +2,66 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 06/03/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: f3848857679264b6490298cc26e6069d8a306573
-ms.sourcegitcommit: f1a76ee3242698123a3d77f44c860db040b48f70
+ms.openlocfilehash: 1b0fda1f545594756c2975ad4286e6e5c8206d5b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84563720"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024209"
 ---
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java"
+
 ## <a name="add-an-output-binding-definition-to-the-function"></a>将输出绑定定义添加到函数
 
 尽管一个函数只能有一个触发器，但它可以有多个输入和输出绑定，因此，你无需编写自定义集成代码，就能连接到其他 Azure 服务和资源。 
-
+::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-typescript"  
 在函数文件夹中的 *function.json* 文件内声明这些绑定。 在前一篇快速入门中，*HttpExample* 文件夹中的 *function.json* 文件在 `bindings` 集合中包含两个绑定：  
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 ```json
-"bindings": [
-   {
-       "authLevel": "function",
-       "type": "httpTrigger",
-       "direction": "in",
-       "name": "req",
-       "methods": [
-           "get",
-           "post"
-       ]
-   },
-   {
-       "type": "http",
-       "direction": "out",
-       "name": "res"
-   }
-]
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
 ```
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"  
-```powershell
-"bindings": [
- {
-   "authLevel": "function",
-   "type": "httpTrigger",
-   "direction": "in",
-   "name": "Request",
-   "methods": [
-     "get",
-     "post"
-   ]
- },
- {
-   "type": "http",
-   "direction": "out",
-   "name": "Response"
- }
-]
+```json
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    }
+  ]
 ```
 ::: zone-end  
 
@@ -72,32 +74,33 @@ ms.locfileid: "84563720"
 
 若要从此函数写入 Azure 存储队列，请添加类型为 `queue`、名称为 `msg` 的 `out` 绑定，如以下代码所示：
 
-```javascript
-{
-     "authLevel": "function",
-     "type": "httpTrigger",
-     "direction": "in",
-     "name": "req",
-     "methods": [
-       "get",
-       "post"
-     ]
-   },
-   {
-     "type": "http",
-     "direction": "out",
-     "name": "res"
-   },
-   {
-     "type": "queue",
-     "direction": "out",
-     "name": "msg",
-     "queueName": "outqueue",
-     "connection": "AzureWebJobsStorage"
-   }
- ]
+```json
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
 }
 ```
+::: zone-end  
 
 ::: zone-end  
 
@@ -106,30 +109,30 @@ ms.locfileid: "84563720"
 
 若要从此函数写入 Azure 存储队列，请添加类型为 `queue`、名称为 `msg` 的 `out` 绑定，如以下代码所示：
 
-```powershell
-{
-     "authLevel": "function",
-     "type": "httpTrigger",
-     "direction": "in",
-     "name": "Request",
-     "methods": [
-       "get",
-       "post"
-     ]
-   },
-   {
-     "type": "http",
-     "direction": "out",
-     "name": "Response"
-   },
-   {
-     "type": "queue",
-     "direction": "out",
-     "name": "msg",
-     "queueName": "outqueue",
-     "connection": "AzureWebJobsStorage"
-   }
- ]
+```json
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
 }
 ```
 ::: zone-end  

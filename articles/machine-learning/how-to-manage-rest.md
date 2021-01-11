@@ -10,18 +10,18 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 81fbcfc87973c8f695f3445a72a29cd1dad37f37
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: d49ab6cd9b6b9b2476731f5fbec4324032178b65
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104838"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022431"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>使用 REST 创建、运行和删除 Azure ML 资源
 
 
 
-可通过多种方式管理 Azure ML 资源。 可以使用[门户](https://portal.azure.cn/)、[命令行接口](/cli/azure/?preserve-view=true&view=azure-cli-latest)或 [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)。 或者，可以选择 REST API。 REST API 使用 HTTP 谓词以标准方式创建、检索、更新和删除资源。 REST API 适用于可发出 HTTP 请求的任何语言或工具。 REST 具有简单的结构，因此它往往是适合脚本编写环境和 MLOps 自动化的良好选择。 
+可通过多种方式管理 Azure ML 资源。 可以使用[门户](https://portal.azure.cn/)、[命令行接口](/cli/?preserve-view=true&view=azure-cli-latest)或 [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)。 或者，可以选择 REST API。 REST API 使用 HTTP 谓词以标准方式创建、检索、更新和删除资源。 REST API 适用于可发出 HTTP 请求的任何语言或工具。 REST 具有简单的结构，因此它往往是适合脚本编写环境和 MLOps 自动化的良好选择。 
 
 在本文中，学习如何：
 

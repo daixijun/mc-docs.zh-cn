@@ -4,16 +4,16 @@ description: 显示支持标记的 Azure资源类型。 提供所有 Azure 服�
 ms.topic: conceptual
 origin.date: 10/21/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8252e220d04181b081e3118ab34970a2f7265fb7
-ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
+ms.openlocfilehash: fb8013d5dd34550927c64ec93f2e699af6476bf3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915122"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022306"
 ---
 <!--Verify Successfully-->
 # <a name="tag-support-for-azure-resources"></a>Azure 资源的标记支持
@@ -98,6 +98,7 @@ ms.locfileid: "94915122"
 > - [Microsoft.SQL](#microsoftsql)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft.Synapse](#microsoftsynapse)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Web](#microsoftweb)
 
@@ -165,8 +166,8 @@ ms.locfileid: "94915122"
 > | 资源类型 | 支持标记 | 在成本报表中标记 |
 > | ------------- | ----------- | ----------- |
 > | configurationStores | 是 | 否 |
-> | configurationStores / eventGridFilters | 否 | 否 |
-> | configurationStores / keyValues | 否 | 否 |
+> | configurationStores/eventGridFilters | 否 | 否 |
+> | configurationStores/keyValues | 否 | 否 |
 
 <!--Not Available on ## Microsoft.AppPlatform-->
 <!--Not Available on ## Microsoft.Attestation-->
@@ -250,6 +251,8 @@ ms.locfileid: "94915122"
 > | 资源类型 | 支持标记 | 在成本报表中标记 |
 > | ------------- | ----------- | ----------- |
 > | batchAccounts | 是 | 是 |
+> | batchAccounts / certificates | 否 | 否 |
+> | batchAccounts / pools | 否 | 否 |
 
 <!--Not Available on ## Microsoft.Billing -->
 <!--Not Available on ## Microsoft.BingMaps-->
@@ -505,6 +508,7 @@ ms.locfileid: "94915122"
 <!--Not Available on  ## Microsoft.CostManagement-->
 <!--Not Available on  ## Microsoft.CustomerLockbox-->
 <!--Not Available on  ## Microsoft.CustomProviders-->
+<!--Not Available on  ## Microsoft.D365CustomerInsights-->
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
@@ -521,8 +525,8 @@ ms.locfileid: "94915122"
 > | 资源类型 | 支持标记 | 在成本报表中标记 |
 > | ------------- | ----------- | ----------- |
 > | workspaces | 是 | 是 |
-> | workspaces / dbWorkspaces | 否 | 否 |
-> | workspaces / virtualNetworkPeerings | 否 | 否 |
+> | workspaces/dbWorkspaces | 否 | 否 |
+> | workspaces/virtualNetworkPeerings | 否 | 否 |
 
 <!--Not Available on  ## Microsoft.DataCatalog-->
 
@@ -633,7 +637,6 @@ ms.locfileid: "94915122"
 > | usages | 否 | 否 |
 
 <!--Not Available on ## Microsoft.DeviceUpdate-->
-<!--Not Available on ## Microsoft.DevOps-->
 <!--Not Available on ## Microsoft.DevOps-->
 <!--Not Available on ## Microsoft.DevSpaces-->
 <!--Not Available on ## Microsoft.DevTestLab-->
@@ -784,7 +787,6 @@ ms.locfileid: "94915122"
 > | 资源类型 | 支持标记 | 在成本报表中标记 |
 > | ------------- | ----------- | ----------- |
 > | deletedVaults | 否 | 否 |
-> | hsmPools | 是 | 是 |
 > | vaults | 是 | 是 |
 > | vaults / accessPolicies | 否 | 否 |
 > | vaults / eventGridFilters | 否 | 否 |
@@ -792,7 +794,7 @@ ms.locfileid: "94915122"
 > | vaults / keys / versions | 否 | 否 |
 > | vaults / secrets | 否 | 否 |
 
-<!--Not Available on managedHSM-->
+<!--Not Available on managedHSM and hsmPools-->
 
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
@@ -841,9 +843,20 @@ ms.locfileid: "94915122"
 > | 资源类型 | 支持标记 | 在成本报表中标记 |
 > | ------------- | ----------- | ----------- |
 > | workspaces | 是 | 是 |
+> | workspaces/batchEndpoints | 是 | 是 |
+> | workspaces/batchEndpoints/deployments | 是 | 是 |
+> | workspaces/codes | 否 | 否 |
+> | workspaces/codes/versions | 否 | 否 |
 > | workspaces / computes | 否 | 否 |
+> | workspaces/datastores | 否 | 否 |
 > | workspaces / eventGridFilters | 否 | 否 |
+> | workspaces/jobs | 否 | 否 |
+> | workspaces/labelingJobs | 否 | 否 |
 > | workspaces / linkedServices | 否 | 否 |
+> | workspaces/models | 否 | 否 |
+> | workspaces/models/versions | 否 | 否 |
+> | workspaces/onlineEndpoints | 是 | 是 |
+> | workspaces/onlineEndpoints/deployments | 是 | 是 |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -960,6 +973,7 @@ ms.locfileid: "94915122"
 > | firewallPolicies | 是 | 是 |
 > | getDnsResourceReference | 否 | 否 |
 > | internalNotify | 否 | 否 |
+> | ipGroups | 是 | 是 |
 > | loadBalancers | 是 | 是 |
 > | localNetworkGateways | 是 | 是 |
 > | natGateways | 是 | 是 |
@@ -1311,7 +1325,7 @@ ms.locfileid: "94915122"
 > | 资源类型 | 支持标记 | 在成本报表中标记 |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | 是 | 是 |
-> | managedInstances / databases | 是（请参见[下面的注释](#sqlnote)） | 是 |
+> | managedInstances / databases | 否 | 否 |
 > | managedInstances / databases / backupShortTermRetentionPolicies | 否 | 否 |
 > | managedInstances / databases / schemas / tables / columns / sensitivityLabels | 否 | 否 |
 > | managedInstances / databases / vulnerabilityAssessments | 否 | 否 |
@@ -1373,7 +1387,18 @@ ms.locfileid: "94915122"
 > Streamingjobs 运行时无法添加标记。 停止要添加标记的资源。
 
 <!--Not Available on ## Microsoft.Subscription-->
-<!--Not Available on ## Microsoft.Synapse-->
+
+## <a name="microsoftsynapse"></a>Microsoft.Synapse
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 支持标记 | 在成本报表中标记 |
+> | ------------- | ----------- | ----------- |
+> | privateLinkHubs | 是 | 是 |
+> | workspaces | 是 | 是 |
+> | workspaces/bigDataPools | 是 | 是 |
+> | workspaces / operationStatuses | 否 | 否 |
+> | workspaces / sqlDatabases | 是 | 是 |
+> | workspaces / sqlPools | 是 | 是 |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
@@ -1425,6 +1450,8 @@ ms.locfileid: "94915122"
 > | runtimes | 否 | 否 |
 > | serverFarms | 是 | 是 |
 > | serverFarms / eventGridFilters | 否 | 否 |
+> | serverFarms / firstPartyApps | 否 | 否 |
+> | serverFarms / firstPartyApps / keyVaultSettings | 否 | 否 |
 > | sites | 是 | 是 |
 > | sites / config  | 否 | 否 |
 > | sites / eventGridFilters | 否 | 否 |

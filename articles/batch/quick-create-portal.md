@@ -1,21 +1,21 @@
 ---
 title: Azure 快速入门 - 在 Azure 门户中运行第一个 Batch 作业
-description: 了解如何使用 Azure 门户创建 Batch 帐户、计算节点池以及在池中运行基本任务的作业。
+description: 本快速入门介绍如何使用 Azure 门户创建 Batch 帐户、包含计算节点的池以及在池中运行基本任务的作业。
 ms.topic: quickstart
 ms.service: batch
 origin.date: 08/17/2020
 author: rockboyfor
-ms.date: 09/21/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 04/29/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 340217875404570d0f41e4006a2ad412b4f9b68a
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 33ecc1e0a4344e3af628630ce9b8c8386880e42b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746725"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022823"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>快速入门：在 Azure 门户中运行第一个 Batch 作业
 
@@ -55,7 +55,7 @@ ms.locfileid: "96746725"
 
 1. 在“操作系统”中选择以下设置（可以浏览其他选项）。
 
-    |设置  |值  |
+    |设置  |Value  |
     |---------|---------|
     |**映像类型**|市场|
     |**发布者** |microsoftwindowsserver|

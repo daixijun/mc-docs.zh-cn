@@ -8,15 +8,15 @@ ms.testscope: yes|no
 ms.testdate: 08/24/2020null
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: e718cf0110ae5a66d474f91746200c5b66aee6a6
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: c3cb527f7a05ef0f2de79a07b6c24489de212b1e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003567"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021858"
 ---
-<!--Pending for PM Review-->
-<!--REASON: IS PRIVATE PREVIEW TILL ON 09/22/2020-->
+<!--Verified successfully-->
+<!--REASON: IS NOT PRIVATE PREVIEW TILL ON 01/06/2021-->
 # <a name="azure-resource-manager-template-specs-preview"></a>Azure 资源管理器模板规格（预览版）
 
 模板规格是一种资源类型，用于在 Azure 中存储 Azure 资源管理器模板（ARM 模板），以便之后进行部署。 通过该资源类型，你可以与组织中的其他用户共享 ARM 模板。 与其他任何 Azure 资源一样，也可使用 Azure 基于角色的访问控制 (Azure RBAC) 来共享模板规格。
@@ -26,7 +26,7 @@ Microsoft.Resources/templateSpecs 是模板规格的资源类型。 它包含一
 若要部署模板规格，请使用标准 Azure 工具（如 PowerShell）、Azure CLI、Azure 门户、REST 和其他受支持的 SDK 和客户端。 请使用针对模板使用的相同命令。
 
 > [!NOTE]
-> 模板规格当前提供预览版。 若要使用，必须安装最新版本的 PowerShell 或 Azure CLI。 对于 Azure PowerShell，请使用[版本 5.0.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-az-ps)。 对于 Azure CLI，请使用[版本 2.14.2 或更高版本](https://docs.azure.cn/cli/install-azure-cli)。
+> 模板规格当前提供预览版。 若要将其与 Azure PowerShell 一起使用，必须安装[版本 5.0.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-az-ps)。 若要将其与 Azure CLI 一起使用，请使用[版本 2.14.2 或更高版本](https://docs.azure.cn/cli/install-azure-cli)。
 
 ## <a name="why-use-template-specs"></a>为什么使用模板规格？
 

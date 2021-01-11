@@ -4,17 +4,17 @@ description: 了解 Service Fabric Reliable Actors 的事件，这些事件提�
 ms.topic: conceptual
 origin.date: 10/06/2017
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0ebc0264dd976e2432e25e30f509b6283a4043db
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 827c6f96ab6f2f93ea25d50f07bf8e51ade77fc0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655682"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022384"
 ---
 # <a name="actor-events"></a>执行组件事件
 执行组件事件提供了一种尽最大努力将通知从执行组件发送到客户端的方法。 执行组件事件设计用于从执行组件到客户端的通信，而不应用于从执行组件到执行组件的通信。

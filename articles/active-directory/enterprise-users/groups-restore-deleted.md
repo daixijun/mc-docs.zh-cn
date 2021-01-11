@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/05/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 806b7f215fce61516abce57b03d58493b347f044
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 6942eb9618c6d7379fb4f283bfbfc1d2d79b5d87
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326781"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021586"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>在 Azure Active Directory 中还原已删除的 Microsoft 365 组
 
@@ -50,7 +50,7 @@ User | 可以还原他们拥有的任何已删除 Microsoft 365 组
 
 ## <a name="view-the-deleted-microsoft-365-groups-that-are-available-to-restore-using-powershell"></a>使用 Powershell 查看可还原的已删除 Microsoft 365 组
 
-可以使用以下 cmdlet 查看已删除的组，确认尚未永久清除的、想要还原的一个或多个组。 这些 cmdlet 属于 [Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)。 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) 一文中介绍了此模块的详细信息。
+可以使用以下 cmdlet 查看已删除的组，确认尚未永久清除的、想要还原的一个或多个组。 这些 cmdlet 属于 [Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)。 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) 一文中介绍了此模块的详细信息。
 
 1.  运行以下 cmdlet，以显示 Azure AD 组织中所有已删除但仍可还原的 Microsoft 365 组。
    
@@ -100,5 +100,5 @@ User | 可以还原他们拥有的任何已删除 Microsoft 365 组
 * [管理组的设置](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [管理组的成员](../fundamentals/active-directory-groups-members-azure-portal.md)
 * [管理组的成员身份](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [管理组中用户的动态规则](groups-dynamic-membership.md)
 
-<!-- Update_Description: wording update -->

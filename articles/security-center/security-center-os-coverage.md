@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2020
+ms.date: 01/06/2021
 ms.author: v-johya
 origin.date: 08/29/2019
-ms.openlocfilehash: 890119fe2de130daa590f202786b893430b9e95e
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 62330705f85c93257633a5b08211e609dbcb4632
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638082"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023293"
 ---
 # <a name="supported-platforms"></a>支持的平台 
 
@@ -45,8 +45,7 @@ Azure 安全中心支持基于不同类型的混合环境的虚拟机和服务�
 
 还要确保 Log Analytics 代理已[正确配置为将数据发送到安全中心](security-center-enable-data-collection.md#manual-agent)
 
-> [!TIP]
-> 若要详细了解 Windows 和 Linux 上提供的特定安全中心功能，请参阅[适用于计算机的功能覆盖范围](security-center-services.md)。
+若要详细了解 Windows 和 Linux 上提供的特定安全中心功能，请参阅[适用于计算机的功能覆盖范围](security-center-services.md)。
 
 ## <a name="managed-virtual-machine-services"></a>托管的虚拟机服务 <a name="virtual-machine"></a>
 

@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/14/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: db6e79f7622979fc80b154e5cd9176722f9d2800
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: ba57726b4f905d8189564cda72b2de55be7581bf
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655022"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023234"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V 到 Azure 的灾难恢复体系结构
 
@@ -83,7 +83,7 @@ ms.locfileid: "89655022"
 
 ### <a name="enable-protection"></a>启用保护
 
-1. 为 Hyper-V VM 启用保护以后，就会在 Azure 门户中或本地启动“启用保护”****。
+1. 为 Hyper-V VM 启用保护以后，就会在 Azure 门户中或本地启动“启用保护”。
 2. 该作业会检查计算机是否符合先决条件，然后调用 [CreateReplicationRelationship](https://docs.microsoft.com/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice)，以使用配置的设置来设置复制。
 3. 该作业通过调用 [StartReplication](https://docs.microsoft.com/windows/win32/hyperv_v2/startreplication-msvm-replicationservice) 方法启动初始复制，以便初始化完整的 VM 复制，然后将 VM 的虚拟磁盘发送到 Azure。
 4. 可以在“作业”选项卡中监视作业。:::image type="content" source="media/hyper-v-azure-architecture/image1.png" alt-text="此屏幕截图显示了“作业”选项卡上的作业列表。":::
@@ -119,7 +119,7 @@ ms.locfileid: "89655022"
     - 它使用固定块区块算法，其中源文件和目标文件被分到固定区块。
     - 会针对每个区块生成校验和。 这些校验和将进行比较，以确定源文件中的哪些区块需要应用到目标文件。
 2. 重新同步完成后，应会恢复正常增量复制。
-3. 如果你不希望等待默认非工作时间的重新同步，可手动重新同步 VM。 例如，在发生中断时。 为此，请在 Azure 门户中选择“VM”>“重新同步”****。
+3. 如果你不希望等待默认非工作时间的重新同步，可手动重新同步 VM。 例如，在发生中断时。 为此，请在 Azure 门户中选择“VM”>“重新同步”。
 
     :::image type="content" source="./media/hyper-v-azure-architecture/image4-site.png" alt-text="显示“重新同步”选项的屏幕截图。":::
 
@@ -129,7 +129,7 @@ ms.locfileid: "89655022"
 
 **类别** | **详细信息**
 --- | ---
-**不可恢复的错误** | 不尝试执行任何重试操作。 VM 状态为“严重”，并且需要管理员干预。****<br/><br/> 这些错误示例包括 VHD 链断裂、副本 VM 的状态无效、网络身份验证错误、授权错误以及“找不到 VM”错误（适用于独立 Hyper-V 服务器）。
+**不可恢复的错误** | 不尝试执行任何重试操作。 VM 状态为“严重”，并且需要管理员干预。<br/><br/> 这些错误示例包括 VHD 链断裂、副本 VM 的状态无效、网络身份验证错误、授权错误以及“找不到 VM”错误（适用于独立 Hyper-V 服务器）。
 **可恢复的错误** | 使用从第一次尝试开始增大重试间隔时间（1、2、4、8、10 分钟）的指数退避算法，在到达复制间隔时间后重试。 如果错误仍然存在，则每隔 30 分钟重试一次。 其中的一些示例包括网络错误、磁盘空间不足错误和内存不足的情况。
 
 ## <a name="failover-and-failback-process"></a>故障转移和故障回复过程

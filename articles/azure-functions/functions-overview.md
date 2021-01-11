@@ -1,20 +1,24 @@
 ---
 title: Azure Functions 概述
-description: 了解 Azure Functions 如何帮助构建可缩放的无服务器应用。
+description: 了解 Azure Functions 如何帮助构建可靠的无服务器应用。
 author: craigshoemaker
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
-ms.date: 11/30/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.custom: contperfq2
-ms.openlocfilehash: f19600fc1c5445b404f86629f0bfc4469036a572
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: a572ebf83b2dd845293585cdea66fee6e54d7946
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507164"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021442"
 ---
 # <a name="introduction-to-azure-functions"></a>Azure Functions 简介
+
+Azure Functions 是一种无服务器解决方案，可以使用户减少代码编写、减少需要维护的基础结构并节省成本。 无需担心部署和维护服务器，云基础结构提供保持应用程序运行所需的所有最新服务器。
+
+你只需专注于对你最重要的代码，Azure Functions 处理其余代码。<br /><br />
 
 我们通常会构建系统来应对一系列的关键事件。 无论是要构建 Web API、响应数据库更改还是处理 IoT 数据流，甚或是管理消息队列，每个应用程序都需要一种在执行这些操作时运行某些代码的方式。
 
@@ -43,11 +47,11 @@ ms.locfileid: "96507164"
 | **运行计划任务** | 在[设定的时间](./functions-bindings-timer.md)执行代码 |
 | **创建可靠消息队列系统** | 使用[队列存储](./functions-bindings-storage-queue.md)、[服务总线](./functions-bindings-service-bus.md)或[事件中心](./functions-bindings-event-hubs.md)来处理消息队列 |
 | **分析 IoT 数据流** | 收集并处理[来自 IoT 设备的数据](./functions-bindings-event-iot.md) |
-| **实时处理数据** | 使用[函数和信号 R](./functions-bindings-signalr-service.md) 即时响应数据 |
+| **实时处理数据** | 使用 [Functions 和 SignalR](./functions-bindings-signalr-service.md) 即时响应数据 |
 
 生成函数时，可以使用以下选项和资源：
 
-- **使用首选语言**：使用 [C#、Java、JavaScript、PowerShell](./supported-languages.md) 编写函数，或通过[自定义处理程序](./functions-custom-handlers.md)来利用几乎任何其他语言。
+- **使用首选语言**：使用 [C#、Java、JavaScript、PowerShell](./supported-languages.md) 编写函数，或通过 [自定义处理程序](./functions-custom-handlers.md)来利用几乎任何其他语言。
 
 - **自动进行部署**：从基于工具的方法到使用外部管道，有 [多种部署选项](./functions-deployment-technologies.md)可供选择。
 

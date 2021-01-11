@@ -6,17 +6,17 @@ ms.service: virtual-wan
 ms.topic: include
 origin.date: 09/02/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 6c1b99a16886cc3db33144232bea5d08dbf736df
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 7c45c3d48cf0d3a1661fc2e6be47057c80c38b1b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105710"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024249"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure 虚拟 WAN 是否已正式发布 (GA)？
 
@@ -117,7 +117,7 @@ ms.locfileid: "97105710"
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>是否需要使用首选的合作伙伴设备？
 
-不是。 可以使用任何支持 VPN 且符合 Azure 对 IKEv2/IKEv1 IPsec 的支持要求的设备。 虚拟 WAN 还具有 CPE 合作伙伴解决方案，该解决方案可自动连接到 Azure 虚拟 WAN，使大规模设置 IPsec VPN 连接变得更加容易。
+否。 可以使用任何支持 VPN 且符合 Azure 对 IKEv2/IKEv1 IPsec 的支持要求的设备。 虚拟 WAN 还具有 CPE 合作伙伴解决方案，该解决方案可自动连接到 Azure 虚拟 WAN，使大规模设置 IPsec VPN 连接变得更加容易。
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>虚拟 WAN 合作伙伴如何自动与 Azure 虚拟 WAN 建立连接？
 
@@ -163,7 +163,7 @@ ms.locfileid: "97105710"
 
 ### <a name="can-a-spoke-vnet-have-a-virtual-network-gateway"></a>辐射 VNet 是否可以包含虚拟网络网关？
 
-不是。 如果辐射 VNet 已连接到虚拟中心，则不能包含虚拟网络网关。
+否。 如果辐射 VNet 已连接到虚拟中心，则不能包含虚拟网络网关。
 
 ### <a name="is-there-support-for-bgp-in-vpn-connectivity"></a>VPN 连接是否支持 BGP？
 
@@ -281,5 +281,7 @@ ER 到 ER 之间的传输始终通过 Global Reach 进行。 虚拟中心网关�
 ### <a name="does-virtual-wan-store-customer-data"></a>虚拟 WAN 是否会存储客户数据？ 
 
 不是。 虚拟 WAN 不存储任何客户数据。
+
+<!--Not Available on Yes. For a list of Managed Service Provider (MSP) solutions enabled via Azure Marketplace, see [Azure Marketplace offers by Azure Networking MSP partners](../articles/networking/networking-partners-msp.md#msp)-->
 
 <!-- Update_Description: update meta properties, wording update -->

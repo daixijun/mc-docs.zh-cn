@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: af79d99a8e8231cb66eed04240283e23f9ba4eb6
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 6008b54a116540cbe2ba5b7a170a36f30d72c7f3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301060"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024315"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>检查和编辑示例文件
 
@@ -26,7 +26,7 @@ ms.locfileid: "96301060"
 1. 编辑 operations.json 文件：
  
     * 将链接更改为图拓扑：
-    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json"`
+    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/2.0/topology.json"`
     * 在 GraphInstanceSet 下，编辑图形拓扑的名称以匹配前面链接中的值：
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * 在 GraphTopologyDelete 下，编辑名称：
@@ -133,7 +133,7 @@ ms.locfileid: "96301060"
     -------------------------------Executing operation GraphTopologyList-----------------------  
     Request: GraphTopologyList  --------------------------------------------------
     {
-    "@apiVersion": "1.0"
+    "@apiVersion": "2.0"
     }
     ---------------  
     Response: GraphTopologyList - Status: 200  ---------------
@@ -152,7 +152,7 @@ ms.locfileid: "96301060"
     
     ```
     {
-      "@apiVersion": "1.0",
+      "@apiVersion": "2.0",
       "name": "Sample-Graph-1",
       "properties": {
         "topologyName": "InferencingWithGrpcExtension",

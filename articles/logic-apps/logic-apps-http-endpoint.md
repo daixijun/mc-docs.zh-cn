@@ -11,12 +11,12 @@ ms.date: 11/09/2020
 ms.testscope: no
 ms.testdate: 11/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5ec0eb1ea581784ecf974ad7e17920f9f899c446
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 7fff7e6dfd7f670269b4f721e299f52205c735aa
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432551"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023107"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用 HTTPS 终结点调用、触发或嵌套逻辑应用
 
@@ -200,7 +200,7 @@ ms.locfileid: "96432551"
 
     `...?{parameter-name=parameter-value}&api-version=2016-10-01...`
 
-    `https://prod-07.chinanorth.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+    `https://prod-07.chinanorth.logic.azure.cn:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
     浏览器将返回包含以下文本的响应：`Postal Code: 123456`
 
@@ -212,9 +212,9 @@ ms.locfileid: "96432551"
 
     此示例显示了示例参数名称和值 `postalCode=123456` 位于 URL 中的不同位置的回叫 URL：
 
-    * 第 1 个位置：`https://prod-07.chinanorth.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+    * 第 1 个位置：`https://prod-07.chinanorth.logic.azure.cn:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-    * 第 2 个位置：`https://prod-07.chinanorth.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+    * 第 2 个位置：`https://prod-07.chinanorth.logic.azure.cn:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
 > [!NOTE]
 > 若要在 URI 中包含哈希符号或井号 ( **#** )，请改用以下编码版本：`%25%23`
@@ -255,7 +255,7 @@ ms.locfileid: "96432551"
 
     在“请求”触发器中，回叫 URL 已更新，现在包含相对路径，例如：
 
-    `https://prod-07.chinanorth.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+    `https://prod-07.chinanorth.logic.azure.cn/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
 1. 若要测试可调用终结点，请从“请求”触发器中复制更新的回叫 URL，并将该 URL 粘贴到另一个浏览器窗口中，将 URL 中的 `{postalCode}` 替换为 `123456`，然后按 Enter。
 

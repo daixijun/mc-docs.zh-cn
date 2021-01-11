@@ -3,21 +3,21 @@ title: 使用 GitHub Actions 在 Azure Functions 中进行代码更新
 description: 了解如何使用 GitHub Actions 来定义一个在 GitHub 中生成和部署 Azure Functions 项目的工作流。
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
 ms.custom: devx-track-csharp, github-actions-azure
-ms.openlocfilehash: 9c25cfdb64b0275d056f1f429d80720f7973e624
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: ed79c6eef7c2ff809d17149fcc3a0d74cc5d77dc
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508910"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021460"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>使用 Github Actions 进行持续交付
 
 使用 [GitHub Actions](https://github.com/features/actions) 定义一个工作流，以便自动生成代码并将其部署到 Azure 函数应用。 
 
-在 GitHub Actions 中，[工作流](https://help.github.com/articles/about-github-actions#workflow)是在 GitHub 存储库中定义的自动化过程。 此过程告知 GitHub 如何在 GitHub 中生成和部署函数应用项目。 
+在 GitHub Actions 中，[工作流](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions)是在 GitHub 存储库中定义的自动化过程。 此过程告知 GitHub 如何在 GitHub 中生成和部署函数应用项目。 
 
 工作流通过存储库的 `/.github/workflows/` 路径中的 YAML (.yml) 文件定义。 此定义包含组成工作流的各种步骤和参数。 
 
@@ -40,7 +40,7 @@ ms.locfileid: "96508910"
 
 对于 GitHub Actions，建议使用发布配置文件向 Azure Functions 进行身份验证。 还可以使用服务主体进行验证。 若要了解详细信息，请参阅[此 GitHub Actions 存储库](https://github.com/Azure/functions-action)。 
 
-将你的发布配置文件凭据保存为 [GitHub 机密](https://docs.github.com/en/actions/reference/encrypted-secrets)后，将在工作流中使用此机密向 Azure 进行身份验证。 
+将你的发布配置文件凭据保存为 [GitHub 机密](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)后，将在工作流中使用此机密向 Azure 进行身份验证。 
 
 #### <a name="download-your-publish-profile"></a>下载你的发布配置文件
 
@@ -192,7 +192,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -231,7 +231,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -274,7 +274,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -316,7 +316,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -359,7 +359,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
       uses: actions/setup-node@v1
@@ -401,7 +401,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
       uses: actions/setup-node@v1

@@ -6,15 +6,15 @@ ms.author: v-junlch
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: networking
-ms.date: 11/02/2020
+ms.date: 12/28/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 129710ddec191413eb13d2ada05fb4afb26fcf55
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 330f93260e8246edb57ba67141058eace4b67ee5
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326529"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829379"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虚拟机规模集的网络
 
@@ -132,7 +132,7 @@ Azure 加速网络可以实现对虚拟机的单根 I/O 虚拟化 (SR-IOV)，从
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>使用公共 IP 为每个虚拟机创建规模集
 若要通过 CLI 创建向每个虚拟机分配公共 IP 地址的规模集，请将 --public-ip-per-vm 参数添加到 vmss create 命令中 。 
 
-若要使用 Azure 模板创建规模集，请确保 Microsoft.Compute/virtualMachineScaleSets 资源的 API 版本至少为 **2017-03-30** ，并将 **publicIpAddressConfiguration** JSON 属性添加到规模集的 ipConfigurations 节。 例如：
+若要使用 Azure 模板创建规模集，请确保 Microsoft.Compute/virtualMachineScaleSets 资源的 API 版本至少为 **2017-03-30**，并将 **publicIpAddressConfiguration** JSON 属性添加到规模集的 ipConfigurations 节。 例如：
 
 ```json
 "publicIpAddressConfiguration": {
@@ -210,7 +210,7 @@ Azure REST API 的示例输出：
 在规模集中，附加到 VM 的每个 NIC 可以有一个或多个关联的 IP 配置。 每个配置分配有一个专用 IP 地址。 每个配置还可以有一个关联的公共 IP 地址资源。 若要了解可以为一个 NIC 分配多少个 IP 地址，以及可以在一个 Azure 订阅中使用多少个公共 IP 地址，请参阅 [Azure 限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
 ## <a name="multiple-nics-per-virtual-machine"></a>每个虚拟机多个 NIC
-每个虚拟机最多可以有 8 个 NIC，具体取决于虚拟机大小。 若要了解每个虚拟机的最大 NIC 数，请参阅 [VM 大小](../virtual-machines/windows/sizes.md)一文。 连接到 VM 实例的所有 NIC 都必须连接到同一虚拟网络。 NIC 可以连接到不同子网，但所有子网都必须属于同一虚拟网络。
+每个虚拟机最多可以有 8 个 NIC，具体取决于虚拟机大小。 若要了解每个虚拟机的最大 NIC 数，请参阅 [VM 大小](../virtual-machines/sizes.md)一文。 连接到 VM 实例的所有 NIC 都必须连接到同一虚拟网络。 NIC 可以连接到不同子网，但所有子网都必须属于同一虚拟网络。
 
 以下示例为规模集网络配置文件，显示每个虚拟机有多个 NIC 条目和多个公共 IP：
 
@@ -368,6 +368,140 @@ az vmss show \
   ]
 ]
 ```
+
+## <a name="make-networking-updates-to-specific-instances"></a>对特定实例进行网络更新
+
+你可以对特定虚拟机规模集实例进行网络更新。 
+
+你可以针对该实例执行 `PUT`，以更新网络配置。 此方法可用于执行添加或删除网络接口卡 (NIC) 或从后端池删除实例等操作。
+
+```
+PUT https://management.chinacloudapi.cn/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+```
+
+以下示例演示如何为 NIC 添加第二个 IP 配置。
+
+1. 利用 `GET` 获取特定虚拟机规模集实例的详细信息。
+    
+    ``` 
+    GET https://management.chinacloudapi.cn/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+    ```
+
+    以下内容已简化为只显示此示例的网络参数。
+
+    ```json
+    {
+      ...
+      "properties": {
+        ...
+        "networkProfileConfiguration": {
+          "networkInterfaceConfigurations": [
+            {
+              "name": "vmssnic-vnet-nic01",
+              "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking": false,
+                "networkSecurityGroup": {
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                },
+                "dnsSettings": {
+                  "dnsServers": []
+                },
+                "enableIPForwarding": false,
+                "ipConfigurations": [
+                  {
+                    "name": "vmssnic-vnet-nic01-defaultIpConfiguration",
+                    "properties": {
+                      "publicIPAddressConfiguration": {
+                        "name": "publicIp-vmssnic-vnet-nic01",
+                        "properties": {
+                          "idleTimeoutInMinutes": 15,
+                          "ipTags": [],
+                          "publicIPAddressVersion": "IPv4"
+                        }
+                      },
+                      "primary": true,
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        ...
+      }
+    }
+    ```
+ 
+2. 针对该实例执行 `PUT`，进行更新以添加其他 IP 配置。 这类似于添加其他 `networkInterfaceConfiguration`。
+
+    
+    ```
+    PUT https://management.chinacloudapi.cn/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+    ```
+
+    以下内容已简化为只显示此示例的网络参数。
+
+    ```json
+      {
+      ...
+      "properties": {
+        ...
+        "networkProfileConfiguration": {
+          "networkInterfaceConfigurations": [
+            {
+              "name": "vmssnic-vnet-nic01",
+              "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking": false,
+                "networkSecurityGroup": {
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                },
+                "dnsSettings": {
+                  "dnsServers": []
+                },
+                "enableIPForwarding": false,
+                "ipConfigurations": [
+                  {
+                    "name": "vmssnic-vnet-nic01-defaultIpConfiguration",
+                    "properties": {
+                      "publicIPAddressConfiguration": {
+                        "name": "publicIp-vmssnic-vnet-nic01",
+                        "properties": {
+                          "idleTimeoutInMinutes": 15,
+                          "ipTags": [],
+                          "publicIPAddressVersion": "IPv4"
+                        }
+                      },
+                      "primary": true,
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  },
+                  {
+                    "name": "my-second-config",
+                    "properties": {
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        ...
+      }
+    }
+    ```
 
 
 

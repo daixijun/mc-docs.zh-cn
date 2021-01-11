@@ -3,22 +3,21 @@ title: 教程 - 部署链接模板
 description: 了解如何部署链接模板
 origin.date: 03/13/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: ae35ccb53e9f24295ed92537c4e119869506ada0
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: ea8f802c7544619f5f9020585bdeab3f98c38a0d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470508"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023079"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>教程：部署链接模板
 
-[前一篇教程](./deployment-tutorial-local-template.md)已介绍如何部署存储在本地计算机中的模板。 若要部署复杂的解决方案，可将一个模板分解为多个模板，并通过主模板部署这些模板。 本教程介绍如何部署包含对链接模板的引用的主模板。 部署主模板时，会触发链接模板的部署。 本教程还将介绍如何使用 SAS 令牌来存储和保护链接模板。 完成该过程需要大约 **12 分钟** 。
+[前一篇教程](./deployment-tutorial-local-template.md)已介绍如何部署存储在本地计算机中的模板。 若要部署复杂的解决方案，可将一个模板分解为多个模板，并通过主模板部署这些模板。 本教程介绍如何部署包含对链接模板的引用的主模板。 部署主模板时，会触发链接模板的部署。 本教程还将介绍如何使用 SAS 令牌来存储和保护链接模板。 完成该过程需要大约 **12 分钟**。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -195,7 +194,7 @@ ms.locfileid: "92470508"
 }
 ```
 
-以下模板是主模板。  突出显示的 **Microsoft.Resources/deployments** 对象演示如何调用链接模板。 无法将链接模板存储为本地文件，或存储为只能在本地网络中使用的文件。 只能提供包含 *http* 或 *https* 的 URI 值。 资源管理器必须能够访问该模板。 一种做法是将链接模板放入存储帐户，并对该项使用 URI。 该 URI 将通过参数传递给模板。 请参阅突出显示的参数定义。
+以下模板是主模板。 突出显示的 `Microsoft.Resources/deployments` 对象演示如何调用链接模板。 无法将链接模板存储为本地文件，或存储为只能在本地网络中使用的文件。 只能提供包含 HTTP 或 HTTPS 的 URI 值。 资源管理器必须能够访问该模板。 一种做法是将链接模板放入存储帐户，并对该项使用 URI。 该 URI 将通过参数传递给模板。 请参阅突出显示的参数定义。
 
 ```json
 {
@@ -304,7 +303,7 @@ ms.locfileid: "92470508"
 }
 ```
 
-将主模板的副本保存到扩展名为 .json 的本地计算机，例如 azuredeploy.json。 无需保存链接模板的副本。  链接模板将从 GitHub 存储库复制到存储帐户。
+将主模板的副本保存到扩展名为 .json 的本地计算机，例如 azuredeploy.json 。 无需保存链接模板的副本。 链接模板将从 GitHub 存储库复制到存储帐户。
 
 ## <a name="store-the-linked-template"></a>存储链接模板
 
@@ -362,7 +361,7 @@ Write-Host "Press [ENTER] to continue ..."
 如果尚未创建资源组，请参阅[创建资源组](./deployment-tutorial-local-template.md#create-resource-group)。
 
 > [!NOTE]
-> 在下面的 Azure CLI 代码中，日期参数 -d 在 macOS 中将会是无效参数。 因此，macOS 用户若要在 macOS 的终端中将当前时间增加 2 小时，则应使用 -v+2H。
+> 在下面的 Azure CLI 代码中，`date` 参数 `-d` 在 macOS 中是无效参数。 因此，macOS 用户若要在 macOS 的终端中将当前时间增加 2 小时，则应使用 `-v+2H`。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -438,14 +437,14 @@ az deployment group create \
 
 通过删除资源组来清理你部署的资源。
 
-1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
+1. 在 Azure 门户上的左侧菜单中选择“资源组”。
 2. 在“按名称筛选”字段中输入资源组名称。
 3. 选择资源组名称。
-4. 在顶部菜单中选择“删除资源组”。 
+4. 在顶部菜单中选择“删除资源组”。
 
 ## <a name="next-steps"></a>后续步骤
 
-现在，你已了解如何部署链接模板。 下一篇教程将介绍如何创建用于部署模板的 DevOp 管道。
+现在，你已了解如何部署链接模板。 下一篇教程将介绍如何创建用于部署模板的 DevOps 管道。
 
 > [!div class="nextstepaction"]
 > [创建管道](./deployment-tutorial-pipeline.md)

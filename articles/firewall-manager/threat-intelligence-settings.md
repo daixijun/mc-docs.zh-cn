@@ -5,14 +5,15 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: article
-ms.date: 06/30/2020
+origin.date: 06/30/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: f14f2088842dca0ba0a341efa3e675575d9ea746
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: d27abef089a8dd2e17c90cc0adac58ab9cb119f9
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104314"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023249"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Azure 防火墙威胁情报配置
 
@@ -52,7 +53,7 @@ ms.locfileid: "97104314"
 
 ## <a name="testing"></a>测试
 
-- 出站测试 - 出站流量警报应该比较罕见，因为这意味着环境已泄露。 为了帮助测试出站警报是否正常工作，已创建一个触发警报的测试 FQDN。 使用 **testmaliciousdomain.eastus.cloudapp.azure.com** 进行出站测试。
+- 出站测试 - 出站流量警报应该比较罕见，因为这意味着环境已泄露。 为了帮助测试出站警报是否正常工作，已创建一个触发警报的测试 FQDN。 使用 **testmaliciousdomain.chinaeast.cloudapp.chinacloudapi.cn** 进行出站测试。
 
 - 入站测试 - 如果在防火墙上配置了 DNAT 规则，则预计可以看到传入流量的警报。 即使只允许在 DNAT 规则中使用特定源也是如此，否则流量会被拒绝。 Azure 防火墙不会在所有已知的端口扫描仪上发出警报；仅在已知也会参与恶意活动的扫描仪上发出警报。
 

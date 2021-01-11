@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/28/2020
+ms.date: 01/04/2020
 ms.author: v-johya
-ms.openlocfilehash: 47c80cc6e4f08a52642e82a61e538bcb09683b4d
-ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
+ms.openlocfilehash: a0ea06de43fd3a8719994aad6c64cfdaf6f4187c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857674"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024277"
 ---
 # <a name="version-31-preview"></a>[版本 3.1 预览](#tab/version-3-1)
 

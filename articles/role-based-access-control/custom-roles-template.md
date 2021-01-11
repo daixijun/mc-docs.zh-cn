@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 资源管理器模板创建 Azure 自定义角色 - Azure RBAC
-description: 了解如何使用 Azure 资源管理器模板（ARM 模板）和 Azure 基于角色的访问控制 (Azure RBAC) 创建 Azure 自定义角色。
+title: 使用 Azure 资源管理器模板创建或更新 Azure 自定义角色 - Azure RBAC
+description: 了解如何使用 Azure 资源管理器模板（ARM 模板）和 Azure 基于角色的访问控制 (Azure RBAC) 来创建或更新 Azure 自定义角色。
 services: role-based-access-control,azure-resource-manager
 author: rolyon
 manager: mtillman
@@ -8,18 +8,18 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 12/29/2020
 ms.author: v-junlch
-ms.openlocfilehash: 487957e0621e85b9a5118894e5945bfb90e04dd6
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 3cafd798b819ae1140f91f3fadb3d32c86a1799d
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326470"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829463"
 ---
-# <a name="create-an-azure-custom-role-using-an-arm-template"></a>使用 ARM 模板创建 Azure 自定义角色
+# <a name="create-or-update-azure-custom-roles-using-an-arm-template"></a>使用 ARM 模板创建或更新 Azure 自定义角色
 
-如果 [Azure 内置角色](built-in-roles.md)不满足组织的特定需求，你可以创建自己的[自定义角色](custom-roles.md)。 本文介绍如何使用 Azure 资源管理器模板（ARM 模板）创建自定义角色。
+如果 [Azure 内置角色](built-in-roles.md)不满足组织的特定需求，你可以创建自己的[自定义角色](custom-roles.md)。 本文介绍如何使用 Azure 资源管理器模板（ARM 模板）来创建或更新自定义角色。
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -27,7 +27,7 @@ ms.locfileid: "94326470"
 
 如果你的环境满足先决条件，并且你熟悉如何使用 ARM 模板，请选择“部署到 Azure”按钮。 Azure 门户中会打开模板。
 
-[![“部署到 Azure”](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fcreate-role-def%2Fazuredeploy.json)
+[![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fcreate-role-def%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -126,15 +126,13 @@ ms.locfileid: "94326470"
     $location = Read-Host -Prompt "Enter a location (i.e. chinanorth)"
     [string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
     $actions = $actions.Split(',')
-
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/create-role-def/azuredeploy.json"
-
     New-AzDeployment -Location $location -TemplateUri $templateUri -actions $actions
     ```
 
 1. 输入部署的位置，例如 chinanorth。
 
-1. 以逗号分隔列表的形式输入自定义角色的操作列表，如 Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read。
+1. 以逗号分隔的列表（如 `Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read`）形式输入自定义角色的操作列表。
 
 1. 如有必要，请按 Enter 运行 `New-AzDeployment` 命令。
 
@@ -212,6 +210,47 @@ ms.locfileid: "94326470"
 1. 验证是否列出了“自定义角色 - RG 读者”角色。
 
    ![在 Azure 门户中新建自定义角色](./media/custom-roles-template/custom-role-template-portal.png)
+
+## <a name="update-a-custom-role"></a>更新自定义角色
+
+与创建自定义角色类似，可以通过使用模板来更新现有的自定义角色。 若要更新自定义角色，必须指定需要更新的角色。
+
+下面是为了更新自定义角色而需要对上一个快速入门模板做出的更改。
+
+- 将角色 ID 作为参数包括在内。
+    ```json
+        ...
+        "roleDefName": {
+          "type": "string",
+          "metadata": {
+            "description": "ID of the role definition"
+          }
+        ...
+    ```
+
+- 在角色定义中包括角色 ID 参数。
+
+    ```json
+      ...
+      "resources": [
+        {
+          "type": "Microsoft.Authorization/roleDefinitions",
+          "apiVersion": "2018-07-01",
+          "name": "[parameters('roleDefName')]",
+          "properties": {
+            ...
+    ```
+
+以下示例演示如何部署该模板。
+
+```azurepowershell
+$location = Read-Host -Prompt "Enter a location (i.e. chinanorth)"
+[string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
+$actions = $actions.Split(',')
+$roleDefName = Read-Host -Prompt "Enter the role ID to update"
+$templateFile = "rg-reader-update.json"
+New-AzDeployment -Location $location -TemplateFile $templateFile -actions $actions -roleDefName $roleDefName
+```
 
 ## <a name="clean-up-resources"></a>清理资源
 

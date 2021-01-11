@@ -6,23 +6,22 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-origin.date: 11/09/2020
-ms.date: 11/30/2020
+origin.date: 11/30/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.reviewer: stsoneff
-ms.openlocfilehash: b4e93013ed0ba89eb0f1aa68e34e16df28bc5547
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 021209c7c84026513c9491d931558021d4220f78
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306573"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022953"
 ---
-<!--Verified Successfully-->
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>教程：以用户身份从安全的应用访问 Microsoft Graph
 
 了解如何从 Azure 应用服务上运行的 Web 应用访问 Microsoft Graph。
 
-:::image type="content" alt-text="显示访问 Microsoft Graph 的示意图。" source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
+:::image type="content" alt-text="显示如何访问 Microsoft Graph 流的示意图。" source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
 你希望从 Web 应用添加对 Microsoft Graph 的访问权限，并以已登录用户的身份执行一些操作。 本部分介绍如何向 Web 应用授予委托的权限，以及如何从 Azure Active Directory (Azure AD) 获取已登录用户的配置文件信息。
 
@@ -31,7 +30,7 @@ ms.locfileid: "96306573"
 > [!div class="checklist"]
 >
 > * 向 Web 应用授予委托的权限。
-> * 以已登录用户身份从 Web 应用调用 Microsoft Graph。
+> * 为已登录的用户从 Web 应用调用 Microsoft Graph。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,7 +40,7 @@ ms.locfileid: "96306573"
 
 ## <a name="grant-front-end-access-to-call-microsoft-graph"></a>授予前端访问权限以调用 Microsoft Graph
 
-现在，你已在 Web 应用上启用了身份验证和授权，该 Web 应用在 Microsoft 标识平台上注册，并由 Azure AD 应用程序提供支持。 在此步骤中，授予 Web 应用以用户身份访问 Microsoft Graph 的权限。 （严格说来，授予 Web 应用的 Azure AD 应用程序以用户身份访问 Microsoft Graph Azure AD 应用程序的权限。）
+现在，你已在 Web 应用上启用了身份验证和授权，该 Web 应用在 Microsoft 标识平台上注册，并由 Azure AD 应用程序提供支持。 在此步骤中，授予 Web 应用相应权限，为用户访问 Microsoft Graph。 （严格说来，授予 Web 应用的 Azure AD 应用程序相应权限，为用户访问 Microsoft Graph Azure AD 应用程序。）
 
 在 [Azure 门户](https://portal.azure.cn)菜单中，选择“Azure Active Directory”，或在任意页面中搜索并选择“Azure Active Directory”。
 
@@ -53,10 +52,10 @@ ms.locfileid: "96306573"
 
 ## <a name="configure-app-service-to-return-a-usable-access-token"></a>对应用服务进行配置，使之返回可用的访问令牌
 
-Web 应用现在具有以已登录用户身份访问 Microsoft Graph 所需的权限。 在此步骤中，配置应用服务身份验证和授权，以便获取用于访问 Microsoft Graph 的可用访问令牌。 对于此步骤，需要下游服务 (Microsoft Graph) 的客户端/应用程序 ID。 Microsoft Graph 的应用 ID 为 00000003-0000-0000-c000-000000000000。
+Web 应用现在具有以已登录用户身份访问 Microsoft Graph 所需的权限。 在此步骤中，配置应用服务身份验证和授权，以便获取用于访问 Microsoft Graph 的可用访问令牌。 对于此步骤，需要下游服务 (Microsoft Graph) 的客户端/应用程序 ID。 Microsoft Graph 的应用 ID 是 00000003-0000-0000-c000-000000000000。
 
 > [!IMPORTANT]
-> 如果未将应用服务配置为返回可用的访问令牌，则在代码中调用 Microsoft Graph API 时会收到 ```CompactToken parsing failed with error code: 80049217``` 错误。
+> 如果未将应用服务配置为返回可用的访问令牌，则在代码中调用 Microsoft 图形 API 时会收到 ```CompactToken parsing failed with error code: 80049217``` 错误。
 
 转到 [Azure 资源浏览器](https://resources.azure.com/)并使用资源树找到 Web 应用。 资源 URL 应类似于 `https://resources.azure.com/subscriptions/subscription-id/resourceGroups/SecureWebApp/providers/Microsoft.Web/sites/SecureWebApp20200915115914`。
 
@@ -64,7 +63,7 @@ Web 应用现在具有以已登录用户身份访问 Microsoft Graph 所需的�
 
 在左侧浏览器中，向下钻取到“config” > “authsettings”。
 
-在“authsettings”视图中，选择“编辑” 。 使用复制的客户端 ID 将 ```additionalLoginParams``` 设置为以下 JSON 字符串。
+在“authsettings”视图中，选择“编辑”。 使用复制的客户端 ID 将 ```additionalLoginParams``` 设置为以下 JSON 字符串。
 
 ```json
 "additionalLoginParams": ["response_type=code id_token","resource=00000003-0000-0000-c000-000000000000"],
@@ -76,12 +75,14 @@ Web 应用现在具有以已登录用户身份访问 Microsoft Graph 所需的�
 
 Web 应用现在具有所需的权限，并且还将 Microsoft Graph 的客户端 ID 添加到登录参数中。 使用 [Microsoft.Identity.Web 库](https://github.com/AzureAD/microsoft-identity-web/)，Web 应用将获取一个访问令牌，用于向 Microsoft Graph 进行身份验证。 在 1.2.0 版和更高版本中，Microsoft.Identity.Web 库与应用服务身份验证/授权模块集成，且可与之一起运行。 Microsoft.Identity.Web 检测到该 Web 应用托管在应用服务中，并从应用服务身份验证/授权模块获取访问令牌。 然后，使用 Microsoft Graph API 将访问令牌传递给经过身份验证的请求。
 
+若要查看作为示例应用程序一部分的代码，请参阅 [GitHub 上的示例](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf)。
+
 > [!NOTE]
 > Web 应用无需 Microsoft.Identity.Web 库即可进行基础身份验证/授权或向 Microsoft Graph 验证请求。
 > 
-> 但是，应用服务身份验证/授权旨在用于更基本的身份验证场景。 对于更复杂的场景（例如处理自定义声明），需要 Microsoft.Identity.Web 库或 [Microsoft 身份验证库](https://docs.azure.cn/active-directory/develop/msal-overview)。 在一开始就有更多的设置和配置工作，但 Microsoft.Identity.Web 库可与应用服务身份验证/授权模块同时运行。  当 Web 应用以后需要处理更复杂的场景时，你可以禁用应用服务身份验证/授权模块，而 Microsoft.Identity.Web 将已是应用的一部分。
+> 但是，应用服务身份验证/授权旨在用于更基本的身份验证场景。 对于更复杂的场景（例如处理自定义声明），需要 Microsoft.Identity.Web 库或 [Microsoft 身份验证库](../active-directory/develop/msal-overview.md)。 在一开始就有更多的设置和配置工作，但 Microsoft.Identity.Web 库可与应用服务身份验证/授权模块同时运行。 当 Web 应用以后需要处理更复杂的场景时，你可以禁用应用服务身份验证/授权模块，而 Microsoft.Identity.Web 将已是应用的一部分。
 
-<!--[securely call downstream APIs](tutorial-auth-aad.md#call-api-securely-from-server-code) with only the App Service authentication/authorization module enabled.-->
+<!--[securely call downstream APIs](tutorial-auth-aad.md#call-api-securely-from-server-code)-->
 
 ### <a name="install-client-library-packages"></a>安装客户端库包
 
@@ -89,7 +90,7 @@ Web 应用现在具有所需的权限，并且还将 Microsoft Graph 的客户�
 
 # <a name="command-line"></a>[命令行](#tab/command-line)
 
-打开命令行，并切换到包含项目文件的目录。
+打开一个命令行，并切换到包含项目文件的目录。
 
 运行安装命令。
 
@@ -145,7 +146,7 @@ public class Startup
 
 ### <a name="appsettingsjson"></a>appsettings.json
 
-AzureAd 指定 Microsoft.Identity.Web 库的配置。 在 [Azure 门户](https://portal.azure.cn)中，从门户菜单中选择“Azure Active Directory”，然后选择“应用注册” 。 选择启用应用服务身份验证/授权模块时创建的应用注册。 （应用注册应具有与 Web 应用相同的名称。）可在应用注册概述页面中找到租户 ID 和客户 ID。 可以在租户的 Azure AD 概述页面中找到域名。
+AzureAd 指定 Microsoft.Identity.Web 库的配置。 在 [Azure 门户](https://portal.azure.cn)中，从门户菜单中选择“Azure Active Directory”，然后选择“应用注册” 。 选择启用应用服务身份验证/授权模块时创建的应用注册。 （该应用注册应具有与 Web 应用相同的名称。）可在应用注册概述页面中找到租户 ID 和客户 ID。 可以在租户的 Azure AD 概述页面中找到域名。
 
 Graph 会指定 Microsoft Graph 终结点和应用所需的初始范围。
 
@@ -235,10 +236,8 @@ public class IndexModel : PageModel
 > [!div class="checklist"]
 >
 > * 向 Web 应用授予委托的权限。
-> * 以已登录用户身份从 Web 应用调用 Microsoft Graph。
+> * 为已登录的用户从 Web 应用调用 Microsoft Graph。
 
 > [!div class="nextstepaction"]
 > [应用服务以应用身份访问 Microsoft Graph](scenario-secure-app-access-microsoft-graph-as-app.md)
 
-<!-- Update_Description: new article about scenario secure app access microsoft graph as user -->
-<!--NEW.date: 11/30/2020-->

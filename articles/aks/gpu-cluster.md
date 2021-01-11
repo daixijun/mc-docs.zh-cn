@@ -4,17 +4,17 @@ description: 了解如何在 Azure Kubernetes 服务 (AKS) 上将 GPU 用于高�
 services: container-service
 ms.topic: article
 origin.date: 08/21/2020
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 03/27/2020
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 8e60e60ac97519cdfca892ce2bd9795d9a9a4589
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: eee8f10222c595d2d791ff1836c2bfabf832ecde
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024544"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022332"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 上将 GPU 用于计算密集型工作负荷
 
@@ -151,6 +151,7 @@ daemonset "nvidia-device-plugin" created
 
 <!--Not Available on ## Use the AKS specialized GPU image (preview)-->
 <!--Not Available on ### Use the AKS specialized GPU image on new clusters (preview)-->
+<!--Not Available on ### Use the AKS specialized GPU image on existing clusters (preview)-->
 
 ## <a name="confirm-that-gpus-are-schedulable"></a>确认 GPU 是可计划的
 

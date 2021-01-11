@@ -3,15 +3,14 @@ title: 升级 Azure Service Fabric 群集
 description: 了解如何升级 Azure Service Fabric 群集的版本或配置 - 设置群集更新模式、升级证书、添加应用程序端口、执行 OS 修补程序以及执行升级时可预期的内容。
 ms.topic: conceptual
 origin.date: 11/12/2018
-ms.date: 06/08/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.custom: sfrev
-ms.openlocfilehash: 8de242775f4d5ed08fa244cf5dd3da5f5d2740ab
-ms.sourcegitcommit: 0e178672632f710019eae60cea6a45ac54bb53a1
+ms.openlocfilehash: bf7ae7ac36d6ead721ec91ebb902884fec9fc401
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84356295"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022407"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>升级和更新 Azure Service Fabric 群集
 

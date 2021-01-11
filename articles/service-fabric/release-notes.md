@@ -3,19 +3,19 @@ title: Azure Service Fabric 版本
 description: Azure Service Fabric 发行说明。 包含有关 Service Fabric 中的最新功能和改进功能的信息。
 origin.date: 06/10/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: d9a9536b2584829c3896d9703ecb22d728101b98
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 64a58faea7699e679860bcf61ddbd3d539807983
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328926"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021983"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric 版本
 
@@ -35,16 +35,16 @@ ms.locfileid: "94328926"
 此版本提供了重要功能和改进。 下面突出显示了其中的一些重要功能：
 ## <a name="key-announcements-in-72"></a>7\.2 版的重要公告
 - **预览**：[Service Fabric 托管群集](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572)目前为公共预览版。 Service Fabric 托管群集旨在通过将构成 Service Fabric 群集的基础资源封装到单个 ARM 资源中来简化群集的部署和管理。
-- **预览**：[支持实例数大于节点数的无状态服务](https://docs.azure.cn/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies)功能现在为公共预览版。 使用放置策略可以在一个节点上创建分区的多个无状态实例。
+- **预览**：[支持实例数大于节点数的无状态服务](./service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)功能现在为公共预览版。 使用放置策略可以在一个节点上创建分区的多个无状态实例。
 - [FabricObserver (FO) 3.0](https://aka.ms/sf/fabricobserver) 现在可用。
     - 现在可以在 Linux 和 Windows 群集中运行 FabricObserver。
     - 现在可以生成自定义观察程序插件。 有关详细信息和代码，请参阅[插件自述文件](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Plugins.md)和[示例插件项目](https://github.com/microsoft/service-fabric-observer/tree/master/SampleObserverPlugin)。
     - 现在可以通过应用程序参数升级来更改任何观察程序设置。 这意味着不再需要重新部署 FO 来修改特定的观察程序设置。 请参阅[示例](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Using.md#parameterUpdates)。
 - [支持 Ubuntu 18.04 OneBox 容器映像](https://hub.docker.com/_/microsoft-service-fabric-onebox)。
-- **预览**：[Service Fabric 应用程序的 KeyVault 引用仅支持 ****进行了版本控制的机密**。不支持没有版本的机密。** ](https://docs.azure.cn/service-fabric/service-fabric-keyvault-references)
+- **预览**：[Service Fabric 应用程序的 KeyVault 引用仅支持 ****进行了版本控制的机密**。不支持没有版本的机密。**](./service-fabric-keyvault-references.md)
 - SF SDK 需要最新的 VS 2019 Update 16.7.6 或 16.8 Preview 4 才能创建新的 .NET Framework 无状态/有状态/执行组件项目。 如果没有最新的 VS 更新，请在创建服务项目后使用包管理器从 nuget.org 为有状态/无状态项目安装 Microsoft.ServiceFabric.Services（4.2.x 版），为执行组件项目安装 Microsoft.ServiceFabric.Actors（4.2.x 版）。
 - **RunToCompletion**：Service Fabric 支持来宾可执行文件的“运行至完成”概念。 使用此更新时，副本运行至完成后，系统就会释放分配给该副本的群集资源。
-- [资源治理支持得到了增强](https://docs.azure.cn/service-fabric/service-fabric-resource-governance)：允许请求并限制 CPU 和内存资源的规格。
+- [资源治理支持得到了增强](./service-fabric-resource-governance.md)：允许请求并限制 CPU 和内存资源的规格。
 
 <!--Not Available on For more details see, [Service Fabric managed cluster overview](https://docs.azure.cn/service-fabric/overview-managed-cluster)-->
 

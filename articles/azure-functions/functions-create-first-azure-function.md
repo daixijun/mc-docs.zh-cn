@@ -3,14 +3,14 @@ title: 在 Azure 门户中创建第一个函数
 description: 了解如何使用 Azure 门户创建第一个可无服务器执行的 Azure Function。
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: eb11a1062010916b44bd5df3f464b23ef3b09943
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: e6e77bd0eff746d3c71c635f881e4c4403dbcfc2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508790"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022323"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 门户中创建第一个函数
 
@@ -21,7 +21,7 @@ Azure Functions 用于在无服务器环境中运行代码，无需先创建虚�
 
 | Visual Studio Code | 终端/命令提示符 | Visual Studio |
 | --- | --- | --- |
-|  &bull;&nbsp;[C# 入门](./create-first-function-vs-code-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 入门](./create-first-function-vs-code-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 入门](./create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 入门](./create-first-function-vs-code-csharp.md?pivots=programming-language-powershell)|&bull;&nbsp;[C# 入门](./create-first-function-cli-csharp.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Java 入门](./create-first-function-cli-csharp.md?pivots=programming-language-java)<br/>&bull;&nbsp;[JavaScript 入门](./create-first-function-cli-csharp.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[PowerShell 入门](./create-first-function-cli-csharp.md?pivots=programming-language-powershell) | [C# 入门](functions-create-your-first-function-visual-studio.md) |
+|  &bull;&nbsp;[C# 入门](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Java 入门](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[JavaScript 入门](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[PowerShell 入门](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;|&bull;&nbsp;[C# 入门](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Java 入门](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[JavaScript 入门](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[PowerShell 入门](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;| [C# 入门](functions-create-your-first-function-visual-studio.md) |
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 

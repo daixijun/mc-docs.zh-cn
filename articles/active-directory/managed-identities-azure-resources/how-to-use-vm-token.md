@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c248d2b4a65d879501833692efd192aacc537b1f
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: ccf5f74947f6f872db12337ac07a6e82d668bdb7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244660"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021741"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>如何在 Azure VM 上使用 Azure 资源的托管标识获取访问令牌 
 
@@ -125,7 +125,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>使用用于 .NET 的 Microsoft.Azure.Services.AppAuthentication 库获取令牌
 
-对于 .NET 应用程序和函数，使用 Azure 资源的托管标识的最简单的方法是通过 Microsoft.Azure.Services.AppAuthentication 包。 此库还允许通过 Visual Studio、[Azure CLI](/cli?view=azure-cli-latest) 或 Active Directory 集成身份验证使用用户帐户，在开发计算机上对代码进行本地测试。 有关此库的本地开发选项的详细信息，请参阅 [Microsoft.Azure.Services.AppAuthentication 参考](../../key-vault/general/service-to-service-authentication.md)。 本部分演示如何开始在代码中使用此库。
+对于 .NET 应用程序和函数，使用 Azure 资源的托管标识的最简单的方法是通过 Microsoft.Azure.Services.AppAuthentication 包。 此库还允许通过 Visual Studio、[Azure CLI](/cli) 或 Active Directory 集成身份验证使用用户帐户，在开发计算机上对代码进行本地测试。 有关此库的本地开发选项的详细信息，请参阅 [Microsoft.Azure.Services.AppAuthentication 参考](../../key-vault/general/service-to-service-authentication.md)。 本部分演示如何开始在代码中使用此库。
 
 1. 向应用程序添加对 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 和 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 包的引用。
 

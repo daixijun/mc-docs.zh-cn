@@ -7,14 +7,14 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   origin.date: 08/06/2020
-  ms.date: 10/19/2020
+  ms.date: 01/11/2021
   ms.author: v-tawe
-  ms.openlocfilehash: b390ac145ea68573e9332ec197a576d52f5b5cf5
-  ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+  ms.openlocfilehash: a8f5cbec8a990db8d594e2f16b2acc63614040de
+  ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/19/2020
-  ms.locfileid: "92170812"
+  ms.lasthandoff: 01/08/2021
+  ms.locfileid: "98022451"
 landingContent:
 - title: 关于应用服务
   linkLists:
@@ -56,6 +56,8 @@ landingContent:
       url: configure-ssl-bindings.md
     - text: 在过渡环境中运行应用
       url: deploy-staging-slots.md
+    - text: 安全访问存储和 Microsoft Graph
+      url: scenario-secure-app-overview.md
   - linkListType: how-to-guide
     links:
     - text: 启用诊断日志
@@ -116,8 +118,6 @@ landingContent:
       url: configure-domain-traffic-manager.md
     - text: 将应用备份到存储 Blob
       url: manage-backup.md
-- title: 更多资源
-  linkLists:
   - linkListType: sample
     links:
     - text: Azure CLI 示例

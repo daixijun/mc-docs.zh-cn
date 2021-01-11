@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 01/08/2021
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c98d404cf50a8e4c8f44e768e2aad92384c6d7c3
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: 3a33eb12c847b9abbd519d3d35a96ac925f2a647
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041609"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021767"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帐户和权限
 
@@ -40,9 +40,9 @@ Azure AD Connect 使用 3 个帐户，将信息从本地或 Windows Server Activ
 
 除了用于运行 Azure AD Connect 的这三个帐户外，还需要以下其他帐户以安装 Azure AD Connect。  其中包括：
 
-- **本地管理员帐户** ：将安装 Azure AD Connect 并且在计算机上具有本地管理员权限的管理员。
+- **本地管理员帐户**：将安装 Azure AD Connect 并且在计算机上具有本地管理员权限的管理员。
 
-- **AD DS 企业管理员帐户** ：可以选择使用此帐户创建上面的“AD DS 连接器帐户”。
+- **AD DS 企业管理员帐户**：可以选择使用此帐户创建上面的“AD DS 连接器帐户”。
 
 - Azure AD 全局管理员帐户：用于创建 Azure AD 连接器帐户和配置 Azure AD。
 
@@ -148,6 +148,7 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 | Exchange 混合部署 |针对用户、组和联系人的属性的写入权限，详见[Exchange 混合写回](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)。 |
 | Exchange 邮件公用文件夹 |对 [Exchange 邮件公用文件夹](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)中所述的公用文件夹属性的读取权限。 | 
 | 密码写回 |针对用户的属性的写入权限，详见[密码管理入门](../authentication/tutorial-enable-sspr-writeback.md)。 |
+| 设备写回 |通过 PowerShell 脚本授予的权限，详见[设备写回](how-to-connect-device-writeback.md)。 |
 
 ## <a name="upgrade"></a>升级
 从 Azure AD Connect 的一个版本升级到新版本时，需要拥有以下权限：
@@ -171,7 +172,7 @@ AD DS 企业管理员帐户用于配置本地 Active Directory。 这些凭据�
 如果使用自定义设置，则需负责在开始安装之前创建帐户。  请参阅“创建 AD DS 连接器帐户”。
 
 ### <a name="adsync-service-account"></a>ADSync 服务帐户
-同步服务可在不同帐户下运行。 它可在 **虚拟服务帐户** (VSA)、 **组托管服务帐户** (gMSA/sMSA) 或常规用户帐户下运行。 2017 年 4 月版本的 Connect 的支持选项已更改（若进行全新安装）。 如果从早期版本的 Azure AD Connect 升级，这些附加选项将不可用。
+同步服务可在不同帐户下运行。 它可在 **虚拟服务帐户** (VSA)、**组托管服务帐户** (gMSA/sMSA) 或常规用户帐户下运行。 2017 年 4 月版本的 Connect 的支持选项已更改（若进行全新安装）。 如果从早期版本的 Azure AD Connect 升级，这些附加选项将不可用。
 
 | 帐户的类型 | 安装选项 | 说明 |
 | --- | --- | --- |
@@ -213,7 +214,7 @@ VSA 旨在当同步引擎和 SQL 位于同一服务器上时使用。 如果使�
 此功能需要 Windows Server 2008 R2 或更高版本。 如果在 Windows Server 2008 上安装 Azure AD Connect，则安装将回退改用[用户帐户](#user-account)。
 
 #### <a name="group-managed-service-account"></a>组托管服务帐户
-如果使用远程 SQL Server，则建议使用 **组托管服务帐户** 。 若要详细了解如何为组托管服务帐户准备 Active Directory ，请参阅 [Group Managed Service Accounts Overview](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))（组托管服务帐户概述）。
+如果使用远程 SQL Server，则建议使用 **组托管服务帐户**。 若要详细了解如何为组托管服务帐户准备 Active Directory ，请参阅 [Group Managed Service Accounts Overview](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))（组托管服务帐户概述）。
 
 要使用此选项，请在[安装所需组件](how-to-connect-install-custom.md#install-required-components)页上，选择“使用现有服务帐户”，并选择“托管服务帐户”。  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
@@ -222,7 +223,7 @@ VSA 旨在当同步引擎和 SQL 位于同一服务器上时使用。 如果使�
 此功能需要 Windows Server 2012 或更高版本。 如果需要使用早期版本的操作系统和远程 SQL，则必须使用[用户帐户](#user-account)。
 
 #### <a name="user-account"></a>用户帐户
-本地服务帐户由安装向导创建（除非在自定义设置指定了要使用的帐户）。 该帐户具有 **AAD_** 前缀，可用作实际同步服务的运行帐户。 如果在域控制器上安装 Azure AD Connect，则会在该域中创建帐户。 在以下情况下， **AAD_** 服务帐户必须位于域中：
+本地服务帐户由安装向导创建（除非在自定义设置指定了要使用的帐户）。 该帐户具有 **AAD_** 前缀，可用作实际同步服务的运行帐户。 如果在域控制器上安装 Azure AD Connect，则会在该域中创建帐户。 在以下情况下，**AAD_** 服务帐户必须位于域中：
    - 使用运行 SQL Server 的远程服务器
    - 使用需要身份验证的代理
 
@@ -250,7 +251,7 @@ Azure AD 将同步服务帐户数目限制为 20 个。 若要在 Azure AD 中�
 若要删除未使用的 Azure AD 服务帐户，请运行以下 Azure AD PowerShell cmdlet：`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->在可以使用上述 PowerShell 命令之前，你需要安装 [Azure Active Directory PowerShell for Graph 模块](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) 并使用 [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0) 连接到 Azure AD 实例
+>在可以使用上述 PowerShell 命令之前，你需要安装 [Azure Active Directory PowerShell for Graph 模块](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module) 并使用 [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread) 连接到 Azure AD 实例
 
 若要详细了解如何管理或重置 Azure AD 连接器帐户的密码，请参阅[管理 Azure AD Connect 帐户](how-to-connect-azureadaccount.md)
 
@@ -266,5 +267,5 @@ Azure AD 将同步服务帐户数目限制为 20 个。 若要在 Azure AD 中�
 |安装后 | [验证安装并分配许可证](how-to-connect-post-installation.md)|
 
 ## <a name="next-steps"></a>后续步骤
-了解有关 [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
+了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 

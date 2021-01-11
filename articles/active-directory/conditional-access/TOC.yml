@@ -72,6 +72,8 @@
       href: block-legacy-authentication.md
     - name: 需要已批准的客户端应用
       href: app-based-conditional-access.md
+    - name: 需要托管设备
+      href: require-managed-devices.md
     - name: 要求对来自不受信任网络的访问尝试执行 MFA
       href: untrusted-networks.md
     - name: 疑难解答

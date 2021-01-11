@@ -1,27 +1,27 @@
 ---
-title: 缩放 Azure Synapse Analytics 中的计算 - T-SQL
-description: 使用 T-SQL 和 SQL Server Management Studio (SSMS) 缩放 Azure Synapse Analytics 中的计算。 横向扩展计算为提高性能或缩放重新计算以节约成本。
+title: 快速入门：缩放专用 SQL 池（以前称为 SQL DW）中的计算 - T-SQL
+description: 使用 T-SQL 和 SQL Server Management Studio (SSMS) 缩放专用 SQL 池（以前称为 SQL DW）中的计算。 横向扩展计算为提高性能或缩放重新计算以节约成本。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 04/17/2018
-ms.date: 05/11/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ba13d6a26d50cd4151516b25a7fd2b78193ff4c9
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: bccb333b5571eb982eba779dc467528e30a24836
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432425"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021949"
 ---
-# <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>快速入门：使用 T-SQL 缩放 Azure Synapse Analytics 中的计算
+# <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>快速入门：使用 T-SQL 在 Azure Synapse Analytics 中缩放专用 SQL 池（以前称为 SQL DW）中的计算
 
-使用 T-SQL 和 SQL Server Management Studio (SSMS) 缩放 Azure Synapse Analytics（以前称为 SQL DW）中的计算。 [横向扩展计算](sql-data-warehouse-manage-compute-overview.md)以提高性能或按比例缩减计算以节约成本。
+使用 T-SQL 和 SQL Server Management Studio (SSMS) 缩放专用 SQL 池（以前称为 SQL DW）中的计算。 [横向扩展计算](sql-data-warehouse-manage-compute-overview.md)以提高性能或按比例缩减计算以节约成本。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
@@ -29,9 +29,9 @@ ms.locfileid: "96432425"
 
 下载并安装最新版本的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS)。
 
-## <a name="create-a-data-warehouse"></a>创建数据仓库
+## <a name="create-a-dedicated-sql-pool-formerly-sql-dw"></a>创建专用 SQL 池（之前称为 SQL DW）
 
-使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库。 完成此快速入门，以确保获得防火墙规则并可以从 SQL Server Management Studio 中连接到数据仓库。
+使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的专用 SQL 池（之前称为 SQL DW）。 完成此快速入门，以确保获得防火墙规则并可以从 SQL Server Management Studio 中连接到专用 SQL 池（之前称为 SQL DW）。
 
 ## <a name="connect-to-the-server-as-server-admin"></a>以服务器管理员的身份连接到服务器
 
@@ -59,9 +59,9 @@ ms.locfileid: "96432425"
 
 ## <a name="view-service-objective"></a>查看服务目标
 
-服务目标设置包含的数据仓库的数据仓库单位数。
+服务目标设置包含专用 SQL 池（之前称为 SQL DW）的数据仓库单位数。
 
-若要查看数据仓库当前数据仓库单位：
+若要查看专用 SQL 池（之前称为 SQL DW）当前数据仓库单位：
 
 1. 在与“mySampleDataWarehouseservername.database.chinacloudapi.cn”  的连接下，展开“系统数据库”  。
 2. 右键单击“master”，并单击“新建查询”。  “新建查询”窗口随即打开。
@@ -86,7 +86,7 @@ ms.locfileid: "96432425"
 
 ## <a name="scale-compute"></a>缩放计算
 
-在 Azure Synapse 中，可以通过调整数据仓库单位来增加或减少计算资源。 [创建和 Connect - 门户](create-data-warehouse-portal.md)创建 **mySampleDataWarehouse** 并初始化 400 DWU。 以下步骤调整为 DWU **mySampleDataWarehouse**。
+在专用 SQL 池（之前称为 SQL DW）中，可以通过调整数据仓库单位来增加或减少计算资源。 [创建和 Connect - 门户](create-data-warehouse-portal.md)创建 **mySampleDataWarehouse** 并初始化 400 DWU。 以下步骤调整为 DWU **mySampleDataWarehouse**。
 
 更改数据仓库单位：
 
@@ -131,13 +131,13 @@ ms.locfileid: "96432425"
 
     ![操作状态](./media/quickstart-scale-compute-tsql/polling-output.png)
 
-## <a name="check-data-warehouse-state"></a>检查数据仓库状态
+## <a name="check-dedicated-sql-pool-formerly-sql-dw-state"></a>检查专用 SQL 池（之前称为 SQL DW）状态
 
-数据仓库暂停时，无法使用 T-SQL 连接到数据仓库。 若要查看数据仓库的当前状态，可使用 PowerShell cmdlet。 有关示例，请参阅[检查数据仓库状态 - PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state)。
+暂停专用 SQL 池（之前称为 SQL DW）时，无法使用 T-SQL 连接它。 若要查看专用 SQL 池（之前称为 SQL DW）的当前状态，可使用 PowerShell cmdlet。 有关示例，请参阅[检查专用 SQL 池（之前称为 SQL DW）状态 - PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state)。
 
 ## <a name="check-operation-status"></a>检查操作状态
 
-若要返回有关 Azure Synapse 上各种管理操作的信息，请针对 [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV 运行以下查询。 例如，它返回操作和操作状态，后者为 IN_PROGRESS 或 COMPLETED。
+若要返回有关在专用 SQL 池（之前称为 SQL DW）的各种管理操作的信息，请运行以下查询 [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV。 例如，它返回操作和操作状态，后者为 IN_PROGRESS 或 COMPLETED。
 
 ```sql
 SELECT *
@@ -151,7 +151,7 @@ AND
 
 ## <a name="next-steps"></a>后续步骤
 
-你现在已了解如何缩放数据仓库的计算。 若要详细了解 Azure Synapse，请继续阅读有关加载数据的教程。
+你现在已了解了如何缩放专用 SQL 池（之前称为 SQL DW）中的计算。 若要详细了解 Azure Synapse Analytics，请继续阅读有关加载数据的教程。
 
 > [!div class="nextstepaction"]
->[将数据加载到 Azure Synapse Analytics 中](load-data-from-azure-blob-storage-using-polybase.md)
+>[将数据加载到专用 SQL 池中](load-data-from-azure-blob-storage-using-polybase.md)

@@ -6,15 +6,15 @@ author: Johnnytechn
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 01/06/2021
 ms.author: v-johya
 origin.date: 03/25/2020
-ms.openlocfilehash: a8e721c5f968011c28d69aa9987d39dd57893880
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 7a91fe9645c0f4be22c92b1546ed6b00cca1b963
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637794"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023295"
 ---
 # <a name="using-custom-security-policies"></a>使用自定义安全策略
 
@@ -85,7 +85,7 @@ Azure 安全中心提供的内置建议包括严重性级别和修正说明等�
  "metadata": {
     "securityCenter": {
         "RemediationDescription": "Custom description goes here",
-        "Severity": "High",
+        "Severity": "High"
     },
 ```
 
@@ -100,8 +100,8 @@ Azure 安全中心提供的内置建议包括严重性级别和修正说明等�
     "description": "Audit required resource groups lock",
     "metadata": {
         "securityCenter": {
-            "remediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
-            "severity": "High"
+            "RemediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
+            "Severity": "High"
         }
     },
     "parameters": {

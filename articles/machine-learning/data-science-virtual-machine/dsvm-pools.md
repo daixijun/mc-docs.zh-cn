@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 121c39621d684550cae507b08047341088eb61f0
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 98887ff2e3461178e3992fe04c28fdca601edc23
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104590"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022913"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>创建数据科学虚拟机共享池
 
@@ -37,7 +37,7 @@ ms.locfileid: "93104590"
 
 ```azurecli
 az group create --name [[NAME OF RESOURCE GROUP]] --location [[ Data center. For eg: "China East"]
-az group deployment create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json --parameters @[[PARAMETER JSON FILE]]
+az deployment group create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json --parameters @[[PARAMETER JSON FILE]]
 ```
 前面的命令假定你有：
 * 一个参数文件副本，其中包含为规模集实例指定的值。

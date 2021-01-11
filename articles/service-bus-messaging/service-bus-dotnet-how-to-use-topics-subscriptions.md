@@ -1,21 +1,22 @@
 ---
 title: 使用 azure-messaging-servicebus 将消息发送到 Azure 服务总线主题
 description: 本快速入门介绍如何使用 azure-messaging-servicebus 包将消息发送到 Azure 服务总线主题。
+ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 origin.date: 11/13/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ac30f94907413554c6050afdbbb09d5d2e31d63f
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 2d53af9860720bee581a63dc4db984fcc0b5f9c0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104814"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023292"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-net"></a>向 Azure 服务总线主题发送消息，并从该主题的订阅接收消息 (.NET)
 本教程介绍如何创建 .NET Core 控制台应用，该应用将消息发送到服务总线主题，并从该主题的订阅接收消息。 

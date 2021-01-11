@@ -2,18 +2,18 @@
 title: 将 Azure VM 移到新的订阅或资源组
 description: 使用 Azure 资源管理器将虚拟机移到新的资源组或订阅。
 ms.topic: conceptual
-origin.date: 11/25/2020
+origin.date: 12/01/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0940feb4325224e50dfa5fb4f51aed0ef4670a92
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 6074e2acb97b1c20300bcbc7f1f30a5c5e5cc0d3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004211"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023108"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>针对虚拟机的移动指南
 

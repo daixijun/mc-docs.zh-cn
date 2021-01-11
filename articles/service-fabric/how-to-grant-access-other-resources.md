@@ -4,16 +4,16 @@ description: 本文介绍如何为启用了托管标识的 Service Fabric 应用
 ms.topic: article
 origin.date: 12/09/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 01/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 68ec9ab0cb947a7978db584330cc4b09c8a687ca
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: c339c762e94e8983e325bdfcad28c0bea3f735d7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127916"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022989"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>为 Service Fabric 应用程序的托管标识授予对 Azure 资源的访问权限
 
@@ -47,26 +47,26 @@ ms.locfileid: "92127916"
 
 ```json
     # under 'variables':
-    &quot;variables&quot;: {
-        &quot;userAssignedIdentityResourceId&quot; : &quot;[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]&quot;,
+    "variables": {
+        "userAssignedIdentityResourceId" : "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]",
     }
     # under 'resources':
     {
-        &quot;type&quot;: &quot;Microsoft.KeyVault/vaults/accessPolicies&quot;,
-        &quot;name&quot;: &quot;[concat(parameters('keyVaultName'), '/add')]&quot;,
-        &quot;apiVersion&quot;: &quot;2018-02-14&quot;,
-        &quot;properties&quot;: {
-            &quot;accessPolicies&quot;: [
+        "type": "Microsoft.KeyVault/vaults/accessPolicies",
+        "name": "[concat(parameters('keyVaultName'), '/add')]",
+        "apiVersion": "2018-02-14",
+        "properties": {
+            "accessPolicies": [
                 {
-                    &quot;tenantId&quot;: &quot;[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').tenantId]&quot;,
-                    &quot;objectId&quot;: &quot;[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').principalId]&quot;,
-                    &quot;dependsOn&quot;: [
-                        &quot;[variables('userAssignedIdentityResourceId')]&quot;
+                    "tenantId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+                    "objectId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').principalId]",
+                    "dependsOn": [
+                        "[variables('userAssignedIdentityResourceId')]"
                     ],
-                    &quot;permissions&quot;: {
-                        &quot;keys&quot;:         [&quot;get&quot;, &quot;list&quot;],
-                        &quot;secrets&quot;:      [&quot;get&quot;, &quot;list&quot;],
-                        &quot;certificates&quot;: [&quot;get&quot;, &quot;list&quot;]
+                    "permissions": {
+                        "keys":         ["get", "list"],
+                        "secrets":      ["get", "list"],
+                        "certificates": ["get", "list"]
                     }
                 }
             ]
@@ -76,32 +76,32 @@ ms.locfileid: "92127916"
 对于系统分配的托管标识：
 ```json
     # under 'variables':
-    &quot;variables&quot;: {
-        &quot;sfAppSystemAssignedIdentityResourceId&quot;: &quot;[concat(resourceId('Microsoft.ServiceFabric/clusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]&quot;
+    "variables": {
+        "sfAppSystemAssignedIdentityResourceId": "[concat(resourceId('Microsoft.ServiceFabric/clusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]"
     }
     # under 'resources':
     {
-        &quot;type&quot;: &quot;Microsoft.KeyVault/vaults/accessPolicies&quot;,
-        &quot;name&quot;: &quot;[concat(parameters('keyVaultName'), '/add')]&quot;,
-        &quot;apiVersion&quot;: &quot;2018-02-14&quot;,
-        &quot;properties&quot;: {
-            &quot;accessPolicies&quot;: [
+        "type": "Microsoft.KeyVault/vaults/accessPolicies",
+        "name": "[concat(parameters('keyVaultName'), '/add')]",
+        "apiVersion": "2018-02-14",
+        "properties": {
+            "accessPolicies": [
             {
-                    &quot;name&quot;: &quot;[concat(parameters('clusterName'), '/', parameters('applicationName'))]&quot;,
-                    &quot;tenantId&quot;: &quot;[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]&quot;,
-                    &quot;objectId&quot;: &quot;[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]&quot;,
-                    &quot;dependsOn&quot;: [
-                        &quot;[variables('sfAppSystemAssignedIdentityResourceId')]&quot;
+                    "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+                    "tenantId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+                    "objectId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]",
+                    "dependsOn": [
+                        "[variables('sfAppSystemAssignedIdentityResourceId')]"
                     ],
-                    &quot;permissions&quot;: {
-                        &quot;secrets&quot;: [
-                            &quot;get&quot;,
-                            &quot;list&quot;
+                    "permissions": {
+                        "secrets": [
+                            "get",
+                            "list"
                         ],
-                        &quot;certificates&quot;: 
+                        "certificates": 
                         [
-                            &quot;get&quot;, 
-                            &quot;list"
+                            "get", 
+                            "list"
                         ]
                     }
             },
@@ -112,8 +112,9 @@ ms.locfileid: "92127916"
 
 有关更多详细信息，请参阅[保管库 - 更新访问策略](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)。
 
-<!--Not Available on ## Next steps-->
-<!--Not Available on * [Deploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)-->
-<!--Not Available on * [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)-->
+## <a name="next-steps"></a>后续步骤
+
+* [使用系统分配的托管标识部署 Azure Service Fabric 应用程序](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [使用用户分配的托管标识部署 Azure Service Fabric 应用程序](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

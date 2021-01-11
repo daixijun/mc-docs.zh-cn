@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1823c27d364c17a3f949675a895ca95c4005da4
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: bca4440c22cecace93852b509901a612ecb9e91d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918515"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021890"
 ---
 # <a name="view-custom-role-assignments-using-azure-active-directory"></a>使用 Azure Active Directory 查看自定义角色分配
 
@@ -39,7 +39,7 @@ ms.locfileid: "95918515"
 
 ## <a name="view-role-assignments-using-azure-ad-powershell"></a>使用 Azure AD PowerShell 查看角色分配
 
-此部分介绍如何查看组织范围的角色分配。 本文使用 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) 模块。 若要使用 PowerShell 查看单应用程序范围的分配，可以使用[通过 PowerShell 分配自定义角色](custom-assign-powershell.md)中的 cmdlet。
+此部分介绍如何查看组织范围的角色分配。 本文使用 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/module/azuread/#directory_roles) 模块。 若要使用 PowerShell 查看单应用程序范围的分配，可以使用[通过 PowerShell 分配自定义角色](custom-assign-powershell.md)中的 cmdlet。
 
 ### <a name="prepare-powershell"></a>准备 PowerShell
 

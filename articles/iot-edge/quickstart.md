@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 06/30/2020
-ms.date: 11/13/2020
+ms.date: 01/05/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 25182ff00081077dac891e9ad262ab78196b4e74
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 922f993cec3d88ea62549c66a6449c55f629f159
+ms.sourcegitcommit: 40db5a4b9ab8b5877e307ff7a567fd930ca81c72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431004"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894307"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>快速入门：将第一个 IoT Edge 模块部署到虚拟 Windows 设备
 
@@ -34,22 +34,18 @@ ms.locfileid: "96431004"
 
 如果没有有效的 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-
-你将使用 Azure CLI 完成本快速入门中的许多步骤。 Azure IoT 具有启用附加功能的扩展。
-
-将 Azure IoT 扩展添加到 Azure CLI 实例。
-
-   ```azurecli
-   az extension add --name azure-iot
-   ```
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 ## <a name="prerequisites"></a>先决条件
+
+为 Azure CLI 准备环境。
+
+   - 如果需要，请[安装](/cli/install-azure-cli) Azure CLI 来运行 CLI 参考命令。
+   - 如果使用的是本地安装，请通过 Azure CLI 使用 [az login](/cli/reference-index#az-login) 命令登录。  若要完成身份验证过程，请遵循终端中显示的步骤。  有关其他登录选项，请参阅[使用 Azure CLI 登录](/cli/authenticate-azure-cli)。
+  - 出现提示时，请在首次使用时安装 Azure CLI 扩展。  有关扩展详细信息，请参阅[使用 Azure CLI 的扩展](/cli/azure-cli-extensions-overview)。
+  - 运行 [az version](/cli/reference-index?#az_version) 以查找安装的版本和依赖库。 若要升级到最新版本，请运行 [az upgrade](/cli/reference-index?#az_upgrade)。
 
 云资源：
 
-* 一个资源组，用于管理在本快速入门中使用的所有资源。
+- 一个资源组，用于管理在本快速入门中使用的所有资源。
 
    ```azurecli
    az group create --name IoTEdgeResources --location chinaeast
@@ -57,7 +53,7 @@ ms.locfileid: "96431004"
 
 IoT Edge 设备：
 
-* 充当 IoT Edge 设备的 Windows 虚拟机。 你可通过使用以下命令并将 `{password}` 替换为安全密码来创建此虚拟机：
+- 充当 IoT Edge 设备的 Windows 虚拟机。 你可通过使用以下命令并将 `{password}` 替换为安全密码来创建此虚拟机：
 
   ```azurecli
   az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
@@ -78,7 +74,7 @@ IoT Edge 设备：
 >
 > 为简单起见，本快速入门使用 Windows 桌面虚拟机。 要了解哪些 Windows 操作系统针对生产环境公开发布，请参阅 [Azure IoT Edge 支持的系统](support.md)。
 >
-> 如果你已准备好为 IoT Edge 配置自己的 Windows 设备，包括运行 IoT Core 的设备，请按照[在 Windows 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-windows.md)中的步骤进行操作。
+> 如果想为 IoT Edge 配置自己的 Windows 设备，包括运行 IoT Core 的设备，请按照[安装 Azure IoT Edge 运行时](how-to-install-iot-edge.md)中的步骤进行操作。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 

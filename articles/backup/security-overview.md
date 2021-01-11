@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: Johnnytechn
 origin.date: 13/05/2020
 ms.author: v-johya
-ms.date: 11/17/2020
-ms.openlocfilehash: edd60d3fabb04828b560153a0657660409a4c23a
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.date: 01/07/2021
+ms.openlocfilehash: 02fb604d62da331eb56f9ab3cced4145fe0fa559
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977599"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023023"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Azure 备份中的安全功能概述
 
@@ -29,7 +29,7 @@ Azure 备份提供了三个[内置角色](../role-based-access-control/built-in-
 
 详细了解[用于管理 Azure 备份的 Azure 基于角色的访问控制](./backup-rbac-rs-vault.md)。
 
-Azure 备份服务中内置了多个安全控制机制，用于防止、检测和应对安全漏洞。 详细了解 [Azure 备份的安全控制](./backup-security-controls.md)。
+Azure 备份服务中内置了多个安全控制机制，用于防止、检测和应对安全漏洞。 详细了解 [Azure 备份的安全控制](./security-baseline.md)。
 
 ## <a name="separation-between-guest-and-azure-storage"></a>在来宾与 Azure 存储之间进行隔离
 

@@ -15,12 +15,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: 4717c805441b54a12c39b7b2de5913adbbb7d582
-ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
+ms.openlocfilehash: a6a92a68abd04a1f06d735199dff37b72b76f7c1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97856954"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021165"
 ---
 # <a name="what-is-computer-vision"></a>什么是计算机视觉？
 
@@ -28,13 +28,13 @@ ms.locfileid: "97856954"
 
 使用 Azure 的计算机视觉服务，你可以访问高级算法，这些算法根据你感兴趣的视觉功能处理图像并返回信息。 例如，计算机视觉可以确定图像是否包含成人内容、查找特定的品牌或物体或查找人脸。
 
-可使用客户端库 SDK 或直接调用 REST API 来创建计算机视觉应用程序。 此页广泛地介绍了计算机视觉的功能。
+可使用[客户端库 SDK](./quickstarts-sdk/client-library.md) 或直接调用 [REST API](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) 来创建计算机视觉应用程序。 此页广泛地介绍了计算机视觉的功能。
 
+<!--Not available in MC: Optical Character Recognition (OCR)-->
 ## <a name="computer-vision-for-digital-asset-management"></a>用于数字资产管理的计算机视觉
 
 计算机视觉可以支持许多数字资产管理 (DAM) 方案。 DAM 是组织、存储和检索富媒体资产以及管理数字权利和权限的业务流程。 例如，公司可能希望基于可见徽标、面部、物体、颜色等来分组和标识图像。 或者，你可能希望自动[生成图像的标题](./Tutorials/storage-lab-tutorial.md)，并附加关键字，使其可供搜索。 有关使用认知服务、Azure 认知搜索和智能报表的一体式 DAM 解决方案，请参阅 GitHub 上的[知识挖掘解决方案加速器指南](https://github.com/Azure-Samples/azure-search-knowledge-mining)。 有关其他 DAM 示例，请参阅[计算机视觉解决方案模板](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates)存储库。
 
-<!--Not available in MC: Optical Character Recognition (OCR)-->
 ## <a name="analyze-images-for-insight"></a>通过分析图像来获取见解
 
 可以分析图像，以便提供有关视觉特性和特征的见解。 下表中的所有特性由[分析图像](https://dev.cognitive.azure.cn/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API 提供。 按[快速入门](./quickstarts-sdk/client-library.md)的说明开始操作。

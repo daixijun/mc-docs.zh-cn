@@ -5,14 +5,15 @@ services: firewall-manager
 author: jomore
 ms.topic: tutorial
 ms.service: firewall-manager
-ms.date: 10/22/2020
+origin.date: ''
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: ad8bfbd62adf2326a6987b8160925b4f6d63e4b6
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 42498a295f7db9cde10d2b45fe371dfe38f0e21d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105610"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021335"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-powershell"></a>教程：使用 Azure PowerShell 保护虚拟中心
 
@@ -39,7 +40,7 @@ ms.locfileid: "97105610"
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
 ```azurepowershell
-Connect-AzAccount
+Connect-AzAccount -Environment AzureChinaCloud
 Select-AzSubscription -Subscription "<sub name>"
 ```
 
@@ -50,7 +51,7 @@ Select-AzSubscription -Subscription "<sub name>"
 ```azurepowershell
 # Variable definition
 $RG = "vwan-rg"
-$Location = "chinaeast"
+$Location = "chinaeast2"
 $VwanName = "vwan"
 $HubName =  "hub1"
 # Create Resource Group, Virtual WAN and Virtual Hub

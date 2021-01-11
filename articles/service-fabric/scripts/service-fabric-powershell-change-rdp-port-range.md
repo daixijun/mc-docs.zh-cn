@@ -8,15 +8,14 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.topic: sample
 origin.date: 03/19/2018
-ms.date: 02/24/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.custom: sfrev
-ms.openlocfilehash: 6fa685ca8e19c8f3ff48812ff9eaf82a208325d6
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: e3189631a07270d157a3b6412f7a30215909b567
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540517"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022740"
 ---
 # <a name="update-the-rdp-port-range-values"></a>更新 RDP 端口范围值
 
@@ -24,7 +23,7 @@ ms.locfileid: "77540517"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell。
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/)中的说明安装 Azure PowerShell。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -64,7 +63,7 @@ Set-AzResource -PropertyObject $lb.Properties -ResourceGroupName $groupname -Res
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
+有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/)。
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Azure Powershell 示例。
 

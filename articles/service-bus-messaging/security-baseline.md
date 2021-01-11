@@ -5,17 +5,17 @@ ms.service: service-bus-messaging
 ms.topic: conceptual
 origin.date: 09/25/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a0feb7055ff19d9ff4eb1c079ff26daf469e7c62
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 0e367e189417f2e9e71a79175126d0c1ea4bb6f6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105309"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021656"
 ---
 <!--Verified Successfully-->
 # <a name="azure-security-baseline-for-service-bus"></a>服务总线的 Azure 安全基线
@@ -193,7 +193,7 @@ ms.locfileid: "97105309"
 
 **指导**：分析和监视日志中的异常行为，并定期查看与服务总线实体相关的结果。 使用 Azure Monitor 查看日志并对与服务总线相关的日志数据执行查询。
 
-- [有关 Log Analytics 工作区的详细信息](../azure-monitor/log-query/get-started-portal.md)
+- [有关 Log Analytics 工作区的详细信息](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [如何在 Azure Monitor 中执行自定义查询](../azure-monitor/log-query/get-started-queries.md)
 

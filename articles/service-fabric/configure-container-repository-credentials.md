@@ -4,17 +4,16 @@ description: 配置存储库凭据以从容器注册表下载映像
 ms.topic: conceptual
 origin.date: 12/09/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.custom: sfrev
-ms.openlocfilehash: 4e10672aafb588f94536788ce4762f5ee747fa3f
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: ce5dd2f197a8be8071a2f09c0cf04970f7c83c48
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327352"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022990"
 ---
 <!--Verified successfully on charactors only-->
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>配置应用程序的存储库凭据以下载容器映像

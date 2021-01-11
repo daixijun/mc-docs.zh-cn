@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: e06bc1fa3c23bbf8d14f0225404a8385331b3995
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 77f2014d7b015b00f447f4cda4d4f798fca64411
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104504"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830276"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 发行说明
 
@@ -46,8 +46,9 @@ HDInsight 3.6 ML 服务群集类型将于 2020 年 12 月 31 日终止支持。 
 ### <a name="disabled-vm-sizes"></a>禁用的 VM 大小
 自 2020 年 11 月 16 日起，HDInsight 将阻止新客户使用 standand_A8、standand_A9、standand_A10 和 standand_A11 VM 大小创建群集。 过去三个月内使用过这些 VM 大小的现有客户将不会受到影响。 自 2021 年 1 月 9 日起，HDInsight 将阻止所有客户使用 standand_A8、standand_A9、standand_A10 和 standand_A11 VM 大小创建群集。 现有群集将照常运行。 请考虑迁移到 HDInsight 4.0，避免出现潜在的系统/支持中断。
 
-### <a name="behavior-changes"></a>行为更改
-此版本没有行为变更。
+## <a name="behavior-changes"></a>行为更改
+### <a name="add-nsg-rule-checking-before-scaling-operation"></a>添加在缩放操作前进行的 NSG 规则检查
+HDInsight 为缩放操作添加了网络安全组 (NSG) 和用户定义的路由 (UDR) 检查。 除了群集创建外，还会对群集缩放执行相同的验证。 此验证有助于防止不可预知的错误。 如果验证未通过，则缩放会失败。 若要详细了解如何正确配置 NSG 和 UDR，请参阅 [HDInsight 管理 IP 地址](/hdinsight/hdinsight-management-ip-addresses)。
 
 ## <a name="upcoming-changes"></a>即将推出的更改
 即将发布的版本中将推出以下变更。
@@ -63,3 +64,18 @@ HDInsight 会持续改善群集的可靠性和性能。
 
 ## <a name="component-version-change"></a>组件版本更改
 此发行版未发生组件版本更改。 可以在[此文档](./hdinsight-component-versioning.md)中查找 HDInsight 4.0 和 HDInsight 3.6 的当前组件版本。
+
+## <a name="known-issues"></a>已知问题
+### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>防止 HDInsight 群集 VM 定期重启
+
+你可能已注意到，从 2020 年 11 月月中开始，HDInsight 群集 VM 会定期重启。 这可能是由以下原因导致的：
+
+1.  在群集上启用了 Clamav。 新的 azsec-clamav 包消耗大量的内存，这会触发节点重启。 
+2.  每天会安排一个 CRON 作业，该作业监视 Azure 服务使用的证书颁发机构 (CA) 列表的变更。 当有新的 CA 证书可用时，该脚本会将证书添加到 JDK 信任存储，并安排重启。
+
+对于这两个问题，HDInsight 正在为所有正在运行的群集部署修补程序并应用补丁。 若要立即应用修补程序，避免意外的 VM 重启，可以在所有群集节点上以持久脚本操作的形式运行以下脚本操作。 在修补程序和修补完成后，HDInsight 会发布另一个通知。
+```
+https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
+https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
+```
+

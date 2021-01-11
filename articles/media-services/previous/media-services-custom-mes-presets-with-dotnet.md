@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/26/2019
-ms.date: 09/28/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90366b9a0eeca5112c00d1f534edffb4a6213a6f
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 295ecfaa367450cc11d17d8039cc9fa1d02373df
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245072"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023206"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>自定义 Media Encoder Standard 预设
 
@@ -47,74 +47,74 @@ ms.locfileid: "91245072"
 打开 **CustomPreset_JSON.json** 文件，删除 **H264Layers** 中的前三层，使文件如下所示。
 
 ```json 
-    {  
-      "Version": 1.0,  
-      "Codecs": [  
-        {  
-          "KeyFrameInterval": "00:00:02",  
-          "H264Layers": [  
-            {  
-              "Profile": "Auto",  
-              "Level": "auto",  
-              "Bitrate": 1000,  
-              "MaxBitrate": 1000,  
-              "BufferWindow": "00:00:05",  
-              "Width": 640,  
-              "Height": 360,  
-              "BFrames": 3,  
-              "ReferenceFrames": 3,  
-              "AdaptiveBFrame": true,  
-              "Type": "H264Layer",  
-              "FrameRate": "0/1"  
-            },  
-            {  
-              "Profile": "Auto",  
-              "Level": "auto",  
-              "Bitrate": 650,  
-              "MaxBitrate": 650,  
-              "BufferWindow": "00:00:05",  
-              "Width": 640,  
-              "Height": 360,  
-              "BFrames": 3,  
-              "ReferenceFrames": 3,  
-              "AdaptiveBFrame": true,  
-              "Type": "H264Layer",  
-              "FrameRate": "0/1"  
-            },  
-            {  
-              "Profile": "Auto",  
-              "Level": "auto",  
-              "Bitrate": 400,  
-              "MaxBitrate": 400,  
-              "BufferWindow": "00:00:05",  
-              "Width": 320,  
-              "Height": 180,  
-              "BFrames": 3,  
-              "ReferenceFrames": 3,  
-              "AdaptiveBFrame": true,  
-              "Type": "H264Layer",  
-              "FrameRate": "0/1"  
-            }  
-          ],  
-          "Type": "H264Video"  
-        },  
-        {  
-          "Profile": "AACLC",  
-          "Channels": 2,  
-          "SamplingRate": 48000,  
-          "Bitrate": 128,  
-          "Type": "AACAudio"  
-        }  
-      ],  
-      "Outputs": [  
-        {  
-          "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",  
-          "Format": {  
-            "Type": "MP4Format"  
+  {  
+    "Version": 1.0,  
+    "Codecs": [  
+      {  
+        "KeyFrameInterval": "00:00:02",  
+        "H264Layers": [  
+          {  
+            "Profile": "Auto",  
+            "Level": "auto",  
+            "Bitrate": 1000,  
+            "MaxBitrate": 1000,  
+            "BufferWindow": "00:00:05",  
+            "Width": 640,  
+            "Height": 360,  
+            "BFrames": 3,  
+            "ReferenceFrames": 3,  
+            "AdaptiveBFrame": true,  
+            "Type": "H264Layer",  
+            "FrameRate": "0/1"  
+          },  
+          {  
+            "Profile": "Auto",  
+            "Level": "auto",  
+            "Bitrate": 650,  
+            "MaxBitrate": 650,  
+            "BufferWindow": "00:00:05",  
+            "Width": 640,  
+            "Height": 360,  
+            "BFrames": 3,  
+            "ReferenceFrames": 3,  
+            "AdaptiveBFrame": true,  
+            "Type": "H264Layer",  
+            "FrameRate": "0/1"  
+          },  
+          {  
+            "Profile": "Auto",  
+            "Level": "auto",  
+            "Bitrate": 400,  
+            "MaxBitrate": 400,  
+            "BufferWindow": "00:00:05",  
+            "Width": 320,  
+            "Height": 180,  
+            "BFrames": 3,  
+            "ReferenceFrames": 3,  
+            "AdaptiveBFrame": true,  
+            "Type": "H264Layer",  
+            "FrameRate": "0/1"  
           }  
+        ],  
+        "Type": "H264Video"  
+      },  
+      {  
+        "Profile": "AACLC",  
+        "Channels": 2,  
+        "SamplingRate": 48000,  
+        "Bitrate": 128,  
+        "Type": "AACAudio"  
+      }  
+    ],  
+    "Outputs": [  
+      {  
+        "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",  
+        "Format": {  
+          "Type": "MP4Format"  
         }  
-      ]  
-    }  
+      }  
+    ]  
+  }  
 ```
 
 ## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>使用媒体服务 .NET SDK 进行编码

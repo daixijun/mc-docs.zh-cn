@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 11/27/2020
+ms.date: 01/04/2021
 ms.author: v-johya
-ms.openlocfilehash: 3fc70102e04fc9a7e0e4a5bc0a2b86b7b771592f
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 2df3073357911232366674668dd90500c42e5491
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306438"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022220"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>将来自不同数据源的数据馈送添加到指标顾问
 
@@ -210,7 +210,7 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idtableazure-table-storagespan"></a><span id="table">Azure 表存储</span>
 
-* **连接字符串**：若要了解如何从 Azure 表存储中检索连接字符串，请参阅 [查看并复制连接字符串](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%252fstorage%252ftables%252ftoc.json#view-account-access-keys)。
+* **连接字符串**：若要了解如何从 Azure 表存储中检索连接字符串，请参阅 [查看并复制连接字符串](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fstorage%2ftables%2ftoc.json#view-account-access-keys)。
 
 * **表名**：指定要查询的表。 这可在 Azure 存储帐户实例中找到。 单击“表服务”部分中的“表” 。
 

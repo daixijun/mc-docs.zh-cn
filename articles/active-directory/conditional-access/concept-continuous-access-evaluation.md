@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be34340fac2bba55f318a4acf18779a95a601616
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: de9618fbcd4a5b5102e5b6e9880c7bcea8aa8b5d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003698"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021906"
 ---
 # <a name="continuous-access-evaluation"></a>连续访问评估
 
@@ -28,7 +28,7 @@ ms.locfileid: "97003698"
 
 连续访问评估的初始实现侧重于 Exchange、Teams 和 SharePoint Online。
 
-若要准备应用程序以使用 CAE，请参阅[如何在应用程序中使用启用了连续访问评估的 API](../develop/app-resilience-continuous-access-evaluation.md)。
+若要准备应用程序以使用 CAE，请参阅[如何在应用程序中使用启用了连续访问评估的 API](/active-directory/develop/app-resilience-continuous-access-evaluation)。
 
 ### <a name="key-benefits"></a>主要优点
 
@@ -104,7 +104,7 @@ Exchange 和 SharePoint 能够同步关键的条件访问策略，因此可以�
 
 1. 支持 CAE 的客户端向 Azure AD 提供凭据或刷新令牌，要求获得某个资源的访问令牌。
 1. 访问令牌与其他项目一起返回到客户端。
-1. 管理员显式地[撤销用户的所有刷新令牌](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)。 吊销事件将从 Azure AD 发送到资源提供程序。
+1. 管理员显式地[撤销用户的所有刷新令牌](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken)。 吊销事件将从 Azure AD 发送到资源提供程序。
 1. 向资源提供程序提供访问令牌。 资源提供程序评估令牌的有效性，并检查用户是否存在任何吊销事件。 资源提供程序使用此信息来决定是否授予对资源的访问权限。
 1. 在这种情况下，资源提供程序会拒绝访问，并将 401+ 声明质询发送回客户端。
 1. 支持 CAE 的客户端理解 401+ 声明质询。 它绕过缓存并返回到步骤 1，将其刷新令牌和声明质询一起发送回 Azure AD。 然后在此情况下，Azure AD 将重新评估所有条件，并提示用户重新进行身份验证。

@@ -12,16 +12,16 @@ ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/11/2020
+ms.date: 01/05/2021
 ms.author: v-johya
 origin.date: 09/30/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a5a00eec8148234854ec92fac8870998abb3ad09
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 7d5ac62e8abacfd96481e83c86c3de881bbfded0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637762"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022537"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>教程：监视 Azure 中的 Linux 虚拟机
 
@@ -159,5 +159,5 @@ Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收
 请转到下一教程来了解 Azure 安全中心。
 
 > [!div class="nextstepaction"]
-> [管理 VM 安全性](tutorial-azure-security.md)
+> [管理 VM 安全性](../tutorial-azure-security.md)
 <!--NEW.date: 11/11/2019-->

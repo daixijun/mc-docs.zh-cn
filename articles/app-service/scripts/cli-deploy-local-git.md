@@ -7,15 +7,15 @@ ms.assetid: 048f98aa-f708-44cb-9b9e-953f67dc6da8
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 11/30/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 3eeadcbe097c6027035a25db139e5ba473f948e5
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: 4d3f9302c08ec31537244f88f1ab13edbf267b64
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306449"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022930"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-from-a-local-git-repository-using-azure-cli"></a>使用 Azure CLI 从本地 Git 存储库创建应用服务应用并部署代码
 
@@ -73,16 +73,16 @@ echo http://$webappname.chinacloudsites.cn
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 注释 |
+| 命令 | 说明 |
 |---|---|
-| [`az group create`](/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [`az appservice plan create`](/cli/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | 创建应用服务计划。 |
-| [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create) | 创建应用服务应用。 |
-| [`az webapp deployment user set`](/cli/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) | 为应用服务设置帐户级别部署凭据。 |
-| [`az webapp deployment source config-local-git`](/cli/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) | 为本地 Git 存储库创建源控件配置。 |
+| [`az group create`](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [`az appservice plan create`](https://docs.azure.cn/cli/appservice/plan#az_appservice_plan_create) | 创建应用服务计划。 |
+| [`az webapp create`](https://docs.azure.cn/cli/webapp#az_webapp_create) | 创建应用服务应用。 |
+| [`az webapp deployment user set`](https://docs.azure.cn/cli/webapp/deployment/user#az_webapp_deployment_user_set) | 为应用服务设置帐户级别部署凭据。 |
+| [`az webapp deployment source config-local-git`](https://docs.azure.cn/cli/webapp/deployment/source#az_webapp_deployment_source_config_local_git) | 为本地 Git 存储库创建源控件配置。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview?view=azure-cli-lastest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli)。
 
 可以在 [Azure 应用服务文档](../samples-cli.md)中找到其他应用服务 CLI 脚本示例。

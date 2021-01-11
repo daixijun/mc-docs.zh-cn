@@ -30,3 +30,11 @@
       href: auth-app-android-china.md
     - name: 常见问题
       href: microsoft-authenticator-app-faq.md
+- name: 管理设备帮助
+  items:
+    - name: 加入工作设备
+      href: user-help-join-device-on-network.md
+    - name: 注册用于工作的个人设备
+      href: user-help-register-device-on-network.md
+    - name: 针对“无法访问”消息进行故障排除
+      href: user-help-device-remediation.md

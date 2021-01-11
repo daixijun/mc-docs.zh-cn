@@ -4,17 +4,16 @@ description: 可以在运行 Windows Server 或 Linux 的任何 VM 或计算机�
 ms.topic: conceptual
 origin.date: 01/07/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.custom: sfrev
-ms.openlocfilehash: b17c33be5611262e0026b2e0860feedf6cd604fc
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: ea5bfb5946eda9cd954d1f58f53d23f698a44313
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328688"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022717"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>将 Azure Service Fabric 群集与 Windows Server 和 Linux 上的独立 Service Fabric 群集进行比较
 

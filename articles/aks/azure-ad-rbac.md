@@ -6,16 +6,16 @@ services: container-service
 ms.topic: article
 origin.date: 07/21/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7d0540099536920d3210263139702103f6dc7593
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 9db1001b0e15941a810798b52a2201f7a86f9a1d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004042"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023132"
 ---
 # <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>在 Azure Kubernetes 服务中使用 Kubernetes 基于角色的访问控制和 Azure Active Directory 标识来控制对群集资源的访问
 

@@ -28,9 +28,9 @@
           href: event-hubs-dotnet-standard-getstarted-send.md
         - name: Java (azure-messaging-eventhubs)
           href: event-hubs-java-get-started-send.md
-        - name: Python（azure-eventhub 版本 5）
+        - name: Python (azure-eventhub)
           href: event-hubs-python-get-started-send.md
-        - name: JavaScript（azure/event-hubs 版本 5）
+        - name: JavaScript (azure/event-hubs)
           href: event-hubs-node-get-started-send.md
         - name: Go
           href: event-hubs-go-get-started-send.md
@@ -38,7 +38,7 @@
           href: event-hubs-c-getstarted-send.md
         - name: Apache Storm（仅接收）
           href: event-hubs-storm-getstarted-receive.md
-    - name: 发送和接收事件（旧版本/包）
+    - name: 发送和接收事件（旧包）
       items:
         - name: .NET (Microsoft.Azure.EventHubs)
           href: event-hubs-dotnet-standard-get-started-send-legacy.md

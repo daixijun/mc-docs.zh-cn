@@ -4,15 +4,16 @@ description: 了解 Azure 防火墙管理器所需的高级部署步骤
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: overview
-ms.date: 06/30/2020
+ms.topic: conceptual
+origin.date: 08/28/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: d91a256e517a54ade28dee9ef6880707c37b6c5c
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: eda2585c58f3095097c6135d01c85d2a57012e9a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104503"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022802"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Azure 防火墙管理器部署概述
 
@@ -22,7 +23,7 @@ ms.locfileid: "97104503"
 
 ### <a name="hub-virtual-networks"></a>中心虚拟网络
 
-1.  创建防火墙策略
+1. 创建防火墙策略
 
     - 创建新策略
 <br>*or*<br>
@@ -59,7 +60,7 @@ ms.locfileid: "97104503"
    - 第三方安全即服务 (SECaaS) 策略通过合作伙伴管理体验配置。
 4. 配置路由设置，以将流量路由到安全中心
 
-   - 使用“安全虚拟中心路由设置”页，轻松地将流量路由到安全中心，以便在分支虚拟网络不具有用户定义路由 (UDR) 的情况下进行筛选和日志记录。
+   - 使用“安全虚拟中心路由设置”页，轻松地将流量路由到安全中心，以便在辐射虚拟网络不具有用户定义路由 (UDR) 的情况下进行筛选和日志记录。
 
 > [!NOTE]
 > - 每个区域的每个虚拟 WAN 最多只有一个中心。 但可以在区域中添加多个虚拟 WAN 来实现多个中心。

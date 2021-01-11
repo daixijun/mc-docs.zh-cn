@@ -2,20 +2,21 @@
 title: 使用 Azure 应用程序配置将事件发送到 Web 终结点
 description: 了解如何设置 Azure 应用程序配置事件订阅，以将键值修改事件发送到 Web 终结点
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 12/14/2020
-ms.author: lcozzens
+origin.date: 03/04/2020
+ms.date: 01/11/2021
+ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e5fcac3155808b47ef1a761d81a3d241fdc30940
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: fd7200fd35158cbd3f799aa7e7ec1cbe331b195b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105210"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023081"
 ---
 # <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>使用 Azure CLI 将 Azure 应用程序配置事件路由到 Web 终结点
 
@@ -63,7 +64,7 @@ az appconfig create \
 ```azurecli
 $sitename=<your-site-name>
 
-az group deployment create \
+az deployment group create \
   --resource-group <resource_group_name> \
   --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
   --parameters siteName=$sitename hostingPlanName=viewerhost

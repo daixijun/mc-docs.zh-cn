@@ -1,37 +1,37 @@
 ---
-title: 快速入门：从 Microsoft 标识平台删除已注册的应用 | Azure
+title: 如何：从 Microsoft 标识平台删除已注册的应用 | Azure
 titleSuffix: Microsoft identity platform
-description: 本快速入门介绍如何删除注册到 Microsoft 标识平台的应用程序。
+description: 在本文中，你将了解如何删除注册到 Microsoft 标识平台的应用程序。
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: how-to
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.custom: aaddev
-ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: c82e809166fd4d342afee42557f722973677e30d
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.reviewer: marsma, aragra, lenalepa, sureshja
+ms.openlocfilehash: 7c77b2528d6cbf63353c440bc33ae32be9f1f6ae
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004149"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021272"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>快速入门：删除注册到 Microsoft 标识平台的应用程序
+# <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>如何删除注册到 Microsoft 标识平台的应用程序
 
 已经向 Microsoft 标识平台注册了应用程序的企业开发人员可能需要删除应用程序的注册。
 
-在本快速入门中，你将学习如何：
+在以下各小节中，你将了解如何实现以下操作：
 
 * 删除你或你的组织编写的应用程序
 * 删除其他组织编写的应用程序
 
 ## <a name="prerequisites"></a>先决条件
 
-* 完成[快速入门：将应用程序注册到 Microsoft 标识平台](quickstart-register-app.md)
+* [已在你的 Azure AD 租户中注册的应用程序](quickstart-register-app.md)
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>删除你或你的组织编写的应用程序
 
@@ -53,8 +53,5 @@ ms.locfileid: "97004149"
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解 Microsoft 标识平台中的应用程序和服务主体对象：
-
-> [!div class="nextstepaction"]
-> [Azure Active Directory 中的应用程序对象和服务主体对象](app-objects-and-service-principals.md)
+详细了解 Microsoft 标识平台中的[应用程序和服务主体对象](app-objects-and-service-principals.md)。
 

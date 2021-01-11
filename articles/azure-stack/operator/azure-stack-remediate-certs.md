@@ -5,16 +5,16 @@ description: 使用 Azure Stack Hub 就绪性检查器解决 Azure Stack Hub PKI
 author: WenJason
 ms.topic: how-to
 origin.date: 11/10/2020
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: f41b5aedbedbf24665ed08992a5891fb150ac7b9
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 9e1ae69c65b19bcbf7cce52810507d12eb49b26d
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508037"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894421"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>解决 Azure Stack Hub PKI 证书的常见问题
 
@@ -46,7 +46,7 @@ ms.locfileid: "96508037"
 
 **问题** - PFX 文件无效。  
 
-**修复** - 使用[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤重新导出证书。
+**修复** - 使用 [准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤重新导出证书。
 
 ## <a name="signature-algorithm"></a>签名算法
 
@@ -58,43 +58,43 @@ ms.locfileid: "96508037"
 
 **问题** - 私钥缺失或者不包含本地计算机属性。  
 
-**修复** - 在生成 CSR 的计算机中，使用[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书。 这些步骤包括从本地计算机证书存储进行导出。
+**修复** - 在生成 CSR 的计算机中，使用 [准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤重新导出证书。 这些步骤包括从本地计算机证书存储进行导出。
 
 ## <a name="certificate-chain"></a>证书链
 
 **问题** - 证书链不完整。  
 
-**修复** - 证书应包含完整的证书链。 按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。
+**修复** - 证书应包含完整的证书链。 按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。
 
 ## <a name="dns-names"></a>DNS 名称
 
 **问题** - 证书上的 **DNSNameList** 不包含 Azure Stack Hub 服务终结点名称或有效的通配符匹配项。 通配符匹配项仅适用于 DNS 名称最左侧的命名空间。 例如，`*.region.domain.com` 仅对 `portal.region.domain.com` 有效，而对 `*.table.region.domain.com` 无效。
 
-**修复** - 执行“生成 Azure Stack Hub 证书签名请求”中的步骤，以便使用为 Azure Stack Hub 终结点提供支持所需的正确 DNS 名称重新生成 CSR。 将 CSR 重新提交到证书颁发机构。 然后按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤，从生成 CSR 的计算机导出证书。  
+**修复** - 执行“生成 Azure Stack Hub 证书签名请求”中的步骤，以便使用为 Azure Stack Hub 终结点提供支持所需的正确 DNS 名称重新生成 CSR。 将 CSR 重新提交到证书颁发机构。 然后按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤，从生成 CSR 的计算机导出证书。  
 
 ## <a name="key-usage"></a>密钥使用情况
 
 **问题** - 密钥用法缺少数字签名或密钥加密，或者增强型密钥用法缺少服务器身份验证或客户端身份验证。  
 
-**修复** - 按照[生成 Azure Stack Hub 证书签名请求](azure-stack-get-pki-certs.md)中的步骤，使用正确的密钥用法属性重新生成 CSR。 将 CSR 重新提交给证书颁发机构，并确认证书模板未覆盖请求中的密钥用法。
+**修复** - 按照 [生成 Azure Stack Hub 证书签名请求](azure-stack-get-pki-certs.md)中的步骤，使用正确的密钥用法属性重新生成 CSR。 将 CSR 重新提交给证书颁发机构，并确认证书模板未覆盖请求中的密钥用法。
 
 ## <a name="key-size"></a>密钥大小
 
 **问题** - 密钥大小不到 2048。
 
-**修复** - 按照[生成 Azure Stack Hub 证书签名请求](azure-stack-get-pki-certs.md)中的步骤，使用正确的密钥长度 (2048) 重新生成 CSR，然后将 CSR 重新提交给证书颁发机构。
+**修复** - 按照 [生成 Azure Stack Hub 证书签名请求](azure-stack-get-pki-certs.md)中的步骤，使用正确的密钥长度 (2048) 重新生成 CSR，然后将 CSR 重新提交给证书颁发机构。
 
 ## <a name="chain-order"></a>链序
 
 **问题** - 证书链的顺序不正确。  
 
-**修复** - 按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。 确保仅选择分支证书进行导出。
+**修复** - 按照 [准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。 确保仅选择分支证书进行导出。
 
 ## <a name="other-certificates"></a>其他证书
 
 **问题** - PFX 包包含的证书不是分支证书，或者不是证书链的一部分。  
 
-**修复** - 按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。 确保仅选择分支证书进行导出。
+**修复** - 按照 [准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。 确保仅选择分支证书进行导出。
 
 ## <a name="fix-common-packaging-issues"></a>修复常见的打包问题
 

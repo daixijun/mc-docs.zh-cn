@@ -4,17 +4,17 @@ description: 在本快速入门中，请使用 Service Fabric Reliable Services 
 ms.topic: quickstart
 origin.date: 06/26/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 80aa1e0af223bb82b336dd5e4fbec84981b0ecf7
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: eb6d1274081fb193e54bcc4f2e61b38cfc92fd48
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655645"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022392"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>快速入门：将 .NET Reliable Services 应用程序部署到 Service Fabric
 
@@ -87,7 +87,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 从克隆的存储库中打开“Voting.sln” Visual Studio 解决方案。 
 
-默认情况下，Voting 应用程序在端口 8080 上侦听。 应用程序端口在 */VotingWeb/PackageRoot/ServiceManifest.xml* 文件中进行设置。  可以通过更新**终结点**元素的 **Port** 属性来更改应用程序端口。  若要在本地部署和运行应用程序，应用程序端口必须为打开状态且在你的计算机上可用。  如果更改应用程序端口，请通篇将本文中的“8080”替换为新的应用程序端口值。
+默认情况下，Voting 应用程序在端口 8080 上侦听。 应用程序端口在 */VotingWeb/PackageRoot/ServiceManifest.xml* 文件中进行设置。  可以通过更新 **终结点** 元素的 **Port** 属性来更改应用程序端口。  若要在本地部署和运行应用程序，应用程序端口必须为打开状态且在你的计算机上可用。  如果更改应用程序端口，请通篇将本文中的“8080”替换为新的应用程序端口值。
 
 若要部署应用程序，请按 F5  。
 

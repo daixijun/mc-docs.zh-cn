@@ -2,17 +2,14 @@
 title: 将视频连续录制到云中并从云中播放教程 - Azure
 description: 在本教程中，你将了解如何使用 Azure IoT Edge 上的 Azure 实时视频分析将视频连续录制到云中并使用 Azure 媒体服务流式传输该视频的任何部分。
 ms.topic: tutorial
-author: WenJason
-ms.author: v-jay
-ms.service: media-services
 origin.date: 05/27/2020
-ms.date: 11/30/2020
-ms.openlocfilehash: ee29052a25586e0571338adcdc7bf902acc95777
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.date: 01/11/2021
+ms.openlocfilehash: dee76a5c769f4e8594f47620c111dd3f2e72d809
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300158"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021305"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>教程：将视频连续录制到云中并从云中播放
 
@@ -53,7 +50,7 @@ ms.locfileid: "96300158"
 * Azure IoT 中心
 * Azure 存储帐户
 * Azure 媒体服务帐户
-* Azure 中的 Linux VM，已安装 [IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge-linux.md)
+* Azure 中的 Linux VM，已安装 [IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge.md)
 
 ## <a name="concepts"></a>概念
 
@@ -389,4 +386,4 @@ applicationProperties 中的 subject 部分引用图形中的 AssetSink 节点�
 ## <a name="next-steps"></a>后续步骤
 
 * 使用支持 RTSP 的 [IP 相机](https://en.wikipedia.org/wiki/IP_camera)，而不是使用 RTSP 模拟器。 可以在 [ONVIF 一致性产品页](https://www.onvif.org/conformant-products/)上查找符合配置文件 G、S 或 T 的设备来搜索支持 RTSP 的 IP 照相机。
-* 使用 AMD64 或 X64 Linux 设备（与使用 Azure Linux VM 相比）。 此设备必须与 IP 相机位于同一网络中。 按照[在 Linux 上安装 Azure IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge-linux.md)中的说明进行操作。 然后按照[将首个 IoT Edge 模块部署到虚拟 Linux 设备](../../iot-edge/quickstart-linux.md)快速入门中的说明进行操作，将设备注册到 Azure IoT 中心。
+* 使用 AMD64 或 X64 Linux 设备（与使用 Azure Linux VM 相比）。 此设备必须与 IP 相机位于同一网络中。 按照[在 Linux 上安装 Azure IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge.md)中的说明进行操作。 然后按照[将首个 IoT Edge 模块部署到虚拟 Linux 设备](../../iot-edge/quickstart-linux.md)快速入门中的说明进行操作，将设备注册到 Azure IoT 中心。

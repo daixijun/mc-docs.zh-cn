@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/03/2020
+ms.date: 01/06/2021
 ms.author: v-johya
 origin.date: 05/09/2020
-ms.openlocfilehash: b86bc4c09a8464a3ec755912f94fbf10d96754ab
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 8250b4fde1017f58ca32671b98e27b2253b9b218
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746643"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022744"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>针对安全警报配置电子邮件通知 
 
@@ -32,9 +32,9 @@ ms.locfileid: "96746643"
 
 为了避免警报疲劳，安全中心限制了外发邮件的数量。 对于每个订阅，安全中心都会发送以下数量的电子邮件：
 
-- 每天最多四封电子邮件（适用于“高严重性”警报） 
-- 每天最多两封电子邮件（适用于“中等严重性”警报） 
-- 每天最多一封电子邮件（适用于“低严重性”警报） 
+- 对于“严重级别高”的警报，每 6 小时最多发送 1 封电子邮件（每天 4 封） 
+- 对于“严重级别中等”的警报，每 12 小时最多发送 1 封电子邮件（每天 2 封） 
+- 对于“严重级别低”的警报，每 24 小时最多发送 1 封电子邮件 
 
 :::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="配置将接收有关安全警报的电子邮件的联系人的详细信息。" :::
  

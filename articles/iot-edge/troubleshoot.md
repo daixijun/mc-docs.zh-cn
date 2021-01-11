@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 11/12/2020
-ms.date: 12/03/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a95bd3a10109a0130f4e45c439059bc739dd6726
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.openlocfilehash: f03fe6766a4085b38711da43e5de48032eb25823
+ms.sourcegitcommit: 40db5a4b9ab8b5877e307ff7a567fd930ca81c72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541179"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894313"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>排除 IoT Edge 设备故障
 
@@ -82,7 +82,7 @@ iotedge support-bundle --since 6h
 
 ## <a name="verify-the-installation-of-iot-edge-on-your-devices"></a>验证设备上是否安装了 IoT Edge
 
-可通过[监视 edgeAgent 模块孪生](https://docs.azure.cn/iot-edge/how-to-monitor-module-twins)验证设备上是否安装了 IoT Edge。
+可通过[监视 edgeAgent 模块孪生](./how-to-monitor-module-twins.md)验证设备上是否安装了 IoT Edge。
 
 若要获取最新的 edgeAgent 模块孪生，请从 Azure CLI 运行以下命令：
 
@@ -90,7 +90,7 @@ iotedge support-bundle --since 6h
    az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
    ```
 
-此命令将输出所有 edgeAgent [报告属性](https://docs.azure.cn/iot-edge/module-edgeagent-edgehub)。 以下是一些有用的监视设备状态的信息：
+此命令将输出所有 edgeAgent [报告属性](./module-edgeagent-edgehub.md)。 以下是一些有用的监视设备状态的信息：
 
 * 运行时状态
 * 运行时开始时间

@@ -3,14 +3,14 @@ title: 从 ZIP 包运行应用
 description: 部署应用的具有原子性的 ZIP 包。 提高应用在 ZIP 部署过程中的行为的可预测性和可靠性。
 ms.topic: article
 origin.date: 01/14/2020
-ms.date: 03/16/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
-ms.openlocfilehash: ac9fe029edf00fb4a7b412d7877fb7ca0125b78f
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: f038a9d560a6d20413f31ecef4f2bd5613387733
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79546971"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022680"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>直接从 ZIP 包运行 Azure 应用服务中的应用
 
@@ -43,7 +43,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 ## <a name="run-the-package"></a>运行包
 
-在应用服务中运行包的最简单方法是使用 Azure CLI [az webapp deployment source config-zip](/cli/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) 命令。 例如：
+在应用服务中运行包的最简单方法是使用 Azure CLI [az webapp deployment source config-zip](/cli/webapp/deployment/source#az_webapp_deployment_source_config_zip) 命令。 例如：
 
 ```azurecli
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip

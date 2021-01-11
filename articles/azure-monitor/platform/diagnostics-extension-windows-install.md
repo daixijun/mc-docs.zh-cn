@@ -6,15 +6,15 @@ author: Johnnytechn
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 origin.date: 02/17/2020
-ms.date: 11/02/2020
+ms.date: 01/06/2021
 ms.author: v-johya
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 878ace6692bfbe09ff02ba6584cf61bee0ded053
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 3c0c469240395aa4d897bb2055856979a572591a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328511"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023006"
 ---
 # <a name="install-and-configure-azure-diagnostics-extension-wad"></a>安装并配置 Azure 诊断扩展 (WAD)
 [Azure 诊断扩展](diagnostics-extension-overview.md)是 Azure Monitor 中的一个代理，可从 Azure 虚拟机的来宾操作系统和工作负载以及其他计算资源中收集监视数据。 本文详细介绍如何安装并配置 Windows 诊断扩展，以及如何将数据存储在 Azure 存储帐户中。
@@ -22,11 +22,8 @@ ms.locfileid: "94328511"
 诊断扩展作为 Azure 中的[虚拟机扩展](../../virtual-machines/extensions/overview.md)实现，因此，它支持使用资源管理器模板、PowerShell 和 CLI 的相同安装选项。 有关安装和维护虚拟机扩展的详细信息，请参阅[适用于 Windows 的虚拟机扩展和功能](../../virtual-machines/extensions/features-windows.md)。
 
 ## <a name="overview"></a>概述
-配置 Azure 诊断扩展时，必须指定一个存储帐户，所有指定的数据都将发送到该帐户。 可以选择添加一个或更多数据接收器，以便将数据发送到不同的位置。
-
-- Azure Monitor 接收器 - 将来宾性能数据发送到 Azure Monitor 指标。
-- 事件中心接收器 - 将来宾性能和日志数据发送到 Azure 事件中心以在 Azure 外部转发。 无法在 Azure 门户中配置此接收器。
-
+配置 Azure 诊断扩展时，必须指定一个存储帐户，所有指定的数据都将发送到该帐户。 
+<!--Not available in MC: date sinks-->
 
 ## <a name="install-with-azure-portal"></a>使用 Azure 门户安装
 你可以在 Azure 门户中的单个虚拟机上安装并配置诊断扩展，门户会提供一个界面，而不是直接让你进行配置。 启用诊断扩展时，它会自动使用包含最常见性能计数器和事件的默认配置。 可根据具体要求修改此默认配置。
@@ -57,14 +54,6 @@ ms.locfileid: "94328511"
 7. 在“故障转储”选项卡中，指定在发生故障后用于收集内存转储的任何进程。 数据将写入到存储帐户以进行诊断设置，你可以选择指定 blob 容器。
 
    ![故障转储](./media/diagnostics-extension-windows-install/crash-dumps.png)
-
-8. 在“接收器”选项卡中，指定是否将数据发送到 Azure 存储以外的位置。 如果选择“Azure Monitor”，则来宾性能数据将发送到 Azure Monitor 指标。 不能使用 Azure 门户配置事件中心接收器。
-
-   ![屏幕截图显示“接收器”选项卡，其中启用了“将诊断数据发送到 Azure Monitor”选项。](./media/diagnostics-extension-windows-install/sinks.png)
-   
-   如果尚未启用为虚拟机配置的系统分配的标识，则在使用 Azure Monitor 接收器保存配置时可能会看到以下警告。 单击横幅以启用系统分配的标识。
-   
-   ![托管实体](./media/diagnostics-extension-windows-install/managed-entity.png)
 
 9. 在“代理”中，可以更改存储帐户、设置磁盘配额，并指定是否收集诊断基础结构日志。  
 

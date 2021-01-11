@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-tawe
 origin.date: 06/22/2020
-ms.date: 12/03/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 99b42ebfe46a5ee930b21829c817b0ccb534aecd
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.openlocfilehash: 8da2042ac6eca05453d259f17709ddfe028b7b35
+ms.sourcegitcommit: 40db5a4b9ab8b5877e307ff7a567fd930ca81c72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541188"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894295"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>更新 IoT Edge 安全守护程序和运行时
 

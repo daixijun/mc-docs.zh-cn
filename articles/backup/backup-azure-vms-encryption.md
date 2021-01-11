@@ -4,14 +4,14 @@ description: 介绍如何使用 Azure 备份服务备份和还原已加密的 Az
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 04/03/2019
-ms.date: 11/17/2020
+ms.date: 01/07/2021
 ms.author: v-johya
-ms.openlocfilehash: 7a2f5650163698169f8f32949eda40791b7423f8
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: aae01cb416b65bed6f0a69145477d0180aff1bff
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978138"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023185"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>备份和还原加密的 Azure 虚拟机
 
@@ -19,14 +19,11 @@ ms.locfileid: "94978138"
 
 ## <a name="encryption-using-platform-managed-keys"></a>使用平台管理的密钥进行加密
 
-默认情况下，VM 中的所有磁盘都会通过使用[存储服务加密](../storage/common/storage-service-encryption.md)的平台管理的密钥 (PMK) 自动进行静态加密。 你可以使用 Azure 备份来备份这些 VM，而无需采取任何支持在你方加密所需的特定措施。 有关使用平台管理的密钥进行加密的详细信息，请[参阅本文](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)。
+默认情况下，VM 中的所有磁盘都会通过使用[存储服务加密](../storage/common/storage-service-encryption.md)的平台管理的密钥 (PMK) 自动进行静态加密。 你可以使用 Azure 备份来备份这些 VM，而无需采取任何支持在你方加密所需的特定措施。 有关使用平台管理的密钥进行加密的详细信息，请[参阅本文](../virtual-machines/disk-encryption.md#platform-managed-keys)。
 
 ![加密的磁盘](./media/backup-encryption/encrypted-disks.png)
 
-## <a name="encryption-using-customer-managed-keys"></a>使用客户管理的密钥进行加密
-
-使用客户管理的密钥 (CMK) 对磁盘进行加密时，用于对磁盘进行加密的密钥存储在 Azure Key Vault 中，由你进行管理。 使用 CMK 的存储服务加密 (SSE) 不同于 Azure 磁盘加密 (ADE) 加密。 ADE 使用操作系统的加密工具。 SSE 对存储服务中的数据进行加密，使你可以将任何 OS 或映像用于 VM。 有关使用客户管理的密钥对托管磁盘进行加密的详细信息，请[参阅本文](../virtual-machines/windows/disk-encryption.md#customer-managed-keys)。
-
+<!--Not available in MC: ## Encryption using customer-managed keys-->
 ## <a name="encryption-support-using-ade"></a>使用 ADE 的加密支持
 
 Azure 备份支持备份已使用 Azure 磁盘加密 (ADE) 功能加密了其 OS/数据磁盘的 Azure VM。 ADE 使用 BitLocker 加密 Windows VM，使用 dm-crypt 功能加密 Linux VM。 ADE 与 Azure Key Vault 集成，可以管理磁盘加密密钥和机密。 使用 Key Vault Key 加密密钥 (KEk) 可以额外增加一个安全层，这样可以在将加密机密写入 Key Vault 之前对其进行加密。

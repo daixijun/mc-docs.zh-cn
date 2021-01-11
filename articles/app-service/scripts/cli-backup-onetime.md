@@ -6,16 +6,16 @@ tags: azure-service-management
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 12/07/2017
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.reviewer: cephalin
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 1a82044a58816736f1aa7e5991e10bbb1a290c1f
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 02ea261be5bd620d1557bf4ddb56dee726153901
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170486"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022948"
 ---
 # <a name="back-up-an-app-using-cli"></a>使用 CLI 备份应用
 
@@ -82,17 +82,17 @@ az webapp config backup list --resource-group $groupname --webapp-name $webappna
 
 | Command | 说明 |
 |---|---|
-| [`az group create`](/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [`az storage account create`](/cli/storage/account?view=azure-cli-latest#az-storage-account-create) | 创建存储帐户。 |
-| [`az storage container create`](/cli/storage/container?view=azure-cli-latest#az-storage-container-create) | 创建 Azure 存储容器。 |
-| [`az storage container generate-sas`](/cli/storage/container?view=azure-cli-latest#az-storage-container-generate-sas) | 生成 Azure 存储容器的 SAS 令牌。  |
-| [`az appservice plan create`](/cli/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | 创建应用服务计划。 |
-| [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create) | 创建应用服务应用。 |
-| [`az webapp config backup create`](/cli/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-create) | 为应用服务应用创建备份。 |
-| [`az webapp config backup list`](/cli/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | 获取应用服务应用的备份列表。 |
+| [`az group create`](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [`az storage account create`](https://docs.azure.cn/cli/storage/account#az_storage_account_create) | 创建存储帐户。 |
+| [`az storage container create`](https://docs.azure.cn/cli/storage/container#az_storage_container_create) | 创建 Azure 存储容器。 |
+| [`az storage container generate-sas`](https://docs.azure.cn/cli/storage/container#az_storage_container_generate_sas) | 生成 Azure 存储容器的 SAS 令牌。  |
+| [`az appservice plan create`](https://docs.azure.cn/cli/appservice/plan#az_appservice_plan_create) | 创建应用服务计划。 |
+| [`az webapp create`](https://docs.azure.cn/cli/webapp#az_webapp_create) | 创建应用服务应用。 |
+| [`az webapp config backup create`](https://docs.azure.cn/cli/webapp/config/backup#az_webapp_config_backup_create) | 为应用服务应用创建备份。 |
+| [`az webapp config backup list`](https://docs.azure.cn/cli/webapp/config/backup#az_webapp_config_backup_list) | 获取应用服务应用的备份列表。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview?view=azure-cli-lastest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli)。
 
 可以在 [Azure 应用服务文档](../samples-cli.md)中找到其他应用服务 CLI 脚本示例。

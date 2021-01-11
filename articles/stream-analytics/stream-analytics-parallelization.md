@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 05/07/2018
-ms.date: 11/16/2020
-ms.openlocfilehash: 69720164a063f53157ce5a70795d375809087c61
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.date: 01/07/2021
+ms.openlocfilehash: c314a55e748bac3b34edcce615b8fb85e2efeff0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977023"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023154"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 流分析中的查询并行化
 本文说明了如何利用 Azure 流分析中的并行化。 了解如何通过配置输入分区和调整分析查询定义来缩放流分析作业。
@@ -271,7 +271,7 @@ Power BI 输出当前不支持分区。 因此，此方案不易并行。
 | 5K     |    6    |  6 TU   |
 | 10K    |    12   |  10 TU  |
 
-[事件中心](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs)解决方案在流单元 (SU) 和吞吐量方面可线性缩放，因此，它是分析和流式传输流分析中的数据的最有效方式。 作业可扩展到 192 SU，这大致相当于处理能力高达 200 MB/秒，即，每天可处理 19 万亿个事件。
+[事件中心](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-eventhubs)解决方案在流单元 (SU) 和吞吐量方面可线性缩放，因此，它是分析和流式传输流分析中的数据的最有效方式。 作业可扩展到 192 SU，这大致相当于处理能力高达 200 MB/秒，即，每天可处理 19 万亿个事件。
 
 #### <a name="azure-sql"></a>Azure SQL
 |引入速率（每秒事件数） | 流式处理单位数 | 输出资源  |
@@ -280,7 +280,7 @@ Power BI 输出当前不支持分区。 因此，此方案不易并行。
 |    5K   |   18 |  P4   |
 |    10K  |   36 |  P6   |
 
-[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) 支持并行写入（称为继承分区），但默认不会启用此功能。 不过，结合完全并行查询启用继承分区可能并不足以实现更高的吞吐量。 SQL 写入吞吐量在很大程度上取决于数据库配置和表架构。 [SQL 输出性能](./stream-analytics-sql-output-perf.md)一文详细介绍了可最大程度提高写入吞吐量的参数。 如[从 Azure 流分析输出到 Azure SQL 数据库](./stream-analytics-sql-output-perf.md#azure-stream-analytics)一文中所述，此解决方案无法作为完全并行的管道线性扩展到 8 个分区以上，可能需要在 SQL 输出之前重新分区（请参阅 [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)）。 需要使用高级 SKU 来维持较高的 IO 速率，同时，每隔几分钟就会产生日志备份的开销。
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-azuresql) 支持并行写入（称为继承分区），但默认不会启用此功能。 不过，结合完全并行查询启用继承分区可能并不足以实现更高的吞吐量。 SQL 写入吞吐量在很大程度上取决于数据库配置和表架构。 [SQL 输出性能](./stream-analytics-sql-output-perf.md)一文详细介绍了可最大程度提高写入吞吐量的参数。 如[从 Azure 流分析输出到 Azure SQL 数据库](./stream-analytics-sql-output-perf.md#azure-stream-analytics)一文中所述，此解决方案无法作为完全并行的管道线性扩展到 8 个分区以上，可能需要在 SQL 输出之前重新分区（请参阅 [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)）。 需要使用高级 SKU 来维持较高的 IO 速率，同时，每隔几分钟就会产生日志备份的开销。
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |引入速率（每秒事件数） | 流式处理单位数 | 输出资源  |
@@ -289,7 +289,7 @@ Power BI 输出当前不支持分区。 因此，此方案不易并行。
 |  5K   |  24   | 60K RU  |
 |  10K  |  48   | 120K RU |
 
-流分析的 [Cosmos DB 输出](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb)已更新为使用[兼容性级别 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12) 中的本机集成。 与 1.1 相比，兼容性级别 1.2 明显提高了吞吐量，并减少了 RU 消耗，它是新作业的默认兼容性级别。 解决方案使用 /deviceId 上分区的 CosmosDB 容器，解决方案的剩余部分可以采用相同的配置。
+流分析的 [Cosmos DB 输出](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-cosmosdb)已更新为使用[兼容性级别 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12) 中的本机集成。 与 1.1 相比，兼容性级别 1.2 明显提高了吞吐量，并减少了 RU 消耗，它是新作业的默认兼容性级别。 解决方案使用 /deviceId 上分区的 CosmosDB 容器，解决方案的剩余部分可以采用相同的配置。
 
 所有[大规模流式处理 Azure 示例](https://github.com/Azure-Samples/streaming-at-scale)都使用由负载模拟测试客户端提供的事件中心作为输入。 每个输入事件是一个 1KB JSON 文档，可轻松地将配置的引入速率转化为吞吐率（1MB/秒、5MB/秒和 10MB/秒）。 事件可以模拟某个 IoT 设备来发送最多 1K 个设备的以下 JSON 数据（以简写形式显示）：
 

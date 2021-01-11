@@ -5,15 +5,15 @@ author: Johnnytechn
 ms.service: virtual-machines-linux
 ms.topic: how-to
 origin.date: 07/12/2018
-ms.date: 11/11/2020
+ms.date: 01/05/2021
 ms.author: v-johya
 ms.subservice: disks
-ms.openlocfilehash: d6958e786a29fe82d05b0871bdb44fb0a0ff483c
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 038755ef08a5e9426f500f553bbb119ac103e011
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637847"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022345"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>使用门户将数据磁盘附加到 Linux VM 
 本文介绍如何通过 Azure 门户将新磁盘和现有磁盘附加到 Linux 虚拟机。 也可以[在 Azure 门户中将数据磁盘附加到 Windows VM](../windows/attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
@@ -21,7 +21,7 @@ ms.locfileid: "94637847"
 将磁盘附加到 VM 前，请查看以下提示：
 
 * 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
-* 附加到虚拟机的磁盘实际上是存储在 Azure 中的 .vhd 文件。 有关详细信息，请查看[托管磁盘简介](../managed-disks-overview.md?toc=%252fvirtual-machines%252flinux%252ftoc.json)。
+* 附加到虚拟机的磁盘实际上是存储在 Azure 中的 .vhd 文件。 有关详细信息，请查看[托管磁盘简介](../managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 * 附加磁盘后，需要[连接到 Linux VM 以装载新磁盘](#connect-to-the-linux-vm-to-mount-the-new-disk)。
 
 
@@ -172,7 +172,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail  
 > [!NOTE]
 > 之后，在不编辑 fstab 的情况下删除数据磁盘可能会导致 VM 无法启动。 大多数分发版都提供 *nofail* 和/或 *nobootwait* fstab 选项。 这些选项使系统在磁盘无法装载的情况下也能启动。 有关这些参数的详细信息，请查阅分发文档。
 > 
-> 即使文件系统已损坏或磁盘在引导时不存在， *nofail* 选项也能确保 VM 启动。 如果不使用此选项，可能会遇到 [Cannot SSH to Linux VM due to FSTAB errors](https://docs.microsoft.com//archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
+> 即使文件系统已损坏或磁盘在引导时不存在， *nofail* 选项也能确保 VM 启动。 如果不使用此选项，可能会遇到 [Cannot SSH to Linux VM due to FSTAB errors](https://docs.microsoft.com/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
 
 
 ## <a name="verify-the-disk"></a>验证磁盘

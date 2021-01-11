@@ -4,15 +4,15 @@ description: 备份的 Azure 安全基线
 author: Johnnytechn
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 01/07/2021
 ms.author: v-johya
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c96a31e496391441d9a851c8106141fdd28fd490
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 70cdb87c7d1b3127eb8887de054dc885b6dee826
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105137"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023024"
 ---
 # <a name="azure-security-baseline-for-backup"></a>备份的 Azure 安全基线
 
@@ -166,7 +166,7 @@ ms.locfileid: "97105137"
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4：从操作系统收集安全日志
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -232,7 +232,7 @@ ms.locfileid: "97105137"
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10：启用命令行审核日志记录
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -519,7 +519,7 @@ Azure 备份提供三个用于控制备份管理操作的内置角色：备份�
 
 Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备份可用的安全控制，以减少与服务配置相关的漏洞。
 
-- [了解 Azure 备份可用的安全控制](./backup-security-controls.md)
+- [了解 Azure 备份可用的安全控制]()
 
 **Azure 安全中心监视**：目前不可用
 
@@ -527,7 +527,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备�
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2：部署自动操作系统修补管理解决方案
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -535,7 +535,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备�
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3：部署第三方自动软件修补管理解决方案
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -543,7 +543,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备�
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4：比较连续进行的漏洞扫描
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -627,7 +627,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备�
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6：监视计算资源中未批准的软件应用程序
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -635,7 +635,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备�
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7：删除未批准的 Azure 资源和软件应用程序
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -643,7 +643,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备�
 
 ### <a name="68-use-only-approved-applications"></a>6.8：仅使用已批准的应用程序
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -663,7 +663,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备�
 
 ### <a name="610-implement-approved-application-list"></a>6.10：实施已批准的应用程序列表
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -681,7 +681,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备�
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12：限制用户在计算资源中执行脚本的功能
 
-**指南**：不适用；此建议适用于计算资源。
+**指导**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -907,7 +907,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Microsoft Azure 备�
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 - [如何在 Azure 安全中心配置工作流自动化](../security-center/security-center-planning-and-operations-guide.md)
 

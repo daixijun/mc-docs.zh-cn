@@ -6,16 +6,16 @@ services: container-service
 ms.topic: article
 origin.date: 08/17/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1c00f2e99b30fa95f2ebaabf330d1576bf4f099d
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: d93d7511e6d20726783c4eb8790a42f3893ec833
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024453"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022324"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中创建 HTTPS 入口控制器
 
@@ -70,8 +70,8 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
-    --set controller.image.registry=usgcr.azk8s.cn \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.image.registry=usgcr.azk8s.cn \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.image.repository=gcr.azk8s.cn/google_containers/defaultbackend-amd64
 ```

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41345fc0e4d218622c92e4aabc13107a10ba0a7
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 51bf013e3c6a818d02a7ebc38fe2e1b1329bd945
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501903"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022716"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B 协作邀请电子邮件的元素 - Azure Active Directory
 
@@ -85,8 +85,8 @@ ms.locfileid: "94501903"
 
 邀请电子邮件中呈现给来宾用户的语言是由以下设置确定的。 这些设置是按优先级顺序列出的。 如果某个设置未配置，则将由列表中的下一设置来确定语言。
 
-- [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) 对象的 **messageLanguage** 属性（如果使用了“创建邀请 API”）
--   在来宾的 [用户对象](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)中指定的 **preferredLanguage** 属性
+- [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo) 对象的 **messageLanguage** 属性（如果使用了“创建邀请 API”）
+-   在来宾的 [用户对象](https://docs.microsoft.com/graph/api/resources/user)中指定的 **preferredLanguage** 属性
 -   在来宾用户的主租户的属性中设置的 **通知语言**（仅仅适用于 Azure AD 租户）
 -   在资源租户的属性中设置的 **通知语言**
 

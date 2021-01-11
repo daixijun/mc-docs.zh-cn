@@ -5,7 +5,7 @@ services: container-service
 ms.topic: quickstart
 origin.date: 09/11/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
@@ -17,13 +17,13 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-- contperfq1
-ms.openlocfilehash: 7c8c5f6c185430062ed227a0ca556d11c8b632d1
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+- contperf-fy21q1
+ms.openlocfilehash: 1718f172ad572f99ad91fa7bd39ddf5c790e1167
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432633"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023123"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>快速入门：使用 Azure CLI 部署 Azure Kubernetes 服务群集
 
@@ -35,17 +35,18 @@ ms.locfileid: "96432633"
 
 本快速入门假设读者基本了解 Kubernetes 的概念。 有关详细信息，请参阅 [Azure Kubernetes 服务 (AKS) 的 Kubernetes 核心概念][kubernetes-concepts]。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.64 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+- 本文需要 Azure CLI 版本 2.0.64 或更高版本。
 
 > [!NOTE]
 > 如果在本地运行此快速入门中的命令，请确保以管理员身份运行命令。
 
 <!--MOONCAKE: Not Available on (instead of Azure Cloud Shell)-->
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -301,8 +302,6 @@ az group delete --name myResourceGroup --yes --no-wait
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubeconfig-file]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
-
-<!--Not Available on [azure-dev-spaces]: ../dev-spaces/index.yml-->
 
 <!-- LINKS - internal -->
 

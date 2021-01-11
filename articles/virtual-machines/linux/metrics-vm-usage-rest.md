@@ -7,14 +7,14 @@ origin.date: 06/13/2018
 ms.subservice: monitoring
 ms.custom: REST
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 01/05/2021
 ms.author: v-johya
-ms.openlocfilehash: b618f859ae363c6b7b5a6208906e09ee263c9896
-ms.sourcegitcommit: f45809a2120ac7a77abe501221944c4482673287
+ms.openlocfilehash: 2882ed91e15eac0cd389923d45a0bf2665443596
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057665"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022341"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>使用 REST API 获取虚拟机使用情况指标
 

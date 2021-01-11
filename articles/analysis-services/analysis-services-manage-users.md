@@ -3,19 +3,19 @@ title: Azure Analysis Services 身份验证和用户权限 | Azure
 description: 本文了解 Azure Analysis Services 如何使用 Azure Active Directory (Azure AD) 进行身份管理和用户身份验证。
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 05/19/2020
+origin.date: 12/01/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6f4037d7f8c1fef7d85e4377614a515eb78e31fd
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: d9a46e9c3dd68e665aad146cd920c7ce7b8cd3b2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004132"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022865"
 ---
 # <a name="authentication-and-user-permissions"></a>身份验证和用户权限
 
@@ -29,7 +29,7 @@ Azure Analysis Services 支持 [Azure AD B2B 协作](../active-directory/externa
 
 <!--MOONCAKE: CORRECT ON [client libraries](https://docs.microsoft.com/analysis-services/client-libraries)-->
 
-所有客户端应用程序和工具都使用一个或多个 Analysis Services [客户端库](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)（AMO、MSOLAP、ADOMD）连接到服务器。 
+所有客户端应用程序和工具都使用一个或多个 Analysis Services [客户端库](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)（AMO、MSOLAP、ADOMD）连接到服务器。 
 
 所有 3 个客户端库均支持 Azure AD 交互流和非交互式身份验证方法。 可在利用 AMOMD 和 MSOLAP 的应用程序中使用两种非交互式方法，即 Active Directory 密码和 Active Directory 集成身份验证方法。 这两种方法绝对不会产生弹出式对话框。
 

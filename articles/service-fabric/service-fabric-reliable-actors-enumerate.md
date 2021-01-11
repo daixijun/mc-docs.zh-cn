@@ -4,17 +4,17 @@ description: 了解如何按照示例在 Azure Service Fabric 应用程序中枚
 ms.topic: conceptual
 origin.date: 03/19/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 813dae0a397fb51249aafd81ce34164d4d5286e0
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 4419decf34b5a23d1c5e1b481f1b8aad6e214b39
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655679"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021969"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>枚举 Service Fabric Reliable Actors
 Reliable Actors 允许客户端枚举有关该服务托管的执行组件的元数据。 由于执行组件服务是已分区的有状态服务，因此将按分区执行枚举。 因为每个分区可能包含许多执行组件，所以枚举以一组分页结果的形式返回。 将循环读取这些页面，直到读取所有页面。 以下示例演示了如何创建执行组件服务的一个分区中所有活动执行组件的列表：

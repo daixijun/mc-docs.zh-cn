@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 origin.date: 11/04/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: 86ab18a852e4a4d35836819afa8eecfa377e1204
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 01/11/2021
+ms.openlocfilehash: 9c82c68e05eb1264f17274f0a9e14afd3bcb3775
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432597"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022417"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建 Azure Database for MySQL 服务器
 
@@ -47,9 +47,9 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
    订阅 | 你的订阅 | 选择所需的 Azure 订阅。
    资源组 |  myresourcegroup | 输入新资源组，或订阅中的现有资源组。
    服务器名称 | **mydemoserver** | 输入唯一名称。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 必须包含 3 到 63 个字符。
-   数据源 |无  | 选择“无”，从头开始创建新的服务器  。 仅当从现有服务器的异地备份进行还原时，才选择“备份”。
+   数据源 |**无** | 选择“无”，从头开始创建新的服务器  。 仅当从现有服务器的异地备份进行还原时，才选择“备份”。
    位置 |你所需的位置 | 从列表中选择一个位置。
-   版本 | 最新主版本| 使用最新主版本。 请参阅[所有受支持的版本](/postgresql/concepts-supported-versions)。
+   版本 | 最新主版本| 使用最新主版本。 请参阅[所有受支持的版本](../postgresql/concepts-supported-versions.md)。
    计算 + 存储 | 使用默认值| 默认定价层是“常规用途”，其中包含 4 个 vCore 和 100 GB 存储  。 备份保留期设置为 7 天，并提供“异地冗余”备份选项 。<br/>查看[定价](https://azure.cn/pricing/details/mysql/)页，根据需要更新默认值。
    管理员用户名 | **mydemoadmin** | 输入服务器管理员用户名。 不能将“azure_superuser”、“admin”、“administrator”、“root”、“guest”或“public”用作管理员用户名     。
    Password | 密码 | 服务器管理员用户的新密码。 密码长度必须为 8 到 128 个字符，并包含大写字母或小写字母、数字和非字母数字字符（！、$、#、% 等）的组合。
@@ -69,7 +69,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 默认情况下，新服务器受防火墙保护。 若要进行连接，必须通过完成以下步骤提供对 IP 的访问权限：
 
-1. 转到服务器资源左侧窗格中的“连接安全性”。 如果不知道如何找到资源，请参阅[如何打开资源](/azure-resource-manager/management/manage-resources-portal#open-resources)。
+1. 转到服务器资源左侧窗格中的“连接安全性”。 如果不知道如何找到资源，请参阅[如何打开资源](../azure-resource-manager/management/manage-resources-portal.md#open-resources)。
 
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="显示“连接安全性”>“防火墙规则”页的屏幕截图。":::
@@ -115,5 +115,5 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 
 ## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"]
->[使用 MySQL 生成 PHP 应用](../app-service/app-service-web-tutorial-php-mysql.md) <br/>
+>[使用 MySQL 在 Windows 上生成 PHP 应用](../app-service/tutorial-php-mysql-app.md)
 

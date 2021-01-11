@@ -3,16 +3,16 @@ title: 从 Python 应用读取 Azure 事件中心捕获的数据（最新版）
 description: 本文介绍如何编写 Python 代码，以捕获发送到事件中心的数据，并从 Azure 存储帐户读取捕获的事件数据。
 ms.topic: quickstart
 origin.date: 06/23/2020
-ms.date: 09/14/2020
+ms.date: 01/05/2021
 ms.author: v-tawe
-ms.openlocfilehash: 596a61073497a8d1ea3a45061ed153179d79d3c7
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 172c1b414f1cb7cac5474f1b7151fbd92cd25e60
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96430959"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874839"
 ---
-# <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>使用 Python 在 Azure 存储中捕获事件中心数据并读取该数据（azure-eventhub 版本 5）
+# <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub"></a>使用 Python 在 Azure 存储中捕获事件中心数据并读取该数据 (azure-eventhub)
 
 可以配置事件中心，以便在 Azure 存储帐户或 Azure Data Lake Storage Gen 1 或 Gen 2 中捕获发送到事件中心的数据。 本文介绍如何编写 Python 代码，以将事件发送到事件中心，并从 **Azure Blob 存储** 读取捕获的数据。 有关此功能的详细信息，请参阅[事件中心捕获功能概述](event-hubs-capture-overview.md)。
 

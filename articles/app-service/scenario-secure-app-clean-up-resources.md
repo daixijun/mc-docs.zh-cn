@@ -7,17 +7,17 @@ ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
 origin.date: 10/27/2020
-ms.date: 11/30/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.reviewer: stsoneff
-ms.openlocfilehash: 3196162821442cbdbcfa266664eaca5219a84a26
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.custom: azureday1
+ms.openlocfilehash: 4ddc21150dad75aa505e9c4c307802e53144633b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306580"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022950"
 ---
-<!--Verified Successfully-->
 # <a name="tutorial-clean-up-resources"></a>教程：清理资源
 
 如果你完成了本教程（包含多个部分）中的所有步骤，那么就已在资源组中创建了应用服务、应用服务托管计划和存储帐户。 还在 Azure Active Directory 中创建了应用注册。 如果不再需要这些资源和应用注册，请将其删除，以免继续产生费用。
@@ -56,4 +56,3 @@ ms.locfileid: "96306580"
 
 了解如何将 [.NET Core 应用](tutorial-dotnetcore-sqldb-app.md)、[Python 应用](tutorial-python-postgresql-app.md)、[Java 应用](tutorial-java-spring-cosmosdb.md)或 [Node.js 应用](tutorial-nodejs-mongodb-app.md)连接到数据库。
 
-<!--NEW.date: 11/30/2020-->

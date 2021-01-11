@@ -5,14 +5,15 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 08/26/2020
+origin.date: 08/26/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: f6e0bc5acac56124cb5a50da0e6b81bdaa73a939
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: e4db84eafc43d8b8e3a1b17d7be589dd00e097b2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105555"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023102"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>使用 Azure 防火墙策略定义规则层次结构
 
@@ -138,6 +139,7 @@ JSON 文件应类似于以下示例：
 
 :::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="SalesAppPolicy 读取权限":::
 
+<!--For more information, see [Tutorial: Create an Azure custom role using Azure PowerShell](../role-based-access-control/tutorial-custom-role-powershell.md)-->
 
 ### <a name="add-users-to-the-custom-role"></a>将用户添加到自定义角色
 

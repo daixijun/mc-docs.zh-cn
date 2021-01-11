@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 09/28/2020
+ms.date: 01/11/2021
 ms.author: v-jay
-ms.openlocfilehash: facaceff859cc6dc6c051b08e9e29b8c921aa4e7
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: f660348999e9abefbc40871fbd72070dddfab788
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245419"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022908"
 ---
 # <a name="import-a-postman-collection-with-live-streaming-operations"></a>使用实时传送视频流操作导入一个 Postman 集合
 
@@ -27,12 +27,12 @@ ms.locfileid: "91245419"
 
 本文包含 Postman  集合的定义，该集合包含调用实时传送视频流  Azure 媒体服务 REST API 的分组 HTTP 请求。 有关如何配置 Postman  以用于调用媒体服务 REST API 的信息，请参阅[配置 Postman 以便进行媒体服务 REST API 调用](media-rest-apis-with-postman.md)教程。
 
-```
+```json
 {
     "info": {
         "name": "Azure Media Live Streaming Quickstart",
         "_postman_id": "0dc5e4c6-4865-cbe9-250c-78e40b634256",
-        "description": "Quickstart collection to use Live Streaming and Encding on Azure Media Services\n",
+        "description": "Quickstart collection to use Live Streaming and Encoding on Azure Media Services\n",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [

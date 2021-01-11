@@ -4,23 +4,23 @@ titleSuffix: Azure Stack
 description: 资源使用情况 API（用于检索 Azure Stack Hub 使用情况信息）的参考资料。
 author: WenJason
 ms.topic: article
-origin.date: 08/25/2020
-ms.date: 12/07/2020
+origin.date: 12/15/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 6e0433b9b2f0dc311b70c6ff171261617e40d7d9
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: eb3787592e143ae6708e090dae11b8e1ea794f69
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508088"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894356"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>租户资源使用情况 API 参考
 
 租户可以使用租户 API 来查看租户自己的资源用量数据。 这些 API 与 Azure 使用情况 API 一致。
 
-可以使用 Windows PowerShell cmdlet [Get-UsageAggregates](https://docs.microsoft.com/powershell/module/Az.usageaggregates/get-usageaggregates) 获取使用情况数据，就像在 Azure 中一样。
+可以使用 Windows PowerShell cmdlet [Get-UsageAggregates](https://docs.microsoft.com/powershell/module/azurerm.usageaggregates/get-usageaggregates) 获取使用情况数据，就像在 Azure 中一样。
 
 ## <a name="api-call"></a>API 调用
 

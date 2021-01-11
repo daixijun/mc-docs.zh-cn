@@ -4,18 +4,18 @@ description: 快速入门 - 使用 Java 服务 SDK 将 TPM 设备注册到 Azure
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/08/2019
-ms.date: 11/13/2020
+ms.date: 01/05/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 249e5d81c425d983cfff373beaf9b33ca9b017f0
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 0cb7e593dbab4667df0bd509b1c2b58c5060cd98
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431139"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874841"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>快速入门：使用 Java 服务 SDK 将 TPM 设备注册到 IoT 中心设备预配服务
 
@@ -63,7 +63,7 @@ ms.locfileid: "96431139"
 
 此部分演示如何向示例代码添加 TPM 设备的预配详细信息。 
 
-1. 打开命令提示符。 使用 [Java 服务 SDK](https://azure.github.io/azure-iot-sdk-java/service/) 克隆设备注册代码示例的 GitHub 存储库：
+1. 打开命令提示符。 使用 [Java 服务 SDK](https://azure.github.io/azure-iot-sdk-java/master/service/) 克隆设备注册代码示例的 GitHub 存储库：
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -131,7 +131,7 @@ ms.locfileid: "96431139"
     mvn install -DskipTests
     ```
 
-   此命令将 Maven 包 [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) 下载到计算机。 此包包含编译示例代码所需的 [Java 服务 SDK](https://azure.github.io/azure-iot-sdk-java/service/) 的二进制文件。 
+   此命令将 Maven 包 [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) 下载到计算机。 此包包含编译示例代码所需的 [Java 服务 SDK](https://azure.github.io/azure-iot-sdk-java/master/service/) 的二进制文件。 
 
 3. 运行示例，方法是在命令窗口使用以下命令：
 

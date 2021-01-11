@@ -6,13 +6,13 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.custom: devx-track-dotnet
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: ef04257deab685f5d519d4548d72d92cfdf60037
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/11/2021
+ms.openlocfilehash: 69e3e2b841f39959f13ab0bf93f6f623345c28dd
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105219"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023113"
 ---
 # <a name="feature-management-overview"></a>功能管理概述
 

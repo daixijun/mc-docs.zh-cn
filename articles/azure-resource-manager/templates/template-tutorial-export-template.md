@@ -3,22 +3,22 @@ title: 教程 - 从 Azure 门户导出模板
 description: 了解如何使用导出的模板完成模板开发。
 origin.date: 09/09/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: b5d1a0d7ad140884ffa389448d7faa1681391fe1
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 6286c98ee4f3bf530545ff06b275e1467ae09d30
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470067"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022259"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>教程：从 Azure 门户使用导出的模板
 
-在本教程系列中，你已创建一个用于部署 Azure 存储帐户的模板。 在接下来的两篇教程中，你将添加一个应用服务计划和一个网站。   本教程介绍如何从 Azure 门户导出模板（无需从头开始创建模板），以及如何使用 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)中的示例模板。 你可以根据自己的用途自定义这些模板。 本教程重点介绍如何导出模板，以及自定义模板的结果。 完成本教程需要大约 **14 分钟** 。
+在本教程系列中，你已创建一个用于部署 Azure 存储帐户的模板。 在接下来的两篇教程中，你将添加一个应用服务计划和一个网站。   本教程介绍如何从 Azure 门户导出模板（无需从头开始创建模板），以及如何使用 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)中的示例模板。 你可以根据自己的用途自定义这些模板。 本教程重点介绍如何导出模板，以及自定义模板的结果。 完成本教程需要大约 **14 分钟**。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -92,12 +92,12 @@ ms.locfileid: "92470067"
 1. 选择“创建”  。
 1. 输入：
 
-    - **订阅** ：选择 Azure 订阅。
-    - **资源组** ：选择“新建”，然后指定名称。  提供的资源组名称应该与过去在本教程系列中使用的名称不同。
-    - **名称** ：输入应用服务计划的名称。
-    - **操作系统** ：选择“Linux”。 
-    - **区域** ：选择一个 Azure 位置。 例如， **中国北部** 。
-    - **定价层** ：为了节省成本，请将 SKU 更改为“基本 B1”（在“开发/测试”下）。 
+    - **订阅**：选择 Azure 订阅。
+    - **资源组**：选择“新建”，然后指定名称。  提供的资源组名称应该与过去在本教程系列中使用的名称不同。
+    - **名称**：输入应用服务计划的名称。
+    - **操作系统**：选择“Linux”。 
+    - **区域**：选择一个 Azure 位置。 例如，**中国北部**。
+    - **定价层**：为了节省成本，请将 SKU 更改为“基本 B1”（在“开发/测试”下）。 
 
     :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-export.png" alt-text="资源管理器模板 - 在门户中导出模板":::
 1. 选择“查看并创建”。 
@@ -107,20 +107,20 @@ ms.locfileid: "92470067"
 
 1. 选择“转到资源”。 
 
-    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-export-go-to-resource.png" alt-text="资源管理器模板 - 在门户中导出模板":::
+    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-export-go-to-resource.png" alt-text="转到资源":::
 
 1. 选择“导出模板”  。
 
-    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-export-template.png" alt-text="资源管理器模板 - 在门户中导出模板":::
+    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-export-template.png" alt-text="资源管理器模板 - 导出模板":::
 
    导出模板功能将提取资源的当前状态，并生成用于部署该资源的模板。 导出模板可能有助于快速获取部署资源所需的 JSON。
 
-1. 查看导出的模板中的 Microsoft.Web/serverfarms 定义和参数定义。 不需要复制这些部分。 可以使用此导出的模板作为示例，了解如何将此资源添加到模板。
+1. 查看导出的模板中的 `Microsoft.Web/serverfarms` 定义和参数定义。 不需要复制这些部分。 可以使用此导出的模板作为示例，了解如何将此资源添加到模板。
 
-    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-exported-template.png" alt-text="资源管理器模板 - 在门户中导出模板":::
+    :::image type="content" source="./media/template-tutorial-export-template/resource-manager-template-exported-template.png" alt-text="资源管理器模板 - 导出模板 - 导出的模板":::
 
 > [!IMPORTANT]
-> 通常，导出的模板比创建模板时所需的信息更详细。 例如，导出的模板中的 SKU 对象包含五个属性。 此模板是可行的，但你只需使用 **name** 属性。 可以从导出的模板着手，然后根据要求对其进行修改。
+> 通常，导出的模板比创建模板时所需的信息更详细。 例如，导出的模板中的 SKU 对象包含五个属性。 此模板是可行的，但你只需使用 `name` 属性。 可以从导出的模板着手，然后根据要求对其进行修改。
 
 ## <a name="revise-existing-template"></a>修订现有模板
 
@@ -210,7 +210,7 @@ ms.locfileid: "92470067"
 
 使用 Azure CLI 或 Azure PowerShell 来部署模板。
 
-如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据 [第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
+如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据[第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 `templateFile` 变量设置为模板文件的路径。
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -238,7 +238,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> 如果部署失败，请使用“详细”开关获取有关正在创建的资源的信息。 使用“调试”开关获取调试的详细信息。
+> 如果部署失败，请使用 `verbose` 开关获取有关正在创建的资源的信息。 使用 `debug` 开关获取调试的详细信息。
 
 ## <a name="verify-deployment"></a>验证部署
 

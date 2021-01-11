@@ -5,17 +5,17 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 07/29/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: e3fc9c43c682c26ce709293bd3c59a395f43f2ac
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: d1f3facbdc40fdd87f4e09e27b7d08db8de1aac2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470137"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022859"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>使用本地数据网关连接到本地数据源
 
@@ -62,7 +62,7 @@ ms.locfileid: "92470137"
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *.core.chinacloudapi.cn |443 |HTTPS |
 | login.chinacloudapi.cn |443 |HTTPS |
-| *.msftncsi.com |443 |在 Power BI 服务无法访问网关时用于测试 Internet 连接。 |
+| *.msftncsi.com |80 |在 Power BI 服务无法访问网关时用于测试 Internet 连接。 |
 | *.microsoftonline-p.com |443 |用于根据配置进行身份验证。 |
 | dc.services.visualstudio.com    |443 |由 AppInsights 用来收集遥测数据。 |
 

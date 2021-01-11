@@ -2,20 +2,20 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/19/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: be881cda067033bfc533d9548a64e7e403261592
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 3ced2eb125480cd7ecf912d60c13556596301d71
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472597"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022932"
 ---
 ## <a name="run-the-function-locally"></a>在本地运行函数
 
 Visual Studio Code 与 [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md) 相集成，便于你在发布到 Azure 之前在本地开发计算机上运行此项目。
 
-1. 若要调用函数，请按 F5 启动函数应用项目<kbd></kbd>。 来自 Core Tools 的输出会显示在“终端”  面板中。
+1. 若要调用函数，请按 F5 启动函数应用项目<kbd></kbd>。 来自 Core Tools 的输出会显示在“终端”  面板中。 如果在 Windows 上运行时遇到问题，请确保用于 Visual Studio Code 的默认终端未设置为“WSL Bash”。
 
 1. 如果尚未安装 Azure Functions Core Tools，请在提示符下选择“安装”。  安装 Core Tools 后，应用会在“终端”  面板中启动。 可以看到 HTTP 触发函数的 URL 终结点在本地运行。
 

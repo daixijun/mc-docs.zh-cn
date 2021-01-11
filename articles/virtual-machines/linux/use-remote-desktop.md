@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 01/05/2021
 ms.author: v-johya
-ms.openlocfilehash: 64cf07917f91e1602cd02148cf9eb3dc578a74f5
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: d5c86dca801555466a1dd27212fe15ca753ab5af
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638096"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022347"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>安装和配置远程桌面以连接到 Azure 中的 Linux VM
 通常使用安全外壳 (SSH) 连接从命令行管理 Azure 中的 Linux 虚拟机 (VM)。 如果不熟悉 Linux，或者要快速进行故障排除，使用远程桌面可能会更方便。 本文详细介绍如何使用 Resource Manager 部署模型为 Linux VM 安装和配置桌面环境 ([xfce](https://www.xfce.org)) 和远程桌面 ([xrdp](http://xrdp.org))。
@@ -86,7 +86,7 @@ sudo passwd azureuser
 
 
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>为远程桌面流量创建网络安全组规则
-若要允许远程桌面流量到达 Linux VM，需要创建网络安全组规则以允许端口 3389 上的 TCP 访问 VM。 有关网络安全组规则的详细信息，请参阅[什么是网络安全组？](../../virtual-network/network-security-groups-overview.md?toc=%252fvirtual-machines%252flinux%252ftoc.json) 还可以[使用 Azure 门户创建网络安全组规则](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+若要允许远程桌面流量到达 Linux VM，需要创建网络安全组规则以允许端口 3389 上的 TCP 访问 VM。 有关网络安全组规则的详细信息，请参阅[什么是网络安全组？](../../virtual-network/network-security-groups-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 还可以[使用 Azure 门户创建网络安全组规则](../windows/nsg-quickstart-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 以下示例在端口 *3389* 上使用 [az vm open-port](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 创建网络安全组规则。 使用 Azure CLI（而不是与 VM 的 SSH 会话），打开以下网络安全组规则：
 

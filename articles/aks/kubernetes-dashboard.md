@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 06/03/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: yes|no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: 99bd879dc8ea5b81d3738f6e7f2428b5761424b5
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: dfb8456d4ead082f76fdd4e2b1dc51797262e66e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004180"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023126"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>访问 Azure Kubernetes 服务 (AKS) 中的 Kubernetes Web 仪表板
 

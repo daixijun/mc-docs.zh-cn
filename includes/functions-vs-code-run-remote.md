@@ -2,14 +2,14 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/17/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: 192c155bb4aaf62b343160a299e3be7f6a560cea
-ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
+ms.openlocfilehash: abc23543e15ab1abb0c8afe603e3e8a04158814b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95970684"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024254"
 ---
 ## <a name="run-the-function-in-azure"></a>在 Azure 中运行函数
 
@@ -20,7 +20,7 @@ ms.locfileid: "95970684"
 1. 将 HTTP 请求的此 URL 粘贴到浏览器的地址栏中，将 `name` 查询字符串以 `?name=Functions` 形式添加到此 URL 的末尾，然后执行请求。 调用 HTTP 触发的函数的 URL 应采用以下格式：
 
     ```http
-    http://<FUNCTION_APP_NAME>.chinacloudsites.cn/api/httpexample?name=Functions
+    http://<FUNCTION_APP_NAME>.chinacloudsites.cn/api/HttpExample?name=Functions
     ```
 
     以下示例演示浏览器中函数返回的对远程 GET 请求的响应：

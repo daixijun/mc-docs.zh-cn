@@ -4,16 +4,16 @@ description: 查找用于控制应用服务环境的管理地址。 在路由表
 author: ccompy
 ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
 ms.topic: article
-origin.date: 10/06/2020
-ms.date: 10/09/2020
+origin.date: 11/20/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: a169ec97c2b50ee61b85faac46f95ef6d85642fd
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 945769d0585f56d721cf4853ac392a7e4a8aaf04
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128257"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021479"
 ---
 # <a name="app-service-environment-management-addresses"></a>应用服务环境管理地址
 
@@ -69,7 +69,8 @@ API 返回一个 JSON 文档，其中包含 ASE 的所有入站地址。 地址�
 若要使用 [armclient](https://github.com/projectkudu/ARMClient) 调用此 API，请使用以下命令，但请替换为你的订阅 ID、资源组和 ASE 名称。  
 
 ```azurepowershell
-armclient login Mooncake
+$env:ARMCLIENT_ENV="MOONCAKE"
+armclient login
 armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
 ```
 

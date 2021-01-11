@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev , devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
-ms.date: 10/09/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: tomfitz
-ms.openlocfilehash: 49decb05d95a6e67233b4f7a6696f35c490ee1bd
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: a5f98bbc0824e2a93bd57a0e5908cf0c8fbfece9
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937185"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021635"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>如何：通过 Azure PowerShell 使用证书创建服务主体
 
@@ -72,7 +72,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $sp.Applic
 
 可以使用 **ResourceGroupName** 参数将角色分配范围限制为特定资源组。 还可以使用 **ResourceType** 和 **ResourceName** 参数将范围限制为特定资源。 
 
-如果**未使用 Windows 10 或 Windows Server 2016**，需要从 Microsoft 脚本中心下载[自签名证书生成器](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/)。 解压其内容，并导入所需的 cmdlet。
+如果 **未使用 Windows 10 或 Windows Server 2016**，需要从 Microsoft 脚本中心下载 [自签名证书生成器](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/)。 解压其内容，并导入所需的 cmdlet。
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate
@@ -97,8 +97,8 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 $TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
 $ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).ApplicationId
 
- $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -eq "CN=exampleappScriptCert" }).Thumbprint
- Connect-AzAccount -ServicePrincipal `
+$Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -eq "CN=exampleappScriptCert" }).Thumbprint
+Connect-AzAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId `
@@ -127,7 +127,7 @@ Param (
  Connect-AzAccount -Environment AzureChinaCloud
  Import-Module Az.Resources
  Set-AzContext -Subscription $SubscriptionId
- 
+
  $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
 
  $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
@@ -147,7 +147,7 @@ Param (
     $NewRole = Get-AzRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
- 
+
  $NewRole
 ```
 
@@ -156,13 +156,13 @@ Param (
 
 ```powershell
 Param (
- 
+
  [Parameter(Mandatory=$true)]
  [String] $CertPath,
 
  [Parameter(Mandatory=$true)]
  [String] $CertPlainPassword,
- 
+
  [Parameter(Mandatory=$true)]
  [String] $ApplicationId,
 

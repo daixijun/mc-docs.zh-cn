@@ -3,19 +3,19 @@ title: Azure Analysis Services 服务器别名 | Azure
 description: 了解如何创建 Azure Analysis Services 服务器名称别名。 然后，用户可以使用较短的别名，而不是服务器名称连接到服务器。
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 06/16/2020
+origin.date: 12/01/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8197739a732f7d7f12baa483f620421348990c27
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 5dd1e157455ee4602fd46dc131fef8e042e06275
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92469958"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023034"
 ---
 # <a name="alias-server-names"></a>服务器别名
 
@@ -34,7 +34,7 @@ ms.locfileid: "92469958"
 
 从客户端进行连接时，服务器别名是使用 **link://** 协议格式输入的。 例如，在 Power BI Desktop 中：
 
-:::image type="content" source="media/analysis-services-alias/aas-alias-connect-pbid.png" alt-text="使用链接格式的别名":::
+:::image type="content" source="media/analysis-services-alias/aas-alias-connect-pbid.png" alt-text="Power BI Desktop 连接":::
 
 ## <a name="create-an-alias"></a>创建别名
 
@@ -57,7 +57,7 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## <a name="see-also"></a>另请参阅
 
-[客户端库](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
+[客户端库](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)   
 [从 Power BI Desktop 进行连接](analysis-services-connect-pbi.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

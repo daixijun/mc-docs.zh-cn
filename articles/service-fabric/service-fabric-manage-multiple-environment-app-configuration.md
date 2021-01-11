@@ -4,16 +4,16 @@ description: Azure Service Fabric 应用程序可以在规模为一台计算机�
 ms.topic: conceptual
 origin.date: 02/23/2018
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: cb3e54e47a087ad0b9ebbbda20b788f82585f30f
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: bfe5a35bb6fb0f6c509d3d62ffcb87eddcc81593
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655166"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021974"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>管理多个环境的应用程序
 

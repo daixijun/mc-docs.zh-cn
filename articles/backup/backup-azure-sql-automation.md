@@ -4,15 +4,15 @@ description: 使用 Azure 备份与 PowerShell 备份和还原 Azure VM 中的 S
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 12/04/2019
-ms.date: 11/17/2020
+ms.date: 01/07/2021
 ms.author: v-johya
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: f3b6f5182a4d7b355e71c6f32a7b256bd5b351b5
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 0762b3262c9b3bcb5d56315ed0c114319ccdbe84
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977613"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022839"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>使用 PowerShell 备份和还原 Azure VM 中的 SQL 数据库
 
@@ -271,7 +271,7 @@ Azure 备份可以还原 Azure VM 上运行的 SQL Server 数据库，如下所�
 * 使用事务日志备份还原到特定的日期或时间（精确到秒）。 Azure 备份可自动确定相应的完整备份、差异备份和日志链备份，这些是根据所选时间进行还原所必需的。
 * 还原特定的完整备份或差异备份，这样就可以还原到特定的恢复点。
 
-在还原 SQL 数据库之前，请查看[此处](restore-sql-database-azure-vm.md#prerequisites)所述的先决条件。
+在还原 SQL 数据库之前，请查看[此处](restore-sql-database-azure-vm.md#restore-prerequisites)所述的先决条件。
 
 首先使用 [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) PowerShell cmdlet 提取相关的已备份 SQL 数据库。
 

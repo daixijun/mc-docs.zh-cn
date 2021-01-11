@@ -4,14 +4,14 @@ description: 演示如何在 Service Fabric 中使用应用程序的环境变量
 author: rockboyfor
 ms.topic: conceptual
 origin.date: 12/06/2017
-ms.date: 02/24/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: ebc19bb6df695795b49de1c830d23c6d3a872bee
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 807784d976eba621b28ade5f126de392994a35d8
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540413"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022394"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>如何在 Service Fabric 中指定服务的环境变量
 

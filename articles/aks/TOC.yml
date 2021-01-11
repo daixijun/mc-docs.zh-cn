@@ -10,7 +10,7 @@
 - name: 快速入门
   expanded: true
   items:
-    - name: 创建 AKS 群集
+    - name: 部署 AKS 群集
       expanded: true
       items:
         - name: 使用 Azure CLI
@@ -118,8 +118,12 @@
           href: upgrade-cluster.md
         - name: 使用运行时间 SLA
           href: uptime-sla.md
+        - name: 使用邻近放置组
+          href: reduce-latency-ppg.md
         - name: 升级节点映像
           href: node-image-upgrade.md
+        - name: 使用 GitHub Actions 自动升级节点映像
+          href: node-upgrade-github-actions.md
         - name: 处理节点 OS 更新
           href: node-updates-kured.md
         - name: 将 ACR 与 AKS 群集集成
@@ -258,9 +262,6 @@
           href: spark-job.md
         - name: 使用 GPU
           href: gpu-cluster.md
-        - name: 使用 Azure Database for PostgreSQL
-          href: ../postgresql/concepts-aks.md
-          maintainContext: true
         - name: 使用 Azure API 管理
           href: ../api-management/api-management-kubernetes.md
           maintainContext: true
@@ -290,8 +291,6 @@
               href: servicemesh-consul-install.md
     - name: DevOps
       items:
-        - name: Jenkins 持续部署
-          href: jenkins-continuous-deployment.md
         - name: 适用于 Kubernetes 的 GitHub 操作
           href: ../aks/kubernetes-action.md
     - name: 疑难解答
@@ -335,5 +334,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
     - name: 视频
       href: 'https://www.azure.cn/video-center/'
-    - name: 常见问题
+    - name: 常见问题解答
       href: faq.md

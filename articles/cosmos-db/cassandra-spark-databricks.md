@@ -11,12 +11,12 @@ ms.date: 12/14/2020
 ms.testscope: yes|no
 ms.testdate: 12/14/2020null
 ms.author: v-yeche
-ms.openlocfilehash: b264ce26d765ae214694325e5d63d0ce14153958
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 1a1a55a1aa4f1f2b5787146d6d6f03d94332b699
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850909"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023103"
 ---
 <!--Pending form PM review-->
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>从 Azure Databricks 访问 Azure Cosmos DB Cassandra API 数据
@@ -38,15 +38,15 @@ ms.locfileid: "96850909"
 
 * **Cassandra 连接器的 Cassandra API 实例配置：**
 
-  Cassandra API 连接器要求将 Cassandra 连接的详细信息作为 spark 上下文的一部分进行初始化。 当启动 Databricks 笔记本时，已初始化 spark 上下文，不建议停止和重新初始化。 一种解决方案是在群集 spark 配置中添加群集级别的 Cassandra API 实例配置。 这是每个群集的一次性活动。 将以下代码添加到 Spark 配置，作为空格分隔的键值对：
+    Cassandra API 连接器要求将 Cassandra 连接的详细信息作为 spark 上下文的一部分进行初始化。 当启动 Databricks 笔记本时，已初始化 spark 上下文，不建议停止和重新初始化。 一种解决方案是在群集 spark 配置中添加群集级别的 Cassandra API 实例配置。 这是每个群集的一次性活动。 将以下代码添加到 Spark 配置，作为空格分隔的键值对：
 
-  ```scala
-  spark.cassandra.connection.host YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmos.azure.cn
-  spark.cassandra.connection.port 10350
-  spark.cassandra.connection.ssl.enabled true
-  spark.cassandra.auth.username YOUR_COSMOSDB_ACCOUNT_NAME
-  spark.cassandra.auth.password YOUR_COSMOSDB_KEY
-  ```
+    ```scala
+    spark.cassandra.connection.host YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmos.azure.cn
+    spark.cassandra.connection.port 10350
+    spark.cassandra.connection.ssl.enabled true
+    spark.cassandra.auth.username YOUR_COSMOSDB_ACCOUNT_NAME
+    spark.cassandra.auth.password YOUR_COSMOSDB_KEY
+    ```
 
 ## <a name="add-the-required-dependencies"></a>添加必需的依赖项
 

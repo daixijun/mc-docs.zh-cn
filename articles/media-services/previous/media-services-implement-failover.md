@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 09/28/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 643e6a715a4bd8b980b081355d0b500218be328e
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 695c25259b2b358ad67e9a48be2cfa37f0baf232
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245475"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023001"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>使用媒体服务 v2 实现故障转移流式处理
 

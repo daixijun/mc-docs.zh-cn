@@ -6,19 +6,17 @@ ms.author: v-jay
 ms.service: azure-stack
 ms.topic: how-to
 origin.date: 12/09/2019
-ms.date: 05/18/2020
+ms.date: 01/11/2021
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: b085f9a1163de3c40a790de467389edc05853735
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 9097ad9bb07cf52536fe0e8e8a5336a16a69e9ee
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422830"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894419"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>如何管理 Azure Stack Hub 上的事件中心
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 事件中心管理体验允许你控制服务并直观显示其状态和警报。 
 

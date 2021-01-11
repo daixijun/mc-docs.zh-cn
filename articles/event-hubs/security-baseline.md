@@ -5,15 +5,15 @@ author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
 origin.date: 03/25/2020
-ms.date: 11/05/2020
+ms.date: 01/05/2021
 ms.author: v-tawe
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0e272a9df5f4b3980639e26f0825c18b660710ab
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: f0b24213f067949964fa60a1830fd318ab469868
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375703"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874887"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>事件中心的 Azure 安全基线
 
@@ -370,7 +370,7 @@ https://azuremarketplace.microsoft.com/marketplace/?term=Firewall -->
 
 **责任**：客户
 
-### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：记录管理帐户的可疑活动并发出警报
+### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7：记录来自管理帐户的可疑活动并对其发出警报
 
 **指导**：当环境中出现可疑或不安全的活动时，可使用 Azure Active Directory (AD) Privileged Identity Management (PIM) 生成日志和警报。 使用 Azure AD 风险检测查看有关风险用户行为的警报和报告。 如需其他日志记录，请将 Azure 安全中心风险检测警报发送到 Azure Monitor 中，并使用操作组配置自定义警报/通知。
 

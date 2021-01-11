@@ -4,15 +4,15 @@ description: 在数分钟内将第一个 PHP Hello World 部署到 Azure 应用�
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 origin.date: 08/01/2020
-ms.date: 10/19/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 1c47d0c3d156df087bef31d2b4cd86a88a967fcd
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 5c62f511a995b78944ad0c8402d629f69b25f8c1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170528"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022962"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>在 Azure 应用服务中创建 PHP Web 应用
 
@@ -80,9 +80,9 @@ php -S localhost:8080
 
 ## <a name="create-a-web-app"></a>创建 Web 应用
 
-在本地终端窗口中，使用 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。 
+在本地终端窗口中，使用 [`az webapp create`](https://docs.azure.cn/cli/webapp#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。 
 
-在以下示例中，将 `<app-name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `PHP|7.4`。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes`](/cli/webapp?view=azure-cli-latest#az-webapp-list-runtimes)。 
+在以下示例中，将 `<app-name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `PHP|7.4`。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes`](https://docs.azure.cn/cli/webapp#az_webapp_list_runtimes)。 
 
 ```azurecli
 # Bash
@@ -136,7 +136,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
 Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
 Total 2 (delta 1), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '25f18051e9'.
 remote: Generating deployment script.
@@ -152,7 +152,7 @@ remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.chinacloudsites.cn/&lt;app-name&gt;.git
-   cc39b1e..25f1805  master -> master
+   cc39b1e..25f1805  main -> main
 </pre>
 
 ## <a name="browse-to-the-app"></a>浏览到应用
@@ -181,7 +181,7 @@ echo "Hello Azure!";
 
 ```bash
 git commit -am "updated output"
-git push azure master
+git push azure main
 ```
 
 完成部署后，返回到“浏览到应用”步骤期间打开的浏览器窗口，然后刷新页面。

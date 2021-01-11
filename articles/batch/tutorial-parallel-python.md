@@ -1,20 +1,21 @@
 ---
-title: 使用 Python API 运行并行工作负荷
+title: 教程 - 使用 Python API 运行并行工作负载
 description: 教程 - 在 Azure Batch 中使用 Batch Python 客户端库通过 ffmpeg 并行处理媒体文件
 ms.devlang: python
+ms.service: batch
 ms.topic: tutorial
 origin.date: 11/29/2018
-ms.date: 08/24/2020
+ms.date: 01/11/2021
 ms.testscope: yes|no
 ms.testdate: 08/24/2020null
 ms.author: v-yeche
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: cb35da33e6fc8ff7abebdd10aacaed0c433876b0
-ms.sourcegitcommit: c4b0a0ddd52ceca82cfdbdbdf07aad00d0f3ed03
+ms.openlocfilehash: 79b979b44cda2ce867c2e3e688c2dab5992a98a9
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88714511"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023172"
 ---
 <!--Verified successfully-->
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>教程：使用 Python API 通过 Azure Batch 运行并行工作负荷
@@ -298,7 +299,7 @@ while datetime.datetime.now() < timeout_expiration:
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何：
+在本教程中，你了解了如何执行以下操作：
 
 > [!div class="checklist"]
 > * 通过 Batch 和存储帐户进行身份验证
@@ -313,5 +314,4 @@ while datetime.datetime.now() < timeout_expiration:
 > [!div class="nextstepaction"]
 > [Batch Python 示例](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 
-<!-- Update_Description: new article about tutorial parallel python -->
-<!--NEW.date: 08/24/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

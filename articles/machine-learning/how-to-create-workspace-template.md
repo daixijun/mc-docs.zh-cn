@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: v-yiso
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 2c7cd3917edcac4cf65f7d87b770e6286164df4f
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 18b1eaf209ee1ea7bcb927fdffc3051fd566c2bf
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105280"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023099"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>使用 Azure 资源管理器模板创建 Azure 机器学习的工作区
 
@@ -28,7 +28,7 @@ ms.locfileid: "97105280"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+* 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 若要在 CLI 中使用模板，需要安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) 或 [Azure CLI](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
 
@@ -41,7 +41,7 @@ ms.locfileid: "97105280"
 
 ## <a name="limitations"></a>限制
 
-* 创建新工作区时，你可以允许工作区自动创建所需的 Azure 服务，也可以提供现有服务。 提供现有服务时，这些服务必须与工作区位于同一 Azure 订阅中。
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="workspace-resource-manager-template"></a>工作区资源管理器模板
 

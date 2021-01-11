@@ -5,17 +5,17 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 10/30/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 11/16/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f7b7050190f79990a41995e857dbd5e2617a6dd6
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: e1cc18a50fd2f337c29a428d403b347cb1150c12
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004004"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021222"
 ---
 <!--Verified successfully-->
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>适用于 Azure 资源管理器的 Azure 安全基线
@@ -65,7 +65,7 @@ ms.locfileid: "97004004"
 <!--Not Avaialble on Alternatively, you can enable and on-board data to Azure Sentinel or a third-party SIEM.-->
 <!--Not Avaialble on - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)-->
 
-- [Log Analytics 查询入门](../../azure-monitor/log-query/get-started-portal.md) 
+- [Log Analytics 查询入门](../../azure-monitor/log-query/log-analytics-tutorial.md) 
 
 - [如何在 Azure Monitor 中执行自定义查询](../../azure-monitor/log-query/get-started-queries.md)
 
@@ -96,9 +96,9 @@ ms.locfileid: "97004004"
 
 **指导**：借助 Azure 基于角色的访问控制 (RBAC)，可以通过角色分配管理对 Azure 资源的访问。 可以将这些角色分配给用户、组服务主体和托管标识。 某些资源具有预定义的内置角色，可以通过工具（例如 Azure CLI、Azure PowerShell 或 Azure 门户）来清点或查询这些角色。
 
-- [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Azure 安全中心监视**：是
 
@@ -276,7 +276,7 @@ ms.locfileid: "97004004"
 
 - [如何使用 Azure Resource Graph 创建查询](../../governance/resource-graph/first-query-portal.md)
 
-- [如何查看 Azure 订阅](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [如何查看 Azure 订阅](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [了解 Azure RBAC](../../role-based-access-control/overview.md)
 
@@ -377,7 +377,7 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 还可以使用来自 Azure 安全中心的建议作为 Azure 资源的安全配置基线。
 
-- [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
+- [如何查看可用的 Azure Policy 别名](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [教程：创建和管理策略以强制实施符合性](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -411,7 +411,7 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 **指导**：使用 Azure DevOps 安全地存储和管理代码，例如自定义 Azure Policy 定义、Azure 资源管理器模板和 Desired State Configuration 脚本。 若要访问在 Azure DevOps 中管理的资源，可以向特定用户、内置安全组或 Azure Active Directory (Azure AD)（如果与 Azure DevOps 集成）中定义的组或 Active Directory（如果与 TFS 集成）授予或拒绝授予权限。
 
-- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [关于 Azure DevOps 中的权限和组](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
 
@@ -473,7 +473,7 @@ Azure 资源管理器能够以 JavaScript 对象表示法 (JSON) 导出模板，
 
 **指导**：使用 Azure DevOps 安全地存储和管理代码，例如自定义 Azure Policy 定义、Azure 资源管理器模板和 Desired State Configuration 脚本。 若要访问在 Azure DevOps 中管理的资源，可以向特定用户、内置安全组或 Azure Active Directory (Azure AD)（如果与 Azure DevOps 集成）中定义的组或 Active Directory（如果与 TFS 集成）授予或拒绝授予权限。
 
-- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [关于 Azure DevOps 中的权限和组](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
 

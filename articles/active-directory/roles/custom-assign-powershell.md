@@ -6,23 +6,23 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5321c9fcd996a9d2708040aee9471344d645835b
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 70dbf309c48b41395e1c5e633279237eb1bba41a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326913"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023042"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>在 Azure Active Directory 中使用 PowerShell 分配具有资源范围的自定义角色
 
-本文介绍如何在 Azure Active Directory (Azure AD) 中创建组织范围的角色分配。 在组织范围分配角色会跨 Azure AD 组织授予访问权限。 若要创建范围为单一 Azure AD 资源的角色分配，请参阅[如何创建自定义角色并在资源范围内进行分配](custom-create.md)。本文使用 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) 模块。
+本文介绍如何在 Azure Active Directory (Azure AD) 中创建组织范围的角色分配。 在组织范围分配角色会跨 Azure AD 组织授予访问权限。 若要创建范围为单一 Azure AD 资源的角色分配，请参阅[如何创建自定义角色并在资源范围内进行分配](custom-create.md)。本文使用 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/module/azuread/#directory_roles) 模块。
 
 有关 Azure AD 管理员角色的详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](permissions-reference.md)。
 
@@ -69,7 +69,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-若要将角色分配给服务主体而不是用户，请使用 [Get-AzureADMSServicePrincipal cmdlet](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0)。
+若要将角色分配给服务主体而不是用户，请使用 [Get-AzureADMSServicePrincipal cmdlet](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal)。
 
 ## <a name="operations-on-roledefinition"></a>在 RoleDefinition 上的操作
 

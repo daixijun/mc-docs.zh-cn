@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: how-to
 origin.date: 06/10/2019
-ms.date: 09/07/2020
+ms.date: 01/11/2021
 ms.author: v-jay
-ms.openlocfilehash: 7f0babaa45d2bc52f91378c519a3b4b9591c8500
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: f4ab4739789ec3b89faa002955b08814359525a7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413983"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023213"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>使用媒体服务编码时对视频进行子剪辑 - REST
 
@@ -50,7 +50,7 @@ ms.locfileid: "89413983"
 1. 使用你的转换名称更新“transformName”环境变量的值。 
 1. 选择“正文”  选项卡，并使用输出资产名称更新“myOutputAsset”。
 
-    ```
+    ```json
     {
       "properties": {
         "description": "A Job with transform cb9599fb-03b3-40eb-a2ff-7ea909f53735 and single clip.",
@@ -59,8 +59,8 @@ ms.locfileid: "89413983"
           "@odata.type": "#Microsoft.Media.JobInputHttp",
           "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
           "files": [
-                "Ignite-short.mp4"
-            ],
+            "Ignite-short.mp4"
+          ],
           "start": {
             "@odata.type": "#Microsoft.Media.AbsoluteClipTime",
             "time": "PT10S"
@@ -83,7 +83,7 @@ ms.locfileid: "89413983"
     ```
 1. 按“发送”。 
 
-    你会看到**响应**，其中包含有关已创建和提交的作业以及作业状态的信息。 
+    你会看到 **响应**，其中包含有关已创建和提交的作业以及作业状态的信息。 
 
 ## <a name="next-steps"></a>后续步骤
 

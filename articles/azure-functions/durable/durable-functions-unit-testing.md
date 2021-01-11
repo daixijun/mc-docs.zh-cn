@@ -1,19 +1,14 @@
 ---
 title: Azure Durable Functions 单元测试
 description: 了解如何进行 Durable Functions 单元测试。
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
-origin.date: 11/03/2019
-ms.date: 11/19/2019
-ms.author: v-junlch
-ms.openlocfilehash: c52364ef707f1fe2f5ad8f77d5eff24c2710c3ed
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 01/04/2021
+ms.openlocfilehash: 71343c36c0e8450e8b5d73142d8d008759d515d4
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "74178977"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021230"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 单元测试
 
@@ -30,7 +25,7 @@ ms.locfileid: "74178977"
 
 * Durable Functions
 
-* [xUnit](https://xunit.github.io/) - 测试框架
+* [xUnit](https://github.com/xunit/xunit) - 测试框架
 
 * [moq](https://github.com/moq/moq4) - 模拟框架
 
@@ -59,11 +54,10 @@ ms.locfileid: "74178977"
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using System;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 
@@ -74,12 +68,12 @@ namespace VSSample
         [FunctionName("HttpStart")]
         public static async Task<HttpResponseMessage> Run(
             [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
-            [OrchestrationClient] DurableOrchestrationClientBase starter,
+            [DurableClient] IDurableClient starter,
             string functionName,
             ILogger log)
         {
             // Function input comes from the request content.
-            dynamic eventData = await req.Content.ReadAsAsync<object>();
+            object eventData = await req.Content.ReadAsAsync<object>();
             string instanceId = await starter.StartNewAsync(functionName, eventData);
 
             log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
@@ -171,7 +165,7 @@ namespace VSSample.Tests
     using System.Text;
     using System.Threading.Tasks;
     using System.Net.Http.Headers;
-    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Extensions.DurableTask;
     using Microsoft.Extensions.Logging;
     using Moq;
     using Xunit;
@@ -189,16 +183,16 @@ namespace VSSample.Tests
             var loggerMock = new Mock<ILogger>();
 
             // Mock DurableOrchestrationClientBase
-            var durableOrchestrationClientBaseMock = new Mock<DurableOrchestrationClientBase>();
+            var clientMock = new Mock<IDurableClient>();
 
             // Mock StartNewAsync method
-            durableOrchestrationClientBaseMock.
-                Setup(x => x.StartNewAsync(functionName, It.IsAny<object>())).
+            clientMock.
+                Setup(x => x.StartNewAsync(functionName, It.IsAny<string>(), It.IsAny<object>())).
                 ReturnsAsync(instanceId);
 
             // Mock CreateCheckStatusResponse method
-            durableOrchestrationClientBaseMock
-                .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId))
+            clientMock
+                .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId, false))
                 .Returns(new HttpResponseMessage
                 {
                     StatusCode = HttpStatusCode.OK,
@@ -216,7 +210,7 @@ namespace VSSample.Tests
                     Content = new StringContent("{}", Encoding.UTF8, "application/json"),
                     RequestUri = new Uri("http://localhost:7071/orchestrators/E1_HelloSequence"),
                 },
-                durableOrchestrationClientBaseMock.Object,
+                clientMock.Object,
                 functionName,
                 loggerMock.Object);
 
@@ -243,6 +237,7 @@ namespace VSSample.Tests
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 
 namespace VSSample
 {
@@ -250,7 +245,7 @@ namespace VSSample
     {
         [FunctionName("E1_HelloSequence")]
         public static async Task<List<string>> Run(
-            [OrchestrationTrigger] DurableOrchestrationContextBase context)
+            [OrchestrationTrigger] IDurableOrchestrationContext context)
         {
             var outputs = new List<string>();
 
@@ -263,7 +258,7 @@ namespace VSSample
         }
 
         [FunctionName("E1_SayHello")]
-        public static string SayHello([ActivityTrigger] DurableActivityContextBase context)
+        public static string SayHello([ActivityTrigger] IDurableActivityContext context)
         {
             string name = context.GetInput<string>();
             return $"Hello {name}!";
@@ -316,7 +311,7 @@ namespace VSSample
 namespace VSSample.Tests
 {
     using System.Threading.Tasks;
-    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Extensions.DurableTask;
     using Moq;
     using Xunit;
 
@@ -325,12 +320,12 @@ namespace VSSample.Tests
         [Fact]
         public async Task Run_returns_multiple_greetings()
         {
-            var durableOrchestrationContextMock = new Mock<DurableOrchestrationContextBase>();
-            durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
-            durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Seattle")).ReturnsAsync("Hello Seattle!");
-            durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello_DirectInput", "London")).ReturnsAsync("Hello London!");
+            var mockContext = new Mock<IDurableOrchestrationContext>();
+            mockContext.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
+            mockContext.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Seattle")).ReturnsAsync("Hello Seattle!");
+            mockContext.Setup(x => x.CallActivityAsync<string>("E1_SayHello_DirectInput", "London")).ReturnsAsync("Hello London!");
 
-            var result = await HelloSequence.Run(durableOrchestrationContextMock.Object);
+            var result = await HelloSequence.Run(mockContext.Object);
 
             Assert.Equal(3, result.Count);
             Assert.Equal("Hello Tokyo!", result[0]);
@@ -354,6 +349,7 @@ namespace VSSample.Tests
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 
 namespace VSSample
 {
@@ -361,7 +357,7 @@ namespace VSSample
     {
         [FunctionName("E1_HelloSequence")]
         public static async Task<List<string>> Run(
-            [OrchestrationTrigger] DurableOrchestrationContextBase context)
+            [OrchestrationTrigger] IDurableOrchestrationContext context)
         {
             var outputs = new List<string>();
 
@@ -374,7 +370,7 @@ namespace VSSample
         }
 
         [FunctionName("E1_SayHello")]
-        public static string SayHello([ActivityTrigger] DurableActivityContextBase context)
+        public static string SayHello([ActivityTrigger] IDurableActivityContext context)
         {
             string name = context.GetInput<string>();
             return $"Hello {name}!";
@@ -397,7 +393,7 @@ namespace VSSample
 
 namespace VSSample.Tests
 {
-    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Extensions.DurableTask;
     using Xunit;
     using Moq;
 
@@ -406,7 +402,7 @@ namespace VSSample.Tests
         [Fact]
         public void SayHello_returns_greeting()
         {
-            var durableActivityContextMock = new Mock<DurableActivityContextBase>();
+            var durableActivityContextMock = new Mock<IDurableActivityContext>();
             durableActivityContextMock.Setup(x => x.GetInput<string>()).Returns("John");
             var result = HelloSequence.SayHello(durableActivityContextMock.Object);
             Assert.Equal("Hello John!", result);
@@ -421,11 +417,11 @@ namespace VSSample.Tests
     }
 }
 ```
+
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [详细了解 xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
+> [详细了解 xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
 > 
 > [详细了解 moq](https://github.com/Moq/moq4/wiki/Quickstart)
 
-<!-- Update_Description: wording update -->

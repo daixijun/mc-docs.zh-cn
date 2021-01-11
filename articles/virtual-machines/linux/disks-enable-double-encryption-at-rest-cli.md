@@ -2,18 +2,18 @@
 title: 启用静态双重加密 - Azure CLI - 托管磁盘
 description: 使用 Azure CLI 为托管磁盘数据启用静态双重加密。
 author: Johnnytechn
-ms.date: 12/01/2020
+ms.date: 01/05/2021
 ms.topic: how-to
 ms.author: v-johya
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: e4201b8339fb322925307e2ca4c4aafebf7e0f7e
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 7802ba39e080463a8be46bad4a598bf9721610c8
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746939"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023194"
 ---
 # <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>使用 Azure CLI 为托管磁盘启用静态双重加密
 
@@ -49,7 +49,7 @@ Azure 磁盘存储支持对托管磁盘的静态双重加密。 有关静态双�
 1.    创建 DiskEncryptionSet，并将 encryptionType 设置为 EncryptionAtRestWithPlatformAndCustomerKeys。 在 Azure 资源管理器 (ARM) 模板中使用 API 版本 2020-05-01。 
     
         ```azurecli
-        az group deployment create -g $rgName \
+        az deployment group create -g $rgName \
        --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/DoubleEncryption/CreateDiskEncryptionSetForDoubleEncryption.json" \
         --parameters "diskEncryptionSetName=$diskEncryptionSetName" "encryptionType=EncryptionAtRestWithPlatformAndCustomerKeys" "keyVaultId=$keyVaultId" "keyVaultKeyUrl=$keyVaultKeyUrl" "region=$location"
         ```

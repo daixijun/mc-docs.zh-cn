@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e7ce32b214dda470f52ea3a0c4d3a7457bfa30fa
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: e5d322c4526818cc81d488129af6f82251947421
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301124"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021300"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>检查和编辑示例文件
 
@@ -29,7 +29,7 @@ ms.locfileid: "96301124"
 1. 编辑 operations.json 文件：
     * 将链接更改为图拓扑：
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 
     * 在 `GraphInstanceSet` 下，编辑图拓扑的名称，使其与上一个链接中的值匹配：
 
@@ -91,7 +91,7 @@ ms.locfileid: "96301124"
    Executing operation GraphTopologyList
    -----------------------  Request: GraphTopologyList  --------------------------------------------------
    {
-   "@apiVersion": "1.0"
+   "@apiVersion": "2.0"
    }
    ---------------  Response: GraphTopologyList - Status: 200  ---------------
    {
@@ -109,7 +109,7 @@ ms.locfileid: "96301124"
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
              "topologyName": "InferencingWithHttpExtension",

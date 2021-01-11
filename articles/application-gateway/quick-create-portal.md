@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 12/01/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: c9a60e7a6839d47a3a3d1c4a1f52ed0afc40f8ec
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 46e93992d1e48cca923bf51a09110667b39af8a5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507627"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023032"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure 门户
 
@@ -153,8 +153,9 @@ ms.locfileid: "96507627"
     - **资源组**：选择 **myResourceGroupAG** 作为资源组名称。
     - **虚拟机名称**：输入 *myVM* 作为虚拟机的名称。
     - **区域**：选择在其中创建了应用程序网关的同一区域。
-    - **用户名**：键入“azureuser”作为管理员用户名。
+    - **用户名**：为管理员用户名键入一个名称。
     - **密码**：键入密码。
+    - **公共入站端口**：无。
 4. 接受其他默认值，然后选择“下一步:**磁盘”** 。  
 5. 接受“磁盘”**选项卡的默认值**，然后选择“下一步:**网络”** 。
 6. 在“网络”选项卡上，验证是否已选择 **myVNet** 作为 **虚拟网络**，以及是否已将“子网”设置为 **myBackendSubnet**。 接受其他默认值，然后选择“下一步:**管理”** 。<br>应用程序网关可与其所在的虚拟网络外部的实例进行通信，但需要确保已建立 IP 连接。
@@ -203,7 +204,7 @@ ms.locfileid: "96507627"
    > [!div class="mx-imgBorder"]
    > ![添加后端服务器](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-6. 选择“保存”。
+6. 选择“保存” 。
 
 7. 等待部署完成之后再继续下一步。
 

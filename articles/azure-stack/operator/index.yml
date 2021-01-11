@@ -11,12 +11,12 @@ metadata:
   ms.author: v-jay
   origin.date: 04/13/2020
   ms.date: 12/07/2020
-  ms.openlocfilehash: 6e630c09ec7d32ad7ac765cfce13b101b253edd4
-  ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+  ms.openlocfilehash: 4bcd44af0faaad174f2a57573920d54c8fb1872d
+  ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/02/2020
-  ms.locfileid: "96507550"
+  ms.lasthandoff: 01/05/2021
+  ms.locfileid: "97894341"
 landingContent:
 - title: 关于 Azure Stack Hub
   linkLists:
@@ -24,8 +24,6 @@ landingContent:
     links:
     - text: 什么是 Azure Stack Hub？
       url: azure-stack-overview.md
-    - text: 什么是 Azure Stack HCI？
-      url: ../hci/overview.md
   - linkListType: whats-new
     links:
     - text: 安全更新
