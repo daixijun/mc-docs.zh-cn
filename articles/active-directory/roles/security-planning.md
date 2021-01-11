@@ -6,7 +6,7 @@ keywords: ''
 author: curtand
 manager: daveba
 ms.author: v-junlch
-ms.date: 12/08/2020
+ms.date: 01/07/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afe73f85ef711d6b52ca753d2aa1075e60f1e376
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 6ead7617d9eb8d65b620c9dea6066364049f8e61
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004085"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021897"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>确保 Azure AD 中混合部署和云部署的特权访问安全性
 
@@ -93,7 +93,7 @@ Azure AD Privileged Identity Management 包括在 Azure AD Premium P2 或 EMS E5
 * Exchange 管理员
 * SharePoint 管理员
 
-如果组织中没有 Azure AD Privileged Identity Management，可以使用 [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)。 请从全局管理员角色开始，因为全局管理员在组织订阅的所有云服务中拥有相同的权限。 无论这些角色是在哪个位置分配的（在 Microsoft 365 管理中心分配、在 Azure 门户分配或者通过 Microsoft PowerShell 的 Azure AD 模块分配），都会授予这些权限。
+如果组织中没有 Azure AD Privileged Identity Management，可以使用 [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember)。 请从全局管理员角色开始，因为全局管理员在组织订阅的所有云服务中拥有相同的权限。 无论这些角色是在哪个位置分配的（在 Microsoft 365 管理中心分配、在 Azure 门户分配或者通过 Microsoft PowerShell 的 Azure AD 模块分配），都会授予这些权限。
 
 删除这些角色不再需要的任何帐户。 然后，对分配给管理员角色的剩余帐户进行分类：
 
@@ -251,7 +251,7 @@ Azure 活动日志提供 Azure 中订阅级别事件的历史记录。 它提供
 * 模拟攻击
 * 凭据盗窃攻击，例如按键日志记录、哈希传递和票证传递
 
-部署特权访问工作站可以降低管理员在未经过强化的桌面环境中输入凭据时遇到的风险。 有关详细信息，请参阅[特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)。
+部署特权访问工作站可以降低管理员在未经过强化的桌面环境中输入凭据时遇到的风险。 
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>查看美国国家标准与技术协会提供的有关如何处理事件的建议
 
@@ -352,6 +352,10 @@ Azure 活动日志提供 Azure 中订阅级别事件的历史记录。 它提供
 #### <a name="review-admin-roles-in-azure-ad"></a>评审 Azure AD 中的管理员角色
 
 确定当前的内置 Azure AD 管理员角色是否仍为最新，并确保用户只充当所需的角色。 使用 Azure AD 时，可以分配不同的管理员来履行不同的职责。 有关详细信息，请参阅[在 Azure Active Directory 中分配管理员角色](permissions-reference.md)。
+
+#### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>审核那些可以管理已加入 Azure AD 的设备的用户
+
+有关详细信息，请参阅[如何配置联接到混合 Azure Active Directory 的设备](../devices/hybrid-azuread-join-plan.md)。
 
 #### <a name="review-members-of-built-in-microsoft-365-admin-roles"></a>审核[内置 Microsoft 365 管理员角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)的成员
 如果不使用 Microsoft 365，请跳过此步骤。

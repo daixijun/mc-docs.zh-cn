@@ -4,16 +4,16 @@ description: 了解在 Azure Stack Hub 中将脚本从 AzureRM 模块迁移到�
 author: WenJason
 ms.author: v-jay
 ms.topic: conceptual
-origin.date: 10/05/2020
-ms.date: 12/07/2020
+origin.date: 12/2/2020
+ms.date: 01/11/2021
 ms.reviewer: sijuman
-ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: 9a0b059a92979bfd2a328aa89a2c442d9063755c
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 7943bcd5b04803e15f3ac93fe0caf74f282eb004
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507180"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894445"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>在 Azure Stack Hub 中从 AzureRM 迁移到 Azure PowerShell Az
 
@@ -42,7 +42,7 @@ Get-InstalledModule -Name AzureRM -AllVersions
 
 若要安装 Azure PowerShell Az 模块，请执行以下步骤：
 
-* __建议__：[卸载 AzureRM 模块](https://docs.microsoft.com/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)。
+* **建议**：[卸载 AzureRM 模块](https://docs.microsoft.com/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)。
   请确保删除所有已安装的 AzureRM 版本，不只是最新版本。
 * [安装 Az 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83392121e0f060c2bea5f500df525462cef27666
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 8d354f0732fcf980e428879df17a903231797c82
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593742"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022089"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android 上 Azure Active Directory 基于证书的身份验证
 
@@ -66,7 +66,7 @@ ms.locfileid: "89593742"
 有关详细信息，请参阅[自定义 AD FS 登录页](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11))。
 
 某些 Office 应用（启用了新式身份验证）在请求中向 Azure AD 发送“prompt=login”。 默认情况下，Azure AD 会将向 ADFS 发出的请求中的“prompt=login”转换为“wauth=usernamepassworduri”（要求 ADFS 执行 U/P 身份验证）和“wfresh=0”（要求 ADFS 忽略 SSO 状态并执行全新的身份验证）  。 如果想要为这些应用启用基于证书的身份验证，需要修改默认 Azure AD 行为。 将联盟域设置中的“PromptLoginBehavior”设置为“已禁用”。 
-可使用 [MSOLDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet 执行此任务：
+可使用 [MSOLDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings) cmdlet 执行此任务：
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 

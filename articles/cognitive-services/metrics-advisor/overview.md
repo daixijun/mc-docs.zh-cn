@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: overview
-ms.date: 10/22/2020
+ms.date: 01/04/2021
 ms.author: v-johya
-ms.openlocfilehash: 95eed459e6cadbd28eeeff2c35399e91ed694e7b
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: b0806d8174b8ce34514701cd8dd87b1e25fe6336
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472811"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022208"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>什么是指标顾问（预览版）？ 
 
@@ -53,17 +53,15 @@ ms.locfileid: "92472811"
 此工作流非常简单：载入数据后，可以微调异常检测，并创建适合场景的配置。
 
 1. 为指标顾问[创建 Azure 资源](../cognitive-services-apis-create-account.md)。 
-2. 尝试使用演示网站查看具有预配置示例数据的示例指标顾问实例。 
-3. 使用 Web 门户生成首个监视器。
+2. 使用 Web 门户生成首个监视器。
     1. 载入数据
     2. 微调异常情况检测
     3. 订阅警报
     4. 查看诊断见解
-1. 使用 REST API 自定义实例。
+3. 使用 REST API 自定义实例。
 
 ## <a name="next-steps"></a>后续步骤
 
-* 尝试[演示网站](quickstarts/explore-demo.md)。
 * 浏览快速入门：[监视你关于 web 的第一个指标](quickstarts/web-portal.md)。
-* 浏览快速入门：[使用 REST API 自定义解决方案](quickstarts/rest-api.md)。
+* 浏览快速入门：[使用 REST API 自定义解决方案](./quickstarts/rest-api-and-client-library.md)。
 

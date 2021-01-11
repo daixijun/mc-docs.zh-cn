@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 03/13/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: 11147a894848788a5394002c645ee7dc492841e6
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 430a019e75396465b6a0754d3829accbe70cffa6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328483"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022109"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 到 Azure 的灾难恢复体系结构
 

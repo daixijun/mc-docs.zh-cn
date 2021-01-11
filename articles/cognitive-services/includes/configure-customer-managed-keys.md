@@ -6,28 +6,28 @@ services: cognitive-services
 author: Johnnytechn
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/23/2020
+ms.date: 01/04/2021
 ms.author: v-johya
-ms.openlocfilehash: 18b5b10e7bb45b55c74bc8d1b76fa4fc5809256c
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 59c6e93475250e91f9a7b8a2968af8463538b59e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "93106455"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024199"
 ---
-## <a name="customer-managed-keys-with-azure-key-vault"></a>客户管理的密钥与 Azure Key Vault
+## <a name="customer-managed-keys-with-azure-key-vault"></a>客户管理的密钥和 Azure Key Vault
 
-必须使用 Azure Key Vault 来存储客户管理的密钥。 可以创建自己的密钥并将其存储在 Key Vault 中，或者使用 Azure Key Vault API 来生成密钥。 认知服务资源和密钥保管库必须在同一个区域和同一个 Azure Active Directory (Azure AD) 租户中，但可以在不同的订阅中。 有关 Azure Key Vault 的详细信息，请参阅[什么是 Azure Key Vault？](/key-vault/key-vault-overview)。
+必须使用 Azure Key Vault 来存储客户管理的密钥。 可以创建自己的密钥并将其存储在 Key Vault 中，或者使用 Azure Key Vault API 来生成密钥。 认知服务资源和密钥保管库必须在同一个区域和同一个 Azure Active Directory (Azure AD) 租户中，但可以在不同的订阅中。 有关 Azure Key Vault 的详细信息，请参阅[什么是 Azure Key Vault？](../../key-vault/general/overview.md)。
 
 创建新的认知服务资源时，将始终使用 Microsoft 管理的密钥对其进行加密。 当创建资源时，无法启用客户管理的密钥。 客户管理的密钥存储在 Azure Key Vault 中，必须使用访问策略对密钥保管库进行预配，这些策略将密钥权限授予与认知服务资源关联的托管标识。 只有在使用 CMK 所需的定价层创建资源后，托管标识才可用。
 
-启用客户管理的密钥还会启用系统分配的[托管标识](/active-directory/managed-identities-azure-resources/overview)，这是 Azure AD 的一项功能。 启用系统分配的托管标识后，此资源将注册到 Azure Active Directory。 注册后，将向托管标识授予在设置客户管理的密钥期间选择的 Key Vault 的访问权限。 
+启用客户管理的密钥还会启用系统分配的[托管标识](../../active-directory/managed-identities-azure-resources/overview.md)，这是 Azure AD 的一项功能。 启用系统分配的托管标识后，此资源将注册到 Azure Active Directory。 注册后，将向托管标识授予在设置客户管理的密钥期间选择的 Key Vault 的访问权限。 
 
 > [!IMPORTANT]
 > 如果禁用系统分配的托管标识，则会删除对密钥保管库的访问权限，而使用客户密钥加密的任何数据都将不再可供访问。 任何依赖于此数据的功能都会失效。
 
 > [!IMPORTANT]
-> 托管标识当前不支持跨目录方案。 在 Azure 门户中配置客户管理的密钥时，系统会在幕后自动分配一个托管标识。 如果随后将订阅、资源组或资源从一个 Azure AD 目录移动到另一个目录，则与资源关联的托管标识不会转移到新租户，因此，客户管理的密钥可能不再有效。 有关详细信息，请参阅 [Azure 资源的常见问题解答和已知问题](/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)中的“在 Azure AD 目录之间转移订阅”。  
+> 托管标识当前不支持跨目录方案。 在 Azure 门户中配置客户管理的密钥时，系统会在幕后自动分配一个托管标识。 如果随后将订阅、资源组或资源从一个 Azure AD 目录移动到另一个目录，则与资源关联的托管标识不会转移到新租户，因此，客户管理的密钥可能不再有效。 有关详细信息，请参阅 [Azure 资源的常见问题解答和已知问题](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)中的“在 Azure AD 目录之间转移订阅”。  
 
 ## <a name="configure-azure-key-vault"></a>配置 Azure Key Vault
 
@@ -38,10 +38,10 @@ ms.locfileid: "93106455"
 
 若要了解如何在现有密钥保管库上启用这些属性，请参阅以下文章之一中标题为“启用软删除”和“启用清除保护”的部分： 
 
-- [如何通过 PowerShell 使用软删除](/key-vault/key-vault-soft-delete-powershell)。
-- [如何通过 CLI 使用软删除](/key-vault/key-vault-soft-delete-cli)。
+- [如何通过 PowerShell 使用软删除](../../key-vault/general/key-vault-recovery.md)。
+- [如何通过 CLI 使用软删除](../../key-vault/general/key-vault-recovery.md)。
 
-Azure 存储加密仅支持大小为 2048 的 RSA 密钥。 有关密钥的详细信息，请参阅[关于 Azure Key Vault 密钥、机密和证书](/key-vault/about-keys-secrets-and-certificates#key-vault-keys)中的“Key Vault 密钥”。
+Azure 存储加密仅支持大小为 2048 的 RSA 密钥。 有关密钥的详细信息，请参阅[关于 Azure Key Vault 密钥、机密和证书](../../key-vault/general/about-keys-secrets-certificates.md)中的“Key Vault 密钥”。
 
 ## <a name="enable-customer-managed-keys-for-your-resource"></a>为你的资源启用客户管理的密钥
 
@@ -109,7 +109,7 @@ Azure 存储加密仅支持大小为 2048 的 RSA 密钥。 有关密钥的详�
 
 ## <a name="revoke-access-to-customer-managed-keys"></a>撤消对客户管理的密钥的访问权限
 
-若要撤消对客户管理的密钥的访问权限，请使用 PowerShell 或 Azure CLI。 有关详细信息，请参阅 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) 或 [Azure 密钥保管库 CLI](/cli/keyvault)。 撤销访问权限实际上会阻止对认知服务资源中所有数据的访问，因为认知服务无法访问加密密钥。
+若要撤消对客户管理的密钥的访问权限，请使用 PowerShell 或 Azure CLI。 有关详细信息，请参阅 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) 或 [Azure Key Vault CLI](/cli/keyvault)。 撤销访问权限实际上会阻止对认知服务资源中所有数据的访问，因为认知服务无法访问加密密钥。
 
 ## <a name="disable-customer-managed-keys"></a>禁用客户托管密钥
 

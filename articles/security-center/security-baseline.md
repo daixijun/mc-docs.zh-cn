@@ -4,15 +4,15 @@ description: 安全中心安全基线为实现 Azure 安全基准中指定的安
 author: Johnnytechn
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 01/06/2021
 ms.author: v-johya
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 385684388bbbc9dac2fc9919494781cdac238b67
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 2d510ac5ffe762cf79585640b79827a1382b7fa4
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746921"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022124"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Azure 安全中心安全基线
 
@@ -148,7 +148,7 @@ ms.locfileid: "96746921"
 
 也可以启用数据并将其加入第三方 SIEM。 
 
-- [Log Analytics 查询入门](../azure-monitor/log-query/get-started-portal.md) 
+- [Log Analytics 查询入门](../azure-monitor/log-query/log-analytics-tutorial.md) 
 
 - [如何在 Azure Monitor 中执行自定义查询](../azure-monitor/log-query/get-started-queries.md)
 

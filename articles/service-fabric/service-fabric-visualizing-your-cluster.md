@@ -4,16 +4,16 @@ description: Service Fabric Explorer 是一个用于检验和管理 Azure Servic
 ms.topic: conceptual
 origin.date: 01/24/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 788e275b6b1cdc667ebfae60a2ade6c53ff84ef0
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: cb400c0e8fbed8a983f02f987bc5096b00fd1aa0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328816"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022119"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>使用 Service Fabric Explorer 可视化群集
 

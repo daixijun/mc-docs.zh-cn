@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 10/22/2020
+ms.date: 01/04/2021
 ms.author: v-johya
-ms.openlocfilehash: 86955523d8088f6fc7fa245196c7a354ae978364
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: c551663655f4874c98e2f4a9d8767b516b6b25cf
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472867"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022216"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>快速入门：使用 Web 门户监视你的首个指标
 
@@ -29,7 +29,7 @@ ms.locfileid: "92472867"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/details/cognitive-services)
+* Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 获得 Azure 订阅后，<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesMetricsAdvisor"  title="“创建指标顾问”资源"  target="_blank">在 Azure 门户中创建“指标顾问”资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，以部署“指标顾问”实例。  
 
     
@@ -65,8 +65,8 @@ ms.locfileid: "92472867"
 
 通过连接到时序数据源来添加数据馈送。 首先选择以下参数：
 
-* **源类型** ：用于存储时序数据的数据源的类型。
-* **粒度** ：时序数据中连续数据点之间的间隔，例如每年、每月、每天。 自定义支持的最小间隔为 60 秒。
+* **源类型**：用于存储时序数据的数据源的类型。
+* **粒度**：时序数据中连续数据点之间的间隔，例如每年、每月、每天。 自定义支持的最小间隔为 60 秒。
 * **引入数据的时间 (UTC)** ：要引入的第一个时间戳的开始时间。 
 
 
@@ -97,7 +97,7 @@ ms.locfileid: "92472867"
 |**忽略**     | 忽略所选列。        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="连接设置" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="架构配置" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>自动汇总设置
 
@@ -117,7 +117,7 @@ ms.locfileid: "92472867"
 - 更新检测配置以满足预期的结果
 - 为检测到的异常设置通知
 
-:::image type="content" source="../media/metric-details.png" alt-text="连接设置" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="指标详细信息" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>查看诊断见解
 
@@ -125,13 +125,13 @@ ms.locfileid: "92472867"
 
 要查看诊断见解，请单击时序可视化效果上的红点，这些红点代表检测到的异常。 将显示一个窗口，其中包含“事件分析”页的链接。 
 
-:::image type="content" source="../media/incident-link.png" alt-text="连接设置" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="事件链接" lightbox="../media/incident-link.png":::
 
 单击此链接后，将切换到事件分析页，该页面将分析相应的异常，并提供一系列诊断见解。 顶部将显示有关事件的统计信息，如“严重性”、“涉及的异常”以及“开始时间”和“结束时间”   。 
 
 接下来，你将看到事件的上级异常，以及自动生成的根本原因建议。 此自动根本原因建议是通过分析所有相关异常的事件树生成的，包括：偏差、分布和对父异常的贡献。 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="连接设置" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="事件诊断" lightbox="../media/incident-diagnostic.png":::
 
 基于这些信息，你已经可以对正在发生的事情和事件的影响以及最潜在的根本原因有一个直观的看法。 这样便能够立即采取行动尽快解决事件。 
 
@@ -155,6 +155,6 @@ Webhook 是通过编程方式从指标顾问服务获取异常通知的入口点
 - [加入数据馈送](../how-tos/onboard-your-data.md)
     - [管理数据馈送](../how-tos/manage-data-feeds.md)
     - [不同数据源的配置](../data-feeds-from-different-sources.md)
-- [使用 REST API 或客户端库](rest-api.md)
+- [使用 REST API 或客户端库](./rest-api-and-client-library.md)
 - [配置指标并微调检测配置](../how-tos/configure-metrics.md)
 

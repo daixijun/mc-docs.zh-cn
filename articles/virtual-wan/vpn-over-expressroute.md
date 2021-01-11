@@ -10,12 +10,12 @@ ms.date: 11/02/2020
 ms.testscope: yes
 ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5261e77c70ad185791d120ced7f643d5026ca4ce
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: a519abf7066315d1c0e091e761c01a4778c4196e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105722"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022096"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>ExpressRoute 加密：虚拟 WAN 的基于 ExpressRoute 的 IPsec
 
@@ -84,25 +84,25 @@ ms.locfileid: "93105722"
 1. 选择所创建的中心。 在虚拟 WAN 中心页的“连接性”下，选择“VPN 站点”。 
 1. 在“VPN 站点”页上，选择“+创建站点”。 
 1. 在“创建站点”页上填写以下字段：
-    * **订阅** ：验证订阅。
-    * **资源组** ：选择或创建要使用的资源组。
-    * **区域** ：输入 VPN 站点资源的 Azure 区域。
-    * **名称** ：输入用于指代你的本地站点的名称。
-    * **设备供应商** ：输入本地 VPN 设备的供应商。
-    * **边界网关协议** ：如果本地网络使用 BGP，请选择“启用”。
-    * **专用地址空间** ：输入位于本地站点上的 IP 地址空间。 发往此地址空间的流量将通过 VPN 网关路由到本地网络。
-    * **中心** ：选择要连接此 VPN 站点的一个或多个中心。 选定的中心必须已创建了 VPN 网关。
+    * **订阅**：验证订阅。
+    * **资源组**：选择或创建要使用的资源组。
+    * **区域**：输入 VPN 站点资源的 Azure 区域。
+    * **名称**：输入用于指代你的本地站点的名称。
+    * **设备供应商**：输入本地 VPN 设备的供应商。
+    * **边界网关协议**：如果本地网络使用 BGP，请选择“启用”。
+    * **专用地址空间**：输入位于本地站点上的 IP 地址空间。 发往此地址空间的流量将通过 VPN 网关路由到本地网络。
+    * **中心**：选择要连接此 VPN 站点的一个或多个中心。 选定的中心必须已创建了 VPN 网关。
 1. 在完成时选择“下一步:链接 >”完成 VPN 链接设置：
-    * **链接名称** ：用于指代此连接的名称。
-    * **提供商名称** ：此站点的 Internet 服务提供商的名称。 对于 ExpressRoute 本地网络，该名称是 ExpressRoute 服务提供商的名称。
-    * **速度** ：Internet 服务链接或 ExpressRoute 线路的速度。
-    * **IP 地址** ：驻留在本地站点上的 VPN 设备的公共 IP 地址。 对于本地 ExpressRoute，它是通过 ExpressRoute 连接的 VPN 设备的专用 IP 地址。
+    * **链接名称**：用于指代此连接的名称。
+    * **提供商名称**：此站点的 Internet 服务提供商的名称。 对于 ExpressRoute 本地网络，该名称是 ExpressRoute 服务提供商的名称。
+    * **速度**：Internet 服务链接或 ExpressRoute 线路的速度。
+    * **IP 地址**：驻留在本地站点上的 VPN 设备的公共 IP 地址。 对于本地 ExpressRoute，它是通过 ExpressRoute 连接的 VPN 设备的专用 IP 地址。
 
     如果启用了 BGP，BGP 将应用到在 Azure 中为此站点创建的所有连接。 在虚拟 WAN 上配置 BGP 等同于在 Azure VPN 网关上配置 BGP。 
 
-    本地 BGP 对等方地址不能与连接到设备的 VPN 的 IP 地址或 VPN 站点的虚拟网络地址空间相同。 在 VPN 设备上对 BGP 对等节点 IP 使用不同的 IP 地址。 它可以是分配给该设备上环回接口的地址。 但是，该地址不能是 APIPA (169.254. *x* . *x* ) 地址。 在代表该位置的相应本地网关中指定此地址。 有关 BGP 先决条件，请参阅[关于 Azure VPN 网关的 BGP](../vpn-gateway/vpn-gateway-bgp-overview.md)。
+    本地 BGP 对等方地址不能与连接到设备的 VPN 的 IP 地址或 VPN 站点的虚拟网络地址空间相同。 在 VPN 设备上对 BGP 对等节点 IP 使用不同的 IP 地址。 它可以是分配给该设备上环回接口的地址。 但是，该地址不能是 APIPA (169.254.*x*.*x*) 地址。 在代表该位置的相应本地网关中指定此地址。 有关 BGP 先决条件，请参阅[关于 Azure VPN 网关的 BGP](../vpn-gateway/vpn-gateway-bgp-overview.md)。
 
-1. 在完成时选择“下一步:查看 + 创建 >”检查设置值并创建 VPN 站点。 如果选择了要连接的 **中心** ，则连接将在本地网络与中心 VPN 网关之间建立。
+1. 在完成时选择“下一步:查看 + 创建 >”检查设置值并创建 VPN 站点。 如果选择了要连接的 **中心**，则连接将在本地网络与中心 VPN 网关之间建立。
 
 <a name="hub"></a>
 ## <a name="3-update-the-vpn-connection-setting-to-use-expressroute"></a>3.将 VPN 连接设置更新为使用 ExpressRoute
@@ -111,16 +111,16 @@ ms.locfileid: "93105722"
 
 1. 返回到虚拟 WAN 资源页，选择中心资源。 或者从 VPN 站点导航到已连接的中心。
 
-    :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="通过 ExpressRoute 建立的 VPN 连接":::
+    :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="选择中心":::
 1. 在“连接”下，选择“VPN (站点到站点)”。 
 
-    :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="通过 ExpressRoute 建立的 VPN 连接":::
+    :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="选择“VPN (站点到站点)”":::
 1. 选择通过 ExpressRoute 连接的 VPN 站点对应的省略号 ( **...** )，然后选择“编辑指向此中心的 VPN 连接”。
 
-    :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="通过 ExpressRoute 建立的 VPN 连接":::
+    :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="“输入配置”菜单":::
 1. 对于“使用 Azure 专用 IP 地址”，请选择“是”。  此设置将中心 VPN 网关配置为对此连接使用网关上的中心地址范围内的专用 IP 地址，而不是使用公共 IP 地址。 这将确保来自本地网络的流量通过 ExpressRoute 专用对等互连路径，而不是对此 VPN 连接使用公共 Internet。 以下屏幕截图显示了该设置：
 
-    :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="通过 ExpressRoute 建立的 VPN 连接" border="false":::
+    :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="将专用 IP 地址用于 VPN 连接的设置" border="false":::
 1. 选择“保存” 。
 
 保存更改后，中心 VPN 网关将使用 VPN 网关上的专用 IP 地址，通过 ExpressRoute 来与本地 VPN 设备建立 IPsec/IKE 连接。
@@ -133,7 +133,7 @@ ms.locfileid: "93105722"
 1. 在中心的页面上，选择“连接”下的“VPN (站点到站点)”。 
 1. 在“概述”页的顶部，选择“下载 VPN 配置”。  
 
-    Azure 将在资源组“microsoft-network-[location]”中创建一个存储帐户，其中， *location* 是 WAN 的位置。 将配置应用到 VPN 设备后，可以删除此存储帐户。
+    Azure 将在资源组“microsoft-network-[location]”中创建一个存储帐户，其中，*location* 是 WAN 的位置。 将配置应用到 VPN 设备后，可以删除此存储帐户。
 1. 创建文件后，选择相应的链接下载该文件。
 1. 将配置应用到 VPN 设备。
 
@@ -141,8 +141,8 @@ ms.locfileid: "93105722"
 
 设备配置文件包含配置本地 VPN 设备时要使用的设置。 查看此文件时，请留意以下信息：
 
-* **vpnSiteConfiguration** ：此节表示设置为要连接到虚拟 WAN 的站点的设备详细信息。 其中包括分支设备的名称和公共 IP 地址。
-* **vpnSiteConnections** ：此节提供有关以下设置的信息：
+* **vpnSiteConfiguration**：此节表示设置为要连接到虚拟 WAN 的站点的设备详细信息。 其中包括分支设备的名称和公共 IP 地址。
+* **vpnSiteConnections**：此节提供有关以下设置的信息：
 
     * 虚拟中心的虚拟网络的地址空间。<br/>示例：
         ```
@@ -241,7 +241,7 @@ ms.locfileid: "93105722"
 <a name="connectmon"></a>
 ## <a name="6-monitor-a-connection"></a>6.监视连接
 
-创建一个连接，用于监视 Azure 虚拟机 (VM) 与远程站点之间的通信。 有关如何设置连接监视器的信息，请参阅[监视网络通信](~/articles/network-watcher/connection-monitor.md)。 源字段是 Azure 中的 VM IP，目标 IP 是站点 IP。
+创建一个连接，用于监视 Azure 虚拟机 (VM) 与远程站点之间的通信。 有关如何设置连接监视器的信息，请参阅[监视网络通信](../network-watcher/connection-monitor.md)。 源字段是 Azure 中的 VM IP，目标 IP 是站点 IP。
 
 <a name="cleanup"></a>
 ## <a name="7-clean-up-resources"></a>7.清理资源

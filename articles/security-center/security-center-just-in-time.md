@@ -7,14 +7,14 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 origin.date: 02/25/2020
-ms.date: 12/03/2020
+ms.date: 01/06/2021
 ms.author: v-johya
-ms.openlocfilehash: 908db1e12994baae63f1778a6a9a4f72c27ed67e
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 737a0712a3e1fefeb5d01f3b7e59c0cba6cc6c6b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746654"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022122"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>使用实时访问保护管理端口
 
@@ -36,7 +36,7 @@ ms.locfileid: "96746654"
 |----|:----|
 |发布状态：|正式发布 (GA)|
 |定价：|需要[用于服务器的 Azure Defender](defender-for-servers-introduction.md)|
-|支持的 VM：|![是](./media/icons/yes-icon.png) 通过 Azure 资源管理器部署的 VM。<br>![否](./media/icons/no-icon.png) 通过经典部署模型部署的 VM。 [了解有关这些部署模型的详细信息](../azure-resource-manager/management/deployment-models.md)。|
+|支持的 VM：|![是](./media/icons/yes-icon.png) 通过 Azure 资源管理器部署的 VM。<br>![否](./media/icons/no-icon.png) 通过经典部署模型部署的 VM。 [了解有关这些部署模型的详细信息](../azure-resource-manager/management/deployment-models.md)。<br>![否](./media/icons/no-icon.png) 由 [Azure 防火墙管理器](../firewall-manager/overview.md)控制的 Azure 防火墙保护的 VM|
 |所需角色和权限：|“读取者”角色和“安全读取者”角色都可以查看 JIT 状态和参数。<br>若要创建可与 JIT 配合使用的自定义角色，请参阅[配置和使用 JIT 时需要哪些权限？](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)。<br>若要为那些需要请求对 VM 进行 JIT 访问而不执行其他 JIT 操作的用户创建最小特权角色，请使用安全中心 GitHub 社区页面中的 [Set-JitLeastPrivilegedRole 脚本](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role)。|
 |云：|![是](./media/icons/yes-icon.png) 中国云|
 |||
@@ -301,7 +301,7 @@ ms.locfileid: "96746654"
 
     ```azurepowershell
     $JitPolicyVm1 = (@{
-        id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
+        id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
            number=22;
            endTimeUtc="2020-07-15T17:00:00.3658798Z";

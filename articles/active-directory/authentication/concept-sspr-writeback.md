@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
-author: iainfoulds
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbb7c35575bd237c45fdac3940787f9ba3527c92
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 50f4baf21c84a01d46c1a30ed577f19eff561d4e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244727"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022078"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>自助式密码重置写回在 Azure Active Directory 中的工作原理。
 

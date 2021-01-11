@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/03/2020
+ms.date: 01/06/2021
 ms.author: v-johya
-ms.openlocfilehash: 417168636af6697c4a74264e2d726179699dfcdb
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 4fb2b5baccc541307b7bac1104dd3c416d1ab6ff
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747182"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022126"
 ---
 # <a name="what-is-azure-security-center"></a>什么是 Azure 安全中心？
 
@@ -101,12 +101,7 @@ Azure 安全中心的值的核心在于其建议。 这些建议是针对在工�
 
 :::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="安全警报":::
 
-### <a name="integration-with-microsoft-defender-for-endpoint"></a>与 Microsoft Defender for Endpoint 集成
-
-安全中心提供与 Microsoft Defender for Endpoint 的自动本机集成。 这意味着，无需任何配置，Windows 和 Linux 计算机就可以与安全中心的建议和评估完全集成。
-
-此外，通过安全中心，还可以在服务器环境上自动执行应用程序控制策略。 安全中心中的自适应应用程序控制在 Windows 服务器之间启用端到端的应用允许列表。 无需创建规则和检查违规行为，这些都是自动完成的。
-
+<!--Not available in MC: ### Integration with Microsoft Defender for Endpoint-->
 ### <a name="protect-paas"></a>保护 PaaS
 
 安全中心有助于跨 Azure PaaS 服务检测威胁。 可以检测针对 Azure 服务的威胁，包括 Azure 应用服务、Azure SQL、Azure 存储帐户和更多数据服务。 还可以利用与 Microsoft Cloud App Security 的用户和实体行为分析 (UEBA) 的本机集成来对 Azure 活动日志执行异常情况检测。

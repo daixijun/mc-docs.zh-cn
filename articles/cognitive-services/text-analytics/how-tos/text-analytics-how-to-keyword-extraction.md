@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 origin.date: 07/29/2019
-ms.date: 12/30/2020
+ms.date: 01/04/2021
 ms.author: v-johya
-ms.openlocfilehash: 23bfdb6e1ca0b2a37d12fdaf0e21b1f0a3bc18fe
-ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
+ms.openlocfilehash: 6053e0d891260265c9e4119903062f865e2a023e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857106"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022203"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>示例：如何使用文本分析提取关键短语
 
@@ -28,8 +28,8 @@ ms.locfileid: "97857106"
 
 > [!TIP]
 > * 文本分析还提供一个基于 Linux 的 Docker 容器映像，用于提取关键短语，因此可以在靠近数据的位置[安装并运行文本分析容器](text-analytics-how-to-install-containers.md)。
-> * 你也可以使用 `/analyze` 终结点来[异步](text-analytics-how-to-call-api.md)使用此功能。
 
+<!--Not available in MC: /analyze-->
 ## <a name="preparation"></a>准备工作
 
 提供的要处理的文本量越大，关键短语提取效果越好。 这恰好与情绪分析（文本量越小，效果越好）相反。 要从两个操作获取最佳结果，请考虑相应地重建输入。
@@ -75,36 +75,7 @@ ms.locfileid: "97857106"
     }
 ```
 
-### <a name="example-asynchronous-request-object"></a>异步请求对象示例
-
-从 `v3.1-preview.3` 开始，可以使用 `/analyze` 终结点来异步发送 NER 请求。
-
-
-```json
-{
-����"displayName":�"My�Job",
-����"analysisInput":�{
-��������"documents":�[
-������������{
-����������������"id":�"doc1",
-����������������"text":�"It's incredibly sunny outside! I'm so happy"
-������������},
-������������{
-����������������"id":�"doc2",
-����������������"text":�"Pike place market is my favorite Seattle attraction."
-������������}
-��������]
-����},
-    "tasks": {
-        "keyPhraseExtractionTasks": [{
-            "parameters": {
-                "model-version": "latest"
-            }
-        }],
-    }
-}
-```
-
+<!--Not available in MC: /analyze-->
 ## <a name="step-1-structure-the-request"></a>步骤 1：构造请求
 
 有关请求定义的信息，请参阅[如何调用文本分析 API](text-analytics-how-to-call-api.md)。 为方便起见，特重申以下几点：
@@ -196,60 +167,7 @@ ms.locfileid: "97857106"
 ```
 如上所述，分析器查找和放弃不重要的字词，并保留似乎是句子主语或宾语的字词或短语。
 
-### <a name="asynchronous-result"></a>异步结果
-
-如果将 `/analyze` 终结点用于异步操作，你将会收到一个响应，其中包含你发送到 API 的任务。
-
-```json
-{
-  "displayName": "My�Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My�Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My�Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
-}
-```
-
+<!--Not available in MC: /analyze-->
 
 ## <a name="summary"></a>摘要
 
@@ -257,9 +175,10 @@ ms.locfileid: "97857106"
 
 + [关键短语提取 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 适用于所选语言。
 + 请求正文中的 JSON 文档包括 ID、文本和语言代码。
-+ POST 请求的目标是 `/keyphrases` 或 `/analyze` 终结点，使用了对订阅有效的个性化[访问密钥和终结点](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
++ POST 请求的目标是 `/keyphrases` 终结点，方法是使用对订阅有效的个性化[访问密钥和终结点](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
 + 响应输出包含每个文档 ID 的关键单词和短语，可以流式传输到接受 JSON 的任何应用，包括 Microsoft Office Excel 和 Power BI（仅举几例）。
 
+<!--Not available in MC: /analyze-->
 ## <a name="see-also"></a>另请参阅
 
  [文本分析概述](../overview.md)[常见问题解答 (FAQ)](../text-analytics-resource-faq.md)</br>

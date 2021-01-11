@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: fb9742fea1adb88609ee470e8f194a015758a53b
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 5c3bfda9b4304210184b823216d0631da3e0b086
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003825"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022079"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Azure Active Directory 中的密码策略和账户限制
 
@@ -94,7 +94,7 @@ ms.locfileid: "97003825"
 * 已为 Azure AD 租户配置了自定义域，如 *contoso.com*；或
 * Azure AD Connect 正在从本地目录同步标识
 
-可以使用 [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) PowerShell cmdlet 为管理员帐户禁用 SSPR。 `-SelfServePasswordResetEnabled $False` 参数为管理员禁用 SSPR。
+可以使用 [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings) PowerShell cmdlet 为管理员帐户禁用 SSPR。 `-SelfServePasswordResetEnabled $False` 参数为管理员禁用 SSPR。
 
 ### <a name="exceptions"></a>异常
 
@@ -106,7 +106,7 @@ ms.locfileid: "97003825"
 
 ## <a name="password-expiration-policies"></a><a name="set-password-expiration-policies-in-azure-ad"></a>密码过期策略
 
-一个“全局管理员”或“用户管理员”可使用[用于 Windows PowerShell 的 Azure AD 模块](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0)将用户密码设置为不过期 。
+一个“全局管理员”或“用户管理员”可使用[用于 Windows PowerShell 的 Azure AD 模块](https://docs.microsoft.com/powershell/module/Azuread/)将用户密码设置为不过期 。
 
 还可以使用 PowerShell cmdlet 删除永不过期配置，或者查看已将哪些用户密码设置为永不过期。
 
@@ -117,13 +117,13 @@ ms.locfileid: "97003825"
 
 ### <a name="set-or-check-the-password-policies-by-using-powershell"></a>使用 PowerShell 设置或检查密码策略
 
-首先，[下载并安装 Azure AD PowerShell 模块](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0)，然后[将其连接到 Azure AD 租户](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples)。
+首先，[下载并安装 Azure AD PowerShell 模块](https://docs.microsoft.com/powershell/module/Azuread/)，然后[将其连接到 Azure AD 租户](https://docs.microsoft.com/powershell/module/azuread/connect-azuread#examples)。
 
 安装该模块后，请按照以下步骤完成每个所需任务。
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>检查密码过期策略
 
-1. 使用“全局管理员”或“用户管理员”帐户打开 PowerShell 提示符，并[连接到 Azure AD 租户](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) 。
+1. 使用“全局管理员”或“用户管理员”帐户打开 PowerShell 提示符，并[连接到 Azure AD 租户](https://docs.microsoft.com/powershell/module/azuread/connect-azuread#examples) 。
 1. 为单个用户或所有用户运行以下命令之一：
 
    * 若要查看单个用户的密码是否设置为永不过期，请运行以下 cmdlet。 将 `<user ID>` 替换为要检查的用户的用户 ID，如 "driley\@contoso.partner.onmschina.cn"：
@@ -140,7 +140,7 @@ ms.locfileid: "97003825"
 
 ### <a name="set-a-password-to-expire"></a>设置密码过期
 
-1. 使用“全局管理员”或“用户管理员”帐户打开 PowerShell 提示符，并[连接到 Azure AD 租户](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) 。
+1. 使用“全局管理员”或“用户管理员”帐户打开 PowerShell 提示符，并[连接到 Azure AD 租户](https://docs.microsoft.com/powershell/module/azuread/connect-azuread#examples) 。
 1. 为单个用户或所有用户运行以下命令之一：
 
    * 若要将某一用户的密码设置为会过期的密码，请运行以下 cmdlet。 将 `<user ID>` 替换为要检查的用户的用户 ID，如 "driley\@contoso.partner.onmschina.cn"
@@ -157,7 +157,7 @@ ms.locfileid: "97003825"
 
 ### <a name="set-a-password-to-never-expire"></a>将密码设置为永不过期
 
-1. 使用“全局管理员”或“用户管理员”帐户打开 PowerShell 提示符，并[连接到 Azure AD 租户](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples) 。
+1. 使用“全局管理员”或“用户管理员”帐户打开 PowerShell 提示符，并[连接到 Azure AD 租户](https://docs.microsoft.com/powershell/module/azuread/connect-azuread#examples) 。
 1. 为单个用户或所有用户运行以下命令之一：
 
    * 若要将某一用户的密码设置为永不过期，请运行以下 cmdlet。 将 `<user ID>` 替换为要检查的用户的用户 ID，如 "driley\@contoso.partner.onmschina.cn"

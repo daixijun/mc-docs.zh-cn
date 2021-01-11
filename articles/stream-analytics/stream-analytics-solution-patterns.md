@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/21/2019
-ms.date: 10/09/2020
-ms.openlocfilehash: 89be8c8a6e2303b009e89ac5f8296241ed837df5
-ms.sourcegitcommit: 465c166998f0c24405e573e6ec91e6da90e54f98
+ms.date: 01/07/2021
+ms.openlocfilehash: b36002c02c3e69471fe138d581d72ee3067cc6e1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91936823"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023155"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure 流分析解决方案模式
 
@@ -121,7 +121,7 @@ ETL 引擎通常需要数据扩充。 Azure 流分析支持使用 SQL 数据库�
 
     此指标反映处理管道滞后于挂钟时间的程度（秒）。 某些延迟归因于固有的处理逻辑。 因此，监视趋势的增长比监视绝对值重要得多。 应该通过应用程序设计而不是监视或警报来解决稳定态延迟。
 
-失败时，活动日志和诊断日志是查找错误的最佳起始位置。
+发生失败时，活动日志和[诊断日志](stream-analytics-job-diagnostic-logs.md)是开始查找错误的最佳位置。
 
 ## <a name="build-resilient-and-mission-critical-applications"></a>构建可复原的任务关键型应用程序
 

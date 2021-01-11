@@ -4,17 +4,17 @@ description: 了解如何快速开始使用 Azure API 管理以及在 Service Fa
 ms.topic: conceptual
 origin.date: 07/10/2019
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 825f5d4961da572c44da03cf1a6b1461b4af7104
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: c47f5c172f3ee078278cd7e88768401efa6a3ac9
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105233"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022121"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>在 Azure 中将 API 管理与 Service Fabric 集成
 

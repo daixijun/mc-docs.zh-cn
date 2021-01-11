@@ -4,16 +4,16 @@ description: 本教程介绍如何使用 YAML 文件和 Azure CLI 在 Azure 容�
 ms.topic: article
 origin.date: 07/01/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 01/15/2020
 ms.author: v-yeche
-ms.openlocfilehash: 5dd2b3442a32377f157f0e91a8d5d463caa3edc4
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: b08fd5725f88014080fedb47eadc8270427e297a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96300411"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022167"
 ---
 <!--Verified successfully-->
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>教程：使用 YAML 文件部署多容器组
@@ -198,6 +198,6 @@ Connection: keep-alive
 [az-group-create]: https://docs.azure.cn/cli/group#az_group_create
 [az-deployment-group-create]: https://docs.azure.cn/cli/deployment/group#az_deployment_group_create
 
-<!--Not Available on [template-reference]: /templates/microsoft.containerinstance/containergroups-->
+<!--Not Available on [template-reference]: https://docs.microsoft.com/templates/microsoft.containerinstance/containergroups-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

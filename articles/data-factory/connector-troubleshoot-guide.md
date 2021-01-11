@@ -10,12 +10,12 @@ ms.date: 01/04/2021
 ms.author: v-jay
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: f84db06c756bd0c9af5e36a291e92c407156281a
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: 408f25a53cc3cee4a8f01ca6c3d7d2652da3d045
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830161"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894457"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>排查 Azure 数据工厂连接器问题
 
@@ -444,7 +444,7 @@ ms.locfileid: "97830161"
 
     1. 使用的是存储过程，而不是批量插入，这会使性能更差。 
 
-- **解决方法**：请参阅 TSG 来了解[复制活动性能](/data-factory/copy-activity-performance-troubleshooting)
+- **解决方法**：请参阅 TSG 来了解 [复制活动性能](/data-factory/copy-activity-performance-troubleshooting)
 
 
 ### <a name="performance-tier-is-low-and-leads-to-copy-failure"></a>性能层等级较低，导致复制失败
@@ -908,7 +908,7 @@ ms.locfileid: "97830161"
 
     若要提升吞吐量，请联系 SFTP 管理员以提高并发连接计数限制，或将下面的 IP 添加到允许列表：
 
-    - 如果你使用的是托管 IR，请添加 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)。
+    - 如果你使用的是托管 IR，请添加 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=57062)。
       或者，如果不想向 SFTP 服务器允许列表中添加大型的 IP 范围列表，则可以安装自承载 IR。
 
     - 如果使用自承载 IR，请将安装了 SHIR 的计算机 IP 添加到允许列表。
@@ -968,7 +968,7 @@ ms.locfileid: "97830161"
 
 - **原因：** FIPS（Federal Information Processing Standards，美国联邦信息处理标准）定义了允许使用的一组特定加密算法。 当计算机上启用了 FIPS 模式时，某些情况下会阻止复制活动所依赖的某些加密类。
 
-- **解决方法**：你可以通过[此文](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/why-we-8217-re-not-recommending-8220-fips-mode-8221-anymore/ba-p/701037)了解 Windows 中 FIPS 模式的当前情况，并评估是否可以在自承载 Integration Runtime 计算机上禁用 FIPS。
+- **解决方法**：你可以通过 [此文](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/why-we-8217-re-not-recommending-8220-fips-mode-8221-anymore/ba-p/701037)了解 Windows 中 FIPS 模式的当前情况，并评估是否可以在自承载 Integration Runtime 计算机上禁用 FIPS。
 
     另一方面，如果你只是想让 Azure 数据工厂绕过 FIPS 并使活动运行成功，则可执行以下步骤：
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: d6438bda0091df19299c419b7259838ac32f2bc2
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: ca0ef3e5825f482b0a2e52649cbee5ee949feaf0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003840"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022084"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory 中基于证书的身份验证入门
 
@@ -93,7 +93,7 @@ ms.locfileid: "97003840"
     }
 ```
 
-对于此配置，可以使用 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)：
+对于此配置，可以使用 [Azure Active Directory PowerShell 版本 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2)：
 
 1. 使用管理员特权启动 Windows PowerShell。
 2. 安装 Azure AD 模块 [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) 或更高版本。
@@ -106,7 +106,7 @@ ms.locfileid: "97003840"
 
 ### <a name="connect"></a>连接
 
-若要建立与租户的连接，请使用 [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0) cmdlet：
+若要建立与租户的连接，请使用 [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread) cmdlet：
 
 ```azurepowershell
     Connect-AzureAD -AzureEnvironmentName AzureChinaCloud
@@ -114,7 +114,7 @@ ms.locfileid: "97003840"
 
 ### <a name="retrieve"></a>检索
 
-若要检索目录中定义的受信任的证书颁发机构，请使用 [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet。
+若要检索目录中定义的受信任的证书颁发机构，请使用 [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/get-azureadtrustedcertificateauthority) cmdlet。
 
 ```azurepowershell
     Get-AzureADTrustedCertificateAuthority
@@ -122,7 +122,7 @@ ms.locfileid: "97003840"
 
 ### <a name="add"></a>添加
 
-若要创建受信任的证书颁发机构，请使用 [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet，并将 **crlDistributionPoint** 属性设为正确的值：
+若要创建受信任的证书颁发机构，请使用 [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/new-azureadtrustedcertificateauthority) cmdlet，并将 **crlDistributionPoint** 属性设为正确的值：
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
@@ -135,7 +135,7 @@ ms.locfileid: "97003840"
 
 ### <a name="remove"></a>删除
 
-若要删除受信任的证书颁发机构，请使用 [Remove-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet：
+若要删除受信任的证书颁发机构，请使用 [Remove-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/remove-azureadtrustedcertificateauthority) cmdlet：
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
@@ -144,7 +144,7 @@ ms.locfileid: "97003840"
 
 ### <a name="modify"></a>修改
 
-若要修改受信任的证书颁发机构，请使用 [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet：
+若要修改受信任的证书颁发机构，请使用 [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet：
 
 ```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority

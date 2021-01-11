@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 11/04/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71368027612e153306f2b2cf701259547ae7312d
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 56ae4b5f924e4a325df8d63beebc340e9b6a0105
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326973"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023040"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>分配给云组的角色疑难解答
 
@@ -36,8 +36,8 @@ ms.locfileid: "94326973"
 
 **答:** 用户可以是可分配角色的组的所有者。 我们保护可分配角色的组的所有者，以避免特权提升。 例如，如果将组 Contoso_Security_Admins 分配给安全管理员角色，其中 Bob 是组所有者，Alice 是组织中的密码管理员，则可能会出现这种情况。 如果没有这种保护措施，Alice 可以重置 Bob 的凭据并接管其身份。 之后，Alice 可以将自己或任何人添加到 Contoso_Security_Admins 组，成为组织中的安全管理员。 若要查明用户是否为组所有者，请获取该用户拥有的对象列表，并查看是否有组将 isAssignableToRole 设置为 true。 如果是，则用户是受保护的，并且该行为是设计的行为。 请参阅以下文档，了解如何获取拥有的对象：
 
-- [Get-AzureADUserOwnedObject](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [列出 ownedObjects](https://docs.microsoft.com/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
+- [Get-AzureADUserOwnedObject](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserownedobject)  
+- [列出 ownedObjects](https://docs.microsoft.com/graph/api/user-list-ownedobjects?tabs=http)
 
 **问：** 是否可以对可分配给 Azure AD 角色的组（特别是 isAssignableToRole 属性设置为 true 的组）创建访问评审？  
 

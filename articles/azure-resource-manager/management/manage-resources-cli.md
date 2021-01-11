@@ -4,17 +4,17 @@ description: 使用 Azure CLI 和 Azure 资源管理器管理资源。 演示如
 ms.topic: conceptual
 origin.date: 02/11/2019
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aed8e1f614f762031b490937b5707ac0d18b94c5
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 632938cc6e7f54351ef4a4bd0af75975d3238f6b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004128"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022924"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>使用 Azure CLI 管理 Azure 资源
 
@@ -46,14 +46,14 @@ az storage account show --resource-group $resourceGroupName --name $storageAccou
 
 ### <a name="deploy-a-template"></a>部署模板
 
-以下脚本通过部署快速入门模板来创建存储帐户。 有关详细信息，请参阅[快速入门：使用 Visual Studio Code 创建 Azure 资源管理器模板](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell)。
+以下脚本通过部署快速入门模板来创建存储帐户。 有关详细信息，请参阅[快速入门：使用 Visual Studio Code 创建 ARM 模板](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell)。
 
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 echo "Enter the location (i.e. chinaeast):" &&
 read location &&
-az group deployment create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
 有关详细信息，请参阅[使用资源管理器模板和 Azure CLI 部署资源](../templates/deploy-cli.md)。
