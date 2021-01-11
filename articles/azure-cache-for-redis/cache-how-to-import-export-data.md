@@ -4,14 +4,14 @@ description: 了解如何使用高级 Azure Redis 缓存实例在 blob 存储中
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/28/2020
 ms.author: v-junlch
-ms.openlocfilehash: 8421ed275a24bd08a4bf61d7390ce3ebbbb44ae7
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 8f210b8800f1b3b401d751b12c6e252d89da99f8
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326573"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829384"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>在 Azure Redis 缓存中导入和导出数据
 导入/导出是一种 Azure Redis 缓存数据管理操作，可用于通过从高级缓存导入 Azure Redis 缓存数据库 (RDB) 快照以及将 Azure Redis 缓存数据库 (RDB) 快照导出到 Azure 存储帐户中的 blob 来相应地将数据导入到 Azure Redis 缓存以及从 Azure Redis 缓存导出数据。
@@ -66,7 +66,7 @@ ms.locfileid: "94326573"
 
 1. 若要将缓存的当前内容导出到存储，请在 Azure 门户中[浏览到缓存](cache-configure.md#configure-azure-cache-for-redis-settings)，然后在“资源”菜单中单击“导出数据”。
 
-    ![选择存储容器](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
+    ![在 contoso5premium 的导航窗格中，会突出显示“管理”列表中的“导出数据”选项。](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
 2. 单击“选择存储容器”并选择所需的存储帐户  。 存储帐户必须与缓存在同一订阅和区域中。
 
    > [!IMPORTANT]
@@ -76,7 +76,7 @@ ms.locfileid: "94326573"
     ![存储帐户](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
 3. 选择所需的 blob 容器，并单击“选择”  。 要使用新容器，请单击“添加容器”，先添加容器，再从列表中选择容器  。
 
-    ![选择存储容器](./media/cache-how-to-import-export-data/cache-export-data-container.png)
+    ![在 contoso55 的“容器”中，会突出显示“+ 容器”选项。 列表中有一个容器 (cachesaves)，该容器已选中并突出显示。 选中并突出显示了“选择”选项。](./media/cache-how-to-import-export-data/cache-export-data-container.png)
 4. 键入 Blob 名称前缀，并单击“导出”以开始导出过程   。 blob 名称前缀用作此导出操作生成的文件名的前缀。
 
     ![Export](./media/cache-how-to-import-export-data/cache-export-data.png)

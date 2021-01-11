@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 origin.date: 06/26/2020
-ms.date: 07/13/2020
-ms.openlocfilehash: b4dd1200ec6adb364609783fc289cd445e8bedf1
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 12/14/2020
+ms.openlocfilehash: 5aac517cadeba30ba2a5c8453a35ad4a5a0bda74
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227156"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830167"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL 数据库和 Azure Synapse Analytics 连接体系结构
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "86227156"
 
 下图提供连接体系结构的综合概述。
 
-![体系结构概述](./media/connectivity-architecture/connectivity-overview.png)
+![此图提供连接体系结构的概览。](./media/connectivity-architecture/connectivity-overview.png)
 
 以下步骤介绍如何建立与 Azure SQL 数据库的连接：
 
@@ -52,7 +52,7 @@ SQL 数据库和 Azure Synapse 中的服务器支持以下三个服务器连接�
 
 - 默认值：除非显式将连接策略更改为 `Proxy` 或 `Redirect`，否则，在创建后，此连接策略将在所有服务器上生效。 对于所有源自 Azure 内部的客户端连接（例如，源自 Azure 虚拟机的连接），默认策略为 `Redirect`；对于所有源自外部的客户端连接（例如，源自本地工作站的连接），默认策略为 `Proxy`。
 
-我们强烈建议使用 `Redirect` 连接策略而不要使用 `Proxy` 连接策略，以最大程度地降低延迟和提高吞吐量。 但是，你需要满足上述允许网络流量的附加要求。 如果客户端为 Azure 虚拟机，则可将网络安全组 (NSG) 与[服务标记](../../virtual-network/security-overview.md#service-tags)配合使用来实现它。 如果客户端从本地工作站进行连接，则可能需要联系网络管理员，让其允许网络流量通过公司防火墙。
+我们强烈建议使用 `Redirect` 连接策略而不要使用 `Proxy` 连接策略，以最大程度地降低延迟和提高吞吐量。 但是，你需要满足上述允许网络流量的附加要求。 如果客户端为 Azure 虚拟机，则可将网络安全组 (NSG) 与[服务标记](../../virtual-network/network-security-groups-overview.md#service-tags)配合使用来实现它。 如果客户端从本地工作站进行连接，则可能需要联系网络管理员，让其允许网络流量通过公司防火墙。
 
 ## <a name="connectivity-from-within-azure"></a>从 Azure 内连接
 
@@ -64,7 +64,7 @@ SQL 数据库和 Azure Synapse 中的服务器支持以下三个服务器连接�
 
 如果从 Azure 外部连接，则连接默认具有 `Proxy` 连接策略。 `Proxy` 策略是指通过 Azure SQL 数据库网关建立 TCP 会话，并且所有后续数据包通过网关传输。 下图演示了此流量流。
 
-![体系结构概述](./media/connectivity-architecture/connectivity-onprem.png)
+![此图显示如何通过 Azure SQL 数据库网关建立 TCP 会话，以及所有后续数据包如何流经网关。](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
 > 另请打开 TCP 端口 1434 和 14000-14999，以便[使用 DAC 进行连接](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)

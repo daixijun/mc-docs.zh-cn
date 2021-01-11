@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 08/28/2020
-ms.date: 11/02/2020
-ms.openlocfilehash: e335a93d9b818fc93288dc05a035304310ad809d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/04/2021
+ms.openlocfilehash: 34b6deb384fa51a9cbdf6a25c5a2c21e7f2c6f5a
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105209"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829713"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>使用 Azure 数据工厂在 Snowflake 中复制和转换数据
 
@@ -49,7 +49,7 @@ Snowflake 链接服务支持以下属性。
 
 | 属性         | 说明                                                  | 必须 |
 | :--------------- | :----------------------------------------------------------- | :------- |
-| type             | type 属性必须设置为 **Snowflake** 。              | 是      |
+| type             | type 属性必须设置为 **Snowflake**。              | 是      |
 | connectionString | 指定连接到 Snowflake 实例所需的信息。 可以选择将密码或整个连接字符串置于 Azure Key Vault。 如需更多详细信息，请参阅表下面的示例和[将凭据存储在 Azure Key Vault 中](store-credentials-in-key-vault.md)一文。<br><br>部分典型设置：<br>- 帐户名称：Snowflake 帐户的[完整帐户名称](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name)（包括用于标识区域和云平台的其他段）<br/>- 用户名：用于连接的用户登录名。<br>- 密码：用户的密码。<br>- 数据库：要在连接后使用的默认数据库。 它应为指定角色具有权限的现有数据库。<br>- 仓库：要在连接后使用的虚拟仓库。 它应为指定角色具有权限的现有仓库。<br>- 角色：要在 Snowflake 会话中使用的默认访问控制角色。 指定角色应为已分配给指定用户的现有角色。 默认角色为 PUBLIC。 | 是      |
 | connectVia       | 用于连接到数据存储的 [Integration Runtime](concepts-integration-runtime.md)。 可使用 Azure Integration Runtime 或自承载集成运行时（如果数据存储位于专用网络）。 如果未指定，则使用默认 Azure Integration Runtime。 | 否       |
 
@@ -159,21 +159,20 @@ Snowflake 连接器利用 Snowflake 的 [COPY into [location]](https://docs.snow
 
 如果接收器数据存储和格式符合此部分所述条件，则可使用复制活动将数据从 Snowflake 直接复制到接收器。 数据工厂将检查设置，如果不符合以下条件，复制活动运行将会失败：
 
-- “接收器链接服务”是使用“共享访问签名”身份验证的 [Azure Blob 存储](connector-azure-blob-storage.md)  。
+- “接收器链接服务”是使用“共享访问签名”身份验证的 [Azure Blob 存储](connector-azure-blob-storage.md)  。 若要采用下面受支持的格式将数据直接复制到 Azure Data Lake Storage Gen2，可以创建带有针对 ADLS Gen2 帐户的 SAS 身份验证功能的 Azure Blob 链接服务，从而避免使用[从 Snowflake 进行的分阶段复制](#staged-copy-from-snowflake)。
 
 - 接收器数据格式为“Parquet”、“带分隔符的文本”或“JSON”，其配置如下   ：
 
     - 对于“Parquet”格式，压缩编解码器为“无”、“Snappy”或或“Lzo”。
     - 对于“带分隔符的文本”格式：
         - `rowDelimiter` 为 **\r\n** 或任何单个字符。
-        - `compression` 可为“无压缩”、 **gzip** 、 **bzip2** 或 **deflate** 。
-        - `encodingName` 保留为默认值或设置为 **utf-8** 。
+        - `compression` 可为“无压缩”、 **gzip**、**bzip2** 或 **deflate**。
+        - `encodingName` 保留为默认值或设置为 **utf-8**。
         - `quoteChar` 为双引号、单引号或空字符串（无引号字符）  。
     - 对于“JSON”格式，直接复制只支持以下情况：源 Snowflake 表或查询结果仅有一列且该列的数据类型是“VARIANT”、“OBJECT”或“ARRAY”   。
-        - `compression` 可为“无压缩”、 **gzip** 、 **bzip2** 或 **deflate** 。
-        - `encodingName` 保留为默认值或设置为 **utf-8** 。
+        - `compression` 可为“无压缩”、 **gzip**、**bzip2** 或 **deflate**。
+        - `encodingName` 保留为默认值或设置为 **utf-8**。
         - `filePattern` 在复制活动接收器中保留为默认值或设置为“setOfObjects”。
-
 - 在复制活动源中，`additionalColumns` 未指定。
 - 列映射未指定。
 
@@ -290,20 +289,20 @@ Snowflake 连接器利用 Snowflake 的 [COPY into [table]](https://docs.snowfla
 
 如果源数据存储和格式符合此部分所述条件，则可使用复制活动将数据从源直接复制到 Snowflake。 Azure 数据工厂将检查设置，如果不符合以下条件，复制活动运行将会失败：
 
-- “源链接服务”是使用“共享访问签名”身份验证的 [Azure Blob 存储](connector-azure-blob-storage.md)  。
+- “源链接服务”是使用“共享访问签名”身份验证的 [Azure Blob 存储](connector-azure-blob-storage.md)  。 若要采用下面受支持的格式从 Azure Data Lake Storage Gen2 直接复制数据，可以创建带有针对 ADLS Gen2 帐户的 SAS 身份验证功能的 Azure Blob 链接服务，从而避免使用[到 Snowflake 的分阶段复制](#staged-copy-to-snowflake)。
 
 - “源数据格式”为“Parquet”、“带分隔符的文本”或“JSON”，其配置如下   ：
 
     - 对于“Parquet”格式，压缩编解码器为“无”或“Snappy”。
 
     - 对于“带分隔符的文本”格式：
-        - `rowDelimiter` 为 **\r\n** 或任何单个字符。 如果行分隔符不是“\r\n”，则需将 `firstRowAsHeader` 设置为 **false** ，且不指定 `skipLineCount`。
-        - `compression` 可为“无压缩”、 **gzip** 、 **bzip2** 或 **deflate** 。
+        - `rowDelimiter` 为 **\r\n** 或任何单个字符。 如果行分隔符不是“\r\n”，则需将 `firstRowAsHeader` 设置为 **false**，且不指定 `skipLineCount`。
+        - `compression` 可为“无压缩”、 **gzip**、**bzip2** 或 **deflate**。
         - `encodingName` 保留为默认值或设置为“UTF-8”、“UTF-16”、“UTF-16BE”、“UTF-32”、“UTF-32BE”、“BIG5”、“EUC-JP”、“EUC-KR”、“GB18030”、“ISO-2022-JP”、“ISO-2022-KR”、“ISO-8859-1”、“ISO-8859-2”、“ISO-8859-5”、“ISO-8859-6”、“ISO-8859-7”、“ISO-8859-8”、“ISO-8859-9”、“WINDOWS-1250”、“WINDOWS-1251”、“WINDOWS-1252”、“WINDOWS-1253”、“WINDOWS-1254”、“WINDOWS-1255”。
         - `quoteChar` 为双引号、单引号或空字符串（无引号字符）  。
     - 对于“JSON”格式，直接复制只支持以下情况：接收器 Snowflake 表仅有一列且该列的数据类型是“VARIANT”、“OBJECT”或“ARRAY”   。
-        - `compression` 可为“无压缩”、 **gzip** 、 **bzip2** 或 **deflate** 。
-        - `encodingName` 保留为默认值或设置为 **utf-8** 。
+        - `compression` 可为“无压缩”、 **gzip**、**bzip2** 或 **deflate**。
+        - `encodingName` 保留为默认值或设置为 **utf-8**。
         - 列映射未指定。
 
 - 在复制活动源中： 

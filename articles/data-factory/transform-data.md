@@ -10,13 +10,13 @@ ms.author: v-jay
 manager: digimobile
 ms.custom: seo-lt-2019
 origin.date: 07/31/2018
-ms.date: 11/23/2020
-ms.openlocfilehash: 7c18973f189d11c37a519888c235453c2b3907ec
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.date: 01/04/2021
+ms.openlocfilehash: d1446db2f2c04bcb9f6127ed4197a67477166fa2
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680509"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829681"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>在 Azure 数据工厂中转换数据
 
@@ -59,7 +59,7 @@ ms.locfileid: "94680509"
 数据工厂管道中的 HDInsight Spark 活动在自己的 HDInsight 群集上执行 Spark 程序。 有关详细信息，请参阅[从 Azure 数据工厂调用 Spark 程序](transform-data-using-spark.md)。 
 
 ### <a name="stored-procedure-activity"></a>存储过程活动
-可使用数据工厂管道中的 SQL Server 存储过程活动调用以下数据存储之一中的存储过程：你的企业或 Azure VM 中的 Azure SQL 数据库、Azure Synapse Analytics（以前称为 SQL 数据仓库）、SQL Server 数据库。 有关详细信息，请参阅[存储过程活动](transform-data-using-stored-procedure.md)一文。  
+可使用数据工厂管道中的 SQL Server 存储过程活动调用以下数据存储之一中的存储过程：你的企业或 Azure VM 中的 Azure SQL 数据库、Azure Synapse Analytics、SQL Server 数据库。 有关详细信息，请参阅[存储过程活动](transform-data-using-stored-procedure.md)一文。  
 ### <a name="databricks-notebook-activity"></a>Databricks Notebook 活动
 
 数据工厂管道中的 Azure Databricks Notebook 活动在 Azure Databricks 工作区中运行 Databricks Notebook。 Azure Databricks 是一个用于运行 Apache Spark 的托管平台。 请参阅[通过运行 Databricks Notebook 转换数据](transform-data-databricks-notebook.md)。

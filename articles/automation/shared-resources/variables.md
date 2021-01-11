@@ -3,15 +3,15 @@ title: 在 Azure 自动化中管理变量
 description: 本文介绍如何在 Runbook 和 DSC 配置中使用变量。
 services: automation
 ms.subservice: shared-capabilities
-origin.date: 10/05/2020
-ms.date: 11/02/2020
+origin.date: 12/01/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2f7c93617d49790b1cdf37e0671ac7967596afe9
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: 031bbb33d1707dbec6375b43ac9ac3be4aa624a0
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749765"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830140"
 ---
 # <a name="manage-variables-in-azure-automation"></a>在 Azure 自动化中管理变量
 
@@ -27,16 +27,16 @@ ms.locfileid: "92749765"
 
 Azure 自动化会持久保存变量，因此即使 Runbook 或 DSC 配置失败，变量也仍然可用。 此行为允许一个 Runbook 或 DSC 配置设置的值随后由另一个 Runbook 使用，或由同一 Runbook 或 DSC 配置在下次运行时使用。
 
-Azure 自动化会安全存储每个加密的变量。 创建变量时，可以指定将其加密，并由 Azure 自动化将其作为安全资产进行存储。 创建变量后，除非重新创建变量，否则将无法更改其加密状态。 Azure 安全中心建议对所有 Azure 自动化变量进行加密，如[自动化帐户变量应进行加密](../../security-center/recommendations-reference.md#recs-computeapp)中所述。
+Azure 自动化会安全存储每个加密的变量。 创建变量时，可以指定将其加密，并由 Azure 自动化将其作为安全资产进行存储。 创建变量后，除非重新创建变量，否则将无法更改其加密状态。 如果你拥有存储了尚未加密的敏感数据的自动化帐户变量，需要删除这些变量并将其重新创建为加密变量。 Azure 安全中心建议对所有 Azure 自动化变量进行加密，如[自动化帐户变量应进行加密](../../security-center/recommendations-reference.md#recs-computeapp)中所述。
 
 >[!NOTE]
->Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥进行加密并存储在 Azure 自动化中。 Azure 自动化将密钥存储在系统管理的 Key Vault 中。 在存储安全资产之前，自动化会从 Key Vault 加载密钥，然后使用该密钥加密资产。 
+>Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥进行加密并存储在 Azure 自动化中。 Azure 自动化将密钥存储在系统管理的 Key Vault 中。 在存储安全资产之前，自动化会从 Key Vault 加载密钥，然后使用该密钥加密资产。
 
 ## <a name="variable-types"></a>变量类型
 
 使用 Azure 门户创建变量时，必须从下拉列表指定一个数据类型，使门户能够显示用于输入变量值的相应控件。 下面是可在 Azure 自动化中使用的变量类型：
 
-* String
+* 字符串
 * Integer
 * DateTime
 * Boolean
@@ -81,11 +81,11 @@ $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
 ```
 
-## <a name="python-2-functions-to-access-variables"></a>用于访问变量的 Python 2 函数
+## <a name="python-functions-to-access-variables"></a>用于访问变量的 Python 函数
 
 下表中的函数用于在 Python2 runbook 中访问变量。
 
-|Python 2 函数|说明|
+|Python 函数|说明|
 |:---|:---|
 |`automationassets.get_automation_variable`|检索现有变量的值。 |
 |`automationassets.set_automation_variable`|设置现有变量的值。 |
@@ -136,9 +136,10 @@ $vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 $vmName = $vmValue.Name
 $vmExtensions = $vmValue.Extensions
 ```
+
 ## <a name="textual-runbook-examples"></a>文本 Runbook 示例
 
-### <a name="retrieve-and-set-a-simple-value-from-a-variable"></a>检索和设置变量中的简单值
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 下面的示例演示如何设置和检索文本 Runbook 中的变量。 此示例假设创建名为 `NumberOfIterations` 和 `NumberOfRunnings` 的整数变量，以及名为 `SampleMessage` 的字符串变量。
 
@@ -155,7 +156,7 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
 Set-AzAutomationVariable -ResourceGroupName "ResourceGroup01" -AutomationAccountName "MyAutomationAccount" -Name NumberOfRunnings -Value ($NumberOfRunnings += 1)
 ```
 
-### <a name="retrieve-and-set-a-variable-in-a-python-2-runbook"></a>在 Python 2 Runbook 中检索和设置变量
+# <a name="python-2"></a>[Python 2](#tab/python2)
 
 以下示例演示如何在 Python2 Runbook 中获取变量、设置变量以及处理关于不存在的变量的异常。
 
@@ -178,6 +179,8 @@ try:
 except AutomationAssetNotFound:
     print "variable not found"
 ```
+
+---
 
 ## <a name="graphical-runbook-examples"></a>图形 Runbook 示例
 

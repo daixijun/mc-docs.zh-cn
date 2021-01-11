@@ -5,25 +5,25 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 06/17/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 6f4007ab06a91f9825d2a7b1402263b49a82dfe4
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 01/04/2020
+ms.openlocfilehash: 7f1949b3b741e703da804c3484608d20be190155
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872379"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829893"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL 数据库和 Azure Synapse IP 防火墙规则
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-例如，在 Azure SQL 数据库或 Azure Synapse Analytics 中创建名为 mysqlserver 的新服务器时，一个服务器级别的防火墙会阻止对该服务器的公共终结点进行任何访问（可通过 mysqlserver.database.chinacloudapi.cn 访问） 。 为简单起见，在提到 SQL 数据库和 Azure Synapse Analytics（以前称为“SQL 数据仓库”）时，本文将其统称为“SQL 数据库”。
+例如，在 Azure SQL 数据库或 Azure Synapse Analytics 中创建名为 mysqlserver 的新服务器时，一个服务器级别的防火墙会阻止对该服务器的公共终结点进行任何访问（可通过 mysqlserver.database.chinacloudapi.cn 访问） 。 为简单起见，在提到 SQL 数据库和 Azure Synapse Analytics 时，本文统称 SQL 数据库。
 
 > [!IMPORTANT]
 > 本文不适用于 *Azure SQL 托管实例*。 有关网络配置的信息，请参阅[将应用程序连接到 Azure SQL 托管实例](../managed-instance/connect-application-instance.md)。
@@ -51,7 +51,7 @@ ms.locfileid: "91872379"
   
 - 只有在配置了第一个服务器级防火墙后，才只能使用 Transact-SQL 语句创建和管理用于 master 数据库和用户数据库的数据库级 IP 防火墙规则。
 - 如果在数据库级 IP 防火墙规则中指定的 IP 地址范围超出了在服务器级 IP 防火墙规则中指定的范围，只有 IP 地址处于数据库级范围内的客户端才能访问数据库。
-- 对于每个数据库，最多可以有 128 个数据库级别 IP 防火墙规则。 若要详细了解如何配置数据库级 IP 防火墙规则，请参阅本文后面部分中的示例，以及 [sp_set_database_firewall_rule（Azure SQL 数据库）](https://msdn.microsoft.com/library/dn270010.aspx)。
+- 对于每个数据库，最多可以有 128 个数据库级别 IP 防火墙规则。 若要详细了解如何配置数据库级 IP 防火墙规则，请参阅本文后面部分中的示例，以及 [sp_set_database_firewall_rule（Azure SQL 数据库）](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)。
 
 ### <a name="recommendations-for-how-to-set-firewall-rules"></a>有关如何设置防火墙规则的建议
 
@@ -108,8 +108,8 @@ IP 地址用户是否需要访问所有数据库？
 
 若要能够为 Azure SQL Server 创建和管理 IP 防火墙规则，你需要：
 
-- 具有 [SQL Server 参与者](/role-based-access-control/built-in-roles#sql-server-contributor)角色
-- 具有 [SQL 安全管理员](/role-based-access-control/built-in-roles#sql-security-manager)角色
+- 具有 [SQL Server 参与者](../../role-based-access-control/built-in-roles.md#sql-server-contributor)角色
+- 具有 [SQL 安全管理员](../../role-based-access-control/built-in-roles.md#sql-security-manager)角色
 - 包含 Azure SQL Server 的资源的所有者
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>创建和管理 IP 防火墙规则
@@ -119,7 +119,7 @@ IP 地址用户是否需要访问所有数据库？
 > [!IMPORTANT]
 > 只能使用 Transact-SQL 创建和管理数据库级 IP 防火墙规则。
 
-为了提升性能，服务器级别 IP 防火墙规则暂时在数据库级别缓存。 若要刷新高速缓存，请参阅 [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx)。
+为了提升性能，服务器级别 IP 防火墙规则暂时在数据库级别缓存。 若要刷新高速缓存，请参阅 [DBCC FLUSHAUTHCACHE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql)。
 
 > [!TIP]
 > 可以使用[数据库审核](../../azure-sql/database/auditing-overview.md)来审核服务器级别和数据库级别的防火墙更改。

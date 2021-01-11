@@ -1,23 +1,23 @@
 ---
-title: 将数据从 CSV 文件载入 Azure SQL 数据库 (bcp) | Microsoft Docs
+title: 将数据从 CSV 文件载入数据库 (bcp)
 description: 对于较小的数据，请使用 bcp 将数据导入到 Azure SQL 数据库。
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: ''
 origin.date: 01/25/2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 62fb7ff139341a7a217406b74a0e7c92a913c741
-ms.sourcegitcommit: fa26665aab1899e35ef7b93ddc3e1631c009dd04
+ms.date: 01/04/2021
+ms.openlocfilehash: d3c0c4b86bd15f4fc34869d39b0a1f4bb4214cf6
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86227901"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829664"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>将数据从 CSV 加载到 Azure SQL 数据库或 SQL 托管实例（平面文件）
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -119,8 +119,8 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 若要迁移 SQL Server 数据库，请参阅 [SQL Server 数据库迁移](database/migrate-to-database-from-sql-server.md)。
 
 <!--MSDN references-->
-[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+[bcp]: https://docs.microsoft.com/sql/tools/bcp-utility
+[CREATE TABLE syntax]: https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433

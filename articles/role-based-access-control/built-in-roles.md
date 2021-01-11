@@ -7,20 +7,20 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: v-junlch
-ms.date: 12/01/2020
+ms.date: 12/29/2020
 ms.custom: generated
-ms.openlocfilehash: 4fe7cef0a534650c28c90115c0b05e6ac620310c
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: b9cc2c8fd495ccfd0c882376ab5b4dead42c0d1b
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507422"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829465"
 ---
 # <a name="azure-built-in-roles"></a>Azure 内置角色
 
 [Azure 基于角色的访问控制 (Azure RBAC)](overview.md) 拥有多个 Azure 内置角色，可将其分配给用户、组、服务主体和托管标识。 角色分配是控制对 Azure 资源的访问的方式。 如果内置角色不能满足组织的特定需求，你可以创建自己的 [Azure 自定义角色](custom-roles.md)。
 
-本文列出了 Azure 内置角色，这些角色总是在不断发展。 若要获取最新角色，请使用 [Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/az.resources/get-azroledefinition) 或 [az role definition list](/cli/role/definition#az-role-definition-list)。 如果你正在查找 Azure Active Directory (Azure AD) 的管理员角色，请参阅 [Azure Active Directory 中的管理员角色权限](../active-directory/roles/permissions-reference.md)。
+本文列出了 Azure 内置角色，这些角色总是在不断发展。 若要获取最新角色，请使用 `Get-AzRoleDefinition` 或 `az role definition list`。 如果你正在查找 Azure Active Directory (Azure AD) 的管理员角色，请参阅 [Azure Active Directory 中的管理员角色权限](../active-directory/roles/permissions-reference.md)。
 
 下表提供了每个内置角色的简短说明和唯一 ID。 单击角色名称，查看每个角色的 `Actions`、`NotActions`、`DataActions` 和 `NotDataActions` 列表。 有关这些操作的含义以及它们如何应用于管理和数据平面的信息，请参阅[了解 Azure 角色定义](role-definitions.md)。
 
@@ -30,7 +30,7 @@ ms.locfileid: "96507422"
 > | 内置角色 | 说明 | ID |
 > | --- | --- | --- |
 > | **常规** |  |  |
-> | [参与者](#contributor) | 授予管理所有资源的完全访问权限，但不允许在 Azure RBAC 中分配角色。 | b24988ac-6180-42a0-ab88-20f7382dd24c |
+> | [参与者](#contributor) | 授予完全访问权限来管理所有资源，但不允许在 Azure RBAC 中分配角色或在 Azure 蓝图中管理分配，也不允许共享映像库。 | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | [所有者](#owner) | 授予管理所有资源的完全访问权限，包括允许在 Azure RBAC 中分配角色。 | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | [读者](#reader) | 查看所有资源，但不允许进行任何更改。 | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | [用户访问管理员](#user-access-administrator) | 允许管理用户对 Azure 资源的访问权限。 | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
@@ -165,7 +165,7 @@ ms.locfileid: "96507422"
 > | [密钥保管库证书管理人员（预览版）](#key-vault-certificates-officer-preview) | 对密钥保管库的证书执行任何操作（管理权限除外）。 仅适用于使用“Azure 基于角色的访问控制”权限模型的密钥保管库。 | a4417e6f-fecd-4de8-b567-7b0420556985 |
 > | [密钥保管库参与者](#key-vault-contributor) | 管理密钥保管库，但不允许在 Azure RBAC 中分配角色，也不允许访问机密、密钥或证书。 | f25e0fa2-a7c8-4377-a976-54943a77a395 |
 > | [密钥保管库加密管理人员（预览版）](#key-vault-crypto-officer-preview) | 对密钥保管库的密钥执行任何操作（管理权限除外）。 仅适用于使用“Azure 基于角色的访问控制”权限模型的密钥保管库。 | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-> | [密钥保管库加密服务加密（预览版）](#key-vault-crypto-service-encryption-preview) | 读取密钥的元数据并执行包装/解包操作。 仅适用于使用“Azure 基于角色的访问控制”权限模型的密钥保管库。 | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+> | [密钥保管库加密服务加密用户（预览版）](#key-vault-crypto-service-encryption-user-preview) | 读取密钥的元数据并执行包装/解包操作。 仅适用于使用“Azure 基于角色的访问控制”权限模型的密钥保管库。 | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
 > | [密钥保管库加密用户（预览版）](#key-vault-crypto-user-preview) | 使用密钥执行加密操作。 仅适用于使用“Azure 基于角色的访问控制”权限模型的密钥保管库。 | 12338af0-0e69-4776-bea7-57ae8d297424 |
 > | [密钥保管库读取者（预览版）](#key-vault-reader-preview) | 读取密钥保管库及其证书、密钥和机密的元数据。 无法读取机密内容或密钥材料等敏感值。 仅适用于使用“Azure 基于角色的访问控制”权限模型的密钥保管库。 | 21090545-7ca7-4776-b22c-e363652d74d2 |
 > | [密钥保管库机密管理人员（预览版）](#key-vault-secrets-officer-preview) | 对密钥保管库的机密执行任何操作（管理权限除外）。 仅适用于使用“Azure 基于角色的访问控制”权限模型的密钥保管库。 | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
@@ -225,7 +225,7 @@ ms.locfileid: "96507422"
 
 ### <a name="contributor"></a>参与者
 
-授予管理所有资源的完全访问权限，但不允许在 Azure RBAC 中分配角色。 [了解详细信息](rbac-and-directory-admin-roles.md)
+授予完全访问权限来管理所有资源，但不允许在 Azure RBAC 中分配角色或在 Azure 蓝图中管理分配，也不允许共享映像库。 [了解详细信息](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | 操作 | 描述 |
@@ -248,7 +248,7 @@ ms.locfileid: "96507422"
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC.",
+  "description": "Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
   "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
   "permissions": [
@@ -4265,6 +4265,7 @@ ACR 隔离数据编写器
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/azureADOnlyAuthentications/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/read | 返回托管实例的列表，或获取指定托管实例的属性。 |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/azureADOnlyAuthentications/* |  |
+> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/sqlVulnerabilityAssessments/* |  |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |
@@ -4326,7 +4327,8 @@ ACR 隔离数据编写器
         "Microsoft.Support/*",
         "Microsoft.Sql/servers/azureADOnlyAuthentications/*",
         "Microsoft.Sql/managedInstances/read",
-        "Microsoft.Sql/managedInstances/azureADOnlyAuthentications/*"
+        "Microsoft.Sql/managedInstances/azureADOnlyAuthentications/*",
+        "Microsoft.Security/sqlVulnerabilityAssessments/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -5017,7 +5019,7 @@ Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置
 
 ### <a name="cognitive-services-contributor"></a>认知服务参与者
 
-允许创建、读取、更新、删除和管理认知服务的密钥。
+允许创建、读取、更新、删除和管理认知服务的密钥。 [了解详细信息](../cognitive-services/cognitive-services-virtual-networks.md)
 
 > [!div class="mx-tableFixed"]
 > | 操作 | 描述 |
@@ -6191,7 +6193,7 @@ Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 读取角色和角色分配 |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | 创建和更新支持票证 |
 > | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/integrationServiceEnvironments/read | 读取集成服务环境。 |
-> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/integrationServiceEnvironments/join/action | 加入集成服务环境。 |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/integrationServiceEnvironments/*/join/action |  |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |
@@ -6213,7 +6215,7 @@ Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置
         "Microsoft.Authorization/*/read",
         "Microsoft.Support/*",
         "Microsoft.Logic/integrationServiceEnvironments/read",
-        "Microsoft.Logic/integrationServiceEnvironments/join/action"
+        "Microsoft.Logic/integrationServiceEnvironments/*/join/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -6688,6 +6690,7 @@ Azure Sentinel 响应方
 > | --- | --- |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/*/read |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/dataConnectorsCheckRequirements/action | 检查用户授权和许可证 |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/automationRules/* |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/cases/* |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/incidents/* |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/indicators/appendTags/action | 将标记追加到威胁情报指示器 |
@@ -6732,6 +6735,7 @@ Azure Sentinel 响应方
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
+        "Microsoft.SecurityInsights/automationRules/*",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.SecurityInsights/threatIntelligence/indicators/appendTags/action",
@@ -7000,7 +7004,7 @@ Azure Sentinel 响应方
 }
 ```
 
-### <a name="key-vault-crypto-service-encryption-preview"></a>密钥保管库加密服务加密（预览版）
+### <a name="key-vault-crypto-service-encryption-user-preview"></a>密钥保管库加密服务加密用户（预览版）
 
 读取密钥的元数据并执行包装/展开操作。 仅适用于使用“Azure 基于角色的访问控制”权限模型的密钥保管库。
 
@@ -7037,7 +7041,7 @@ Azure Sentinel 响应方
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto Service Encryption (preview)",
+  "roleName": "Key Vault Crypto Service Encryption User (preview)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -7879,7 +7883,7 @@ Azure Sentinel 响应方
 }
 ```
 
-### <a name="monitoring-reader"></a>监视读取者
+### <a name="monitoring-reader"></a>监视查阅者
 
 可以读取所有监视数据（指标、日志等）。 另请参阅 [Azure Monitor 的角色、权限和安全入门](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 [了解详细信息](../azure-monitor/platform/roles-permissions-security.md)
 
@@ -8451,6 +8455,7 @@ Azure Sentinel 响应方
 > | [Microsoft.Advisor](resource-provider-operations.md#microsoftadvisor)/configurations/read | 获取配置 |
 > | [Microsoft.Advisor](resource-provider-operations.md#microsoftadvisor)/recommendations/read | 读取建议 |
 > | [Microsoft.Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/read | 列出已通过身份验证的用户的管理组。 |
+> | [Microsoft.Billing](resource-provider-operations.md#microsoftbilling)/billingProperty/read |  |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |
@@ -8477,7 +8482,8 @@ Azure Sentinel 响应方
         "Microsoft.Support/*",
         "Microsoft.Advisor/configurations/read",
         "Microsoft.Advisor/recommendations/read",
-        "Microsoft.Management/managementGroups/read"
+        "Microsoft.Management/managementGroups/read",
+        "Microsoft.Billing/billingProperty/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -8506,6 +8512,7 @@ Azure Sentinel 响应方
 > | [Microsoft.Advisor](resource-provider-operations.md#microsoftadvisor)/configurations/read | 获取配置 |
 > | [Microsoft.Advisor](resource-provider-operations.md#microsoftadvisor)/recommendations/read | 读取建议 |
 > | [Microsoft.Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/read | 列出已通过身份验证的用户的管理组。 |
+> | [Microsoft.Billing](resource-provider-operations.md#microsoftbilling)/billingProperty/read |  |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |
@@ -8532,7 +8539,8 @@ Azure Sentinel 响应方
         "Microsoft.Support/*",
         "Microsoft.Advisor/configurations/read",
         "Microsoft.Advisor/recommendations/read",
-        "Microsoft.Management/managementGroups/read"
+        "Microsoft.Management/managementGroups/read",
+        "Microsoft.Billing/billingProperty/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -8599,8 +8607,8 @@ Azure Sentinel 响应方
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | 获取订阅操作结果。 |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | 获取订阅的列表。 |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | 获取或列出资源组。 |
-> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Write | 写入 connectedClusters |
-> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/read | 读取 connectedClusters |
+> | Microsoft.Kubernetes/connectedClusters/Write |  |
+> | Microsoft.Kubernetes/connectedClusters/read |  |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | 创建和更新支持票证 |
 > | **不操作** |  |
 > | *无* |  |
@@ -9503,6 +9511,8 @@ Azure Sentinel 响应方
 
 
 ### <a name="azure-digital-twins-data-owner"></a>Azure 数字孪生数据所有者
+
+对数字孪生数据平面具有完全访问权限的角色
 
 > [!div class="mx-tableFixed"]
 > | 操作 | 描述 |

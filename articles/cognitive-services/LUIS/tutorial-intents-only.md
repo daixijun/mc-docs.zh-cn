@@ -4,15 +4,15 @@ description: 创建一个自定义应用，以便根据本教程中的言语（�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/19/2020
+ms.date: 12/28/2020
 origin.date: 05/05/2020
 ms.author: v-johya
-ms.openlocfilehash: 776060ccb9efe5e69a21d37fb9fc72e44cc47512
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 63f5ee172addb6fbffad0b82d926b532e5b61f7c
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472303"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856963"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>教程：生成 LUIS 应用以确定用户意向
 
@@ -34,7 +34,7 @@ ms.locfileid: "92472303"
 
 `I'd like to order a veggie pizza with a salad on the side.`
 
-这些意图可以归类为 **意向** 。
+这些意图可以归类为 **意向**。
 
 |Intent|目的|
 |--|--|
@@ -184,7 +184,7 @@ ms.locfileid: "92472303"
 
 本教程创建了 LUIS 应用、创建了意向、向每个意向添加了示例言语、向 None 意向添加了示例言语，并在终结点上进行了训练、发布和测试操作。 这些是生成 LUIS 模型的基本步骤。
 
-LUIS 在返回 JSON 响应后，就已经完成了此请求。 LUIS 不提供用户话语的应答，只会识别以自然语言请求的信息类型。<!-- not available-->
+LUIS 在返回 JSON 响应后，就已经完成了此请求。 LUIS 不提供用户话语的应答，只会识别以自然语言请求的信息类型。 聊天跟进由客户端应用程序提供。
 
 
 [!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
@@ -197,4 +197,8 @@ LUIS 在返回 JSON 响应后，就已经完成了此请求。 LUIS 不提供用
 * [如何在 LUIS 门户中测试](luis-interactive-test.md)
 
 
-<!--tutorial-machine-learned-entity not available-->
+## <a name="next-steps"></a>后续步骤
+
+> [!div class="nextstepaction"]
+> [将可分解实体添加到此应用](tutorial-machine-learned-entity.md)
+

@@ -5,17 +5,17 @@ ms.service: virtual-machines-windows
 ms.subservice: monitoring
 origin.date: 08/20/2019
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.topic: how-to
-ms.openlocfilehash: f6d64253982d648e8b35547c1c315b6ed6722e5c
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 642f2e4f9a36c6ac0096cdc5f5a848fcc92b1d48
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105832"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857141"
 ---
 <!--Verify full content successfully-->
 # <a name="monitoring-scheduled-events"></a>监视计划事件
@@ -60,7 +60,7 @@ New-AzVm `
 
 从 [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip) 下载项目的 .zip 安装文件。
 
-连接到 **myCollectorVM** ，将该 .zip 文件复制到虚拟机并解压缩其中的所有文件。 在 VM 上打开 PowerShell 提示符。 在提示符下切换到包含 `SchService.ps1` 的文件夹（例如 `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`），然后设置服务。
+连接到 **myCollectorVM**，将该 .zip 文件复制到虚拟机并解压缩其中的所有文件。 在 VM 上打开 PowerShell 提示符。 在提示符下切换到包含 `SchService.ps1` 的文件夹（例如 `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`），然后设置服务。
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -72,7 +72,9 @@ New-AzVm `
 .\SchService.ps1 -Start
 ```
 
-现在，该服务将开始每隔 10 秒轮询所有计划事件，并审批事件以加速维护。  “冻结”、“重新启动”、“重新部署”和“抢占”是计划事件捕获的事件。   请注意，可以扩展脚本，以便在审批事件之前触发某些缓解措施。
+现在，该服务将开始每隔 10 秒轮询所有计划事件，并审批事件以加速维护。  “冻结”、“重新启动”和“重新部署”是“计划事件”捕获的事件。   请注意，可以扩展脚本，以便在审批事件之前触发某些缓解措施。
+
+<!--Not Available on FEATURE Preempt-->
 
 验证服务状态，确保它正在运行。
 
@@ -82,13 +84,15 @@ New-AzVm `
 
 此命令应返回 `Running`。
 
-现在，该服务将开始每隔 10 秒轮询所有计划事件，并审批事件以加速维护。  “冻结”、“重新启动”、“重新部署”和“抢占”是计划事件捕获的事件。 可以扩展脚本，以便在审批事件之前触发某些缓解措施。
+现在，该服务将开始每隔 10 秒轮询所有计划事件，并审批事件以加速维护。  “冻结”、“重新启动”和“重新部署”是“计划事件”捕获的事件。 可以扩展脚本，以便在审批事件之前触发某些缓解措施。
+
+<!--Not Available on FEATURE Preempt-->
 
 当计划事件服务捕获到上述任一事件时，该事件将记录到“应用程序事件日志事件状态”、“事件类型”、“资源”（虚拟机名称）和“不早于”（最小通知期限）中。 可以在应用程序事件日志中找到 ID 为 1234 的事件。
 
 设置并启动服务后，它会将事件记录到 Windows 应用程序日志中。   若要验证是否可正常执行此操作，请重启可用性集中的某个虚拟机，然后，应会在事件查看器的“Windows 日志”>“应用程序日志”中看到记录了一个事件，其中显示 VM 已重启。 
 
-:::image type="content" source="./media/notifications/event-viewer.png" alt-text="显示事件生命周期的示意图":::
+:::image type="content" source="./media/notifications/event-viewer.png" alt-text="事件查看器的屏幕截图。":::
 
 当计划事件服务捕获到事件时，该事件将记录到应用程序事件日志中，并显示“事件状态”、“事件类型”、“资源”（VM 名称）和“不早于”（最小通知期限）属性。 可以在应用程序事件日志中找到 ID 为 1234 的事件。
 
@@ -108,7 +112,7 @@ New-AzVm `
 1. 打开所创建的工作区的页面。
 1. 在“连接到数据源”下，选择“Azure 虚拟机(VM)”。 
 
-    :::image type="content" source="./media/notifications/connect-to-data-source.png" alt-text="显示事件生命周期的示意图":::
+    :::image type="content" source="./media/notifications/connect-to-data-source.png" alt-text="连接到用作数据源的 VM":::
 
 1. 搜索并选择“myCollectorVM”。 
 1. 在“myCollectorVM”的新页面上，选择“连接”。 
@@ -121,7 +125,7 @@ New-AzVm `
 1. 在左侧菜单中选择“数据”，然后选择“Windows 事件日志”。 
 1. 在“从以下事件日志收集”中键入“应用程序”，然后从列表中选择“应用程序”。
 
-    :::image type="content" source="./media/notifications/advanced.png" alt-text="显示事件生命周期的示意图":::
+    :::image type="content" source="./media/notifications/advanced.png" alt-text="选择“高级设置”":::
 
 1. 保留“错误”、“警告”和“信息”，然后选择“保存”以保存设置。   
 
@@ -130,7 +134,7 @@ New-AzVm `
 
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>使用 Azure Monitor 创建警报规则 
 
-将事件推送到 Log Analytics 后，可运行以下[查询](../../azure-monitor/log-query/get-started-portal.md)来查找计划事件。
+将事件推送到 Log Analytics 后，可运行以下[查询](../../azure-monitor/log-query/log-analytics-tutorial.md)来查找计划事件。
 
 1. 在页面顶部选择“日志”，将以下内容粘贴到文本框中：
 
@@ -148,25 +152,28 @@ New-AzVm `
     | project-away RenderedDescription,ReqJson
     ```
 
-1. 选择“保存”，键入 *logQuery* 作为名称，保留“查询”作为类型，键入 *VMLogs* 作为 **类别** ，然后选择“保存”。   
+1. 选择“保存”，键入 *logQuery* 作为名称，保留“查询”作为类型，键入 *VMLogs* 作为 **类别**，然后选择“保存”。   
 
-    :::image type="content" source="./media/notifications/save-query.png" alt-text="显示事件生命周期的示意图":::
+    :::image type="content" source="./media/notifications/save-query.png" alt-text="保存查询":::
 
 1. 选择“新建警报规则”。 
-1. 在“创建规则”页中，保留 `collectorworkspace` 作为 **资源** 。
+1. 在“创建规则”页中，保留 `collectorworkspace` 作为 **资源**。
 1. 在“条件”下，选择条目“每当客户日志搜索为 <login undefined> 时”。 此时将打开“配置信号逻辑”页。
-1. 在“阈值”下输入 *0* ，然后选择“完成”。 
+1. 在“阈值”下输入 *0*，然后选择“完成”。 
 1. 在“操作”下，选择“创建操作组”。  此时将打开“添加操作组”页。
-1. 在“操作组名称”中键入 *myActionGroup* 。
+1. 在“操作组名称”中键入 *myActionGroup*。
 1. 在“短名称”中键入 myActionGroup 。
 1. 在“资源组”中选择“myResourceGroupAvailability”。 
+    
+    <!--MOONCAKE: CORRECT ON Email/SMS-->
+    
 1. 在“操作”下的“操作名称”中键入“电子邮件”，然后选择“电子邮件/短信”。   此时将打开“电子邮件/短信”页。
     
     <!--MOONCAKE: CORRECT ON Email/SMS-->
 
 1. 选择“电子邮件”，键入电子邮件地址，然后选择“确定”。 
 1. 在“添加操作组”页中选择“确定”。  
-1. 在“创建规则”页中的“警报详细信息”下，为“警报规则名称”键入 *myAlert* ，然后为“说明”键入“电子邮件警报规则”。  
+1. 在“创建规则”页中的“警报详细信息”下，为“警报规则名称”键入 *myAlert*，然后为“说明”键入“电子邮件警报规则”。  
 1. 完成后，选择“创建警报规则”。
 1. 重启可用性集中的一个 VM。 几分钟后，你应会收到一封电子邮件，指出已触发该警报。
 

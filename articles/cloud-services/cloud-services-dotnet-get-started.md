@@ -9,14 +9,14 @@ ms.service: cloud-services
 ms.devlang: dotnet
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 12/28/2020
 ms.author: v-junlch
-ms.openlocfilehash: 1e7c29b51a4afb962f1a96dea4d8ebdb0fbd840a
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 22b643749f28d2e230f56f3bf9177a69388ac781
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509047"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829447"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure 云服务和 ASP.NET 入门
 
@@ -736,7 +736,7 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 此代码读取数据库以获取图像 URL、将图像转换为一个缩略图、在 blob 中保存缩略图、用缩略图 blob URL 更新数据库并删除队列消息。
 
 > [!NOTE]
-> 为简单起见，`ConvertImageToThumbnailJPG` 方法中的代码使用 System.Drawing 命名空间中的类。 但是，此命名空间中的类已设计用于 Windows 窗体。 不支持在 Windows 或 ASP.NET 服务中使用。 有关图像处理选项的详细信息，请参阅[深入学习图像大小重设](https://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na)。
+> 为简单起见，`ConvertImageToThumbnailJPG` 方法中的代码使用 System.Drawing 命名空间中的类。 但是，此命名空间中的类已设计用于 Windows 窗体。 不支持在 Windows 或 ASP.NET 服务中使用。 有关图像处理选项的详细信息，请参阅[动态图像生成](https://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx)和[深入学习图像大小调整](https://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na)。
 >
 >
 
@@ -744,7 +744,7 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 按本教程中的说明操作时，如果出现异常现象，请参考如下常见错误信息和解决方法。
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
-在 Azure 中运行应用程序或使用 Azure 计算模拟器本地运行时， `RoleEnvironment` 对象由 Azure 提供。  如果您在本地运行时收到此错误，请确保您已将 ContosoAdsCloudService 项目设为启动项目。 这将项目设置为使用 Azure 计算仿真程序运行。
+在 Azure 中运行应用程序或使用 Azure 计算模拟器在本地运行时，`RoleEnvironment` 对象由 Azure 提供。  如果您在本地运行时收到此错误，请确保您已将 ContosoAdsCloudService 项目设为启动项目。 这会将项目设置为使用 Azure 计算模拟器运行。
 
 应用程序使用 Azure RoleEnvironment 的内容之一是获取 *.cscfg* 文件中存储的连接字符串值，所以此异常的另一个原因是丢失连接字符串。 确保在 ContosoAdsWeb 项目中为云和本地配置创建 StorageConnectionString 设置，并且您会在 ContosoAdsWorker 项目中为两个配置创建两个连接字符串。 如果为整个解决方案中的 StorageConnectionString 进行 **查找全部** 搜索，应在 6 个文件中看到它 9 次。
 
@@ -754,7 +754,7 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 有关可能解决该问题的另一种方法，请参阅下一节。
 
 ### <a name="other-errors-when-running-locally"></a>在本地运行时出现其他错误
-默认情况下新的云服务项目使用 Azure 计算模拟器 express 版来模拟 Azure 环境。 这是完整计算仿真程序的轻型版本，在某些情况下完整仿真程序会在没有 express 版时工作。  
+默认情况下新的云服务项目使用 Azure 计算模拟器 Express 版来模拟 Azure 环境。 这是完整计算仿真程序的轻型版本，在某些情况下完整仿真程序会在没有 express 版时工作。  
 
 如果要更改项目以使用完整模拟器，请右键单击 ContosoAdsCloudService 项目中，并单击“属性”。 在“属性”窗口中，单击“Web”选项卡，并单击“使用完整模拟器”单选按钮。
 

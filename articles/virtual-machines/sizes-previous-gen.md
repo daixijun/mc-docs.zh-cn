@@ -5,18 +5,18 @@ services: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-origin.date: 10/02/2020
+origin.date: 11/01/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: f8a86f70613f47919e64dc482244b1f55355c243
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 5f6ec87e1ad73c8f099e691fa42d64f952f2bab4
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104113"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856780"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>前几代虚拟机大小
 
@@ -68,11 +68,19 @@ Mbps = 每秒 10^6 字节，GiB = 1024^3 字节。
 
 <sup>1</sup> Fs 系列 VM 可能的最大磁盘吞吐量（IOPS 或 Mbps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[高性能设计](premium-storage-performance.md)。
 
+<!--Not Available on ## NVv2-series-->
+
+## <a name="older-generations-of-virtual-machine-sizes"></a>前几代虚拟机大小
+
+本部分提供了有关先前几代虚拟机大小的信息。 这些大小仍受支持，但无法接收更多的容量。 有更新的或备用的大小，这些大小已公开发布。 请参阅 [Azure 中虚拟机的大小](./sizes.md)，选择最适合自己需求的 VM 大小。  
+
+有关如何调整 Linux VM 的大小的详细信息，请参阅[调整 Linux VM 的大小](linux/change-vm-size.md)。  
+
 <br />
 
 ### <a name="basic-a"></a>基本 A  
 
-**更新的大小建议** ： [Av2 系列](av2-series.md)
+**更新的大小建议**：[Av2 系列](av2-series.md)
 
 高级存储：不支持
 
@@ -102,7 +110,7 @@ Mbps = 每秒 10^6 字节，GiB = 1024^3 字节。
 
 ### <a name="a-series"></a>A 系列  
 
-**更新的大小建议** ： [Av2 系列](av2-series.md)
+**更新的大小建议**：[Av2 系列](av2-series.md)
 
 ACU：50-100
 
@@ -112,7 +120,7 @@ ACU：50-100
 
 | 大小 | vCPU | 内存:GiB | 临时存储 (HDD)：GiB | 最大数据磁盘数 | 数据磁盘最大吞吐量：IOPS | 最大 NIC 数/预期网络带宽 (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0&nbsp;<sup>1</sup> | 1 | 0.768 | 20 | 1 | 1x500 | 2/100 |
+| Standard_A0&nbsp;<sup>1</sup> | 1 | 0.768 | 20 个 | 1 | 1x500 | 2/100 |
 | Standard_A1 | 1 | 1.75 | 70  | 2  | 2x500  | 2/500  |
 | Standard_A2 | 2 | 3.5  | 135 | 4  | 4x500  | 2/500  |
 | Standard_A3 | 4 | 7    | 285 | 8  | 8x500  | 2/1000 |
@@ -129,7 +137,7 @@ ACU：50-100
 
 ### <a name="d-series"></a>D 系列  
 
-**更新的大小建议** ： [Dv4 系列](dv4-dsv4-series.md)和 [Ddv4 系列](ddv4-ddsv4-series.md)
+**更新的大小建议**：[Dv4 系列](dv4-dsv4-series.md)和 [Ddv4 系列](ddv4-ddsv4-series.md)
 
 <!--Not Available on [Dav4-series](dav4-dasv4-series.md)-->
 
@@ -152,7 +160,7 @@ ACU：160-250 <sup>1</sup>
 
 ### <a name="d-series---memory-optimized"></a>D 系列 - 内存优化  
 
-**更新的大小建议** ： [Dv4 系列](dv4-dsv4-series.md)和 [Ddv4 系列](ddv4-ddsv4-series.md)
+**更新的大小建议**：[Dv4 系列](dv4-dsv4-series.md)和 [Ddv4 系列](ddv4-ddsv4-series.md)
 
 <!--Not Available on [Dav4-series](dav4-dasv4-series.md)-->
 
@@ -177,7 +185,7 @@ ACU：160-250 <sup>1</sup>
 
 ### <a name="ds-series"></a>DS 系列  
 
-**更新的大小建议** ： [Dsv4 系列](dv4-dsv4-series.md)和 [Ddsv4 系列](ddv4-ddsv4-series.md)
+**更新的大小建议**：[Dsv4 系列](dv4-dsv4-series.md)和 [Ddsv4 系列](ddv4-ddsv4-series.md)
 
 <!--Not Available on [Dav4-series](dav4-dasv4-series.md)-->
 
@@ -200,7 +208,7 @@ ACU：160-250 <sup>1</sup>
 
 ### <a name="ds-series---memory-optimized"></a>DS 系列 - 内存优化  
 
-**更新的大小建议** ： [Dsv4 系列](dv4-dsv4-series.md)和 [Ddsv4 系列](ddv4-ddsv4-series.md)
+**更新的大小建议**：[Dsv4 系列](dv4-dsv4-series.md)和 [Ddsv4 系列](ddv4-ddsv4-series.md)
 
 <!--Not Available on [Dav4-series](dav4-dasv4-series.md)-->
 
@@ -225,8 +233,10 @@ ACU：160-250 <sup>1,2</sup>
 <!--Not Available on ### Ls-series-->
 <!--Not Avaialble on ### GS-series -->
 <!--Not Available on ### G-series -->
-<!--Not Available on ## NV-series -->
-
+<!--Not Available on ### NV-series -->
+<!--Not Available on ### NC series-->
+<!--Not Available on ### NCv2 series-->
+<!--Not Available on ### ND series-->
 ## <a name="other-sizes"></a>其他大小
 
 * [常规用途](sizes-general.md)

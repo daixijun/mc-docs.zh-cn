@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 09/18/2017
 ms.date: 05/06/2019
 ms.author: v-yiso
-ms.openlocfilehash: eeaf0eca87d0ab1ec85d00fd789e9913cf0c9859
-ms.sourcegitcommit: 1118dd532a865ae25a63cf3e7e2eec2d7bf18acc
+ms.openlocfilehash: 9771f19b730adf0986e7e539362dd90567bb1f31
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91394739"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829836"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>概念性理解 IoT 行业中的 X.509 CA 证书
 
@@ -45,7 +45,9 @@ X.509 CA 身份验证的另一重要属性是简化了供应链逻辑。  设备
 
 本文连贯地介绍如何使用 X.509 CA 身份验证（从供应链设置到设备连接），同时利用真实示例增强理解。
 
-## <a name="introduction"></a>介绍
+还可以将注册组与 Azure IoT 中心设备预配服务 (DPS) 配合使用，以便处理将设备预配到中心的操作。 
+
+## <a name="introduction"></a>简介
 
 X.509 CA 证书是一种数字证书，该证书的持有者可对其他证书进行签名。  此数字证书为 X.509，因为它符合 IETF RFC 5280 标准规定的证书格式标准；它也是一个证书颁发机构 (CA)，因为其持有者可对其他证书进行签名。
 
@@ -79,7 +81,7 @@ X 公司可通过公共根证书颁发机构购买 X.509 CA 证书，也可通�
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>向 IoT 中心注册 X.509 证书
 
-X 公司需要向 IoT 中心注册 X.509 CA，IoT 中心将在智能 X 小组件进行连接时对其进行身份验证。  这个过程是一次性的，完成后即可对任何数量的智能 X 小组件设备进行身份验证和管理。  因为授权证书与设备间存在一对多关系，所以此过程是一次性的。这也是使用 X.509 CA 身份验证方法的主要优点之一。  另一种方法是为每个智能 X 小组件设备上传单个证书指纹，但这会增加运营成本。
+X 公司需要向 IoT 中心注册 X.509 CA，IoT 中心将在智能 X 小组件进行连接时对其进行身份验证。 这个过程是一次性的，完成后即可对任何数量的智能 X 小组件设备进行身份验证和管理。 由于 CA 证书和通过 CA 证书或中间证书签名的设备证书之间的一对多关系，因此这是一次性过程。 此关系是使用 X.509 CA 身份验证方法的主要优点之一。 另一种方法是为每个智能 X 小组件设备上传单个证书指纹，但这会增加运营成本。
 
 注册 X.509 CA 证书的过程包含 2 个步骤：证书上传、证书所有权证明。
 

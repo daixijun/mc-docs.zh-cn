@@ -6,18 +6,18 @@ ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
-ms.reviewer: mathoma, carlrab
-origin.date: 04/14/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: 515d264f153bd6c7259bcac3f9db14aee242e42f
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.reviewer: mathoma, sstein
+origin.date: 12/16/2020
+ms.date: 01/04/2021
+ms.openlocfilehash: ebda3a98762ba7687c078ef35fcc9f6c734f194d
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014332"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829698"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL 数据库长期备份保留
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -101,7 +101,7 @@ ms.locfileid: "90014332"
 > [!NOTE]
 > “SQL Server 参与者”角色没有删除 LTR 备份的权限。
 
-可以在订阅或资源组范围内授予 RBAC 权限。 但是，若要访问属于已删除服务器的 LTR 备份，必须在该服务器的“订阅”范围内授予此权限。
+可以在“订阅”或“资源组”范围内授予 Azure RBAC 权限。 但是，若要访问属于已删除服务器的 LTR 备份，必须在该服务器的“订阅”范围内授予此权限。
 
 - Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -201,6 +201,10 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 > [!NOTE]
 > 从此处，可使用 SQL Server Management Studio 连接到已还原的数据库，执行所需任务，例如从恢复的数据库中提取一部分数据，复制到现有数据库或删除现有数据库，并将已还原的数据库重命名为现有数据库名。 请参阅[时间点还原](recovery-using-backups.md#point-in-time-restore)。
+
+## <a name="limitations"></a>限制
+- 从 LTR 备份进行还原时，“读取扩展”属性处于禁用状态。 若要在还原的数据库上启用读取扩展，请在数据库创建完后对其进行更新。
+- 从 LTR 备份（在数据库位于弹性池时创建）进行还原时，需要指定目标服务级别目标。 
 
 ## <a name="next-steps"></a>后续步骤
 

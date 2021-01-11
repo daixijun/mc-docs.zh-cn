@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/28/2020
 ms.date: 04/06/2020
 ms.author: v-yiso
-ms.openlocfilehash: 82c7e378b1bc2c294b25c0db02db132b2b4ea596
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 1c070573429c5c80500c51bd2d073a06219a9e1f
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551945"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830146"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大规模提取、转换和加载 (ETL)
 
@@ -93,7 +93,7 @@ Data Lake Storage 已针对使用 Azure 事件中心或 Apache Storm 运行的�
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure Synapse Analytics（以前称为“SQL DW”）是存储准备好的结果的合适选择。 可以使用 Azure HDInsight 为 Azure Synapse Analytics 执行这些服务。
+Azure Synapse Analytics 是存储准备好的结果的合适选择。 可以使用 Azure HDInsight 为 Azure Synapse Analytics 执行这些服务。
 
 Azure Synapse Analytics 是已针对分析工作负荷进行优化的关系数据库存储。 它根据分区表进行缩放。 表可以跨多个节点分区。 在创建节点时便选择了节点。 可以在事后缩放节点，但是，该主动过程可能需要移动数据。 有关详细信息，请参阅[管理 Azure Synapse Analytics 中的计算资源](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)。
 

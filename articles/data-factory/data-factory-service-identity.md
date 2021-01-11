@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 07/06/2020
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.author: v-jay
-ms.openlocfilehash: 443ebbd7bedefc837d4a10a5c5180f885d13710f
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 7dd62f8ed0c0e05000378dafb4eefc3fa17fa072
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105899"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830321"
 ---
 # <a name="managed-identity-for-data-factory"></a>数据工厂的托管标识
 
@@ -33,7 +33,7 @@ ms.locfileid: "93105899"
 数据工厂的托管标识对以下功能有益：
 
 - [在 Azure Key Vault 中存储凭据](store-credentials-in-key-vault.md)，在这种情况下，数据工厂托管标识用于 Azure Key Vault 身份验证。
-- 连接器，包括 [Azure Blob 存储](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、[Azure SQL 数据库](connector-azure-sql-database.md)和 [Azure Synapse Analytics（以前称为 SQL 数据仓库）](connector-azure-sql-data-warehouse.md)。
+- 连接器包括 [Azure Blob 存储](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、[Azure SQL 数据库](connector-azure-sql-database.md)和 [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)。
 - [Web 活动](control-flow-web-activity.md)。
 
 ## <a name="generate-managed-identity"></a>生成托管标识
@@ -80,7 +80,7 @@ ProvisioningState : Succeeded
 PATCH https://management.chinacloudapi.cn/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**请求正文** ：添加 "identity": { "type": "SystemAssigned" }。
+**请求正文**：添加 "identity": { "type": "SystemAssigned" }。
 
 ```json
 {
@@ -93,7 +93,7 @@ PATCH https://management.chinacloudapi.cn/subscriptions/<subsID>/resourceGroups/
 }
 ```
 
-**响应** ：自动创建托管标识并相应地填充 "identity" 部分。
+**响应**：自动创建托管标识并相应地填充 "identity" 部分。
 
 ```json
 {
@@ -118,7 +118,7 @@ PATCH https://management.chinacloudapi.cn/subscriptions/<subsID>/resourceGroups/
 
 ### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板生成托管标识
 
-**模版** ：添加 "identity": { "type": "SystemAssigned" }。
+**模版**：添加 "identity": { "type": "SystemAssigned" }。
 
 ```json
 {
@@ -202,7 +202,7 @@ Type                  : ServicePrincipal
 GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**响应** ：你将获得如下所示的响应。 “标识”部分会相应进行填充。
+**响应**：你将获得如下所示的响应。 “标识”部分会相应进行填充。
 
 ```json
 {
@@ -252,4 +252,4 @@ GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceG
 
 - [在 Azure Key Vault 中存储凭据](store-credentials-in-key-vault.md)
 
-有关数据工厂托管标识所基于的 Azure 资源的托管标识的更多背景信息，请参阅 [Azure 资源的托管标识概述](/active-directory/managed-identities-azure-resources/overview)。 
+有关数据工厂托管标识所基于的 Azure 资源的托管标识的更多背景信息，请参阅 [Azure 资源的托管标识概述](../active-directory/managed-identities-azure-resources/overview.md)。

@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 08/11/2018
-ms.date: 11/23/2020
+ms.date: 01/04/2021
 author: v-jay
 ms.author: daperlov
 manager: digimobile
-ms.openlocfilehash: 067a221901fa9f5cfea8dcff2c11ad32f7fa7b23
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: b6da38430244075cca7ff52324dde4b7c0d4f764
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680534"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830284"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>在 Azure 数据工厂中监视集成运行时
 
@@ -105,7 +105,7 @@ Azure 集成运行时的计算资源在 Azure 中以弹性方式受到完全管�
 | 联机 | 节点已连接到数据工厂服务。 |
 | Offline | 节点处于脱机状态。 |
 | 正在升级 | 节点正在进行自动更新。 |
-| 受限制 | 由于连接问题而受限。 可能的原因包括 HTTP 端口 8050 问题、服务总线连接问题或凭据同步问题。 |
+| 受限制 | 由于连接问题而受限。 可能的原因包括 HTTP 端口 8060 问题、服务总线连接问题或凭据同步问题。 |
 | 非活动 | 节点的配置与其他多数节点的配置不同。 |
 
 节点在无法与其他节点连接时可能处于非活动状态。

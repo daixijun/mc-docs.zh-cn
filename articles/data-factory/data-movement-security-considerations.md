@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 05/26/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: 6c12f677dc39a7c961d463e7c832e078262d6858
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.date: 01/04/2021
+ms.openlocfilehash: 3098f1b3be6dc0b47e59da5835ad3239480500b8
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680538"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830320"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure 数据工厂中数据移动的安全注意事项
 
@@ -29,26 +29,26 @@ ms.locfileid: "94680538"
 
 尽管数据工厂仅在少数区域中可用，但数据移动服务[在全球范围内可用](concepts-integration-runtime.md#integration-runtime-location)，以确保数据符合性、高效和降低网络出口成本。 
 
-除使用证书加密的云数据存储的链接服务凭据外，Azure 数据工厂不存储任何其他数据。 使用数据工厂可以创建数据驱动的工作流，协调[受支持数据存储](copy-activity-overview.md#supported-data-stores-and-formats)之间的数据移动，以及使用[计算服务](compute-linked-services.md)在其他区域或本地环境中处理数据。 还可以使用 SDK 与 Azure Monitor 来监视和管理工作流。
+除使用证书加密的云数据存储的链接服务凭据外，Azure 数据工厂（包括 Integration Runtime）不存储任何其他数据。 使用数据工厂可以创建数据驱动的工作流，协调[受支持数据存储](copy-activity-overview.md#supported-data-stores-and-formats)之间的数据移动，以及使用[计算服务](compute-linked-services.md)在其他区域或本地环境中处理数据。 还可以使用 SDK 与 Azure Monitor 来监视和管理工作流。
 
 数据工厂已获得以下认证：
 
 | **[CSA STAR 认证](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
 | :----------------------------------------------------------- |
 | **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |
-| **[ISO 22301:2012](https://www.microsoft.com/trustcenter/compliance/iso-22301)** |
+| **[ISO 22301:2012](https://docs.microsoft.com/compliance/regulatory/offering-iso-22301)** |
 | **[ISO 27001:2013](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001)** |
 | **[ISO 27017:2015](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)** |
 | **[ISO 27018:2014](https://www.microsoft.com/trustcenter/compliance/iso-iec-27018)** |
 | **[ISO 9001:2015](https://www.microsoft.com/trustcenter/compliance/iso-9001)** |
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
-| **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
+| **[HIPAA BAA](https://docs.microsoft.com/compliance/regulatory/offering-hipaa-hitech)** |
 
 如果对 Azure 合规性以及 Azure 如何保护其专属基础结构感兴趣，请访问 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/default.html)。 有关所有 Azure 合规性产品检查的最新列表 - https://aka.ms/AzureCompliance 。
 
 在本文中，我们将查看以下两个数据移动方案中的安全注意事项： 
 
-- **云场景**：在此场景中，源和目标都可通过 Internet 公开访问。 其中包括托管的云存储服务，如 Azure 存储、Azure Synapse Analytics（以前称为 SQL 数据仓库）、Azure SQL 数据库、Amazon S3 和 Amazon Redshift、Salesforce 之类的 SaaS 服务，以及 FTP 和 OData 之类的 Web 协议。 可以在[支持的数据存储和格式](copy-activity-overview.md#supported-data-stores-and-formats)中找到受支持数据源的完整列表。
+- **云场景**：在此场景中，源和目标都可通过 Internet 公开访问。 其中包括托管的云存储服务（如 Azure 存储、Azure Synapse Analytics、Azure SQL 数据库、Amazon S3、Amazon Redshift）、SaaS 服务（如 Salesforce）以及 Web 协议（如 FTP 和 OData）。 可以在[支持的数据存储和格式](copy-activity-overview.md#supported-data-stores-and-formats)中找到受支持数据源的完整列表。
 - **混合场景**：在此场景中，源或目标位于防火墙之后或本地公司网络中。 或者，数据存储位于专用网络或虚拟网络（通常是源）中，且不可公开访问。 虚拟机上托管的数据库服务器也属于这种情况。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

@@ -13,14 +13,14 @@ ms.topic: landing - page
 origin.date: 08/14/2019
 ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 15b522a9463cd17c2ba464d68927daaded7df91a
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 1e3f85f1e62e8877e5ffe72d52b88d50cf2cbe22
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300877"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830280"
 ---
-# <a name="troubleshoot-by-using-azure-hdinsight"></a>使用 Azure HDInsight 进行故障排除
+# <a name="troubleshoot-azure-hdinsight"></a>排查 Azure HDInsight 问题
 
 | Apache 工作负荷 | 最常见的问题 |
 |---|---|

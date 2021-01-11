@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 12/29/2020
 ms.author: v-junlch
-ms.openlocfilehash: b9661087ed729813e4898d61d52794d09df275bb
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 8f8a79c08d39475d19a3b8601d384308fcf94b9d
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507966"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829454"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>将 Azure 订阅转移到其他 Azure AD 目录
 
@@ -53,7 +53,11 @@ ms.locfileid: "96507966"
 - 部分业务已拆分为一个独立的公司，你需要将一些资源转移到其他 Azure AD 目录中。
 - 出于安全隔离目的，你希望在不同的 Azure AD 目录中管理某些资源。
 
-转移订阅的过程需要停机才能完成。 根据你的方案，最好重新创建资源并将数据复制到目标目录和订阅中。
+### <a name="alternate-approaches"></a>备用方法
+
+转移订阅的过程需要停机才能完成。 可以根据情况考虑以下替代方法：
+
+- 重新创建资源并将数据复制到目标目录和订阅中。
 
 ### <a name="understand-the-impact-of-transferring-a-subscription"></a>了解转移订阅的影响
 
@@ -71,7 +75,7 @@ ms.locfileid: "96507966"
 | Azure Key Vault | “是” | “是” | [列出 Key Vault 访问策略](#list-key-vaults) | 必须更新与密钥保管库关联的租户 ID。 必须删除并添加新的访问策略。 |
 | 启用了 Azure AD 身份验证集成的 Azure SQL 数据库 | 是 | 否 | [检查采用 Azure AD 身份验证的 Azure SQL 数据库](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Azure 存储和 Azure Data Lake Storage Gen2 | 是 | 是 |  | 必须重新创建任何 ACL。 |
-| Azure Data Lake Storage Gen1 | “是” | “是” |  | 必须重新创建任何 ACL。 |
+| Azure Data Lake Storage Gen1 | 是 | 是 |  | 必须重新创建任何 ACL。 |
 | Azure 文件 | 是 | 是 |  | 必须重新创建任何 ACL。 |
 | Azure 文件同步 | 是 | 是 |  |  |
 | Azure 托管磁盘 | 是 | 是 |  |  如果使用磁盘加密集通过客户管理的密钥对托管磁盘进行加密，则必须先禁用再重新启用与磁盘加密集关联的系统分配标识。 你必须重新创建角色分配，即，向密钥保管库中的磁盘加密集再次授予所需权限。 |

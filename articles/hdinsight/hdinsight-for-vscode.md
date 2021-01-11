@@ -10,12 +10,12 @@ ms.workload: big-data
 origin.date: 04/07/2020
 ms.date: 06/22/2020
 ms.author: v-yiso
-ms.openlocfilehash: e2ae3c55f486c6607213b9d800d15ebdda66537a
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 092e5c9e058bb486d3e919a58b3ac452829b834c
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552740"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829638"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>使用适用于 Visual Studio Code 的 Spark 和 Hive 工具
 
@@ -216,7 +216,9 @@ ms.locfileid: "94552740"
 6. 如果在步骤 4 中安装成功，则会在窗口右下角显示“已成功安装 PySpark”消息框。 单击“重载”按钮可重载此窗口。
     ![已成功安装 PySpark](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. 从菜单栏中，导航到“查看” > “命令面板...”或使用 Shift + Ctrl + P 键盘快捷键，然后输入“Python:选择解释器以启动 Jupyter 服务器”。
+7. 请使用命令提示符运行 pip install numpy == 1.19.3，然后再次重载 VSCode 窗口。
+
+8. 从菜单栏中，导航到“查看” > “命令面板...”或使用 Shift + Ctrl + P 键盘快捷键，然后输入“Python:选择解释器以启动 Jupyter 服务器”。
 
    ![选择解释器以启动 jupyter 服务器](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
@@ -272,7 +274,7 @@ ms.locfileid: "94552740"
 
 > [!NOTE]
 >
->此扩展不支持 2020.5.78807 以上（含）的 Ms-python 版本，这是一个[已知问题](#known-issues)。
+> [“此扩展不支持 2020.5.78807 版及更高版本的 ms-python”](#issues-changed)问题已解决。 目前可以使用最新的 ms-python 版本。
 
 ## <a name="submit-pyspark-batch-job"></a>提交 PySpark 批处理作业
 
@@ -307,9 +309,9 @@ ms.locfileid: "94552740"
 
 5. 右键单击脚本编辑器，然后选择“Spark:PySpark Batch”或“Synapse:PySpark Batch”。
 
-6. 选择要将 PySpark 作业提交到的群集：
+6. 选择要将 PySpark 作业提交到的群集/Spark 池：
 
-   ![提交 Python 作业结果](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
+   ![提交 Python 作业结果输出](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
 提交 Python 作业后，提交日志将显示在 Visual Studio Code 的“输出”窗口中。 同时还会显示 Spark UI URL 和 Yarn UI URL。 如果将批处理作业提交到 Apache Spark 池，则还会显示 Spark 历史记录 UI URL 和 Spark 作业应用程序 UI URL。 你可以在 Web 浏览器中打开 URL 以跟踪作业状态。
 
@@ -488,12 +490,10 @@ ms.locfileid: "94552740"
 
 在菜单栏中，转到“视图” > “命令面板”，然后输入“Azure:  注销”。
 
-## <a name="known-issues"></a>已知问题
-### <a name="ms-python-2020578807-version-is-not-supported-on-this-extention"></a>此扩展不支持 2020.5.78807 以上（含）的 ms-python 版本 
+## <a name="issues-changed"></a>改观的问题
 
-“无法连接到 Jupyter 笔记本。” 是 2020.5.78807 以上（含）的 python 版本的一个已知问题。 建议用户使用 **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** 版 ms-python 以避免此问题。
+由于“此扩展不支持 2020.5.78807 版及更高版本的 ms-python”问题已解决，因此现在可以使用最新的 ms-python 版本。
 
-![已知问题](./media/hdinsight-for-vscode/known-issue.png)
 
 ## <a name="next-steps"></a>后续步骤
 

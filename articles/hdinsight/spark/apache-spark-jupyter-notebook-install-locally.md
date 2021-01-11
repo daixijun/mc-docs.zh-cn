@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 04/23/2020
 ms.date: 08/31/2020
 ms.author: hrasheed
-ms.openlocfilehash: 1b681e1870171b711986ea40a2c74d78989e26cb
-ms.sourcegitcommit: 2e9b16f155455cd5f0641234cfcb304a568765a9
+ms.openlocfilehash: 90d746cc828e96ad0f4776e53e4f03dad3552063
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88715181"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830157"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>在计算机上安装 Jupyter notebook 并连接到 HDInsight 上的 Apache Spark
 
@@ -44,12 +44,7 @@ ms.locfileid: "88715181"
 
 ## <a name="install-spark-magic"></a>安装 Spark magic
 
-1. 输入以下命令之一以安装 Spark magic。 另请参阅 [sparkmagic 文档](https://github.com/jupyter-incubator/sparkmagic#installation)。
-
-    |群集版本 | 安装命令 |
-    |---|---|
-    |v3.6 和 v3.5 |`pip install sparkmagic==0.13.1`|
-    |v3.4|`pip install sparkmagic==0.2.3`|
+1. 输入 `pip install sparkmagic==0.13.1` 命令以安装适用于 HDInsight 群集 3.6 版和 4.0 版的 Spark magic。 另请参阅 [sparkmagic 文档](https://github.com/jupyter-incubator/sparkmagic#installation)。
 
 1. 确保通过运行以下命令正确安装了 `ipywidgets`：
 

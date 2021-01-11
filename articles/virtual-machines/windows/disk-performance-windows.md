@@ -1,24 +1,24 @@
 ---
-title: 虚拟机和磁盘性能
-description: 详细了解如何组合使用 VM 及其附加的磁盘以提高性能
+title: 虚拟机和磁盘性能 - Windows
+description: 详细了解如何在 Windows 上组合使用虚拟机及其附加的磁盘以提高性能。
 origin.date: 10/12/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: de5c0843a1db1f7261c4e93fe3864b78cf775d32
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: ab96063c0faa7db889d04511e6284424de11e363
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104860"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857159"
 ---
 <!--Notice: Three Includes File in the new file-->
-# <a name="virtual-machine-and-disk-performance"></a>虚拟机和磁盘性能
+# <a name="virtual-machine-and-disk-performance-windows"></a>虚拟机和磁盘性能 (Windows)
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## <a name="virtual-machine-uncached-vs-cached-limits"></a>虚拟机非缓存限制与缓存限制

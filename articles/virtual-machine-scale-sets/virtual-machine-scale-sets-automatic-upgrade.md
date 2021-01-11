@@ -6,15 +6,15 @@ ms.author: v-junlch
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 09/14/2020
+ms.date: 12/28/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: 0cd165b440ebebda86a497e9e909e89e6680db78
-ms.sourcegitcommit: e1b6e7fdff6829040c4da5d36457332de33e0c59
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 51113a018efed077463bb5b1fca3625ea415432a
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90721174"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829452"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure 虚拟机规模集自动 OS 映像升级
 
@@ -45,6 +45,9 @@ ms.locfileid: "90721174"
 
 规模集 OS 升级业务流程协调程序在升级每个批之前会检查规模集总体运行状况。 升级某一批时，可能有其他并发的计划内或计划外维护活动影响规模集实例的运行状况。 在这种情况下，如果超过 20% 的规模集实例不正常，则当前批结束时，规模集升级将会停止。
 
+> [!NOTE]
+>自动 OS 升级不会升级规模集上的引用映像 SKU。 若要更改 SKU（例如将 Ubuntu 16.04-LTS 更改为 18.04-LTS），必须直接通过所需的映像 SKU 更新[规模集模型](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model)。 无法更改现有规模集的映像发布者和产品/服务。  
+
 ## <a name="supported-os-images"></a>支持的 OS 映像
 当前仅支持特定 OS 平台映像。 如果规模集通过[共享映像库](shared-image-galleries.md)使用自定义映像，则[支持](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images)自定义映像。
 
@@ -54,16 +57,15 @@ ms.locfileid: "90721174"
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
-| Rogue Wave (OpenLogic)  | CentOS        | 7.5                |
-| CoreOS                  | CoreOS        | Stable             |
-| Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter-with-Containers |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter-Smalldisk |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter-with-Containers |
-| Microsoft Corporation   | WindowsServer | Datacenter-Core-1903-with-Containers-smalldisk |
+| OpenLogic               | CentOS        | 7.5                |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-with-Containers |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers |
+| MicrosoftWindowsServer  | WindowsServer | Datacenter-Core-1903-with-Containers-smalldisk |
 
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>配置自动 OS 映像升级时的要求
@@ -148,7 +150,7 @@ OS 升级过程中，规模集中的 VM 实例每次只升级一批。 只有客
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>在规模集上将自定义负载均衡器探测配置为应用程序运行状况探测
 最佳做法是为规模集运行状况显式创建负载均衡器探测。 运行状况探测可使用与现有 HTTP 探测或 TCP 探测相同的终结点，但所需的行为可能与传统负载均衡器探测不同。 例如，如果实例的负载过高，传统负载均衡器探测可能返回“不正常”，但是，这不符合自动 OS 升级过程中实际的实例运行状况。 请将探测配置为不超过两分钟的高探测速率。
 
-可以在规模集的 networkProfile 中引用负载均衡器探测**，并可将探测与内部或公共的负载均衡器相关联，如下所示：
+可以在规模集的 networkProfile 中引用负载均衡器探测，并可将探测与内部或公共的负载均衡器相关联，如下所示：
 
 ```json
 "networkProfile": {

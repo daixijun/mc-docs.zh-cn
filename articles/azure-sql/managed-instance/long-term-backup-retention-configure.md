@@ -6,18 +6,18 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 origin.date: 04/29/2020
-ms.date: 09/14/2020
-ms.openlocfilehash: e8660cc80f5d84735915ef38e6526d426a11c99c
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 12/21/2020
+ms.openlocfilehash: 96e5912e9c815bcaf522c4626ae24138e606a8c5
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014334"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830306"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>管理 Azure SQL 托管实例长期备份保留 (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -49,7 +49,7 @@ ms.locfileid: "90014334"
 > [!NOTE]
 > “托管实例参与者”角色没有删除 LTR 备份的权限。
 
-可以在订阅或资源组范围内授予 RBAC 权限。 但是，若要访问属于已删除实例的 LTR 备份，必须在该实例的“订阅”范围内授予此权限。
+可以在“订阅”或“资源组”范围内授予 Azure RBAC 权限。 但是，若要访问属于已删除实例的 LTR 备份，必须在该实例的“订阅”范围内授予此权限。
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 

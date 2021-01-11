@@ -11,16 +11,16 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/25/2020
+ms.topic: how-to
+ms.date: 12/29/2020
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: b8936840067b5bdad7df85592a1019e32afc731d
-ms.sourcegitcommit: 7429daf26cff014b040f69cdae75bdeaea4f4e93
+ms.openlocfilehash: 61e046256b033b6de5a195ba13e2c9ea856babf4
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83991659"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829459"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>使用 REST API 列出 Azure 角色分配
 
@@ -46,7 +46,7 @@ ms.locfileid: "83991659"
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | 资源组 |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | 资源 |
 
-    在前面的示例中，microsoft.web 是引用应用服务实例的资源提供程序。 同样，可以使用任何其他资源提供程序并指定范围。 有关详细信息，请参阅 [Azure 资源提供程序和类型](../azure-resource-manager/management/resource-providers-and-types.md)和支持的 [Azure 资源管理器资源提供程序操作](resource-provider-operations.md)。  
+    在前面的示例中，microsoft.web 是引用应用服务实例的资源提供程序。 同样，可以使用任何其他资源提供程序并指定范围。 有关详细信息，请参阅 [Azure 资源提供程序和类型](../azure-resource-manager/management/resource-providers-and-types.md)和支持的 [Azure 资源提供程序操作](resource-provider-operations.md)。  
      
 1. 将“{filter}”替换为筛选角色分配列表时要应用的条件。
 

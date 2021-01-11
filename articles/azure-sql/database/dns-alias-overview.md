@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: genemi, jrasnick, vanto
 origin.date: 06/26/2019
-ms.date: 08/17/2020
-ms.openlocfilehash: d775579bfb2a2554425283efa1b7e6787bfa006c
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 12/14/2020
+ms.openlocfilehash: 7c2f7daeacc69ac534147fadf7ee1d2fdd8a8a09
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88222663"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829701"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL 数据库的 DNS 别名
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -62,7 +62,7 @@ Azure SQL 数据库的 DNS 别名功能有助于实现以下方案：
   - 删除某个服务器时，Azure 系统也会删除指向该服务器的所有 DNS 别名。
 - 不受限于任一区域：DNS 别名不受限于某一区域。 可以将任何 DNS 别名更新为指向位于任何地理区域中的服务器。
   - 但是，将别名更新为引用另一台服务器时，这两台服务器必须位于同一个 Azure 订阅中。
-- *权限：* 管理 DNS 别名的用户必须拥有“服务器参与者”权限或更高权限。 有关详细信息，请参阅 [Azure 门户中基于角色的访问控制入门](../../role-based-access-control/overview.md)。
+- *权限：* 管理 DNS 别名的用户必须拥有“服务器参与者”权限或更高权限。 有关详细信息，请参阅 [Azure 门户中 Azure 基于角色的访问控制入门](../../role-based-access-control/overview.md)。
 
 ## <a name="manage-your-dns-aliases"></a>管理 DNS 别名
 

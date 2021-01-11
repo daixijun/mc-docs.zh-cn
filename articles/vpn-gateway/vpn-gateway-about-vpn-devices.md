@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 09/01/2020
-ms.date: 09/28/2020
+origin.date: 12/02/2020
+ms.date: 01/04/2021
 ms.author: v-jay
-ms.openlocfilehash: d6bada7c498b4100bc27b1664de046b2712e0064
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 8fbefaf06cf28ed2c82af7c7436ce507ef109df4
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395506"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856916"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>关于用于站点到站点 VPN 网关连接的 VPN 设备和 IPsec/IKE 参数
 
@@ -62,7 +62,7 @@ ms.locfileid: "91395506"
 | Microsoft |路由和远程访问服务 |Windows Server 2012 |不兼容 |支持 |
 | 打开系统 AG |任务控制安全网关 |空值 |[配置指南](https://open-systems.com/wp-content/uploads/2019/12/OpenSystems-AzureVPNSetup-Installation-Guide.pdf) |不兼容 |
 | Palo Alto Networks |运行 PAN-OS 的所有设备 |PAN-OS<br>PolicyBased：6.1.5 或更高版本<br>RouteBased：7.1.4 |支持 |[配置指南](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
-| Sentrium（开发人员） | VyOS | VyOS 1.2.2 | （未测试） | [配置指南](https://vyos.readthedocs.io/en/latest/appendix/examples/azure-vpn-bgp.html)|
+| Sentrium（开发人员） | VyOS | VyOS 1.2.2 | （未测试） | [配置指南](https://docs.vyos.io/en/latest/configexamples/azure-vpn-bgp.html)|
 | ShareTech | Next Generation UTM（NU 系列） | 9.0.1.3 | 不兼容 | [配置指南](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ 系列、NSA 系列<br>SuperMassive 系列<br>E 类 NSA 系列 |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |不兼容 |[配置指南](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG 下一代防火墙 | XG v17 | （未测试） | [配置指南](https://community.sophos.com/kb/127546)<br><br>[配置指南 - 多个 SA](https://community.sophos.com/kb/en-us/133154) |
@@ -113,13 +113,11 @@ ms.locfileid: "91395506"
 | &lt;SP_AzureGatewayIpAddress&gt; |此信息特定于虚拟网络，位于管理门户的“网关 IP 地址”中。 |
 | &lt;SP_PresharedKey&gt; |此信息特定于虚拟网络，位于管理门户的“管理密钥”中。 |
 
-## <a name="ipsecike-parameters"></a><a name="ipsec"></a>IPsec/IKE 参数
+## <a name="default-ipsecike-parameters"></a><a name="ipsec"></a>默认 IPsec/IKE 参数
 
-> [!IMPORTANT]
-> 1. 下面各表包含了 Azure VPN 网关在默认配置中使用的算法和参数的组合。 对于使用 Azure 资源管理器部署模型创建的基于路由的 VPN 网关，可以在每个单独的连接上指定一个自定义策略。 有关详细说明，请参阅[配置 IPsec/IKE 策略](vpn-gateway-ipsecikepolicy-rm-powershell.md)。
->
-> 2. 此外，还必须将 TCP **MSS** 固定在 **1350**。 或者，如果 VPN 设备不支持 MSS 固定，则可以改为在隧道接口上将 **MTU** 设置为 **1400** 字节。
->
+下面的表包含了 Azure VPN 网关在默认配置（默认策略）中使用的算法和参数的组合。 对于使用 Azure 资源管理器部署模型创建的基于路由的 VPN 网关，可以在每个单独的连接上指定一个自定义策略。 有关详细说明，请参阅[配置 IPsec/IKE 策略](vpn-gateway-ipsecikepolicy-rm-powershell.md)。
+
+此外，还必须将 TCP MSS 固定在 1350。 或者，如果 VPN 设备不支持 MSS 固定，则可以改为在隧道接口上将 **MTU** 设置为 **1400** 字节。
 
 在下面的表中：
 

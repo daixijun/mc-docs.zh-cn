@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 11/02/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: 89faf3fb3a266e678c8d65f1339d782251d1e90d
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+origin.date: 12/08/2020
+ms.date: 01/04/2021
+ms.openlocfilehash: 48bd37f792357c6d98a3ef1378fe6d1dd6d8657c
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680373"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830132"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 Amazon 简单存储服务复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -59,7 +59,7 @@ ms.locfileid: "94680373"
 
 Amazon S3 链接服务支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | **type** 属性必须设置为 **AmazonS3**。 | 是 |
 | authenticationType | 指定用于连接到 Amazon S3 的身份验证类型。 可以选择使用 AWS 标识和访问管理 (IAM) 帐户的访问密钥或[临时安全凭据](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)。<br>允许的值为 `AccessKey`（默认值）和 `TemporarySecurityCredentials`。 |否 |
@@ -129,7 +129,7 @@ Amazon S3 链接服务支持以下属性：
 
 Amazon S3 支持基于格式的数据集中 `location` 设置下的以下属性：
 
-| 属性   | 描述                                                  | 必需 |
+| 属性   | 说明                                                  | 必需 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 数据集中 `location` 下的 **type** 属性必须设置为 **AmazonS3Location**。 | 是      |
 | bucketName | S3 存储桶的名称。                                          | 是      |
@@ -174,14 +174,14 @@ Amazon S3 支持基于格式的数据集中 `location` 设置下的以下属性�
 
 Amazon S3 支持基于格式的复制源中 `storeSettings` 设置下的以下属性：
 
-| 属性                 | 描述                                                  | 必需                                                    |
+| 属性                 | 说明                                                  | 必需                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | `storeSettings` 下的 **type** 属性必须设置为 **AmazonS3ReadSettings**。 | 是                                                         |
 | **_找到要复制的文件：_* _ |  |  |
 | 选项 1：静态路径<br> | 从数据集中指定的给定存储桶或文件夹/文件路径复制。 若要复制 Bucket 或文件夹中的所有文件，请另外将 `wildcardFileName` 指定为 `_`。 |  |
-| 选项 2：S3 前缀<br>- prefix | 数据集中配置的给定 Bucket 下的 S3 密钥名称的前缀，用于筛选源 S3 文件。 名称以 `bucket_in_dataset/this_prefix` 开头的 S3 密钥会被选中。 它利用 S3 的服务端筛选器。与通配符筛选器相比，该服务端筛选器可提供更好的性能。 | 否 |
+| 选项 2：S3 前缀<br>- prefix | 数据集中配置的给定 Bucket 下的 S3 密钥名称的前缀，用于筛选源 S3 文件。 名称以 `bucket_in_dataset/this_prefix` 开头的 S3 密钥会被选中。 它利用 S3 的服务端筛选器。与通配符筛选器相比，该服务端筛选器可提供更好的性能。<br/><br/>在使用前缀的情况下选择复制到基于文件的接收器并保留层次结构时，请注意，系统会保留前缀中最后一个“/”后面的子路径。 例如，如果在源为 `bucket/folder/subfolder/file.txt` 的情况下将前缀配置为 `folder/sub`，则保留的文件路径为 `subfolder/file.txt`。 | 否 |
 | 选项 3：通配符<br>- wildcardFolderPath | 数据集中配置的给定 Bucket 下包含通配符的文件夹路径，用于筛选源文件夹。 <br>允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。 如果文件夹名内包含通配符或此转义字符，请使用 `^` 进行转义。 <br>请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 否                                            |
-| 选项 3：通配符<br>- wildcardFileName | 给定 Bucket 和文件夹路径（或通配符文件夹路径）下包含通配符的文件名，用于筛选源文件。 <br>允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。 如果文件夹名内包含通配符或此转义字符，请使用 `^` 进行转义。  请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 是 |
+| 选项 3：通配符<br>- wildcardFileName | 给定 Bucket 和文件夹路径（或通配符文件夹路径）下包含通配符的文件名，用于筛选源文件。 <br>允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。 如果文件名包含通配符或此转义字符，请使用 `^` 进行转义。  请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 是 |
 | 选项 4：文件列表<br>- fileListPath | 指明复制给定文件集。 指向包含要复制的文件列表的文本文件，其中每行一个文件（即数据集中所配置路径的相对路径）。<br/>使用此选项时，请不要在数据集中指定文件名。 请参阅[文件列表示例](#file-list-examples)中的更多示例。 |否 |
 | ***其他设置：** _ |  | |
 | recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 请注意，当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。 <br>允许的值为 **true**（默认值）和 **false**。<br>如果配置 `fileListPath`，则此属性不适用。 |否 |
@@ -240,9 +240,9 @@ Amazon S3 支持基于格式的复制源中 `storeSettings` 设置下的以下�
 | Bucket | key | recursive | 源文件夹结构和筛选器结果（用粗体表示的文件已检索）|
 |:--- |:--- |:--- |:--- |
 | Bucket | `Folder*/*` | false | Bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| Bucket | `Folder*/*` | true | Bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| Bucket | `Folder*/*` | 是 | Bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | Bucket | `Folder*/*.csv` | false | Bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| Bucket | `Folder*/*.csv` | true | Bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| Bucket | `Folder*/*.csv` | 是 | Bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 
 ### <a name="file-list-examples"></a>文件列表示例
 
@@ -258,7 +258,7 @@ Amazon S3 支持基于格式的复制源中 `storeSettings` 设置下的以下�
 
 将文件从 Amazon S3 复制到 Azure Data Lake Storage Gen2 或 Azure Blob 存储时，可以选择将文件元数据与数据一起保留。 从[保留元数据](copy-activity-preserve-metadata.md#preserve-metadata)中了解更多信息。
 
-## <a name="lookup-activity-properties"></a>查找活动属性
+## <a name="lookup-activity-properties"></a>Lookup 活动属性
 
 若要了解有关属性的详细信息，请查看 [Lookup 活动](control-flow-lookup-activity.md)。
 
@@ -277,7 +277,7 @@ Amazon S3 支持基于格式的复制源中 `storeSettings` 设置下的以下�
 
 ### <a name="legacy-dataset-model"></a>旧数据集模型
 
-| properties | 描述 | 必需 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 数据集的 **type** 属性必须设置为 **AmazonS3Object**。 |是 |
 | bucketName | S3 存储桶的名称。 通配符筛选器不受支持。 |对于复制或查找活动为“是”，对于 GetMetadata 活动为“否” |
@@ -357,7 +357,7 @@ Amazon S3 支持基于格式的复制源中 `storeSettings` 设置下的以下�
 
 ### <a name="legacy-source-model-for-the-copy-activity"></a>复制活动的旧源模型
 
-| 属性 | 描述 | 必需 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 复制活动源的 **type** 属性必须设置为 **FileSystemSource**。 |是 |
 | recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 请注意，当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。<br/>允许的值为 **true**（默认值）和 **false**。 | 否 |

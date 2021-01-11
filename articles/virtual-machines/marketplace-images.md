@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.workload: infrastructure
 origin.date: 07/07/2020
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.reviewer: akjosh
-ms.openlocfilehash: e6f325cce205b7f92460cdc39c9b36ed7d48052c
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b39a29c5686c8cfee4471a32ea67e56b148ccc6c
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103535"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856667"
 ---
 <!--Verify Successsfully-->
 # <a name="supply-azure-marketplace-purchase-plan-information-when-creating-images"></a>在创建映像时提供 Azure 市场购买计划信息
@@ -27,15 +27,13 @@ ms.locfileid: "93103535"
 若要详细了解如何查找和使用市场映像，请参阅[查找和使用 Azure 市场映像](./windows/cli-ps-findimage.md)。
 
 ## <a name="get-the-source-vm-information"></a>获取源 VM 信息
-如果仍有原始 VM，可使用 Get-AzVM 从该 VM 中获取计划、发布者和 sku 信息。 此示例获取 myResourceGroup 资源组中名为 myVM 的 VM，然后显示购买计划信息 。
+如果仍有原始 VM，可使用 Get-AzVM 从该 VM 中获取计划名称、发布者和产品信息。 此示例获取 myResourceGroup 资源组中名为 myVM 的 VM，然后显示 VM 的购买计划信息 。
 
 ```powershell
 $vm = Get-azvm `
    -ResourceGroupName myResourceGroup `
    -Name myVM
-$vm.Plan.Publisher
-$vm.Plan.Name
-$vm.Plan.Product
+$vm.Plan
 ```
 
 ## <a name="create-the-image-definition"></a>创建映像定义
@@ -148,5 +146,4 @@ New-AzVM `
 
 若要详细了解如何查找和使用市场映像，请参阅[查找和使用 Azure 市场映像](./windows/cli-ps-findimage.md)。
 
-<!-- Update_Description: new article about marketplace images -->
-<!--NEW.date: 08/31/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

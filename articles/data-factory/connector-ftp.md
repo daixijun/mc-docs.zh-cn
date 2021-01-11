@@ -9,15 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 08/31/2020
-ms.date: 10/19/2020
+origin.date: 12/18/2020
+ms.date: 01/04/2021
 ms.author: v-jay
-ms.openlocfilehash: 549d4a7ee9791953e9d6fe4d7e7d1232a2848e9f
-ms.sourcegitcommit: 6309f3a5d9506d45ef6352e0e14e75744c595898
+ms.openlocfilehash: c97eef8c94c1eb74be7bad21f9eefd715b91f851
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92121671"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830330"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 FTP 服务器复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -56,12 +56,12 @@ FTP 链接服务支持以下属性：
 
 | 属性 | 说明 | 必须 |
 |:--- |:--- |:--- |
-| type | type 属性必须设置为： **FtpServer** 。 | 是 |
+| type | type 属性必须设置为：**FtpServer**。 | 是 |
 | host | 指定 FTP 服务器的名称或 IP 地址。 | 是 |
 | port | 指定 FTP 服务器侦听的端口。<br/>允许的值是：整数，默认值是 21。 | 否 |
 | enableSsl | 指定是否通过 SSL/TLS 通道使用 FTP。<br/>允许的值是：true（默认）、false。 | 否 |
 | enableServerCertificateValidation | 指定在通过 SSL/TLS 通道使用 FTP 时，是否要启用服务器 TLS/SSL 证书验证。<br/>允许的值是：true（默认）、false。 | 否 |
-| authenticationType | 指定身份验证类型。<br/>允许值包括： **Basic** 、 **Anonymous** | 是 |
+| authenticationType | 指定身份验证类型。<br/>允许值包括：**Basic**、**Anonymous** | 是 |
 | userName | 指定有权访问 FTP 服务器的用户。 | 否 |
 | password | 指定用户 (userName) 的密码。 将此字段标记为 SecureString 以安全地将其存储在数据工厂中或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 否 |
 | connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 在[先决条件](#prerequisites)部分了解更多信息。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
@@ -128,7 +128,7 @@ FTP 链接服务支持以下属性：
 
 | 属性   | 说明                                                  | 必须 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | 数据集中 `location` 下的 type 属性必须设置为 **FtpServerLocation** 。 | 是      |
+| type       | 数据集中 `location` 下的 type 属性必须设置为 **FtpServerLocation**。 | 是      |
 | folderPath | 文件夹的路径。 如果要使用通配符筛选文件夹，请跳过此设置并在活动源设置中指定。 | 否       |
 | fileName   | 给定 folderPath 下的文件名。 如果要使用通配符筛选文件，请跳过此设置并在活动源设置中指定。 | 否       |
 
@@ -170,19 +170,21 @@ FTP 链接服务支持以下属性：
 
 | 属性                 | 说明                                                  | 必须                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | `storeSettings` 下的 type 属性必须设置为 **FtpReadSettings** 。 | 是                                           |
-| 找到要复制的文件： |  |  |
-| 选项 1：静态路径<br> | 从数据集中指定的给定文件夹/文件路径复制。 若要复制文件夹中的所有文件，请另外将 `wildcardFileName` 指定为 `*`。 |  |
+| type                     | `storeSettings` 下的 type 属性必须设置为 **FtpReadSettings**。 | 是                                           |
+| **_找到要复制的文件：_* _ |  |  |
+| 选项 1：静态路径<br> | 从数据集中指定的给定文件夹/文件路径复制。 若要复制文件夹中的所有文件，请另外将 `wildcardFileName` 指定为 `_`。 |  |
 | 选项 2：通配符<br>- wildcardFolderPath | 带通配符的文件夹路径，用于筛选源文件夹。 <br>允许的通配符为：`*`（匹配零个或更多个字符）和 `?`（匹配零个或单个字符）；如果实际文件夹名称中包含通配符或此转义字符，请使用 `^` 进行转义。 <br>请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 否                                            |
-| 选项 2：通配符<br>- wildcardFileName | 给定 folderPath/wildcardFolderPath 下带有通配符的文件名，用于筛选源文件。 <br>允许的通配符为：`*`（匹配零个或更多个字符）和 `?`（匹配零个或单个字符）；如果实际文件夹名称中包含通配符或此转义字符，请使用 `^` 进行转义。  请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 是 |
+| 选项 2：通配符<br>- wildcardFileName | 给定 folderPath/wildcardFolderPath 下带有通配符的文件名，用于筛选源文件。 <br>允许的通配符为：`*`（匹配零个或更多个字符）和 `?`（匹配零个或单个字符）；如果实际文件名中包含通配符或此转义字符，请使用 `^` 进行转义。  请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 是 |
 | 选项 3：文件列表<br>- fileListPath | 指明复制给定文件集。 指向包含要复制的文件列表的文本文件，每行一个文件（即数据集中所配置路径的相对路径）。<br/>使用此选项时，请不要在数据集中指定文件名。 请参阅[文件列表示例](#file-list-examples)中的更多示例。 |否 |
-| 其他设置： |  | |
-| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 请注意，当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。 <br>允许的值为 **true** （默认值）和 **false** 。<br>如果配置 `fileListPath`，则此属性不适用。 |否 |
+| ***其他设置：** _ |  | |
+| recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 请注意，当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。 <br>允许的值为 true（默认值）和 false。<br>如果配置 `fileListPath`，则此属性不适用。 |否 |
 | deleteFilesAfterCompletion | 指示是否会在二进制文件成功移到目标存储后将其从源存储中删除。 文件删除按文件进行。因此，当复制活动失败时，你会看到一些文件已经复制到目标并从源中删除，而另一些文件仍保留在源存储中。 <br/>此属性仅在二进制文件复制方案中有效。 默认值：false。 |否 |
 | useBinaryTransfer | 指定是否使用二进制传输模式。 这些值在二进制模式下为 true（默认），在 ASCII 模式下为 false。 |否 |
 | enablePartitionDiscovery | 对于已分区的文件，请指定是否从文件路径分析分区，并将它们添加为附加的源列。<br/>允许的值为 false（默认）和 true 。 | 否                                            |
 | partitionRootPath | 启用分区发现时，请指定绝对根路径，以便将已分区文件夹读取为数据列。<br/><br/>如果未指定，默认情况下，<br/>- 在数据集或源的文件列表中使用文件路径时，分区根路径是在数据集中配置的路径。<br/>- 使用通配符文件夹筛选器时，分区根路径是第一个通配符前的子路径。<br/><br/>例如，假设你将数据集中的路径配置为“root/folder/year=2020/month=08/day=27”：<br/>- 如果将分区根路径指定为“root/folder/year=2020”，则除了文件内的列外，复制活动还会生成另外两列 `month` 和 `day`，其值分别为“08”和“27”。<br/>- 如果未指定分区根路径，则不会生成额外的列。 | 否                                            |
 | maxConcurrentConnections | 可以同时连接到数据存储的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否 |
+
+目前，在通过 FTP 复制数据时，ADF 会首先尝试获取文件长度，然后将文件分为多个部分以并行方式读取。 如果 FTP 服务器不支持获取文件长度的功能或尝试从某个偏移量进行读取的功能，你可能会失败。
 
 **示例：**
 
@@ -265,17 +267,17 @@ FTP 链接服务支持以下属性：
 
 ### <a name="legacy-dataset-model"></a>旧数据集模型
 
-| properties | 说明 | 必需 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
-| type | 数据集的 type 属性必须设置为： **FileShare** |是 |
+| type | 数据集的 type 属性必须设置为：**FileShare** |是 |
 | folderPath | 文件夹路径。 支持通配符筛选器，允许的通配符为：`*`（匹配零个或更多个字符）和 `?`（匹配零个或单个字符）；如果实际文件夹名中包含通配符或此转义字符，请使用 `^` 进行转义。 <br/><br/>示例：“rootfolder/subfolder/”，请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 |是 |
 | fileName | 指定“folderPath”下的文件的“名称或通配符筛选器”。 如果没有为此属性指定任何值，则数据集会指向文件夹中的所有文件。 <br/><br/>对于筛选器，允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。<br/>- 示例 1：`"fileName": "*.csv"`<br/>- 示例 2：`"fileName": "???20180427.txt"`<br/>如果实际文件名内具有通配符或此转义符，请使用 `^` 进行转义。 |否 |
 | format | 如果想要在基于文件的存储之间按原样复制文件（二进制副本），可以在输入和输出数据集定义中跳过格式节。<br/><br/>若要分析具有特定格式的文件，以下是受支持的文件格式类型：TextFormat、JsonFormat、AvroFormat、OrcFormat、ParquetFormat    。 请将格式中的“type”属性设置为上述值之一。 有关详细信息，请参阅[文本格式](supported-file-formats-and-compression-codecs-legacy.md#text-format)、[Json 格式](supported-file-formats-and-compression-codecs-legacy.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs-legacy.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs-legacy.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs-legacy.md#parquet-format)部分。 |否（仅适用于二进制复制方案） |
-| compression | 指定数据的压缩类型和级别。 有关详细信息，请参阅[受支持的文件格式和压缩编解码器](supported-file-formats-and-compression-codecs-legacy.md#compression-support)。<br/>支持的类型包括： **GZip** 、 **Deflate** 、 **BZip2** 和 **ZipDeflate** 。<br/>支持的级别为：“最佳”和“最快” 。 |否 |
+| compression | 指定数据的压缩类型和级别。 有关详细信息，请参阅[受支持的文件格式和压缩编解码器](supported-file-formats-and-compression-codecs-legacy.md#compression-support)。<br/>支持的类型包括：**GZip**、**Deflate**、**BZip2** 和 **ZipDeflate**。<br/>支持的级别为：“最佳”和“最快” 。 |否 |
 | useBinaryTransfer | 指定是否使用二进制传输模式。 这些值在二进制模式下为 true（默认），在 ASCII 模式下为 false。 |否 |
 
 >[!TIP]
->如需复制文件夹下的所有文件，请仅指定 **folderPath** 。<br>如需复制具有给定名称的单个文件，请使用文件夹部分指定 **folderPath** 并使用文件名指定 **fileName** 。<br>如需复制文件夹下的文件子集，请指定文件夹部分的 **folderPath** 和通配符筛选器部分的 **fileName** 。
+>如需复制文件夹下的所有文件，请仅指定 **folderPath**。<br>如需复制具有给定名称的单个文件，请使用文件夹部分指定 **folderPath** 并使用文件名指定 **fileName**。<br>如需复制文件夹下的文件子集，请指定文件夹部分的 **folderPath** 和通配符筛选器部分的 **fileName**。
 
 >[!NOTE]
 >如果文件筛选器使用“fileFilter”属性，则在建议你今后使用添加到“fileName”的新筛选器功能时，仍按原样支持该属性。
@@ -310,7 +312,7 @@ FTP 链接服务支持以下属性：
 
 ### <a name="legacy-copy-activity-source-model"></a>旧复制活动源模型
 
-| properties | 说明 | 必需 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 复制活动 source 的 type 属性必须设置为：FileSystemSource |是 |
 | recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制/创建空的文件夹/子文件夹。<br/>允许的值为：true（默认）、false  | 否 |

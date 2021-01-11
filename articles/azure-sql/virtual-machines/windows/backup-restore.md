@@ -8,18 +8,19 @@ editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
 ms.service: virtual-machines-sql
+ms.subservice: backup
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/04/2018
-ms.date: 10/12/2020
+ms.date: 01/04/2021
 ms.author: v-jay
-ms.openlocfilehash: 7f1b3c9e4d75ff9a5b1dec31e596946b2a057f0f
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.openlocfilehash: 1ae7f275b4e4804e2264dd6992636d44132d7725
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872448"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829756"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Azure VM 中 SQL Server 的备份和还原
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,8 +36,8 @@ ms.locfileid: "91872448"
 | 策略 | SQL 版本 | 说明 |
 |---|---|---|
 | [自动备份](#automated) | 2014<br/> 2016<br/> 2017 | 使用自动备份可以针对 SQL Server VM 上的所有数据库计划定期备份。 备份在 Azure 存储中最多存储 30 天。 从 SQL Server 2016 开始，自动备份 v2 提供更多选项，例如，配置手动计划，以及完整备份和日志备份的频率。 |
-| [适用于 SQL VM 的 Azure 备份](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Azure 备份为 Azure VM 上的 SQL Server 提供企业级备份功能。 使用此服务，可以集中管理多个服务器和数千个数据库的备份。 可在门户中将数据库还原到特定的时间点。 此服务提供可将备份保留数年之久的可自定义保留策略。 |
-| [手动备份](#manual) | All | 根据所用的 SQL Server 版本，可通过不同的方法手动备份和还原 Azure VM 上的 SQL Server。 在这种情况下，你需要负责指定数据库的备份方式和存储位置，并管理这些备份。 |
+| [适用于 SQL VM 的 Azure 备份](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017<br/> 2019 | Azure 备份为 Azure VM 上的 SQL Server 提供企业级备份功能。 使用此服务，可以集中管理多个服务器和数千个数据库的备份。 可在门户中将数据库还原到特定的时间点。 此服务提供可将备份保留数年之久的可自定义保留策略。 |
+| [手动备份](#manual) | 全部 | 根据所用的 SQL Server 版本，可通过不同的方法手动备份和还原 Azure VM 上的 SQL Server。 在这种情况下，你需要负责指定数据库的备份方式和存储位置，并管理这些备份。 |
 
 以下部分更详细地介绍了每个选项。 本文的最后一个部分以功能矩阵的形式提供了摘要。
 
@@ -61,7 +62,7 @@ SQL Server 2016 和更高版本的 VM 提供更多的自定义选项，以及自
 
 ## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a>适用于 SQL VM 的 Azure 备份
 
-[Azure 备份](/backup/)为 Azure VM 上的 SQL Server 提供企业级备份功能。 在恢复服务保管库中存储和管理所有备份。 此解决方案提供许多优势，尤其是针对企业：
+[Azure 备份](../../../backup/index.yml)为 Azure VM 上的 SQL Server 提供企业级备份功能。 在恢复服务保管库中存储和管理所有备份。 此解决方案提供许多优势，尤其是针对企业：
 
 - **零基础结构备份**：无需管理备份服务器或存储位置。
 - **缩放**：保护大量的 SQL VM 和数千个数据库。
@@ -72,7 +73,7 @@ SQL Server 2016 和更高版本的 VM 提供更多的自定义选项，以及自
 - **15 分钟恢复点目标 (RPO)** ：最多可将 SQL 事务日志备份频率配置为每隔 15 分钟备份一次。
 - **时间点还原**：使用门户将数据库恢复到特定的时间点，无需手动还原多个完整备份、差异备份和日志备份。
 - **合并的故障电子邮件警报**：针对任何故障配置合并的电子邮件通知。
-- **基于角色的访问控制**：确定谁可以通过门户管理备份和还原操作。
+- Azure 基于角色的访问控制：确定谁可以通过门户管理备份和还原操作。
 
 <!-- Not Available on [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2dNbw]-->
 
@@ -83,16 +84,16 @@ SQL Server 2016 和更高版本的 VM 提供更多的自定义选项，以及自
 若要手动管理 SQL VM 上的备份和还原操作，可以根据所用的 SQL Server 版本使用多个选项。 有关备份和还原的概述，请根据所用的 SQL Server 版本参阅以下文章之一：
 
 - [适用于 SQL Server 2016 和更高版本的备份和还原](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
-- [适用于 SQL Server 2014 的备份和还原](https://msdn.microsoft.com/library/ms187048%28v=sql.120%29.aspx)
-- [适用于 SQL Server 2012 的备份和还原](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx)
-- [适用于 SQL Server 2008 R2 的备份和还原](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx)
-- [适用于 SQL Server 2008 的备份和还原](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx)
+- [适用于 SQL Server 2014 的备份和还原](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases?viewFallbackFrom=sql-server-2014)
+- [适用于 SQL Server 2012 的备份和还原](https://docs.microsoft.com/previous-versions/sql/sql-server-2012/ms187048(v=sql.110))
+- [适用于 SQL Server 2008 R2 的备份和还原](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms187048(v=sql.105))
+- [适用于 SQL Server 2008 的备份和还原](https://docs.microsoft.com/previous-versions/sql/sql-server-2008/ms187048(v=sql.100))
 
 以下部分更详细地介绍多个手动备份和还原选项。
 
 ### <a name="backup-to-attached-disks"></a>备份到附加的磁盘
 
-对于 Azure VM 上的 SQL Server，可以使用 VM 上附加的磁盘作为备份文件目标，通过本机备份和还原技术实现此目的。 不过，你只能根据[虚拟机的大小](../../../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，将有限数量的磁盘附加到 Azure 虚拟机。 磁盘管理开销也是一个考虑因素。
+对于 Azure VM 上的 SQL Server，可以使用 VM 上附加的磁盘作为备份文件目标，通过本机备份和还原技术实现此目的。 不过，你只能根据[虚拟机的大小](../../../virtual-machines/sizes.md?toc=%252fvirtual-machines%252fwindows%252ftoc.json)，将有限数量的磁盘附加到 Azure 虚拟机。 磁盘管理开销也是一个考虑因素。
 
 有关如何使用 SQL Server Management Studio (SSMS) 或 Transact-SQL 手动创建完整数据库备份的示例，请参阅[创建完整数据库备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server)。
 
@@ -108,8 +109,8 @@ SQL Server 2016 和更高版本的 VM 提供更多的自定义选项，以及自
 有关详细信息，请根据所用的 SQL Server 版本参阅以下文章之一：
 
 - **SQL Server 2016/2017**：[SQL Server 备份到 URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
-- **SQL Server 2014**：[SQL Server 2014 备份到 URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)
-- **SQL Server 2012**：[SQL Server 2012 备份到 URL](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx)
+- **SQL Server 2014**：[SQL Server 2014 备份到 URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?viewFallbackFrom=sql-server-2014)
+- **SQL Server 2012**：[SQL Server 2012 备份到 URL](https://docs.microsoft.com/previous-versions/sql/sql-server-2012/jj919148(v=sql.110))
 
 ### <a name="managed-backup"></a>托管备份
 
@@ -120,7 +121,7 @@ SQL Server 2016 和更高版本的 VM 提供更多的自定义选项，以及自
 有关详细信息，请根据所用的 SQL Server 版本参阅以下文章之一：
 
 - [SQL Server 2016 及更高版本托管备份到 Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure)
-- [SQL Server 2014 托管备份到 Azure](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx)
+- [SQL Server 2014 托管备份到 Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?viewFallbackFrom=sql-server-2014)
 
 ## <a name="decision-matrix"></a>决策矩阵
 

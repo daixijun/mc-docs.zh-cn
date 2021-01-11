@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 10/12/2018
 ms.date: 08/31/2020
 ms.author: v-yiso
-ms.openlocfilehash: 02d58c8168222c5602079ca4f7e8758faa0b50a7
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: f5466c749f6dd7de60aa40fff1f2eae91f70186c
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328691"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830275"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 协议与 IoT 中心通信
 
@@ -277,7 +277,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 * IoT 中心不会保存 Retain 消息。 如果设备在 RETAIN 标志设置为 1 的情况下发送消息，则 IoT 中心会在消息中添加 mqtt-retain 应用程序属性 。 在此情况下，IoT 中心不会存储保留消息，而将其传递到后端应用。
 
-* IoT 中心仅支持每个设备一个活动 MQTT 连接。 代表相同设备 ID 的任何新 MQTT 连接都会导致 IoT 中心删除现有连接。
+* IoT 中心仅支持每个设备一个活动 MQTT 连接。 代表相同设备 ID 的任何新 MQTT 连接都会导致 IoT 中心删除现有连接，系统会将“400027 ConnectionForcefullyClosedOnNewConnection”记录到 IoT 中心日志中
 
 有关详细信息，请参阅[消息传送开发人员指南](iot-hub-devguide-messaging.md)。
 

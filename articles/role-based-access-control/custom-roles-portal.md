@@ -6,18 +6,16 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 12/29/2020
 ms.author: v-junlch
-ms.openlocfilehash: 1c248a1cc7ae8f50c2b939c3e6e1e9c5fea7ee15
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: a903eb4d763c618fa3da9c0895f3598ab601bb4f
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326484"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829472"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>使用 Azure 门户创建 Azure 自定义角色
 
@@ -31,14 +29,12 @@ ms.locfileid: "94326484"
 
 ## <a name="step-1-determine-the-permissions-you-need"></a>步骤 1：确定所需的权限
 
-Azure 具有数千个权限，你可将这些权限包含在自定义角色中。 可通过以下四种方法来确定要添加到自定义角色的权限：
+Azure 具有数千个权限，你可将这些权限包含在自定义角色中。 可通过一些方法来确定要添加到自定义角色的权限：
 
-| 方法 | 说明 |
-| --- | --- |
-| 查看现有角色 | 可以查看现有的角色，以了解正在使用哪些权限。 有关详细信息，请参阅 [Azure 内置角色](built-in-roles.md)。 |
-| 按关键字搜索权限 | 使用 Azure 门户创建自定义角色时，可以按关键字搜索权限。 例如，可以搜索“虚拟机”或“计费”权限。  有关此搜索功能的介绍，请参阅后面的[步骤 4：](#step-4-permissions)权限”。 |
-| 下载所有权限 | 使用 Azure 门户创建自定义角色时，可将所有权限作为 CSV 文件下载，然后搜索此文件。 在“添加权限”窗格中，单击“下载所有权限”按钮下载所有权限。  有关“添加权限”窗格的详细信息，请参阅[步骤 4：](#step-4-permissions)权限”。 |
-| 查看文档中的权限 | 可以在 [Azure 资源管理器资源提供程序操作](resource-provider-operations.md)中查看可用的权限。 |
+- 查看现有的[内置角色](built-in-roles.md)。
+- 列出要授予对其的访问权限的 Azure 服务。
+- 确定[映射到 Azure 服务的资源提供程序](../azure-resource-manager/management/azure-services-resource-providers.md)。 搜索方法稍后在[步骤 4：权限](#step-4-permissions)中介绍。
+- 搜索[可用权限](resource-provider-operations.md)，找到要包括的权限。 搜索方法稍后在[步骤 4：权限](#step-4-permissions)中介绍。
 
 ## <a name="step-2-choose-how-to-start"></a>步骤 2：选择如何开始
 
@@ -337,5 +333,5 @@ Microsoft.CostManagement/exports/delete
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure 自定义角色](custom-roles.md)
-- [Azure 资源管理器资源提供程序操作](resource-provider-operations.md)
+- [Azure 资源提供程序操作](resource-provider-operations.md)
 

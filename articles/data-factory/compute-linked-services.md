@@ -10,13 +10,13 @@ author: WenJason
 ms.author: v-jay
 manager: digimobile
 origin.date: 05/08/2019
-ms.date: 12/07/2020
-ms.openlocfilehash: 53822293ccad073cf178f0cf5b6baf245cce9c37
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.date: 01/04/2021
+ms.openlocfilehash: b0ec43d6a85b4d3ecd4ee7618153e46e4c7bf71f
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747162"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830302"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure 数据工厂支持的计算环境
 
@@ -31,7 +31,7 @@ ms.locfileid: "96747162"
 | [按需 HDInsight 群集](#azure-hdinsight-on-demand-linked-service)或[自己的 HDInsight 群集](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md)、[Pig](transform-data-using-hadoop-pig.md)、[Spark](transform-data-using-spark.md)、[MapReduce](transform-data-using-hadoop-map-reduce.md)、[Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [自定义](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure 机器学习](#azure-machine-learning-linked-service) | [Azure 机器学习执行管道](transform-data-machine-learning-service.md) |
-| [Azure SQL](#azure-sql-database-linked-service)、[Azure Synapse Analytics（以前称为 SQL 数据仓库）](#azure-synapse-analytics-linked-service)、[SQL Server](#sql-server-linked-service) | [存储过程](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service)、[Azure Synapse Analytics](#azure-synapse-analytics-linked-service)、[SQL Server](#sql-server-linked-service) | [存储过程](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md)、[Jar](transform-data-databricks-jar.md)、[Python](transform-data-databricks-python.md) |
 | [Azure Function](#azure-function-linked-service)         | [Azure 函数活动](control-flow-azure-function-activity.md)
 
@@ -251,7 +251,7 @@ Azure 数据工厂服务可自动创建按需 HDInsight 群集，以处理数据
 "dataNodeSize": "Standard_D4",
 ```
 
-如果为这些属性指定了错误的值，则可能会收到以下错误：未能创建群集。 异常：无法完成群集创建操作。 操作失败，代码为 '400'。 群集保持为 'Error' 状态。 消息：'PreClusterCreationValidationFailure'。 收到此错误时，请确保使用的是 [虚拟机的大小](../virtual-machines/sizes.md)一文中的表中的 **CMDLET 和 API** 名称。 
+如果为这些属性指定了错误的值，则可能会收到以下错误：未能创建群集。 异常：无法完成群集创建操作。 操作失败，代码为 '400'。 群集保持为 'Error' 状态。 消息：'PreClusterCreationValidationFailure'。 收到此错误时，请确保使用的是 [虚拟机的大小](../virtual-machines/sizes.md)一文中的表中的 **CMDLET 和 API** 名称。
 
 ### <a name="bring-your-own-compute-environment"></a>自带计算环境
 在此类型的配置中，用户可在数据工厂中将现有的计算环境注册为链接服务。 该计算环境由用户进行管理，数据工厂服务用它来执行活动。
@@ -477,7 +477,7 @@ Azure 数据工厂服务可自动创建按需 HDInsight 群集，以处理数据
 
 ## <a name="azure-synapse-analytics-linked-service"></a>Azure Synapse Analytics 链接服务
 
-创建 Azure Synapse Analytics（以前称为 SQL 数据仓库）链接服务，并将其与[存储过程活动](transform-data-using-stored-procedure.md)配合使用，以从数据工厂管道调用存储过程。 请参阅 [Azure Synapse Analytics（以前称为 SQL 数据仓库）连接器](connector-azure-sql-data-warehouse.md#linked-service-properties)一文，详细了解此链接服务。
+创建 Azure Synapse Analytics 链接服务，并将其与[存储过程活动](transform-data-using-stored-procedure.md)配合使用，以从数据工厂管道调用存储过程。 请参阅 [Azure Synapse Analytics 连接器](connector-azure-sql-data-warehouse.md#linked-service-properties)一文，以详细了解此链接服务。
 
 ## <a name="sql-server-linked-service"></a>SQL Server 链接服务
 

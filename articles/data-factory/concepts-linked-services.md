@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 08/21/2019
-ms.date: 09/21/2020
-ms.openlocfilehash: cc2637c09118665a34d04e5312c1160f4898e425
-ms.sourcegitcommit: f5d53d42d58c76bb41da4ea1ff71e204e92ab1a7
+ms.date: 01/04/2021
+ms.openlocfilehash: 704e9adf4b4f75ebd43d0d445ce49ebb70544b03
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90523707"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830301"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Azure 数据工厂中的链接服务
 
@@ -29,7 +29,7 @@ ms.locfileid: "90523707"
 
 ## <a name="overview"></a>概述
 
-数据工厂可以包含一个或多个数据管道。 “管道”是共同执行一项任务的活动的逻辑分组。 管道中的活动定义对数据执行的操作。 例如，可使用复制活动将数据从 SQL Server 复制到 Azure Blob 存储。 然后，可使用在 Azure HDInsight 群集上运行 Hive 脚本的 Hive 活动，将 Blob 存储中的数据处理为生成输出数据。 最后，可再使用一个复制活动将输出数据复制到 Azure Synapse Analytics（以前称为 Azure SQL 数据仓库），将基于其构建商业智能 (BI) 报告解决方案。 有关管道和活动的详细信息，请参阅 Azure 数据工厂中的[管道和活动](concepts-pipelines-activities.md)。
+数据工厂可以包含一个或多个数据管道。 “管道”是共同执行一项任务的活动的逻辑分组。 管道中的活动定义对数据执行的操作。 例如，可使用复制活动将数据从 SQL Server 复制到 Azure Blob 存储。 然后，可使用在 Azure HDInsight 群集上运行 Hive 脚本的 Hive 活动，将 Blob 存储中的数据处理为生成输出数据。 最后，可再使用一个复制活动将输出数据复制到 Azure Synapse Analytics，在此基础上构建商业智能 (BI) 报告解决方案。 有关管道和活动的详细信息，请参阅 Azure 数据工厂中的[管道和活动](concepts-pipelines-activities.md)。
 
 现在，数据集这一名称的意义已经变为看待数据的一种方式，就是以输入和输出的形式指向或引用活动中要使用的数据 。
 

@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/20/2020
+ms.date: 12/29/2020
 ms.author: v-junlch
-ms.openlocfilehash: 5a8e4455b8aecd13980101689c92076f1dc157f3
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 0e843d5a23f34d003f26d4fdf4593e1abdce715b
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472214"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829460"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Azure RBAC 最佳做法
 
@@ -24,7 +24,7 @@ ms.locfileid: "92472214"
 
 使用 Azure RBAC，可以在团队中实现职责分离，仅向用户授予他们执行作业所需的访问权限。 请勿向每个人授予 Azure 订阅或资源的无限制权限，只能允许他们在特定的范围执行某些操作。
 
-规划访问控制策略时，最佳做法是授予用户完成工作所需的最低权限。 即使最初看起来更方便操作，也应避免在更广泛的范围内分配更广泛的角色。 通过限制角色和范围，可以对在安全主体受到入侵的情况下会面临风险的具体资源进行限制。
+规划访问控制策略时，最佳做法是授予用户完成工作所需的最低权限。 即使最初看起来更方便操作，也应避免在更广泛的范围内分配更广泛的角色。 创建自定义角色时，只包括用户需要的权限。 通过限制角色和范围，可以对在安全主体受到入侵的情况下会面临风险的具体资源进行限制。
 
 下图显示了与 Azure RBAC 使用有关的建议模式。
 

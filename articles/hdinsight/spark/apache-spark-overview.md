@@ -11,12 +11,12 @@ ms.topic: overview
 origin.date: 08/21/2020
 ms.date: 09/14/2020
 ms.author: v-yiso
-ms.openlocfilehash: 360430ab94ba69251df028a50f22f1bb3344d668
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: bb993f16eef261b05241a23f7d233190109386fa
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471300"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830153"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight 中的 Apache Spark 是什么
 
@@ -37,6 +37,7 @@ HDInsight 中的 Spark 群集提供完全托管的 Spark 服务。 下面列出�
 | 轻松创建 |可以使用 Azure 门户、Azure PowerShell 或 HDInsight .NET SDK，在几分钟之内于 HDInsight 中创建新的 Spark 群集。 请参阅 [HDInsight 中的 Apache Spark 群集入门](apache-spark-jupyter-spark-sql-use-portal.md)。 |
 | 易于使用 |HDInsight 中的 Spark 群集包括 Jupyter 和 Apache Zeppelin Notebook。 可以使用这些笔记本执行交互式数据处理和可视化。 请参阅[将 Apache Zeppelin 笔记本与 Apache Spark 配合使用](apache-spark-zeppelin-notebook.md)和[在 Apache Spark 群集上加载数据并运行查询](apache-spark-load-data-run-query.md)。|
 | REST API |HDInsight 中的 Spark 群集包含 [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)，它是基于 REST-API 的 Spark 作业服务器，用于远程提交和监视作业。 请参阅[使用 Apache Spark REST API 将远程作业提交到 HDInsight Spark 群集](apache-spark-livy-rest-interface.md)。|
+| 支持 Azure 存储 | HDInsight 中的 Spark 群集可使用 Azure Data Lake Storage Gen2 作为主存储或附加存储。 有关 Data Lake Storage Gen2 的详细信息，请参阅 [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)。|
 | 与 Azure 服务集成 |HDInsight 中的 Spark 群集随附了 Azure 事件中心的连接器。 可以使用事件中心来构建流式处理应用程序。 此类应用程序包括已作为 Spark 的一部分提供的 Apache Kafka。 |
 | 与第三方 IDE 集成 | HDInsight 提供多个 IDE 插件，这些插件可用于创建应用程序，并将应用程序提交到 HDInsight Spark 群集。 有关详细信息，请参阅[使用 Azure Toolkit for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md)、[使用用于 VSCode 的 Spark 和 Hive 工具](../hdinsight-for-vscode.md)和[使用 Azure Toolkit for Eclipse](apache-spark-eclipse-tool-plugin.md)。|
 | 并发查询 |HDInsight 中的 Spark 群集支持并发查询。 此功能允许一个用户运行多个查询，或者不同的用户运行多个查询，以及让应用程序共享相同的群集资源。 |

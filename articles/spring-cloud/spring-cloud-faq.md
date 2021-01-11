@@ -4,15 +4,15 @@ description: 本文解答有关 Azure Spring Cloud 的常见问题。
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 12/28/2020
 ms.author: v-junlch
 ms.custom: devx-track-java
-ms.openlocfilehash: 198db9f094dc5545778c11f923352496e8d8e64a
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: de11cbe23f9a4763a72077946d23940fde375a0c
+ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507683"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829456"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Spring Cloud 常见问题解答
 
@@ -64,6 +64,22 @@ Azure Spring Cloud 有以下已知限制：
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Azure Spring Cloud 支持哪些 Java 运行时？
 
 Azure Spring Cloud 支持 Java 8 和 11。 请参阅 [Java 运行时和操作系统版本](#java-runtime-and-os-versions)
+
+### <a name="is-spring-boot-24x-supported"></a>是否支持 Spring Boot 2.4.x？
+我们已确认 Spring Boot 2.4 出现问题，目前正与 Spring 社区合作解决该问题。 请提供在应用和 Eureka 之间启用 TLS 身份验证所需的这两个依赖项。
+
+```xml
+<dependency> 
+    <groupId>com.sun.jersey</groupId>
+    <artifactId>jersey-client</artifactId>
+    <version>1.19.4</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.jersey.contribs</groupId>
+    <artifactId>jersey-apache-client4</artifactId>
+    <version>1.19.4</version>
+</dependency>
+```
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>在哪里可以查看 Spring Cloud 应用程序日志和指标？
 

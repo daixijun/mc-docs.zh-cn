@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: c1f5bcab0fc299024cc9b205abb2d50334f2f430
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 9888ac17f01ed58866d52250fb696bd49aff9488
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004025"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022050"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Microsoft 标识 Web 身份验证库
 
@@ -107,5 +107,7 @@ GitHub上的 Microsoft 标识 Web Wiki 包含了广泛的参考文档，涉及�
 <!--  [miw-certs-decrypt]: microsoft-identity-web-certificates.md#decryption-certificates  -->
 <!--  [miw-inc-consent-ca-header]: microsoft-identity-web-consent-conditional-access.md#handling-incremental-consent-or-conditional-access-in-web-apis  -->
 <!--  [miw-inc-consent-ca]: microsoft-identity-web-consent-conditional-access.md  -->
-[scenario-api-call-api]: scenario-web-api-call-api-call-api.md#option-1-call-microsoft-graph-with-the-sdk [scenario-api-call-graph]: scenario-web-api-call-api-call-api.md#option-1-call-microsoft-graph-with-the-sdk [scenario-api-validation]: scenario-protected-web-api-verification-scope-app-roles.md
+[scenario-api-call-api]: scenario-web-api-call-api-call-api.md#option-1-call-microsoft-graph-with-the-sdk  
+[scenario-api-call-graph]: scenario-web-api-call-api-call-api.md#option-1-call-microsoft-graph-with-the-sdk  
+[scenario-api-validation]: scenario-protected-web-api-verification-scope-app-roles.md  
 

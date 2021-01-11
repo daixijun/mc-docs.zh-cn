@@ -6,18 +6,18 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: devx-track-azurecli
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 03/12/2019
-ms.date: 10/12/2020
-ms.openlocfilehash: 9f9fece17317c2e1a22df4bb4d0824e3dc18b8ed
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 12/21/2020
+ms.openlocfilehash: be4b77b59480201ff737d1423b70b5582c26c34d
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872470"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829652"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Azure SQL 托管实例的托管 API 参考
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "91872470"
 若要使用 Azure PowerShell 创建并管理托管实例，请使用以下 PowerShell cmdlet。 如果需要安装或升级 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 > [!TIP]
-> 有关 PowerShell 示例脚本，请参阅[快速入门脚本：使用 PowerShell 库创建托管实例](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/)。
+> 有关 PowerShell 示例脚本，请参阅[快速入门脚本：使用 PowerShell 库创建托管实例](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/quick-start-script-create-azure-sql-managed-instance-using-powershell)。
 
 | Cmdlet | 说明 |
 | --- | --- |
@@ -54,7 +54,7 @@ ms.locfileid: "91872470"
 
 ## <a name="azure-cli-create-and-configure-managed-instances"></a>Azure CLI：创建和配置托管实例
 
-要使用 [Azure CLI](/cli/) 创建和配置托管实例，请使用以下[用于 SQL 托管实例的 Azure CLI 命令](/cli/sql/mi)。 可以在 macOS、Linux 或 Windows 上[安装](/cli/install-azure-cli)它。
+若要使用 [Azure CLI](/cli/) 创建和配置托管实例，请使用以下[用于 SQL 托管实例的 Azure CLI 命令](/cli/sql/mi)。 可以在 macOS、Linux 或 Windows 上[安装](/cli/install-azure-cli)它。
 
 > [!TIP]
 > 有关 Azure CLI 快速入门，请参阅[使用 Azure CLI 处理 SQL 托管实例](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)。
@@ -86,8 +86,8 @@ ms.locfileid: "91872470"
 
 | 命令 | 说明 |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|在 SQL 托管实例中创建新的实例数据库。 必须连接到 master 数据库才能新建数据库。|
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) |修改 SQL 托管实例中的实例数据库。|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?preserve-view=true&view=azuresqldb-mi-current)|在 SQL 托管实例中创建新的实例数据库。 必须连接到 master 数据库才能新建数据库。|
+|[ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-mi-current) |修改 SQL 托管实例中的实例数据库。|
 
 ## <a name="rest-api-create-and-configure-managed-instances"></a>REST API：创建和配置托管实例
 

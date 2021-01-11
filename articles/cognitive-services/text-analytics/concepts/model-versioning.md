@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 12/30/2020
 ms.author: v-johya
-ms.openlocfilehash: ebd6e43aab2c8e2ab86b8eff1687fffbe11216ef
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: c3df18d4dbf6a9c0c1bd37d6546ee2b7a219f17c
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106714"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857109"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>文本分析 API 中的模型版本控制
 
@@ -23,7 +23,7 @@ ms.locfileid: "93106714"
 
 ## <a name="available-versions"></a>可用版本
 
-使用下表来查找每个终结点所支持的模型版本。
+使用下表来查找每个托管终结点所支持的模型版本。
 
 
 | 终结点                        | 支持的版本                                     | 最新版本 |
@@ -38,18 +38,7 @@ ms.locfileid: "93106714"
 
 可以在[新增功能](../whats-new.md)中找到有关这些模型的更新的详细信息。
 
-## <a name="text-analytics-for-health"></a>运行状况文本分析
-
-[运行状况文本分析](../how-tos/text-analytics-for-health.md)容器使用与上述 API 终结点不同的模型版本控制。  请注意，每个容器映像仅有一个可用的模型版本。
-
-| 终结点                        | 容器映像标记                     | 模型版本 |
-|---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`              | `1.1.013530001-amd64-preview` 或更高版本          | `2020-09-03`  |
-| `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
-| `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
-| `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
-| `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
-
+<!--Not available in MC: ## Text Analytics for health-->
 
 ## <a name="next-steps"></a>后续步骤
 

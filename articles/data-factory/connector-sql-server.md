@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 09/21/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: a6e19523fb740e9ace35bf52340f20cc90b598fe
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+origin.date: 12/18/2020
+ms.date: 01/04/2021
+ms.openlocfilehash: 761de909e6f6b307cb70850a8d1ee38b265c798d
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "95970791"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830298"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>使用 Azure 数据工厂向/从 SQL Server 复制数据
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -198,10 +198,10 @@ SQL Server 链接服务支持以下属性：
 | partitionUpperBound | 分区范围拆分的分区列的最大值。 此值用于决定分区步幅，不用于筛选表中的行。 将对表或查询结果中的所有行进行分区和复制。 如果未指定，复制活动会自动检测该值。  <br>当分区选项是 `DynamicRange` 时适用。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-database)部分。 | 否 |
 | partitionLowerBound | 分区范围拆分的分区列的最小值。 此值用于决定分区步幅，不用于筛选表中的行。 将对表或查询结果中的所有行进行分区和复制。 如果未指定，复制活动会自动检测该值。<br>当分区选项是 `DynamicRange` 时适用。 有关示例，请参阅[从 SQL 数据库进行并行复制](#parallel-copy-from-sql-database)部分。 | 否 |
 
-**需要注意的要点：**
+**请注意以下几点：**
 
 - 如果为 **SqlSource** 指定 **sqlReaderQuery**，则复制活动针对 SQL Server 源运行此查询以获取数据。 也可通过指定 sqlReaderStoredProcedureName 和 storedProcedureParameters 来指定存储过程，前提是存储过程使用参数 。
-- 如果不指定 **sqlReaderQuery** 或 **sqlReaderStoredProcedureName**，则数据集 JSON 的“structure”节中定义的列用于构建查询。 查询 `select column1, column2 from mytable` 针对 SQL Server 运行。 如果数据集定义没有“structure”，则会从表中选择所有列。
+- 在源中使用存储过程检索数据时，请注意，如果存储过程旨在当传入不同的参数值时返回不同的架构，则从 UI 导入架构时，或通过自动创建表的功能将数据复制到 SQL 数据库时，可能会遇到故障或出现意外的结果。
 
 **示例：使用 SQL 查询**
 
@@ -297,7 +297,7 @@ GO
 
 要向 SQL Server 复制数据，请将复制活动中的接收器类型设置为 SqlSink。 复制活动的 sink 节支持以下属性：
 
-| 属性 | 说明 | 必须 |
+| 属性 | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 复制活动的 sink 的 type 属性必须设置为 SqlSink。 | 是 |
 | preCopyScript |此属性指定将数据写入到 SQL Server 中之前复制活动要运行的 SQL 查询。 每次运行复制仅调用该查询一次。 可以使用此属性清除预加载的数据。 |否 |
@@ -562,7 +562,7 @@ END
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |布尔 |
+| bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
 | datetime |DateTime |

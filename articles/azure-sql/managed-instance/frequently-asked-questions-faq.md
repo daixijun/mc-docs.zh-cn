@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 09/21/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: a1a2cc0d39b9bf4d540c1ffab634162fc973fe56
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 12/21/2020
+ms.openlocfilehash: d2054de74db1df99ebe4b510e4b088701212ad69
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470261"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830307"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL 托管实例常见问题解答 (FAQ)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -91,7 +91,7 @@ SQL 托管实例部署是否有配额限制？
 
 如何缩放托管实例？
 
-可以通过 [Azure 门户](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation)、[PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell)[Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) 或 [ARM 模板](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates)来缩放托管实例。
+可以通过 [Azure 门户](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation)、[PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell)、[Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) 或 [ARM 模板](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates)来缩放托管实例。
 
 是否可以将托管实例从一个区域移动到另一个区域？
 
@@ -99,7 +99,7 @@ SQL 托管实例部署是否有配额限制？
 
 如何删除托管实例？
 
-可以通过 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0)、[Azure CLI](/cli/sql/mi?view=azure-cli-latest#az-sql-mi-delete) 或[资源管理器 REST API](https://docs.microsoft.com/rest/api/sql/managedinstances/delete) 来删除托管实例。
+可以通过 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0)、[Azure CLI](/cli/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) 或[资源管理器 REST API](https://docs.microsoft.com/rest/api/sql/managedinstances/delete) 来删除托管实例。
 
 创建或更新实例或还原数据库需要多长时间？
 
@@ -132,9 +132,9 @@ SQL 托管实例部署是否有配额限制？
 
 一种做法是[将数据库导出到 BACPAC](../database/database-export.md)，然后[导入 BACPAC 文件](../database/database-import.md)。 如果数据库小于 100 GB，则建议使用此方法。
 
-如果数据库中的所有表具有主键，并且数据库中没有内存中 OLTP 对象，则可以使用[事务复制](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017)。
+如果数据库中的所有表具有主键，并且数据库中没有内存中 OLTP 对象，则可以使用[事务复制](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true)。
 
-由于托管实例的数据库版本高于 SQL Server，因此无法将从托管实例创建的本机 COPY_ONLY 备份还原到 SQL Server。 有关更多详细信息，请参阅[仅复制备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15)。
+由于托管实例的数据库版本高于 SQL Server，因此无法将从托管实例创建的本机 COPY_ONLY 备份还原到 SQL Server。 有关更多详细信息，请参阅[仅复制备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15)。
 
 如何将 SQL Server 实例迁移到 SQL 托管实例？
 
@@ -181,11 +181,11 @@ SQL 托管实例部署是否有配额限制？
 
 是否可以使用 SQL Profiler 进行性能跟踪？
 
-是的，SQL 托管实例支持 SQL Profiler。 有关详细信息，请参阅 [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15)。
+是的，SQL 托管实例支持 SQL Profiler。 有关详细信息，请参阅 [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15)。
 
 托管实例数据库是否支持数据库顾问和 Query Performance Insight？
 
-不支持。 可以将 [DMV](../database/monitoring-with-dmvs.md) 和[查询存储](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) 与 [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) 和 [XEvent](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) 结合使用来监视数据库。
+不支持。 可以将 [DMV](../database/monitoring-with-dmvs.md) 和[查询存储](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?preserve-view=true&view=sql-server-ver15) 与 [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15) 和 [XEvent](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?preserve-view=true&view=sql-server-ver15) 结合使用来监视数据库。
 
 是否可以在 SQL 托管实例上创建指标警报？
 
@@ -225,11 +225,11 @@ SQL 托管实例的存储大小取决于所选的服务层级（“常规用途�
 
 是否支持按需备份？
 
-是的，可以在其 Azure Blob 存储中创建仅复制完整备份，但它只能在托管实例中进行还原。 有关详细信息，请参阅[仅复制备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15)。 但是，如果数据库通过服务管理的 TDE 进行加密，则无法进行仅复制备份，因为用于加密的证书不可访问。 在这类情况下，使用时间点还原功能将数据库移到另一个 SQL 托管实例或切换到客户管理的密钥。
+是的，可以在其 Azure Blob 存储中创建仅复制完整备份，但它只能在托管实例中进行还原。 有关详细信息，请参阅[仅复制备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15)。 但是，如果数据库通过服务管理的 TDE 进行加密，则无法进行仅复制备份，因为用于加密的证书不可访问。 在这类情况下，使用时间点还原功能将数据库移到另一个 SQL 托管实例或切换到客户管理的密钥。
 
 是否支持本机还原（从 .bak 文件）到托管实例？
 
-是的，该功能受支持，可用于 SQL Server 2005 以上版本。  若要使用本机还原，请将 .bak 文件上传到 Azure blob 存储并执行 T-SQL 命令。 有关更多详细信息，请参阅[从 URL本机还原](/sql-database/sql-database-managed-instance-migrate#native-restore-from-url)。
+是的，该功能受支持，可用于 SQL Server 2005 以上版本。  若要使用本机还原，请将 .bak 文件上传到 Azure blob 存储并执行 T-SQL 命令。 有关更多详细信息，请参阅[从 URL本机还原](./migrate-to-instance-from-sql-server.md#native-restore-from-url)。
 
 ## <a name="business-continuity"></a>业务连续性
 
@@ -251,7 +251,7 @@ SQL 托管实例负责对管理端口设置规则。 这通过名为[服务辅�
 
 是否可以获取用于入站管理流量的源 IP 范围？
 
-是的。 可以通过[配置网络观察程序流日志](/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group)来分析经过网络安全组的流量。
+是的。 可以通过[配置网络观察程序流日志](../../network-watcher/network-watcher-monitoring-overview.md#analyze-traffic-to-or-from-a-network-security-group)来分析经过网络安全组的流量。
 
 是否可以设置 NSG 以便控制对数据终结点（端口 1433）的访问？
 
@@ -270,7 +270,7 @@ SQL 托管实例负责对管理端口设置规则。 这通过名为[服务辅�
  
 托管实例需要多少 IP 地址？
 
-子网必须有足够数量的可用 [IP 地址](connectivity-architecture-overview.md#network-requirements)。 若要确定 SQL 托管实例的 VNet 子网大小，请参阅[确定托管实例所需的子网大小和范围](/sql-database/sql-database-managed-instance-determine-size-vnet-subnet)。 
+子网必须有足够数量的可用 [IP 地址](connectivity-architecture-overview.md#network-requirements)。 若要确定 SQL 托管实例的 VNet 子网大小，请参阅[确定托管实例所需的子网大小和范围](./vnet-subnet-determine-size.md)。 
 
 如果没有足够的 IP 地址来执行实例更新操作怎么办？
 
@@ -282,7 +282,7 @@ SQL 托管实例负责对管理端口设置规则。 这通过名为[服务辅�
 
 是否可以更改子网地址范围？
 
-如果其中有托管实例，则不可以。 这是一种 Azure 网络基础结构限制。 只允许[向空子网添加其他地址空间](/virtual-network/virtual-network-manage-subnet#change-subnet-settings)。 
+如果其中有托管实例，则不可以。 这是一种 Azure 网络基础结构限制。 只允许[向空子网添加其他地址空间](../../virtual-network/virtual-network-manage-subnet.md#change-subnet-settings)。 
 
 是否可以将托管实例移动到另一个子网？
 
@@ -290,7 +290,7 @@ SQL 托管实例负责对管理端口设置规则。 这通过名为[服务辅�
 
 是否需要空虚拟网络来创建托管实例？
 
-这不是必需的。 可以[为 Azure SQL 托管实例创建虚拟网络](/sql-database/sql-database-managed-instance-create-vnet-subnet)或是[为 Azure SQL 托管实例配置现有虚拟网络](/sql-database/sql-database-managed-instance-configure-vnet-subnet)。
+这不是必需的。 可以[为 Azure SQL 托管实例创建虚拟网络](./virtual-network-subnet-create-arm-template.md)或是[为 Azure SQL 托管实例配置现有虚拟网络](./vnet-existing-add-subnet.md)。
 
 是否可以将托管实例与其他服务一起放入子网？
 
@@ -313,13 +313,13 @@ SQL 托管实例负责对管理端口设置规则。 这通过名为[服务辅�
 
 托管实例是否具有公共终结点？
 
-是的。 托管实例具有一个公共终结点，它在默认情况下仅用于服务管理，但客户也可以启用它来访问数据。 有关更多详细信息，请参阅[将 SQL 托管实例与公共终结点一起使用](/sql-database/sql-database-managed-instance-public-endpoint-securely)。 若要配置公共终结点，请转到[在 SQL 托管实例中配置公共终结点](public-endpoint-configure.md)。
+是的。 托管实例具有一个公共终结点，它在默认情况下仅用于服务管理，但客户也可以启用它来访问数据。 有关更多详细信息，请参阅[将 SQL 托管实例与公共终结点一起使用](./public-endpoint-overview.md)。 若要配置公共终结点，请转到[在 SQL 托管实例中配置公共终结点](public-endpoint-configure.md)。
 
 托管实例如何控制对公共终结点的访问？
 
 托管实例会在网络和应用程序级别控制对公共终结点的访问。
 
-管理和部署服务使用映射到外部负载均衡器的[管理终结点](/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint)连接到托管实例。 仅当流量是在一组专用于托管实例管理组件的预定义端口上收到的时，才将流量路由到节点。 节点上的内置防火墙设置为只允许来自 Microsoft IP 范围的流量。 证书将对管理组件与管理平面之间的所有通信进行相互身份验证。 有关更多详细信息，请参阅 [SQL 托管实例的连接体系结构](/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture)。
+管理和部署服务使用映射到外部负载均衡器的[管理终结点](./connectivity-architecture-overview.md#management-endpoint)连接到托管实例。 仅当流量是在一组专用于托管实例管理组件的预定义端口上收到的时，才将流量路由到节点。 节点上的内置防火墙设置为只允许来自 Microsoft IP 范围的流量。 证书将对管理组件与管理平面之间的所有通信进行相互身份验证。 有关更多详细信息，请参阅 [SQL 托管实例的连接体系结构](./connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture)。
 
 是否可以使用公共终结点访问托管实例数据库中的数据？
 
@@ -334,9 +334,9 @@ SQL 托管实例负责对管理端口设置规则。 这通过名为[服务辅�
 快速路由线路对等互连是执行该操作的首选方式。 支持全局虚拟网络对等互连，但有以下说明所述的限制。  
 
 > [!IMPORTANT]
-> [2020 年 9 月 22 日，我们宣布了为新建的虚拟群集建立全局虚拟网络对等互连](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/)。 这意味着，自公告日期之后在空子网中创建的 SQL 托管实例以及在这些子网中随后创建的所有托管实例，都支持全局虚拟网络对等互连。 对于所有其他 SQL 托管实例，由于[全局虚拟网络对等互连的约束](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)，对等互连支持仅限于同一区域中的网络。 有关更多详细信息，另请参阅 [Azure 虚拟网络常见问题解答](/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)一文的相关部分。 
+> [2020 年 9 月 22 日，我们宣布了为新建的虚拟群集建立全局虚拟网络对等互连](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/)。 这意味着，自公告日期之后在空子网中创建的 SQL 托管实例以及在这些子网中随后创建的所有托管实例，都支持全局虚拟网络对等互连。 对于所有其他 SQL 托管实例，由于[全局虚拟网络对等互连的约束](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)，对等互连支持仅限于同一区域中的网络。 有关更多详细信息，另请参阅 [Azure 虚拟网络常见问题解答](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)一文的相关部分。 
 
-如果无法实现 Express Route 线路对等互连和全局虚拟网络对等互连，那么唯一的选择就是创建站点到站点 VPN 连接（[Azure 门户](/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)、[PowerShell](/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)、[Azure CLI](/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)）。
+如果无法实现 Express Route 线路对等互连和全局虚拟网络对等互连，那么唯一的选择就是创建站点到站点 VPN 连接（[Azure 门户](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)、[PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)、[Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)）。
 
 ## <a name="mitigate-data-exfiltration-risks"></a>缓解数据透露风险  
 
@@ -344,19 +344,19 @@ SQL 托管实例负责对管理端口设置规则。 这通过名为[服务辅�
 
 为了缓解任何数据透露风险，我们建议客户应用一组安全设置和控制：
 
-- 在所有数据库上启用[透明数据加密 (TDE)](/sql-database/transparent-data-encryption-azure-sql)。
+- 在所有数据库上启用[透明数据加密 (TDE)](../database/transparent-data-encryption-tde-overview.md)。
 - 关闭公共语言运行时 (CLR)。 也建议在本地禁用 CLR。
 - 仅使用 Azure Active Directory (Azure AD) 身份验证。
 - 使用低特权 DBA 帐户访问实例。
 - 为 sysadmin 帐户配置 JiT jumpbox 访问权限。
 - 启用 [SQL 审核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)，并将其与警报机制相集成。
-- 从 [Azure Defender for SQL](/azure-sql/database/azure-defender-for-sql) 套件启用[威胁检测](/sql-database/sql-database-threat-detection)。
+- 从 [Azure Defender for SQL](../database/azure-defender-for-sql.md) 套件启用[威胁检测](../database/threat-detection-configure.md)。
 
 ## <a name="dns"></a>DNS
 
 是否可以为 SQL 托管实例配置自定义 DNS？
 
-是的。 请参阅[如何为 Azure SQL 托管实例配置自定义 DNS](/sql-database/sql-database-managed-instance-custom-dns)。
+是的。 请参阅[如何为 Azure SQL 托管实例配置自定义 DNS](./custom-dns-configure.md)。
 
 **是否可以执行 DNS 刷新？**
 
@@ -375,22 +375,22 @@ DNS 配置最终会刷新：
 
 首次预配托管实例时可以设置时区配置。 不支持更改现有托管实例的时区。 有关详细信息，请参阅[时区限制](timezones-overview.md#limitations)。
 
-解决方法包括使用适当的时区创建新的托管实例，然后执行手动备份和还原，我们建议执行[跨实例时间点还原](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/)。
+解决方法包括使用适当的时区创建新的托管实例，然后执行手动备份和还原，我们建议执行[跨实例时间点还原](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance)。
 
 
 ## <a name="security-and-database-encryption"></a>安全性和数据库加密
 
 sysadmin 服务器角色是否可用于 SQL 托管实例？
 
-是的，客户可以创建作为 sysadmin 角色成员的登录名。  承担 sysadmin 权限的客户也负责操作实例，这会对 SLA 承诺产生负面影响。 若要将登录名添加到 sysadmin 服务器角色，请参阅 [Azure AD 身份验证](/sql-database/sql-database-managed-instance-aad-security-tutorial#azure-ad-authentication)。
+是的，客户可以创建作为 sysadmin 角色成员的登录名。  承担 sysadmin 权限的客户也负责操作实例，这会对 SLA 承诺产生负面影响。 若要将登录名添加到 sysadmin 服务器角色，请参阅 [Azure AD 身份验证](./aad-security-configure-tutorial.md#azure-ad-authentication)。
 
 SQL 托管实例是否支持透明数据加密？
 
-是的，SQL 托管实例支持透明数据加密。 有关详细信息，请参阅 [SQL 托管实例的透明数据加密](/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal)。
+是的，SQL 托管实例支持透明数据加密。 有关详细信息，请参阅 [SQL 托管实例的透明数据加密](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal)。
 
 是否可以对 TDE 使用“创建自己的密钥”模型？
 
-是的，适用于 BYOK 的 Azure Key Vault 方案可用于 Azure SQL 托管实例。 有关详细信息，请参阅[使用客户管理的密钥进行透明数据加密](/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key)。
+是的，适用于 BYOK 的 Azure Key Vault 方案可用于 Azure SQL 托管实例。 有关详细信息，请参阅[使用客户管理的密钥进行透明数据加密](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key)。
 
 是否可以迁移加密 SQL Server 数据库？
 
@@ -406,8 +406,8 @@ SQL 托管实例是否支持透明数据加密？
 
 可以，无需解密数据库即可将其还原到 SQL 托管实例。 需将一个在源系统中用作加密密钥保护器的证书/密钥提供给 SQL 托管实例，才能从加密的备份文件中读取数据。 要运行此操作有两个可行的方式：
 
-- 将证书保护器上传到 SQL 托管实例。 只能使用 PowerShell 执行此操作。 [示例脚本](/sql-database/sql-database-managed-instance-migrate-tde-certificate)描述了整个过程。
-- 将非对称密钥保护器上传到 Azure Key Vault，并将 SQL 托管实例指向该保护器。 此方法类似于自带密钥 (BYOK) TDE 用例，该用例也使用 Key Vault 集成来存储加密密钥。 如果你不想将该密钥用作加密密钥保护器，只想为 SQL 托管实例提供密钥来还原加密的数据库，请按照有关[设置 BYOK TDE](/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption) 的说明进行操作，不要选中“将所选密钥设为默认 TDE 保护器”复选框。
+- 将证书保护器上传到 SQL 托管实例。 只能使用 PowerShell 执行此操作。 [示例脚本](./tde-certificate-migrate.md)描述了整个过程。
+- 将非对称密钥保护器上传到 Azure Key Vault，并将 SQL 托管实例指向该保护器。 此方法类似于自带密钥 (BYOK) TDE 用例，该用例也使用 Key Vault 集成来存储加密密钥。 如果你不想将该密钥用作加密密钥保护器，只想为 SQL 托管实例提供密钥来还原加密的数据库，请按照有关[设置 BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption) 的说明进行操作，不要选中“将所选密钥设为默认 TDE 保护器”复选框。
 
 将加密保护器提供给 SQL 托管实例使用后，可以继续执行标准的数据库还原过程。
 
@@ -420,7 +420,7 @@ SQL 托管实例提供[基于 vCore 的购买模型](sql-managed-instance-paas-o
 SQL 托管实例有哪些成本权益？
 
 可以通过以下方式使用 Azure SQL 权益节省成本：
-- 利用 [Azure 混合权益](/azure-sql/azure-hybrid-benefit?tabs=azure-powershell)，最大化本地许可证的现有投资并节省高达 55%。 
+- 利用 [Azure 混合权益](../azure-hybrid-benefit.md?tabs=azure-powershell)，最大化本地许可证的现有投资并节省高达 55%。 
 
 ## <a name="billing-for-managed-instance-and-backup-storage"></a>托管实例和备份存储计费
 
@@ -431,10 +431,6 @@ SQL 托管实例定价选项有哪些？
 自动备份的成本是多少？
 
 不管备份保持期设置如何，都可以获得与购买的预留数据存储空间相等的可用备份存储空间量。 如果备份存储消耗在分配的可用备份存储空间内，则托管实例上的自动备份不会产生额外费用，因此是免费的。 如果使用的备份存储超过可用空间，请参阅定价页以了解你所在区域的详细信息。 
-
-如何监视备份存储消耗的计费成本？
-
-可以通过 Azure 门户监视备份存储的成本。 有关说明，请参阅[监视自动备份的成本](/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs)。 
 
 ## <a name="cost-saving-use-cases"></a>有关节省成本的用例
 

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: how-to
-origin.date: 09/03/2020
-ms.date: 11/23/2020
+origin.date: 12/2/2020
+ms.date: 01/04/2021
 ms.author: v-jay
-ms.openlocfilehash: fb50b9b8b7bfa5ac9c463ab5b85e52ee2fe71fd0
-ms.sourcegitcommit: db15d6cc591211c0e531d636f45e9cbe24cfb15b
+ms.openlocfilehash: 8ec77717ac238af8820c4bbb2d155ddb48ddb391
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94908924"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857097"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>为 VPN 网关配置数据包捕获
 
@@ -32,9 +32,10 @@ VPN 网关数据包捕获可在网关上运行，也可在特定的连接上运�
 - 无法同时运行多个网关范围的数据包捕获。
 - 无法在同一连接上同时运行多个数据包捕获。 可以同时在不同的连接上运行多个数据包捕获。
 - 每个网关最多可以并行运行 5 个数据包捕获。 这些数据包捕获可以是网关范围的数据包捕获和基于连接的数据包捕获的组合。
+- MaxPacketBufferSize 的单位为字节，MaxFileSize 的单位为 MB
 
 ### <a name="example-json"></a>示例 JSON
-```JSON-interactive
+```JSON
 {
   "TracingFlags": 11,
   "MaxPacketBufferSize": 120,
@@ -63,7 +64,7 @@ VPN 网关数据包捕获可在网关上运行，也可在特定的连接上运�
 }
 ```
 ### <a name="json-schema"></a>JSON 架构
-```JSON-interactive
+```JSON
 {
     "type": "object",
     "title": "The Root Schema",

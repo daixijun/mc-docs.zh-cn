@@ -3,7 +3,7 @@ title: 选择 Azure IaaS VM 的磁盘类型 - 托管磁盘
 description: 了解虚拟机的可用 Azure 磁盘类型，包括高级 SSD、标准 SSD 和标准 HDD。
 origin.date: 09/30/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 21dd18d0f8a540796edb032db685cf783201ec38
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 5730d2822cf9fa662eeb747a217cbf1816d70acd
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103927"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857025"
 ---
 <!--Verified successfully-->
 <!--Not Availble on ultra disks-->
 # <a name="what-disk-types-are-available-in-azure"></a>Azure 有哪些可用的磁盘类型？
 
 
-<!--MOONCAKE: CURRENT NO Ultra SSD-->
+<!--MOONCAKE: NOT AVAILABLE ON Ultra SSD-->
 
 Azure 托管磁盘目前提供三种磁盘类型，每种类型都针对特定的客户方案。
 
-<!--MOONCAKE: CURRENT NO Ultra SSD-->
+<!--MOONCAKE: NOT AVAILABLE ON Ultra SSD-->
 
 ## <a name="disk-comparison"></a>磁盘比较
 
@@ -59,9 +59,9 @@ Azure 高级 SSD 为运行输入/输出 (IO) 密集型工作负荷的虚拟机 (
 
 ## <a name="bursting"></a>突发
 
-比 P30 容量小的高级 SSD 现在提供磁盘突发，并可以将每个磁盘的 IOPS 突发为 3500，并将其带宽提高到 170 Mbps。 突发是自动进行的，根据额度系统运行。 当磁盘流量低于预配的性能目标时，信用会自动累计，而当流量超出目标值时，将自动消耗信用，直到达到最大突发限制。 最大突发限制定义了磁盘 IOPS 和宽带的上限，即使有可供使用的突发积分，也不能超过此上限。 磁盘突发能更好地容许 IO 模式出现不可预测的变化情况。 可以最大程度地利用磁盘突发来应对 OS 磁盘启动时和应用程序的流量高峰。    
+比 P30 容量小的高级 SSD 大小现在提供磁盘突发，可将每个磁盘的 IOPS 突发到 3500，并将其带宽提高到 170 MB/秒。 突发是自动进行的，根据额度系统运行。 当磁盘流量低于预配的性能目标时，信用会自动累计，而当流量超出目标值时，将自动消耗信用，直到达到最大突发限制。 最大突发限制定义了磁盘 IOPS 和宽带的上限，即使有可供使用的突发积分，也不能超过此上限。 磁盘突发能更好地容许 IO 模式出现不可预测的变化情况。 可以最大程度地利用磁盘突发来应对 OS 磁盘启动时和应用程序的流量高峰。    
 
-默认在磁盘大小适用情况下的新磁盘部署上启用磁盘突发支持，无需用户执行任何操作。 对于大小适用的现有磁盘，可以使用以下两个选项中的任一选项启用突发：分离并重新附加磁盘，或停止并重新启动连接的 VM。 将磁盘附加到支持最大持续时间（峰值突发限制为 30 分钟）的虚拟机后，所有支持突发的磁盘大小最初会获得一个完整的突发积分桶。 若要详细了解突发在 Azure 磁盘上的工作原理，请参阅[高级 SSD 突发](linux/disk-bursting.md)。 
+默认在磁盘大小适用情况下的新磁盘部署上启用磁盘突发支持，无需用户执行任何操作。 对于大小适用的现有磁盘，可以使用以下两个选项中的任一选项启用突发：分离并重新附加磁盘，或停止并重新启动连接的 VM。 将磁盘附加到支持最大持续时间（峰值突发限制为 30 分钟）的虚拟机后，所有支持突发的磁盘大小最初会获得一个完整的突发积分桶。 若要详细了解突发在 Azure 磁盘上的工作原理，请参阅[高级 SSD 突发](./disk-bursting.md)。 
 
 ### <a name="transactions"></a>事务
 
@@ -101,17 +101,17 @@ Azure 标准 HDD 为运行不区分延迟的工作负荷提供可靠、低成本
 - 出站数据传输
 - 事务数
 
-**托管磁盘大小** ：托管磁盘按预配大小计费。 Azure 将预配大小映射（向上舍入）到所提供的最接近的磁盘大小。 有关所提供的磁盘大小的详细信息，请参阅前面的表。 每个磁盘将映射到一种受支持的预配磁盘大小套餐并相应地计费。 例如，如果预配了 200 GiB 的标准 SSD，它会映射到 E15 的磁盘大小 (256 GiB)。 任何预配的磁盘根据每月的存储优惠价格按小时计费。 例如，如果在预配 E10 磁盘的 20 小时后删除它，则会以 20 小时计算 E10 产品/服务的费用。 这与写入磁盘的实际数据量无关。
+**托管磁盘大小**：托管磁盘按预配大小计费。 Azure 将预配大小映射（向上舍入）到所提供的最接近的磁盘大小。 有关所提供的磁盘大小的详细信息，请参阅前面的表。 每个磁盘将映射到一种受支持的预配磁盘大小套餐并相应地计费。 例如，如果预配了 200 GiB 的标准 SSD，它会映射到 E15 的磁盘大小 (256 GiB)。 任何预配的磁盘根据每月的存储优惠价格按小时计费。 例如，如果在预配 E10 磁盘的 20 小时后删除它，则会以 20 小时计算 E10 产品/服务的费用。 这与写入磁盘的实际数据量无关。
 
-**快照** ：基于已使用大小对快照计费。 例如，如果创建预配容量为 64 GiB 且实际使用数据大小为 10 GiB 的托管磁盘的快照，则仅针对已用数据大小 10 GiB 对该快照计费。
+**快照**：基于已使用大小对快照计费。 例如，如果创建预配容量为 64 GiB 且实际使用数据大小为 10 GiB 的托管磁盘的快照，则仅针对已用数据大小 10 GiB 对该快照计费。
 
 有关快照的详细信息，请参阅[托管磁盘概述](managed-disks-overview.md)中有关快照的部分。
 
-**出站数据传输** ： [出站数据传输](https://www.azure.cn/pricing/details/data-transfer/)（Azure 数据中心送出的数据）会产生带宽使用费。
+**出站数据传输**：[出站数据传输](https://www.azure.cn/pricing/details/data-transfer/)（Azure 数据中心送出的数据）会产生带宽使用费。
 
 <!--CORRECT ON https://www.azure.cn/pricing/details/data-transfer/-->
 
-**事务** ：会根据你对标准托管磁盘执行的事务数向你收费。 对于标准 SSD，每个小于或等于 256 KiB 吞吐量的 I/O 操作被视为单个 I/O 操作。 大于 256 KiB 吞吐量的 I/O 操作被视为大小为 256 KiB 的多个 I/O。 对于标准 HDD，每个 IO 操作会被视为单个事务，无论 I/O 大小如何。
+**事务**：会根据你对标准托管磁盘执行的事务数向你收费。 对于标准 SSD，每个小于或等于 256 KiB 吞吐量的 I/O 操作被视为单个 I/O 操作。 大于 256 KiB 吞吐量的 I/O 操作被视为大小为 256 KiB 的多个 I/O。 对于标准 HDD，每个 IO 操作会被视为单个事务，无论 I/O 大小如何。
 
 有关托管磁盘定价的详细信息（包括事务成本），请参阅[托管磁盘定价](https://www.azure.cn/pricing/details/storage/managed-disks/)。
 

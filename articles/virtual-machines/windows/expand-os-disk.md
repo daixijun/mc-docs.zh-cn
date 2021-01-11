@@ -1,8 +1,8 @@
 ---
 title: 在 Azure 中扩展 Windows VM 的 OS 驱动器
 description: 在资源管理器部署模型中，使用 Azure PowerShell 增加虚拟机的 OS 驱动器大小。
-manager: dcscontentpm
-mnager: roshar
+services: virtual-machines-windows
+manager: roshar
 tags: azure-resource-manager
 ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
 ms.service: virtual-machines-windows
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/02/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: f20cd9622263a6b444bab5653fd0bce3d093afe7
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 54d05e69086337ccfb6ffe2b08868ce06105bf47
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590825"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856857"
 ---
 <!--Verified successfully -->
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>如何扩展虚拟机的 OS 驱动器
@@ -51,23 +51,23 @@ ms.locfileid: "94590825"
 
 4. 在左侧菜单中的“设置”下，选择“大小 + 性能” 。
 
-<!--MOONCAKE CUSTOMIZATION ON In the left menu under **Settings**, select **Size + performance**-->
+    <!--MOONCAKE CUSTOMIZATION ON In the left menu under **Settings**, select **Size + performance**-->
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot that shows the Configuration option selected in the Settings section of the menu.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="该屏幕截图显示已在菜单的“设置”部分选择了“配置”选项。":::
 
 5. 在“大小 (GiB)”中，选择所需的磁盘大小。
 
-   > [!WARNING]
-   > 新大小应该大于现有磁盘大小。 对于 OS 磁盘来说，允许的最大值为 2,048 GB。 （可以扩展 VHD Blob，使之超出该大小，但操作系统只能使用空间的头 2,048 GB。）
-   > 
+    > [!WARNING]
+    > 新大小应该大于现有磁盘大小。 对于 OS 磁盘来说，允许的最大值为 2,048 GB。 （可以扩展 VHD Blob，使之超出该大小，但操作系统只能使用空间的头 2,048 GB。）
+    > 
 
     :::image type="content" source="./media/expand-os-disk/size.png" alt-text="显示“配置”窗格的屏幕截图，其中选择了磁盘大小。":::
 
 6. 选择“调整大小”。
 
-<!--MOONCAKE CUSTOMIZATION-->
+    <!--MOONCAKE CUSTOMIZATION-->
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot that shows the Configuration pane with the Save button selected.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="该屏幕截图显示“配置”窗格，其中“保存”按钮处于选中状态。":::
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>使用 PowerShell 重设托管磁盘的大小
 
@@ -227,7 +227,7 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 **非托管磁盘**
 
 ```powershell
-($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
+($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).DiskSizeGB = 1023
 ```
 
 ## <a name="expand-the-volume-within-the-os"></a>扩展 OS 中的卷

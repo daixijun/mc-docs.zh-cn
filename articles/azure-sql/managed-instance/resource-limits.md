@@ -7,18 +7,18 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, jovanpop, sachinp
 origin.date: 09/14/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: 4e9517bcbc2c61ad705c178efedf7da0e4f942a1
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/04/2021
+ms.openlocfilehash: 39f1730a4a54bdceb2b69bd43eef8110b250a76d
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106353"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830243"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL 托管实例资源限制概述
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -60,28 +60,28 @@ SQL 托管实例的某些特征和资源限制取决于底层基础结构和体�
 SQL 托管实例有两个服务层级：[常规用途](../database/service-tier-general-purpose.md)和[业务关键](../database/service-tier-business-critical.md)。 这些层级提供[不同的功能](../database/service-tiers-general-purpose-business-critical.md)，如下表中所述。
 
 > [!Important]
-> 业务关键服务层提供了 SQL 托管实例的附加内置副本（次要副本），可用于只读工作负载。 如果可以隔离读写查询和只读/分析/报告查询，则能够以相同的价格获得两倍的 vCore 和内存。 次要副本可能滞后于主要实例几秒，因此它旨在卸载不需要确切的当前数据状态的报告/分析工作负荷。 在下表中， **只读查询** 是在次要副本上执行的查询。
+> 业务关键服务层提供了 SQL 托管实例的附加内置副本（次要副本），可用于只读工作负载。 如果可以隔离读写查询和只读/分析/报告查询，则能够以相同的价格获得两倍的 vCore 和内存。 次要副本可能滞后于主要实例几秒，因此它旨在卸载不需要确切的当前数据状态的报告/分析工作负荷。 在下表中，**只读查询** 是在次要副本上执行的查询。
 
 | **功能** | **常规用途** | **业务关键** |
 | --- | --- | --- |
 | vCore 数目\* | Gen4：8、16、24<br/>Gen5：4、8、16、24、32、40、64、80 | Gen4：8、16、24 <br/> Gen5：4、8、16、24 <br/>\*相同数量的 vCore 专用于只读查询。 |
-| 最大内存 | Gen4：56 GB - 168 GB (7GB/vCore)<br/>Gen5：20.4 GB - 408 GB (5.1GB/vCore)<br/>添加更多 Vcore 以获得更多内存。 | Gen4：56 GB - 168 GB (7GB/vCore)<br/>Gen5：为读写查询提供 20.4 GB - 112.4 GB (5.1GB/vCore)<br/>为只读查询额外提供 20.4 GB - 112.4 GB (5.1GB/vCore)。<br/>添加更多 vCore 以获得更多内存。 |
+| 最大内存 | Gen4：56 GB - 168 GB (7GB/vCore)<br/>Gen5：20.4 GB - 408 GB (5.1GB/vCore)<br/>添加更多 Vcore 以获得更多内存。 | Gen4：56 GB - 168 GB (7GB/vCore)<br/>Gen5：为读写查询提供 20.4 GB - 122.4 GB (5.1GB/vCore)<br/>为只读查询额外提供 20.4 GB - 122.4 GB (5.1GB/vCore)。<br/>添加更多 vCore 以获得更多内存。 |
 | 最大实例存储大小（预留） | - 4 个 vCore 2 TB（仅限 Gen5）<br/>- 8 TB，适用于其他大小 | Gen4：1 TB <br/> Gen5： <br/>- 1 TB，适用于 4、8、16 个 vCore<br/>- 2 TB（适用于 24 个 vCore）<br/> |
 | 最大数据库大小 | 不超过当前可用的实例大小（最大为 2 TB - 8 TB，具体取决于 vCore 数）。 | 不超过当前可用的实例大小（最大为 1 TB - 2 TB，具体取决于 vCore 数）。 |
 | 最大 tempDB 大小 | 限制为 24 GB/vCore (96 - 1,920 GB) 和当前可用的实例存储大小。<br/>添加更多 Vcore 以获得更多 TempDB 空间。<br/> 日志文件大小限制为 120 GB。| 不超过当前可用的实例存储大小。 |
-| 每个实例的数据库数目上限 | 除非已达到实例存储大小限制，否则为 100。 | 除非已达到实例存储大小限制，否则为 100。 |
+| 每个实例的数据库数目上限 | 提供 100 个用户数据库，除非已达到实例存储大小限制。 | 提供 100 个用户数据库，除非已达到实例存储大小限制。 |
 | 每个实例的数据库文件数上限 | 除非已达到实例存储大小或 [Azure 高级磁盘存储分配空间](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files)限制，否则最大为 280。 | 除非已达到实例存储大小限制，否则为每个数据库 32,767 个文件。 |
 | 最大数据文件大小 | 限制为当前可用的实例存储大小（最大 2 TB - 8 TB）和 [Azure 高级磁盘存储分配空间](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files)。 | 限制为当前可用的实例存储大小（最大为 1 TB - 2 TB）。 |
 | 最大日志文件大小 | 限制为 2 TB 和当前可用的实例存储大小。 | 限制为 2 TB 和当前可用的实例存储大小。 |
-| 数据/日志 IOPS（近似值） | 每个实例最多 30-40 K IOPS*，每个文件 500 - 7500<br/>\*[增加文件大小以获得更多 IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 K - 200 K (2500 IOPS/vCore)<br/>添加更多 Vcore 以获得更好的 IO 性能。 |
-| 日志写入吞吐量限制（每个实例） | 3 MB/s（每个 vCore）<br/>最大 22 MB/s | 4 MB/s（每个 vCore）<br/>最大 48 MB/s |
+| 数据/日志 IOPS（近似值） | 每个实例最多 30-40 K IOPS*，每个文件 500 - 7500<br/>\*[增加文件大小以获得更多 IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 K - 100 K (4000 IOPS/vCore)<br/>添加更多 Vcore 以获得更好的 IO 性能。 |
+| 日志写入吞吐量限制（每个实例） | 3 MB/s（每个 vCore）<br/>最大为 120 MB/秒（每个实例）<br/>22 - 65 MB/秒（每个数据库）<br/>\*[增加文件大小以获得更好的 IO 性能](#file-io-characteristics-in-general-purpose-tier) | 4 MB/s（每个 vCore）<br/>最大为 96 MB/秒 |
 | 数据吞吐量（近似值） | 100 - 250 MB/s（每个文件）<br/>\*[增加文件大小以获得更好的 IO 性能](#file-io-characteristics-in-general-purpose-tier) | 无限制。 |
 | 存储 IO 延迟（近似） | 5-10 毫秒 | 1-2 毫秒 |
 | 内存中 OLTP | 不支持 | [可用大小取决于 vCore 数](#in-memory-oltp-available-space) |
 | 最大会话数 | 30000 | 30000 |
 | 最大并发工作线程数（请求数） | Gen4：210 * vCore 数目 + 800<br>Gen5：105 * vCore 数目 + 800 | Gen4：210 * vCore 计数 + 800<br>Gen5：105 * vCore 计数 + 800 |
 | [只读副本](../database/read-scale-out.md) | 0 | 1（包括在价格中） |
-| 计算隔离 | Gen5：<br/>-支持 80 个 vCore<br/>-不支持其他大小<br/><br/>由于弃用，不支持 Gen4| 不支持|
+| 计算隔离 | 不支持 Gen5，因为“常规用途”实例可能与其他实例共享物理硬件<br/>由于弃用，不支持 Gen4|不支持|
 
 
 一些其他注意事项： 
@@ -103,7 +103,7 @@ SQL 托管实例有两个服务层级：[常规用途](../database/service-tier-
 
 如果注意到某个数据库文件的 IO 延迟较高，或者发现 IOPS/吞吐量即将达到限制，可以通过[增大文件大小](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337)来提高性能。
 
-最大日志写入吞吐量也存在实例级别的限制（即 22 MB/秒），因此，你可能无法达到日志文件的最大文件吞吐量，因为你即将达到实例吞吐量限制。
+最大日志写入吞吐量也存在实例级别的限制（请查看上文以获取值，例如 22 MB/秒），因此，你可能无法达到日志文件的最大文件吞吐量，因为你即将达到实例吞吐量限制。
 
 ## <a name="supported-regions"></a>支持的区域
 
@@ -113,8 +113,8 @@ SQL 托管实例只能在[支持的区域](https://azure.microsoft.com/global-in
 
 支持的订阅类型可以包含每个区域的有限数量的资源。 对于每个 Azure 区域，SQL 托管实例有两个默认限制（可以通过创建特殊[支持请求](https://support.azure.cn/zh-cn/support/support-azure/)来按需提高），具体取决于订阅类型是哪一类型：
 
-- **子网限制** ：在单个区域中部署 SQL 托管实例的实例的子网数目上限。
-- **vCore 单元限制** ：可跨单一区域的所有实例部署的 vCore 单元数上限。 一个 GP vCore 使用一个 vCore 单元，一个 BC vCore 采用 4 个 vCore 单位。 实例总数不受限制，只要在 vCore 单元限制内即可。
+- **子网限制**：在单个区域中部署 SQL 托管实例的实例的子网数目上限。
+- **vCore 单元限制**：可跨单一区域的所有实例部署的 vCore 单元数上限。 一个 GP vCore 使用一个 vCore 单元，一个 BC vCore 采用 4 个 vCore 单位。 实例总数不受限制，只要在 vCore 单元限制内即可。
 
 > [!Note]
 > 这些限制是默认设置，不是技术限制。 如果在当前区域中需要更多实例，可以创建特殊[支持请求](https://support.azure.cn/zh-cn/support/support-azure/)，以根据需要提高限制。 或者，可以在另一个 Azure 区域中创建 SQL 托管实例的新实例，而无需发送支持请求。

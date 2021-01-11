@@ -1,6 +1,7 @@
 ---
 title: 比较 Azure 存储队列和服务总线队列
 description: 分析 Azure 提供的两种队列类型之间的差异和相似性。
+ms.service: service-bus-messaging
 ms.topic: article
 origin.date: 11/04/2020
 author: rockboyfor
@@ -8,12 +9,12 @@ ms.date: 11/23/2020
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9a90925c92b1f2418f8ca035b23befd210c9fedc
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 9dd85217271f6a8c978f29c129206fd01ace8679
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977969"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022904"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>存储队列和服务总线队列 - 比较与对照
 本文分析 Azure 提供的以下两种队列类型之间的差异和相似性：存储队列和服务总线队列。 通过使用此信息，可以更明智地选出最适合你需求的解决方案。
@@ -139,7 +140,7 @@ Azure 支持两种队列机制：“存储队列”和“服务总线队列” �
 | 最大消息大小 |**64 KB**<br/><br/>（使用 **Base64** 编码时为 48 KB）<br/><br/>Azure 可以通过合并队列和 Blob 支持大消息 - 此时单个项目排队的消息最多可达到 200 GB。 |**256 KB** 或 **1 MB**<br/><br/>（包含标头和正文，最大标头大小：64 KB）。<br/><br/>取决于[服务层级](service-bus-premium-messaging.md)。 |
 | 最大消息 TTL |**无限**（API 版本 2017-07-27 或更高版本） |**TimeSpan.Max** |
 | 最大队列数 |**不受限制** |**10,000**<br/><br/>（按服务命名空间） |
-| 并发客户端的最大数目 |**无限制** |**无限制**<br/><br/>（100 个并发连接限制仅适用于基于 TCP 协议的通信） |
+| 并发客户端的最大数目 |**无限制** |**5,000** |
 
 ### <a name="additional-information"></a>其他信息
 * 服务总线强制实施队列大小限制。 创建队列时指定最大队列大小。 大小可以介于 1 GB 和 80 GB 之间。 如果队列的大小达到此限制，则其他传入消息将遭到拒绝，并且调用方会收到异常。 有关服务总线中配额的详细信息，请参阅[服务总线配额](service-bus-quotas.md)。

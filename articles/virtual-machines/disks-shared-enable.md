@@ -3,30 +3,27 @@ title: 为 Azure 托管磁盘启用共享磁盘
 description: 为 Azure 托管磁盘配置共享磁盘，以便可以跨多个 VM 共享它
 ms.service: virtual-machines
 ms.topic: how-to
+origin.date: 09/30/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 11/09/2020
 ms.author: v-yeche
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 2b0c574764a73c8a18db9a7636ef9665f37925d4
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 2efec6e9314067ff484238172f3a5055d6fde21c
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328991"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857030"
 ---
 <!--Verified successfully for PG notification-->
 # <a name="enable-shared-disk"></a>启用共享磁盘
 
 本文介绍了如何为 Azure 托管磁盘启用共享磁盘功能。 Azure 共享磁盘是 Azure 托管磁盘的一项新功能，可同时将托管磁盘附加到多个虚拟机 (VM)。 通过将托管磁盘附加到多个 VM，可以向 Azure 部署新的群集应用程序或迁移现有的群集应用程序。 
 
-如果你正在查找有关已启用共享磁盘的托管磁盘的概念信息，请参阅：
-
-* 对于 Linux：[Azure 共享磁盘](linux/disks-shared.md)
-
-* 对于 Windows：[Azure 共享磁盘](windows/disks-shared.md)
+如果你正在查找有关已启用共享磁盘的托管磁盘的概念信息，请参阅 [Azure 共享磁盘](disks-shared.md)。
 
 ## <a name="limitations"></a>限制
 
@@ -34,7 +31,7 @@ ms.locfileid: "94328991"
 
 ## <a name="supported-operating-systems"></a>支持的操作系统
 
-共享磁盘支持多个操作系统。 有关支持的操作系统，请参阅概念文章的 [Windows](windows/disks-shared.md#windows) 和 [Linux](linux/disks-shared.md#linux) 部分。
+共享磁盘支持多个操作系统。 有关支持的操作系统，请参阅概念文章的 [Windows](./disks-shared.md#windows) 和 [Linux](./disks-shared.md#linux) 部分。
 
 ## <a name="disk-sizes"></a><a name="disk-sizes"></a>磁盘大小
 
@@ -52,7 +49,7 @@ ms.locfileid: "94328991"
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l chinanorth --sku Premium_LRS --max-shares 2
+az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l chinaeast --sku Premium_LRS --max-shares 2
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -63,7 +60,7 @@ $dataDiskConfig = New-AzDiskConfig -Location 'chinanorth' -DiskSizeGB 1024 -Acco
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
 ```
 
-# <a name="resource-manager-template"></a>[Resource Manager 模板](#tab/azure-resource-manager)
+# <a name="resource-manager-template"></a>[资源管理器模板](#tab/azure-resource-manager)
 
 使用以下模板之前，请使用你自己的值替换 `[parameters('dataDiskName')]`、`[resourceGroup().location]`、`[parameters('dataDiskSizeGB')]` 和 `[parameters('maxShares')]`。
 
@@ -144,6 +141,4 @@ PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS
 
 <!--Not Avaialble on [Regional ultra disks](https://aka.ms/SharedUltraDiskARMtemplateRegional)-->
 <!--Not Avaialble on [Zonal ultra disks](https://aka.ms/SharedUltraDiskARMtemplateZonal)-->
-
-<!-- Update_Description: new article about disks shared enable -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

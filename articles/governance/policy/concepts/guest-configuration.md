@@ -3,14 +3,14 @@ title: 了解如何审核虚拟机的内容
 description: 了解 Azure Policy 如何使用来宾配置代理审核虚拟机内部的设置。
 ms.author: v-tawe
 origin.date: 10/14/2020
-ms.date: 11/06/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: 10716088b9790bbe424400012ddfe1c880941d94
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: df35d06361cbf2cf5cff1a1be5abc9a2edfc9584
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327746"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874834"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure Policy 的来宾配置
 
@@ -65,7 +65,7 @@ Azure Policy 可以审核 Azure 中计算机内部的设置。
 
 |发布者|名称|版本|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 及更高版本|
+|Canonical|Ubuntu Server|14.04 - 18.04|
 |Credativ|Debian|8 及更高版本|
 |Microsoft|Windows Server|2012 及更高版本|
 |Microsoft|Windows 客户端|Windows 10|

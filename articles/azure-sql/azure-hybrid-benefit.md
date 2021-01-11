@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sashan, moslake
 origin.date: 11/13/2019
-ms.date: 10/29/2020
-ms.openlocfilehash: 7b55f341ce3b715b837d0cffdd3859769171cfad
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.date: 01/04/2021
+ms.openlocfilehash: 7883924a38bd8d2097839745b2f782293947e713
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470467"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829803"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure 混合权益 - Azure SQL 数据库和 SQL 托管实例
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]

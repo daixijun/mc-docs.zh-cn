@@ -2,23 +2,24 @@
 title: 在启用 Python 3 的 Linux Azure 虚拟机系统中使用 VM 扩展时遇到的问题
 description: 了解如何在启用 Python 3 的 Linux 系统中使用 VM 扩展
 services: virtual-machines-windows
-author: rockboyfor
-manager: digimobile
+manager: dcscontentpm
 tags: top-support-issue,azure-resource-manager
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 04/22/2020
-ms.date: 07/06/2020
+origin.date: 08/25/2020
+author: rockboyfor
+ms.date: 01/04/2021
 ms.author: v-yeche
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
-ms.openlocfilehash: 52c6c4af93f4731d0264a1b9a7ccdb678aa0f8a5
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0090e9a40d71328a9025a84c3d2547ce7da720c2
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105562"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857099"
 ---
 <!--Verified successfully-->
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>在启用 Python 3 的 Linux Azure 虚拟机系统中使用 VM 扩展时遇到的问题
@@ -28,7 +29,7 @@ ms.locfileid: "93105562"
 >
 > 在生产环境中安装 Python 2.x 之前，请考虑 Python 2.x 的长期支持问题，尤其是它们接收安全更新的能力。 由于产品（包括上述一些扩展）使用 Python 3.8 支持进行更新，应停止使用 Python 2.x。
 
-某些 Linux 发行版已转换为 Python 3.8，并完全删除了 Python 的旧版 `/usr/bin/python` 入口点。 此转换会影响具备以下条件的某些虚拟机 (VM) 扩展的开箱即用、自动部署：
+某些 Linux 发行版已转换为 Python 3.8，并完全删除了 Python 的旧版 `/usr/bin/python` 入口点。 此转换会影响具备以下两个条件的某些虚拟机 (VM) 扩展的开箱即用和自动部署：
 
 - 仍在转换为 Python 3.x 支持的扩展
 - 使用旧版 `/usr/bin/python` 入口点的扩展
@@ -49,13 +50,15 @@ ms.locfileid: "93105562"
 
     - 例如，对于 Python 2.7，请使用 `sudo apt update && sudo apt install python-is-python2`
 
-2. 如果已部署的实例出现此问题，请使用 VM 边栏选项卡中的“运行命令”功能运行上述命令 。 运行命令扩展本身不受向 Python 3.8 的转换的影响。
+1. 此建议适用于 Azure 客户，在 Azure Stack 中不受支持：
 
-3. 如果要部署新实例，并需要在预配时设置扩展，请使用 cloud-init 用户数据来安装上述程序包。
+    - 如果已部署的实例出现此问题，请使用 VM 边栏选项卡中的“运行命令”功能运行上述命令 。 运行命令扩展本身不受向 Python 3.8 的转换的影响。
+
+1. 如果要部署新实例，并需要在预配时设置扩展，请使用 cloud-init 用户数据来安装上述程序包。
 
     例如，对于 Python 2.7：
 
-    ```
+    ```python
     # create cloud-init config
     cat > cloudinitConfig.json <<EOF
     #cloud-config
@@ -76,21 +79,20 @@ ms.locfileid: "93105562"
         --custom-data ./cloudinitConfig.json
     ```
 
-4. 如果组织的策略管理员确定不应在 VM 中部署扩展，则可以在预配时禁用扩展支持：
+1. 如果组织的策略管理员确定不应在 VM 中部署扩展，则可以在预配时禁用扩展支持：
 
     - REST API
 
         在可以使用此属性部署 VM 时禁用和启用扩展：
 
-        ```
-        "osProfile": {
-          "allowExtensionOperations": false
-        },
-        ```
+         ```python
+           "osProfile": {
+             "allowExtensionOperations": false
+           },
+         ```
 
 ## <a name="next-steps"></a>后续步骤
 
 请参阅[默认情况下自 18.04 LTS - Python 3 起其他基础的系统更改](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes#Python3_by_default)获取更多信息。
 
-<!-- Update_Description: new article about issues using vm extensions python 3 -->
-<!--NEW.date: 06/01/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

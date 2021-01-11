@@ -10,66 +10,51 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 origin.date: 11/19/2019
-ms.date: 08/04/2020
+ms.date: 12/28/2020
 ms.author: v-johya
-ms.openlocfilehash: d881a4acf715276d1571ec20983e55fb82f30754
-ms.sourcegitcommit: caa18677adb51b5321ad32ae62afcf92ac00b40b
+ms.openlocfilehash: 5b6367465684f78c31dd5124532252db9e79574c
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2020
-ms.locfileid: "88023383"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857073"
 ---
 # <a name="add-contributors-to-your-app"></a>向应用添加参与者
 
-应用所有者可以向应用添加参与者。 这些协作者可以修改模型，训练并发布应用。
-
-[!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
+应用所有者可以向应用添加参与者。 这些参与者可以修改模型，训练并发布应用。 [迁移](luis-migration-authoring.md)帐户以后，可以在 Azure 门户中通过“访问控制(IAM)”页管理该创作资源的参与者。 使用协作者的电子邮件地址和“参与者”角色添加用户。
 
 ## <a name="add-contributor-to-azure-authoring-resource"></a>向 Azure 创作资源添加参与者
 
-以下过程适用于所有在迁移后能够使用 Azure 创作资源的用户。 
-
-如果你的 LUIS 创作体验已绑定到  LUIS 门户中“管理 -> Azure 资源”页上的某个创作资源，则表明你已完成迁移。
+如果你的 LUIS 创作体验已绑定到 LUIS 门户中“管理 -> Azure 资源”页上的某个创作资源，则表明你已完成迁移。
 
 1. 在 Azure 门户中，找到语言理解 (LUIS) 创作资源。 它的类型为 `LUIS.Authoring`。
-1. 在该资源的“访问控制(标识和访问管理)”页上选择“+ 添加”，然后选择“添加角色分配”   。 
+1. 在该资源的“访问控制(标识和访问管理)”页上选择“+ 添加”，然后选择“添加角色分配”。
 
     ![在 Azure 门户中，在创作资源上添加角色分配。](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
 
-1. 在“添加角色分配”窗口中，选择“参与者”作为“角色”。   在“分配访问权限至”  选项中，选择“Azure AD 用户、组或服务主体”  。 在“选择”选项中，输入用户的电子邮件地址。  如果已知用户有同一个域的多个电子邮件地址，请确保输入主电子邮件帐户。 
+1. 在“添加角色分配”窗口中，选择“参与者”作为“角色”。 在“分配访问权限至”选项中，选择“Azure AD 用户、组或服务主体”。 在“选择”选项中，输入用户的电子邮件地址。 如果已知用户有同一个域的多个电子邮件地址，请确保输入主电子邮件帐户。
 
     ![将用户的电子邮件添加到 Azure AD 的参与者角色](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
 
-    找到用户的电子邮件以后，请选择该帐户，然后选择“保存”  。
+    找到用户的电子邮件以后，请选择该帐户，然后选择“保存”。
 
     如果无法进行此角色分配，请查看“[Azure 角色分配](../../role-based-access-control/role-assignments-portal.md)”和“[Azure 访问控制故障排除](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments)”。
 
-## <a name="add-collaborator-to-luis-app"></a>向 LUIS 应用添加协作者
+## <a name="view-the-app-as-a-contributor"></a>以参与者身份查看应用
 
-以下过程适用于所有因尚未迁移而无法使用 Azure 创作资源的用户。 
+被添加为参与者后，请[登录到 LUIS 门户](sign-in-luis-portal.md)。
 
-如果你的 LUIS 创作体验尚未绑定到  LUIS 门户中“管理 -> Azure 资源”页上的某个创作资源，则表明你未完成迁移。
-
-一个应用只有一个作者、所有者，但可以有许多协作者。 若要允许协作者编辑你的 LUIS 应用，必须将他们用来访问 LUIS 门户的电子邮件添加到协作者列表中。 在添加后，应用将显示在他们的 LUIS 门户中。
-
-1. 从右上角的菜单中选择“管理”  ，然后在左侧菜单中选择“协作者”。 
-
-1. 从工具栏中选择“添加协作者”  。
-
-1. 输入协作者用来登录到 LUIS 门户的电子邮件地址。
-
-    ![添加协作者的电子邮件地址](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
-
+[!INCLUDE [switch azure directories](includes/switch-azure-directories.md)]
 
 ### <a name="users-with-multiple-emails"></a>有多个电子邮件的用户
 
-如果将参与者/协作者添加到 LUIS 应用，则要指定具体的电子邮件地址。 虽然 Azure Active Directory (Azure AD) 允许单名用户交替使用多个电子邮件帐户，但 LUIS 要求用户使用在添加参与者/协作者时指定的电子邮件地址登录。
+如果将参与者添加到 LUIS 应用，则需指定确切的电子邮件地址。 虽然 Azure Active Directory (Azure AD) 允许单个用户交替使用多个电子邮件帐户，但 LUIS 要求用户使用在添加参与者时指定的电子邮件地址登录。
 
 <a name="owner-and-collaborators"></a>
 
 ### <a name="azure-active-directory-resources"></a>Azure Active Directory 资源
 
-如果你在组织中使用了 [Azure Active Directory](/active-directory/) (Azure AD)，则在用户希望使用语言理解 (LUIS) 时，LUIS 需要有权访问用户的访问权限相关信息。 LUIS 需要的资源是最少的。
+如果你在组织中使用了 [Azure Active Directory](../../active-directory/index.yml) (Azure AD)，则在用户希望使用语言理解 (LUIS) 时，LUIS 需要有权访问用户的访问权限相关信息。 LUIS 需要的资源是最少的。
 
 尝试使用已获得管理员同意或不需要管理员同意的帐户进行登录时，你将看到详细说明，例如管理员同意：
 
@@ -100,4 +85,5 @@ LUIS 使用标准的 Azure Active Directory (Azure AD) 许可流程。
 * 了解[如何使用版本](luis-how-to-manage-versions.md)来控制应用生命周期。
 * 了解概念，包括[创作资源](luis-how-to-azure-subscription.md#authoring-key)和该资源上的[参与者](luis-how-to-azure-subscription.md#contributions-from-other-authors)。
 * 了解[如何创建](luis-how-to-azure-subscription.md)创作和运行时资源
-<!--Not avaiable in MC: luis-migration-authoring.md-->
+* 迁移到新的[创作资源](luis-migration-authoring.md)
+

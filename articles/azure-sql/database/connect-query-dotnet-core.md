@@ -5,23 +5,23 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2, devx-track-csharp
 ms.devlang: dotnet
 ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 05/29/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 3843841f06b3162e04c26765dd42faaec4665b02
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 01/04/2021
+ms.openlocfilehash: fa2013e8cd5fe99510aaa2f1fd47fca47db3c181
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431600"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830138"
 ---
-# <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>快速入门：使用 .NET Core (C#) 查询 Azure SQL 数据库中的数据库或 Azure SQL 托管实例
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+# <a name="quickstart-use-net-core-c-to-query-a-database"></a>快速入门：使用 .NET Core (C#) 来查询数据库
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 在本快速入门中，将使用 [.NET Core](https://www.microsoft.com/net/) 和 C# 代码连接到数据库。 然后，将运行 Transact-SQL 语句来查询数据。
 
@@ -33,49 +33,10 @@ ms.locfileid: "96431600"
 若要完成本快速入门，你需要：
 
 - 具有活动订阅的 Azure 帐户。 [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
-- 数据库。 可以根据下述快速入门之一，创建数据库，然后对其进行配置：
-
-  | 操作 | SQL 数据库 | SQL 托管实例 | Azure VM 上的 SQL Server |
-  |:--- |:--- |:---|:---|
-  | 创建| [门户](single-database-create-quickstart.md) | [门户](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
-  | 配置 | [服务器级别 IP 防火墙规则](firewall-create-server-level-portal-quickstart.md)| [从 VM 进行连接](../managed-instance/connect-vm-instance-configure.md)|
-  |||[来自本地的连接](../managed-instance/point-to-site-p2s-configure.md) | [连接到 SQL Server 实例](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
-  |加载数据|根据快速入门加载的 Adventure Works|[还原 Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [还原 Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
-  |||从 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 所提供的 [BACPAC](database-import.md) 文件还原或导入 Adventure Works| 从 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 所提供的 [BACPAC](database-import.md) 文件还原或导入 Adventure Works|
-  |||
-
-  > [!IMPORTANT]
-  > 本文中脚本的编写目的是使用 Adventure Works 数据库。 使用 SQL 托管实例时，必须将 Adventure Works 数据库导入一个实例数据库，或者修改本文中的脚本，以便使用 Wide World Importers 数据库。
-
 - 已安装[适用于操作系统的 .NET Core](https://www.microsoft.com/net/core)。
+- 可在其中运行查询的数据库。 
 
-> [!NOTE]
-> 本快速入门使用 mySampleDatabase 数据库。 若要使用其他数据库，需更改数据库引用并修改 C# 代码中的 `SELECT` 查询。
-
-## <a name="get-server-connection-information"></a>获取服务器连接信息
-
-获取连接到 Azure SQL 数据库中的数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称或主机名称、数据库名称和登录信息。
-
-1. 登录 [Azure 门户](https://portal.azure.cn/)。
-
-2. 导航到“SQL 数据库”或“SQL 托管实例”页 。
-
-3. 在“概述”页上，在“Server 名称”旁查看 Azure SQL 数据库中的数据库的完全限定服务器名称，或在“Host”旁边查看 Azure VM 上 Azure SQL 托管实例中或 SQL Server 的完全限定服务器名称（或 IP 地址）  。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标。
-
-> [!NOTE]
-> 有关 Azure VM 上的 SQL Server 的连接信息，请参阅[连接到 SQL Server 实例](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server)。
-
-## <a name="get-adonet-connection-information-optional---sql-database-only"></a>获取 ADO.NET 连接信息（可选 - 仅限 SQL 数据库）
-
-1. 导航到“mySampleDatabase”页，并在“设置”下选择“连接字符串”  。
-
-2. 查看完整的 ADO.NET 连接字符串。
-
-    ![ADO.NET 连接字符串](./media/connect-query-dotnet-core/adonet-connection-string2.png)
-
-3. 如果想要使用 ADO.NET 连接字符串，请复制它。
+  [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
   
 ## <a name="create-a-new-net-core-project"></a>创建新的 .NET Core 项目
 
@@ -132,12 +93,8 @@ namespace sqltest
                     Console.WriteLine("=========================================\n");
                     
                     connection.Open();       
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
-                    sb.Append("FROM [SalesLT].[ProductCategory] pc ");
-                    sb.Append("JOIN [SalesLT].[Product] p ");
-                    sb.Append("ON pc.productcategoryid = p.productcategoryid;");
-                    String sql = sb.ToString();
+
+                    String sql = "SELECT name, collation_name FROM sys.databases";
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
@@ -171,32 +128,15 @@ namespace sqltest
    dotnet run
    ```
 
-2. 验证是否返回前 20 行。
+2. 验证是否已返回行。
 
    ```text
    Query data example:
    =========================================
 
-   Road Frames HL Road Frame - Black, 58
-   Road Frames HL Road Frame - Red, 58
-   Helmets Sport-100 Helmet, Red
-   Helmets Sport-100 Helmet, Black
-   Socks Mountain Bike Socks, M
-   Socks Mountain Bike Socks, L
-   Helmets Sport-100 Helmet, Blue
-   Caps AWC Logo Cap
-   Jerseys Long-Sleeve Logo Jersey, S
-   Jerseys Long-Sleeve Logo Jersey, M
-   Jerseys Long-Sleeve Logo Jersey, L
-   Jerseys Long-Sleeve Logo Jersey, XL
-   Road Frames HL Road Frame - Red, 62
-   Road Frames HL Road Frame - Red, 44
-   Road Frames HL Road Frame - Red, 48
-   Road Frames HL Road Frame - Red, 52
-   Road Frames HL Road Frame - Red, 56
-   Road Frames LL Road Frame - Black, 58
-   Road Frames LL Road Frame - Black, 60
-   Road Frames LL Road Frame - Black, 62
+   master   SQL_Latin1_General_CP1_CI_AS
+   tempdb   SQL_Latin1_General_CP1_CI_AS
+   WideWorldImporters   Latin1_General_100_CI_AS
 
    Done. Press enter.
    ```

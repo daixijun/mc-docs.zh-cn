@@ -10,21 +10,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 origin.date: 05/18/2019
-ms.date: 09/14/2020
-ms.openlocfilehash: e1b281342680852a781fc2c3f882584b091ae634
-ms.sourcegitcommit: d5cdaec8050631bb59419508d0470cb44868be1a
+ms.date: 12/14/2020
+ms.openlocfilehash: 3b55a95950128d39b117340dc510c8780f53f992
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014323"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829687"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>长期保留 - Azure SQL 数据库和 Azure SQL 托管实例
 
-出于法规要求、符合性或其他商业目的，许多应用程序要求保留 Azure SQL 数据库和 Azure SQL 托管实例的[自动备份](automated-backups-overview.md)功能提供的过去 7-35 天的数据库备份。 通过使用长期保留 (LTR) 功能，可以将指定的 SQL 数据库和 Azure SQL 托管实例完整备份存储在可以进行读取访问异地冗余存储的 Azure Blob 存储中长达 10 年。 然后，可以将任何备份还原为新数据库。
-
-此外，SQL 托管实例引入了[可配置的备份存储冗余](automated-backups-overview.md#backup-storage-redundancy)，因此你可以灵活地在本地冗余 (LRS) 或异地冗余 (RA-GRS) [存储 blob](../../storage/common/storage-redundancy.md) 之间进行选择。 此选项目前仅在创建托管实例的过程中可用，在资源预配后无法更改。
+出于法规要求、符合性或其他商业目的，许多应用程序要求保留 Azure SQL 数据库和 Azure SQL 托管实例的[自动备份](automated-backups-overview.md)功能提供的过去 7-35 天的数据库备份。 通过使用长期保留 (LTR) 功能，可以将指定的 SQL 数据库和 SQL 托管实例完整备份存储在可以进行异地冗余存储的 Azure Blob 存储中长达 10 年。 然后，可以将任何备份还原为新数据库。
 
 可以为 Azure SQL 数据库启用长时间保留。Azure SQL 托管实例的长期保留功能以有限的公共预览版形式提供。 本文提供长期保留的概念概述。 要配置长期保留，请参阅[配置 Azure SQL 数据库 LTR](long-term-backup-retention-configure.md) 和[配置 Azure SQL 托管实例 LTR](../managed-instance/long-term-backup-retention-configure.md)。 
 
@@ -39,7 +37,7 @@ ms.locfileid: "90014323"
 若要实现 LTR，可以使用以下四个参数的组合定义策略：每周备份保留 (W)、每月备份保留 (M)、每年备份保留 (Y) 和年中的周 (WeekOfYear)。 如果指定 W，则每周会将一个备份复制到长期存储。 如果指定 M，则每月的第一个备份会复制到长期存储。 如果指定 Y，则会在 WeekOfYear 指定的周将一个备份复制到长期存储。 如果配置策略时指定的 WeekOfYear 在过去，则会在下一年创建第一个 LTR 备份。 每个备份都将按照创建 LTR 备份时配置的策略参数保留在长期存储中。
 
 > [!NOTE]
-> 对 LTR 策略所做的任何更改只应用到将来的备份。 例如，如果修改了每周备份保留 (W)、每月备份保留 (M) 或每年备份保留 (Y)，则新的保留设置仅应用于新备份 不会修改现有备份的保留期。 如果目的是在保留期到期之前删除旧的 LTR 备份，则需[手动删除备份](/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups)。
+> 对 LTR 策略所做的任何更改只应用到将来的备份。 例如，如果修改了每周备份保留 (W)、每月备份保留 (M) 或每年备份保留 (Y)，则新的保留设置仅应用于新备份 不会修改现有备份的保留期。 如果目的是在保留期到期之前删除旧的 LTR 备份，则需[手动删除备份](./long-term-backup-retention-configure.md#delete-ltr-backups)。
 > 
 
 LTR 策略示例：
@@ -103,4 +101,3 @@ W=12 周（84 天）、M=12 个月（365 天）、Y=10 年（3650 天）、WeekO
 ## <a name="next-steps"></a>后续步骤
 
 数据库备份可保护数据免遭意外损坏或删除，因此数据库备份是任何业务连续性和灾难恢复策略不可或缺的组成部分。 若要了解其他 SQL 数据库业务连续性解决方案，请参阅[业务连续性概述](business-continuity-high-availability-disaster-recover-hadr-overview.md)。
- 

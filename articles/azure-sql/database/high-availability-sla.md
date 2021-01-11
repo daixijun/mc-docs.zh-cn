@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, sashan
-origin.date: 08/12/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 3cdae61a752b2a1b5f337da14589118fa40bbed0
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+origin.date: 10/28/2020
+ms.date: 01/04/2021
+ms.openlocfilehash: 18cb462a8839407984e76f8983b9a217a99308a8
+ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470292"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97829886"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL 数据库和 SQL 托管实例的高可用性
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,7 +34,7 @@ Azure SQL 数据库和 SQL 托管实例中的高可用性体系结构的目标�
 
 SQL 数据库和 SQL 托管实例均在最新稳定版本的 SQL Server 数据库引擎和 Windows OS 上运行，大多数用户不会察觉到正在持续执行升级。
 
-## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>“基本”、“标准”和“常规用途”服务层级可用性
+## <a name="basic-standard-and-general-purpose-service-tier-locally-redundant-availability"></a>“基本”、“标准”和“常规用途”服务层级本地冗余可用性
 
 “基本”、“标准”和“常规用途”服务层级利用标准可用性体系结构来实现无服务器和预配计算。 下图显示了具有隔离的计算和存储层的四个不同节点。
 
@@ -47,7 +47,7 @@ SQL 数据库和 SQL 托管实例均在最新稳定版本的 SQL Server 数据�
 
 每当升级数据库引擎或操作系统，或者检测到故障时，Azure Service Fabric 会将无状态 `sqlservr.exe` 进程移到具有足够可用容量的另一个无状态计算节点。 Azure Blob 存储中的数据不受移动操作的影响，数据/日志文件将附加到新初始化的 `sqlservr.exe` 进程。 此过程保证 99.99% 的可用性，但在过渡期间，繁重工作负载的性能可能会有一定程度的下降，因为新的 `sqlservr.exe` 进程是使用冷缓存启动的。
 
-## <a name="premium-and-business-critical-service-tier-availability"></a>“高级”或“业务关键”服务层级可用性
+## <a name="premium-and-business-critical-service-tier-locally-redundant-availability"></a>“高级”或“业务关键”服务层级本地冗余可用性
 
 高级和业务关键型服务层级利用高级可用性模型，该模型与单个节点上的计算资源（`sqlservr.exe` 进程）和存储（本地附加的 SSD）相集成。 实现高可用性的方式是将计算和存储资源复制到其他节点，从而建立由三到四个节点组成的群集。
 
@@ -59,7 +59,7 @@ SQL 数据库和 SQL 托管实例均在最新稳定版本的 SQL Server 数据�
 
 ## <a name="hyperscale-service-tier-availability"></a>“超大规模”服务层级可用性
 
-“超大规模”服务层级体系结构在[分布式函数体系结构](/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture)中进行了介绍，目前仅适用于 SQL 数据库，而不适用于 SQL 托管实例。
+“超大规模”服务层级体系结构在[分布式函数体系结构](./service-tier-hyperscale.md#distributed-functions-architecture)中进行了介绍，目前仅适用于 SQL 数据库，而不适用于 SQL 托管实例。
 
 ![“超大规模”函数体系结构](./media/high-availability-sla/hyperscale-architecture.png)
 
@@ -67,26 +67,27 @@ SQL 数据库和 SQL 托管实例均在最新稳定版本的 SQL Server 数据�
 
 - 无状态计算层：运行 `sqlservr.exe` 进程，仅包含暂时性的缓存数据，例如在附加的 SSD 的上非覆盖性 RBPEX 缓存、TempDB、模型数据库等，在内存中的计划缓存、缓冲池和列存储池。 此无状态层包括主要计算副本，并且可以包括许多能够用作故障转移目标的次要计算副本。
 - 由页服务器组成的无状态存储层。 此层是在计算副本上运行的 `sqlservr.exe` 进程的分布式存储引擎。 每个页面服务器仅包含暂时性的缓存数据，例如附加的 SSD 上的覆盖性 RBPEX 缓存、在内存中缓存的数据页。 每个页服务器在主动-主动配置中都有一个配对的页服务器，用于提供负载均衡、冗余性和高可用性。
-- 一个有状态事务日志存储层，包含运行日志服务进程的计算节点、事务日志登陆区域，以及事务日志长期存储。 登陆区域和长期存储使用 Azure 存储，后者提供事务日志所需的可用性和[冗余性](/storage/common/storage-redundancy)，确保已提交事务的数据持久性。
-- 有状态数据存储层，包含的数据库文件 (.mdf/.ndf) 存储在 Azure 存储中并通过页服务器进行更新。 此层使用 Azure 存储的数据可用性和[冗余](/storage/common/storage-redundancy)功能。 它保证保存数据文件中的每个页面，即使“超大规模”体系结构的其他层中的进程崩溃或计算节点故障，也是如此。
+- 一个有状态事务日志存储层，包含运行日志服务进程的计算节点、事务日志登陆区域，以及事务日志长期存储。 登陆区域和长期存储使用 Azure 存储，后者提供事务日志所需的可用性和[冗余性](../../storage/common/storage-redundancy.md)，确保已提交事务的数据持久性。
+- 有状态数据存储层，包含的数据库文件 (.mdf/.ndf) 存储在 Azure 存储中并通过页服务器进行更新。 此层使用 Azure 存储的数据可用性和[冗余](../../storage/common/storage-redundancy.md)功能。 它保证保存数据文件中的每个页面，即使“超大规模”体系结构的其他层中的进程崩溃或计算节点故障，也是如此。
 
 所有“超大规模”层中的计算节点都运行在 Azure Service Fabric 上，后者控制每个节点的运行状况，并在必要时将数据故障转移到可用的健康节点。
 
-若要详细了解超大规模中的高可用性，请参阅[超大规模中的数据库高可用性](/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale)。
+若要详细了解超大规模中的高可用性，请参阅[超大规模中的数据库高可用性](./service-tier-hyperscale.md#database-high-availability-in-hyperscale)。
+
 
 ## <a name="accelerated-database-recovery-adr"></a>加速的数据库恢复 (ADR)
 
-[加速的数据库恢复 (ADR)](../accelerated-database-recovery.md) 是一项新的数据库引擎功能，极大地提高数据库可用性（尤其是存在长期运行的事务时）。 ADR 目前适用于 Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse Analytics（以前称为“SQL 数据仓库”）。
+[加速的数据库恢复 (ADR)](../accelerated-database-recovery.md) 是一项新的数据库引擎功能，极大地提高数据库可用性（尤其是存在长期运行的事务时）。 ADR 目前可用于 Azure SQL 数据库、Azure SQL 托管实例和 Azure Synapse Analytics。
 
 ## <a name="testing-application-fault-resiliency"></a>测试应用程序的故障复原能力
 
-高可用性是 SQL 数据库和 SQL 托管实例平台的基本功能，其运作对数据库应用程序透明。 不过，我们认识到，你可能需要先测试在计划内或计划外事件期间启动的自动故障转移操作对应用程序的具体影响，然后才会将其部署到生产环境。 可以通过调用特殊 API 来重启数据库、弹性池或托管实例，以便手动触发故障转移。 由于重启操作会干扰系统，其数量过多可能会对平台造成压力，因此每个数据库或弹性池每 30 分钟只能进行一次故障转移调用。 
+高可用性是 SQL 数据库和 SQL 托管实例平台的基本功能，其运作对数据库应用程序透明。 不过，我们认识到，你可能需要先测试在计划内或计划外事件期间启动的自动故障转移操作对应用程序的具体影响，然后才会将其部署到生产环境。 可以通过调用特殊 API 来重启数据库、弹性池或托管实例，以便手动触发故障转移。 由于重启操作会干扰系统，其数量过多可能会对平台造成压力，因此每个数据库、弹性池或托管实例每 15 分钟只能进行一次故障转移调用。
 
 可以使用 PowerShell、REST API 或 Azure CLI 启动故障转移：
 
 |部署类型|PowerShell|REST API| Azure CLI|
 |:---|:---|:---|:---|
-|数据库|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[数据库故障转移](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover/)|[az rest](/cli/reference-index#az-rest) 可用于从 Azure CLI 调用 REST API 调用|
+|数据库|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[数据库故障转移](https://docs.microsoft.com/rest/api/sql/databases/failover)|[az rest](/cli/reference-index#az-rest) 可用于从 Azure CLI 调用 REST API 调用|
 |弹性池|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[弹性池故障转移](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover/)|[az rest](/cli/reference-index#az-rest) 可用于从 Azure CLI 调用 REST API 调用|
 |托管实例|[Invoke-AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[托管实例 - 故障转移](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/sql/mi/#az-sql-mi-failover)|
 
@@ -95,7 +96,7 @@ SQL 数据库和 SQL 托管实例均在最新稳定版本的 SQL Server 数据�
 
 ## <a name="conclusion"></a>结论
 
-Azure SQL 数据库和 Azure SQL 托管实例提供与 Azure 平台深度集成的内置高可用性解决方案。 它依赖 Service Fabric 来执行故障检测和恢复，依赖 Azure Blob 存储来进行数据保护。 此外，SQL 数据库和 SQL 托管实例利用 SQL Server 实例的 Always On 可用性组技术来执行复制和故障转移。 将这些技术相结合，应用程序可完全实现混合存储模型的优势并支持最严格的 SLA。
+Azure SQL 数据库和 Azure SQL 托管实例提供与 Azure 平台深度集成的内置高可用性解决方案。 它依赖于 Service Fabric 来执行故障检测和恢复，依赖于 Azure Blob 存储来进行数据保护。 此外，SQL 数据库和 SQL 托管实例利用 SQL Server 实例的 Always On 可用性组技术来执行复制和故障转移。 将这些技术相结合，应用程序可完全实现混合存储模型的优势并支持最严格的 SLA。
 
 ## <a name="next-steps"></a>后续步骤
 

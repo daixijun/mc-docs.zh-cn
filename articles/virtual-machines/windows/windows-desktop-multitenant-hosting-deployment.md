@@ -1,21 +1,21 @@
 ---
 title: 如何使用多租户托管权限在 Azure 上部署 Windows 10
-description: 了解如何充分利用 Windows 软件保障权益将本地许可证引入到 Azure 中
+description: 了解如何使用多租户托管权限来充分利用 Windows 软件保障权益，从而将本地许可证引入到 Azure 中。
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 origin.date: 01/24/2018
 author: rockboyfor
-ms.date: 08/31/2020
+ms.date: 01/04/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: fc86e8f1cc9278c585c73caf6a0abf34f6874111
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 312e7cf6a16633ac7a3a04f96fe2c2aec6563f51
+ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104967"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97856900"
 ---
 <!--Verified Successfully-->
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>如何使用多租户托管权限在 Azure 上部署 Windows 10 
@@ -25,14 +25,12 @@ ms.locfileid: "93104967"
 
 > [!NOTE]
 > 本文演示如何在 Azure 市场上实现 Windows 10 专业版桌面映像的许可权益。
-> - 有关 Azure 市场上 MSDN 订阅的 Windows 7、Windows 10 企业版 (x64) 映像，请参阅 [Azure 中用于开发/测试方案的 Windows 客户端](client-images.md)
+> - 有关 Azure 市场上 MSDN 订阅的 Windows 7、Windows 8.1、Windows 10 企业版 (x64) 映像，请参阅 [Azure 中用于开发/测试方案的 Windows 客户端](client-images.md)
 > - 有关 Windows Server 许可权益，请参阅 [Windows Server 映像的 Azure 混合使用权益](hybrid-use-benefit-licensing.md)。
 >
 
-<!--Not Available on Windows 8.1 on Azure China-->
-
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>通过 Azure 市场部署 Windows 10 映像 
-对于 Powershell、CLI 和 Azure 资源管理器模板部署，可使用以下 publishername、产品/服务及 sku 找到 Windows 10 映像。
+对于 PowerShell、CLI 和 Azure 资源管理器模板部署，可使用以下 publishername、产品/服务及 sku 找到 Windows 10 映像。
 
 | OS  |      PublisherName      |  产品/服务 | SKU |
 |:----------|:-------------:|:------|:------|
@@ -41,6 +39,16 @@ ms.locfileid: "93104967"
 | Windows 10 专业版    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
 | Windows 10 专业版 N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
+## <a name="qualify-for-multi-tenant-hosting-rights"></a>满足拥有多租户托管权限的条件 
+若要满足拥有多租户托管权限的条件以及在 Azure 上运行 Windows 10 映像，用户必须具有以下订阅之一： 
+
+- Microsoft 365 E3/E5 
+- Microsoft 365 F3 
+- Microsoft 365 A3/A5 
+- Windows 10 企业版 E3/E5
+- Windows 10 教育版 A3/A5 
+- Windows VDA E3/E5
+
 ## <a name="uploading-windows-10-vhd-to-azure"></a>将 Windows 10 VHD 上传到 Azure
 如果要上传通用化的 Windows 10 VHD，请注意，Windows 10 不会默认启用内置 Administrator 帐户。 若要启用内置 Administrator 帐户，请在自定义脚本扩展中包含以下命令。
 
@@ -48,7 +56,7 @@ ms.locfileid: "93104967"
 Net user <username> /active:yes
 ```
 
-以下 powershell 代码片段用于将所有管理员（包括内置 Administrator）帐户标记为活动帐户。 如果内置 Administrator 用户名未知，此示例非常有用。
+以下 PowerShell 代码片段用于将所有管理员（包括内置 Administrator）帐户标记为活动帐户。 如果内置 Administrator 用户名未知，此示例非常有用。
 ```powershell
 $adminAccount = Get-WmiObject Win32_UserAccount -filter "LocalAccount=True" | ? {$_.SID -Like "S-1-5-21-*-500"}
 if($adminAccount.Disabled)
@@ -107,7 +115,7 @@ LicenseType              :
 
 ## <a name="additional-information-about-joining-azure-ad"></a>有关联接 Azure AD 的其他信息
 >[!NOTE]
->Azure 使用内置 Administrator 帐户预配所有 Windows，但不能使用此方法联接 AAD。 例如，“设置”>“帐户”>“访问工作或学校帐户”>“+连接”将不起作用  。 若要手动加入 Azure AD，必须创建另一个管理员帐户并以其身份登录。 还可以使用预配包配置 Azure AD，使用“后续步骤”部分中的链接了解详细信息  。
+>Azure 使用内置 Administrator 帐户预配所有 Windows，但不能使用此方法联接 AAD。 例如，“设置”>“帐户”>“访问工作或学校帐户”>“+连接”将不起作用。 若要手动加入 Azure AD，必须创建另一个管理员帐户并以其身份登录。 还可以使用预配包配置 Azure AD，使用“后续步骤”部分的链接了解详细信息。
 >
 >
 
@@ -116,5 +124,4 @@ LicenseType              :
 
 <!--Not Avvailable on - Learn more about [Multitenant Hosting for Windows 10](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)-->
 
-<!-- Update_Description: new article about windows desktop multitenant hosting deployment -->
-<!--NEW.date: 08/31/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->
