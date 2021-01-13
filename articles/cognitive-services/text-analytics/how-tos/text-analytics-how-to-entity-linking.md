@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 origin.date: 02/10/2020
-ms.date: 12/30/2020
+ms.date: 01/04/2021
 ms.author: v-johya
-ms.openlocfilehash: e97e64503369b9f8d8ad9a01262f8671ddcd0f8e
-ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
+ms.openlocfilehash: cc17ff33fb319882e3cc3f38c28962455b58b640
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857108"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022204"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文本分析中使用命名实体识别
 
@@ -41,7 +41,7 @@ PII 功能是 NER 的一部分，可以识别和标记文本中与个人相关�
 | 用于单个请求和批量请求的方法                          | X      | X        |
 | 跨多个类别展开的实体识别           | X      | X        |
 | 用于发送实体链接和 NER 请求的不同终结点。 | X      | X        |
-| 个人 (`PII`) 和健康状况 (`PHI`) 信息实体的识别        |        | X        |
+| 个人 (`PII`) 信息实体的识别        |        | X        |
 | `PII` 的修正        |        | X        |
 
 有关信息，请参阅[语言支持](../language-support.md)。
@@ -50,9 +50,7 @@ PII 功能是 NER 的一部分，可以识别和标记文本中与个人相关�
 
 命名实体识别 v3.1-preview.3 包括了 v3.0 的检测功能，以及： 
 * 使用 `v3.1-preview.3/entities/recognition/pii` 终结点检测个人信息 (`PII`) 的功能。 
-* 用于检测机密的健康状况信息 (`PHI`) 的可选的 `domain=phi` 参数。
-* 使用 `/analyze` 终结点的[异步操作](text-analytics-how-to-call-api.md)。
-
+<!--Not available in MC: /analyze and PHI -->
 有关详细信息，请参阅下面的[实体类别](../named-entity-types.md)一文和[请求终结点](#request-endpoints)部分。  
 
 ## <a name="sending-a-rest-api-request"></a>发送 REST API 请求
@@ -90,22 +88,12 @@ PII 功能是 NER 的一部分，可以识别和标记文本中与个人相关�
 **个人身份信息 (PII)**
 * 个人 (`PII`) 信息 - `https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.1-preview.3/entities/recognition/pii`
 
-还可以使用可选的 `domain=phi` 参数来检测文本中的健康状况 (`PHI`) 信息。 
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
-
+<!--Not available in MC: detect health (`PHI`) information in text.-->
 从 `v3.1-preview.3` 开始，JSON 响应中将包含 `redactedText` 属性，该属性包含修改后的输入文本，其中检测到的 PII 实体的每个字符将被替换为 `*`。
 
 [`PII` 的命名实体识别版本 3.1-preview 参考](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
 
-**异步操作**
-
-从 `v3.1-preview.3` 开始，可以使用 `/analyze` 终结点异步发送 NER 请求。
-
-* 异步操作 - `https://<your-custom-subdomain>.cognitiveservices.azure.cn/text/analytics/v3.1-preview.3/analyze`
-
-有关发送异步请求的信息，请参阅[如何调用文本分析 API](text-analytics-how-to-call-api.md)。
-
+<!--Not available in MC: Asynchronous operation-->
 #### <a name="version-30"></a>[版本 3.0](#tab/version-3)
 
 命名实体识别 v3 对 NER 和实体链接请求使用不同的终结点。 根据你的请求使用以下 URL 格式：
@@ -144,43 +132,7 @@ PII 功能是 NER 的一部分，可以识别和标记文本中与个人相关�
 }
 ```
 
-### <a name="example-asynchronous-ner-request"></a>异步 NER 请求示例
-
-如果将 `/analyze` 终结点用于[异步操作](text-analytics-how-to-call-api.md)，则将收到一个包含发送到 API 的任务的响应。
-
-```json
-{
-����"displayName":�"My�Job",
-����"analysisInput":�{
-��������"documents":�[
-������������{
-����������������"id":�"doc1",
-����������������"text":�"It's incredibly sunny outside! I'm so happy"
-������������},
-������������{
-����������������"id":�"doc2",
-����������������"text":�"Pike place market is my favorite Seattle attraction."
-������������}
-��������]
-����},
-    "tasks": {
-        "entityRecognitionTasks": [
-            {
-                "parameters": {
-                    "model-version": "latest",
-                    "stringIndexType": "TextElements_v8"
-                }
-            }
-        ],
-        "entityRecognitionPiiTasks": [{
-            "parameters": {
-                "model-version": "latest"
-            }
-        }]
-    }
-}
-```
-
+<!--Not available in MC: ### Example asynchronous NER request-->
 #### <a name="version-30"></a>[版本 3.0](#tab/version-3)
 
 ### <a name="example-synchronous-ner-request"></a>同步 NER 请求示例 
@@ -215,7 +167,8 @@ PII 功能是 NER 的一部分，可以识别和标记文本中与个人相关�
 
 ### <a name="example-responses"></a>示例响应
 
-版本 3 为常规 NER、PII 和实体链接提供不同的终结点。 版本 3.1-pareview 包括异步分析模式。 这些操作的响应如下所示。 
+<!--Not available in MC: asynchronous Analyze mode-->
+版本 3 为常规 NER、PII 和实体链接提供不同的终结点。 这些操作的响应如下所示。 
 
 #### <a name="version-31-preview"></a>[版本 3.1-preview](#tab/version-3-preview)
 
@@ -363,58 +316,7 @@ PII 响应的示例：
 }
 ```
 
-### <a name="example-asynchronous-result"></a>异步结果示例
-
-```json
-{
-  "displayName": "My�Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My�Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My�Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
-}
-```
-
+<!--Not available in MC: ### Example asynchronous result-->
 
 #### <a name="version-30"></a>[版本 3.0](#tab/version-3)
 
