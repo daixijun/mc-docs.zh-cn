@@ -30234,7 +30234,23 @@
             "source_path": "articles/stream-analytics/stream-analytics-manage-job.md",
             "redirect_url": "/stream-analytics/stream-analytics-real-time-fraud-detection",
             "redirect_document_id": false
-        }        
+        },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-concurrency.md",
+      "redirect_url": "/storage/blobs/concurrency-manage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-use-azcopy-blobs.md",
+      "redirect_url": "/storage/common/storage-use-azcopy-v10#transfer-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/storage-files-deployment-guide.md",
+      "redirect_url": "/storage/files/storage-how-to-create-file-share",
+      "redirect_document_id": false
+    }       
+
         
 
 
