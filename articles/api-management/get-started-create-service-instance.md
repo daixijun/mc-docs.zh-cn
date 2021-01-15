@@ -6,14 +6,14 @@ ms.service: api-management
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 11/28/2017
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.author: v-johya
-ms.openlocfilehash: b5d2a9d06ac176caf22d03610d3ae5a7cdf2b92f
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: eaa3f6746b6f459a984a7ef7e32324d9cd175089
+ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871219"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96432275"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户新建 Azure API 管理服务实例
 
@@ -21,7 +21,7 @@ Azure API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和
 
 本快速入门介绍如何使用 Azure 门户创建新的 API 管理实例的步骤。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-created.png" alt-text="API 管理实例":::
 
@@ -31,18 +31,18 @@ Azure API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和
 
 ## <a name="create-a-new-service"></a>创建新服务
 
-1. 在 Azure 门户菜单中，选择“创建资源”。 还可以在 Azure“主页”上选择“创建资源” 。 
+1. 在 Azure 门户菜单中，选择 **创建资源**。 还可以在 Azure **主页** 上选择 **创建资源**。 
    
-   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-01.png" alt-text="API 管理实例":::
+   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-01.png" alt-text="选择“创建资源”":::
 
    
 1. 在“新建”页上，选择“集成” > “API 管理”。
 
-   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-02.png" alt-text="API 管理实例":::
+   :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-02.png" alt-text="新建 Azure API 管理实例":::
    
 1. 在“API 管理服务”页中，输入设置。
 
-   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="API 管理实例":::
+   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="新建实例":::
    
    | 设置                 | 说明   |                                                                     
    |-------------------------|-----------------------------------------------|
@@ -73,17 +73,17 @@ Azure API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和
 
 1. 在 Azure 门户中，搜索并选择“资源组”。 还可以在“主页”上选择“资源组” 。 
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="API 管理实例":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="资源组导航":::
 
 1. 在“资源组”页上，选择相应资源组。
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="API 管理实例":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="选择资源组":::
 
 1. 在资源组页上，选择“删除资源组”。 
    
 1. 键入资源组的名称，然后选择“删除”。
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-03.png" alt-text="API 管理实例":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-03.png" alt-text="删除资源组":::
 
 ## <a name="next-steps"></a>后续步骤
 
