@@ -10,12 +10,12 @@ author: likebupt
 ms.author: v-yiso
 origin.date: 02/11/2020
 ms.date: 03/09/2020
-ms.openlocfilehash: 362c478386a91c9066b1d0642e495a4a5ce10768
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 1a8cb9360e1bbce9d4256a6c19075ff4d9fdea04
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104358"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022919"
 ---
 # <a name="train-model-module"></a>“定型模型”模块
 
@@ -64,7 +64,9 @@ ms.locfileid: "97104358"
 5.  提交管道。 如果有大量数据，则可能需要一段时间。
 
     > [!IMPORTANT] 
-    > 如果有是每一行的 ID 的 ID 列，则训练模型可能会遇到错误，例如“列: "{column_name}" 中的唯一值的数目大于允许的数目。” 这是因为 ID 列达到了唯一值的阈值，可能会导致内存不足。 在训练期间，ID 列通常无意义。 可以使用[编辑元数据](edit-metadata.md)将该列标记为“清除特征”，这样就不会在训练期间使用它了。 请参阅[设计器错误代码](././designer-error-codes.md)获取更多错误详细信息。
+    > 如果有一个 ID 列是每一行的 ID，或者有一个文本列包含太多的唯一值，则训练模型可能会遇到如下错误：“列 "{column_name}" 中的唯一值的数目大于允许的数目。”
+    >
+    > 这是因为该列达到了唯一值的阈值，可能会导致内存不足。 可以使用[编辑元数据](edit-metadata.md)将该列标记为“清除特征”，这样就不会在训练期间使用它了，也可以按照[从文本模块中提取 N 元语法特征](extract-n-gram-features-from-text.md)一文中的说明来预处理文本列。 请参阅[设计器错误代码](././designer-error-codes.md)获取更多错误详细信息。
 
 ## <a name="results"></a>结果
 

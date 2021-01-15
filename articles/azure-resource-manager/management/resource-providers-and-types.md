@@ -2,19 +2,19 @@
 title: 资源提供程序和资源类型
 description: 介绍支持 Azure 资源管理器的资源提供程序。 它介绍其架构、可用 API 版本，以及可以承载资源的区域。
 ms.topic: conceptual
-origin.date: 11/09/2020
+origin.date: 12/04/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f14215a40c63825d4202eb4531b2f18ffe197ff3
-ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
+ms.openlocfilehash: ab3fcdfc5ca945616edae02a57c14ef8321c1eee
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915093"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022023"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 资源提供程序和类型
 
@@ -37,9 +37,12 @@ ms.locfileid: "94915093"
 
 ## <a name="register-resource-provider"></a>注册资源提供程序
 
-使用资源提供程序之前，必须为资源提供程序注册 Azure 订阅。 注册会配置你的订阅，使之与资源提供程序配合工作。 某些资源提供程序在默认情况下已注册。 当你执行某些操作时，其他资源提供程序会自动注册。 例如，当你通过门户创建资源时，系统通常会为你注册资源提供程序。 对于其他方案，你可能需要手动注册资源提供程序。
+使用资源提供程序之前，必须为资源提供程序注册 Azure 订阅。 注册会配置你的订阅，使之与资源提供程序配合工作。 某些资源提供程序在默认情况下已注册。 当你执行某些操作时，其他资源提供程序会自动注册。 例如，当你通过门户创建资源时，系统通常会为你注册资源提供程序。 对于其他方案，你可能需要手动注册资源提供程序。 有关默认情况下注册的资源提供程序的列表，请参阅 [Azure 服务的资源提供程序](azure-services-resource-providers.md)。
 
 本文介绍了如何检查资源提供程序的注册状态，并根据需要将其注册。 你必须具备为资源提供程序执行 `/register/action` 操作的权限。 此权限包含在“参与者”和“所有者”角色中。
+
+> [!IMPORTANT]
+> 仅在准备好使用资源提供程序时注册该程序。 注册步骤使你能够在订阅中保留最小特权。 恶意用户无法使用未注册的资源提供程序。
 
 你的应用程序代码不应阻止为处于“正在注册”状态的资源提供程序创建资源的操作。 注册资源提供程序时，将针对每个受支持的区域单独执行该操作。 若要在某个区域中创建资源，只需在该区域中完成注册即可。 如果不阻止处于正在注册状态的资源提供程序，则你的应用程序可以以快得多的速度继续执行，不需要等待所有区域完成。
 
@@ -47,20 +50,28 @@ ms.locfileid: "94915093"
 
 ## <a name="azure-portal"></a>Azure 门户
 
+### <a name="register-resource-provider"></a>注册资源提供程序
+
 查看所有资源提供程序和订阅的注册状态：
 
 1. 登录 [Azure 门户](https://portal.azure.cn)。
-2. 在 Azure 门户菜单中，选择“所有服务”  。
+1. 在 Azure 门户菜单上，搜索“订阅”。 从可用选项中选择它。
 
-    :::image type="content" source="./media/resource-providers-and-types/select-all-services.png" alt-text="选择订阅":::
+    :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="搜索订阅":::
 
-3. 在“所有服务”  框中，输入“订阅”  ，然后选择“订阅”  。
-4. 从订阅列表中选择订阅进行查看。
-5. 选择“资源提供程序”  并查看可用资源提供程序的列表。
+1. 选择要查看的订阅。
 
-    :::image type="content" source="./media/resource-providers-and-types/show-resource-providers.png" alt-text="显示资源提供程序":::
+    :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="选择订阅":::
 
-6. 若要注册资源提供程序，请选择“注册”  。 在上面的屏幕截图中，对于“Microsoft.Blueprint”突出显示了“注册”链接。
+1. 在左侧菜单中的“设置”下，选择“资源提供程序”。  
+
+    :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="选择资源提供程序":::
+
+1. 找到要注册的资源提供程序，然后选择“注册”。 若要在订阅中保留最小特权，请仅注册准备好使用的资源提供程序。
+
+    :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="注册资源提供程序":::
+
+### <a name="view-resource-provider"></a>查看资源提供程序
 
 查看特定资源提供程序的信息：
 
@@ -88,8 +99,6 @@ ms.locfileid: "94915093"
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 若要查看 Azure 中的所有资源提供程序和订阅的注册状态，请使用：
 
 ```powershell
@@ -114,7 +123,7 @@ Microsoft.CognitiveServices      Registered
  Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
-若要注册资源提供程序，请使用：
+若要在订阅中保留最小特权，请仅注册准备好使用的资源提供程序。 若要注册资源提供程序，请使用：
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -222,7 +231,7 @@ Microsoft.CognitiveServices      Registered
 az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
 ```
 
-若要注册资源提供程序，请使用：
+若要在订阅中保留最小特权，请仅注册准备好使用的资源提供程序。 若要注册资源提供程序，请使用：
 
 ```azurecli
 az provider register --namespace Microsoft.Batch

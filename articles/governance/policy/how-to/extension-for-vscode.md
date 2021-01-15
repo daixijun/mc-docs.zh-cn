@@ -3,14 +3,14 @@ title: 适用于 Visual Studio Code 的 Azure Policy 扩展
 description: 了解如何使用适用于 Visual Studio Code 的 Azure Policy 扩展来查找 Azure 资源管理器别名。
 ms.author: v-tawe
 origin.date: 10/20/2020
-ms.date: 11/06/2020
+ms.date: 01/05/2021
 ms.topic: how-to
-ms.openlocfilehash: f07031edfe6bd300e066cb1f0c543b4ce4e73de9
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: c310f3b1f0567f201a9f662584f740eaea6a538c
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431181"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874894"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>使用适用于 Visual Studio Code 的 Azure Policy 扩展
 
@@ -20,9 +20,6 @@ ms.locfileid: "96431181"
 
 可在 Visual Studio Code 支持的所有平台上安装适用于 Visual Studio Code 的 Azure Policy 扩展。 支持的平台包括 Windows、Linux 和 macOS。
 
-> [!NOTE]
-> 在适用于 Visual Studio Code 的 Azure Policy 扩展中查看的、在本地对策略所做的更改不会同步到 Azure。
-
 ## <a name="prerequisites"></a>先决条件
 
 完成本文中的步骤需要以下各项：
@@ -30,33 +27,30 @@ ms.locfileid: "96431181"
 - Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - [Visual Studio Code](https://code.visualstudio.com)。
 
-## <a name="install-azure-policy-extension"></a>安装 Azure Policy 扩展
+## <a name="install-and-configure-the-azure-policy-extension"></a>安装和配置 Azure Policy 扩展
 
 满足先决条件后，可遵循以下步骤安装适用于 Visual Studio Code 的 Azure Policy 扩展：
 
 1. 打开 Visual Studio Code。
-
 1. 在菜单栏中，转到“视图” > “扩展”。 
-
 1. 在搜索框中输入 **Azure Policy**。
-
 1. 在搜索结果中选择“Azure Policy”，然后选择“安装”。 
-
 1. 根据需要选择“重载”。
-
-## <a name="set-the-azure-environment"></a>设置 Azure 环境
 
 国家云用户请先遵循以下步骤设置 Azure 环境：
 
 1. 选择“文件”>“首选项”>“设置”。
-
 1. 搜索以下字符串：_Azure:_ 云”
-
 1. 在列表中选择国家云：
 
    :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="选择 Visual Studio Code 的 Azure 国家云登录的屏幕截图。" border="false":::
 
-## <a name="connect-to-an-azure-account"></a>连接到 Azure 帐户
+## <a name="using-the-policy-extension"></a>使用 Policy 扩展
+
+> [!NOTE]
+> 在适用于 Visual Studio Code 的 Azure Policy 扩展中查看的、在本地对策略所做的更改不会同步到 Azure。
+
+### <a name="connect-to-an-azure-account"></a>连接到 Azure 帐户
 
 若要评估资源和查找别名，必须连接到 Azure 帐户。 遵循以下步骤从 Visual Studio Code 连接到 Azure：
 
@@ -76,13 +70,13 @@ ms.locfileid: "96431181"
 
 1. 按照登录说明登录到 Azure。 连接后，Visual Studio Code 窗口底部的状态栏上会显示 Azure 帐户名称。
 
-## <a name="select-subscriptions"></a>选择订阅
+### <a name="select-subscriptions"></a>选择订阅
 
 首次登录时，Azure Policy 扩展只会加载默认的订阅资源和策略。 若要添加或删除要显示其资源和策略的订阅，请执行以下步骤：
 
 1. 通过命令面板或窗口页脚启动订阅命令。
 
-   - 命令面板： 
+   - 命令面板：
 
      在菜单栏中，转到“视图”>“命令面板”，然后输入“Azure:  选择订阅”。
 
@@ -92,7 +86,7 @@ ms.locfileid: "96431181"
 
 1. 使用筛选框按名称快速查找订阅。 然后，选中或清除每个订阅对应的复选框，以设置 Azure Policy 扩展要显示的订阅。 添加或删除要显示的订阅后，选择“确定”。
 
-## <a name="search-for-and-view-resources"></a>搜索和查看资源
+### <a name="search-for-and-view-resources"></a>搜索和查看资源
 
 Azure Policy 扩展在“资源”窗格中按资源提供程序和资源组列出所选订阅中的资源。 树视图包含所选订阅中或订阅级别的以下资源分组：
 
@@ -121,7 +115,7 @@ Azure Policy 扩展在“资源”窗格中按资源提供程序和资源组列�
 
 1. 使用筛选器选择要显示的资源。 可对资源名称和资源类型使用筛选器。
 
-## <a name="discover-aliases-for-resource-properties"></a>发现资源属性的别名
+### <a name="discover-aliases-for-resource-properties"></a>发现资源属性的别名
 
 选择某个资源时（不管是通过搜索界面选择，还是在树视图中选择），Azure Policy 扩展将会打开表示该资源及其所有 Azure 资源管理器属性值的 JSON 文件。
 
@@ -130,9 +124,9 @@ Azure Policy 扩展在“资源”窗格中按资源提供程序和资源组列�
 :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Visual Studio Code 的 Azure Policy 扩展的屏幕截图，鼠标悬停在属性上以显示别名。" border="false":::
 
 > [!NOTE]
-> VS Code 扩展只公开资源管理器模式属性，不会显示任何[资源提供程序模式](../concepts/definition-structure.md#mode)属性。
+> VS Code 扩展仅支持评估资源管理器模式属性。 有关模式的详细信息，请参阅[模式定义](../concepts/definition-structure.md#mode)。
 
-## <a name="search-for-and-view-policies-and-assignments"></a>搜索和查看策略与分配
+### <a name="search-for-and-view-policies-and-assignments"></a>搜索和查看策略与分配
 
 对于选择显示的订阅，Azure Policy 扩展将在“策略”窗格中以树视图的形式列出策略类型和策略分配。 在单个订阅中包含数百甚至数千个策略或分配的客户可能更倾向于通过搜索来查找其策略或分配。 在 Azure Policy 扩展中可通过以下步骤搜索特定的策略或分配：
 
@@ -154,7 +148,7 @@ Azure Policy 扩展在“资源”窗格中按资源提供程序和资源组列�
 
 选择策略或分配时（不管是通过搜索界面选择，还是在树视图中选择），Azure Policy 扩展将会打开表示该策略或分配及其所有资源管理器属性值的 JSON。 该扩展可以验证已打开的 Azure Policy JSON 架构。
 
-## <a name="export-objects"></a>导出对象
+### <a name="export-objects"></a>导出对象
 
 订阅中的对象可以导出到本地 JSON 文件。 在“资源”或“策略”窗格中，将鼠标悬停在可导出对象上或将其选中 。 在突出显示的行的末尾，选择“保存”图标，然后选择一个文件夹来保存资源 JSON。
 
@@ -169,7 +163,7 @@ Azure Policy 扩展在“资源”窗格中按资源提供程序和资源组列�
   - 自定义策略定义
   - 计划
 
-## <a name="on-demand-evaluation-scan"></a>按需评估扫描
+### <a name="on-demand-evaluation-scan"></a>按需评估扫描
 
 可以使用适用于 Visual Studio Code 的 Azure Policy 扩展启动评估扫描。 若要开始评估，请选择并固定以下各对象：资源、策略定义和策略分配。
 
@@ -178,7 +172,7 @@ Azure Policy 扩展在“资源”窗格中按资源提供程序和资源组列�
 1. 在“评估”窗格的顶部，选择“运行评估”图标。 随即在 Visual Studio Code 中打开一个新窗格，其中包含 JSON 格式的生成的评估详细信息。
 
 > [!NOTE]
-> 如果所选策略定义是 [AuditIfNotExists](../concepts/effects.md#auditifnotexists) 或 [DeployIfNotExists](../concepts/effects.md#deployifnotexists)，则在“评估”窗格中，使用加号图标选择一个相关资源进行存在性检查。
+> 对于 [AuditIfNotExists](../concepts/effects.md#auditifnotexists) 或 [DeployIfNotExists](../concepts/effects.md#deployifnotexists) 策略定义，请使用“评估”窗格中的加号图标选择相关资源进行存在性检查。
 
 评估结果提供有关策略定义和策略分配以及“policyEvaluations.evaluationResult”属性的信息。 输出与以下示例类似：
 
@@ -199,7 +193,12 @@ Azure Policy 扩展在“资源”窗格中按资源提供程序和资源组列�
 }
 ```
 
-## <a name="sign-out"></a>注销
+> [!NOTE]
+> VS Code 扩展仅支持评估资源管理器模式属性。 有关模式的详细信息，请参阅[模式定义](../concepts/definition-structure.md#mode)。
+>
+> 评估功能不适用于扩展的 macOS 和 Linux 安装。
+
+### <a name="sign-out"></a>注销
 
 在菜单栏中，转到“视图” > “命令面板”，然后输入“Azure:  注销”。
 

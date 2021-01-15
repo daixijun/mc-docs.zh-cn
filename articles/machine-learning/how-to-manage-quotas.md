@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 10/13/2020
+ms.date: 12/1/2020
 ms.topic: conceptual
-ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 2f7178247257f1a6547c9bc92d91595251cc2fd6
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
+ms.openlocfilehash: e8b09c96a492a25c93336ed989b5f11bddb8dac8
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104684"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021801"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>管理和增大 Azure 机器学习资源的配额
 
@@ -43,28 +43,32 @@ Azure 使用限制和配额来防止由于欺诈导致的预算超支，并遵�
 
 在本部分中，你将了解以下资源的默认和最大配额限制：
 
++ Azure 机器学习资产
+  + Azure 机器学习计算
+  + Azure 机器学习管道
 + 虚拟机
-+ Azure 机器学习计算
-+ Azure 机器学习管道
 + Azure 容器实例
 + Azure 存储
 
 > [!IMPORTANT]
 > 限制随时会变化。 有关最新信息，请参阅 [Azure 订阅与服务限制、配额和约束](../azure-resource-manager/management/azure-subscription-service-limits.md)（适用于所有 Azure 项目）。
 
-### <a name="virtual-machines"></a>虚拟机
-每个 Azure 订阅都对所有服务中的虚拟机数量进行了限制。 虚拟机核心数既有区域总数限制，又有按大小系列的区域限制。 这两种限制单独实施。
+### <a name="azure-machine-learning-assets"></a>Azure 机器学习资产
+每个工作区都适用以下资产限制。 
 
-例如，假设某个订阅的美国东部 VM 核心总数限制为 30，A 系列核心数限制为 30，D 系列核心数限制为 30。 该订阅可以部署 30 个 A1 VM、30 个 D1 VM，或者两者的组合，但其总数不能超过 30 个核心。
+| **资源** | **最大限制** |
+| --- | --- |
+| 数据集 | 1 千万 |
+| 运行次数 | 1 千万 |
+| 模型 | 1 千万|
+| Artifacts | 1 千万 |
 
-不能将对虚拟机的限制提升至高于下表中显示的值。
-
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
+另外，最长运行时间为 30 天，每次运行记录的指标的最大数量为 1 百万 。
 
 ### <a name="azure-machine-learning-compute"></a>Azure 机器学习计算
-[Azure 机器学习计算](concept-compute-target.md#azure-machine-learning-compute-managed)为订阅中每个区域所允许的核心数和唯一计算资源数设置了默认配额限制。 此配额与上一部分中的 VM 核心配额不同。
+[Azure 机器学习计算](concept-compute-target.md#azure-machine-learning-compute-managed)为订阅中每个区域所允许的核心数（按每个 VM 系列和累积总核心数拆分）和非重复计算资源数都设置了默认配额限制。 此配额与上一部分中列出的 VM 核心配额不同，因为它只适用于 Azure 机器学习的托管计算资源。
 
-[请求增大配额](#request-quota-increases)，将此部分中的限制提高到表中所示的最大限制。
+[请求增加配额](#request-quota-increases)可提升适用于本部分中各种 VM 系列核心配额、订阅核心配额总量和资源的限额。
 
 可用资源：
 + **每个区域的专用核心数** 的默认限制为 24 到 300 个，具体取决于订阅套餐的类型。 可以为每个 VM 系列提高每个订阅的专用核心数。 专业化 VM 系列（例如 NCv2、NCv3 或 ND 系列）最初的默认限制为零个核心。
@@ -73,12 +77,19 @@ Azure 使用限制和配额来防止由于欺诈导致的预算超支，并遵�
 
 + **每个区域的群集数** 的默认限制为 200。 它们在训练群集和计算实例之间共享。 （就配额用途来说，可以将计算实例视为单节点群集。）
 
-下表显示了不能超过的其他限制。
+> [!TIP]
+> 若要详细了解应为哪个 VM 系列请求增加配额，请查看 [Azure 中的虚拟机大小]/virtual-machines/sizes)。 例如，GPU VM 系列在其系列名称中以“N”开头（如 NCv3 系列）
 
-| **资源** | **最大限制** |
+下表显示了平台中的其他限制。 若要提出有关例外情况的请求，请通过技术支持票证与 AzureML 产品团队联系。
+
+| 资源或操作 | **最大限制** |
 | --- | --- |
 | 每个资源组的工作区数 | 800 |
-| 单个 Azure 机器学习计算 (AmlCompute) 资源中的节点数 | 100 个节点 |
+| 设置为未启用通信的池（即无法运行 MPI 作业）的单个 Azure 机器学习计算 (AmlCompute) 群集中的节点 | 100 个节点，但最多可配置为 65000 个节点 |
+| 在 Azure 机器学习计算 (AmlCompute) 群集上运行的单个并行运行步骤中的节点 | 100 个节点，但如果将群集设置为按上述标准缩放，则最多可配置为 65000 个节点 |
+| 设置为已启用通信的池的单个 Azure 机器学习计算 (AmlCompute) 群集中的节点 | 300 个节点，但最多可配置为 4000 个节点 |
+| 在已启用 RDMA 的 VM 系列上设置为已启用通信的池的单个 Azure 机器学习计算 (AmlCompute) 群集中的节点 | 100 个节点 |
+| 在 Azure 机器学习计算 (AmlCompute) 群集上运行的单个 MPI 中的节点 | 100 个节点，但可以增加到 300 个节点 |
 | 每个节点的 GPU MPI 进程数 | 1-4 |
 | 每个节点的 GPU 辅助角色数 | 1-4 |
 | 作业生存期 | 21 天<sup>1</sup> |
@@ -88,13 +99,22 @@ Azure 使用限制和配额来防止由于欺诈导致的预算超支，并遵�
 <sup>1</sup> 最大生存期是指从运行开始到运行完成之间的持续时间。 已完成的运行无限期保留。 最长生存期内未完成的运行的数据不可访问。
 <sup>2</sup> 每当存在容量约束时，低优先级节点上的作业可能会预先清空。 我们建议在作业中实施检查点。
 
-### <a name="azure-machine-learning-pipelines"></a>Azure 机器学习管道
+#### <a name="azure-machine-learning-pipelines"></a>Azure 机器学习管道
 [Azure 机器学习管道](concept-ml-pipelines.md)具有以下限制。
 
 | **资源** | **限制** |
 | --- | --- |
 | 管道中的步骤 | 30,000 |
 | 每个资源组的工作区数 | 800 |
+
+### <a name="virtual-machines"></a>虚拟机
+每个 Azure 订阅都对所有服务中的虚拟机数量进行了限制。 虚拟机核心数既有区域总数限制，又有按大小系列的区域限制。 这两种限制单独实施。
+
+例如，假设某个订阅的美国东部 VM 核心总数限制为 30，A 系列核心数限制为 30，D 系列核心数限制为 30。 该订阅可以部署 30 个 A1 VM、30 个 D1 VM，或者两者的组合，但其总数不能超过 30 个核心。
+
+不能将对虚拟机的限制提升至高于下表中显示的值。
+
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### <a name="container-instances"></a>容器实例
 

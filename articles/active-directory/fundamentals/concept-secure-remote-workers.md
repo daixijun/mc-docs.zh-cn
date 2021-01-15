@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c7242151949df7fa50628f902253ab5d0c7f36
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: cdac2c2ebfb049ee4537368b8fd8d940de402d92
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501641"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022463"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>使用 Azure AD 快速响应以保护标识
 
@@ -52,8 +52,10 @@ ms.locfileid: "94501641"
 
 | 建议的操作 | 详细信息 |
 | --- | --- |
+| [启用安全默认值](concept-fundamentals-security-defaults.md) | 通过启用 MFA 和阻止旧身份验证来保护所有用户身份和应用程序 |
 | [启用密码哈希同步](../hybrid/how-to-connect-password-hash-synchronization.md)（如果使用混合标识） | 为身份验证提供冗余并提高安全性（包括智能锁定、IP 锁定以及发现凭据泄露的功能） |
 | [启用 ADFS 智能锁定](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)（如果适用） | 保护用户免受恶意活动导致的 Extranet 帐户锁定。 |
+| [禁用应用程序的最终用户同意](../manage-apps/configure-user-consent.md) | 管理员同意工作流为管理员提供了一种安全的方法来授予需要管理员批准的应用程序访问权限，因此最终用户不会公开公司数据。 Microsoft 建议禁用将来的所有用户许可操作有助于减小受攻击面并缓解此风险。 |
 | [启用自助式密码重置](../authentication/tutorial-enable-sspr.md)（适用于云专用帐户） | 此功能可减少用户无法登录其设备或应用程序时呼叫支持人员的次数以及生产效率的损失。 |
 | [尽可能使用非全局管理角色](../roles/permissions-reference.md) | 只为管理员分配他们必须访问的区域的访问权限。 并非所有管理员都需要是全局管理员。 |
 | [启用 Microsoft 的密码指导](https://www.microsoft.com/research/publication/password-guidance/) | 停止要求用户按照设置的计划更改其密码，禁用复杂性要求，用户更倾向于记住他们习惯的密码，并妥善保管其密码。 |
@@ -75,6 +77,8 @@ ms.locfileid: "94501641"
 | 创建和启用条件访问策略 | [为管理员配置 MFA，以保护分配了管理员权限的帐户。](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [阻止旧式身份验证协议，因为与旧式身份验证协议相关的风险日益增加。](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [为所有用户和应用程序配置 MFA，以便为环境创建平衡的 MFA 策略，从而保护用户和应用程序。](../conditional-access/howto-conditional-access-policy-all-users-mfa.md) <br><br> [要求为 Azure 管理配置 MFA，从而通过对任何访问 Azure 资源的用户都要求多重身份验证来保护特权资源。](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [启用密码哈希同步](../hybrid/how-to-connect-password-hash-synchronization.md)（如果使用混合标识） | 为身份验证提供冗余并提高安全性（包括智能锁定、IP 锁定以及发现凭据泄露的功能） |
 | [启用 ADFS 智能锁定](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)（如果适用） | 保护用户免受恶意活动导致的 Extranet 帐户锁定。 |
+| [禁用应用程序的最终用户同意](../manage-apps/configure-user-consent.md) | 管理员同意工作流为管理员提供了一种安全的方法来授予需要管理员批准的应用程序访问权限，因此最终用户不会公开公司数据。 Microsoft 建议禁用将来的所有用户许可操作有助于减小受攻击面并缓解此风险。 |
+| [启用条件访问 - 基于设备](../conditional-access/require-managed-devices.md) | 使用基于设备的条件访问来改进安全性和用户体验。 此步骤可确保用户只能从满足安全性和符合性标准的设备进行访问。 这些设备也称为受管理设备。 受管理设备可以是符合 Intune 要求或加入了混合 Azure AD 的设备。 |
 | [指定多个全局管理员](../roles/security-emergency-access.md) | 至少分配两个仅限云的永久性全局管理员帐户，以便在紧急情况下使用。 这些帐户不是每日使用，应该具有复杂的长密码。 Break Glass 帐户确保你可在紧急情况下访问该服务。 |
 | [尽可能使用非全局管理角色](../roles/permissions-reference.md) | 只为管理员分配他们必须访问的区域的访问权限。 并非所有管理员都需要是全局管理员。 |
 | [启用 Microsoft 的密码指导](https://www.microsoft.com/research/publication/password-guidance/) | 停止要求用户按照设置的计划更改其密码，禁用复杂性要求，用户更倾向于记住他们习惯的密码，并妥善保管其密码。 |
@@ -96,6 +100,8 @@ ms.locfileid: "94501641"
 | 创建和启用条件访问策略 | [为管理员配置 MFA，以保护分配了管理员权限的帐户。](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [阻止旧式身份验证协议，因为与旧式身份验证协议相关的风险日益增加。](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [要求为 Azure 管理配置 MFA，从而通过对任何访问 Azure 资源的用户都要求多重身份验证来保护特权资源。](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [启用密码哈希同步](../hybrid/how-to-connect-password-hash-synchronization.md)（如果使用混合标识） | 为身份验证提供冗余并提高安全性（包括智能锁定、IP 锁定以及发现凭据泄露的功能） |
 | [启用 ADFS 智能锁定](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)（如果适用） | 保护用户免受恶意活动导致的 Extranet 帐户锁定。 |
+| [禁用应用程序的最终用户同意](../manage-apps/configure-user-consent.md) | 管理员同意工作流为管理员提供了一种安全的方法来授予需要管理员批准的应用程序访问权限，因此最终用户不会公开公司数据。 Microsoft 建议禁用将来的所有用户许可操作有助于减小受攻击面并缓解此风险。 |
+| [启用条件访问 - 基于设备](../conditional-access/require-managed-devices.md) | 使用基于设备的条件访问来改进安全性和用户体验。 此步骤可确保用户只能从满足安全性和符合性标准的设备进行访问。 这些设备也称为受管理设备。 受管理设备可以是符合 Intune 要求或加入了混合 Azure AD 的设备。 |
 | [指定多个全局管理员](../roles/security-emergency-access.md) | 至少分配两个仅限云的永久性全局管理员帐户，以便在紧急情况下使用。 这些帐户不是每日使用，应该具有复杂的长密码。 Break Glass 帐户确保你可在紧急情况下访问该服务。 |
 | [尽可能使用非全局管理角色](../roles/permissions-reference.md) | 只为管理员分配他们必须访问的区域的访问权限。 并非所有管理员都需要是全局管理员。 |
 | [启用 Microsoft 的密码指导](https://www.microsoft.com/research/publication/password-guidance/) | 停止要求用户按照设置的计划更改其密码，禁用复杂性要求，用户更倾向于记住他们习惯的密码，并妥善保管其密码。 |

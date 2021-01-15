@@ -10,13 +10,13 @@ ms.topic: how-to
 author: knicholasa
 ms.author: v-junlch
 manager: martinco
-ms.date: 12/02/2020
-ms.openlocfilehash: e62e4ee387d8e6bf3424332367277b9c423a54f5
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.date: 01/07/2021
+ms.openlocfilehash: 0f90fdfb38c2e0fa0ad014982d1dccfd1a363391
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004331"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021583"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>提高你开发的客户端应用程序中身份验证和授权的复原能力
 
@@ -30,7 +30,9 @@ MSAL 缓存令牌并使用无提示令牌获取模式。 它还会自动序列�
 
 ![使用 MSAL 来调用 Microsoft 标识的设备和应用程序的图像](./media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
 
-使用 MSAL 时，可通过以下模式实现令牌缓存、刷新和无提示令牌获取。
+在使用 MSAL 时，会自动支持令牌缓存、刷新和无提示获取。 可以使用简单模式来获取新式身份验证所需的令牌。 我们支持很多语言，你可以在[示例](/active-directory/develop/sample-v2-code)页上找到与你的语言和方案相匹配的示例。
+
+## <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 try
@@ -42,6 +44,28 @@ catch(MsalUiRequiredException ex)
     result = await app.AcquireToken(scopes).WithClaims(ex.Claims).ExecuteAsync()
 }
 ```
+
+## <a name="javascript"></a>[Javascript](#tab/javascript)
+
+```javascript
+return myMSALObj.acquireTokenSilent(request).catch(error => {
+    console.warn("silent token acquisition fails. acquiring token using redirect");
+    if (error instanceof msal.InteractionRequiredAuthError) {
+        // fallback to interaction when silent call fails
+        return myMSALObj.acquireTokenPopup(request).then(tokenResponse => {
+            console.log(tokenResponse);
+
+            return tokenResponse;
+        }).catch(error => {
+            console.error(error);
+        });
+    } else {
+        console.warn(error);
+    }
+});
+```
+
+---
 
 在某些情况下，MSAL 可以主动刷新令牌。 当 Microsoft 标识颁发生存期较长的令牌时，它可以向客户端发送信息来指明刷新令牌的最佳时间（“refresh\_in”）。 MSAL 会根据此信息主动刷新令牌。 当旧令牌有效但会有更大的时间范围来进行另一次成功的令牌获取时，应用将继续运行。
 
@@ -65,7 +89,9 @@ catch(MsalUiRequiredException ex)
 
 [查看最新的 Microsoft.Identity.Web 版本和发行说明](https://github.com/AzureAD/microsoft-identity-web/releases)
 
-## <a name="if-not-using-msal-use-these-resilient-patterns-for-token-handling"></a>如果未使用 MSAL，请使用这些复原模式进行令牌处理
+## <a name="use-resilient-patterns-for-token-handling"></a>使用可复原模式进行令牌处理
+
+如果未使用 MSAL，则可以使用这些可复原模式进行令牌处理。 这些最佳做法由 MSAL 库自动实施。 
 
 通常，使用新式身份验证的应用程序会调用一个终结点来检索对用户进行身份验证或授权应用程序调用受保护 API 的令牌。 MSAL 用于处理身份验证的细节并实现多种模式来提高此过程的复原能力。 如果选择使用 MSAL 以外的库，请使用本部分的指南来实施最佳做法。 如果你使用 MSAL，则可以免费获得所有这些最佳做法，因为 MSAL 会自动实现它们。
 
@@ -133,6 +159,14 @@ Microsoft Graph 提供了一个统一的 API 终结点，用于访问描述组�
 
 对于授权决策，开发人员应考虑何时使用令牌中提供的声明作为某些 Microsoft Graph 调用的替代方法。 如上所述，开发人员可以在其令牌中请求组、应用角色和可选声明。 就复原能力而言，使用 Microsoft Graph 进行授权需要额外的网络调用，这些调用依赖于 Microsoft 标识（用于获取访问 Microsoft Graph 所需的令牌）以及 Microsoft Graph 本身。 但是，如果你的应用程序已依赖 Microsoft Graph 作为其数据层，则依赖 Graph 进行授权不会带来额外的风险。
 
+## <a name="use-broker-authentication-on-mobile-devices"></a>在移动设备上使用代理身份验证
+
+在移动设备上，使用身份验证代理（如 Microsoft Authenticator）将会改进复原能力。 该代理在随其他选项（如系统浏览器或嵌入式 Web 视图）提供的功能基础上增加了优点。 身份验证代理可以利用包含有关用户和设备的声明的[主刷新令牌](../devices/concept-primary-refresh-token.md) (PRT)，并且可用于获取身份验证令牌，以便从该设备访问其他应用程序。 在使用 PRT 来请求访问某个应用程序时，Azure AD 会信任该令牌的设备和 MFA 声明。 这样就会避免再次对该设备进行身份验证，从而提升复原能力。 用户在同一设备上不会收到多个 MFA 提示，这样就会因降低对外部服务的依赖而提升复原能力，并且会改善用户体验。
+
+![某个应用程序调用 Microsoft 标识，但该调用通过运行该应用程序的设备上的令牌缓存以及令牌存储和身份验证代理来进行](./media/resilience-client-app/authentication-broker.png)
+
+MSAL 自动支持代理身份验证。 
+
 ## <a name="adopt-continuous-access-evaluation"></a>采用连续访问评估
 
 [连续访问评估 (CAE)](/active-directory/conditional-access/concept-continuous-access-evaluation) 是最新开发的一项功能，它可以使用长期生存的令牌提高应用程序的安全性和复原能力。 CAE 是在 OpenID Foundation 的共享信号和事件工作组中开发的新兴行业标准。 使用 CAE，可以根据[严重事件](/active-directory/conditional-access/concept-continuous-access-evaluation#critical-event-evaluation)和[策略评估](/active-directory/conditional-access/concept-continuous-access-evaluation#conditional-access-policy-evaluation-preview)而不是依赖令牌生存期短的特性来撤销访问令牌。 对于某些资源 API，由于风险和策略是实时评估的，因此 CAE 实际上可以将令牌生存期提高到最多 28 小时。 当资源 API 和应用程序采用 CAE 时，Microsoft 标识将能够颁发可撤销并在长时间内有效的访问令牌。 MSAL 会主动刷新这些生存期长的令牌。
@@ -146,5 +180,5 @@ Microsoft Graph 提供了一个统一的 API 终结点，用于访问描述组�
 - [如何在应用程序中使用启用了连续访问评估的 API](../develop/app-resilience-continuous-access-evaluation.md)
 - [为守护程序应用程序构建复原能力](resilience-daemon-app.md)
 - [在标识和访问管理基础结构中构建复原能力](resilience-in-infrastructure.md)
-- [在使用 Azure Active Directory B2C 的客户标识和访问管理中构建复原能力](resilience-b2c.md)
+- [在 CIAM 系统中构建复原能力](resilience-b2c.md)
 

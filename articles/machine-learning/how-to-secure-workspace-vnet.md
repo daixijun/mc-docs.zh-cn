@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
-ms.date: 07/07/2020
+ms.author: peterlu
+author: peterclu
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 7dc5bc08935ab43f82688d32f0da458f9b1c1d03
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.openlocfilehash: 334228b7003ae985719276758fac1327171426ea
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978316"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021667"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习工作区
 
@@ -92,6 +92,18 @@ Azure 机器学习支持将存储帐户配置为使用服务终结点或专用�
     > 若要启用对存储帐户的访问，请从开发客户端上的 Web 浏览器访问存储帐户的“防火墙和虚拟网络”。 然后选中“添加客户端 IP 地址”复选框，将客户端的 IP 地址添加到“地址范围”。  也可以使用“地址范围”字段手动输入开发环境的 IP 地址。 添加客户端的 IP 地址后，该客户端可以使用 SDK 访问存储帐户。
 
    [![Azure 门户中的“防火墙和虚拟网络”窗格](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
+
+## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>使用专用终结点保护 Azure 存储帐户
+
+Azure 机器学习支持将存储帐户配置为使用服务终结点或专用终结点。 如果存储帐户使用专用终结点，则必须为默认存储帐户配置两个专用终结点：
+1. 具有 blob 目标子资源的专用终结点。
+1. 具有文件目标子资源（文件共享）的专用终结点。
+
+![屏幕截图，显示具有 blob 和文件选项的专用终结点配置页](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+
+若要为不是默认存储的存储帐户配置专用终结点，请选择与要添加的存储帐户对应的“目标子资源”类型。
+
+有关详细信息，请参阅[对 Azure 存储使用专用终结点](../storage/common/storage-private-endpoints.md)
 
 ## <a name="secure-datastores-and-datasets"></a>保护数据存储和数据集
 

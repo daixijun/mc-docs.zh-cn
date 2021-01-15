@@ -1,6 +1,6 @@
 ---
-title: 持续集成和部署
-description: 内置支持使用 Azure Pipelines 进行持续集成和部署的数据仓库的企业级数据库 DevOps 体验。
+title: 适用于专用 SQL 池的持续集成和部署
+description: 适用于 Azure Synapse Analytics 中专用 SQL 池的企业级数据库 DevOps 体验，原生支持使用 Azure Pipelines 进行持续集成和部署。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,18 +8,18 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql-dw
 origin.date: 02/04/2020
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 471ab0442d4ce03d938e0cd162d05f9c44e99e17
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 7fcbdd241d47ebea97b3fafec8e278c375539022
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375756"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021926"
 ---
-# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>适用于数据仓库的持续集成和部署
+# <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>适用于 Azure Synapse Analytics 中专用 SQL 池的持续集成和部署
 
 本简易教程概述如何将 SQL Server Data Tools (SSDT) 数据库项目集成到 Azure DevOps，并利用 Azure Pipelines 来设置持续集成和部署。 本教程是为数据仓库构建持续集成和部署管道的第二步。
 
@@ -43,7 +43,7 @@ ms.locfileid: "93375756"
 
       ![YAML](./media/sql-data-warehouse-continuous-integration-and-deployment/3-yaml-file.png "YAML")
 
-现已创建一个简单的环境，在其中，只要签入到源代码管理存储库主分支，就会自动触发数据库项目的成功 Visual Studio 生成。 通过在本地数据库项目中做出更改并将该项更改签入到主分支，来验证自动化是否能够自始至终正常运行。
+现已创建一个简单的环境，在其中，只要签入到源代码管理存储库主分支，就会自动触发 Visual Studio 成功生成数据库项目。 通过在本地数据库项目中做出更改并将该更改签入到主分支，来验证自动化是否能够自始至终正常运行。
 
 ## <a name="continuous-deployment-with-the-azure-synapse-analytics-or-database-deployment-task"></a>使用 Azure Synapse Analytics（或数据库）部署任务实现持续部署
 
@@ -61,6 +61,6 @@ ms.locfileid: "93375756"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 探索 [Synapse SQL 池体系结构](massively-parallel-processing-mpp-architecture.md)
-- 快速[创建 SQL 池](create-data-warehouse-portal.md)
+- 探索[专用 SQL 池（以前称为 SQL DW）体系结构](massively-parallel-processing-mpp-architecture.md)
+- 快速[创建专用 SQL 池（以前称为 SQL DW）](create-data-warehouse-portal.md)
 - [加载示例数据](load-data-from-azure-blob-storage-using-polybase.md)

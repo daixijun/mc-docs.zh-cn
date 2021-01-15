@@ -4,17 +4,17 @@ description: 有关规划和缩放 Service Fabric 群集与应用程序的最佳
 ms.topic: conceptual
 origin.date: 04/25/2019
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 31d105b039c2d9257aad3c07c5808ae7b0e66fcf
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 30d9bb34678e522f77f304cfd738587221369369
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127684"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022730"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Azure Service Fabric 的容量规划和缩放
 
@@ -30,13 +30,10 @@ ms.locfileid: "92127684"
 使用虚拟机规模集自动缩放会导致版本受控的资源管理器模板不准确地定义虚拟机规模集实例计数。 不准确的定义会增加将来的部署导致意外缩放操作的风险。 一般而言，如果存在以下情况，则应该使用自动缩放：
 
 * 使用相应的声明容量部署资源管理器模板不支持你的用例。
-
     除了手动缩放以外，还可以[使用 Azure 资源组部署项目在 Azure DevOps 服务中配置持续集成和交付管道](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)。 此管道通常由某个逻辑应用触发，而该应用利用从 [Azure Monitor REST API](../azure-monitor/platform/rest-api-walkthrough.md) 查询的虚拟机性能指标。 该管道基于所需的任意指标进行有效自动缩放，同时针对 Azure 资源管理器进行优化可以增大价值。
 * 每次只需水平缩放一个虚拟机规模集节点。
-
     若要一次性横向扩展三个或更多个节点，应该[通过添加虚拟机规模集来横向扩展 Service Fabric 群集](virtual-machine-scale-set-scale-node-type-scale-out.md)。 最安全的做法是每次横向扩展或缩减虚拟机规模集的一个节点。
 * 对于 Service Fabric 群集，可以实现银级可靠性；对于配置了自动缩放规则的任何规模集，可以实现银级或更高的持久性。
-
     自动缩放规则的最小容量必须大于或等于五个虚拟机实例。 此外，它必须大于或等于主节点类型的最低可靠性层。
 
 > [!NOTE]
@@ -55,21 +52,11 @@ ms.locfileid: "92127684"
 > [!NOTE]
 > 托管有状态 Service Fabric 系统服务的主节点类型必须具有银级或更高级别的持久性。 启用银级持久性后，升级、添加或删除节点等群集操作将会变慢，因为系统优化的目标是保护数据安全，而不是加快操作速度。
 
-垂直缩放虚拟机规模集是破坏性的操作。 应该通过添加具有所需 SKU 的新规模集来水平缩放群集。 然后将服务迁移到所需的 SKU，以安全完成垂直缩放操作。 更改虚拟机规模集资源 SKU 是破坏性的操作，因为需要重置主机映像，而这会删除所有本地持久化状态。
+通过简单地更改虚拟机规模集的资源 SKU 来垂直缩放虚拟机规模集是一项破坏性操作，因为它会重置主机映像，从而删除所有本地持久化状态。 而你则需要通过添加具有所需 SKU 的新规模集来水平缩放群集，然后将服务迁移到新规模集以完成安全的垂直缩放操作。
 
-群集使用 Service Fabric [节点属性和位置约束](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)来确定要将应用程序服务托管在哪个位置。 垂直缩放主节点类型时，请为 `"nodeTypeRef"` 声明相同的属性值。 可在虚拟机规模集的 Service Fabric 扩展中的找到这些值。 
-
-资源管理器模板的以下代码片段显示了要声明的属性。 其中的值与要缩放到的新预配规模集的属性值相同，仅支持用作群集的临时有状态服务。
-
-```json
-"settings": {
-   "nodeTypeRef": ["[parameters('primaryNodetypeName')]"]
-}
-```
+群集使用 Service Fabric [节点属性和位置约束](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)来确定要将应用程序服务托管在哪个位置。 垂直缩放主节点类型时，需部署第二个主节点类型，然后在原始主节点类型上设置 (`"isPrimary": false`)，开始禁用其节点并删除其规模集及其相关资源。 有关详细信息，请参阅[纵向扩展 Service Fabric 群集主节点类型](service-fabric-scale-up-primary-node-type.md)。
 
 > [!NOTE]
-> 请不要让群集与使用相同 `nodeTypeRef` 属性值的多个规模集一起运行的时间超过成功完成垂直缩放操作所需的时间。
->
 > 在尝试进行生产环境更改之前，始终在测试环境中验证操作。 默认情况下，Service Fabric 群集系统服务提供仅针对主节点类型的位置约束。
 
 声明节点属性和位置约束后，每次在一个 VM 实例上执行以下步骤。 这样，可以在其他位置创建新副本时，让系统服务（以及有状态服务）在要删除的 VM 实例上正常关闭。

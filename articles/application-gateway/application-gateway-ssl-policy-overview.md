@@ -4,15 +4,15 @@ description: 了解如何为 Azure 应用程序网关配置 TLS 策略，并减�
 services: application gateway
 author: amsriva
 ms.service: application-gateway
-ms.topic: article
-ms.date: 03/30/2020
+ms.topic: conceptual
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: eac2899745fb4b3360a06e4678148ada632a13ef
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 7ac648a6b1dd82c5f8bc4653a47313880340cca4
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80581805"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021878"
 ---
 # <a name="application-gateway-tls-policy-overview"></a>应用程序网关 TLS 策略概述
 
@@ -23,6 +23,18 @@ TLS 策略包括 TLS 协议版本控制和 TLS 握手期间会使用的密码套
 ## <a name="predefined-tls-policy"></a>预定义 TLS 策略
 
 应用程序网关具有三种预定义的安全策略。 可以使用这些策略中的任意策略配置网关，以获得适当的安全性级别。 策略名称批注有其配置的年份和月份。 每个策略提供不同的 TLS 协议版本和密码套件。 建议使用最新的 TLS 策略来确保最佳的 TLS 安全性。
+
+## <a name="known-issue"></a>已知问题
+应用程序网关 v2 不支持以下 DHE 密码。即使预定义策略中提到了这些密码，也不会将它们用于与客户端的 TLS 连接。 建议不要使用 DHE 密码，而应使用安全快捷的 ECDHE 密码。
+
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
@@ -39,7 +51,7 @@ TLS 策略包括 TLS 协议版本控制和 TLS 握手期间会使用的密码套
 |   ---      |  ---       |
 |名称     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
-|默认| False |
+|默认| 错误 |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
@@ -48,12 +60,16 @@ TLS 策略包括 TLS 协议版本控制和 TLS 握手期间会使用的密码套
 |---|---|
 |名称     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
-|默认| False |
+|默认| 错误 |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br>    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br>    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br> |
 
 ## <a name="custom-tls-policy"></a>自定义 TLS 策略
 
 如果需要为你的需求配置预定义 TLS 策略，则必须定义自己的自定义 TLS 策略。 通过自定义 TLS 策略，可以完全控制要支持的最低 TLS 协议版本和支持的密码套件及其优先级顺序。
+
+> [!IMPORTANT]
+> 如果在应用程序网关 v1 SKU（Standard 或 WAF）中使用自定义 SSL 策略，请确保将必需密码“TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256”添加到列表中。 在应用程序网关 v1 SKU 中启用指标和日志记录需要此密码。
+> 对于应用程序网关 v2 SKU（Standard_v2 或 WAF_v2），此密码不是必需的。
  
 ### <a name="tlsssl-protocol-versions"></a>TLS/SSL 协议版本
 
@@ -97,17 +113,6 @@ TLS 策略包括 TLS 协议版本控制和 TLS 握手期间会使用的密码套
 
 > [!NOTE]
 > 用于连接的 TLS 密码套件也基于所使用的证书类型。 在从客户端到应用程序网关的连接中，所使用的密码套件基于应用程序网关侦听器上的服务器证书的类型。 在从应用程序网关到后端池的连接中，所使用的密码套件基于后端池服务器上的服务器证书的类型。
-
-## <a name="known-issue"></a>已知问题
-应用程序网关 v2 目前不支持以下加密：
-- DHE-RSA-AES128-GCM-SHA256
-- DHE-RSA-AES128-SHA
-- DHE-RSA-AES256-GCM-SHA384
-- DHE-RSA-AES256-SHA
-- DHE-DSS-AES128-SHA256
-- DHE-DSS-AES128-SHA
-- DHE-DSS-AES256-SHA256
-- DHE-DSS-AES256-SHA
 
 ## <a name="next-steps"></a>后续步骤
 

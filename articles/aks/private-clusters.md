@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 07/17/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6469f13aa7822a9074ad83c2ff528c83fbe25fe5
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: adfe325d4589d93d21764e475a1f2dfe3ef17fc7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004174"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023120"
 ---
 <!--Verified successfully from PG team confirmation-->
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>创建专用 Azure Kubernetes 服务群集
@@ -36,6 +36,8 @@ ms.locfileid: "97004174"
 ## <a name="prerequisites"></a>先决条件
 
 * Azure CLI 版本 2.2.0 或更高版本
+* 仅标准 Azure 负载均衡器支持专用链接服务。 不支持基本 Azure 负载均衡器。  
+* 若要使用自定义 DNS 服务器，请在自定义 DNS 服务器中将 Azure DNS IP 168.63.129.16 作为上游 DNS 服务器进行添加。
 
 ## <a name="create-a-private-aks-cluster"></a>创建专用 AKS 群集
 
@@ -73,6 +75,20 @@ az aks create \
 > [!NOTE]
 > 如果 Docker 桥地址 CIDR (172.17.0.1/16) 与子网 CIDR 冲突，请相应地更改 Docker 桥地址。
 
+### <a name="configure-private-dns-zone"></a>配置专用 DNS 区域
+
+如果省略 --private-dns-zone 参数，则默认值为“system”。 AKS 将在节点资源组中创建专用 DNS 区域。 传递“none”参数意味着 AKS 将不会创建专用 DNS 区域。  此操作依赖于自带 DNS 服务器以及专用 FQDN 的 DNS 解析的配置。  如果未配置 DNS 解析，则 DNS 只能在代理节点内进行解析，并且会导致群集在部署之后出现问题。
+
+## <a name="no-private-dns-zone-prerequisites"></a>“无专用 DNS 区域”先决条件
+无 PrivateDNSZone
+* Azure CLI 0.4.67 或更高版本
+* API 2020-11-01 或更高版本
+
+## <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>创建具有专用 DNS 区域的专用 AKS 群集
+
+```azurecli
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system]
+```
 ## <a name="options-for-connecting-to-the-private-cluster"></a>连接到专用群集的选项
 
 API 服务器终结点没有公共 IP 地址。 若要管理 API 服务器，需要使用有权访问 AKS 群集的 Azure 虚拟网络 (VNet) 的 VM。 有几种选项可用于建立与专用群集的网络连接。
@@ -111,10 +127,8 @@ API 服务器终结点没有公共 IP 地址。 若要管理 API 服务器，需
 
 3. 在包含群集的 VNet 具有自定义 DNS 设置 (4) 的情况下，除非将专用 DNS 区域链接到包含自定义 DNS 解析程序的 VNet (5)，否则群集部署将失败。 可以在群集预配期间创建专用区域后手动创建此链接，也可以使用基于事件的部署机制（例如，Azure 事件网格和 Azure Functions）在检测到区域已创建后通过自动化来创建此链接。
 
-## <a name="dependencies"></a>依赖项  
-
-* 仅标准 Azure 负载均衡器支持专用链接服务。 不支持基本 Azure 负载均衡器。  
-* 若要使用自定义 DNS 服务器，请在自定义 DNS 服务器中将 Azure DNS IP 168.63.129.16 作为上游 DNS 服务器进行添加。
+> [!NOTE]
+> 如果你[将自带路由表与 kubenet 配合使用](https://docs.azure.cn/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet)，并且将自带 DNS 与专用群集配合使用，群集创建将会失败。 你需要在创建群集失败之后将节点资源组中的 [RouteTable](https://docs.azure.cn/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) 关联到子网，以使创建能够成功。
 
 ## <a name="limitations"></a>限制 
 * IP 授权范围不能应用于专用 API 服务器终结点，它们仅适用于公共 API 服务器
@@ -127,11 +141,11 @@ API 服务器终结点没有公共 IP 地址。 若要管理 API 服务器，需
     <!--Not Available on  Consider to use [Self-hosted Agents][devops-agents]-->
     
 * 对于需要使 Azure 容器注册表能够与专用 AKS 配合使用的客户，容器注册表虚拟网络必须与代理群集虚拟网络对等互连。
-* 当前不支持 Azure Dev Spaces
 * 不支持将现有 AKS 群集转换为专用群集
 * 删除或修改客户子网中的专用终结点将导致群集停止运行。 
 * 当前不支持适用于容器的 Azure Monitor 实时数据。
-* 当前不支持运行时间 SLA。
+* 客户在自己的 DNS 服务器上更新 A 记录后，这些 Pod 仍会在迁移后将 apiserver FQDN 解析到较旧的 IP，直到重启这些 Pod。 客户需要在控制平面迁移之后重启 hostNetwork Pod 和 default-DNSPolicy Pod。
+* 如果对控制平面进行维护，[AKS IP](https://docs.azure.cn/aks/limit-egress-traffic) 可能会更改。 在这种情况下，你必须在自定义 DNS 服务器上更新指向 API 服务器专用 IP 的 A 记录，并重启使用 hostNetwork 的任何自定义 Pod 或部署。
 
 <!-- LINKS - internal -->
 

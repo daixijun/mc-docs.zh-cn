@@ -3,17 +3,17 @@ title: 使用 Azure CLI 管理 Azure Stack Hub
 description: 了解如何使用跨平台命令行接口 (CLI) 管理和部署 Azure Stack Hub 上的资源。
 author: WenJason
 ms.topic: article
-origin.date: 10/26/2020
-ms.date: 12/07/2020
+origin.date: 12/16/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 72cc0593407e5fa7c8595e0ac47bfaa52e3d72b8
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: 7e696385511655d52888165247f4c82c1da8e910
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507322"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894380"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>在 Azure Stack Hub 上安装 Azure CLI
 
@@ -37,7 +37,7 @@ ms.locfileid: "96507322"
 
 2. 记下 CLI 的 Python 位置。 如果正在运行 ASDK，则需要使用此位置来添加证书。 有关如何设置证书以在 ASDK 上安装 CLI 的说明，请参阅[在 Azure Stack 开发工具包中为 Azure CLI 设置证书](../asdk/asdk-cli.md)。
 
-## <a name="set-up-azure-cli"></a>设置 Azure CLI
+## <a name="connect-with-azure-cli"></a>使用 Azure CLI 进行连接
 
 ### <a name="azure-ad-on-windows"></a>[Windows 上的 Azure AD](#tab/ad-win)
 
@@ -51,17 +51,25 @@ ms.locfileid: "96507322"
 
 3. 注册环境。 在运行 `az cloud register` 时使用以下参数：
 
-    | 值 | 示例 | 说明 |
-    | --- | --- | --- |
-    | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
-    | 资源管理器终结点 | `https://management.local.azurestack.external` | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
-    | 存储终结点 | local.azurestack.external | `local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
-    | KeyVault 后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
-    | VM 映像别名文档终结点- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 包含 VM 映像别名的文档的 URI。 有关详细信息，请参阅[设置虚拟机别名终结点](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint)。 |
+      | 值 | 示例 | 说明 |
+      | --- | --- | --- |
+      | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
+      | 资源管理器终结点 | `https://management.contoso.partner.onmschina.cn` | ASDK 中的 **ResourceManagerUrl** 为：`https://management.contoso.partner.onmschina.cn/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
+      | 存储终结点 | local.contoso.partner.onmschina.cn | `local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
+      | KeyVault 后缀 | .vault.contoso.partner.onmschina.cn | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
+      | 终结点 active directory graph 资源 ID | https://graph.chinacloudapi.cn/ | Active Directory 资源 ID。 |
+    
+      ```azurecli  
+      az cloud register `
+          -n <environmentname> `
+          --endpoint-resource-manager "https://management.<region>.<fqdn>" `
+          --suffix-storage-endpoint "<fqdn>" `
+          --suffix-keyvault-dns ".vault.<fqdn>" `
+          --endpoint-active-directory-graph-resource-id "https://graph.chinacloudapi.cn/"
+      ```
 
-    ```azurecli  
-    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
-    ```
+    可以在 Azure CLI 参考文档中找到 [register 命令](/cli/cloud?view=azure-cli-latest#az_cloud_register)的参考。
+
 
 4. 使用以下命令设置活动环境。
 
@@ -74,18 +82,17 @@ ms.locfileid: "96507322"
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
-
-    >[!NOTE]  
-    >如果正在运行的 Azure Stack Hub 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2019-03-01-hybrid**。 还需要使用最新版本的 Azure CLI。
  
-6. 使用 `az login` 命令登录到 Azure Stack Hub 环境。 以用户身份或以[服务主体](/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack Hub 环境。 
+6. 使用 `az login` 命令登录到 Azure Stack Hub 环境。
+
+    可以使用用户凭据或云运营商提供的[服务主体](/active-directory/develop/app-objects-and-service-principals) (SPN) 登录到 Azure Stack Hub 环境。 
 
    - 以用户身份登录： 
 
      可以直接在 `az login` 命令中指定用户名和密码，或使用浏览器进行身份验证。 如果帐户已启用多重身份验证，则必须采用后一种方法。
 
      ```azurecli
-     az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.partner.onmschina.cn> --tenant <Azure Active Directory Tenant name. For example: myazurestack.partner.onmschina.cn>
+     az login -u "user@contoso.partner.onmschina.cn" -p 'Password123!' --tenant contoso.partner.onmschina.cn
      ```
 
      > [!NOTE]
@@ -93,11 +100,34 @@ ms.locfileid: "96507322"
 
    - 以服务主体身份登录： 
     
-     在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](../operator/azure-stack-create-service-principals.md?view=azs-2002)，并为其分配角色。 接下来，使用以下命令登录：
+        在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](../operator/azure-stack-create-service-principals.md?view=azs-2002)，并为其分配角色。 接下来，使用以下命令登录：
+    
+        ```azurecli  
+        az login `
+          --tenant <Azure Active Directory Tenant name. `
+                    For example: myazurestack.partner.onmschina.cn> `
+        --service-principal `
+          -u <Application Id of the Service Principal> `
+          -p <Key generated for the Service Principal>
+        ```
+    
+7. 验证环境是否设置正确，以及环境是否为活动云。
 
-     ```azurecli  
-     az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.partner.onmschina.cn> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
-     ```
+      ```azurecli
+          az cloud list --output table
+      ```
+
+应当看到环境被列出，并且“IsActive”为 `true`。 例如：
+
+```azurecli  
+IsActive    Name               Profile
+----------  -----------------  -----------------
+False       AzureCloud         2019-03-01-hybrid
+False       AzureChinaCloud    latest
+False       AzureUSGovernment  latest
+False       AzureGermanCloud   latest
+True        AzureStackUser     2019-03-01-hybrid
+```
 
 #### <a name="test-the-connectivity"></a>测试连接
 

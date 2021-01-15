@@ -6,16 +6,16 @@ ms.service: firewall
 ms.topic: how-to
 origin.date: 11/16/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: e66ae663063c1b8fa76199b9d675f8943cb77b0d
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: ca3a345a4a0735ecc247dfe583981aa9870dd69d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746713"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021325"
 ---
 <!--Verified successfully-->
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Azure 防火墙 SNAT 专用 IP 地址范围
@@ -41,9 +41,22 @@ ms.locfileid: "96746713"
 
 ### <a name="new-firewall"></a>新建防火墙
 
-对于新建防火墙，Azure PowerShell 命令如下：
+对于新建防火墙，Azure PowerShell cmdlet 如下：
 
-`New-AzFirewall -Name $GatewayName -ResourceGroupName $RG -Location $Location -VirtualNetworkName $vnet.Name -PublicIpName $LBPip.Name -PrivateRange @("IANAPrivateRanges","IPRange1", "IPRange2")`
+```azurepowershell
+$azFw = @{
+    Name               = '<fw-name>'
+    ResourceGroupName  = '<resourcegroup-name>'
+    Location           = '<location>'
+    VirtualNetworkName = '<vnet-name>'
+    PublicIpName       = '<public-ip-name>'
+    PrivateRange       = @("IANAPrivateRanges", "192.168.1.0/24", "192.168.1.10")
+}
+
+New-AzFirewall @azFw
+```
+> [!NOTE]
+> 使用 `New-AzFirewall` 部署 Azure 防火墙需要一个现有的 VNet 和公共 IP 地址。 有关完整的部署指南，请参阅[使用 Azure PowerShell 部署和配置 Azure 防火墙](deploy-ps.md)。
 
 > [!NOTE]
 > 将其他范围添加到 Azure 防火墙中时，IANAPrivateRanges 将扩展到 Azure 防火墙上的当前默认值。 若要在专用范围规范中保留 IANAPrivateRanges 默认值，则必须将其保留在 `PrivateRange` 规范中，如以下示例所示。
@@ -52,22 +65,54 @@ ms.locfileid: "96746713"
 
 ### <a name="existing-firewall"></a>现有防火墙
 
-若要配置现有防火墙，请使用以下 Azure PowerShell 命令：
+若要配置现有防火墙，请使用以下 Azure PowerShell cmdlet：
 
 ```azurepowershell
-$azfw = Get-AzFirewall -ResourceGroupName "Firewall Resource Group name"
-$azfw.PrivateRange = @("IANAPrivateRanges","IPRange1", "IPRange2")
+$azfw = Get-AzFirewall -Name '<fw-name>' -ResourceGroupName '<resourcegroup-name>'
+$azfw.PrivateRange = @("IANAPrivateRanges","192.168.1.0/24", "192.168.1.10")
 Set-AzFirewall -AzureFirewall $azfw
 ```
 
-### <a name="templates"></a>模板
+## <a name="configure-snat-private-ip-address-ranges---azure-cli"></a>配置 SNAT 专用 IP 地址范围 - Azure CLI
 
-可以将以下内容添加到 `additionalProperties` 部分：
+可以使用 Azure CLI 为防火墙指定专用 IP 地址范围。
 
+### <a name="new-firewall"></a>新建防火墙
+
+对于新建防火墙，Azure CLI 命令如下：
+
+```azurecli
+az network firewall create \
+-n <fw-name> \
+-g <resourcegroup-name> \
+--private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
 ```
+
+> [!NOTE]
+> 使用 Azure CLI 命令 `az network firewall create` 部署 Azure 防火墙需要额外的配置步骤来创建公共 IP 地址和 IP 配置。 有关完整的部署指南，请参阅[使用 Azure CLI 部署和配置 Azure 防火墙](deploy-cli.md)。
+
+> [!NOTE]
+> 将其他范围添加到 Azure 防火墙中时，IANAPrivateRanges 将扩展到 Azure 防火墙上的当前默认值。 若要在专用范围规范中保留 IANAPrivateRanges 默认值，则必须将其保留在 `PrivateRange` 规范中，如以下示例所示。
+
+### <a name="existing-firewall"></a>现有防火墙
+
+若要配置现有防火墙，可使用以下 Azure CLI 命令：
+
+```azurecli
+az network firewall update \
+-n <fw-name> \
+-g <resourcegroup-name> \
+--private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
+```
+
+## <a name="configure-snat-private-ip-address-ranges---arm-template"></a>配置 SNAT 专用 IP 地址范围 - ARM 模板
+
+若要在 ARM 模板部署期间配置 SNAT，可将以下内容添加到 `additionalProperties` 属性：
+
+```json
 "additionalProperties": {
-                    "Network.SNAT.PrivateRanges": "IANAPrivateRanges , IPRange1, IPRange2"
-                },
+   "Network.SNAT.PrivateRanges": "IANAPrivateRanges , IPRange1, IPRange2"
+},
 ```
 
 ## <a name="configure-snat-private-ip-address-ranges---azure-portal"></a>配置 SNAT 专用 IP 地址范围 - Azure 门户

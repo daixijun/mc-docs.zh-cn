@@ -1,6 +1,6 @@
 ---
 title: 用户定义的还原点
-description: 如何创建专用 SQL 池的还原点。
+description: 如何创建专用 SQL 池（以前称为 SQL DW）的还原点。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,20 +8,20 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 07/03/2019
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 94389b4b2989b980d1751d5e459cd81cb32d112c
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 0c06eac0732d8326e54cf903a2f8109050f3ab9b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153105"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022373"
 ---
-# <a name="user-defined-restore-points-for-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池的用户定义还原点
+# <a name="user-defined-restore-points-for-a-dedicated-sql-pool-formerly-sql-dw"></a>专用 SQL 池（以前称为 SQL DW）的用户定义还原点
 
-本文介绍了如何使用 PowerShell 和 Azure 门户为 Azure Synapse Analytics 中的专用 SQL 池新建用户定义的还原点。
+本文介绍如何使用 PowerShell 和 Azure 门户为 Azure Synapse Analytics 中的专用 SQL 池（以前称为 SQL DW）新建用户定义的还原点。
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>通过 PowerShell 创建用户定义的还原点
 
@@ -54,7 +54,7 @@ New-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName 
 
 ```Powershell
 # List all restore points
-Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
+Get-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 ```
 
 ## <a name="create-user-defined-restore-points-through-the-azure-portal"></a>通过 Azure 门户创建用户定义的还原点
@@ -63,9 +63,9 @@ Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)帐户。
 
-2. 导航到要为其创建还原点的专用 SQL 池。
+2. 导航到需要为其创建还原点的专用 SQL 池（以前称为 SQL DW）。
 
-3. 从左窗格中选择“概述”  ，选择“+ 新建还原点”  。 如果“新建还原点”按钮未启用，请确保专用 SQL 池未暂停。
+3. 从左窗格中选择“概述”  ，选择“+ 新建还原点”  。 如果“新建还原点”按钮未启用，请确保专用 SQL 池（以前称为 SQL DW）未暂停。
 
     ![新建还原点](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
@@ -75,7 +75,6 @@ Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName
 
 ## <a name="next-steps"></a>后续步骤
 
-- [还原现有专用 SQL 池](sql-data-warehouse-restore-active-paused-dw.md)
-- [还原已删除的专用 SQL 池](sql-data-warehouse-restore-deleted-dw.md)
-- [从异地备份专用 SQL 池进行还原](sql-data-warehouse-restore-from-geo-backup.md)
-
+- [还原现有专用 SQL 池（以前称为 SQL DW）](sql-data-warehouse-restore-active-paused-dw.md)
+- [还原已删除的专用 SQL 池（以前称为 SQL DW）](sql-data-warehouse-restore-deleted-dw.md)
+- [从异地备份专用 SQL 池（以前称为 SQL DW）进行还原](sql-data-warehouse-restore-from-geo-backup.md)

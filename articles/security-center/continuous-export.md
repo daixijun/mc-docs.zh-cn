@@ -6,14 +6,14 @@ author: Johnnytechn
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 01/06/2021
 ms.author: v-johya
-ms.openlocfilehash: 8e80994886c2ced7193b2df9fc6a623916c54998
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 526ce24bd7e8393acd6bf782f8f31ae2f929f185
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747166"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023063"
 ---
 # <a name="continuously-export-security-center-data"></a>连续导出安全中心数据
 
@@ -24,6 +24,7 @@ Azure 安全中心会生成详细的安全警报和建议。 可以通过门户�
 - 将所有高严重性警报发送到 Azure 事件中心
 - 将 SQL 服务器的漏洞评估扫描中的所有中等或较高严重性结果发送到特定的 Log Analytics 工作区
 - 将生成的特定建议即时传递到事件中心或 Log Analytics 工作区 
+- 每当控件的分数变化 0.01 或更大时，订阅的安全分数就会发送到 Log Analytics 工作区 
 
 本文介绍如何配置到 Log Analytics 工作区或 Azure 事件中心的连续导出。
 
@@ -45,8 +46,15 @@ Azure 安全中心会生成详细的安全警报和建议。 可以通过门户�
 |||
 
 
+## <a name="what-data-types-can-be-exported"></a>可以导出哪些数据类型？
 
+连续导出可以在以下数据类型发生更改时导出它们：
 
+- 安全警报
+- 安全建议 
+- 可以视为“子”建议的安全发现，例如漏洞评估扫描程序或特定系统更新的发现。 可以选择将它们包括在其“父”建议中，例如“应在计算机上安装系统更新”。
+- 安全评分（按订阅或按控制）
+- 合规性数据
 
 ## <a name="set-up-a-continuous-export"></a>设置连续导出 
 
@@ -67,11 +75,12 @@ Azure 安全中心会生成详细的安全警报和建议。 可以通过门户�
     可以在这里看到导出选项。 每个可用的导出目标有一个选项卡。 
 
 1. 选择要导出的数据类型，并从每种类型的筛选器中进行选择（例如，仅导出严重程度高的警报）。
-1. （可选）如果你的选择包含以下四个建议中的一个，你可以将漏洞评估结果与它们包括在一起：
+1. （可选）如果你的选择包含这些建议中的一个，可以将漏洞评估结果与它们包括在一起：
     - 应修正关于 SQL 数据库的漏洞评估结果
     - 应修正关于计算机上的 SQL 服务器的漏洞评估结果（预览版）
     - 应修正 Azure 容器注册表映像中的漏洞（由 Qualys 提供技术支持）
     - 应修正虚拟机中的漏洞
+    - 应在计算机上安装系统更新
 
     若要将结果与这些建议包括在一起，请启用“包括安全结果”选项。
 
@@ -215,7 +224,9 @@ Azure Monitor 为各种 Azure 警报（包括诊断日志、指标警报以及�
 
 - 不会导出在启用导出之前收到的警报。
 - 当资源的合规性状态发生更改时就会发送建议。 例如，当某个资源的状态从正常变为不正常时。 因此，与警报一样，将不会导出针对自启用导出以来未更改状态的资源的建议。
+- 每个安全控制或订阅的安全分数（预览版）在一个安全控制的分数变化 0.01 或更大时发送。 
 
+<!--Not available in MC: Regulatory compliance status (preview)-->
 
 ### <a name="why-are-recommendations-sent-at-different-intervals"></a>为什么建议以不同的时间间隔发送？
 

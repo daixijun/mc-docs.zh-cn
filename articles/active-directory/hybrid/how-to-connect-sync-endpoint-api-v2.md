@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect 同步 V2 终结点公共预览版 | Microsoft Docs
+title: Azure AD Connect 同步 V2 终结点 | Microsoft Docs
 description: 本文档介绍 Azure AD Connect 同步 v2 终结点 API 的更新。
 services: active-directory
 author: billmath
@@ -8,38 +8,28 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 01/08/2021
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8b6c1682ef95a32cde5c0d42f1bfe52e7df4d8b
-ms.sourcegitcommit: 4d06a5e0f48472f5eadd731e43afb1e9fbba5787
+ms.openlocfilehash: c44c37dd1abb2346dadce04cfce2d9330c4b1e92
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041460"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021257"
 ---
-# <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect 同步 V2 终结点 API（公共预览版） 
+# <a name="azure-ad-connect-sync-v2-endpoint-api"></a>Azure AD Connect 同步 V2 终结点 API 
 Microsoft 已部署新的 Azure AD Connect 终结点 (API)，可提高 Azure Active Directory 的同步服务操作性能。 通过利用新的 V2 终结点，导出或导入 Azure AD 时的性能会有显著提升。 这一新终结点支持以下功能：
     
- -  同步具有最多 25 万名成员的组
+ - 同步具有最多 25 万名成员的组
  - 提高导出和导入到 Azure AD 的性能
  
 > [!NOTE]
 > 目前，新终结点对写回的 Microsoft 365 组没有已配置的组大小限制。 这可能会影响 Active Directory 和同步周期延迟。 建议以递增方式增加组大小。  
 
-
 ## <a name="pre-requisites"></a>先决条件  
 为使用新的 V2 终结点，需要使用 [Azure AD Connect 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) 或更高版本，并按照以下部署步骤为 Azure AD Connect 服务器启用 V2 终结点。   
-
->[!NOTE]
->目前，此公共预览版仅适用于 Azure 全球云，不适用于[国家云](../develop/authentication-national-cloud.md)。
-
-### <a name="public-preview-limitations"></a>公共预览版限制  
-尽管此版本已经过大量测试，但仍然可能会遇到问题。 此公共预览版的目标之一就是查找并修复任何此类问题。  
-
->[!IMPORTANT]
-> 尽管为此公共预览版提供了支持，但 Microsoft 可能并不能每次都能够立即解决你可能遇到的所有问题。 因此，建议先做出最佳判断，然后再在生产环境中部署此版本。 
 
 ## <a name="deployment-guidance"></a>部署指南 
 需要部署 [Azure AD Connect 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) 或更高版本才能使用 V2 终结点。 使用提供的链接进行下载。 
@@ -184,17 +174,9 @@ Microsoft 已部署新的 Azure AD Connect 终结点 (API)，可提高 Azure Act
 > 从 V2 切换回 V1 终结点时，在运行完全同步后，将删除与 5 万名以上的成员同步的组（适用于预配到 Azure AD 的 AD 组和预配到 AD 的 Microsoft 365 统一组）。 
 
 ## <a name="frequently-asked-questions"></a>常见问题  
-**问：** 客户是否可以在生产中使用此功能？  
-</br>是，可以在生产环境中使用此功能，如前文所述。
  
-**问：** 如果出现问题，客户可以联系谁？  
-</br>如果使用此功能时需要支持，则应打开支持案例。 
- 
-**问：** 能否经常更新公共预览版？  
-</br>公开预览期间更改次数有限。 在生产中部署公共预览版功能时，应评估此风险。  
- 
-**问：** 何时改版？  
-</br>改版之前，可能会取消并重新设计公共预览版功能。  
+何时新的终结点将成为升级和新安装的默认终结点？  
+</br>我们计划在 2021 年 1 月发布新版本的 AADConnect 供下载。 默认情况下，此版本会使用 V2 终结点，并会启用大于 50K 的同步组，而无需任何其他配置。 我们随后会发布这个可自动升级到符合条件的服务器的版本。
  
 ## <a name="next-steps"></a>后续步骤
 

@@ -4,19 +4,19 @@ description: 如何将 Azure IoT Edge 运行时和所有面向 Internet 的 IoT 
 author: kgremban
 ms.author: v-tawe
 origin.date: 09/03/2020
-ms.date: 11/13/2020
+ms.date: 01/05/2021
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
-- contperfq1
-ms.openlocfilehash: 0cde1939d7551b6876798561255fc2ec88ac3764
-ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
+- contperf-fy21q1
+ms.openlocfilehash: aabc2caca10a1846b9351df5ffa4faa2ab629513
+ms.sourcegitcommit: 40db5a4b9ab8b5877e307ff7a567fd930ca81c72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94595196"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894288"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>将 IoT Edge 设备配置为通过代理服务器进行通信
 
@@ -271,6 +271,12 @@ IoT Edge 代理是在任意 IoT Edge 设备上启动的第一个模块。 该代
     }
 }
 ```
+
+## <a name="working-with-traffic-inspecting-proxies"></a>使用流量检查代理
+
+如果你尝试使用的代理对受 TLS 保护的连接执行流量检查，请务必注意，使用 X.509 证书的身份验证无效。 IoT Edge 建立了一个 TLS 通道，该通道使用提供的证书和密钥进行了端到端加密。 如果断开该通道以进行流量检查，则代理无法使用正确的凭据重新建立该通道，并且 IoT 中心和 IoT 中心设备预配服务会返回“`Unauthorized`”错误。
+
+若要使用执行流量检查的代理，你必须使用共享访问签名身份验证或将 IoT 中心和 IoT 中心设备预配服务添加到允许列表中以避免检查。
 
 ## <a name="next-steps"></a>后续步骤
 

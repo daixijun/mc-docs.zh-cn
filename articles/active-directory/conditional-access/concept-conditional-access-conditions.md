@@ -112,7 +112,7 @@ Azure AD 条件访问支持以下设备平台：
 | macOS | Chrome、Safari |
 
 > [!NOTE]
-> Edge 85+ 要求用户登录到浏览器，以正确传递设备标识。 否则，其行为类似于没有帐户扩展的 Chrome。 在混合 Azure AD 联接方案中，此登录可能不会自动发生。 
+> Microsoft Edge 85+ 要求用户登录到浏览器，以正确传递设备标识。 否则，其行为类似于没有帐户扩展的 Chrome。 在混合 Azure AD 联接方案中，此登录可能不会自动发生。 
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>为何我在浏览器中看到证书提示
 

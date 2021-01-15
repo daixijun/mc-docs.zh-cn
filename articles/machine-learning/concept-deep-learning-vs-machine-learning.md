@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 922aab5b9c89f1c0100feef74bfbd64a5a2889d1
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: ab21fc91e74ac706c1ec606e1547014d7787a0ff
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977522"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022917"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Azure 机器学习中的深度学习与机器学习
 
@@ -57,6 +57,16 @@ ms.locfileid: "94977522"
 |  **执行时间** | 花费几秒到几小时的相对较少时间进行训练。 | 通常需要很长的时间才能完成训练，因为深度学习算法涉及到许多层。 |
 |  **输出** | 输出通常是一个数值，例如评分或分类。 | 输出可以采用多种格式，例如文本、评分或声音。 |
 
+## <a name="transfer-learning"></a>迁移学习
+
+训练深度学习模型通常需要大量的训练数据、高端计算资源（GPU、TPU）和较长的训练时间。 在你不具备上述任何条件的情况下，可以使用一种称为“迁移学习”的技术来缩短训练过程。
+
+迁移学习是一种将解决某个问题时获得的知识应用于虽然不同但却相关的问题的技术。
+
+由于神经网络结构的原因，第一组层通常包含较低层次的特征，而最后一组层则包含更接近所讨论领域的较高层次的特征。 通过重新调整最终层在新领域或问题中的用途，可以显著减少训练新模型所需的时间、数据和计算资源量。 例如，如果已有一个识别汽车的模型，则可使用迁移学习重新调整该模型的用途，使之也识别卡车、摩托车和其他类型的车辆。
+
+了解如何使用 Azure 机器学习中的开源框架将迁移学习应用于图像分类：[使用 Pytorch 模型将图像分类](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)。
+
 ## <a name="deep-learning-use-cases"></a>深度学习用例
 
 由于采用人工神经网络结构，在识别图像、声音、视频和文本等非结构化数据中的模式时，深度学习具有卓越的性能。 出于此原因，深度学习正在快速变革许多行业，包括医疗保健、能源、金融和运输。 这些行业正在反思传统的业务流程。 
@@ -72,8 +82,6 @@ ms.locfileid: "94977522"
 深度学习已应用于许多对象检测用例。 对象检测包括两个组成部分：图像分类和图像定位。 图像分类识别图像的对象，例如汽车或人。 图像定位提供这些对象的具体位置。 
 
 对象检测已在游戏、零售、旅游和自动驾驶汽车等行业中使用。
-
-了解如何在 Azure 机器学习中使用基于开源框架的图像分类模型：[使用 Pytorch 模型将图像分类](/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>图像说明生成
 
@@ -93,8 +101,6 @@ ms.locfileid: "94977522"
 
 公司可以使用深度学习来执行文本分析，以检测内幕交易以及政府法规的合规性。 另一个常见示例是保险欺诈：人们经常使用文本分析来分析大量的文件，以识别欺诈性保险索赔的可能性。 
 
-了解如何在 Azure 机器学习中使用 TensorFlow 模型：[使用 TensorFlow 模型将手写数字分类](/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
-
 ## <a name="artificial-neural-networks"></a>人工神经网络
 
 人工神经网络由连接的节点层构成。 深度学习模型使用包含大量层的神经网络。 
@@ -109,7 +115,7 @@ ms.locfileid: "94977522"
 
 递归神经网络是广泛使用的人工神经网络。 这些网络保存层的输出，并将其馈送回到输入层，以帮助预测该层的结果。 递归神经网络具有极高的学习能力。 它们广泛应用于时序预测、学习手写文本和识别语言等复杂任务。
 
-### <a name="convolutional-neural-networks"></a>卷积神经网络
+### <a name="convolutional-neural-network"></a>卷积神经网络
 
 卷积神经网络是特别高效的人工神经网络，它提供独特的体系结构。 层组织成三个维度：宽度、高度和深度。 一个层中的神经元不会连接到下一层中的所有神经元，而只连接到下一层神经元的较小区域。 最终输出化简为沿深度维组织的单个概率评分向量。 
 
@@ -118,6 +124,9 @@ ms.locfileid: "94977522"
 ## <a name="next-steps"></a>后续步骤
 
 以下文章介绍了在 [Azure 机器学习](/machine-learning/?WT.mc_id=docs-article-lazzeri)中使用开源深度学习模型的更多选项：
+
+
+- [使用 TensorFlow 模型将手写数字分类](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [使用 TensorFlow 估算器和 Keras 将手写数字分类](/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 

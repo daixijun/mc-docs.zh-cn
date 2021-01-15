@@ -4,16 +4,16 @@ description: 了解诊断日志收集。
 author: WenJason
 ms.topic: article
 origin.date: 10/30/2020
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: shisab
-ms.lastreviewed: 10/30/2020
-ms.openlocfilehash: 07f297990599c32bc7086e61d4776482f603ea86
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.lastreviewed: 12/08/2020
+ms.openlocfilehash: 2e7801cb82ab51b2efd06dc21968f0385d808e96
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830205"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894382"
 ---
 # <a name="diagnostic-log-collection"></a>诊断日志收集
 
@@ -35,6 +35,8 @@ Azure Stack Hub 提供了多种方式来收集和保存诊断日志并将其发�
 
 在你建立支持案例之前，主动收集日志功能会自动从 Azure Stack Hub 收集诊断日志并将其发送给我们。 这些日志仅在发出了[系统运行状况警报](#proactive-diagnostic-log-collection-alerts)的情况下收集，并且仅在建立了支持案例的情况下供 Azure 支持访问。
 
+从 Azure Stack Hub 版本 2008 开始，主动收集日志的功能使用改进的算法，即使在操作员看不到的错误情况下也可以捕获日志。 这样可以确保在适当的时间收集正确的诊断信息，无需操作员进行任何交互。 在某些情况下，Azure 支持可以更快地开始故障排除工作并解决问题。 初始算法改进侧重于修补升级操作。 建议启用主动收集日志的功能，因为更多的操作已经过优化，好处更多。
+
 随时可以禁用和重新启用主动日志收集。 按照以下步骤设置主动收集日志功能。
 
 1. 登录到 Azure Stack Hub 管理员门户。
@@ -53,6 +55,38 @@ Azure Stack Hub 提供了多种方式来收集和保存诊断日志并将其发�
 如果你不再同意，则以前在你同意的情况下收集的任何数据都不会受到影响。
 
 通过“主动收集日志”方式收集的日志会上传到由 Azure 管理和控制的 Azure 存储帐户中。 在收到支持案例的情况下，或者是为了改善 Azure Stack Hub 的运行状况，我们可能会访问这些日志。
+
+### <a name="proactive-diagnostic-log-collection-alerts"></a>主动收集诊断日志时的警报
+
+如果已启用，则当引发以下事件之一时，主动收集日志的功能会上传日志。
+
+例如，“更新失败”是一个警报，会触发主动收集诊断日志的操作。 如果启用了主动收集功能，则会在更新失败时主动捕获诊断日志，这样有助于 Azure 支持排查问题。 仅在引发 **更新失败** 的警报时才收集诊断日志。
+
+| 警报标题 | FaultIdType |
+|---|---|
+|无法连接到远程服务 | UsageBridge.NetworkError|
+|更新失败 | Urp.UpdateFailure |
+|存储资源提供程序基础结构/依赖项不可用 |    StorageResourceProviderDependencyUnavailable |
+|节点未连接到控制器| ServerHostNotConnectedToController |  
+|路由发布失败 | SlbMuxRoutePublicationFailure |
+|存储资源提供程序内部数据存储不可用 |    StorageResourceProvider。 DataStoreConnectionFail |
+|存储设备发生故障 | Microsoft.Health.FaultType.VirtualDisks.Detached |
+|运行状况控制器无法访问存储帐户 | Microsoft.Health.FaultType.StorageError |
+|与物理磁盘的连接已丢失 | Microsoft.Health.FaultType.PhysicalDisk.LostCommunication |
+|Blob 服务未在节点上运行 | StorageService.The.blob.service.is.not.running.on.a.node-Critical |
+|基础结构角色不正常 | Microsoft.Health.FaultType.GenericExceptionFault |
+|表服务错误 | StorageService.Table.service.errors-Critical |
+|文件共享已利用超过 80% | Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |
+|缩放单元节点已脱机 | FRP.Heartbeat.PhysicalNode |
+|基础结构角色实例不可用 | FRP.Heartbeat.InfraVM |
+|基础结构角色实例不可用  | FRP.Heartbeat.NonHaVm |
+|基础结构角色“目录管理”报告了时间同步错误 | DirectoryServiceTimeSynchronizationError |
+|挂起的外部证书过期 | CertificateExpiration.ExternalCert.Warning |
+|挂起的外部证书过期 | CertificateExpiration.ExternalCert.Critical |
+|由于内存容量不足，无法针对特定类别和大小预配虚拟机 | AzureStack.ComputeController.VmCreationFailure.LowMemory |
+|无法访问节点以供虚拟机放置 | AzureStack.ComputeController.HostUnresponsive |
+|备份失败  | AzureStack.BackupController.BackupFailedGeneralFault |
+|由于与失败的操作发生冲突，已跳过计划的备份    | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |
 
 ## <a name="send-logs-now"></a>立即发送日志
 
@@ -168,38 +202,6 @@ Azure Stack Hub 提供了多种方式来收集和保存诊断日志并将其发�
 - **类型**：是手动收集日志还是主动收集日志。
 
 ![“帮助 + 支持”中的日志集合](media/azure-stack-help-and-support/azure-stack-log-collection.png)
-
-## <a name="proactive-diagnostic-log-collection-alerts"></a>主动收集诊断日志时的警报
-
-如果已启用，则仅当引发以下事件之一时，主动收集日志功能才会上传日志。
-
-例如，“更新失败”是一个警报，会触发主动收集诊断日志的操作。 如果启用了主动收集功能，则会在更新失败时主动捕获诊断日志，这样有助于 Azure 支持排查问题。 仅在引发 **更新失败** 的警报时才收集诊断日志。
-
-| 警报标题 | FaultIdType |
-|---|---|
-|无法连接到远程服务 | UsageBridge.NetworkError|
-|更新失败 | Urp.UpdateFailure |
-|存储资源提供程序基础结构/依赖项不可用 |    StorageResourceProviderDependencyUnavailable |
-|节点未连接到控制器| ServerHostNotConnectedToController |  
-|路由发布失败 | SlbMuxRoutePublicationFailure |
-|存储资源提供程序内部数据存储不可用 |    StorageResourceProvider。 DataStoreConnectionFail |
-|存储设备发生故障 | Microsoft.Health.FaultType.VirtualDisks.Detached |
-|运行状况控制器无法访问存储帐户 | Microsoft.Health.FaultType.StorageError |
-|与物理磁盘的连接已丢失 | Microsoft.Health.FaultType.PhysicalDisk.LostCommunication |
-|Blob 服务未在节点上运行 | StorageService.The.blob.service.is.not.running.on.a.node-Critical |
-|基础结构角色不正常 | Microsoft.Health.FaultType.GenericExceptionFault |
-|表服务错误 | StorageService.Table.service.errors-Critical |
-|文件共享已利用超过 80% | Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |
-|缩放单元节点已脱机 | FRP.Heartbeat.PhysicalNode |
-|基础结构角色实例不可用 | FRP.Heartbeat.InfraVM |
-|基础结构角色实例不可用  | FRP.Heartbeat.NonHaVm |
-|基础结构角色“目录管理”报告了时间同步错误 | DirectoryServiceTimeSynchronizationError |
-|挂起的外部证书过期 | CertificateExpiration.ExternalCert.Warning |
-|挂起的外部证书过期 | CertificateExpiration.ExternalCert.Critical |
-|由于内存容量不足，无法针对特定类别和大小预配虚拟机 | AzureStack.ComputeController.VmCreationFailure.LowMemory |
-|无法访问节点以供虚拟机放置 | AzureStack.ComputeController.HostUnresponsive |
-|备份失败  | AzureStack.BackupController.BackupFailedGeneralFault |
-|由于与失败的操作发生冲突，已跳过计划的备份    | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |
 
 ## <a name="see-also"></a>另请参阅
 

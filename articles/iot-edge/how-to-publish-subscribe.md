@@ -7,20 +7,20 @@ author: kgremban
 ms.author: v-tawe
 ms.reviewer: ebertra
 origin.date: 11/09/2020
-ms.date: 12/03/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: b9e84372849f0fbd0dda30d8560bed54750b7f95
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.openlocfilehash: fb60670e422bf87d3e30115140ed64d7aa393341
+ms.sourcegitcommit: 40db5a4b9ab8b5877e307ff7a567fd930ca81c72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541206"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894289"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>使用 Azure IoT Edge 发布和订阅
 
-可以使用 Azure IoT Edge MQTT 中转站发布和订阅消息。 本文将介绍如何连接到该中转站，如何针对用户定义的主题发布和订阅消息，以及如何使用 IoT 中心消息传递基元。 IoT Edge MQTT 中转站内置于 IoT Edge 中心。 有关详细信息，请参阅 [IoT Edge 中心的中转站功能](iot-edge-runtime.md)。
+可以使用 Azure IoT Edge MQTT 中转站发布和订阅消息。 本文介绍如何连接到此代理，如何针对用户定义的主题发布和订阅消息，以及如何使用 IoT 中心消息传送基元。 IoT Edge MQTT 中转站内置于 IoT Edge 中心。 有关详细信息，请参阅 [IoT Edge 中心的中转站功能](iot-edge-runtime.md)。
 
 > [!NOTE]
 > IoT Edge MQTT 中转站目前提供公开预览版。
@@ -37,7 +37,7 @@ ms.locfileid: "96541206"
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
 
-- 已在 IoT Edge 设备上安装 Mosquitto 客户端。 本文使用常用的 Mosquitto 客户端，包括 [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) 和 [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html)。 可以改用其他 MQTT 客户端。 若要在 Ubuntu 设备上安装 Mosquitto 客户端，请运行以下命令：
+- 已在 IoT Edge 设备上安装 Mosquitto 客户端。 本文使用常用的 Mosquitto 客户端 [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) 和 [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html)。 可以改用其他 MQTT 客户端。 若要在 Ubuntu 设备上安装 Mosquitto 客户端，请运行以下命令：
 
     ```cmd
     sudo apt-get update && sudo apt-get install mosquitto-clients
@@ -59,43 +59,43 @@ ms.locfileid: "96541206"
 
 若要禁用 TLS，请使用端口 1883 (MQTT) 并将 edgeHub 容器绑定到端口 1883。
 
-若要启用 TLS，如果客户端通过端口 8883 (MQTTS) 连接到 MQTT 中转站，则将启动一个 TLS 通道。 中转站发送客户端需要验证的证书链。 为了验证证书链，MQTT 中转站的根证书必须作为受信任的证书安装在客户端上。 如果根证书不受信任，则 MQTT 中转站将拒绝客户端库，并出现证书验证错误。 在客户端上安装中转站的该根证书的步骤与[透明网关](how-to-create-transparent-gateway.md)案例中的步骤相同，并在[准备下游设备](how-to-connect-downstream-device.md#prepare-a-downstream-device)文档中进行了描述。
+若要启用 TLS，如果客户端通过端口 8883 (MQTTS) 连接到 MQTT 代理，则将会启动一个 TLS 通道。 中转站发送客户端需要验证的证书链。 为了验证证书链，MQTT 中转站的根证书必须作为受信任的证书安装在客户端上。 如果根证书不受信任，则 MQTT 中转站将拒绝客户端库，并出现证书验证错误。 在客户端上安装中转站的该根证书的步骤与[透明网关](how-to-create-transparent-gateway.md)案例中的步骤相同，并在[准备下游设备](how-to-connect-downstream-device.md#prepare-a-downstream-device)文档中进行了描述。
 
 ### <a name="authentication"></a>身份验证
 
-若要使 MQTT 客户端进行自身验证，它首先需要向 MQTT 中转站发送一个 CONNECT 数据包，以其名称启动一个连接。 此数据包提供三条身份验证信息：`client identifier`、`username` 和 `password`：
+若要使 MQTT 客户端进行自身身份验证，它首先需要向 MQTT 代理发送 CONNECT 数据包，以便用它的名称来启动连接。 此数据包提供三条身份验证信息：`client identifier`、`username` 和 `password`：
 
--   `client identifier` 字段是 IoT 中心内设备的名称或模块名称。 它使用以下语法：
+- `client identifier` 字段是 IoT 中心内设备的名称或模块名称。 它使用以下语法：
 
-    - 对于设备：`<device_name>`
+  - 对于设备：`<device_name>`
 
-    - 对于模块：`<device_name>/<module_name>`
+  - 对于模块：`<device_name>/<module_name>`
 
    为了连接到 MQTT 中转站，必须在 IoT 中心中注册设备或模块。
 
-   请注意，中转站不允许使用相同的凭据连接两个客户端。 如果第二个客户端使用相同的凭据进行连接，则中转站将断开已连接的客户端。
+   该代理不允许来自使用相同凭据的多个客户端的连接。 如果第二个客户端使用相同的凭据进行连接，则中转站将断开已连接的客户端。
 
 - `username` 字段使用以下语法从设备/模块名称和设备所属的 IoTHub 名称派生：
 
-    - 对于设备：`<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
+  - 对于设备：`<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
 
-    - 对于模块：`<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
+  - 对于模块：`<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
 
 - CONNECT 数据包的 `password` 字段取决于身份验证模式：
 
-    - 对于[对称密钥身份验证](how-to-authenticate-downstream-device.md#symmetric-key-authentication)，`password` 字段是 SAS 令牌。
-    - 对于 [X.509 自签名身份验证](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)，`password` 字段不存在。 在此身份验证模式下，需要一个 TLS 通道。 客户端需要连接到端口 8883 以建立 TLS 连接。 在 TLS 握手期间，MQTT 中转站请求客户端证书。 此证书用于验证客户端的身份，因此在发送 CONNECT 数据包时不需要 `password` 字段。 同时发送客户端证书和密码字段将导致错误，且连接将关闭。 MQTT 库和 TLS 客户端库通常可以在启动连接时发送客户端证书。 你可以在 [使用 X509 证书进行客户端身份验证](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)部分中查看分步示例。
+  - 在使用[对称密钥身份验证](how-to-authenticate-downstream-device.md#symmetric-key-authentication)时，`password` 字段是 SAS 令牌。
+  - 在使用 [X.509 自签名身份验证](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)时，`password` 字段不存在。 在此身份验证模式下，需要一个 TLS 通道。 客户端需要连接到端口 8883 以建立 TLS 连接。 在 TLS 握手期间，MQTT 中转站请求客户端证书。 此证书用于验证客户端的身份，因此在发送 CONNECT 数据包时不需要 `password` 字段。 同时发送客户端证书和密码字段将导致错误，且连接将关闭。 MQTT 库和 TLS 客户端库通常可以在启动连接时发送客户端证书。 你可以在 [使用 X509 证书进行客户端身份验证](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)部分中查看分步示例。
 
 通过 IoT Edge 部署的模块使用[对称密钥身份验证](how-to-authenticate-downstream-device.md#symmetric-key-authentication)，并且可以调用本地 [IoT Edge 工作负载 API](https://github.com/Azure/iotedge/blob/40f10950dc65dd955e20f51f35d69dd4882e1618/edgelet/workload/README.md) 以编程方式获取 SAS 令牌，即使脱机时也是如此。
 
 ### <a name="authorization"></a>授权
 
-MQTT 客户端向 IoT Edge 中心进行身份验证后，它需要获得授权才能连接。 连接后，它需要获得授权才可针对特定主题进行发布或订阅。 这些授权由 IoT Edge 中心根据其授权策略授予。 授权策略是一组以 JSON 结构表示的语句，通过其孪生体发送到 IoT Edge 中心。 编辑 IoT Edge 中心孪生体以配置其授权策略。
+在 MQTT 客户端向 IoT Edge 中心进行身份验证后，它需要获得授权才能进行连接。 连接后，它需要获得授权才可针对特定主题进行发布或订阅。 这些授权由 IoT Edge 中心根据其授权策略授予。 授权策略是一组以 JSON 结构表示的语句，通过其孪生体发送到 IoT Edge 中心。 编辑 IoT Edge 中心孪生体以配置其授权策略。
 
 > [!NOTE]
-> 对于公共预览版，只有通过 Visual Studio、Visual Studio Code 或 Azure CLI 才能编辑 MQTT 中转站的授权策略。 Azure 门户目前不支持编辑 IoT Edge 中心孪生体及其授权策略。
+> 对于公共预览版，只有通过 Visual Studio、Visual Studio Code 或 Azure CLI 才能编辑 MQTT 代理的授权策略。 Azure 门户目前不支持编辑 IoT Edge 中心孪生体及其授权策略。
 
-每个授权策略语句由 `identities`、`allow` 或 `deny` 效果、`operations` 和 `resources` 的组合组成：
+每个授权策略语句由 `identities`、`allow` 或 `deny` 效果、`operations` 和 `resources` 的组合构成：
 
 - `identities` 描述策略的主题。 它必须映射到客户端在其 CONNECT 数据包中发送的 `client identifier`。
 - `allow` 或 `deny` 效果定义是允许还是拒绝操作。
@@ -164,19 +164,20 @@ MQTT 客户端向 IoT Edge 中心进行身份验证后，它需要获得授权�
 ```
 
 在编写授权策略时要记住以下几点：
+
 - 它需要 `$edgeHub` 孪生体架构版本 1.2
 - 默认情况下，所有操作都将被拒绝。
-- 授权语句按照它们在 JSON 定义中出现的顺序进行评估。 它首先查看 `identities`，然后选择与请求匹配的第一个允许或拒绝语句。 如果允许和拒绝语句之间发生冲突，则以拒绝语句为准。
-- 授权策略中可以使用几个变量（例如替换）：
-    - `{{iot:identity}}` 表示当前连接的客户端的标识。 例如，设备的 `myDevice`、模块的 `myEdgeDevice/SampleModule`。
-    - `{{iot:device_id}}` 表示当前连接的设备的标识。 例如，设备的 `myDevice`、模块的 `myEdgeDevice`。
-    - `{{iot:module_id}}` 表示当前连接的模块的标识。 例如，设备的 ``、模块的 `SampleModule`。
+- 授权语句会按照它们在 JSON 定义中出现的顺序接受评估。 它首先查看 `identities`，然后选择与请求匹配的第一个允许或拒绝语句。 如果允许和拒绝语句之间发生冲突，则以拒绝语句为准。
+- 授权策略中可以使用多个变量（例如替换）：
+    - `{{iot:identity}}` 表示当前连接的客户端的标识。 例如，`myDevice` 等设备标识或 `myEdgeDevice/SampleModule` 等模块标识。
+    - `{{iot:device_id}}` 表示当前连接的设备的标识。 例如，`myDevice` 等设备标识或 `myEdgeDevice` 等运行模块的设备标识。
+    - `{{iot:module_id}}` 表示当前连接的模块的标识。 此变量对于已连接的设备为空，或者是模块标识（如 `SampleModule`）。
     - `{{iot:this_device_id}}` 表示运行授权策略的 IoT Edge 设备的标识。 例如，`myIoTEdgeDevice`。
 
 与用户定义的主题相比，IoT 中心主题的授权处理方式略有不同。 以下是需要记住的要点：
+
 - Azure IoT 设备或模块需要显式授权规则才能连接到 IoT Edge 中心 MQTT 中转站。 下面提供了默认的连接授权策略。
 - 默认情况下，Azure IoT 设备或模块可以访问自己的 IoT 中心主题，而无需任何显式授权规则。 但是，在这种情况下，授权源于父/子关系，必须设置这些关系。 IoT Edge 模块自动设置为其 IoT Edge 设备的子项，但设备需要显式设置为其 IoT Edge 网关的子项。
-- Azure IoT 设备或模块可以访问其他设备或模块的主题，包括 IoT 中心主题，前提是定义了相应的显式授权规则。
 
 以下是默认授权策略，可用于使所有 Azure IoT 设备或模块能够连接到中转站：
 
@@ -231,7 +232,7 @@ MQTT 客户端向 IoT Edge 中心进行身份验证后，它需要获得授权�
        az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> --key-type primary --du 3600
        ```
     
-       其中 3600 是 SAS 令牌的持续时间（以秒为单位）（例如 3600 = 1 小时）。
+       其中 3600 是 SAS 令牌的持续时间（以秒为单位，例如 3600 = 1 小时）。
     
     - 对于模块：
     
@@ -239,9 +240,9 @@ MQTT 客户端向 IoT Edge 中心进行身份验证后，它需要获得授权�
        az iot hub generate-sas-token -n <iot_hub_name> -d <device_name> -m <module_name> --key-type primary --du 3600
        ```
     
-       其中 3600 是 SAS 令牌的持续时间（以秒为单位）（例如 3600 = 1 小时）。
+       其中 3600 是 SAS 令牌的持续时间（以秒为单位，例如 3600 = 1 小时）。
 
-3. 从输出中复制 SAS 令牌，该令牌是与“SAS”键对应的值。 以下是上述 Azure CLI 命令的输出示例：
+3. 复制 SAS 令牌，即输出中与“sas”键对应的值。 以下是上述 Azure CLI 命令的输出示例：
 
     ```
     {
@@ -274,7 +275,7 @@ MQTT 客户端向 IoT Edge 中心进行身份验证后，它需要获得授权�
                },
                {
                   "identities": [
-                     "sub_client"
+                     "<iot_hub_name>.azure-devices.cn/sub_client"
                   ],
                   "allow":[
                      {
@@ -283,13 +284,13 @@ MQTT 客户端向 IoT Edge 中心进行身份验证后，它需要获得授权�
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
                   ],
                },
                {
                   "identities": [
-                     "pub_client"
+                     "<iot_hub_name>.azure-devices.cn/pub_client"
                   ],
                   "allow":[
                      {
@@ -298,9 +299,9 @@ MQTT 客户端向 IoT Edge 中心进行身份验证后，它需要获得授权�
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
-                  ],
+                  ]
                }
             ]
          }
@@ -328,7 +329,7 @@ mosquitto_sub \
 
 在本例中为 `<edge_device_address>` = `localhost`，因为客户端与 IoT Edge 在同一设备上运行。
 
-注意，在第一个示例中使用不启用 TLS 的端口 1883 (MQTT)。 下一部分将显示另一个使用启用了 TLS 的端口 8883 (MQTTS) 示例。
+请注意，在这第一个示例中使用了未启用 TLS 的端口 1883 (MQTT)。 下一部分中将显示另一个示例，其中使用了已启用 TLS 的端口 8883 (MQTTS)。
 
 MQTT 客户端 sub_client 现在已启动，正在等待有关 `test_topic` 的传入消息。
 
@@ -385,7 +386,7 @@ mosquitto_pub \
 
 ### <a name="receive-direct-methods"></a>接收直接方法
 
-接收直接方法与接收全孪生体非常相似，但客户端需要返回确认它已收到调用。 首先，客户端针对 IoT 中心特定主题 `$iothub/methods/POST/#` 进行订阅。 然后，在收到关于该主题的直接方法后，客户端需要从针对其接收到直接方法的子主题中提取请求标识符 `rid`，最终针对 IoT 中心特定主题 `$iothub/methods/res/200/<request_id>` 发布确认消息。
+接收直接方法与接收完整孪生体类似，但客户端还需要发送回有关它已收到调用的确认信息。 首先，客户端订阅 IoT 中心特殊主题 `$iothub/methods/POST/#`。 然后，在收到关于该主题的直接方法后，客户端需要从针对其接收到直接方法的子主题中提取请求标识符 `rid`，最终针对 IoT 中心特定主题 `$iothub/methods/res/200/<request_id>` 发布确认消息。
 
 ### <a name="send-direct-methods"></a>发送直接方法
 
@@ -393,12 +394,10 @@ mosquitto_pub \
 
 ## <a name="publish-and-subscribe-between-mqtt-brokers"></a>在 MQTT 中转站之间发布和订阅
 
-若要连接两个 MQTT 中转站，IoT Edge 中心包含一个 MQTT 桥。 MQTT 桥通常用于将运行的 MQTT 中转站连接到其他 MQTT 中转站。 通常只将一部分的本地流量推送到其他中转站。
+为了连接两个 MQTT 代理，IoT Edge 中心会包含一个 MQTT 桥。 MQTT 桥通常用于将正在运行的 MQTT 代理连接到另一个 MQTT 代理。 通常只将一部分的本地流量推送到其他中转站。
 
 > [!NOTE]
-> IoT Edge 中心桥目前只能在嵌套的 IoT Edge 设备之间使用。 它不能用于向 IoT 中心发送数据，因为 IoT 中心不是功能齐全的 MQTT 中转站。 若要了解 IoT 中心 MQTT 中转站功能支持的详细信息，请参阅[使用 MQTT 协议与 IoT 中心通信](../iot-hub/iot-hub-mqtt-support.md)。
-
-<!-- To learn more about nesting IoT Edge devices, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices)  -->
+> IoT Edge 中心桥目前只能在嵌套的 IoT Edge 设备之间使用。 它不能用于向 IoT 中心发送数据，因为 IoT 中心不是功能齐全的 MQTT 中转站。 若要了解 IoT 中心 MQTT 中转站功能支持的详细信息，请参阅[使用 MQTT 协议与 IoT 中心通信](../iot-hub/iot-hub-mqtt-support.md)。 若要详细了解如何嵌套 IoT Edge 设备，请参阅[将下游 IoT Edge 设备连接到 Azure IoT Edge 网关](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices) 
 
 在嵌套配置中，IoT Edge 中心 MQTT 桥充当父 MQTT 中转站的客户端，因此必须对父 EdgeHub 设置授权规则，以允许子 EdgeHub 针对为其配置桥的特定用户定义主题进行发布和订阅。
 
@@ -413,8 +412,8 @@ IoT Edge MQTT 桥通过 JSON 结构进行配置，JSON 结构通过其孪生体�
 - `settings` 定义要为终结点桥接的主题。 每个终结点可以有多个设置，以下值用于配置它：
     - `direction`：`in`（针对远程中转站的主题进行订阅）或 `out`（针对远程中转站的主题进行发布）
     - `topic`：要匹配的核心主题模式。 [MQTT 通配符](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107)可用于定义此模式。 在本地中转站和远程中转站上，可以将不同的前缀应用于此主题模式。
-    - `outPrefix`：应用于远程中转站上的 `topic` 模式的前缀。
-    - `inPrefix`：应用于本地中转站上的 `topic` 模式的前缀。
+    - `outPrefix`：在远程代理上应用于 `topic` 模式的前缀。
+    - `inPrefix`：在本地代理上应用于 `topic` 模式的前缀。
 
 以下是 IoT Edge MQTT 桥配置的示例，该配置将父 IoT Edge 设备收到的所有关于主题 `alerts/#` 的消息重新发布到关于相同主题的子 IoT Edge 设备，并将子 IoT Edge 设备发送的所有关于主题 `/local/telemetry/#` 的消息重新发布到关于主题 `/remote/messages/#` 的父 IoT Edge 设备。
 

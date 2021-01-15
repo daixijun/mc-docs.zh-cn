@@ -9,12 +9,12 @@ ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 98e00e853e5c34d24037294264063f0f9d109dcf
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: e95558b04164a017e3d5e450bd8b083b8573e8ed
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004043"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023136"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>使用 Azure CLI 将 Azure Active Directory 与 Azure Kubernetes 服务集成（旧版）
 
@@ -97,14 +97,34 @@ az ad app permission add \
     --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope 06da0dbc-49e2-44d2-8312-53f166ab848a=Scope 7ab1d382-f21e-4acd-a863-ba3e13f7da61=Role
 ```
 
-最后，使用 [az ad app permission grant][az-ad-app-permission-grant] 命令授予在上一步骤中为服务器应用程序分配的权限。 如果当前帐户不是租户管理员，此步骤将会失败。还需要添加对 Azure AD 应用程序的权限来请求信息，否则可能需要使用 [az ad app permission admin-consent][az-ad-app-permission-admin-consent] 来请求管理许可：
+<!--MOONCAKE CUSTOMIZE ON 01/08/2021-->
 
+最后，使用 [az ad app permission grant][az-ad-app-permission-grant] 命令授予在上一步骤中为服务器应用程序分配的权限。 如果当前帐户不是租户管理员，此步骤将会失败。 
+
+<!--Not Available on You also need to add permissions for Azure AD application to request information that may otherwise require administrative consent using the [az ad app permission admin-consent][az-ad-app-permission-admin-consent]-->
 <!--The following cli cmdlet run failed due to not the administration priviledge-->
 
 ```azurecli
 az ad app permission grant --id $serverApplicationId --api 00000003-0000-0000-c000-000000000000
-az ad app permission admin-consent --id  $serverApplicationId
 ```
+
+还需要添加对 Azure AD 应用程序的权限来请求信息，否则可能需要通过 Azure 中国门户来请求管理员同意。
+
+1. 登录 [Azure 门户](https://portal.azure.cn)，在顶部门户的搜索筛选器中输入 `Azure Active Directory`。 在服务结果中选择 `Azure Active Directory`。
+
+1. 选择 `App registrations` 并在搜索筛选器中输入 `myaksclusterServer`，然后选择该项。
+    
+    :::image type="content" source="media/azure-ad-integration-cli/azure-ad-app-registration-chenye.png" alt-text="门户上的 Azure Active Directory 应用注册":::
+
+1. 选择 `API permissions`，然后选择 `Grant admin consent for` 子菜单。
+    
+    :::image type="content" source="media/azure-ad-integration-cli/aks-app-permission-admin-consent-chenye.png" alt-text="通过门户在管理员同意中添加对 Azure AD 应用程序的权限":::
+
+    > [!NOTE]
+    > 目前，Azure 中国云尚不支持 `az ad app permission admin-consent` cmdlet，我们需要通过 Azure 中国门户获得管理员同意。
+    > 如果有任何关于 `az ad app permission admin-consent`（用于支持主权云）的反馈，我们会尽快刷新内容。
+
+    <!--MOONCAKE CUSTOMIZE ON 01/08/2021-->
 
 ## <a name="create-azure-ad-client-component"></a>创建 Azure AD 客户端组件
 

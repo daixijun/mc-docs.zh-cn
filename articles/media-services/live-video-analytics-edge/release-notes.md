@@ -2,17 +2,14 @@
 title: IoT Edge 上的实时视频分析发行说明 - Azure
 description: 本主题提供 IoT Edge 上的实时视频分析版本的发行说明、改进、bug 修复和已知问题。
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
-ms.service: media-services
-origin.date: 04/27/2020
-ms.date: 11/30/2020
-ms.openlocfilehash: da8f05bcec4cb694769ebcee3f10a08e169edb9b
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+origin.date: 08/19/2020
+ms.date: 01/11/2021
+ms.openlocfilehash: a86111032310a70d29d88c530ff72495cf2f0aff
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300772"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022157"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>IoT Edge 上的实时视频分析发行说明
 
@@ -24,6 +21,20 @@ ms.locfileid: "96300772"
 * 已弃用的功能
 
 <hr width=100%>
+
+## <a name="december-14-2020"></a>2020 年 12 月 14 日
+此版本是 IoT Edge 上实时视频分析的公共预览刷新版本。 发行标记为
+
+```
+     mcr.microsoft.com/media/live-video-analytics:2.0.0
+```
+### <a name="module-updates"></a>模块更新
+* 添加了对每个图形拓扑使用多个 HTTP 扩展处理器和 gRPC 扩展处理器的支持。
+* 添加了对接收器节点的磁盘空间管理的支持。
+* `MediaGraphGrpcExtension` 节点现在支持 [extensionConfiguration](grpc-extension-protocol.md) 属性，允许在单个 gRPC 服务器中使用多个 AI 模型。
+* 添加了对以 [Prometheus 格式](https://prometheus.io/docs/practices/naming/)收集实时视频分析模块指标的支持 
+* 帧速率筛选器处理器已弃用。  
+    * 帧速率管理现在在图形扩展处理器节点本身中可用。
 
 ## <a name="september-22-2020"></a>2020 年 9 月 22 日
 
@@ -61,7 +72,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ### <a name="bug-fixes"></a>Bug 修复 
 
-* 在设置脚本中删除弃用的 azure 扩展的使用
+* 在设置脚本中不再使用已弃用的 Azure 扩展
 
 <hr width=100%>
 
