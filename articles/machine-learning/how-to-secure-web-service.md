@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8c6d621fb4620659ce708dd010bd221619cc812a
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: c5fe574e503b3ce10d2e994b8affcb64bf305d88
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104573"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021664"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>使用 TLS 保护通过 Azure 机器学习部署的 Web 服务
 
@@ -28,7 +28,7 @@ ms.locfileid: "97104573"
 > [!TIP]
 > Azure 机器学习 SDK 使用术语“SSL”表示与安全通信相关的属性。 这并不意味着 Web 服务不会使用 TLS。 SSL 只是更广泛公认的术语。
 >
-> 具体来说，通过 Azure 机器学习部署的 Web 服务支持 AKS 和 ACI 新部署的 TLS 版本 1.2。 对于 ACI 部署，如果在用较旧的 TLS 版本，建议重新部署以使用最新 TLS 版本。
+> 具体来说，通过 Azure 机器学习部署的 Web 服务支持 AKS 和 ACI 的 TLS 版本 1.2。 对于 ACI 部署，如果在用较旧的 TLS 版本，建议重新部署以使用最新 TLS 版本。
 
 TLS 和 SSL 均依赖数字证书，这有助于加密和身份验证。 有关数字证书工作原理的详细信息，请参阅维基百科主题[公钥基础结构](https://en.wikipedia.org/wiki/Public_key_infrastructure)。
 
@@ -75,29 +75,16 @@ TLS 和 SSL 均依赖数字证书，这有助于加密和身份验证。 有关�
 
 若要部署（或重新部署）启用了 TLS 的服务，请在适当的位置将 ssl_enabled 参数设置为“True”。 将 ssl_certificate 参数设置为证书文件的值 。 将 ssl_key 设置为密钥文件的值 。
 
-### <a name="deploy-on-aks-and-field-programmable-gate-array-fpga"></a>在 AKS 和现场可编程门阵列 (FPGA) 上进行部署
+### <a name="deploy-on-azure-kubernetes-service"></a>在 Azure Kubernetes 服务上部署
 
   > [!NOTE]
   > 为设计器部署安全的 Web 服务时，此部分中的信息也适用。 如果不熟悉如何使用 Python SDK，请参阅[什么是适用于 Python 的 Azure 机器学习 SDK？](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)。
 
-部署到 AKS 时，可以创建新的 AKS 群集或附加现有群集。 有关创建或附加群集的详细信息，请参阅[将模型部署到 Azure Kubernetes 服务群集](how-to-deploy-azure-kubernetes-service.md)。
-  
--  如果创建新群集，请使用 **[AksCompute.provisioning_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 。
-- 如果附加现有群集，请使用 **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 。 这两个方法都返回包含 enable_ssl 方法的配置对象。
+**[AksCompute.provisioning_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 和 **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 均会返回一个配置对象，该对象具有 **enable_ssl** 方法，你可以使用 **enable_ssl** 方法启用 TLS。
 
-enable_ssl 方法可以使用 Microsoft 提供的证书或你购买的证书。
+可以使用 Microsoft 证书或从 CA 购买的自定义证书来启用 TLS。 
 
-> [!WARNING]
-> 如果使用内部负载均衡器配置了 AKS 群集，则不支持使用 Microsoft 提供的证书。 使用 Microsoft 提供的证书需要 Azure 中的公共 IP 资源，为内部负载均衡器配置时，AKS 无法使用此资源。
-
-  * 使用 Microsoft 的证书时，必须使用 leaf_domain_label 参数。 此参数生成服务的 DNS 名称。 例如，使用值“contoso”将创建域名“contoso\<six-random-characters>.\<azureregion>.cloudapp.azure.com”，其中 \<azureregion> 是包含该服务的区域。 或者，可使用 overwrite_existing_domain 参数覆盖现有的 leaf_domain_label 。
-
-    若要部署（或重新部署）启用了 TLS 的服务，请在适当的位置将 ssl_enabled 参数设置为“True”。 将 ssl_certificate 参数设置为证书文件的值 。 将 ssl_key 设置为密钥文件的值 。
-
-    > [!IMPORTANT]
-    > 如果使用 Microsoft 的证书，则无需购买属于自己的证书或域名。
-
-    下面的示例演示如何创建一个配置，以启用 Microsoft 提供的 TLS/SSL 证书：
+* 使用 Microsoft 提供的证书时，必须使用 leaf_domain_label 参数。 此参数生成服务的 DNS 名称。 例如，使用值“contoso”将创建域名“contoso\<six-random-characters>.\<azureregion>.cloudapp.azure.com”，其中 \<azureregion> 是包含该服务的区域。 或者，可使用 overwrite_existing_domain 参数覆盖现有的 leaf_domain_label 。 下面的示例演示如何创建一个配置，以使用 Microsoft 提供的证书启用 TLS：
 
     ```python
     from azureml.core.compute import AksCompute
@@ -117,9 +104,14 @@ enable_ssl 方法可以使用 Microsoft 提供的证书或你购买的证书。
     #  where "######" is a random series of characters
     attach_config.enable_ssl(leaf_domain_label = "contoso")
     ```
+    > [!IMPORTANT]
+    > 如果使用 Microsoft 的证书，则无需购买属于自己的证书或域名。
 
-  * 使用你购买的证书 时，请使用 ssl_cert_pem_file、ssl_key_pem_file、ssl_cname 参数   。 下面的示例演示如何使用 .pem 文件创建使用所购买的 TLS/SSL 证书的配置：
+    > [!WARNING]
+    > 如果为 AKS 群集配置了内部负载均衡器，则不支持使用 Microsoft 提供的证书，并且你必须使用自定义证书启用 TLS。
 
+* 使用你购买的自定义证书时，请使用 ssl_cert_pem_file、ssl_key_pem_file 和 ssl_cname 参数  。 下面的示例演示如何使用 .pem 文件创建使用所购买的 TLS/SSL 证书的配置：
+ 
     ```python
     from azureml.core.compute import AksCompute
     # Config used to create a new AKS cluster and enable TLS
@@ -150,23 +142,17 @@ aci_config = AciWebservice.deploy_configuration(
 
 ## <a name="update-your-dns"></a>更新 DNS
 
-接下来，必须更新 DNS，使其指向该 Web 服务。
+对于使用自定义证书进行的 AKS 部署，或者对于 ACI 部署，你必须更新 DNS 记录，使其指向评分终结点的 IP 地址。
 
-+ **对于容器实例：**
+  > [!IMPORTANT]
+  > 将 Microsoft 提供的证书用于 AKS 部署时，无需手动更新群集的 DNS 值。 应自动设置该值。
 
-  使用域名注册机构的工具来更新域名的 DNS 记录。 该记录必须指向服务的 IP 地址。
+可以按照以下步骤更新自定义域名的 DNS 记录：
+* 从评分终结点 URI（其格式通常为 *http://104.214.29.152:80/api/v1/service/<service-name>/score* ）获取评分终结点 IP 地址。 
+* 使用域名注册机构的工具来更新域名的 DNS 记录。 该记录必须指向评分终结点的 IP 地址。
+* DNS 记录更新之后，可以使用 nslookup custom-domain-name 命令验证 DNS 解析。 如果 DNS 记录已正确更新，自定义域名将指向评分终结点的 IP 地址。
+* 可能延迟几分钟到几小时之后客户端才能解析域名，具体取决于注册机构和为域名配置的“生存时间”(TTL)。
 
-  可能延迟几分钟到几小时之后客户端才能解析域名，具体取决于注册机构和为域名配置的“生存时间”(TTL)。
-
-+ **对于 AKS：**
-
-  > [!WARNING]
-  > 如果使用了 leaf_domain_label 通过 Microsoft 的证书创建服务，请不要手动更新群集的 DNS 值。 应自动设置该值。
-  >
-  > 如果使用内部负载均衡器配置了 AKS 群集，则不支持使用 Microsoft 提供的证书（方法是设置 leaf_domain_label）。 使用 Microsoft 提供的证书需要 Azure 中的公共 IP 资源，为内部负载均衡器配置时，AKS 无法使用此资源。
-  在左侧窗格中“设置”下的“配置”选项卡上更新 AKS 群集公共 IP 地址 DNS 。 （参看下图。）公共 IP 地址是在包含 AKS 代理节点和其他网络资源的资源组下创建的资源类型。
-
-  [![Azure 机器学习：使用 TLS 保护 Web 服务](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-tlsssl-certificate"></a>更新 TLS/SSL 证书
 

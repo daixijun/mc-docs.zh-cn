@@ -2,16 +2,16 @@
 title: 如何创建适用于 Linux 的来宾配置策略
 description: 了解如何创建适用于 Linux 的 Azure Policy 来宾配置策略。
 origin.date: 08/17/2020
-ms.date: 12/03/2020
+ms.date: 01/05/2021
 ms.author: v-tawe
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5282b1511647ffc7a15ec5249222c689faeb5d6a
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.openlocfilehash: 9fd3fa41f820d24878fecccf56801ea5ced40ede
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541166"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874838"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>如何创建适用于 Linux 的来宾配置策略
 
@@ -331,10 +331,15 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>策略生命周期
 
-若要发布对策略定义的更新，需要注意三个字段。
+如果要发布策略更新，请同时更改来宾配置包和 Azure Policy 定义详细信息。
 
 > [!NOTE]
 > 来宾配置分配的 `version` 属性仅影响 Microsoft 托管的包。 对自定义内容进行版本控制的最佳做法是在文件名中包含版本。
+
+首先，在运行 `New-GuestConfigurationPackage` 时为包指定一个名称，使其与以前的版本不同。 可以在名称中包含版本号，例如 `PackageName_1.0.0`。
+使用本示例中的数字只是为了让包独一无二，而不是指定该包应被视为比其他包更新或更旧。
+
+接下来，按下面的每项说明更新与 `New-GuestConfigurationPolicy` cmdlet 一起使用的参数。
 
 - **版本**：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定高于当前发布版本的版本号。
 - **contentUri**：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须为包的位置指定一个 URI。 在文件名中包含包版本将确保此属性的值在每个版本中都会更改。

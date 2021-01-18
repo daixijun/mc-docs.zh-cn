@@ -5,17 +5,17 @@ services: container-service
 ms.topic: conceptual
 origin.date: 06/24/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 11/20/2020
 ms.author: v-yeche
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 486fe49e44d441c6c0ea8a35f2e7ab6b1b65d6e2
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 2afb03af6d39ed7c7fda8b2eea636cf6ce69fbd6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978333"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021688"
 ---
 <!--Verified successfully-->
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Azure Kubernetes 服务 (AKS) 运行时间 SLA
@@ -33,11 +33,8 @@ ms.locfileid: "94978333"
 
 ## <a name="region-availability"></a>上市区域
 
-运行时间 SLA 在[支持 AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service&regions=,china-non-regional,china-east,china-east-2,china-north,china-north-2,) 的 Azure 中国云区域提供。
-
-## <a name="limitations"></a>限制
-
-* 当前不支持专用群集。
+* 运行时间 SLA 在[支持 AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service&regions=,china-non-regional,china-east,china-east-2,china-north,china-north-2,) 的 Azure 中国云区域提供。
+* 在支持 AKS 的所有区域中，[专用 AKS 群集][private-clusters]都可以使用运行时间 SLA。
 
 ## <a name="sla-terms-and-conditions"></a>SLA 条款和条件
 
@@ -151,6 +148,6 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
 [az-aks-nodepool-update]: https://docs.azure.cn/cli/aks/nodepool#az_aks_nodepool_update
 [az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
+[private-clusters]: private-clusters.md
 
-<!-- Update_Description: new article about uptime sla -->
-<!--NEW.date: 11/23/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

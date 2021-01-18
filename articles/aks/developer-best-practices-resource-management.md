@@ -6,16 +6,16 @@ services: container-service
 ms.topic: conceptual
 origin.date: 11/13/2019
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 700baee4e253e2d657af3e0133c2135668cbe5ea
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 388f86a7603fe9c392053414fd918a62a2813475
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024581"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023124"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>有关管理 Azure Kubernetes 服务 (AKS) 中的资源的应用程序开发人员最佳做法
 
@@ -39,7 +39,7 @@ ms.locfileid: "96024581"
 * **Pod CPU/内存请求** 定义 Pod 定期需要的固定 CPU 和内存量。
     * 当 Kubernetes 计划程序尝试在节点上放置 Pod 时，将使用 Pod 请求来确定哪个节点有足够的可用资源进行计划。
     * 如果未设置 Pod 请求，则默认情况下会将其设置为定义的限制。
-    * 必须监视应用程序的性能并调整这些请求，这很重要。 如果发出的请求不足，应用程序可能会因节点计划过度而导致性能下降。 如果估算的请求数过高，则应用程序可能会更加难以进行计划。
+    * 必须监视应用程序的性能并调整这些请求，这很重要。 如果发出的 Pod 资源请求不足，应用程序可能会因节点计划过度而导致性能下降。 如果估算的请求数过高，则应用程序可能会更加难以进行计划。
 * **Pod CPU/内存限制** 是 Pod 可以使用的最大 CPU 和内存量。 内存限制有助于定义因资源不足而导致节点不稳定时应终止的 Pod。 如果没有适当的限制，则会终止固定的 Pod，直到解除资源压力。 Pod 在一段时间内不一定能够超过 CPU 限制，但是 Pod 不会因超过 CPU 限制而被终止。 
     * Pod 限制有助于定义 Pod 何时失去对资源消耗的控制。 超出限制时，会首先终止该 Pod 来维护节点运行状况，最大程度地减少对共享节点的 Pod 的影响。
     * 如果未设置 Pod 限制，则会将其默认设置为给定节点上的最高可用值。

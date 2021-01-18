@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: nibaccam
 origin.date: 07/31/2020
 ms.date: 08/27/2020
-ms.openlocfilehash: 41022f0789c709b265f7f0133f15622f7e51beab
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: ddb4a3e575ade1e1393d89e8ea7b2dba00c1fd60
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105277"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021825"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>创建 Azure 机器学习数据集
 
@@ -40,7 +40,7 @@ ms.locfileid: "97105277"
 
 若要创建和使用数据集，需要做好以下准备：
 
-* Azure 订阅。 如果没有订阅，请在开始之前创建一个试用帐户。 试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+* Azure 订阅。 如果没有订阅，请在开始之前创建一个试用帐户。 试用 [Azure 机器学习的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 一个 [Azure 机器学习工作区](how-to-manage-workspace.md)。
 
@@ -124,7 +124,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 若要在工作区的不同试验中重用和共享数据集，请[注册数据集](#register-datasets)。 
 
 > [!TIP] 
-> 在一个方法中使用公共预览版方法 [upload_directory()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py#methods) 从本地目录上传文件，并创建一个 FileDataset。 此方法是一个[试验性](https://docs.microsoft.com/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental)预览功能，可能会随时更改。 
+> 在一个方法中使用公共预览版方法 [upload_directory()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-) 从本地目录上传文件，并创建一个 FileDataset。 此方法是一个[试验性](https://docs.microsoft.com/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental)预览功能，可能会随时更改。 
 > 
 >  此方法会将数据上传到基础存储，因此会产生存储费用。 
 ### <a name="create-a-tabulardataset"></a>创建 TabularDataset
@@ -206,7 +206,7 @@ dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepar
 ```
 
 > [!TIP]
-> 在一个方法中使用公共预览版方法 [`register_spark_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#methods) 和 [`register_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#methods) 从内存中 spark 或 pandas 数据帧创建并注册一个 TabularDataset。 这些注册方法属于[试验性](https://docs.microsoft.com/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental)预览功能，可能会随时更改。 
+> 在一个方法中使用公共预览版方法 [`register_spark_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#methods) 和 [`register_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?preserve-view=true&view=azure-ml-py#methods) 从内存中 spark 或 pandas 数据帧创建并注册一个 TabularDataset。 这些注册方法属于[试验性](https://docs.microsoft.com/python//api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental)预览功能，可能会随时更改。 
 > 
 >  这些方法会将数据上传到基础存储，因此会产生存储费用。 
 

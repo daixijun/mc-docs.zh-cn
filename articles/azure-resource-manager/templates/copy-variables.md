@@ -1,20 +1,21 @@
 ---
 title: 定义变量的多个实例
-description: 在创建变量时，可以使用 Azure 资源管理器模板中的复制操作进行多次迭代。
+description: 在创建变量时，可以使用 Azure 资源管理器模板（ARM 模板）中的复制操作进行多次迭代。
 ms.topic: conceptual
 origin.date: 02/13/2020
-ms.date: 06/22/2020
+author: rockboyfor
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: 71971aa81642e4d59a262a9721bae64778bac03b
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: 5285e69997de906a9d12a2e84bae955e95bda4d3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098521"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022291"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>ARM 模板中的变量迭代
 
-本文展示了如何为 Azure 资源管理器 (ARM) 模板中的变量创建多个值。 通过将 **copy** 元素添加到模板的 variables 节，可以在部署过程中动态设置变量的项数。 还可以避免重复模板语法。
+本文展示了如何为 Azure 资源管理器模板（ARM 模板）中的变量创建多个值。 通过将 `copy` 元素添加到模板的 variables 节，可以在部署过程中动态设置变量的项数。 还可以避免重复模板语法。
 
 还可以将 copy 用于[资源](copy-resources.md)、[资源中的属性](copy-properties.md)，以及[输出](copy-outputs.md)。
 
@@ -32,9 +33,9 @@ copy 元素采用以下常规格式：
 ]
 ```
 
-**name** 属性是标识循环的任何值。 **count** 属性指定你希望该变量迭代的次数。
+`name` 属性是标识循环的任何值。 `count` 属性指定你希望该变量迭代的次数。
 
-**input** 属性指定要重复的属性。 你将创建一个由 **input** 属性中的值构造的元素数组。 它可以是单个属性（例如字符串），也可以是具有多个属性的对象。
+`input` 属性指定要重复的属性。 可以创建一个由 `input` 属性中的值构造的元素数组。 它可以是单个属性（例如字符串），也可以是具有多个属性的对象。
 
 ## <a name="copy-limits"></a>复制限制
 
@@ -94,7 +95,7 @@ count 不能为负数。 如果使用最新版本的 Azure CLI、PowerShell 或 
 ]
 ```
 
-下一个示例展示了如何创建具有三个属性（name、diskSizeGB 和 diskIndex）的对象的数组。
+下一个示例演示如何创建具有三个属性（`name`、`diskSizeGB` 和 `diskIndex`）的对象的数组。
 
 ```json
 {
@@ -162,10 +163,10 @@ count 不能为负数。 如果使用最新版本的 Azure CLI、PowerShell 或 
 ```
 
 > [!NOTE]
-> 变量迭代支持偏移量参数。 偏移量必须在迭代名称之后，例如 copyIndex('diskNames', 1)。 如果未提供偏移量值，对于第一个实例，它将默认为 0。
+> 变量迭代支持偏移量参数。 偏移量必须在迭代名称之后，例如 `copyIndex('diskNames', 1)`。 如果未提供偏移量值，对于第一个实例，它将默认为 0。
 >
 
-还可以在变量内使用 copy 元素。 以下示例创建一个使用数组作为其值之一的对象。
+还可以在变量内使用 `copy` 元素。 以下示例创建一个使用数组作为其值之一的对象。
 
 ```json
 {
@@ -238,7 +239,7 @@ count 不能为负数。 如果使用最新版本的 Azure CLI、PowerShell 或 
 }
 ```
 
-下一示例显示了可以将 copy 用于变量的各种方式。
+下一示例显示了可以将 `copy` 用于变量的各种方式。
 
 ```json
 {
@@ -325,11 +326,13 @@ count 不能为负数。 如果使用最新版本的 Azure CLI、PowerShell 或 
 
 * 若要完成教程，请参阅[教程：使用 ARM 模板创建多个资源实例](template-tutorial-create-multiple-instances.md)。
 * 有关 copy 元素的其他用法，请参阅：
-  * [ARM 模板中的资源迭代](copy-resources.md)
-  * [ARM 模板中的属性迭代](copy-properties.md)
-  * [ARM 模板中的输出迭代](copy-outputs.md)
-* 若要了解有关模板区段的信息，请参阅[创作 ARM 模板](template-syntax.md)。
-* 若要了解如何部署模板，请参阅[使用 ARM 模板部署应用程序](deploy-powershell.md)。
+
+    * [ARM 模板中的资源迭代](copy-resources.md)
+    * [ARM 模板中的属性迭代](copy-properties.md)
+    * [ARM 模板中的输出迭代](copy-outputs.md)
+    
+* 若要了解模板的各个部分，请参阅[了解 ARM 模板的结构和语法](template-syntax.md)。
+* 若要了解如何部署模板，请参阅[使用 ARM 模板和 Azure PowerShell 来部署资源](deploy-powershell.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->
-    <!--NEW.date: 03/09/2020-->
+<!--NEW.date: 03/09/2020-->

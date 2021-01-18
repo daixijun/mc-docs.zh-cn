@@ -10,17 +10,19 @@ author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.custom: how-to, deploy, studio
-ms.openlocfilehash: 96482154728647909be810e88725eb0c01cbb688
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.custom: how-to, deploy, studio, designer
+ms.openlocfilehash: 5bf53ea6e3aee3b3428e76c03119a9331dcd2b96
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978264"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023277"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>使用工作室部署在设计器中训练的模型
 
-本文介绍如何在 Azure 机器学习工作室中将设计器中经过训练的模型作为实时终结点进行部署。
+本文介绍如何在 Azure 机器学习工作室中将设计器模型部署为实时终结点。
+
+注册或下载后，就可以像使用任何其他模型一样使用设计器训练的模型。 导出的模型可以在用例（例如物联网 (IoT) 和本地部署）中进行部署。
 
 工作室中的部署包括以下步骤：
 
@@ -299,7 +301,8 @@ score_params = dict(
 ## <a name="next-steps"></a>后续步骤
 
 * [在设计器中训练模型](tutorial-designer-automobile-price-train-score.md)
-* [排查部署失败的问题](how-to-troubleshoot-deployment.md)
+* [使用 Azure 机器学习 SDK 部署模型](how-to-deploy-and-where.md)
+* [排查部署失败问题](how-to-troubleshoot-deployment.md)
 * [部署到 Azure Kubernetes 服务](how-to-deploy-azure-kubernetes-service.md)
 * [创建客户端应用程序以使用 Web 服务](how-to-consume-web-service.md)
 * [更新 Web 服务](how-to-deploy-update-web-service.md)

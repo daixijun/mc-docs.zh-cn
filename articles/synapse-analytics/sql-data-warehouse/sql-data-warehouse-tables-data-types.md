@@ -1,6 +1,6 @@
 ---
-title: 专用 SQL 池中的表数据类型
-description: 有关在专用 SQL 池中定义表数据类型的建议。
+title: 专用 SQL 池（以前称为 SQL DW）中的表数据类型
+description: 在 Azure Synapse Analytics 中为专用 SQL 池（以前称为 SQL DW）定义表数据类型的建议。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,24 +8,24 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 01/06/2020
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 711077ae1ba4117fc4131ee4be3dd824fa5aa750
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 5a5bb876aba78d2455fd177d7da57136aa08d57e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153102"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022352"
 ---
-# <a name="table-data-types-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池的表数据类型 
+# <a name="table-data-types-for-dedicated-sql-pool-formerly--sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池（以前称为 SQL DW）的表数据类型 
 
 本文涵盖了在专用 SQL 池中定义表数据类型的建议。
 
 ## <a name="supported-data-types"></a>支持的数据类型
 
-专用 SQL 池支持最常用的数据类型。 有关受支持数据类型的列表，请参阅 CREATE TABLE 语句中的[数据类型](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#DataTypes)。
+专用 SQL 池（以前称为 SQL DW）支持最常用的数据类型。 有关受支持数据类型的列表，请参阅 CREATE TABLE 语句中的[数据类型](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#DataTypes)。
 
 ## <a name="minimize-row-length"></a>最大限度地减小行长度
 
@@ -52,7 +52,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 ## <a name="workarounds-for-unsupported-data-types"></a><a name="unsupported-data-types"></a>对不受支持的数据类型的解决方法
 
-以下列表显示了专用 SQL 池不支持的数据类型，同时提供了不受支持的数据类型的有效替代数据类型。
+以下列表显示了专用 SQL 池（以前称为 SQL DW）不支持的数据类型，同时提供了不受支持的数据类型的有效替代数据类型。
 
 | 不支持的数据类型 | 解决方法 |
 | --- | --- |
@@ -64,7 +64,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 | [ntext](https://docs.microsoft.com/sql/t-sql/data-types/ntext-text-and-image-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |[nvarchar](https://docs.microsoft.com/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |
 | [sql_variant](https://docs.microsoft.com/sql/t-sql/data-types/sql-variant-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |将列拆分成多个强类型化列。 |
 | [table](https://docs.microsoft.com/sql/t-sql/data-types/table-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |转换成暂时表。 |
-| [timestamp](https://docs.microsoft.com/sql/t-sql/data-types/date-and-time-types) |重写代码来使用 [datetime2](https://docs.microsoft.com/sql/t-sql/data-types/datetime2-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 和 [CURRENT_TIMESTAMP](https://docs.microsoft.com/sql/t-sql/functions/current-timestamp-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 函数。 仅支持使用常量作为默认值，因此，不能将 current_timestamp 定义为默认约束。 如果需要从 timestamp 类型的列迁移行版本值，请为 NOT NULL 或 NULL 行版本值使用 [BINARY](https://docs.microsoft.com/sql/t-sql/data-types/binary-and-varbinary-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)(8) 或 [VARBINARY](https://docs.microsoft.com/sql/t-sql/data-types/binary-and-varbinary-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)(8)。 |
+| [timestamp](https://docs.microsoft.com/sql/t-sql/data-types/date-and-time-types) |重写代码来使用 [datetime2](https://docs.microsoft.com/sql/t-sql/data-types/datetime2-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 和 [CURRENT_TIMESTAMP](https://docs.microsoft.com/sql/t-sql/functions/current-timestamp-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 函数。 仅支持使用常量作为默认值，因此，不能将 current_timestamp 定义为默认约束。 如果需要从 timestamp 类型的列迁移行版本值，请为 NOT NULL 或 NULL 行版本值使用 [BINARY](https://docs.microsoft.com/sql/t-sql/data-types/binary-and-varbinary-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)(8) 或 [VARBINARY](https://docs.microsoft.com/sql/t-sql/data-types/binary-and-varbinary-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)(8)。 |
 | [xml](https://docs.microsoft.com/sql/t-sql/xml/xml-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |[varchar](https://docs.microsoft.com/sql/t-sql/data-types/char-and-varchar-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |
 | [用户定义的类型](https://docs.microsoft.com/sql/relational-databases/native-client/features/using-user-defined-types?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |尽可能转换回本机数据类型。 |
 | 默认值 | 默认值仅支持文本和常量。 |

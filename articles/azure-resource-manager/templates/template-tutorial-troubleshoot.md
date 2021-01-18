@@ -3,22 +3,22 @@ title: 对部署进行故障排除
 description: 了解如何监视和排查 Azure 资源管理器模板部署问题。 显示活动日志和部署历史记录。
 origin.date: 01/15/2019
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 84e8a574ee775f14001724bbb81b64ae3fb1f35b
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 9c6c9093e34f0eaf98874cb67707c714c475676f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432598"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022260"
 ---
 <!--Verify Succesfully-->
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>教程：排查 ARM 模板部署问题
 
-了解如何排查 Azure 资源管理器 (ARM) 模板部署错误。 在本教程中，请先在模板中设置两个错误，然后了解如何使用活动日志和部署历史记录来解决问题。
+了解如何排查 Azure 资源管理器模板（ARM 模板）部署错误。 在本教程中，请先在模板中设置两个错误，然后了解如何使用活动日志和部署历史记录来解决问题。
 
 有两种类型的错误与模板部署相关：
 
@@ -35,7 +35,7 @@ ms.locfileid: "96432598"
 > - 排查部署错误
 > - 清理资源
 
-如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+如果没有 Azure 订阅，请在开始前[创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -43,13 +43,13 @@ ms.locfileid: "96432598"
 
 若要完成本文，需要做好以下准备：
 
-- 包含资源管理器工具扩展的 Visual Studio Code。 请参阅[快速入门：使用 Visual Studio Code 创建 Azure 资源管理器模板](quickstart-create-templates-use-visual-studio-code.md)。
+- 包含资源管理器工具扩展的 Visual Studio Code。 请参阅[快速入门：使用 Visual Studio Code 创建 ARM 模板](quickstart-create-templates-use-visual-studio-code.md)。
 
 ## <a name="create-a-problematic-template"></a>创建有问题的模板
 
 打开 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)中名为[创建标准存储帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)的模板，设置两个模板问题。
 
-1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。 
+1. 在 Visual Studio Code 中，选择“文件” > “打开文件”。 
 2. 在“文件名”中粘贴以下 URL：
 
     ```url
@@ -57,16 +57,16 @@ ms.locfileid: "96432598"
     ```
 
 3. 选择“打开”以打开该文件。
-4. 将 **apiVersion** 行更改为以下行：
+4. 将 `apiVersion` 行更改为以下行：
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
 
-    - **apiVersion1** 是无效的元素名称。 它是验证错误。
-    - API 版本应该是“2018-07-01”。  它是部署错误。
+    - `apiVersion1` 是无效的元素名称。 它是验证错误。
+    - API 版本应为 `"2018-07-01"`。  它是部署错误。
 
-5. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。 
+5. 选择“文件” > “另存为”，将该文件作为 _azuredeploy.json_ 保存到本地计算机。 
 
 ## <a name="troubleshoot-the-validation-error"></a>排查验证错误
 
@@ -74,13 +74,13 @@ ms.locfileid: "96432598"
 
 你会从 shell 获得类似于以下内容的错误：
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-错误消息指示问题出在 **apiVersion1**。
+错误消息指示问题出在 `apiVersion1`。
 
-使用 Visual Studio Code 修正此问题，方法是将 **apiVersion1** 更改为 **apiVersion**，然后保存模板。
+使用 Visual Studio Code 修正此问题，方法是将 `apiVersion1` 更改为 `apiVersion`，然后保存模板。
 
 ## <a name="troubleshoot-the-deployment-error"></a>排查部署错误
 
@@ -88,7 +88,9 @@ New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; 
 
 你会从 shell 获得类似于以下内容的错误：
 
-```
+<!--MOONCAKE CUSTOMIZE on the support areas-->
+
+```azurepowershell
 New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageAccounts 'storeqii7x2rce77dc' failed with message '{
   "error": {
     "code": "NoRegisteredProviderFound",
@@ -97,7 +99,7 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 }'
 ```
 
-<!--Correct on the support areas-->
+<!--MOONCAKE CUSTOMIZE on the support areas-->
 
 可通过以下过程从 Azure 门户找出部署错误：
 

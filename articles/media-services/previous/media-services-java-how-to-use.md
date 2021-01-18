@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 03/18/2019
-ms.date: 09/28/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.custom: devx-track-java
-ms.openlocfilehash: 571842443f750677f95adaf46585320895578cb5
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 2f35d747a3163fef0a07a32d0f107f9357f86a06
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432408"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022777"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>用于 Azure 媒体服务的 Java 客户端 SDK 入门
 

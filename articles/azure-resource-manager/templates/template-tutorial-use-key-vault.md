@@ -1,26 +1,26 @@
 ---
 title: 在模板中使用 Azure Key Vault
-description: 了解如何在资源管理器模板部署期间使用 Azure Key Vault 来传递安全参数值
-author: rockboyfor
+description: 了解如何在 Azure 资源管理器模板部署期间使用 Azure Key Vault 来传递安全参数值
 origin.date: 04/23/2020
-ms.date: 08/24/2020
+author: rockboyfor
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: fa7ab66f2bbbefd1806a6bbafe180f675213f05d
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 913eeabffeed1a5469f4b3d26f3ac859874d183f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431713"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021341"
 ---
 <!-- Verify successfully-->
 <!-- CORRECT THE LOCATION DEFAULT VALUE TO [parameters('location')]-->
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>教程：在 ARM 模板部署中集成 Azure Key Vault
 
-了解部署 Azure 资源管理器 (ARM) 模版时如何从 Azure 密钥保管库检索机密并将机密作为参数传递。 该参数值永远不会公开，因为只会引用其密钥保管库 ID。 可以使用静态 ID 或动态 ID 来引用密钥保管库机密。 本教程使用的是静态 ID。 使用静态 ID 方法，可以在模板参数文件（而不是模板文件）中引用密钥保管库。 有关这两种方法的详细信息，请参阅[在部署过程中使用 Azure Key Vault 传递安全参数值](./key-vault-parameter.md)。
+了解部署 Azure 资源管理器模版（ARM 模版）时如何从 Azure 密钥保管库检索机密并将机密作为参数传递。 该参数值永远不会公开，因为只会引用其密钥保管库 ID。 可以使用静态 ID 或动态 ID 来引用密钥保管库机密。 本教程使用的是静态 ID。 使用静态 ID 方法，可以在模板参数文件（而不是模板文件）中引用密钥保管库。 有关这两种方法的详细信息，请参阅[在部署过程中使用 Azure Key Vault 传递安全参数值](./key-vault-parameter.md)。
 
 在[设置资源部署顺序](./template-tutorial-create-templates-with-dependent-resources.md)教程中，你需要创建虚拟机 (VM)。 需提供 VM 管理员用户名和密码。 可以不提供密码，而是将密码预先存储在 Azure 密钥保管库中，然后自定义模板，以便在部署过程中从密钥保管库检索密码。
 
@@ -36,18 +36,21 @@ ms.locfileid: "96431713"
 > * 验证部署
 > * 清理资源
 
-如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+如果没有 Azure 订阅，请在开始前[创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+
+<!--Not Available on [Manage complex cloud deployments by using advanced ARM template features](https://docs.microsoft.com/learn/modules/manage-deployments-advanced-arm-template-features/)-->
 
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本文，需要做好以下准备：
 
-* 包含资源管理器工具扩展的 Visual Studio Code。 请参阅[快速入门：使用 Visual Studio Code 创建 Azure 资源管理器模板](quickstart-create-templates-use-visual-studio-code.md)。
+* 包含资源管理器工具扩展的 Visual Studio Code。 请参阅[快速入门：使用 Visual Studio Code 创建 ARM 模板](quickstart-create-templates-use-visual-studio-code.md)。
 * 若要增强安全性，请使用为 VM 管理员帐户生成的密码。 以下是密码生成示例：
 
     ```console
     openssl rand -base64 32
     ```
+
     验证生成的密码是否符合 VM 密码要求。 每个 Azure 服务具有特定的密码要求。 有关 VM 密码要求，请参阅[创建 VM 时，密码有什么要求？](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。
 
 ## <a name="prepare-a-key-vault"></a>准备 Key Vault
@@ -58,7 +61,7 @@ ms.locfileid: "96431713"
 * 将密钥添加到密钥保管库。 该密钥存储 VM 管理员密码。
 
 > [!NOTE]
-> 如果你（作为要部署虚拟机模板的用户）不是密钥保管库的所有者或参与者，则密钥保管库的所有者或参与者必须向你授予对密钥保管库的 Microsoft.KeyVault/vaults/deploy/action 的访问权限。 有关详细信息，请参阅[在部署过程中使用 Azure 密钥保管库传递安全参数值](./key-vault-parameter.md)。
+> 如果你（作为要部署虚拟机模板的用户）不是密钥保管库的所有者或参与者，则密钥保管库的所有者或参与者必须向你授予对密钥保管库的 `Microsoft.KeyVault/vaults/deploy/action` 的访问权限。 有关详细信息，请参阅[在部署过程中使用 Azure 密钥保管库传递安全参数值](./key-vault-parameter.md)。
 
 <!--MOONCAKE CUSTOMIZATION ON 05/18/2020-->
 
@@ -74,16 +77,15 @@ ms.locfileid: "96431713"
         
         将 `location` 的属性从“`centralus`”更改为“`[parameters('location')]`”。
         
-        >[!NOTE]
+        > [!NOTE]
         > 必须修改从 GitHub 存储库“azure-docs-json-samples”下载或引用的模板，使之与 Azure 中国云环境匹配。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
 
         
     1. 选择“文件” > “另存为”，使用名称“CreateKeyVault.json”将该文件的副本保存到本地计算机。 
     
-1. 在本地计算机上运行以下 Azure PowerShell 脚本。
+1. 在本地计算机上使用管理特权运行以下 Azure PowerShell 脚本。
 
     <!--Not Available on Cloud Shell-->
-
 
     ```powershell
     # Sign in the Azure China Cloud
@@ -112,7 +114,7 @@ ms.locfileid: "96431713"
 
 <!--MOONCAKE CUSTOMIZATION ON 05/18/2020-->
 
-模板有一个名为 keyVaultId 的输出值。 在本教程中稍后将使用此 ID 和机密名称来检索机密值。 资源 ID 格式为：
+模板有一个名为 `keyVaultId` 的输出值。 在本教程中稍后将使用此 ID 和机密名称来检索机密值。 资源 ID 格式为：
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -120,7 +122,7 @@ ms.locfileid: "96431713"
 
 复制并粘贴 ID 时，此 ID 可能会拆分成多个行。 合并这些行并裁剪掉额外的空格。
 
-若要对部署进行验证，请在同一 shell 窗格中运行以下 PowerShell 命令，以明文形式检索机密。 此命令只能在同一 shell 会话中使用，因为它使用在先前 PowerShell 脚本中定义的变量 $keyVaultName。
+若要对部署进行验证，请在同一 shell 窗格中运行以下 PowerShell 命令，以明文形式检索机密。 此命令只能在同一 shell 会话中使用，因为它使用在先前 PowerShell 脚本中定义的变量 `$keyVaultName`。
 
 ```azurepowershell
 (Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
@@ -186,14 +188,14 @@ Azure 快速入门模板是 ARM 模板的存储库。 无需从头开始创建�
     ```
 
     > [!IMPORTANT]
-    > 将“id”值替换为你在上一过程中创建的密钥保管库的资源 ID。 secretName 将硬编码为“vmAdminPassword”。  请参阅[准备密钥保管库](#prepare-a-key-vault)。
+    > 将 `id` 值替换为你在上一过程中创建的密钥保管库的资源 ID。 `secretName` 将硬编码为“vmAdminPassword”。  请参阅[准备密钥保管库](#prepare-a-key-vault)。
 
     :::image type="content" source="./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png" alt-text="集成密钥保管库和资源管理器模板虚拟机部署参数文件":::
 
 1. 请更新以下值：
 
-    * adminUsername：虚拟机管理员帐户的名称。
-    * dnsLabelPrefix：为 dnsLabelPrefix 值命名。
+    * `adminUsername`：虚拟机管理员帐户的名称。
+    * `dnsLabelPrefix`：命名 `dnsLabelPrefix` 值。
 
     有关名称的示例，请参阅前面的图像。
 
@@ -204,7 +206,7 @@ Azure 快速入门模板是 ARM 模板的存储库。 无需从头开始创建�
 <!--Not Available on You need to upload both **azuredeploy.json** and **azuredeploy.parameters.json** to the Cloud shell-->
 <!--Verified successfully on support $HOME FOR BOTH POWERSHELL AND CLI-->
 
-1. 运行以下 PowerShell 脚本以部署该模板。
+1. 使用管理特权运行以下 PowerShell 脚本以部署该模板。
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"

@@ -5,29 +5,34 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 06/30/2020
+origin.date: 12/01/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: ac574616d3d61cdbfec9ba94894bf8c002070767
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: d01c2aa789d7b4973d2d3822d14afedeb424372e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162841"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022810"
 ---
 # <a name="deploy-a-security-partner-provider"></a>部署安全合作伙伴提供程序
 
-Azure 防火墙管理器中的安全合作伙伴提供程序可让你使用熟悉的同类最佳第三方安全即服务 (SECaaS) 产品/服务来保护用户的 Internet 访问。
+通过 Azure 防火墙管理器中的安全合作伙伴提供程序，你可以使用熟悉的同类最佳第三方安全即服务 (SECaaS) 产品/服务来保护用户的 Internet 访问。
 
 要详细了解支持的场景和最佳做法指南，请参阅[什么是安全合作伙伴提供程序？](trusted-security-partners.md)
 
 
-集成的第三方安全即服务 (SECaaS) 合作伙伴现已在所有 Azure 公有云区域中提供。 Zscaler 集成将于 2020 年 7 月 3 日正式发布。 Check Point 是受支持的 SECaaS 合作伙伴，将于 2020 年 7 月 3 日提供预览版。 iboss 集成将于 2020 年 7 月 31 日正式发布。
+集成的第三方安全即服务 (SECaaS) 合作伙伴现已可用： 
+
+- **Zscaler**
+- **[检查点](check-point-overview.md)**
+- **iboss**
 
 ## <a name="deploy-a-third-party-security-provider-in-a-new-hub"></a>在新中心部署第三方安全提供程序
 
 如果要将第三方提供程序部署到现有中心，请跳过此部分。
 
-1. 通过 https://portal.azure.com 登录到 Azure 门户。
+1. 通过 https://portal.azure.cn 登录到 Azure 门户。
 2. 在“搜索”中键入“防火墙管理器”，然后在“服务”下选择“防火墙管理器”  。
 3. 导航到“入门”。 选择“查看安全虚拟中心”。
 4. 选择“新建安全虚拟中心”。
@@ -80,9 +85,9 @@ Azure 防火墙管理器中的安全合作伙伴提供程序可让你使用熟�
 
 1. 按照合作伙伴提供的说明完成设置。 这包括提交 AAD 信息以检测并连接到中心、更新出口策略，以及检查连接状态和日志。
 
-   - [Zscaler：配置 Microsoft Azure 虚拟 WAN 集成](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration)。
-   - [Check Point（预览版）：配置 Microsoft Azure 虚拟 WAN 集成](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm)。
-   - [iboss（预览版）：配置 Microsoft Azure 虚拟 WAN 集成](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security)。 
+   - [Zscaler：配置 Azure 虚拟 WAN 集成](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration)。
+   - [检查点：配置 Azure 虚拟 WAN 集成](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm)。
+   - [iboss：配置 Azure 虚拟 WAN 集成](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security)。 
    
 2. 可以在 Azure 的 Azure 虚拟 WAN 门户中查看隧道创建状态。 Azure 门户和合作伙伴门户中的隧道状态均显示“已连接”后，请继续执行后续步骤，以设置路由，并选择哪些分支和 Vnet 应将 Internet 流量发送到合作伙伴。
 

@@ -1,6 +1,6 @@
 ---
-title: 专用 SQL 池的系统视图
-description: 指向 Azure Synapse Analytics 中专用 SQL 池的系统视图文档的链接。
+title: 专用 SQL 池（以前称为 SQL DW）的系统视图
+description: 指向 Azure Synapse Analytics 中专用 SQL 池（以前称为 SQL DW）的系统视图文档的链接。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,22 +8,22 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 01/06/2020
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 78ae430affc3efdb30eb6a5e9ccc88e1bcc48ada
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 20af8dc58a674bc9fce283641820828996760704
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152954"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022376"
 ---
-# <a name="system-views-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池的系统视图
+# <a name="system-views-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池（以前称为 SQL DW）的系统视图
 
-指向专用 SQL 池支持的 T-SQL 语句的相关文档的链接。
+指向专用 SQL 池（以前称为 SQL DW）支持的 T-SQL 语句的相关文档的链接。
 
-## <a name="dedicated-sql-pool-catalog-views"></a>专用 SQL 池目录视图
+## <a name="dedicated-sql-pool-formerly-sql-dw-catalog-views"></a>专用 SQL 池（以前称为 SQL DW）目录视图
 
 * [sys.pdw_column_distribution_properties](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-column-distribution-properties-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.pdw_distributions](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-distributions-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -49,7 +49,7 @@ ms.locfileid: "96152954"
 * [sys.workload_management_workload_classifiers](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.workload_management_workload_groups](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-workload-management-workload-groups-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="dedicated-sql-pool-dynamic-management-views-dmvs"></a>专用 SQL 池动态管理视图 (DMV)
+## <a name="dedicated-sql-pool-formerly-sql-dw-dynamic-management-views-dmvs"></a>专用 SQL 池（以前称为 SQL DW）动态管理视图 (DMV)
 
 * [sys.dm_pdw_dms_cores](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-cores-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_pdw_dms_external_work](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-external-work-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -71,9 +71,9 @@ ms.locfileid: "96152954"
 * [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_workload_management_workload_groups_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-applicable-to-dedicated-sql-pool"></a>适用于专用 SQL 池的 SQL Server DMV
+## <a name="sql-server-dmvs-applicable-to-dedicated-sql-pool-formerly-sql-dw"></a>适用于专用 SQL 池（以前称为 SQL DW）的 SQL Server DMV
 
-以下 DMV 适用于专用 SQL 池，但必须在连接到 master 数据库后才能执行。
+以下 DMV 适用于专用 SQL 池（以前称为 SQL DW），但必须在连接到 master 数据库后才能执行。
 
 * [sys.database_service_objectives](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -153,16 +153,16 @@ ms.locfileid: "96152954"
 * [sys.types](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-types-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.views](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-views-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-available-in-dedicated-sql-pool"></a>专用 SQL 池中提供的 SQL Server DMV
+## <a name="sql-server-dmvs-available-in-dedicated-sql-pool-formerly-sql-dw"></a>专用 SQL 池（以前称为 SQL DW）中提供的 SQL Server DMV
 
-专用 SQL 池公开了许多 SQL Server 动态管理视图 (DMV)。 在专用 SQL 池中查询这些视图时，它们会报告分布区上运行的 SQL 数据库的状态。
+专用 SQL 池（以前称为 SQL DW）公开了许多 SQL Server 动态管理视图 (DMV)。 在专用 SQL 池（以前称为 SQL DW）中查询这些视图时，这些视图会报告分布区上运行的 SQL 数据库的状态。
 
-专用 SQL 池和并行数据仓库 (PDW) 使用相同的系统视图。 每个 DMV 都有名为 pdw_node_id（它是计算节点的标识符）的列。
+专用 SQL 池（以前称为 SQL DW）和并行数据仓库 (PDW) 使用相同的系统视图。 每个 DMV 都有名为 pdw_node_id（它是计算节点的标识符）的列。
 
 > [!NOTE]
 > 若要使用这些视图，请在名称中插入“pdw_nodes_”，如下表所示：
 
-| 专用 SQL 池中的 DMV 名称 | SQL Server Transact-SQL 文章|
+| 专用 SQL 池（以前称为 SQL DW）中的 DMV 名称 | SQL Server Transact-SQL 文章|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
@@ -224,9 +224,9 @@ ms.locfileid: "96152954"
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-top-version-generators-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-dedicated-sql-pool"></a>专用 SQL 池中提供的 SQL Server 2016 PolyBase DMV
+## <a name="sql-server-2016-polybase-dmvs-available-in-dedicated-sql-pool-formerly-sql-dw"></a>专用 SQL 池（以前称为 SQL DW）中提供的 SQL Server 2016 PolyBase DMV
 
-以下 DMV 适用于专用 SQL 池，但必须在连接到 master 数据库后才能执行。
+以下 DMV 适用于专用 SQL 池（以前称为 SQL DW），但必须在连接到 master 数据库后才能执行。
 
 * [sys.dm_exec_compute_node_errors](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-errors-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_exec_compute_node_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-status-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -253,4 +253,4 @@ ms.locfileid: "96152954"
 
 ## <a name="next-steps"></a>后续步骤
 
-如需更多参考信息，请参阅[专用 SQL 池中的 T-SQL 语句](sql-data-warehouse-reference-tsql-statements.md)和[专用 SQL 池中的 T-SQL 语言元素](sql-data-warehouse-reference-tsql-language-elements.md)。
+如需更多参考信息，请参阅[专用 SQL 池（以前称为 SQL DW）中的 T-SQL 语句](sql-data-warehouse-reference-tsql-statements.md)和[专用 SQL 池（以前称为 SQL DW）中的 T-SQL 语言元素](sql-data-warehouse-reference-tsql-language-elements.md)。

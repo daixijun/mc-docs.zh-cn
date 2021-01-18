@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3e981c5b682fe828b3f2d3fa7fe3bb28936bf702
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 32b14e9c35bdbb91809c02a4cdd057c3a602ed99
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977869"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022912"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure 机器学习主权云平等性
 
@@ -92,7 +92,7 @@ ms.locfileid: "94977869"
 | ML 辅助标记（图像分类和对象检测）           | 公共预览版       | YES                | YES         |
 | **负责的 ML** |   | | |
 | UI 的可说明性                                                       | 公共预览版       | 是                 | 是          |
-| 差异隐私 WhiteNoise 工具包                                    | OSS                  | 是                 | 是          |
+| 差异隐私 SmartNoise 工具包                                    | OSS                  | 是                 | 是          |
 | Azure 机器学习中用于实现数据表的自定义标记              | GA                   | 是                 | 是          |
 | 公平 AzureML 集成                                               | 公共预览版       | 是                 | 是          |
 | 可解释性 SDK                                                      | GA                   | YES                | YES         |
@@ -205,7 +205,7 @@ ms.locfileid: "94977869"
 | ML 辅助标记（图像分类和对象检测）           | 公共预览版   | YES       | 空值        |
 | **负责的 ML** |    | | |
 | UI 的可说明性                                                       | 公共预览版   | 是        | 空值        |
-| 差异隐私 WhiteNoise 工具包                                    | OSS              | 是        | 空值        |
+| 差异隐私 SmartNoise 工具包                                    | OSS              | 是        | 空值        |
 | Azure 机器学习中用于实现数据表的自定义标记              | GA               | 是        | 空值        |
 | 公平 AzureML 集成                                               | 公共预览版   | 是        | 空值        |
 | 可解释性 SDK                                                      | GA               | YES       | 空值        |

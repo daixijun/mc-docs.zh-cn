@@ -4,16 +4,16 @@ description: 查找有关 Azure Kubernetes 服务 (AKS) 的某些常见问题的
 ms.topic: conceptual
 origin.date: 08/06/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: 4c914d88f1d3f3afa315e0259160cea69fe01384
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 2577cae8a2af90216eb15e157195f14a8737d98a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024546"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022338"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 的常见问题解答
 
@@ -25,10 +25,9 @@ ms.locfileid: "96024546"
 
 ## <a name="can-i-spread-an-aks-cluster-across-regions"></a>能否跨区域分布 AKS 群集？
 
-否。 AKS 群集是区域资源，不能跨区域。 有关如何创建包括多个区域的体系结构的指南，请参阅[用于实现业务连续性和灾难恢复的最佳做法][bcdr-bestpractices]。
+否。 AKS 群集是区域性资源，不能跨区域。 有关如何创建包括多个区域的体系结构的指南，请参阅[用于实现业务连续性和灾难恢复的最佳做法][bcdr-bestpractices]。
 
 <!--Not Available on ## Can I spread an AKS cluster across availability zones?-->
-
 <!--Not Available on [availability zones][availability-zones]-->
 <!--Not Available on in [regions that support them][az-regions]-->
 
@@ -37,21 +36,19 @@ ms.locfileid: "96024546"
 可以。 可以通过以下两种方式限制对 API 服务器的访问：
 
 - 如果希望保留 API 服务器的公共终结点但仅限对一组受信任的 IP 范围的访问，请使用 [API 服务器授权的 IP 范围][api-server-authorized-ip-ranges]。
-- 若要将 API 服务器限制为只能从你的虚拟网络内对其进行访问，请使用[专用群集][private-clusters]。
+- 如要仅允许从你的虚拟网络内访问 API 服务器，请使用[专用群集][private-clusters]。
 
-## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>能否在单个群集中使用不同 VM 大小？
+## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>单个群集中 VM 的大小是否可以不同？
 
 能，可以通过创建[多个节点池][multi-node-pools]来在 AKS 群集中使用不同虚拟机大小。
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>安全更新是否可应用于 AKS 代理节点？
 
-Azure 会按照夜间计划自动将安全修补程序应用于群集中的 Linux 节点。 但是，你有责任确保这些 Linux 节点根据需要进行重新启动。 可以使用多个选项来重新启动节点：
+Azure 会按照夜间计划自动将安全修补程序应用于群集中的 Linux 节点。 但是，你需要负责确保这些 Linux 节点根据需要重新启动。 可以使用多个选项来重新启动节点：
 
 - 通过 Azure 门户或 Azure CLI 手动执行。
 - 通过升级 AKS 群集。 群集自动升级 [cordon 和 drain 节点][cordon-drain]，然后使用最新的 Ubuntu 映像和新修补程序版本或 Kubernetes 次要版本将新节点联机。 有关详细信息，请参阅[升级 AKS 群集][aks-upgrade]。
-- 使用 [Kured](https://github.com/weaveworks/kured)：适用于 Kubernetes 的开源重新启动守护程序。 Kured 作为 [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 运行并监视每个节点，用于确定指示需要重新启动的文件是否存在。 通过将相同的[封锁和排空进程][cordon-drain]用作群集升级跨群集管理 OS 重新启动。
-
-有关使用 Kured 的详细信息，请参阅[将安全性和内核更新应用于 AKS 中的节点][node-updates-kured]。
+- 通过使用[节点映像升级](node-image-upgrade.md)。
 
 ### <a name="windows-server-nodes"></a>Windows Server 节点
 
@@ -82,9 +79,9 @@ AKS 在多个 Azure 基础结构资源之上构建，包括虚拟机规模集、
 * Azure 资源提供程序会在你自己的订阅中自动创建辅助资源组。
 * 只能在创建群集时指定自定义资源组名称。
 
-使用节点资源组时，请记住，不能：
+请注意，对于节点资源组，不能执行以下操作：
 
-* 指定现有的资源组作为节点资源组。
+* 不能为节点资源组指定现有资源组。
 * 为节点资源组指定不同的订阅。
 * 创建群集后更改节点资源组名称。
 * 不能为节点资源组内的受管理资源指定名称。
@@ -166,7 +163,7 @@ AKS 通过[运行时间 SLA][uptime-sla] 提供 SLA 保障（可选的附加功�
 
 ## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>是否可以将 AKS 群集从当前的 Azure 订阅移到另一个订阅？ 
 
-不支持跨 Azure 订阅移动 AKS 群集及其关联的资源。
+不支持在 Azure 订阅之间移动 AKS 群集及其关联的资源。
 
 ## <a name="can-i-move-my-aks-cluster-or-aks-infrastructure-resources-to-other-resource-groups-or-rename-them"></a>是否可以将我的 AKS 群集或 AKS 基础结构资源移到其他资源组，或将它们重命名？
 
@@ -178,7 +175,7 @@ AKS 通过[运行时间 SLA][uptime-sla] 提供 SLA 保障（可选的附加功�
 
 ## <a name="if-i-have-pod--deployments-in-state-nodelost-or-unknown-can-i-still-upgrade-my-cluster"></a>如果 Pod/部署处于“NodeLost”或“未知”状态，是否仍然可以升级群集？
 
-可以，但是 AKS 不建议这样做。 理想情况下，升级应该在群集状态已知且正常的情况下完成。
+可以，但是 AKS 不建议这样做。 升级应该在群集状态已知且正常的情况下完成。
 
 ## <a name="if-i-have-a-cluster-with-one-or-more-nodes-in-an-unhealthy-state-or-shut-down-can-i-perform-an-upgrade"></a>如果我有一个群集的一个或多个节点处于“运行不正常”状态或关闭状态，是否可以进行升级？
 
@@ -186,15 +183,15 @@ AKS 通过[运行时间 SLA][uptime-sla] 提供 SLA 保障（可选的附加功�
 
 ## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>我运行了群集删除操作，但出现错误：`[Errno 11001] getaddrinfo failed` 
 
-这种情况最可能的原因是用户有一个或多个网络安全组 (NSG) 仍在使用并与群集相关联。  请将网络安全组删除，然后再次尝试群集删除操作。
+这种情况最可能的原因是用户有一个或多个网络安全组 (NSG) 仍在使用并与群集相关联。  请将其移除，然后再次尝试删除操作。
 
 ## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>我运行了升级，但现在我的 Pod 处于崩溃循环中，且就绪情况探测失败。
 
-请确认服务主体是否已过期。  请参阅：[AKS 服务主体](./kubernetes-service-principal.md)和 [AKS 更新凭据](./update-credentials.md)
+请确认你的服务主体尚未过期。  请参阅：[AKS 服务主体](./kubernetes-service-principal.md)和 [AKS 更新凭据](./update-credentials.md)。
 
-## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>我的群集在运行，但突然不能预配 LoadBalancers，不能装载 PVC，等等。 
+## <a name="my-cluster-was-working-but-suddenly-cant-provision-loadbalancers-mount-pvcs-etc"></a>我的群集在运行，但突然不能预配 LoadBalancer，不能装载 PVC，等等。 
 
-请确认服务主体是否已过期。  请参阅：[AKS 服务主体](./kubernetes-service-principal.md)和 [AKS 更新凭据](./update-credentials.md)。
+请确认你的服务主体尚未过期。  请参阅：[AKS 服务主体](./kubernetes-service-principal.md)和 [AKS 更新凭据](./update-credentials.md)。
 
 ## <a name="can-i-scale-my-aks-cluster-to-zero"></a>能否将 AKS 群集缩放为零？
 
@@ -202,23 +199,27 @@ AKS 通过[运行时间 SLA][uptime-sla] 提供 SLA 保障（可选的附加功�
 <!--Not Available on You can completely stop a running AKS cluster), saving on the respective compute costs.-->
 
 可以选择[将所有的或特定的 `User` 节点池缩放或自动缩放](scale-cluster.md#scale-user-node-pools-to-0)为 0，以仅维护必要的群集配置。
-不能直接将[系统节点池](use-system-pools.md)缩放为 0。
+你不能直接将[系统节点池](use-system-pools.md)缩放为零。
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>是否可以使用虚拟机规模集 API 手动进行缩放？
 
 否。使用虚拟机规模集 API 进行的缩放操作不受支持。 请使用 AKS API (`az aks scale`)。
 
-## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>是否可以使用虚拟机规模集手动缩放到 0 个节点？
+## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-zero-nodes"></a>是否可以使用虚拟机规模集手动缩放为 0 个节点？
 
 否。使用虚拟机规模集 API 进行的缩放操作不受支持。
 
+<!--Not Available on [stop your cluster](start-stop-cluster.md)-->
+
 ## <a name="can-i-stop-or-de-allocate-all-my-vms"></a>是否可以停止或解除分配我的所有 VM？
 
-虽然 AKS 的复原机制可以经受此类配置并从其恢复，但我们建议你不要这样进行配置。
+虽然 AKS 有对抗此类配置并从其恢复的复原机制，但这不是受支持的配置。
+
+<!--Not Available on [Stop your cluster](start-stop-cluster.md)-->
 
 ## <a name="can-i-use-custom-vm-extensions"></a>是否可以使用自定义 VM 扩展？
 
-支持 Log Analytics 代理，因为它是由 Azure 管理的扩展。 在其他情况下不支持。AKS 是一项托管服务，不支持操作 IaaS 资源。 若要安装自定义组件等内容，请使用 Kubernetes API 和相关机制。 例如，使用 DaemonSets 安装所需组件。
+支持 Log Analytics 代理，因为它是由 Azure 管理的扩展。 在其他情况下不支持。AKS 是一项托管服务，不支持操作 IaaS 资源。 若要安装自定义组件，请使用 Kubernetes API 和机制。 例如，使用 DaemonSets 安装所需组件。
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS 是否将任何客户数据存储在群集区域之外？
 
@@ -228,10 +229,56 @@ AKS 通过[运行时间 SLA][uptime-sla] 提供 SLA 保障（可选的附加功�
 
 ## <a name="are-aks-images-required-to-run-as-root"></a>AKS 映像是否需要以根用户身份运行？
 
-除了以下两个映像，AKS 映像不需要以根用户身份运行：
+除了以下两个映像之外，其他 AKS 映像不需要以根用户身份运行：
 
 - *mcr.microsoft.com/oss/kubernetes/coredns*
 - *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
+
+## <a name="what-is-azure-cni-transparent-mode-vs-bridge-mode"></a>什么是 Azure CNI 透明模式与桥模式？
+
+从 v1.2.0 开始，Azure CNI 会将透明模式作为单租户 Linux CNI 部署的默认模式。 透明模式将替换桥模式。 在本部分，我们将详细讨论这两种模式的差异，以及在 Azure CNI 中使用透明模式的优点/限制。
+
+### <a name="bridge-mode"></a>桥模式
+
+顾名思义，桥模式 Azure CNI 会以“实时”方式创建一个名为“azure0”的 L2 桥。 所有主机端 Pod `veth` 对接口都会连接到此桥。 因此，Pod 到 Pod 内部 VM 通信和其余流量都通过此桥。 所涉及的桥是一个第 2 层虚拟设备，它自己无法接收或传输任何内容，除非你将一个或多个真实设备绑定到该桥。 因此，Linux VM 的 eth0 必须转换为“azure0”桥的下级。 这会在 Linux VM 中创建复杂的网络拓扑，一个征兆就是，CNI 必须处理其他网络功能，例如 DNS 服务器更新等。
+
+:::image type="content" source="media/faq/bridge-mode.png" alt-text="桥模式拓扑":::
+
+下面是桥模式下的 IP 路由设置示例。 不管节点有多少个 Pod，都只会有两个路由。 第一个路由：azure0 上除本地流量以外的所有流量都将通过 IP 为“src 10.240.0.4”（即节点主 IP）的接口进入子网的默认网关；第二个路由：从“10.20.x.x”Pod 空间到内核，由内核决定。
+
+```bash
+default via 10.240.0.1 dev azure0 proto dhcp src 10.240.0.4 metric 100
+10.240.0.0/12 dev azure0 proto kernel scope link src 10.240.0.4
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
+root@k8s-agentpool1-20465682-1:/#
+```
+
+### <a name="transparent-mode"></a>透明模式
+透明模式采用直截了当的方法来设置 Linux 网络。 在此模式下，Azure CNI 不会更改 Linux VM 中 eth0 接口的任何属性。 这种对 Linux 网络属性更改最少的方法有助于减少群集在桥模式下可能会遇到的复杂极端情况问题。 在透明模式下，Azure CNI 会创建并添加那些将添加到主机网络的主机端 Pod `veth` 对接口。 内部 VM Pod 到 Pod 通信通过 CNI 会添加的 IP 路由进行。 基本上，Pod 到 Pod 通信通过第 3 层进行，Pod 通信通过 L3 路由规则进行路由。
+
+:::image type="content" source="media/faq/transparent-mode.png" alt-text="透明模式拓扑":::
+
+下面是透明模式的 IP 路由设置示例，每个 Pod 的接口都会连接一个静态路由，这样，目标 IP 为 Pod 的流量会直接发送到 Pod 的主机端 `veth` 对接口。
+
+```bash
+10.240.0.216 dev azv79d05038592 proto static
+10.240.0.218 dev azv8184320e2bf proto static
+10.240.0.219 dev azvc0339d223b9 proto static
+10.240.0.222 dev azv722a6b28449 proto static
+10.240.0.223 dev azve7f326f1507 proto static
+10.240.0.224 dev azvb3bfccdd75a proto static
+168.63.129.16 via 10.240.0.1 dev eth0 proto dhcp src 10.240.0.4 metric 100
+169.254.169.254 via 10.240.0.1 dev eth0 proto dhcp src 10.240.0.4 metric 100
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
+```
+
+### <a name="benefits-of-transparent-mode"></a>透明模式的优点
+
+- 针对 `conntrack` DNS 并行争用情况提供缓解措施，避免 5 秒 DNS 延迟问题，无需设置节点本地 DNS（出于性能方面的原因，你仍可以使用节点本地 DNS）。
+- 消除了 CNI 桥模式目前由于“实时”桥设置而引入的最初 5 秒 DNS 延迟。
+- 桥模式下的极端情况之一是，Azure CNI 无法不断更新用户添加到 VNET 或 NIC 的自定义 DNS 服务器列表。 这会导致 CNI 仅选取 DNS 服务器列表的第一个实例。 此问题在透明模式下得到解决，因为 CNI 不更改任何 eth0 属性。 在[此处](https://github.com/Azure/azure-container-networking/issues/713)了解详细信息。
+- 提供了更好的 UDP 流量处理，并且在 ARP 超时时可以缓解 UDP 数据风暴。在桥模式下，当桥在 VM 内部 Pod 到 Pod 通信中不知道目标 Pod 的 MAC 地址时，按照设计，这会导致所有端口都出现数据包风暴。 此问题在透明模式下得到解决，因为路径中没有 L2 设备。 在[此处](https://github.com/Azure/azure-container-networking/issues/704)了解详细信息。
+- 与桥模式相比，在内部 VM Pod 到 Pod 通信中，透明模式在吞吐量和延迟方面的性能更佳。
 
 <!-- LINKS - internal -->
 
@@ -240,9 +287,6 @@ AKS 通过[运行时间 SLA][uptime-sla] 提供 SLA 保障（可选的附加功�
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
-
-<!--CORRECT ON https://docs.azure.cn/cli/ext/aks-preview/aks-->
-
 [aks-preview-cli]: https://docs.azure.cn/cli/ext/aks-preview/aks
 [az-aks-create]: https://docs.azure.cn/cli/aks#az_aks_create
 
@@ -259,7 +303,9 @@ AKS 通过[运行时间 SLA][uptime-sla] 提供 SLA 保障（可选的附加功�
 [multi-node-pools]: ./use-multiple-node-pools.md
 
 <!--Not Avaialble on [availability-zones]: ./availability-zones.md-->
-[private-clusters]: ./private-clusters.md [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
+
+[private-clusters]: ./private-clusters.md
+[bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 
 <!--Not Avaialble on [availability-zones]: ./availability-zones.md-->
 <!--Not Avaialble on [az-regions]: ../availability-zones/az-region.md-->

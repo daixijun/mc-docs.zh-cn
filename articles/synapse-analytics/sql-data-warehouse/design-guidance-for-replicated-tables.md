@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 03/19/2019
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 027be1333b6f92cbc6be0ec09134f1abe7b56bf1
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 59c315908b2d49f9db7db4f915830b340fb57e6b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375723"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023262"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>有关在 Synapse SQL 池中使用复制表的设计指南
 
@@ -31,13 +31,13 @@ ms.locfileid: "93375723"
 
 - 表有多大？
 - 表的刷新频率是多少？
-- SQL 池数据库中是否包含事实数据表和维度表？
+- SQL 池中是否包含事实数据表和维度表？
 
 ## <a name="what-is-a-replicated-table"></a>什么是复制的表？
 
 复制的表具有可在每个计算节点上访问的完整表副本。 复制表后，在执行联接或聚合前将无需在计算节点之间传输数据。 由于表具有多个副本，因此当表压缩后的大小小于 2 GB 时，复制的表性能最佳。  2 GB 不是硬性限制。  如果数据为静态数据，不会更改，则可复制更大的表。
 
-下图显示了可在每个计算节点上访问的复制表。 在 SQL 池中，复制表完整复制到每个计算节点上的分发数据库。
+下图显示了可在每个计算节点上访问的复制表。 在 SQL 池中，复制表会完整复制到每个计算节点上的分发数据库。
 
 ![复制表](./media/design-guidance-for-replicated-tables/replicated-table.png "复制表")  
 
@@ -51,7 +51,7 @@ ms.locfileid: "93375723"
 在下列情况下，复制的表可能不会产生最佳查询性能：
 
 - 表具有频繁的插入、更新和删除操作。 这些数据操作语言 (DML) 操作要求重新生成复制表。 频繁地重新生成会导致性能降低。
-- SQL 池数据库会频繁缩放。 缩放 SQL 池数据库会更改计算节点数，这会重新生成复制表。
+- SQL 池会频繁缩放。 缩放 SQL 池会更改计算节点数，这会重新生成复制表。
 - 表具有大量列，但数据操作通常仅访问少量的列。 在这种情况下，与复制整个表相比，将表分发，然后对经常访问的列创建索引可能更为高效。 当查询需要进行数据移动时，SQL 池仅移动所请求列中的数据。
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>将复制的表与简单的查询谓词一起使用

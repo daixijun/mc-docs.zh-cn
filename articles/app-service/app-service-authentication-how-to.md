@@ -3,15 +3,15 @@ title: AuthN/AuthZ 的高级用法
 description: 了解如何针对不同情况自定义应用服务中的身份验证和授权功能，并获取用户声明和不同令牌。
 ms.topic: article
 origin.date: 07/08/2020
-ms.date: 10/19/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 0f675e5740031a1ea045354fcf3d1cf7e723c451
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 81d972382f92bb99de0f4d828412c3355f534add
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747084"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022975"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权的高级用法
 
@@ -22,6 +22,7 @@ ms.locfileid: "96747084"
 <!--* [How to configure your app to use Facebook login](configure-authentication-provider-facebook.md)-->
 <!--* [How to configure your app to use Google login](configure-authentication-provider-google.md)-->
 <!--* [How to configure your app to use Twitter login](configure-authentication-provider-twitter.md)-->
+<!--* [How to configure your app to login using an Sign in with Apple (Preview)](configure-authentication-provider-apple.md)-->
 <!-- * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md) -->
 
 * [How to configure your app to use Azure Active Directory login](configure-authentication-provider-aad.md)
@@ -154,7 +155,7 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 | Microsoft 帐户 | `X-MS-TOKEN-MICROSOFTACCOUNT-ACCESS-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-EXPIRES-ON` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-AUTHENTICATION-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-REFRESH-TOKEN` |
 |||
 
-在客户端代码（例如移动应用或浏览器中 JavaScript）中，将 HTTP `GET` 请求发送到 `/.auth/me`。 返回的 JSON 包含提供程序特定的令牌。
+在客户端代码（例如移动应用或浏览器中 JavaScript）中，将 HTTP `GET` 请求发送到 `/.auth/me`（必须启用[令牌存储](overview-authentication-authorization.md#token-store)）。 返回的 JSON 包含提供程序特定的令牌。
 
 > [!NOTE]
 > 访问令牌用于访问提供程序资源，因此，仅当使用客户端机密配置了提供程序时，才提供这些令牌。 若要了解如何获取刷新令牌，请参阅“刷新访问令牌”。
@@ -243,8 +244,8 @@ Microsoft 帐户和 Azure Active Directory 都允许从多个域登录。 Azure 
 
 <!-- The identity provider may provide certain turn-key authorization. For example: -->
 
-<!-- - For [Azure App Service](configure-authentication-provider-aad.md), you can [manage enterprise-level access](../active-directory/manage-apps/what-is-access-management.md) directly in Azure AD. For instructions, see [How to remove a user's access to an application](../active-directory/manage-apps/methods-for-removing-user-access.md). -->
-<!-- - For [Google](configure-authentication-provider-google.md), Google API projects that belong to an [organization](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) can be configured to allow access only to users in your organization (see [Google's **Setting up OAuth 2.0** support page](https://support.google.com/cloud/answer/6158849?hl=en)). -->
+<!-- - For [Azure App Service]. -->
+<!-- - For [Google] -->
 
 ### <a name="application-level"></a>应用程序级别
 
@@ -458,11 +459,11 @@ Microsoft 帐户和 Azure Active Directory 都允许从多个域登录。 Azure 
 
 #### <a name="view-the-current-runtime-version"></a>查看当前运行时版本
 
-可以使用 Azure CLI 或应用中其中一个内置版本 HTTP 终结点来查看平台身份验证中间件的当前版本。
+可以使用 Azure CLI 或应用中的内置版本 HTTP 终结点之一来查看平台身份验证中间件的当前版本。
 
 ##### <a name="from-the-azure-cli"></a>通过 Azure CLI
 
-使用 Azure CLI 通过 [az webapp auth show](https://docs.azure.cn/cli/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) 命令查看当前中间件版本。
+使用 Azure CLI 通过 [az webapp auth show](https://docs.azure.cn/cli/webapp/auth#az_webapp_auth_show) 命令查看当前中间件版本。
 
 ```azurecli
 az webapp auth show --name <my_app_name> \
@@ -503,7 +504,7 @@ az webapp auth update --name <my_app_name> \
 
 将 `<my_app_name>` 替换为你的应用的名称。 还使用应用的资源组名称替换 `<my_resource_group>`。 另外，将 `<version>` 替换为 1.x 运行时的有效版本，或替换为 `~1` 获取最新版本。 可以在 [此处] (https://github.com/Azure/app-service-announcements) 查找不同运行时版本的发行说明来帮助确定要固定到哪个版本。
 
-<!-- You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. -->
+<!-- You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md)-->
 
 可以在执行 [az login](https://docs.azure.cn/cli/reference-index#az-login) 登录后从 [Azure CLI 在本地](https://docs.azure.cn/cli/install-azure-cli)运行此命令以执行此命令。
 

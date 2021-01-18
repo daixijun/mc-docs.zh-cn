@@ -6,19 +6,19 @@ ms.author: v-tawe
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 origin.date: 10/16/2020
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: ac841ee83ef5a291e5675c8cf64198707cfbe5df
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: eab6993e3093e260458e02851e80863f9660bd08
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105936"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022960"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>快速入门：使用 ARM 模板创建应用服务应用
 
-使用 Azure 资源管理器模板（ARM 模板）和 Cloud Shell 中的 [Azure CLI](/cli/get-started-with-azure-cli) 将应用部署到云，以便开始使用 [Azure 应用服务](overview.md)。 由于使用的是免费应用服务层，因此完成本快速入门不会产生费用。
+使用 Azure 资源管理器模板（ARM 模板）和 [Azure CLI](/cli/get-started-with-azure-cli) 将应用部署到云，以便开始使用 [Azure 应用服务](overview.md)。 由于使用的是免费应用服务层，因此完成本快速入门不会产生费用。
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "93105936"
 
 使用下面的按钮在 Windows 上部署：
 
-[![“部署到 Azure”](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
+[![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -366,7 +366,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 > [带 MySQL 的 PHP](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [使用 Java 连接到 Azure SQL 数据库](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
+> [使用 Java 连接到 Azure SQL 数据库](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
 
 > [!div class="nextstepaction"]
 > [映射自定义域](app-service-web-tutorial-custom-domain.md)

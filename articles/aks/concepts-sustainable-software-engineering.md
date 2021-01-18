@@ -5,23 +5,23 @@ services: container-service
 ms.topic: conceptual
 origin.date: 08/26/2020
 author: rockboyfor
-ms.date: 10/12/2020
-ms.testscope: yes|no
-ms.testdate: 09/14/2020null
+ms.date: 01/11/2021
+ms.testscope: yes
+ms.testdate: 09/14/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7c9dc03d705238aaff799e8caf4cc23155456f7a
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: ba9f753b57f00b38d1e57d8ce8c76f6b25815e5d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937134"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023128"
 ---
 <!--Verified successfully-->
 # <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的可持续软件工程原则
 
-可持续软件工程原则是一组可帮助你定义、构建和运行可持续应用程序的能力。 总体目标是降低应用程序每个方面的碳足迹。 [Principles.Green 项目][principles-green]概述了可持续软件工程的原则。
+可持续软件工程原则是一组可帮助你定义、构建和运行可持续应用程序的能力。 总体目标是降低应用程序每个方面的碳足迹。 [可持续软件工程的原则][principles-sse]概述了可持续软件工程的原则。
 
-关于可持续软件工程，需要了解的一个重要理念是：它是优先事项和重点的转移。 在许多情况下，软件的设计和运行方式侧重于快速性能和低延迟。 可持续软件工程侧重于尽可能多地降低碳排放量。 在某些情况下，应用可持续软件工程主体可以提高性能或降低延迟，例如，降低总体网络行程就可以实现该目标。 考虑将可持续软件工程主体应用到应用程序之前，请查看应用程序的优先级、需求和利弊。
+关于可持续软件工程，需要了解的一个重要理念是：它是优先事项和重点的转移。 在许多情况下，软件的设计和运行方式侧重于快速性能和低延迟。 可持续软件工程侧重于尽可能多地降低碳排放量。 在某些情况下，应用可持续软件工程原则可以提高性能或降低延迟，例如，降低总体网络行程就可以实现该目标。 考虑将可持续软件工程原则应用到应用程序之前，请查看应用程序的优先级、需求和利弊。
 
 <!--Not Available on In other cases, reducing carbon emissions may cause slower performance or increased latency, such as delaying low-priority workloads.-->
 <!--Not Available low-priority feature-->
@@ -49,9 +49,7 @@ ms.locfileid: "91937134"
 
 ## <a name="reduce-network-travel"></a>减少网络行程
 
-减少往返群集的请求和响应的距离通常可以减少联网设备的电力消耗并减少碳排放。 查看网络流量后，请考虑在更靠近你的网络流量来源的[区域中][regions]创建群集。 你还可以使用 [Azure 流量管理器][azure-traffic-manager]来帮助你将流量路由到最近的群集，以便减小 Azure 资源之间的距离。
-
-<!--Not Available on and [proximity placement groups][proiximity-placement-groups]-->
+减少往返群集的请求和响应的距离通常可以减少联网设备的电力消耗并减少碳排放。 查看网络流量后，请考虑在更靠近你的网络流量来源的[区域中][regions]创建群集。 你还可以使用 [Azure 流量管理器][azure-traffic-manager]来帮助你将流量路由到最近的群集和[邻近放置组][proiximity-placement-groups]，以便缩短 Azure 资源之间的距离。
 
 > [!IMPORTANT]
 > 考虑对群集的网络进行更改时，切勿以必须满足的工作负荷要求为代价来减少网络行程。 例如，使用[可用性区域][availability-zones]会导致群集上的网络行程增多，但处理工作负荷要求可能需要使用该功能。
@@ -75,16 +73,14 @@ ms.locfileid: "91937134"
     
 * [系统池][system-pools]
 * [资源预留][resource-reservations]
+* [邻近放置组][proiximity-placement-groups]
 
-<!--Not Available on * [Proximity placement groups][proiximity-placement-groups]-->
 <!--Not Available on * [Availability Zones][availability-zones]-->
 <!--Not Available on [availability-zones]: availability-zones.md-->
 
 [azure-monitor]: ../azure-monitor/insights/container-insights-overview.md
 [azure-traffic-manager]: ../traffic-manager/traffic-manager-overview.md
-
-<!--Not Available on [proiximity-placement-groups]: reduce-latency-ppg.md-->
-
+[proiximity-placement-groups]: reduce-latency-ppg.md
 [regions]: faq.md#which-azure-regions-currently-provide-aks
 [resource-reservations]: concepts-clusters-workloads.md#resource-reservations
 [scale]: concepts-scale.md
@@ -97,6 +93,6 @@ ms.locfileid: "91937134"
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principles-green]: https://principles.green/
+[principles-sse]: https://docs.microsoft.com/learn/modules/sustainable-software-engineering-overview/
 
 <!-- Update_Description: update meta properties, wording update, update link -->

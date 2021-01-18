@@ -1,18 +1,17 @@
 ---
 title: 常见问题解答 - 备份 Azure VM
 description: 本文解答有关使用 Azure 备份服务备份 Azure VM 的常见问题。
-ms.reviewer: sogup
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 09/17/2019
-ms.date: 12/10/2020
+ms.date: 01/07/2021
 ms.author: v-johya
-ms.openlocfilehash: c8e21c543a49a680d2a64b93a63335aced55b675
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: bda2a3cf3b24c898ae1df2f64e35efed48fb3338
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105045"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021846"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常见问题 - 备份 Azure VM
 
@@ -86,7 +85,7 @@ Azure 备份以 `AzureBackupRG_<geo>_<number>` 格式创建一个单独的资源
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Azure 备份是否支持标准 SSD 托管磁盘？
 
-是的，Azure 备份支持[标准 SSD 托管磁盘](/virtual-machines/disks-types#standard-ssd)。
+是的，Azure 备份支持[标准 SSD 托管磁盘](../virtual-machines/disks-types.md#standard-ssd)。
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>可使用支持写入加速器 (WA) 的磁盘备份 VM 吗？
 
@@ -162,11 +161,20 @@ Azure 备份现在支持使用 Azure 虚拟机备份解决方案进行选择性�
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>在还原后我是否由于 VM 与域控制器的关系被破坏而可以访问 VM？
 
-可以，由于 VM 与域控制器的关系被破坏，因此在还原后可以访问 VM。 有关详细信息，请参阅[此文](./backup-azure-arm-restore-vms.md#post-restore-steps)
+可以，由于 VM 与域控制器的关系被破坏，因此在还原后可以访问 VM。 有关详细信息，请参阅[此文](./backup-azure-arm-restore-vms.md#post-restore-steps)。
+
+### <a name="can-i-cancel-an-in-progress-restore-job"></a>能否取消正在进行的还原作业？
+不能，无法取消正在进行的还原作业。
 
 ### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>为什么还原操作需要很长时间才能完成？
 
 总还原时间取决于存储帐户的每秒输入/输出操作次数 (IOPS) 和吞吐量。 如果目标存储帐户加载了其他应用程序读写操作，则总还原时间可能会受到影响。 若要改进还原操作，请选择未加载其他应用程序数据的存储帐户。
+
+### <a name="how-do-we-handle-create-new-virtual-machine-restore-type-conflicts-with-governance-policies"></a>如何处理“创建新虚拟机”-还原类型与治理策略的冲突？
+
+Azure 备份使用恢复点中的“附加”磁盘，而不查看你的映像引用或库。 因此，在策略中，可以选中“storageProfile.osDisk.createOption as Attach”，脚本条件将为：
+
+`if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
 
 ## <a name="manage-vm-backups"></a>管理 VM 备份
 

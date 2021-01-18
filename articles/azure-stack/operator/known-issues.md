@@ -4,16 +4,16 @@ description: 了解 Azure Stack Hub 发行版中的已知问题。
 author: WenJason
 ms.topic: article
 origin.date: 11/16/2020
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 3a35aa643e7e4bbd4c30dec78b615092f15ded56
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 45450dc6143136b7772dedc9badc5fb24833ae40
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507549"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894388"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
@@ -212,6 +212,12 @@ ms.locfileid: "96507549"
 - 原因：如果标记包含应用服务资源提供程序 (RP) 版本 1.7 和更早版本，则在更新标记时，不会加载应用服务的边栏选项卡。
 - 补救措施：将 RP 更新到版本 2002 Q2。
 
+## <a name="powershell"></a>PowerShell
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
+
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
 <!-- ## App Service -->
@@ -335,7 +341,7 @@ ms.locfileid: "96507549"
 ### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>无法在门户中使用 Standard_DS2_v2 VM 大小创建规模集
 
 - 适用于：此问题适用于 2002 版本。
-- 原因：存在一个门户 bug，它阻止使用Standard_DS2_v2 VM 大小创建规模集。 创建即会产生错误：“{"code":"DeploymentFailed","message":":"至少一项资源部署操作失败。 请列出部署操作以获取详细信息。 请参阅 https://aka.ms/arm-debug 了解使用情况详细信息。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 虚拟机大小 Standard_DS2_v2 不在 VM 大小的允许列表中，不能在 VM 规模集 /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss 的索引 0 处的 VM 上启用加速网络。 允许的大小：.\"\r\n }\r\n}"}]}"
+- 原因：存在一个门户 bug，它阻止使用Standard_DS2_v2 VM 大小创建规模集。 创建即会产生错误：“{"code":"DeploymentFailed","message":":"至少一项资源部署操作失败。 请列出部署操作以获取详细信息。 请参阅 https://aka.ms/arm-debug 了解使用情况详细信息。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 虚拟机大小 Standard_DS2_v2 不在 VM 大小的允许列表中，不能在虚拟机规模集 /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss 的索引 0 处的 VM 上启用加速网络。 允许的大小：.\"\r\n }\r\n}"}]}"
 - 补救措施：使用 PowerShell 或资源管理器模板创建虚拟机规模集。
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM 概述边栏选项卡未显示正确的计算机名称
@@ -398,7 +404,7 @@ ms.locfileid: "96507549"
 ### <a name="retention-period-revert-to-0"></a>保留期恢复为 0
 
 - 适用于：此问题适用于版本 2002 和 2005。
-- 原因：如果以前在保留期设置中指定了非 0 的时间段，则它将在 2002 或 2005 更新期间恢复回 0（此设置的默认值）。 这个 0 天的设置会在更新完成后立即生效，从而导致所有现有已删除的存储帐户和任何即将新删除的存储帐户立即不予保留，并标记为需要进行定期垃圾回收（每小时运行一次）。 
+- 原因：如果以前在保留期设置中指定了非 0 的时间段，则它将在 2002 或 2005 更新期间恢复回 0（此设置的默认值）。 这个 0 天的设置会在更新完成后立即生效，导致所有现有的已删除存储帐户和任何新删除的存储帐户被系统立即清除，并会被标记为需要进行定期垃圾回收（每小时运行一次）。 
 - 补救措施：将保留期手动指定为正确的时间段。 但是，在指定新的保留期之前已进行垃圾回收的任何存储帐户都不可恢复。  
 
 ## <a name="resource-providers"></a>资源提供程序
@@ -414,6 +420,12 @@ ms.locfileid: "96507549"
 - 适用于：此问题适用于版本 2002。
 - 原因：如果标记包含应用服务资源提供程序 (RP) 版本 1.7 和更早版本，则在更新标记时，不会加载应用服务的边栏选项卡。
 - 补救措施：将 RP 更新到版本 [2020 Q2](azure-stack-app-service-update.md)。
+
+## <a name="powershell"></a>PowerShell
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

@@ -2,14 +2,14 @@
 title: 在 IoT Edge 设备上部署实时视频分析 - Azure
 description: 本文列出了将帮助你在 IoT Edge 设备上部署实时视频分析的步骤。 你可能会在以下情况下执行此操作，例如：如果你有权访问本地 Linux 计算机并且/或之前创建了 Azure 媒体服务帐户。
 ms.topic: how-to
-origin.date: 04/27/2020
-ms.date: 11/30/2020
-ms.openlocfilehash: f502d586da293a05790bfa393e8cf9db65d41cee
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+origin.date: 09/09/2020
+ms.date: 01/11/2021
+ms.openlocfilehash: b172c4ce77a373e14b4b4ff92d773aa00aad9b1c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300149"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021296"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>在 IoT Edge 设备上部署实时视频分析
 
@@ -24,8 +24,8 @@ ms.locfileid: "96300149"
 * 运行[支持的 Linux 操作系统](../../iot-edge/support.md#operating-systems)之一的 x86-64 或 ARM64 设备
 * 你拥有[所有者权限](../../role-based-access-control/built-in-roles.md#owner)的 Azure 订阅
 * [创建和设置 IoT 中心](../../iot-hub/iot-hub-create-through-portal.md)
-* [注册 IoT Edge 设备](../../iot-edge/how-to-register-device.md)
-* [在基于 Debian 的 Linux 系统上安装 Azure IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge-linux.md)
+* [注册 IoT Edge 设备](../../iot-edge/how-to-manual-provision-symmetric-key.md)
+* [在基于 Debian 的 Linux 系统上安装 Azure IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge.md)
 * [创建 Azure 媒体服务帐户](../latest/create-account-howto.md)
     * 建议使用常规用途 v2 (GPv2) 存储帐户
 
@@ -109,7 +109,7 @@ Azure 门户引导你创建部署清单并将部署推送到 IoT Edge 设备。
     * **IoT Edge 模块名称**：lvaEdge
     * **映像 URI**：mcr.microsoft.com/media/live-video-analytics:1.0    
     
-    ![添加](./media/deploy-iot-edge-device/add.png)
+    ![屏幕截图显示了“模块设置”选项卡。](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
     > 如本过程所述，在“模块设置”、“容器创建选项”和“模块孪生设置”选项卡上指定值之前，请勿选择“添加”   。

@@ -4,18 +4,18 @@ description: 介绍如何在 Azure 资源管理器模板中定义参数。
 ms.topic: conceptual
 origin.date: 11/24/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: f487b0a90d32c421b941739fcc704a687ee73137
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 2e177d83c1d0fabe323954880fcccb91ef6d36a1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003582"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021861"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Azure 资源管理器模板中的参数
+# <a name="parameters-in-arm-templates"></a>ARM 模板中的参数
 
-本文介绍如何在 Azure 资源管理器模板中定义和使用参数。 为参数提供不同的值即可针对不同环境重复使用模板。
+本文介绍如何在 Azure 资源管理器模板（ARM 模板）中定义和使用参数。 为参数提供不同的值即可针对不同环境重复使用模板。
 
 资源管理器会在启动部署操作之前解析参数值。 只要在模板中使用参数，资源管理器就会将其替换为解析的值。
 
@@ -165,7 +165,7 @@ ms.locfileid: "97003582"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要了解参数的可用属性，请参阅[了解 Azure 资源管理器模板的结构和语法](template-syntax.md)。
+* 若要了解参数的可用属性，请参阅[了解 ARM 模板的结构和语法](template-syntax.md)。
 * 若要了解如何以文件形式传入参数值，请参阅[创建资源管理器参数文件](parameter-files.md)。
 * 有关创建参数的建议，请参阅[最佳做法 - 参数](template-best-practices.md#parameters)。
 

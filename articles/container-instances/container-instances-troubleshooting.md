@@ -4,23 +4,23 @@ description: 了解如何排查部署、运行或管理 Azure 容器实例时的
 ms.topic: article
 origin.date: 06/25/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 01/15/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d66ce1e8339c3735639129fc152654e114b65285
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 18cd8b6d20a840c70a280d612f834345de0b8ae1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024630"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021676"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>排查 Azure 容器实例中的常见问题
 
 本文展示了如何排查管理容器或向 Azure 容器实例部署容器时出现的常见问题。 另请参阅[常见问题解答](container-instances-faq.md)。
 
-如果需要更多支持，请参阅 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)中可用的“帮助 + 支持”选项。
+如果需要更多支持，请参阅 [Azure 门户](https://support.azure.cn/support/support-azure/)中可用的“帮助 + 支持”选项。
 
 ## <a name="issues-during-container-group-deployment"></a>容器组部署过程中的问题
 ### <a name="naming-conventions"></a>命名约定
@@ -194,7 +194,7 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 #### <a name="cached-images"></a>缓存的映像
 
-对于基于常用 [Windows 基本映像](container-instances-faq.md#what-windows-base-os-images-are-supported)（包括 `nanoserver:1809`、`servercore:ltsc2019` 和 `servercore:1809`）的映像，Azure 容器实例使用一种缓存机制来帮助加快容器启动时间。 常用的 Linux 映像（例如 `ubuntu:1604` 和 `alpine:3.6`）也会缓存。 若要获取缓存的映像和标记的最新列表，请使用[列出缓存的映像][list-cached-images] API。
+对于基于常用 [Windows 基本映像](container-instances-faq.md#what-windows-base-os-images-are-supported)（包括 `nanoserver:1809`、`servercore:ltsc2019` 和 `servercore:1809`）的映像，Azure 容器实例使用一种缓存机制来帮助加快容器启动时间。 常用的 Linux 映像（例如 `ubuntu:1604` 和 `alpine:3.6`）也会缓存。 对于 Windows 和 Linux 映像，请避免使用 `latest` 标记。 有关指南，请参阅容器注册表的[映像标记最佳做法](../container-registry/container-registry-image-tag-version.md)。 若要获取缓存的映像和标记的最新列表，请使用[列出缓存的映像][list-cached-images] API。
 
 > [!NOTE]
 > 在 Azure 容器实例中使用基于 Windows Server 2019 的映像处于预览状态。
@@ -221,6 +221,7 @@ Azure 容器实例尚不支持具有常规 docker 配置的端口映射。 如�
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
+    
 1. 在 `az container create` 的命令输出中找到该容器组的 IP 地址。 查找 **ip** 的值。 
 1. 成功预配容器后，在浏览器中浏览到容器应用的 IP 地址和端口，例如：`192.0.2.0:9000`。 
 

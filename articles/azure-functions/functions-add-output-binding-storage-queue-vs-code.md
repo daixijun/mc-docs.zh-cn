@@ -1,16 +1,16 @@
 ---
 title: 使用 Visual Studio Code 将 Azure Functions 连接到 Azure 存储
 description: 了解如何通过将输出绑定添加到 Visual Studio Code 项目将 Azure Functions 连接到 Azure 存储队列。
-ms.date: 11/30/2020
+ms.date: 01/04/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: e68028c929d7b96c6f7e7335ebd621d471d9c9b1
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 59a01ed8800a23211bcb9be2fc33b8e4e94863af
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507790"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022933"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>使用 Visual Studio Code 将 Azure Functions 连接到 Azure 存储
 
@@ -148,6 +148,8 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
 
 [!INCLUDE [functions-add-storage-binding-java-code](../../includes/functions-add-storage-binding-java-code.md)]
 
+## <a name="update-the-test-set"></a>更新测试集
+
 [!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
 
 ::: zone-end  
@@ -169,6 +171,8 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
 首次使用输出绑定时，Functions 运行时会在存储帐户中创建名为 **outqueue** 的新队列。 将使用存储资源管理器来验证队列是否与新消息一起创建。
 
 ::: zone pivot="programming-language-java"  
+
+## <a name="update-the-tests"></a>更新测试
 
 [!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
 

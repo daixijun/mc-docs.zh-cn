@@ -3,17 +3,17 @@ title: 在 Azure Stack Hub 中添加 MySQL 宿主服务器
 description: 了解如何添加 MySQL 宿主服务器以通过 MySQL 适配器资源提供程序进行预配。
 author: WenJason
 ms.topic: article
-origin.date: 11/06/2019
-ms.date: 12/07/2020
+origin.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: xiaofmao
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 51796bdcf055867f42f048dff5fe7da2e3f3ce39
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: 479c3553f16733dd6e731b117eb4cc4c4bdf2757
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508063"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894440"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>在 Azure Stack Hub 中添加 MySQL 宿主服务器
 
@@ -117,6 +117,9 @@ ms.locfileid: "96508063"
    * 未提供默认的 MySQL 实例，因此需指定“宿主服务器的大小(GB)”。 输入接近数据库服务器容量的大小。
    * 保留“订阅”的默认设置。
    * 对于“资源组”，请创建新组或使用现有组。
+
+   > [!IMPORTANT]
+   > 不要选择“资源组 `system.<region>.sqladapter`”，该资源组在部署过程中由 MySQL 资源提供程序的安装程序创建。 必须为宿主服务器提供其他资源组。    
 
    > [!NOTE]
    > 如果租户和管理 Azure 资源管理器可以访问 MySQL 实例，则可让资源提供程序控制此实例。 但是，**必须** 专门将 SQL 实例分配给资源提供程序。

@@ -6,16 +6,16 @@ ms.service: firewall
 ms.topic: how-to
 origin.date: 06/18/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: ab012d3b0f97393dc26508fb836d7037a8f54e61
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: c51dd25e22961ef54a9ca916436167176a187dc5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105119"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021324"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>使用 SQL FQDN 配置 Azure 防火墙应用程序规则
 
@@ -40,20 +40,57 @@ ms.locfileid: "97105119"
     > [!NOTE]
     > 与重定向相比，SQL 代理模式可能会导致更大的延迟。 若要继续使用重定向模式（在 Azure 中建立客户端连接的默认模式），可以在防火墙[网络规则](tutorial-firewall-deploy-portal.md#configure-a-network-rule)中使用 SQL [服务标记](service-tags.md)筛选访问流量。
 
-3. 配置使用 SQL FQDN 的应用程序规则以允许访问 SQL 服务器：
+3. 使用 SQL FQDN 创建包含应用程序规则的新规则集合，以允许访问 SQL 服务器：
 
     ```azurecli
     az extension add -n azure-firewall
 
     az network firewall application-rule create \
     -g FWRG \
-    -f azfirewall \
-    -c FWAppRules \
-    -n srule \
+    --f azfirewall \ 
+    --c sqlRuleCollection \
+    --priority 1000 \
+    --action Allow \
+    --name sqlRule \
     --protocols mssql=1433 \
     --source-addresses 10.0.0.0/24 \
     --target-fqdns sql-serv1.database.chinacloudapi.cn
     ```
+
+## <a name="configure-using-azure-powershell"></a>使用 Azure PowerShell 进行配置
+
+1. [使用 Azure PowerShell 部署 Azure 防火墙](deploy-ps.md)。
+2. 如果筛选发往 Azure SQL 数据库、Azure Synapse Analytics 或 SQL 托管实例的流量，请确保将 SQL 连接模式设置为“代理”。 若要了解如何切换 SQL 连接模式，请参阅 [Azure SQL 连接设置](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli)。
+
+   > [!NOTE]
+   > 与重定向相比，SQL 代理模式可能会导致更大的延迟。 若要继续使用重定向模式（在 Azure 中建立客户端连接的默认模式），可以在防火墙[网络规则](tutorial-firewall-deploy-portal.md#configure-a-network-rule)中使用 SQL [服务标记](service-tags.md)筛选访问流量。
+
+3. 使用 SQL FQDN 创建包含应用程序规则的新规则集合，以允许访问 SQL 服务器：
+
+   ```azurepowershell
+   $AzFw = Get-AzFirewall -Name "azfirewall" -ResourceGroupName "FWRG"
+    
+   $sqlRule = @{
+      Name          = "sqlRule"
+      Protocol      = "mssql:1433" 
+      TargetFqdn    = "sql-serv1.database.chinacloudapi.cn"
+      SourceAddress = "10.0.0.0/24"
+   }
+    
+   $rule = New-AzFirewallApplicationRule @sqlRule
+    
+   $sqlRuleCollection = @{
+      Name       = "sqlRuleCollection" 
+      Priority   = 1000 
+      Rule       = $rule
+      ActionType = "Allow"
+   }
+    
+   $ruleCollection = New-AzFirewallApplicationRuleCollection @sqlRuleCollection
+    
+   $Azfw.ApplicationRuleCollections.Add($ruleCollection)    
+   Set-AzFirewall -AzureFirewall $AzFw    
+   ```
 
 ## <a name="configure-using-the-azure-portal"></a>使用 Azure 门户进行配置
 1. [使用 Azure CLI 部署 Azure 防火墙](deploy-cli.md)。

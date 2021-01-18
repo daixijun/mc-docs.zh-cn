@@ -4,17 +4,17 @@ description: 如何使用 Azure IoT 中心设备预配服务 (DPS) 中的自定�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 11/14/2019
-ms.date: 12/03/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 913853e600f1e94db7627f118978813d24ed1a96
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.openlocfilehash: 49a2a3b4dfb6a48dba25b88fffdb8fb6e3640708
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541136"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874913"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>如何使用自定义分配策略
 
@@ -45,9 +45,9 @@ ms.locfileid: "96541136"
 
 以下先决条件适用于 Windows 开发环境。 对于 Linux 或 macOS，请参阅 SDK 文档的[准备开发环境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)中的相应部分。
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019，已启用[“使用 C++ 的桌面开发”](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development)工作负载。 Visual Studio 2015 和 Visual Studio 2017 也受支持。
+- [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019，已启用[“使用 C++ 的桌面开发”](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development)工作负载。 Visual Studio 2015 和 Visual Studio 2017 也受支持。
 
-* 已安装最新版本的 [Git](https://git-scm.com/download/)。
+- 已安装最新版本的 [Git](https://git-scm.com/download/)。
 
 <!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
 
@@ -134,7 +134,7 @@ ms.locfileid: "96541136"
 
 7. 在下一页上，对于“创建函数”步骤，请选择“Webhook + API”磁贴，然后选择“创建”。    随即会创建名为 **HttpTrigger1** 的函数，门户将显示 **run.csx** 代码文件的内容。
 
-8. 引用所需的 NuGet 包。 为了创建初始设备孪生，自定义分配函数将使用必须载入托管环境的两个 Nuget 包中定义的类。 在 Azure Functions 中，Nuget 包是使用 *function.host* 文件引用的。 此步骤将保存并上传 *function.host* 文件。
+8. 引用所需的 NuGet 包。 为了创建初始设备孪生，自定义分配函数将使用必须载入托管环境的两个 NuGet 包中定义的类。 在 Azure Functions 中，NuGet 包是使用 *function.host* 文件引用的。 此步骤将保存并上传 *function.host* 文件。
 
     1. 将以下行复制到你偏好的编辑器中，并将文件作为 *function.host* 保存在计算机上。
 

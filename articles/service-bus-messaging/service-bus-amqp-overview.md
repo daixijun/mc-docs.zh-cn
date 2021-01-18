@@ -1,19 +1,20 @@
 ---
 title: Azure 服务总线中 AMQP 1.0 的概述
 description: 了解 Azure 服务总线如何支持高级消息队列协议（AMQP，一种开放标准协议）。
+ms.service: service-bus-messaging
 ms.topic: article
 origin.date: 11/20/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: cb8595d0ad4aef258c31a11283140cebd154e277
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 2124ff37f92f718effd2b6f7cd99e51005a0dde5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105312"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021657"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>服务总线的 AMQP 1.0 支持
 Azure 服务总线云服务使用[高级消息队列协议 (AMQP) 1.0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) 作为其主要通信方式。 在过去的十年中，Azure 与行业内的合作伙伴（相互竞争的消息传递代理的客户和供应商）开展合作，开发和发展 AMQP，并在 [OASIS AMQP 技术委员会](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp)中开发了新的扩展。 AMQP 1.0 是 ISO 和 IEC 标准 ([ISO 19464:20149](https://www.iso.org/standard/64955.html))。 
@@ -47,7 +48,7 @@ AMQP 1.0 是一种国际标准，已通过 ISO 和 IEC 的认证，认证编号�
 * **技术供应商**：Axway Software、Huawei Technologies、IIT Software、INETCO Systems、Kaazing、Microsoft、Mitre Corporation、Primeton Technologies、Progress Software、Red Hat、SITA、Software AG、Solace Systems、VMware、WSO2、Zenika。
 * **企业用户**：Bank of America、Credit Suisse、Deutsche Boerse、Goldman Sachs、JPMorgan Chase。
 
-[OASIS AMQP 技术委员会]((https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) 的现任主席代表 Red Hat 和 Microsoft。
+[OASIS AMQP 技术委员会](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp)的现任主席代表 Red Hat 和 Microsoft。
 
 开放标准的公认好处包括：
 

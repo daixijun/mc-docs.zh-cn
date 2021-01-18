@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36677b49dae6f04be8258dc0934ef62fc651fa45
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: c838d323703f964a02fc7380ea9896cd2c718ec0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004310"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021265"
 ---
 # <a name="building-resilience-into-identity-and-access-management-with-azure-active-directory"></a>使用 Azure Active Directory 构建标识和访问管理的复原能力
 
@@ -48,5 +48,5 @@ IAM 复原能力指能经受系统组件中断并在对业务、用户、客户�
 
 * [在应用程序中构建 IAM 复原能力](resilience-app-development-overview.md)
 
-* [在 CIAM 系统中构建复原能力](resilience-b2c.md)
+* [在客户标识和访问管理 (CIAM) 系统中构建复原能力](resilience-b2c.md)
 

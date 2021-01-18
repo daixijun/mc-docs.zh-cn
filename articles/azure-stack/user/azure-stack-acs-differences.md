@@ -5,16 +5,16 @@ description: 了解 Azure Stack Hub 存储与 Azure 存储之间的差异，以�
 author: WenJason
 ms.topic: conceptual
 origin.date: 5/27/2020
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: 3aa9e3a8467a4d0a393fc34197418e02803a4441
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 13af5a1f637994e0dbcd53e8f11ff241329dcace
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508011"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894446"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub 存储：差异和注意事项
 
@@ -58,7 +58,20 @@ Azure Stack Hub 存储是 Azure Stack Hub 中的一组存储云服务。 Azure S
 
 Azure 存储服务 API：
 
-2005 更新或更高版本：
+2008 更新或更高版本：
+- [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/version-2019-07-07)
+- [2019-02-02](https://docs.microsoft.com/rest/api/storageservices/version-2019-02-02)
+- [2018-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2018-11-09)
+- [2018-03-28](https://docs.microsoft.com/rest/api/storageservices/version-2018-03-28)
+- [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
+- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+
+2005 更新：
 
 - [2019-02-02](https://docs.microsoft.com/rest/api/storageservices/version-2019-02-02)
 - [2018-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2018-11-09)
@@ -83,7 +96,17 @@ Azure 存储服务 API：
 
 Azure 存储服务管理 API：
 
-1811 更新或更高版本：
+2008 更新或更高版本：
+- [2018-02-01](https://docs.microsoft.com/rest/api/storagerp/)
+- [2017-10-01](https://docs.microsoft.com/rest/api/storagerp/)
+- [2017-06-01](https://docs.microsoft.com/rest/api/storagerp/)
+- [2016-12-01](https://docs.microsoft.com/rest/api/storagerp/)
+- [2016-05-01](https://docs.microsoft.com/rest/api/storagerp/)
+- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/)
+
+1811 更新到 2005 更新：
 
 - [2017-10-01](https://docs.microsoft.com/rest/api/storagerp/)
 - [2017-06-01](https://docs.microsoft.com/rest/api/storagerp/)

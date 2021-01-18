@@ -3,14 +3,14 @@ title: Azure Functions 中的触发器和绑定
 description: 了解如何使用触发器和绑定将 Azure 函数连接到联机事件和基于云的服务。
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: 90236ff8b1f72a7aff9e4500f7940c13943e189d
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: da365ad39b9df53989f0ae4609a5200e4e44c871
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472681"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021445"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 触发器和绑定概念
 
@@ -88,6 +88,10 @@ ms.locfileid: "92472681"
 使用下表查找特定绑定类型的示例，这些示例演示如何在函数中使用绑定。 首先，选择与你的项目相对应的语言选项卡。 
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
+
+## <a name="custom-bindings"></a>自定义绑定
+
+可以创建自定义输入和输出绑定。 绑定必须以 .NET 编写，但可以在任何支持的语言中使用。 有关创建自定义绑定的详细信息，请参阅[创建自定义输入和输出绑定](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings)。
 
 ## <a name="resources"></a>资源
 - [绑定表达式和模式](./functions-bindings-expressions-patterns.md)

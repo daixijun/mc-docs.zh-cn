@@ -4,14 +4,14 @@ description: '针对以下常见问题的解答：包括恢复服务保管库在
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 07/07/2019
-ms.date: 11/17/2020
+ms.date: 01/07/2021
 ms.author: v-johya
-ms.openlocfilehash: 58fdc406033da4b3a73268a86e1d2e66a262c6de
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 1c50cfdeaf63c1bcfa9f32788869f0009ad0cf8e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977188"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021856"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 备份 - 常见问题
 
@@ -58,6 +58,10 @@ ms.locfileid: "94977188"
 
 - 由 Azure VM 备份支持的 Azure VM 支持 ILR。 有关详细信息，请参阅相关[文章](backup-azure-restore-files-from-vm.md)
 - Azure 备份服务器 (MABS) 或 System Center DPM 备份的本地 VM 的联机恢复点不支持 ILR。
+
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>如何将数据从恢复服务保管库移到本地？
+
+不支持使用 Data Box 直接将数据从恢复服务保管库导出到本地。 必须将数据还原到存储帐户，然后才能通过 Data Box 或[导入/导出](../storage/common/storage-import-export-service.md)将数据移到本地。
 
 ## <a name="azure-backup-agent"></a>Azure 备份代理
 

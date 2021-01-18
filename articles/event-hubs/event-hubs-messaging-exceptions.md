@@ -2,15 +2,15 @@
 title: Azure 事件中心 - 异常（旧版）
 description: 本文提供 Azure 事件中心消息传送异常和建议的操作列表。
 ms.topic: article
-origin.date: 06/23/2020
-ms.date: 11/05/2020
+origin.date: 11/02/2020
+ms.date: 01/05/2021
 ms.author: v-tawe
-ms.openlocfilehash: c487704a4acb402c5010311846b01f76f2e641ee
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 40e1cab43b13fc1f22fa3a95aa159f1c831d2601
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300027"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874909"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>事件中心消息传送异常 - .NET（旧版）
 本部分列出了 .NET Framework API 生成的 .NET 异常。 
@@ -113,7 +113,21 @@ ms.locfileid: "96300027"
 
 - 事件中心命名空间没有足够的吞吐量单位（可以通过在 [Azure 门户](https://portal.azure.cn)中检查事件中心命名空间窗口中的“指标”屏幕来确认）。 门户显示聚合（1 分钟）信息，但我们实时测量吞吐量 - 因此，这只是一个估计值。
 
-    **解决方法**：增加命名空间上的吞吐量单位可有所帮助。 可在门户上的事件中心命名空间屏幕的“缩放”窗口中执行此操作。 或者，可以使用[自动膨胀](event-hubs-auto-inflate.md)。
+    **解决方法**：增加命名空间上的吞吐量单位可有所帮助。 
+
+    可以在 Azure 门户中的“事件中心命名空间”页的“缩放”页或“概述”页上配置吞吐量单位。   或者，可以使用“自动扩充”功能满足使用量需求，[“自动扩充”](event-hubs-auto-inflate.md)功能可通过增加吞吐量单位的数量自动进行纵向扩展。
+
+    吞吐量单位 (TU) 适用于事件中心命名空间中的所有事件中心。 这意味着，TU 是在命名空间级别购买的，并在该命名空间下的事件中心之间共享。 每个 TU 为命名空间赋予以下功能：
+
+    - 入口事件（发送到事件中心的事件）最多为每秒 1 MB，但每秒不超过 1000 个入口事件、管理操作或控制 API 调用。
+    - 出口事件（从事件中心使用的事件）最多达每秒 2 MB，但不超过 4096 个。
+    - 事件存储空间最多为 84 GB（对于默认的 24 小时保留期而言已足够）。
+    
+    在“概述”页上的“显示指标”部分，切换到“吞吐量”选项卡。选择图表以在在较大窗口中打开它，图表中的 x 轴上以 1 分钟为间隔。 查看高峰值并将其除以 60，以获得传入字节数/秒或传出字节数/秒。 在“请求”选项卡上，使用类似的方法计算高峰时每秒的请求数。 
+
+    如果你看到的值大于 TU 的数量 * 限制（每秒 1 MB 的流入量或 1000 个流入量请求/秒、每秒 2 MB 的流出量），请使用事件中心命名空间的“缩放”（在左侧菜单上）页进行手动扩展或使用事件中心的[自动扩充](event-hubs-auto-inflate.md)功能来增加 TU 的数量。 请注意，自动扩充最多只能增加到 20 个 TU。
+
+     <!-- To raise it to exactly 40 TUs, submit a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md). -->
 
 ### <a name="error-code-50001"></a>错误代码 50001
 
@@ -132,4 +146,4 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
 
 * [事件中心概述](./event-hubs-about.md)
 * [创建事件中心](event-hubs-create.md)
-* [事件中心常见问题解答](event-hubs-faq.md)
+* [事件中心常见问题](event-hubs-faq.md)

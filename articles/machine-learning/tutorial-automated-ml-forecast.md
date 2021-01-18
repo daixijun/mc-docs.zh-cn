@@ -10,12 +10,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-ms.openlocfilehash: 18f8d55fb9eb13bc0215c7845e95d457194d038a
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 02c7a16436ec570632e4fab3c46a4394d8ebbd75
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118383"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021138"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>教程：使用自动化机器学习预测需求
 
@@ -99,7 +99,7 @@ ms.locfileid: "92118383"
 
     1. 选择“下一步”。
 
-## <a name="configure-experiment-run"></a>配置试验运行
+## <a name="configure-run"></a>配置运行
 
 加载并配置数据后，请设置远程计算目标，并在数据中选择要预测的列。
 
@@ -110,14 +110,22 @@ ms.locfileid: "92118383"
 
     1. 选择“创建新计算”并配置计算目标。 自动 ML 仅支持 Azure 机器学习计算。 
 
-        字段 | 说明 | 教程的值
-        ----|---|---
-        计算名称 |用于标识计算上下文的唯一名称。|bike-compute
-        虚拟机类型&nbsp;&nbsp;|选择计算的虚拟机大小。|CPU（中央处理单元）
-        虚拟机大小&nbsp;&nbsp;| 指定计算资源的虚拟机大小。|Standard_DS12_V2
-        最小/最大节点数| 若要分析数据，必须指定一个或多个节点。|最小节点数：1<br>最大节点数：6
-        缩减前的空闲秒数 | 群集自动缩减到最小节点数之前的空闲时间。|120（默认值）
-        高级设置 | 用于为试验配置虚拟网络并对其进行授权的设置。| 无
+        1. 填充“虚拟机”窗体以设置计算。
+
+            字段 | 说明 | 教程的值
+            ----|---|---
+            虚拟机优先级&nbsp;&nbsp; |选择试验应具有的优先级| 专用
+            虚拟机类型&nbsp;&nbsp;| 选择计算的虚拟机大小。|CPU（中央处理单元）
+            虚拟机大小&nbsp;&nbsp;| 指定计算资源的虚拟机大小。 根据数据和试验类型提供了建议的大小列表。 |Standard_DS12_V2
+        
+        1. 选择“下一步”以填充“配置设置窗体” 。
+        
+             字段 | 说明 | 教程的值
+            ----|---|---
+            计算名称 |  用于标识计算上下文的唯一名称。 | bike-compute
+            最小/最大节点数| 若要分析数据，必须指定一个或多个节点。|最小节点数：1<br>最大节点数：6
+            缩减前的空闲秒数 | 群集自动缩减到最小节点数之前的空闲时间。|120（默认值）
+            高级设置 | 用于为试验配置虚拟网络并对其进行授权的设置。| 无 
   
         1. 选择“创建”，获取计算目标。 
 
@@ -153,7 +161,7 @@ ms.locfileid: "92118383"
 
 ## <a name="run-experiment"></a>运行试验
 
-若要运行试验，请选择“完成”。 此时会打开“运行详细信息”屏幕，其顶部的运行编号旁边显示了“运行状态”。 此状态随着试验的进行而更新。
+若要运行试验，请选择“完成”。 此时会打开“运行详细信息”屏幕，其顶部的运行编号旁边显示了“运行状态”。 此状态随着试验的进行而更新。 通知也会显示在工作室的右上角，以告知你试验的状态。
 
 >[!IMPORTANT]
 > 准备试验运行时，准备需要 **10-15 分钟**。
@@ -168,7 +176,7 @@ ms.locfileid: "92118383"
 
 以下示例将浏览“详细信息”和“指标”选项卡，以查看选定模型的属性、指标和性能图表。  
 
-![运行详细信息](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
+![运行详细信息](./media/tutorial-automated-ml-forecast/explore-models.gif)
 
 ## <a name="deploy-the-model"></a>部署模型
 
@@ -188,7 +196,7 @@ Azure 机器学习工作室中的自动化机器学习可以通过几个步骤�
 
 1. 按如下所示填充“部署模型”窗格：
 
-    字段| 值
+    字段| Value
     ----|----
     部署名称| bikeshare-deploy
     部署说明| 单车共享需求部署
@@ -204,7 +212,7 @@ Azure 机器学习工作室中的自动化机器学习可以通过几个步骤�
     
 部署成功后，即会获得一个正常运行的、可以生成预测结果的 Web 服务。 
 
-转到[**后续步骤**](#next-steps)详细了解如何使用新的 Web 服务，以及如何使用 Power BI 的内置 Azure 机器学习支持来测试预测。
+转到 [**后续步骤**](#next-steps)详细了解如何使用新的 Web 服务，以及如何使用 Power BI 的内置 Azure 机器学习支持来测试预测。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -231,10 +239,10 @@ Azure 机器学习工作室中的自动化机器学习可以通过几个步骤�
 请参阅以下文章中的步骤来创建 Power BI 支持的架构，以方便使用新部署的 Web 服务：
 
 > [!div class="nextstepaction"]
-> [使用 Web 服务](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [使用 Web 服务](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
 
 + 详细了解[自动化机器学习](concept-automated-ml.md)。
-+ 有关分类指标和图表的详细信息，请参阅[理解自动化机器学习结果](how-to-understand-automated-ml.md#classification)一文。
++ 有关分类指标和图表的详细信息，请参阅[理解自动化机器学习结果](how-to-understand-automated-ml.md)一文。
 + 详细了解[特征化](how-to-configure-auto-features.md#featurization)。
 
 

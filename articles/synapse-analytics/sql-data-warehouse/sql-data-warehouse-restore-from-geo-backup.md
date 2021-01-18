@@ -7,27 +7,27 @@ manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-origin.date: 07/12/2019
-ms.date: 11/30/2020
+origin.date: 11/13/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 909f6c73e82ad5865a1c050cecc4691b6f9e404b
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 171a05dbb1309395db3feba331505ce5460923d6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152993"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022375"
 ---
 # <a name="geo-restore-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中异地还原专用 SQL 池
 
-本文介绍了如何通过 Azure 门户和 PowerShell 从异地备份还原专用 SQL 池。
+本文介绍了如何通过 Azure 门户和 PowerShell 从异地备份还原专用 SQL 池（以前称为 SQL DW）。
 
 ## <a name="before-you-begin"></a>准备阶段
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**验证 DTU 容量。** 每个专用 SQL 池都由一个具有默认 DTU 配额的[逻辑 SQL Server](../../azure-sql/database/logical-servers.md)（例如 myserver.database.chinacloudapi.cn）托管。 验证 SQL Server 的剩余 DTU 配额是否足够进行数据库还原。
+**验证 DTU 容量。** 每个专用 SQL 池（以前称为 SQL DW）都由一个具有默认 DTU 配额的[逻辑 SQL Server](../../azure-sql/database/logical-servers.md)（例如 myserver.database.chinacloudapi.cn）托管。 验证 SQL Server 的剩余 DTU 配额是否足够进行数据库还原。
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>通过 PowerShell 从 Azure 地理区域还原
 
@@ -75,28 +75,24 @@ $GeoRestoredDatabase.status
 
 ## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>通过 Azure 门户从 Azure 地理区域还原
 
-按下述步骤从异地备份还原专用 SQL 池：
+按下述步骤从异地备份还原专用 SQL 池（以前称为 SQL DW）：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)帐户。
-2. 单击“+ 创建资源”。
+1. 搜索“专用 SQL 池(以前称为 SQL DW)”。
 
-   ![新建 DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![新建 DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. 依次单击“数据库”、“Azure Synapse Analytics”（以前称为“SQL DW”） 。
-
-   ![新建 DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
-
-4. 填充在“基本信息”选项卡中请求的信息，然后单击“下一步:其他设置”。
+1. 单击“添加”并填充在“基本信息”选项卡中请求的信息，然后单击“下一步:其他设置”。
 
    ![基础知识](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. 对于“使用现有的数据”参数，请选择“备份”，然后从向下滚动选项中选择适当的备份。 单击“查看 + 创建”。
+1. 对于“使用现有的数据”参数，请选择“备份”，然后从向下滚动选项中选择适当的备份。 单击“查看 + 创建”。
 
    ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
-6. 数据仓库还原后，请检查“状态”是否为“联机”。
+1. 数据仓库还原后，请检查“状态”是否为“联机”。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [还原现有专用 SQL 池](sql-data-warehouse-restore-active-paused-dw.md)
-- [还原已删除的专用 SQL 池](sql-data-warehouse-restore-deleted-dw.md)
+- [还原现有专用 SQL 池（以前称为 SQL DW）](sql-data-warehouse-restore-active-paused-dw.md)
+- [还原已删除的专用 SQL 池（以前称为 SQL DW）](sql-data-warehouse-restore-deleted-dw.md)

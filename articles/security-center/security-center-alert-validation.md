@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2020
+ms.date: 01/06/2021
 ms.author: v-johya
 origin.date: 11/04/2019
-ms.openlocfilehash: 97980d63d60eabb61926e9b434830323358ea29a
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 14b2b903d0b0672d8bc00be1a3eaea3ef7a96bde
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638218"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022123"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Azure 安全中心的警报验证
 本文档介绍如何验证系统是否已针对 Azure 安全中心警报进行了适当的配置。
@@ -28,7 +28,8 @@ ms.locfileid: "94638218"
 警报是安全中心在检测到资源遭受威胁时生成的通知。 安全中心会按优先级列出警报，同时还会提供所需信息以快速调查问题。 安全中心还提供有关如何针对攻击采取补救措施的建议。
 有关详细信息，请参阅[安全中心中的安全警报](security-center-alerts-overview.md)和[管理和响应安全警报](security-center-managing-and-responding-alerts.md)
 
-## <a name="validate-alerts-on-windows-vms"></a>在 Windows 虚拟机上验证警报 <a name="validate-windows"></a>
+<!--Not available in MC: ## Generate sample Azure Defender alerts-->
+## <a name="simulate-alerts-on-your-azure-vms-windows"></a>模拟 Azure VM (Windows) 上的警报 <a name="validate-windows"></a>
 
 在计算机上安装安全中心代理以后，请在想让其成为受攻击的警报资源的计算机上执行以下步骤：
 
@@ -41,7 +42,7 @@ ms.locfileid: "94638218"
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## <a name="validate-alerts-on-linux-vms"></a>在 Linux VM 上验证警报 <a name="validate-linux"></a>
+## <a name="simulate-alerts-on-your-azure-vms-linux"></a>模拟 Azure VM (Linux) 上的警报 <a name="validate-linux"></a>
 
 在计算机上安装安全中心代理以后，请在想让其成为受攻击的警报资源的计算机上执行以下步骤：
 1. 复制一个可执行文件到方便操作的位置，然后将其重命名为“./asc_alerttest_662jfi039n”，例如：
@@ -55,7 +56,7 @@ ms.locfileid: "94638218"
 1. 等待 5 到 10 分钟，然后打开安全中心警报。 应该会出现警报。
 
 
-## <a name="validate-alerts-on-kubernetes"></a>在 Kubernetes 上验证警报 <a name="validate-kubernetes"></a>
+## <a name="simulate-alerts-on-kubernetes"></a>模拟 Kubernetes 上的警报 <a name="validate-kubernetes"></a>
 
 如果已将 Azure Kubernetes 服务与安全中心集成，则可以使用以下 kubectl 命令测试警报是否正常运行：
 

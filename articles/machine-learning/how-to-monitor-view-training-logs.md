@@ -1,7 +1,7 @@
 ---
 title: 监视和查看 ML 运行日志与指标
 titleSuffix: Azure Machine Learning
-description: 监视 Azure ML 试验并查看运行指标，以便改进模型创建过程。 使用小组件和工作室门户来浏览运行状态并查看运行记录。
+description: 使用 Jupyter 小组件和 Azure 机器学习工作室监视你的 ML 试验并查看运行指标。
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,20 +11,22 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: f547d37788dc29eab803b2af964a4c4c2b709391
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: e380c433b69ab51ba4b519d9e365b6b06d17bd91
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978262"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021803"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>监视和查看 ML 运行日志与指标
 
+了解如何监视 Azure 机器学习运行并查看其日志。 
 
+当你运行试验时，系统会为你流式传输日志和指标。  此外，你还可以添加自己的日志和指标。  若要了解如何进行添加，请参阅[在 Azure ML 训练运行中启用日志记录](how-to-track-experiments.md)。
 
-本文介绍如何监视 Azure 机器学习运行并查看其日志。 在查看日志之前，必须先启用它们。 有关详细信息，请参阅[在 Azure 机器学习训练运行中启用日志记录](how-to-track-experiments.md)。
+日志可帮助你诊断你的运行的错误和警告。 性能指标（例如参数和模型准确性）可帮助你跟踪和监视你的运行。
 
-日志可帮助你诊断错误和警告，或跟踪参数和模型准确性等性能指标。 本文介绍如何使用以下方法查看日志：
+本文介绍如何使用以下方法查看日志：
 
 > [!div class="checklist"]
 > * 在工作室中监视运行
@@ -34,27 +36,6 @@ ms.locfileid: "94978262"
 > * 在工作室中查看输出日志
 
 有关如何管理试验的常规信息，请参阅[启动、监视和取消训练运行](how-to-manage-runs.md)。
-
-## <a name="monitor-runs-in-the-studio"></a>在工作室中监视运行
-
-若要在浏览器中监视特定计算目标的运行，请执行以下步骤：
-
-1. 在 [Azure 机器学习工作室](https://studio.azureml.net/)中选择自己的工作区，然后在页面左侧选择“计算”。
-
-1. 选择“正在训练群集”，显示用于训练的计算目标列表。 然后选择群集。
-
-    ![选择训练群集](./media/how-to-track-experiments/select-training-compute.png)
-
-1. 选择“运行”。 此时显示使用此群集的运行列表。 若要查看某个特定运行的详细信息，请点击“运行”列中的链接。 若要查看试验的详细信息，请点击“试验”列中的链接。
-
-    ![选择训练群集的运行](./media/how-to-track-experiments/show-runs-for-compute.png)
-    
-    > [!TIP]
-    > 由于训练计算目标是共享资源，因此它们可以让多个运行排队或在给定时间处于活动状态。
-    > 
-    > 一个运行可以包含多个子级运行，所以一个训练作业可能会产生多个条目。
-
-完成的运行将不再显示在此页上。 若要查看已完成运行的信息，请访问工作室的“试验”部分，然后选择试验和运行。 有关详细信息，请参阅[查看已完成运行的指标](#view-the-experiment-in-the-web-portal)部分。
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>使用 Jupyter Notebook 小组件监视运行
 
@@ -109,16 +90,13 @@ RunDetails(run).show()
 
 对于各个试验视图，请选择“所有试验”选项卡。在“试验运行”仪表板中，可以看到为每次运行跟踪的指标和日志。 
 
-向下钻取至特定运行以查看其输出或日志，或下载试验的快照，以便与其他人共享试验文件夹。
+还可以编辑“运行列表”表，以选择多个运行并显示运行的最新记录值、最小记录值或最大记录值。 自定义自己的图表，以比较多个运行上的已记录指标值和聚合。 
 
-还可以编辑“运行列表”表，以选择多个运行并显示运行的最新记录值、最小记录值或最大记录值。 自定义自己的图表，以比较多个运行上的已记录指标值和聚合。
+![Azure 机器学习工作室中的运行详细信息](media/how-to-track-experiments/experimentation-tab.gif)
 
-:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Azure 机器学习工作室中的运行详细信息":::
+### <a name="format-charts"></a>设置图表格式 
 
-
-### <a name="format-charts-in-the-studio"></a>设置工作室中图表的格式
-
-使用日志记录 API 中的以下方法可影响将指标可视化的工作室。
+使用日志记录 API 中的以下方法可影响指标可视化效果。
 
 |记录的值|示例代码| 门户中的格式|
 |----|----|----|
@@ -126,6 +104,80 @@ RunDetails(run).show()
 |使用重复使用的相同指标名称记录单个数值（例如在 for 循环中）| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| 单变量折线图|
 |重复记录包含 2 个数字列的行|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|双变量折线图|
 |记录包含 2 个数字列的表|`run.log_table(name='Sine Wave', value=sines)`|双变量折线图|
+
+
+### <a name="view-log-files-for-a-run"></a>查看某个运行的日志文件 
+
+日志文件是用于调试 Azure ML 工作负荷的重要资源。 可以向下钻取到特定运行来查看其日志和输出：  
+
+1. 导航到“试验”选项卡。
+1. 选择特定运行的 runID。
+1. 选择页面顶部的“输出和日志”。
+
+:::image type="content" source="media/how-to-monitor-view-training-logs/view-logs.png" alt-text="运行的“输出和日志”部分的屏幕截图":::
+
+下面的各表显示了此部分显示的文件夹中的日志文件的内容。
+
+> [!NOTE]
+> 每次运行不一定会看到每个文件。 例如，仅当生成新映像时（例如更改环境时），才会出现 20_image_build_log*.txt。
+
+#### <a name="azureml-logs-folder"></a>`azureml-logs` 文件夹
+
+|文件  |说明  |
+|---------|---------|
+|20_image_build_log.txt     | 训练环境的 Docker 映像生成日志（可选），每次运行都有一个这样的文件。 仅当更新环境时适用。 其他情况下，AML 会重用缓存的映像。 如果成功，则包含相应映像的映像注册表详细信息。         |
+|55_azureml-execution-<node_id>.txt     | 主机工具的 stdout/stderr 日志，每个节点一个。 将映像拉取到计算目标。 请注意，只有在保护计算资源后，此日志才会出现。         |
+|65_job_prep-<node_id>.txt     |   作业准备脚本的 stdout/stderr 日志，每个节点一个。 将代码下载到计算目标和数据存储（如果已请求）。       |
+|70_driver_log(_x).txt      |  AML 控制脚本和客户训练脚本的 stdout/stderr 日志，每个进程一个。 这是脚本的标准输出。这是代码日志（例如 print 语句）的显示位置。 在大多数情况下，你将在此处监视日志。       |
+|70_mpi_log.txt     |   MPI 框架日志（可选），每个运行一个。 仅适用于 MPI 运行。   |
+|75_job_post-<node_id>.txt     |  作业释放脚本的 stdout/stderr 日志，每个节点一个。 发送日志，将计算资源释放回 Azure。        |
+|process_info.json      |   显示哪个进程在哪个节点上运行。  |
+|process_status.json      | 显示进程状态，即，进程是未启动、正在运行还是已完成。         |
+
+#### <a name="logs--azureml-folder"></a>`logs > azureml` 文件夹
+
+|文件  |说明  |
+|---------|---------|
+|110_azureml.log      |         |
+|job_prep_azureml.log     |   有关作业准备情况的系统日志        |
+|job_release_azureml.log     | 有关作业释放的系统日志        |
+
+#### <a name="logs--azureml--sidecar--node_id-folder"></a>`logs > azureml > sidecar > node_id` 文件夹
+
+当启用了挎斗时，作业准备和作业释放脚本会在挎斗容器中运行。  每个节点都有一个文件夹。 
+
+|文件  |说明  |
+|---------|---------|
+|start_cms.txt     |  挎斗容器启动时启动的进程的日志       |
+|prep_cmd.txt      |   运行 `job_prep.py` 时进入的 ContextManagers 的日志（其中一些会流式传输到 `azureml-logs/65-job_prep`）       |
+|release_cmd.txt     |  运行 `job_release.py` 时退出的 ComtextManagers 的日志        |
+
+#### <a name="other-folders"></a>其他文件夹
+
+对于多个计算群集上的作业训练，将会针对每个节点 IP 提供日志。 每个节点的结构都与单节点作业相同。 对于总体执行、stderr 和 stdout 日志，还有一个额外的日志文件夹。
+
+Azure 机器学习在训练期间记录会从各种源（例如，运行训练作业的 AutoML 或 Docker 容器）记录信息。 其中的许多日志没有详细的阐述。 如果遇到问题且联系了 Microsoft 支持部门，他们可以在排除故障时使用这些日志。
+
+## <a name="monitor-a-compute-cluster"></a>监视计算群集
+
+若要在浏览器中监视特定计算目标的运行，请执行以下步骤：
+
+1. 在 [Azure 机器学习工作室](https://studio.ml.azure.cn/)中选择自己的工作区，然后在页面左侧选择“计算”。
+
+1. 选择“正在训练群集”，显示用于训练的计算目标列表。 然后选择群集。
+
+    ![选择训练群集](./media/how-to-track-experiments/select-training-compute.png)
+
+1. 选择“运行”。 此时显示使用此群集的运行列表。 若要查看某个特定运行的详细信息，请点击“运行”列中的链接。 若要查看试验的详细信息，请点击“试验”列中的链接。
+
+    ![选择训练群集的运行](./media/how-to-track-experiments/show-runs-for-compute.png)
+    
+    > [!TIP]
+    > 由于训练计算目标是共享资源，因此它们可以让多个运行排队或在给定时间处于活动状态。
+    > 
+    > 一个运行可以包含多个子级运行，所以一个训练作业可能会产生多个条目。
+
+完成的运行将不再显示在此页上。 若要查看已完成运行的信息，请访问工作室的“试验”部分，然后选择试验和运行。 有关详细信息，请参阅[查看已完成运行的指标](#view-the-experiment-in-the-web-portal)部分。
 
 
 ## <a name="next-steps"></a>后续步骤

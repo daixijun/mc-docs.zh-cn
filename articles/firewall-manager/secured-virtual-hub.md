@@ -5,18 +5,19 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/12/2020
+origin.date: 10/12/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: a53906ce8573c7f6bfe250a9c4d50fb208067ffc
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 0a39f0182f912119fdadc9678f152e7c7fe6eedb
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104840"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021329"
 ---
 # <a name="what-is-a-secured-virtual-hub"></a>什么是安全虚拟中心？
 
-虚拟中心是 Microsoft 托管的虚拟网络，支持来自其他资源的连接。 在 Azure 门户中基于虚拟 WAN 创建虚拟中心时，还将创建一个虚拟中心 VNet 和网关（可选）作为其组件。
+虚拟中心是 Azure 托管的虚拟网络，支持来自其他资源的连接。 在 Azure 门户中基于虚拟 WAN 创建虚拟中心时，还将创建一个虚拟中心 VNet 和网关（可选）作为其组件。
 
 安全虚拟中心是一个 [Azure 虚拟 WAN 中心](../virtual-wan/virtual-wan-about.md#resources)，其中包含通过 Azure 防火墙管理器配置的关联的安全和路由策略。 使用安全虚拟中心，可通过本机安全服务轻松创建中心辐射型可传递体系结构，实现流量管理和保护。 
 

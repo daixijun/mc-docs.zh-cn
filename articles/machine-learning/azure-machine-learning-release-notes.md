@@ -9,18 +9,80 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 7555b7dd2d2b5953a0075be02a394d8346261c8d
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 93656521378a4ce77f56a13cd6d86805b17426cb
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978049"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022792"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure 机器学习发行说明
 
 本文介绍 Azure 机器学习的版本。  有关完整的 SDK 参考内容，请访问 Azure 机器学习的[适用于 Python 的主要 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 参考页。
 
-请参阅[已知问题列表](resource-known-issues.md)了解已知 bug 和解决方法。
+## <a name="2020-12-07"></a>2020-12-07
+
+### <a name="azure-machine-learning-sdk-for-python-v1190"></a>用于 Python 的 Azure 机器学习 SDK v1.19.0
++ **Bug 修复与改进**
+  + **azureml-automl-core**
+    + 向 AutoMLStep 添加了对测试数据的实验性支持。
+    + 添加了测试集引入功能的初始核心实现。
+    + 移动了对 sklearn.externals.joblib 的引用后直接依赖于 joblib。
+    + 引入了一个新的 AutoML 任务类型“image-instance-segmentation”。
+  + **azureml-automl-runtime**
+    + 添加了测试集引入功能的初始核心实现。
+    + 如果文本列中的所有字符串的长度正好为 1 个字符，则 TfIdf word-gram 特征化器将不起作用，因为它的 tokenizer 忽略少于 2 个字符的字符串。 当前的代码更改将允许 AutoML 处理此用例。
+    + 引入了一个新的 AutoML 任务类型“image-instance-segmentation”。
+  + azureml-contrib-automl-dnn-nlp
+    + 新 dnn-nlp 包的初始 PR
+  + **azureml-contrib-automl-dnn-vision**
+    + 引入了一个新的 AutoML 任务类型“image-instance-segmentation”。
+  + azureml-contrib-automl-pipeline-steps
+    + 此新包负责创建许多模型训练/推理方案所需的步骤。 - 它还将训练/推理代码移动到 azureml.train.automl.runtime 包中，因此将来可以通过特选环境版本自动获得任何修补程序。
+  + **azureml-contrib-dataset**
+    + 引入了一个新的 AutoML 任务类型“image-instance-segmentation”。
+  + **azureml-core**
+    + 添加了测试集引入功能的初始核心实现。
+    + 修复了 azureml-core 包中有关文档的 xref 警告
+    + 修复了有关 SDK 中的命令支持功能的文档字符串
+    + 向 RunConfiguration 中添加了 command 属性。 此功能使得用户能够通过 AzureML SDK 在计算上运行实际的命令或可执行文件。
+    + 用户可以根据试验 ID 删除空试验。
+  + **azureml-dataprep**
+    + 为通过 Scala 2.12 生成的 Spark 添加了数据集支持。 这是对现有的 2.11 支持的补充。
+  + **azureml-mlflow**
+    + AzureML-MLflow 在远程脚本中添加了安全防护，以避免提交的运行提前终止。
+  + **azureml-pipeline-core**
+    + 修复了为通过 UI 创建的管道终结点设置默认管道时的一个 bug
+  + **azureml-pipeline-steps**
+    + 向 AutoMLStep 添加了对测试数据的实验性支持。
+  + **azureml-tensorboard**
+    + 修复了 azureml-core 包中有关文档的 xref 警告
+  + **azureml-train-automl-client**
+    + 向 AutoMLStep 添加了对测试数据的实验性支持。
+    + 添加了测试集引入功能的初始核心实现。
+    + 引入了一个新的 AutoML 任务类型“image-instance-segmentation”。
+  + **azureml-train-automl-runtime**
+    + 添加了测试集引入功能的初始核心实现。
+    + 修复了当使用 validation_size 设置来训练 AutoML 模型时对最佳 AutoML 模型的原始解释的计算。
+    + 移动了对 sklearn.externals.joblib 的引用后直接依赖于 joblib。
+  + **azureml-train-core**
+    + HyperDriveRun.get_children_sorted_by_primary_metric() 现在应当会更快地完成
+    + 改进了 HyperDrive SDK 中的错误处理。
+    +  弃用了所有估算器类，改为使用 ScriptRunConfig 来配置试验运行。 弃用的类包括：
+        + MMLBaseEstimator
+        + 估算器
+        + PyTorch 
+        + TensorFlow 
+        + Chainer 
+        + SKLearn
+    + 不再使用 Nccl 和 Gloo 作为估算器类的有效输入类型，改为将 PyTorchConfiguration 和 ScriptRunConfig 配合使用。
+    + 不再使用 Mpi 作为估算器类的有效输入类型，改为将 MpiConfiguration 和 ScriptRunConfig 配合使用。
+    + 向 runconfiguration 中添加了 command 属性。 此功能使得用户能够通过 AzureML SDK 在计算上运行实际的命令或可执行文件。
+
+    +  弃用了所有估算器类，改为使用 ScriptRunConfig 来配置试验运行。 弃用的类包括：+ MMLBaseEstimator + Estimator + PyTorch + TensorFlow + Chainer + SKLearn
+    + 不再使用 Nccl 和 Gloo 作为估算器类的有效输入类型，改为将 PyTorchConfiguration 和 ScriptRunConfig 配合使用。 
+    + 不再使用 Mpi 作为估算器类的有效输入类型，改为将 MpiConfiguration 和 ScriptRunConfig 配合使用。
+
 
 
 ## <a name="2020-11-09"></a>2020-11-09
@@ -275,7 +337,7 @@ ms.locfileid: "94978049"
   + 新的入门登陆页 
   
 + **预览功能**
-    + 笔记本中的“收集”功能。 利用�[收集](/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview)�功能，用户现在可以轻松清理笔记本，“收集”功能使用笔记本的自动依赖项分析，确保保留基本代码，但删除所有不相关的部分。
+    + 笔记本中的“收集”功能。 利用[收集](/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview)功能，用户现在可以轻松清理笔记本。“收集”功能使用笔记本的自动依赖项分析，确保保留基本代码，但会删除所有不相关的部分。
 
 + **Bug 修复与改进**
   + 提高了速度和可靠性

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: c5a5f52965c4086b5b3742d2d4d246dc30fa6aad
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 7cfcb726df4284f748e7cf048f757dce912e0f93
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003699"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021908"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>在条件访问策略中使用位置条件 
 
@@ -195,6 +195,9 @@ Azure Active Directory (Azure AD) 当前不支持使用 IPv6 的直接网络连�
 ### <a name="api-support-and-powershell"></a>API 支持和 PowerShell
 
 命名位置的 Graph API 预览版本可用。有关详细信息，请参阅 [namedLocation API](https://docs.microsoft.com/graph/api/resources/namedlocation?view=graph-rest-beta)。
+
+> [!NOTE]
+> 使用 PowerShell 创建的命名位置仅在命名位置（预览版）中显示。 在旧视图中看不到命名位置。  
 
 ## <a name="next-steps"></a>后续步骤
 

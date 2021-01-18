@@ -1,20 +1,21 @@
 ---
 title: 使用 Batch 安全地访问 Key Vault
 description: 了解如何使用 Azure Batch 以编程方式从 Key Vault 访问凭据。
+ms.service: batch
 ms.topic: how-to
 origin.date: 10/28/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 11/23/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 602fc48554efbdd80142c4421b76775899182da0
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 2a7b7530aa7850aea4f2ecf2ca1aa507fb510ad7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977706"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021839"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>使用 Batch 安全地访问 Key Vault
 
@@ -72,9 +73,7 @@ $newAzureAdPrincipal = New-AzureRmADServicePrincipal -ApplicationId $newADApplic
 
 ## <a name="grant-rights-to-key-vault"></a>授予 Key Vault 的权限
 
-在上一步中创建的服务主体需要权限才能从 Key Vault 检索机密。 可以通过 Azure 门户或使用以下 PowerShell 命令来授予权限。
-
-<!--Not Available on [Azure portal](https://docs.azure.cn/key-vault/assign-access-policy-portal)-->
+在上一步中创建的服务主体需要权限才能从 Key Vault 检索机密。 可以通过 [Azure 门户](../key-vault/general/assign-access-policy-portal.md)或以下 PowerShell 命令授予权限。
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'

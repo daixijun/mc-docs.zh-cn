@@ -6,13 +6,13 @@ ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/17/2019
 ms.author: v-johya
-ms.date: 11/17/2020
-ms.openlocfilehash: 053c76ee82829b533030b08c9b558f2bdf2057a5
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.date: 01/07/2021
+ms.openlocfilehash: 21b738c841e8ade35b817c6d04db52ede4ef302d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977746"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021346"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>如何在 Azure 门户中还原 Azure VM 数据
 
@@ -137,7 +137,7 @@ Azure 备份提供多种方法用于还原 VM。
 <!--Not available in MC: ## Cross Region Restore-->
 ## <a name="restoring-unmanaged-vms-and-disks-as-managed"></a>将非托管的 VM 和磁盘还原为托管项
 
-在还原过程中，系统会提供一个选项来将[非托管磁盘](../storage/common/storage-disaster-recovery-guidance.md)还原为[托管磁盘](../virtual-machines/managed-disks-overview.md)。 默认情况下，非托管的 VM/磁盘会还原为非托管的 VM/磁盘。 但如果选择还原为托管的 VM/磁盘，现在可以执行此操作。 这些还原不会从快照阶段触发，而只会从保管库阶段触发。 此功能不适用于加密的非托管 VM。
+在还原过程中，系统会提供一个选项来将[非托管磁盘](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks)还原为[托管磁盘](../virtual-machines/managed-disks-overview.md)。 默认情况下，非托管的 VM/磁盘会还原为非托管的 VM/磁盘。 但如果选择还原为托管的 VM/磁盘，现在可以执行此操作。 这些还原不会从快照阶段触发，而只会从保管库阶段触发。 此功能不适用于加密的非托管 VM。
 
 ![还原为托管磁盘](./media/backup-azure-arm-restore-vms/restore-as-managed-disks.png)
 
@@ -162,6 +162,8 @@ Azure 备份提供多种方法用于还原 VM。
 **还原单个域中的多个域控制器 VM** | 如果可以通过网络访问同一个域中的其他域控制器，则可以像还原任何 VM 一样还原域控制器。 对于域中剩余的最后一个域控制器，或者在隔离的网络中执行恢复，请使用[林恢复](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)。
 **在多个域配置中还原单个域控制器 VM** |  [使用 PowerShell](backup-azure-vms-automation.md#restore-the-disks) 还原磁盘并创建 VM  
 **还原一个林中的多个域** | 建议使用[林恢复](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)。
+
+有关详细信息，请参阅[备份和还原 Active Directory 域控制器](active-directory-backup-restore.md)。
 
 ## <a name="track-the-restore-operation"></a>跟踪还原操作
 

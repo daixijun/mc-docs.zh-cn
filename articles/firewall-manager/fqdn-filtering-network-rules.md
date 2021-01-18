@@ -5,20 +5,21 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: article
-ms.date: 07/30/2020
+origin.date: 07/30/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: 6fdbb0be07ce18c118407e4dbdc75ba5d5134562
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: cfd370efbf47a000e8e15b9b827e0350790f6646
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104959"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022800"
 ---
 # <a name="fqdn-filtering-in-network-rules-preview"></a>网络规则中的 FQDN 筛选（预览版）
 
 > [!IMPORTANT]
 > 网络规则中的 FQDN 筛选目前为公共预览版。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)。
 
 完全限定的域名 (FQDN) 表示主机或 IP 地址的域名。 你可以基于 Azure 防火墙和防火墙策略中的 DNS 解析在网络规则中使用 FQDN。 此功能允许你筛选采用任何 TCP/UDP 协议（包括 NTP、SSH、RDP 等）的出站流量。 若要在网络规则中使用 FQDN，你必须启用 DNS 代理。 有关详细信息，请参阅 [Azure 防火墙策略 DNS 设置（预览版）](dns-settings.md)。
 

@@ -6,20 +6,20 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 04/17/2018
-ms.date: 05/11/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 4b95642bfe2c5be42569c6bc65489cbdac3d7d7b
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: d93e472863d44b5e49cd8b1abe7238e4d16a3860
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198427"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023047"
 ---
-# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>使用 sqlcmd 连接到 Synapse SQL 池
+# <a name="connect-to-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>使用 sqlcmd 连接到 Azure Synapse Analytics 中的 SQL 池
 
 > [!div class="op_single_selector"]
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
@@ -30,10 +30,10 @@ ms.locfileid: "82198427"
 
 ## <a name="1-connect"></a>1.连接
 
-若要开始使用 [sqlcmd][sqlcmd]，请打开命令提示符并输入“sqlcmd”  ，后跟 SQL 池的连接字符串。 连接字符串需要以下参数：
+若要开始使用 [sqlcmd][sqlcmd]，请打开命令提示符并输入“sqlcmd”，后跟 SQL 池的连接字符串。 连接字符串需要以下参数：
 
 * **服务器 (-S)：** 采用 `<`服务器名称`>`.database.chinacloudapi.cn 格式的服务器
-* **数据库 (-d)：** 数据库名称。
+* **数据库 (-d)：** SQL 池名称。
 * **启用带引号的标识符 (-I)：** 必须启用带引号的标识符才能连接到 SQL 池实例。
 
 若要使用 SQL Server 身份验证，需添加用户名/密码参数：

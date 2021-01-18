@@ -4,15 +4,15 @@ description: 了解如何使用 FTP 或 FTPS 将应用部署到 Azure 应用服�
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
 origin.date: 09/18/2019
-ms.date: 10/19/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 3c11ac1e570c7441604145a0d74dfcc6f06f5716
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: c078d16117a24bf070272478f1928f575df5a98f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170591"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022689"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 将应用部署到 Azure 应用服务
 
@@ -40,7 +40,7 @@ ms.locfileid: "92170591"
 
 ![复制 FTP 信息](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-建议你使用**应用凭据**部署到应用，因为它对每个应用都是唯一的。 但是，如果单击“用户凭据”，会将可用于 FTP/S 登录的用户级凭据设置到订阅中的所有应用服务应用。
+建议你使用 **应用凭据** 部署到应用，因为它对每个应用都是唯一的。 但是，如果单击“用户凭据”，会将可用于 FTP/S 登录的用户级凭据设置到订阅中的所有应用服务应用。
 
 > [!NOTE]
 > 使用用户级凭据向 FTP/FTPS 终结点进行身份验证时需要使用以下格式的用户名： 
@@ -86,9 +86,18 @@ ms.locfileid: "92170591"
 
 ## <a name="troubleshoot-ftp-deployment"></a>排查 FTP 部署问题
 
-- [如何排查 FTP 部署问题？](#how-can-i-troubleshoot-ftp-deployment)
-- [我无法通过 FTP 来发布代码。如何解决此问题？](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
-- [如何在 Azure 应用服务中通过被动模式连接到 FTP？](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
+- [使用 FTP/S 将应用部署到 Azure 应用服务](#deploy-your-app-to-azure-app-service-using-ftps)
+  - [打开 FTP 仪表板](#open-ftp-dashboard)
+  - [获取 FTP 连接信息](#get-ftp-connection-information)
+  - [将文件部署到 Azure](#deploy-files-to-azure)
+  - [强制实施 FTPS](#enforce-ftps)
+  - [使用脚本自动化](#automate-with-scripts)
+  - [排查 FTP 部署问题](#troubleshoot-ftp-deployment)
+    - [如何排查 FTP 部署问题？](#how-can-i-troubleshoot-ftp-deployment)
+    - [我无法通过 FTP 来发布代码。如何解决此问题？](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+    - [如何在 Azure 应用服务中通过被动模式连接到 FTP？](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
+  - 后续步骤
+  - [更多资源](#more-resources)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>如何排查 FTP 部署问题？
 

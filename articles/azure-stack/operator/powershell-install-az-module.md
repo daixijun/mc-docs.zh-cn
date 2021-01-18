@@ -3,17 +3,17 @@ title: 安装适用于 Azure Stack Hub 的 PowerShell Az 模块
 description: 了解如何安装适用于 Azure Stack Hub 的 PowerShell。
 author: WenJason
 ms.topic: article
-origin.date: 11/17/2020
-ms.date: 12/07/2020
+origin.date: 12/10/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 11/27/2020
-ms.openlocfilehash: 30b81a987b69cbe06a656bd03f388d3b771d0b3e
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.lastreviewed: 12/10/2020
+ms.openlocfilehash: fefe2beb098a3ec5794a1756701fed27a5d7d5a4
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507173"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894404"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>安装适用于 Azure Stack Hub 的 PowerShell Az 模块
 
@@ -56,9 +56,9 @@ $PSVersionTable.PSVersion
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3.卸载 Azure Stack Hub PowerShell 模块的现有版本
 
-在安装所需版本之前，请确保卸载以前安装的任何 Azure Stack Hub Azure 资源模块或 Az PowerShell 模块。 使用以下两种方法之一卸载模块：
+在安装所需版本之前，请确保卸载以前安装的任何 Azure Stack Hub Azure 资源管理器或 Az PowerShell 模块。 使用以下两种方法之一卸载模块：
 
-1. 若要卸载现有的 Azure 资源模块和 Az PowerShell 模块，请关闭所有活动的 PowerShell 会话，并运行以下 cmdlet：
+1. 若要卸载现有的 Azure 资源管理器和 Az PowerShell 模块，请关闭所有活动的 PowerShell 会话，并运行以下 cmdlet：
 
     ```powershell
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
@@ -87,7 +87,7 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 > Azure Stack Hub 模块版本 2.0.0 是一项中断性变更。 有关详细信息，请参阅[在 Azure Stack Hub 中从 AzureRM 迁移到 Azure PowerShell Az](migrate-azurerm-az.md)。
 
 > [!WARNING]
-> 对于适用于 Windows 的 PowerShell 5.1，不能同时安装 Azure 资源模块 (AzureRM) 和 Az 模块。 如果需要确保 Azure 资源模块在系统上始终可用，请为 PowerShell Core 6.x 或更高版本安装 Az 模块。 为此，请[安装 PowerShell Core 6.x 或更高版本](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)，然后在 PowerShell Core 终端中按照这些说明操作。
+> 对于适用于 Windows 的 PowerShell 5.1，不能同时安装 Azure 资源管理器 (AzureRM) 和 Az 模块。 如果需要确保 Azure 资源管理器在系统上始终可用，请为 PowerShell Core 6.x 或更高版本安装 Az 模块。 为此，请[安装 PowerShell Core 6.x 或更高版本](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)，然后在 PowerShell Core 终端中按照这些说明操作。
 
 ## <a name="5-disconnected-install-without-internet-connection"></a>5.离线：不通过 Internet 连接安装
 
@@ -107,7 +107,7 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 
 Azure Stack Hub 2002 或更高版本。
 
-可以使用 Azure 资源模块或 Az 模块。 对于 Azure 资源模块，请参阅[安装 PowerShell AzureRM 模块](powershell-install-az-module.md)中的说明。 以下代码保存可信联机存储库 https://www.powershellgallery.com/ 中的模块。
+可以使用 Azure 资源管理器或 Az 模块。 对于 Azure 资源管理器，请参阅[安装 PowerShell AzureRM 模块](powershell-install-az-module.md)中的说明。 以下代码保存可信联机存储库 https://www.powershellgallery.com/ 中的模块。
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -180,9 +180,15 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ## <a name="7-use-the-az-module"></a>7.使用 Az 模块
 
-可以使用基于 Azure 资源模块的 cmdlet 和代码示例。 但是，你需要更改模块和 cmdlet 的名称。 模块名称已更改，以便 `AzureRM` 和 Azure 变为 `Az`，对于 cmdlet 也是如此。 例如，`AzureRM.Compute` 模块已重命名为 `Az.Compute`.` New-AzureRMVM` 已变为 ` New-AzVM`，并且 `Get-AzureStorageBlob` 现在为 `Get-AzStorageBlob`。
+可以使用基于 Azure 资源管理器的 cmdlet 和代码示例。 但是，你需要更改模块和 cmdlet 的名称。 模块名称已更改，以便 `AzureRM` 和 Azure 变为 `Az`，对于 cmdlet 也是如此。 例如，`AzureRM.Compute` 模块已重命名为 `Az.Compute`.` New-AzureRMVM` 已变为 ` New-AzVM`，并且 `Get-AzureStorageBlob` 现在为 `Get-AzStorageBlob`。
 
 有关将 AzurRM 脚本移到 Az 中和 Azure Stack Hub 的 Az 模块中的中断性变更的更详尽讨论和指导，请参阅[从 AzureRM 迁移到 Azure PowerShell Az](migrate-azurerm-az.md)。
+
+## <a name="known-issues"></a>已知问题
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

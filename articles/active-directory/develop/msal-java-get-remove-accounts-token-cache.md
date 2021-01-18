@@ -1,29 +1,24 @@
 ---
-title: 使用 MSAL for Java (MSAL4j) 在令牌缓存中获取和删除帐户
+title: 从令牌缓存中获取和删除帐户 (MSAL4j) | Azure
 titleSuffix: Microsoft identity platform
 description: 了解如何使用适用于 Java 的 Microsoft 身份验证库查看和删除令牌缓存中的帐户。
 services: active-directory
-documentationcenter: dev-center-name
 author: sangonzal
-manager: henrikm
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 12/09/2019
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: navyasri.canumalla
-ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e587fbbabf6ece81dce449b8a7c61de662562145
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: aaddev, devx-track-java
+ms.openlocfilehash: add687703ce2f741f4fb43246bb3335a1c37f300
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75335290"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022038"
 ---
 # <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>使用 MSAL for Java 在令牌缓存中获取和删除帐户
 
@@ -44,7 +39,7 @@ Set<IAccount> accounts = pca.getAccounts().join();
 
 ## <a name="remove-accounts-from-the-cache"></a>从缓存中删除帐户
 
-如以下示例所示，若要从缓存中删除帐户，请找到需要删除的帐户，然后调用 `PublicClientApplicatoin.removeAccount()`：
+如以下示例所示，若要从缓存中删除帐户，请找到需要删除的帐户，然后调用 `PublicClientApplication.removeAccount()`：
 
 ```java
 Set<IAccount> accounts = pca.getAccounts().join();
@@ -60,4 +55,3 @@ pca.removeAccount(accountToBeRemoved).join();
 
 如果使用的是适用于 Java 的 MSAL，请了解[适用于 Java 的 MSAL 中的自定义令牌缓存序列化](msal-java-token-cache-serialization.md)。
 
-<!-- Update_Description: wording update -->

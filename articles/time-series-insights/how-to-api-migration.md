@@ -8,14 +8,14 @@ ms.author: v-junlch
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 01/05/2021
 ms.custom: shresha
-ms.openlocfilehash: 11915e2a5fdb134e46405a3939fb7ac1dcf01098
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 606d71fbe0b5be8469a3398401118b0c914c60a5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507385"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022356"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>迁移到新的 Azure 时序见解第 2 代 API 版本
 
@@ -76,7 +76,7 @@ ms.locfileid: "96507385"
 若要更新查询以使用新的 API 版本和新的时序表达式语法，需要从资源管理器重新生成查询。 详细了解如何[使用 Power BI 连接器创建查询](./how-to-connect-power-bi.md)。
 
 > [!NOTE]
-> 必须使用 2020 年 7 月版的 Power BI Desktop。 如果未使用此版本，则可能会看到[“无效的查询有效负载版本”错误](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect)。
+> 必须至少使用 2020 年 7 月版的 Power BI Desktop。 否则，可能会看到“查询有效负载版本无效”错误。
 
 ## <a name="migrate-custom-applications"></a>迁移自定义应用程序
 

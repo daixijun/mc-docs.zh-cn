@@ -2,18 +2,18 @@
 title: include 文件
 description: include 文件
 services: active-directory
-author: rolyon
+author: barclayn
 ms.service: active-directory
 ms.topic: include
-ms.date: 07/03/2020
+ms.date: 01/05/2021
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: f72c7be0ff382234ba0f328a99c5304d9ed781f4
-ms.sourcegitcommit: 1008ad28745709e8d666f07a90e02a79dbbe2be5
+ms.openlocfilehash: 751237b0ecab7384af7d4810fc7a2e078443c697
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85946531"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021900"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>创建一个或多个访问评审
 
@@ -53,6 +53,7 @@ ms.locfileid: "85946531"
 
     - 所选用户 - 如果不知道谁需要访问，请使用此选项。 使用此选项，可以将审阅分配给资源所有者或组管理员完成。
     - 成员(自我) - 使用此选项可让用户评审其自己的角色分配。
+    - (预览)管理员 - 使用此选项可让用户的管理员查看其角色分配。 选择“(预览)管理员”后，还可以选择指定一个后备审阅者。 当用户未在目录中指定任何管理员时，系统会要求后备审阅者评审用户。
 
 ### <a name="upon-completion-settings"></a>完成后的设置
 
@@ -60,9 +61,9 @@ ms.locfileid: "85946531"
 
     ![完成后设置自动应用，不响应评审](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
 
-1. 若要自动删除被拒绝用户的访问权限，请将“将结果自动应用到资源”设置为“启用”。  若要在评审完成后手动应用结果，请将开关设置为“禁用”。
+1. 若要自动删除被拒绝用户的访问权限，请将“将结果自动应用到资源”设置为“启用”。  若要在评审完成后手动应用结果，请将开关设置为“禁用”。 
 
-1. 使用“如果审阅者未答复”列表指定对于审阅者在评审期限内未评审的用户要执行的操作。 此设置不影响审阅者已手动评审的用户。 如果最终的审阅者决策是“拒绝”，则会删除用户的访问权限。
+1. 使用“如果审阅者未答复”列表指定对于审阅者在评审期限内未评审的用户要执行的操作。  此设置不影响审阅者已手动评审的用户。 如果最终的审阅者决策是“拒绝”，则会删除用户的访问权限。
 
     - **不更改** - 将用户访问权限保持不变
     - **删除访问权限** - 删除用户的访问权限
@@ -77,9 +78,12 @@ ms.locfileid: "85946531"
 
 1. 将“显示建议”设置为“启用”，以基于用户的访问权限信息向评审者显示系统建议。 
 
-1. 将“需要提供审批原因”设置为“启用”，以要求审阅者提供批准原因。 
+1. 将“需要提供审批原因”设置为“启用”，以要求审阅者提供批准原因。  
 
-1. 将“邮件通知”设置为“启用”，以便在访问评审开始时让 Azure AD 向评审者发送电子邮件通知，并在评审完成时向管理员发送电子邮件通知。 
+1. 将“邮件通知”设置为“启用”，以便在访问评审开始时让 Azure AD 向评审者发送电子邮件通知，并在评审完成时向管理员发送电子邮件通知。  
 
-1. 将“提醒”设置为“启用”，让 Azure AD 向尚未完成其审阅的审阅者发送访问评审正在进行的提醒。 
+1. 将“提醒”设置为“启用”，让 Azure AD 向尚未完成其审阅的审阅者发送访问评审正在进行的提醒。  
+1. 发送给审阅者的电子邮件的内容是根据审阅详细信息（如审阅名称、资源名称、截止日期等）自动生成的。如果你需要一种方式来传达其他信息（例如其他说明或联系人信息），则可在审阅者电子邮件的“其他内容”中指定这些详细信息，这些信息将包含在发送给分配的审阅者的邀请和提醒电子邮件中。 下面突出显示的部分是将要显示此信息的位置。
+
+    ![突出显示发送给审阅者的电子邮件内容](./media/active-directory-privileged-identity-management-access-reviews/email-info.png)
 

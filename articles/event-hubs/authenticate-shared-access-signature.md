@@ -3,15 +3,15 @@ title: 使用共享访问签名对 Azure 事件中心访问进行身份验证
 description: 本文介绍如何使用共享访问签名对事件中心资源访问进行身份验证。
 ms.topic: conceptual
 origin.date: 06/23/2020
-ms.date: 11/05/2020
+ms.date: 01/05/2021
 ms.author: v-tawe
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 654da8c29d8924e87331270cd0d32a8f3d6d49cb
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: bd800bc8506dc341945af28f562c807fe718014d
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375667"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874846"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>使用共享访问签名 (SAS) 对事件中心资源访问进行身份验证
 使用共享访问签名 (SAS) 可以精细控制向具有共享访问签名的客户端授予的访问权限类型。 下面是可以在 SAS 中设置的一些控制措施： 
@@ -214,7 +214,7 @@ private static string createToken(string resourceUri, string keyName, string key
 >
 > 当客户端向事件中心发送数据时，客户端会使用令牌标记其请求。 为了防止攻击者窃听和盗取令牌，客户端与事件中心之间的通信必须通过加密通道进行。
 > 
-> 如果令牌被攻击者盗取，攻击者可能会模拟令牌已被盗的客户端。 将发布者列入方块列表会导致客户端不可用，直至该客户端收到使用其他发布者的新令牌。
+> 如果令牌被攻击者盗取，攻击者可能会模拟令牌已被盗的客户端。 将发布者列入阻止列表会导致客户端不可用，直至该客户端收到使用其他发布者的新令牌。
 
 
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>使用 SAS 对事件中心使用者进行身份验证 

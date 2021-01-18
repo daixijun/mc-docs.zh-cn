@@ -1,21 +1,21 @@
 ---
 title: 模板函数
-description: 介绍在 Azure Resource Manager 模板中检索值、处理字符串和数字以及检索部署信息时所用的函数。
+description: 介绍在 Azure 资源管理器模板（ARM 模板）中检索值、处理字符串和数字以及检索部署信息时所用的函数。
 ms.topic: conceptual
 origin.date: 10/12/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: bbf13c80f295b9eb57d6c9241afd53ed416c2722
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 443f2dbd45d7ba415522a59d79df5beb99bbc85f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470401"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021870"
 ---
 # <a name="arm-template-functions"></a>ARM 模板函数
 
-本文介绍可以在 Azure 资源管理器 (ARM) 模板中使用的所有函数。 若要了解如何在模板中使用函数，请参阅[模板语法](template-expressions.md)。
+本文介绍可以在 Azure 资源管理器模板（ARM 模板）中使用的所有函数。 若要了解如何在模板中使用函数，请参阅[模板语法](template-expressions.md)。
 
 若要创建自己的函数，请参阅[用户定义函数](template-syntax.md#functions)。
 
@@ -255,9 +255,9 @@ Resource Manager 提供以下用于处理字符串的函数：
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关 ARM 模板中各节的说明，请参阅[创作 ARM 模板](template-syntax.md)
-* 若要合并多个模板，请参阅 [Using linked templates with Azure Resource Manager](linked-templates.md)（将链接模板与 Azure 资源管理器配合使用）
-* 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure 资源管理器中创建多个资源实例](copy-resources.md)。
-* 若要了解如何部署已创建的模板，请参阅[使用 ARM 模板部署应用程序](deploy-powershell.md)
+* 有关 ARM 模板中各部分的说明，请参阅[了解 ARM 模板的结构和语法](template-syntax.md)。
+* 若要合并多个模板，请参阅[部署 Azure 资源时使用链接模板和嵌套模板](linked-templates.md)。
+* 若要在创建资源类型时迭代指定的次数，请参阅 [ARM 模板中的资源迭代](copy-resources.md)。
+* 若要了解如何部署已创建的模板，请参阅[使用 ARM 模板和 Azure PowerShell 部署资源](deploy-powershell.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -1,35 +1,35 @@
 ---
 title: 使用 T-SQL 循环
-description: 在 Synapse SQL 池中使用 T-SQL 循环和替换游标的解决方案开发技巧。
+description: 在 Azure Synapse Analytics 中对专用 SQL 池使用 T-SQL 循环和替换游标的解决方案开发技巧。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 04/17/2018
-ms.date: 05/11/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: cfa72ed70c48a1efd0d1f7e0f8339a597ad31529
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: e57363c30cc877fddd12db082e7d07ca08c4f27b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198494"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023053"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql-pool"></a>在 Synapse SQL 池中使用 T-SQL 循环
+# <a name="using-t-sql-loops-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中对专用 SQL 池使用 T-SQL 循环
 
-本文包含的技巧涉及如何使用 T-SQL 循环和替换游标来进行 SQL 池解决方案开发。
+本文包含的技巧涉及如何使用 T-SQL 循环和替换游标来进行专用 SQL 池解决方案开发。
 
 ## <a name="purpose-of-while-loops"></a>WHILE 循环的用途
 
-Synapse SQL 池支持对重复执行的语句块使用 [WHILE](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 循环。 只要指定的条件都成立，或者在代码专门使用 BREAK 关键字终止循环之前，此 WHILE 循环将一直继续。
+Azure Synapse 中的专用 SQL 池支持对重复执行的语句块使用 [WHILE](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 循环。 只要指定的条件都成立，或者在代码专门使用 BREAK 关键字终止循环之前，此 WHILE 循环将一直继续。
 
 循环适合用于替换 SQL 代码中定义的游标。 幸运的是，几乎所有以 SQL 代码编写的游标都是快进的只读变体。 因此，WHILE 循环是用于替换游标的绝佳替代方案。
 
-## <a name="replacing-cursors-in-synapse-sql-pool"></a>在 Synapse SQL 池中替换游标
+## <a name="replacing-cursors-in-dedicated-sql-pool"></a>在专用 SQL 池中替换游标
 
 但是，在一头扎进去之前，你应该问自己以下问题：“是否可以重写此游标以使用基于集的操作？”
 

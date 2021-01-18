@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d553f3b2d7a7acef3b8c7d64fbabccc052ecf07a
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 26363a5f371f9712ebfedfcd67bc4fd8ba478abf
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977463"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021810"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>使用可解释性包通过 Python 解释 ML 模型和预测（预览版）
 
@@ -296,41 +296,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 ## <a name="visualizations"></a>可视化效果
 
-下载本地 Jupyter 笔记本中的解释后，可以使用可视化仪表板来了解和解释模型。
-
-### <a name="understand-entire-model-behavior-global-explanation"></a>理解整个模型行为（全局解释） 
-
-以下绘图提供了已训练模型的总体视图及其预测和解释。
-
-|绘图|说明|
-|----|-----------|
-|数据浏览| 显示数据集的概述以及预测值。|
-|全局重要性|聚合各个数据点的特征重要性值，以显示模型的总体前 K（可配置的 K）个重要特征。 帮助理解基础模型的总体行为。|
-|解释探索|演示某个特征如何影响模型预测值的变化或预测值的概率。 显示特征交互的影响。|
-|摘要重要性|在所有数据点中使用单个特征重要性值，以显示每个特征对预测值所产生影响的分布情况。 使用此图，可以调查特征值对预测值产生影响的方向。
-|
-
-[![全局可视化仪表板](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
-
-### <a name="understand-individual-predictions-local-explanation"></a>理解单个预测（本地解释） 
-
-可以通过单击任意总体绘图中的任意单个数据点，为任意数据点加载单个特征重要性绘图。
-
-|绘图|说明|
-|----|-----------|
-|本地重要性|为单个预测显示前 K（可配置的 K）个重要特征。 帮助演示基础模型对特定数据点的本地行为。|
-|扰动探索（假设分析）|允许更改所选数据点的特征值，并观察对预测值所做的最终更改。|
-|个体条件预期 (ICE)| 允许特征值从最小值更改为最大值。 帮助演示在特征发生更改时数据点的预测如何更改。|
-
-[![本地特征重要性可视化仪表板](./media/how-to-machine-learning-interpretability-aml/local-charts.png)](./media/how-to-machine-learning-interpretability-aml/local-charts.png#lightbox)
-
-
-[![特征扰动可视化仪表板](./media/how-to-machine-learning-interpretability-aml/perturbation.gif)](./media/how-to-machine-learning-interpretability-aml/perturbation.gif#lightbox)
-
-
-[![ICE 绘图可视化仪表板](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
-
-若要加载可视化仪表板，请使用以下代码。
+将解释下载到本地 Jupyter Notebook 后，可以使用可视化效果仪表板来了解和解释模型。 若要在 Jupyter Notebook 中加载可视化效果仪表板小组件，请使用以下代码：
 
 ```python
 from interpret_community.widget import ExplanationDashboard
@@ -338,11 +304,58 @@ from interpret_community.widget import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
+可视化效果同时支持有关工程化特征和原始特征的解释。 原始解释基于原始数据集的特征，工程化解释基于应用了特征工程的数据集的特征。
+
+尝试解释与原始数据集相关的模型时，建议使用原始解释，因为每个特征重要性将对应于原始数据集中的一个列。 工程化解释可能有用的一个场景是，从分类特征观察各个类别的影响。 如果对某个分类特征应用了独热编码，则生成的工程化解释会为每个类别包含一个不同的重要性值，为每个独热工程化特征包含一个重要性值。 这在缩小范围以确定数据集的哪一部分提供的信息对模型最有用时很有用。
+
+> [!NOTE]
+> 工程化解释和原始解释按顺序计算。 首先会基于模型和特征化管道创建一个工程化解释。 然后，通过聚合来自同一原始特征的工程化特征的重要性，基于该工程化解释创建原始解释。
+
+### <a name="create-edit-and-view-dataset-cohorts"></a>创建、编辑和查看数据集队列
+
+顶部的功能区显示了模型和数据的总体统计信息。 你可以将数据切分为数据集队列或子组，以研究或比较你的模型在这些已定义子组中的性能和解释。 通过在这些子组之间比较数据集统计信息和说明，你可以了解为何其中一组可能出现错误，而另一组却不出现错误。
+
+[![创建、编辑和查看数据集队列](./media/how-to-machine-learning-interpretability-aml/dataset-cohorts.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-cohorts.gif#lightbox)
+
+### <a name="understand-entire-model-behavior-global-explanation"></a>理解整个模型行为（全局解释） 
+
+解释仪表板的前三个选项卡提供了已训练模型的总体分析及其预测和解释。
+
+#### <a name="model-performance"></a>模型性能
+通过探究预测值的分布和模型性能指标的值来评估模型的性能。 你可以通过查看模型在数据集的不同队列或子组之间的性能比较分析来进一步研究模型。 通过 x 值和 y 值选择筛选器，以便了解不同的维度。 查看指标，例如准确度、精度、召回率、误报率 (FPR) 和漏报率 (FNR)。
+
+[![解释可视化效果中的“模型性能”选项卡](./media/how-to-machine-learning-interpretability-aml/model-performance.gif)](./media/how-to-machine-learning-interpretability-aml/model-performance.gif#lightbox)
+
+#### <a name="dataset-explorer"></a>数据集资源管理器
+了解数据集统计信息，方法是：沿 X 轴、Y 轴和颜色轴选择不同的筛选器，以便沿不同维度对数据进行切片。 创建以上数据集队列，以使用筛选器（例如预测结果、数据集特征和错误组）分析数据集统计信息。 可以使用此图右上角的齿轮图标更改图形类型。
+
+[![解释可视化效果中的“数据集资源管理器”选项卡](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif#lightbox)
+
+#### <a name="aggregate-feature-importance"></a>聚合特征重要性
+探究影响整体模型预测（也称为全局解释）的排名前 k 的重要特征。 使用滑块来显示按降序排列的特征重要性值。 最多可以选择三个队列来并排查看其特征重要性值。 单击图形中的任何特征条可以查看所选特征的值如何影响下方的依赖关系图中的模型预测。
+
+[![解释可视化效果中的“聚合特征重要性”选项卡](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif)](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif#lightbox)
+
+### <a name="understand-individual-predictions-local-explanation"></a>理解单个预测（本地解释） 
+
+可以使用解释选项卡的第四个选项卡深入了解单个数据点及其单个特征重要性。 你可以通过单击主散点图中的任意单个数据点或在右侧面板向导中选择特定的数据点，加载任意数据点的单个特征重要性绘图。
+
+|绘图|说明|
+|----|-----------|
+|单个特征重要性|为单个预测显示排名前 k 的重要特征。 帮助演示基础模型对特定数据点的本地行为。|
+|What-if 分析|允许更改所选真实数据点的特征值，并通过生成具有新特征值的假设数据点来观察所导致的针对预测值的更改。|
+|个体条件预期 (ICE)|允许特征值从最小值更改为最大值。 帮助演示在特征发生更改时数据点的预测如何更改。|
+
+[![解释仪表板中的单个特征重要性和 What-if 选项卡](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif)](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif#lightbox)
+
+> [!NOTE]
+> 这些是基于许多近似值的解释，而不是那样预测的“原因”。 如果因果推理没有严格的数学稳健性，我们不建议用户根据 What-if 工具的特征扰动做出现实生活中的决策。 此工具主要用于了解你的模型和进行调试。
+
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Azure 机器学习工作室中的可视化效果
 
-如果完成了[远程可解释性](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs)步骤（将生成的解释上传到 Azure 机器学习运行历史记录），则可在 [Azure 机器学习工作室](https://studio.ml.azure.cn)中查看可视化仪表板。 此仪表板是上述可视化仪表板的简化版本（解释探索和 ICE 绘图已禁用，因为工作室中没有可执行其实时计算的活动计算）。
+如果完成了[远程可解释性](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs)步骤（将生成的解释上传到 Azure 机器学习运行历史记录），则可在 [Azure 机器学习工作室](https://studio.ml.azure.cn)中查看可视化仪表板。 此仪表板是前面所述的可视化仪表板的简化版本。 What-if 数据点生成和 ICE 绘图已禁用，因为 Azure 机器学习工作室中没有可以执行实时计算的活动计算。
 
-如果数据集、全局解释和本地解释可用，则数据将填充所有选项卡（扰动探索和 ICE 除外）。 如果只有全局解释可用，将会禁用“摘要重要性”选项卡和所有本地解释选项卡。
+如果数据集、全局和本地解释可用，则数据会填充所有选项卡。 如果只有全局解释可用，则会禁用“单个特征重要性”选项卡。
 
 通过以下途径之一访问 Azure 机器学习工作室中的可视化仪表板：
 
@@ -351,7 +364,7 @@ ExplanationDashboard(global_explanation, model, datasetX=x_test)
   1. 选择特定的试验可查看该试验中的所有运行。
   1. 选择一个运行，然后选择“解释”选项卡来查看解释可视化仪表板。
 
-   [![可视化仪表板本地特征在试验的 AzureML 工作室中的重要性](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![试验中的可视化效果仪表板，其中显示了 AzureML 工作室中的“聚合特征重要性”](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png)](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png#lightbox)
 
 * “模型”窗格
   1. 如果已遵循[使用 Azure 机器学习部署模型](./how-to-deploy-and-where.md)中的步骤注册了原始模型，则可以在左侧窗格中选择“模型”来查看它。
@@ -359,7 +372,7 @@ ExplanationDashboard(global_explanation, model, datasetX=x_test)
 
 ## <a name="interpretability-at-inference-time"></a>推理时的可解释性
 
-可将解释器与原始模型一起部署，并在推理时使用该解释器为任意新数据点提供单个特征重要性值（本地解释）。 我们还提供了更轻量的评分解释器来改善推断时的解释性能。 部署轻量评分解释器的过程类似于部署模型，包括以下步骤：
+可将解释器与原始模型一起部署，并在推理时使用该解释器为任何新的数据点提供单个特征重要性值（本地解释）。 我们还提供了更轻型的评分解释器来改善推理时的可解释性性能，当前只有 Azure 机器学习 SDK 支持它。 部署轻量评分解释器的过程类似于部署模型，包括以下步骤：
 
 1. 创建解释对象。 例如，可以使用 `TabularExplainer`：
 
@@ -547,6 +560,17 @@ ExplanationDashboard(global_explanation, model, datasetX=x_test)
 1. 清理。
 
    若要删除已部署的 Web 服务，请使用 `service.delete()`。
+
+## <a name="troubleshooting"></a>疑难解答
+
+* 不支持稀疏数据：当存在大量特征时，模型解释仪表板会出现故障，或者速度明显减慢，因此我们目前不支持稀疏数据格式。 此外，当使用大型数据集和大量特征时，会产生常规的内存问题。 
+
+* 模型解释不支持预测模型：可解释性（最佳模型解释）不适用于将以下算法推荐为最佳模型的 AutoML 预测试验：TCNForecaster、AutoArima、Prophet、ExponentialSmoothing、Average、Naive、Seasonal Average 和 Seasonal Naive。 AutoML 预测具有支持解释的回归模型。 但是，在解释仪表板中，不支持将“单个特征重要性”选项卡用于预测，因为其数据管道太复杂。
+
+* 数据索引的本地解释：如果原始验证数据集有 5000 个以上的数据点，则解释仪表板不支持将本地重要性值关联到该数据集中的行标识符，因为仪表板会随机对数据进行下采样。 但是，仪表板会在“单个特征重要性”选项卡下显示传递到仪表板中的每个数据点的原始数据集特征值。用户可以通过对原始数据集特征值进行匹配将本地重要性映射回原始数据集。 如果验证数据集的大小小于 5000 个样本，则 AzureML 工作室中的 `index` 特征将对应于验证数据集中的索引。
+
+* 工作室中不支持 What-if/ICE 绘图：Azure 机器学习工作室中的“解释”选项卡下不支持 What-If 和个体条件预期 (ICE) 绘图，因为上传的解释需要一个活动计算来重新计算预测和扰动特征的概率。 当使用 SDK 将它作为小组件运行时，当前支持在 Jupyter 笔记本中使用它。
+
 
 ## <a name="next-steps"></a>后续步骤
 

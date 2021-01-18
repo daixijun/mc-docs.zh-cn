@@ -6,14 +6,14 @@ ms.service: firewall
 ms.topic: article
 origin.date: 11/19/2019
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: e901d384b123e2a731da8f33797f3bcbbfdf48ab
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: d082644386e264b458664a598caf4a5b0377b37a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746710"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021326"
 ---
 # <a name="azure-firewall-service-tags"></a>Azure 防火墙服务标记
 
@@ -23,7 +23,7 @@ Azure 防火墙服务标记可用于网络规则目标字段。 它们可用于�
 
 ## <a name="supported-service-tags"></a>支持的服务标记
 
-有关可在 Azure 防火墙网络规则中使用的服务标记的列表，请参阅[安全组](../virtual-network/network-security-groups-overview.md#service-tags)。
+有关可在 Azure 防火墙网络规则中使用的服务标记的列表，请参阅[虚拟网络服务标记](../virtual-network/service-tags-overview.md#available-service-tags)。
 
 ## <a name="next-steps"></a>后续步骤
 

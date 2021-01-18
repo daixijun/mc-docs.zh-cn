@@ -11,12 +11,12 @@ ms.author: v-yiso
 origin.date: 02/10/2020
 ms.date: 10/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: f170ee6cee4986f8b53da0c8be7bf62900f196f3
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: e482e675e3039220ee9f21d73ca174dc9ab9dd41
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105265"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021142"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>教程：在 Jupyter Notebook 中开始使用 Azure 机器学习
 
@@ -30,7 +30,7 @@ ms.locfileid: "97105265"
 > * 创建一个基于云的计算实例，其中已安装并预配置了 Azure 机器学习 Python SDK。
 
 
-如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用 [Azure 机器学习的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-workspace"></a>创建工作区
 
@@ -49,7 +49,7 @@ Azure 机器学习工作区是云中的基础资源，用于试验、训练和�
 
 Azure 机器学习在你的工作区中提供了一个云笔记本服务器，实现了免安装的预配置体验。 如果你希望控制环境、包和依赖项，请使用[自己的环境](tutorial-1st-experiment-sdk-setup-local.md)。
 
-### <a name="clone-a-notebook-folder"></a>克隆笔记本文件夹
+### <a name="clone-a-notebook-folder"></a><a name="clone"></a>克隆笔记本文件夹
 
 在 Azure 机器学习工作室中完成以下试验设置并运行步骤。 此合并接口包括机器学习工具，所有技能级别的数据科学专业人员均可利用这些工具实现数据科学方案。
 
@@ -78,7 +78,7 @@ Azure 机器学习在你的工作区中提供了一个云笔记本服务器，�
     > [!IMPORTANT]
     > 可以查看“示例”文件夹中的笔记本，但无法从此文件夹运行笔记本。 若要运行笔记本，请确保在“用户文件”部分打开笔记本的克隆版本。
     
-1. 在 **tutorials/image-classification-mnist-data** 文件夹中选择 **tutorial-1st-experiment-sdk-train.ipynb** 文件。
+1. 选择 tutorials/image-classification-mnist-data 文件夹中的 img-classification-part1-training.ipynb 文件。 
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="显示“打开”教程文件夹的屏幕截图。":::
 

@@ -1,24 +1,22 @@
 ---
-title: 如何针对 Azure Stack Hub 上的事件中心进行容量规划
+title: 在 Azure Stack Hub 上规划事件中心的容量
 description: 了解如何针对 Azure Stack Hub 上的事件中心资源提供程序来规划容量。
 author: WenJason
 ms.author: v-jay
 ms.service: azure-stack
 ms.topic: how-to
 origin.date: 12/09/2019
-ms.date: 08/31/2020
+ms.date: 01/11/2021
 ms.reviewer: jfggdl
-ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 74cbe0ab6663de720dd0d8851fc5a17454188c80
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.lastreviewed: 08/15/2020
+ms.openlocfilehash: 1a12fa8cf3627b84e364c3792e1df574a597b369
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868094"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894378"
 ---
 # <a name="how-to-do-capacity-planning-for-event-hubs-on-azure-stack-hub"></a>如何针对 Azure Stack Hub 上的事件中心进行容量规划
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 作为操作员，你可以对资源使用[配额](azure-stack-quota-types.md)，通过这种方式管理 Azure Stack Hub 容量。 可以针对事件中心群集使用的最大核心数设置配额，来控制事件中心资源的消耗。 事件中心群集是用户在部署事件中心资源时创建的。 资源提供程序也有各种资源消耗需求，本文对此进行了介绍。
 
@@ -36,8 +34,7 @@ ms.locfileid: "88868094"
 
 所有事件中心群集都对其节点使用 [D11_V2](../user/azure-stack-vm-sizes.md#mo-dv2) VM 类型。 D11_V2 VM 类型包含 2 个核心。 因此，单 CU 事件中心群集使用 5 个 D11_V2 VM，这相当于使用 10 个核心。 请使用单 CU 所用总核心数的倍数来确定要为某个配额配置的核心数。 此计算反映了当用户创建事件中心群集时可以使用的最大 CU 计数。 例如，若要配置一个配额，允许用户创建容量为 2 个 CU 的群集，请将配额设置为 20 个核心。
 
-> [!NOTE]
-> **仅针对公共预览版**：Azure Stack Hub 上提供的事件中心版本只支持创建单 CU 群集。 事件中心的正式发布 (GA) 版会支持各种不同的 CU 配置选项。
+[!INCLUDE [event-hubs-scale](../includes/event-hubs-scale.md)]
 
 ## <a name="resource-provider-resource-consumption"></a>资源提供程序的资源消耗  
 
@@ -59,7 +56,7 @@ ms.locfileid: "88868094"
 |                                      | 核心数 | VM 存储 | 内存  | 存储帐户 | 总存储\* | 公共 IP\*\* |
 |--------------------------------------|-------|------------|---------|------------------|---------------|------------|
 | **单 CU 群集 + 资源提供程序** | 16    | 800 GiB    | 91 GiB  | 6                | 可变    | 2 |
-| **双 CU 群集 + 资源提供程序** | 26    | 1.3 TB     | 161 GiB | 10 个               | 可变    | 2 |
+| **双 CU 群集 + 资源提供程序** | 26    | 1.3 TB     | 161 GiB | 10               | 可变    | 2 |
 | **四 CU 群集 + 资源提供程序** | 46    | 2.3 TB     | 301 GiB | 18               | 可变    | 2 |
 
 \* 数据块（消息/事件）引入速率和消息保留期是影响事件中心群集所用存储的两个重要因素。 例如，如果在创建事件中心时将消息保留期设置为 7 天，且消息的引入速率为 1MB/秒，则使用的存储大约为 604 GB（1 MB x 60 秒 x 60 分钟 x 24 小时 x 7 天）。 如果消息发送速率为 20MB/秒，且保留期为 7 天，则存储消耗量大约为 12TB。 请务必考虑数据流入速率和保留时间，这样才能充分了解存储容量的消耗情况。

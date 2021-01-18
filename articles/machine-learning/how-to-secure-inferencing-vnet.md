@@ -11,12 +11,12 @@ ms.author: aashishb
 author: peterclu
 ms.date: 10/12/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 1ac5149fb1ec46ee34c4dc9191f992c3da9c2618
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 35d6b9308569b7f6e5d861694d4acbca5ba552c4
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104826"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021665"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>使用虚拟网络保护 Azure 机器学习推理环境
 
@@ -32,6 +32,7 @@ ms.locfileid: "97104826"
 > [!div class="checklist"]
 > - 默认 Azure Kubernetes 服务 (AKS) 群集
 > - 专用 AKS 群集
+> - 具有专用链接的 AKS 群集
 > - Azure 容器实例 (ACI)
 
 
@@ -248,7 +249,9 @@ aks_target.wait_for_completion(show_output = True)
 Azure 容器实例在部署模型时动态创建。 你必须为部署使用的子网启用子网委派，Azure 机器学习才能在虚拟网络中创建 ACI。
 
 > [!WARNING]
-> 在虚拟网络中使用 Azure 容器实例时，虚拟网络必须与 Azure 机器学习工作区位于同一资源组中。
+> 在虚拟网络中使用 Azure 容器实例时，虚拟网络必须符合以下条件：
+> * 与 Azure 机器学习工作区在同一资源组中。
+> * 如果工作区具有专用终结点，则用于 Azure 容器实例的虚拟网络必须与工作区专用终结点使用的虚拟网络相同。
 >
 > 在虚拟网络中使用 Azure 容器实例时，你的工作区的 Azure 容器注册表 (ACR) 不能也在该虚拟网络中。
 

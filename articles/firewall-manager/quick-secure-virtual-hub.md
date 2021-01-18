@@ -6,14 +6,15 @@ author: vhorne
 ms.service: firewall-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 08/28/2020
+origin.date: 08/28/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: d68f39b6b94fbfb236b642f809547050145605ec
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 34b0758141945c612b1970e098026290a1069b07
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105043"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021842"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>快速入门：使用 Azure 防火墙管理器保护虚拟中心安全 - ARM 模板
 
@@ -35,9 +36,7 @@ ms.locfileid: "97105043"
 
 此模板使用 Azure 防火墙管理器以及支持该场景所需的资源创建了一个安全虚拟中心。
 
-### <a name="review-the-template"></a>查看模板
-
-本快速入门中使用的模板来自 [Azure 快速入门模板](https://azure.microsoft.com/resources/templates/fwm-docs-qs/)。
+本快速入门中使用的模板来自 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/fwm-docs-qs/)。
 
 ```JSON
 {
@@ -521,17 +520,17 @@ ms.locfileid: "97105043"
 
 模板中定义了多个 Azure 资源：
 
-- [**Microsoft.Network/virtualWans**](/azure/templates/microsoft.network/virtualWans)
-- [**Microsoft.Network/virtualHubs**](/azure/templates/microsoft.network/virtualHubs)
-- [**Microsoft.Network/firewallPolicies**](/azure/templates/microsoft.network/firewallPolicies)
-- [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
+- [**Microsoft.Network/virtualWans**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualWans)
+- [**Microsoft.Network/virtualHubs**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualHubs)
+- [**Microsoft.Network/firewallPolicies**](https://docs.microsoft.com/azure/templates/microsoft.network/firewallPolicies)
+- [**Microsoft.Network/azureFirewalls**](https://docs.microsoft.com/azure/templates/microsoft.network/azureFirewalls)
+- [**Microsoft.Network/virtualNetworks**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Compute/virtualMachines**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.Storage/storageAccounts**](https://docs.microsoft.com/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/networkInterfaces**](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft.Network/networkSecurityGroups**](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/publicIPAddresses**](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Network/routeTables**](https://docs.microsoft.com/azure/templates/microsoft.network/routeTables)
 
 ## <a name="deploy-the-template"></a>部署模板
 
@@ -539,7 +538,7 @@ ms.locfileid: "97105043"
 
 1. 选择“部署到 Azure”，登录到 Azure 并打开模板。 此模板会创建 Azure 防火墙、虚拟 WAN 和虚拟中心、网络基础结构和两个虚拟机。
 
-   [![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
+   [![部署到 Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
 
 2. 在门户中的“安全虚拟中心”页上，键入或选择以下值：
    - 订阅：从现有订阅中选择 
@@ -557,18 +556,20 @@ ms.locfileid: "97105043"
 1. 在 Azure 门户中，查看“Workload-Srv”虚拟机的网络设置并记下专用 IP 地址。
 2. 将远程桌面连接到“Jump-Srv”虚拟机，然后登录。 在这里，打开与“Workload-Srv”专用 IP 地址建立的远程桌面连接。
 
-3. 打开 Internet Explorer 并浏览到 `www.microsoft.com` 。
-4. 出现 Internet Explorer 安全警报时，请选择“确定” > “关闭”。  
+3. 打开 Internet Explorer 并浏览到 `www.microsoft.com`。
+4. 出现 Internet Explorer 安全警报时，请选择“确定” > “关闭”。 
 
-   应会看到 Microsoft 主页。
+   应会看到 Azure 主页。
 
-5. 浏览到 `www.google.com` 。
+5. 浏览到 `www.baidu.com`。
+
+    <!--Customize on www.baidu.com-->
 
    防火墙应会阻止你访问。
 
 现已验证防火墙规则可正常工作：
 
-* 可以浏览到一个允许的 FQDN，但不能浏览到其他任何 FQDN。
+- 可以浏览到一个允许的 FQDN，但不能浏览到其他任何 FQDN。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -576,7 +577,7 @@ ms.locfileid: "97105043"
 
 若要删除资源组，请调用 `Remove-AzResourceGroup` cmdlet：
 
-```azurepowershell-interactive
+```powershell
 Remove-AzResourceGroup -Name "<your resource group name>"
 ```
 

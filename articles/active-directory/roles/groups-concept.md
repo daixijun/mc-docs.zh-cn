@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 11/04/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eb20464087b7a5db95c9c99861c61998008404b
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 9dc3e30174795b247346d2815c0dd694e1dc1c2e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326974"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023041"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>使用云组来管理 Azure Active Directory（预览版）中的角色分配
 
@@ -43,6 +43,7 @@ Azure Active Directory (Azure AD) 即将引入公共预览，可在其中向 Azu
 我们设计了如何将组分配给角色，以防止出现这种潜在的漏洞：
 
 - 只有全局管理员和特权角色管理员才能创建可分配角色的组（启用“isAssignableToRole”属性）。
+- 它不能是 Azure AD 动态组；也就是说，其成员身份类型必须为“已分配”。 自动填充动态组可能会导致将不需要的帐户添加到该组，从而将其分配给该角色。
 - 默认情况下，只有全局管理员和特权角色管理员可以管理可分配角色组的成员资格，但你可以通过添加组所有者来委派对可分配角色的组的管理。
 - 为了防止特权提升，只能由特权身份验证管理员或全局管理员更改可分配角色组的成员和所有者的凭据。
 - 无嵌套。 不能将组添加为角色可分配的组的成员。
@@ -51,14 +52,12 @@ Azure Active Directory (Azure AD) 即将引入公共预览，可在其中向 Azu
 
 当前不支持以下方案：  
 
-- 将云组分配到 Azure AD 自定义角色
-- 将云组分配给管理单元或应用程序范围内的 Azure AD 角色（内置或自定义）。
 - 将本地组分配给 Azure AD 角色（内置或自定义）
 
 ## <a name="known-issues"></a>已知问题
 
 - “为托管用户登录名启用分阶段推出”功能不支持通过组分配。
-- *仅限 Azure AD P2 授权客户* ：不要通过 Azure AD 和 Privileged Identity Management (PIM) 为角色分配活动组。 具体而言，在创建一个可分配角色的组时，不要将角色分配给该组，也不要在以后使用 PIM 时将角色分配给该组。 这将导致用户无法在 PIM 中看到其活动角色分配以及无法删除该 PIM 分配的问题。 符合条件的分配在此方案中不受影响。 如果尝试进行此分配，可能会出现意外的行为，例如：
+- *仅限 Azure AD P2 授权客户*：不要通过 Azure AD 和 Privileged Identity Management (PIM) 为角色分配活动组。 具体而言，在创建一个可分配角色的组时，不要将角色分配给该组，也不要在以后使用 PIM 时将角色分配给该组。 这将导致用户无法在 PIM 中看到其活动角色分配以及无法删除该 PIM 分配的问题。 符合条件的分配在此方案中不受影响。 如果尝试进行此分配，可能会出现意外的行为，例如：
   - 角色分配的结束时间可能显示错误。
   - 在 PIM 门户中，“我的角色”只能显示一个角色分配，而不管通过多少方法授予分配（通过一个或多个组直接进行）。
 - 仅限 Azure AD P2 授权客户。即使删除该组，它仍会在 PIM UI 中显示该角色的合格成员。 在功能上没有问题；这只是 Azure 门户中的缓存问题。  

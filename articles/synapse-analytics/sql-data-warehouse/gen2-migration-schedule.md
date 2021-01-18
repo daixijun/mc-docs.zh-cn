@@ -1,6 +1,6 @@
 ---
-title: 将 SQL 池迁移到 Gen2
-description: 将现有 SQL 池迁移到 Gen2 以及按区域对迁移进行计划的说明。
+title: 将专用 SQL 池（以前称为 SQL DW）迁移到 Gen2
+description: 将现有专用 SQL 池（以前称为 SQL DW）迁移到 Gen2 以及按区域对迁移进行计划的说明。
 services: synapse-analytics
 author: WenJason
 ms.author: v-jay
@@ -9,22 +9,23 @@ manager: digimobile
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: synapse-analytics
 ms.topic: article
+ms.subservice: sql-dw
 origin.date: 01/21/2020
-ms.date: 05/11/2020
+ms.date: 01/11/2021
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 94dea1f280d34d83038791501c50943ba6da2306
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: b0f7d82476f4ce2fcde004f989815eb7649ab425
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198645"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023259"
 ---
-# <a name="upgrade-your-sql-pool-to-gen2"></a>将 SQL 池升级到 Gen2
+# <a name="upgrade-your-dedicated-sql-pool-formerly-sql-dw-to-gen2"></a>将专用 SQL 池（以前称为 SQL DW）升级到 Gen2
 
-Azure 有助于降低运行 SQL 池的入门级成本。  能够处理高要求查询的较低计算层级现在适用于 SQL 池。 请阅读完整的公告：[针对 Gen2 的较低计算层级支持](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/)。 新套餐在下表所示区域提供。 对于支持的区域，现有的 Gen1 SQL 池可以通过以下任一方式升级到 Gen2：
+Azure 有助于降低运行专用 SQL 池（以前称为 SQL DW）的入门级成本。  能够处理高要求查询的较低计算层级现在适用于专用 SQL 池（以前称为 SQL DW）。 请阅读完整的公告：[针对 Gen2 的较低计算层级支持](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/)。 新套餐在下表所示区域提供。 对于支持的区域，现有的 Gen1 专用 SQL 池（以前称为 SQL DW）可以通过以下任一方式升级到 Gen2：
 
 - **自动升级过程：** 只要服务在某个地区可用，就不会启动自动升级。  当自动升级在特定区域启动时，将在所选维护计划期间进行单独的数据仓库升级。
-- [**自行升级至 Gen2：** ](#self-upgrade-to-gen2)可以通过自行升级至 Gen2 来控制何时升级。 如果你的区域尚不受支持，可以从某个还原点直接还原到受支持区域中的 Gen2 实例。
+- [**自行升级至 Gen2：**](#self-upgrade-to-gen2)可以通过自行升级至 Gen2 来控制何时升级。 如果你的区域尚不受支持，可以从某个还原点直接还原到受支持区域中的 Gen2 实例。
 
 ## <a name="automated-schedule-and-region-availability-table"></a>自动计划和区域可用性表
 
@@ -39,9 +40,9 @@ Azure 有助于降低运行 SQL 池的入门级成本。  能够处理高要求�
 
 ## <a name="automatic-upgrade-process"></a>自动升级过程
 
-我们会根据上面的可用性图表，为你的 Gen1 实例安排自动升级。 为了避免 SQL 池可用性发生任何意外中断，将在维护计划期间安排自动升级。 在正自动升级到 Gen2 的区域，将禁用新建 Gen1 实例的功能。 自动升级完成后，将弃用 Gen1。 有关计划的详细信息，请参阅[查看维护计划](maintenance-scheduling.md#view-a-maintenance-schedule)
+我们会根据上面的可用性图表，为你的 Gen1 实例安排自动升级。 为了避免专用 SQL 池（以前称为 SQL DW）的可用性发生任何意外中断，将在维护日程安排期间安排自动升级。 在正自动升级到 Gen2 的区域，将禁用新建 Gen1 实例的功能。 自动升级完成后，将弃用 Gen1。 有关计划的详细信息，请参阅[查看维护计划](maintenance-scheduling.md#view-a-maintenance-schedule)
 
-重启 SQL 池时，升级过程会导致连接性短暂下降（大约 5 分钟）。  重启 SQL 池后，它将完全可用。 但是，升级过程继续在后台升级数据文件时，可能会出现性能下降的情况。 性能下降的总时间将根据数据文件的大小而有所不同。
+重启专用 SQL 池（以前称为 SQL DW）时，升级过程会导致连接短暂断开（大约 5 分钟）。  重启专用 SQL 池（以前称为 SQL DW）后，它将完全可用。 但是，升级过程继续在后台升级数据文件时，可能会出现性能下降的情况。 性能下降的总时间将根据数据文件的大小而有所不同。
 
 还可以通过在重启后使用更大的 SLO 和资源类在所有主列存储表上运行 [Alter Index rebuild](sql-data-warehouse-tables-index.md) 来加快数据文件升级过程。
 
@@ -50,12 +51,12 @@ Azure 有助于降低运行 SQL 池的入门级成本。  能够处理高要求�
 
 ## <a name="self-upgrade-to-gen2"></a>自行升级至 Gen2
 
-可以选择自行升级，方法是在现有 Gen1 SQL 池中执行以下步骤。 如果选择自行升级，则必须在自动升级过程开始之前在所在区域完成它。 这样做可确保避免任何导致冲突的自动升级风险。
+可以选择自行升级，方法是在现有 Gen1 专用 SQL 池（以前称为 SQL DW）中执行以下步骤。 如果选择自行升级，则必须在自动升级过程开始之前在所在区域完成它。 这样做可确保避免任何导致冲突的自动升级风险。
 
-进行自行升级时有两种选择。  可以就地升级当前 SQL 池，也可以将 Gen1 SQL 池还原为 Gen2 实例。
+进行自行升级时有两种选择。  你可以就地升级当前的专用 SQL 池（以前称为 SQL DW），也可以将 Gen1 专用 SQL 池（以前称为 SQL DW）还原成 Gen2 实例。
 
-- [就地升级](upgrade-to-latest-generation.md) - 此选项会将现有的 Gen1 SQL 池升级到 Gen2。 重启 SQL 池时，升级过程会导致连接性短暂下降（大约 5 分钟）。  重启 SQL 池后，它将完全可用。 如果在升级期间遇到问题，请联系 Azure 支持部门。
-- [从还原点升级](sql-data-warehouse-restore-points.md) - 在当前 Gen1 SQL 池中创建用户定义的还原点，然后直接还原到 Gen2 实例。 现有的 Gen1 SQL 池会保持现状。 还原完成后，Gen2 SQL 池将完全可用。  在已还原的 Gen2 实例上运行所有测试和验证过程后，可以删除原始 Gen1 实例。
+- [就地升级](upgrade-to-latest-generation.md) - 此选项会将现有的 Gen1 专用 SQL 池（以前称为 SQL DW）升级到 Gen2。 重启专用 SQL 池（以前称为 SQL DW）时，升级过程会导致连接短暂断开（大约 5 分钟）。  重启后，它将完全可用。 如果在升级期间遇到问题，请联系 Azure 支持部门。
+- [从还原点升级](sql-data-warehouse-restore-points.md) - 在当前 Gen1 专用 SQL 池（以前称为 SQL DW）中创建用户定义的还原点，然后直接还原到 Gen2 实例。 现有的 Gen1 专用 SQL 池（以前称为 SQL DW）会保留原样。 还原完成后，Gen2 专用 SQL 池（以前称为 SQL DW）将完全可用。  在已还原的 Gen2 实例上运行所有测试和验证过程后，可以删除原始 Gen1 实例。
 
   - 步骤 1：在 Azure 门户中，[创建用户定义的还原点](sql-data-warehouse-restore-active-paused-dw.md)。
   - 步骤 2：从用户定义的还原点还原时，将“性能级别”设置为首选的 Gen2 层。
@@ -67,7 +68,7 @@ Azure 有助于降低运行 SQL 池的入门级成本。  能够处理高要求�
 > [!NOTE]
 > Alter Index rebuild 是一项脱机操作，在重新生成完成之前，这些表将不可用。
 
-如果 SQL 池出现任何问题，请联系 Azure 支持部门。
+如果专用 SQL 池（以前称为 SQL DW）出现任何问题，请联系 Azure 支持。
 
 有关详细信息，请参阅[升级到 Gen2](upgrade-to-latest-generation.md)。
 
@@ -85,12 +86,12 @@ Azure 有助于降低运行 SQL 池的入门级成本。  能够处理高要求�
 
 - 答：可以就地升级或从还原点升级。
 
-  - 就地升级会导致 SQL 池短时间暂停和恢复。  SQL 池联机时，后台进程会继续。  
+  - 就地升级会导致专用 SQL 池（以前称为 SQL DW）短时间暂停和恢复。  专用 SQL 池（以前称为 SQL DW）联机后，后台进程会继续。  
   - 如果要通过还原点进行升级，则需要更长时间，因为升级将完成整个还原过程。
 
 **问：自动升级需要多长时间？**
 
-- 答：升级的实际停机时间仅为暂停和恢复服务所需的时间，即 5 到 10 分钟。 在短暂的停机时间之后，后台进程将运行存储迁移。 后台进程的时间长度取决于 SQL 池的大小。
+- 答：升级的实际停机时间仅为暂停和恢复服务所需的时间，即 5 到 10 分钟。 在短暂的停机时间之后，后台进程将运行存储迁移。 后台进程的时间长度取决于专用 SQL 池（以前称为 SQL DW）的大小。
 
 **问：这种自动升级何时进行？**
 
@@ -106,7 +107,7 @@ Azure 有助于降低运行 SQL 池的入门级成本。  能够处理高要求�
 
 **问：我可以禁用异地备份吗？**
 
-- 答：否。 异地备份是一项企业功能，可在区域不可用时保留 SQL 池的可用性。
+- 答：否。 异地备份是一项企业功能，可在区域变得不可用时保留专用 SQL 池（以前称为 SQL DW）的可用性。
 
 **问：Gen1 和 Gen2 之间的 T-SQL 语法有区别吗？**
 

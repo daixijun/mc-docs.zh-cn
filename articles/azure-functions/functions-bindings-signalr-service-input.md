@@ -3,14 +3,15 @@ title: Azure Functions SignalR 服务输入绑定
 description: 了解如何在 Azure Functions 中返回 SignalR 服务终结点 URL 和访问令牌。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 03/02/2020
+ms.custom: devx-track-csharp
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: a6d05917b068e8c0afbba932423e3466dde11ebf
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 52eca7340117f2571d8c836af2d5a764e153eeed
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78266113"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022668"
 ---
 # <a name="signalr-service-input-binding-for-azure-functions"></a>Azure Functions 的 SignalR 服务输入绑定
 
@@ -216,5 +217,6 @@ public SignalRConnectionInfo negotiate(
 
 ## <a name="next-steps"></a>后续步骤
 
+- [处理来自 SignalR 服务的消息（触发绑定）](./functions-bindings-signalr-service-trigger.md)
 - [发送 SignalR 服务消息（输出绑定）](./functions-bindings-signalr-service-output.md) 
 

@@ -1,6 +1,6 @@
 ---
 title: 使用结果集缓存优化性能
-description: Azure Synapse Analytics 中 Synapse SQL 池的结果集缓存功能概述
+description: Azure Synapse Analytics 中专用 SQL 池的结果集缓存功能概述
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,20 +8,20 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 10/10/2019
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f23c4616cf886198fae78ec55e40ea46238c42b
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: dc416d8b79862d31372f06d5ba3ebaa5a609fdbc
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375609"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023056"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>使用结果集缓存优化性能
 
-启用结果集缓存后，Synapse SQL 会自动将查询结果缓存到用户数据库中，以供重复使用。  这样，后续的查询执行就能直接从持久性缓存中获取结果，因此无需重新计算。   结果集缓存提高了查询性能，并减少了计算资源的用量。  此外，使用缓存结果集的查询不会占用任何并发槽，因此不会计入现有的并发限制。 出于安全考虑，如果访问方用户的数据访问权限与创建缓存结果的用户相同，则访问方用户只能访问缓存的结果。  
+启用结果集缓存后，专用 SQL 池会在用户数据库中自动缓存查询结果，供重复使用。  这样，后续的查询执行就能直接从持久性缓存中获取结果，因此无需重新计算。   结果集缓存提高了查询性能，并减少了计算资源的用量。  此外，使用缓存结果集的查询不会占用任何并发槽，因此不会计入现有的并发限制。 出于安全考虑，如果访问方用户的数据访问权限与创建缓存结果的用户相同，则访问方用户只能访问缓存的结果。  
 
 ## <a name="key-commands"></a>关键命令
 
@@ -48,7 +48,7 @@ ms.locfileid: "93375609"
 > - 如果 ORDER BY 列中的数据不是唯一的，无论是否启用或禁用结果集缓存，都不能保证 ORDER BY 列中值相同的行的行顺序。
 
 > [!IMPORTANT]
-> 创建结果集缓存以及从缓存中检索数据的操作在 Synapse SQL 池实例的控制节点上进行。
+> 创建结果集缓存以及从缓存中检索数据的操作在专用 SQL 池实例的控制节点上进行。
 > 当结果集缓存处于打开状态时，运行返回大型结果集（例如，超过 1 GB）的查询可能会导致控制节点上带宽限制较高，并降低实例上的整体查询响应速度。  这些查询通常在数据浏览或 ETL 操作过程中使用。 若要避免对控制节点造成压力并导致性能问题，用户应在运行此类查询之前关闭数据库的结果集缓存。  
 
 此查询的运行持续时间以针对某个查询执行结果集缓存操作所需的时间为宜：
@@ -86,7 +86,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 每个数据库的结果集缓存最大大小为 1 TB。  当基础查询数据更改时，缓存的结果将自动失效。  
 
-缓存逐出由 Synapse SQL 按照以下计划自动管理：
+缓存逐出由专用 SQL 池按照以下计划自动管理：
 
 - 尚未使用结果集或已失效（每 48 小时执行一次）。
 - 当结果集缓存接近最大大小时。

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 22a1fa606d035541b3173099dd62fdbca8e710b2
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: b5d64d6cc43814d9656f3d96ec8f6484998b55b7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937245"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021643"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>如何以及为何将应用程序添加到 Azure AD
 
@@ -82,7 +82,7 @@ Azure AD 中的应用程序有两种表示形式：
   * 声明转换规则
   * 属性映射（用户设置）
 * 有关服务主体和应用程序对象的详细信息，请参阅 Microsoft Graph API 参考文档：
-  * [应用程序](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
+  * [应用程序](https://docs.microsoft.com/graph/api/resources/application)
   * [Service Principal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>应用程序为何要与 Azure AD 集成？
@@ -95,6 +95,7 @@ Azure AD 中的应用程序有两种表示形式：
 * 基于角色的访问控制 - 使用目录定义应用程序角色，以便在应用程序中执行基于角色的授权检查
 * OAuth 授权服务 - 供 Microsoft 365 和其他 Microsoft 应用程序用来授予对 API/资源的访问权限
 * 应用程序发布和代理 - 将应用程序从专用网络发布到 Internet
+* 目录架构扩展属性 - [扩展服务主体和用户对象的架构](active-directory-schema-extensions.md)以在 Azure AD 中存储其他数据 
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>谁有权向我的 Azure AD 实例添加应用程序？
 
@@ -114,14 +115,14 @@ Azure AD 中的应用程序有两种表示形式：
 
 * 阻止用户自行许可应用程序：
   1. 在 Azure 门户中，转到[企业应用程序](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)下的“用户设置”部分。
-  2. 将**用户可以自行许可访问公司数据的应用**设置为**否**。
+  2. 将 **用户可以自行许可访问公司数据的应用** 设置为 **否**。
      
      > [!NOTE]
      > 如果决定关闭用户许可，则必须由管理员许可用户需要使用的任何新应用程序。
 
 * 阻止用户注册其自己的应用程序：
   1. 在 Azure 门户中，转到“Azure Active Directory”下的[用户设置](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)部分
-  2. 将**用户可以注册应用程序**更改为**否**。
+  2. 将 **用户可以注册应用程序** 更改为 **否**。
 
 > [!NOTE]
 > Microsoft 自身使用默认配置，允许用户自行注册应用程序和许可应用程序。

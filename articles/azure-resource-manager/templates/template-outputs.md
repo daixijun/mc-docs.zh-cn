@@ -4,18 +4,18 @@ description: 介绍如何在 Azure 资源管理器模板中定义输出值。
 ms.topic: conceptual
 origin.date: 11/24/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: 9b971ac2355f04d2c7107059ef34f1decc7d949f
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 0bd5c70607a42d61e775015ffefb84967d8b9517
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003585"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021865"
 ---
-# <a name="outputs-in-azure-resource-manager-template"></a>Azure 资源管理器模板中的输出
+# <a name="outputs-in-arm-templates"></a>ARM 模板中的输出
 
-本文介绍如何在 Azure 资源管理器模板中定义输出值。 需要从部署的资源返回值时，可以使用输出。
+本文介绍如何在 Azure 资源管理器模板（ARM 模板）中定义输出值。 需要从部署的资源返回值时，可以使用输出。
 
 每个输出值的格式必须与[数据类型](template-syntax.md#data-types)中的一种匹配。
 
@@ -123,6 +123,6 @@ az deployment group show \
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要了解输出的可用属性，请参阅[了解 Azure 资源管理器模板的结构和语法](template-syntax.md)。
+* 若要了解输出的可用属性，请参阅[了解 ARM 模板的结构和语法](template-syntax.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

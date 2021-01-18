@@ -3,14 +3,14 @@ title: Azure Functions SignalR 服务绑定
 description: 了解如何将 Azure Functions 与 SignalR 服务绑定配合使用。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 10/19/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: 84c39a0633b47b3c8101c1981eb4a4bd11f5e735
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: da8a2306bde2a3e92eb0fbb689e2ba917f2ec262
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472638"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022664"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions 的 SignalR Service 绑定
 
@@ -18,6 +18,7 @@ ms.locfileid: "92472638"
 
 | 操作 | 类型 |
 |---------|---------|
+| 处理来自 SignalR 服务的消息 | [触发器绑定](./functions-bindings-signalr-service-trigger.md) |
 | 返回服务终结点 URL 和访问令牌 | [输入绑定](./functions-bindings-signalr-service-input.md) |
 | 发送 SignalR 服务消息 |[输出绑定](./functions-bindings-signalr-service-output.md) |
 
@@ -30,7 +31,7 @@ ms.locfileid: "92472638"
 | 语言                                        | 添加方式...                                   | 备注 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | 安装 [NuGet 包]版本 3.x | |
-| C# 脚本、Java、JavaScript、PowerShell | 注册[扩展捆绑包]          | 建议将 [Azure 工具扩展]用于 Visual Studio Code。 |
+| C# 脚本、Java、JavaScript、PowerShell | 注册[扩展捆绑包]          | 建议将 [Azure Tools 扩展]用于 Visual Studio Code。 |
 | C# 脚本（Azure 门户中仅限联机）         | 添加绑定                            | 若要更新现有绑定扩展而不必重新发布函数应用，请参阅[更新扩展]。 |
 
 [NuGet 包]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService
@@ -43,7 +44,7 @@ ms.locfileid: "92472638"
 
 ### <a name="annotations-library-java-only"></a>注释库（仅限 Java）
 
-若要在 Java 函数中使用 SignalR 服务注释，需将对 azure-functions-java-library-signalr  项目（1.0 或更高版本）的依赖项添加到 pom.xml  文件。
+若要在 Java 函数中使用 SignalR 服务注释，需将对 azure-functions-java-library-signalr 项目（1.0 或更高版本）的依赖项添加到 pom.xml 文件。
 
 ```xml
 <dependency>
@@ -55,6 +56,7 @@ ms.locfileid: "92472638"
 
 ## <a name="next-steps"></a>后续步骤
 
+- [处理来自 SignalR 服务的消息（触发绑定）](./functions-bindings-signalr-service-trigger.md)
 - [返回服务终结点 URL 和访问令牌（输入绑定）](./functions-bindings-signalr-service-input.md)
 - [发送 SignalR 服务消息（输出绑定）](./functions-bindings-signalr-service-output.md)
 

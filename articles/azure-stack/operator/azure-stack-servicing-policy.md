@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack Hub 服务策略以及如何使集成系统保持受支持状态。
 author: WenJason
 ms.topic: article
-origin.date: 09/25/2020
-ms.date: 12/07/2020
+origin.date: 12/15/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: fb4a6706a348566d61a26746276005ee3dcd35bc
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: e7ab006de3a3acf5ac5c7fa7985e3ad545a08173
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507922"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894417"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub 服务策略
 
@@ -68,6 +68,8 @@ OEM 硬件供应商会根据需要发布更新。 请咨询 OEM 以获取硬件�
 ## <a name="keep-your-system-under-support"></a>保持系统受支持
 
 为了使 Azure Stack Hub 实例保持受支持的状态，该实例必须运行最新发布的更新版本或运行之前的两个更新版本之一。
+
+你还必须与制造系统的硬件合作伙伴签订有效的支持协议。 如果没有签订硬件支持协议，Azure 将无法为你提供支持。
 
 修补程序不被视为主要更新版本。 如果 Azure Stack Hub 实例落后于两个以上的更新，则认为它不符合。 必须至少更新到最低支持版本才能获得支持。
 

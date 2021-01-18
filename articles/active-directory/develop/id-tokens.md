@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: c7828d52d2dba27792fa3357db0dc8413ce6faf5
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 1bc25f8e822b5799617d47dad5e44e8d5154b331
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244677"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022049"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft 标识平台 ID 令牌
 
-`id_tokens` 作为 [OpenID Connect](v2-protocols-oidc.md) (OIDC) 流的一部分发送到客户端应用程序。 它们可以一起发送来代替访问令牌，可供客户端用来对用户进行身份验证。
+`id_tokens` 作为 [OpenID Connect](v2-protocols-oidc.md) (OIDC) 流的一部分发送到客户端应用程序。 它们可以与访问令牌一起发送，也可以在发送时代替访问令牌，供客户端用来对用户进行身份验证。
 
 ## <a name="using-the-id_token"></a>使用 id_token
 
@@ -96,7 +96,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 
 ### <a name="using-claims-to-reliably-identify-a-user-subject-and-object-id"></a>使用声明可靠地标识用户（使用者和对象 ID）
 
-标识用户（例如在数据库中查找用户，或确定其拥有的权限）时，使用在整个时间范围内保持不变且唯一的信息至关重要。  旧版应用程序有时使用电子邮件地址、电话号码或 UPN 等字段。  所有这些内容都可能随着时间的推移而变化，也可以随着时间的推移重复使用 - 当员工更改其姓名时，或者为员工提供的电子邮件地址与以前的、已不在职的员工的电子邮件地址相匹配时。 因此，你的应用程序不应使用可人为阅读的数据来标识用户，这一点非常重要 - 可人为阅读通常意味着有人会阅读它，并希望对其进行更改。  请改为使用由 OIDC 标准提供的声明，或使用由 Microsoft 提供的扩展声明 - `sub` 和 `oid` 声明。
+标识用户（例如在数据库中查找用户，或确定其拥有的权限）时，使用在整个时间范围内保持不变且唯一的信息至关重要。 旧版应用程序有时使用电子邮件地址、电话号码或 UPN 等字段。  所有这些内容都可能随着时间的推移而变化，也可以随着时间的推移重复使用 - 当员工更改其姓名时，或者为员工提供的电子邮件地址与以前的、已不在职的员工的电子邮件地址相匹配时。 因此，你的应用程序不应使用可人为阅读的数据来标识用户，这一点非常重要 - 可人为阅读通常意味着有人会阅读它，并希望对其进行更改。 请改为使用由 OIDC 标准提供的声明，或使用由 Microsoft 提供的扩展声明 - `sub` 和 `oid` 声明。
 
 若要正确地按用户存储信息，请仅使用 `sub` 或 `oid`（作为 GUID 是唯一的），并根据需要使用 `tid` 进行路由或分片。  如果需要跨服务共享数据，则 `oid`+`tid` 最适用，因为所有应用对于给定用户均获取相同的 `oid` 和 `tid` 声明。  Microsoft 标识平台中的 `sub` 声明是“成对的”- 其基于令牌收件人、租户和用户的组合，并且是唯一的。  因此，为给定用户请求 ID 令牌的两个应用将收到不同的 `sub` 声明，但对于用户而言，`oid` 声明相同。
 
@@ -122,7 +122,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
        }
      }
   ...
- }
+}
 ```
 
 ## <a name="validating-an-id_token"></a>验证 id_token

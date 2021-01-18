@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/23/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 9596a4393bbe42a7670db975244e1ee478520509
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 8ae8b1e72974bfd6a33204697f3fdcb06066de0d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918369"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022517"
 ---
 # <a name="single-page-application-app-registration"></a>单页应用程序：应用注册
 
@@ -27,10 +27,12 @@ ms.locfileid: "95918369"
 
 对于基于 MSAL 1.0 和 2.0 的应用程序，请先完成以下步骤以创建初始应用注册。
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。 如果你的帐户有权访问多个租户，请在顶部菜单中选择“目录 + 订阅”筛选器，然后选择应包含你要创建的应用注册的租户。
+1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
 1. 搜索并选择“Azure Active Directory”。
-1. 在“管理”下，选择“应用注册”。 
-1. 选择“新注册”，输入应用程序的“名称”，并为应用程序选择“支持的帐户类型”。 请勿输入“重定向 URI”。 有关不同帐户类型的说明，请参阅 [使用 Azure 门户注册新应用程序](quickstart-register-app.md)。
+1. 在“管理”下，选择“应用注册” > “新建注册”  。
+1. 输入应用程序的 **名称**。 应用的用户可能会看到此名称，你稍后可对其进行更改。
+1. 选择应用程序支持的帐户类型。 请勿输入“重定向 URI”。 有关不同帐户类型的说明，请参阅[注册应用程序](quickstart-register-app.md)。
 1. 选择“注册”以创建应用注册。
 
 接下来，使用“重定向 URI”配置应用注册，以指定 Microsoft 标识平台应将客户端与任何安全令牌重定向到的位置。 按照适用于将在应用程序中使用的 MSAL.js 版本的步骤操作：
@@ -43,7 +45,7 @@ ms.locfileid: "95918369"
 按照以下步骤为使用 MSAL.js 2.0 或更高版本的应用添加重定向 URI。 MSAL.js 2.0+ 支持使用 PKCE 和 CORS 的授权代码流，以响应[浏览器第三方 cookie 限制](reference-third-party-cookies-spas.md)。 MSAL.js 2.0+ 不支持隐式授权流。
 
 1. 在 Azure 门户中，选择先前在[创建应用注册](#create-the-app-registration)中创建的应用注册。
-1. 在“管理”下，选择“身份验证”，然后选择“添加平台”。
+1. 在“管理”下，选择“身份验证” > “添加平台”  。
 1. 在“Web 应用程序”下，选择“单页应用程序”磁贴。
 1. 在“重定向 URI”下，输入 [重定向 URI](reply-url.md)。 请勿选中“隐式授权”下的任一复选框。
 1. 选择“配置”以添加重定向 URI。
@@ -55,7 +57,7 @@ ms.locfileid: "95918369"
 请按照以下步骤为使用 MSAL.js 1.3 或更早版本的单页应用和隐式授权流添加重定向 URI。 使用 MSAL.js 1.3 或更早版本的应用程序不支持身份验证代码流。
 
 1. 在 Azure 门户中，选择先前在[创建应用注册](#create-the-app-registration)中创建的应用注册。
-1. 在“管理”下，选择“身份验证”，然后选择“添加平台”。
+1. 在“管理”下，选择“身份验证” > “添加平台”  。
 1. 在“Web 应用程序”下，选择“单页应用程序”磁贴。
 1. 在“重定向 URI”下，输入 [重定向 URI](reply-url.md)。
 1. 启用“隐式流”：
@@ -77,5 +79,5 @@ ms.locfileid: "95918369"
 
 ## <a name="next-steps"></a>后续步骤
 
-接下来，配置应用代码，以使用在先前步骤中创建的应用注册：[应用的代码配置](scenario-spa-app-configuration.md)。
+配置应用代码，以使用在先前步骤中创建的应用注册：[应用的代码配置](scenario-spa-app-configuration.md)。
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5baac79267b4072ef60e06829751f384fbf0ce
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 55bcc43867a1a3ea9ec110aa81d5241310430619
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003792"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022065"
 ---
 # <a name="conditional-access-grant"></a>条件访问：授予
 
@@ -35,6 +35,8 @@ ms.locfileid: "97003792"
 在授予访问权限时，管理员可以选择强制实施一项或多项控制。 这些控制包括以下选项： 
 
 - [需要多重身份验证（Azure AD 多重身份验证）](../authentication/concept-mfa-howitworks.md)
+- [要求将设备标记为合规 (Microsoft Intune)](https://docs.microsoft.com/intune/protect/device-compliance-get-started)
+- [要求使用已建立混合 Azure AD 联接的设备](../devices/concept-azure-ad-join-hybrid.md)
 - [“需要已批准的客户端应用”](app-based-conditional-access.md)
 - [要求更改密码](#require-password-change)
 
@@ -49,6 +51,19 @@ ms.locfileid: "97003792"
 
 选中此复选框会要求用户执行 Azure AD 多重身份验证。 在[规划基于云的 Azure AD 多重身份验证部署](../authentication/howto-mfa-getstarted.md)一文中可以找到有关部署 Azure AD 多重身份验证的详细信息。
 
+### <a name="require-device-to-be-marked-as-compliant"></a>要求将设备标记为合规
+
+部署了 Microsoft Intune 的组织可以根据从其设备返回的信息来识别符合具体合规要求的设备。 此策略合规性信息将从 Intune 转发到 Azure AD，其中的条件访问可以决定是要授予还是阻止对资源的访问。 有关合规性策略的详细信息，请参阅[使用 Intune 在设备上设置规则以允许访问组织中的资源](https://docs.microsoft.com/intune/protect/device-compliance-get-started)一文。
+
+可以通过 Intune（适用于任何设备 OS）或通过适用于 Windows 10 设备的第三方 MDM 系统将设备标记为合规。 Jamf pro 是唯一受支持的第三方 MDM 系统。 有关集成的详细信息可在[将 Jamf Pro 与 Intune 集成以实现符合性](https://docs.microsoft.com/intune/protect/conditional-access-integrate-jamf)一文中找到。
+
+设备必须在 Azure AD 中进行注册，然后才能标记为合规。 如需详细了解设备注册，请参阅[什么是设备标识](../devices/overview.md)一文。
+
+### <a name="require-hybrid-azure-ad-joined-device"></a>要求使用已建立混合 Azure AD 联接的设备
+
+组织可以选择使用设备标识作为其条件访问策略的一部分。 组织可以使用此复选框要求设备是已加入混合 Azure AD 的设备。 如需详细了解设备标识，请参阅[什么是设备标识？](../devices/overview.md)一文。
+
+使用[设备代码 OAuth 流](../develop/v2-oauth2-device-code.md)时，不支持要求受管理设备授权控制或设备状态条件。 这是因为执行身份验证的设备无法向提供代码的设备提供其设备状态，并且令牌中的设备状态会锁定到执行身份验证的设备。 请改用“需要多重身份验证授权控制”。
 
 ### <a name="require-approved-client-app"></a>需要批准的客户端应用
 

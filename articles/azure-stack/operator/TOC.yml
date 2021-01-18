@@ -285,6 +285,8 @@
           href: azure-stack-delegated-provider.md
         - name: 配额类型
           href: azure-stack-quota-types.md
+        - name: 使用 PowerShell 管理计划和套餐
+          href: azure-stack-powershell-plan-offer.md
     - name: 提供网络解决方案
       href: azure-stack-network-solutions-enable.md
     - name: 管理增值资源提供程序
@@ -340,7 +342,7 @@
                 - name: 应用更新
                   href: resource-provider-apply-updates.md
                 - name: 备份和还原
-                  href: azure-stack-backup-infrastructure-backup.md
+                  href: azure-stack-backup-enable-backup-console.md
                 - name: 收集日志
                   href: diagnostic-log-collection.md
                 - name: 运行状况和警报
@@ -348,7 +350,7 @@
                 - name: 管理
                   href: event-hubs-rp-manage.md
                 - name: 轮换机密
-                  href: azure-stack-rotate-secrets.md
+                  href: event-hubs-rp-rotate-secrets.md
                 - name: 服务更新公告
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: 删除

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack
 description: 了解如何排查 Azure Stack Hub 的问题，包括 VM、存储和应用服务的问题。
 author: WenJason
 ms.topic: article
-origin.date: 07/21/2019
-ms.date: 11/09/2020
+origin.date: 12/10/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: prchint
-ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 788d7b6910fb22a59f5922670126fbee6ef8a4ee
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.lastreviewed: 12/10/2020
+ms.openlocfilehash: bb1f5b180b332d29cad1534eaa62bc44dc897d48
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330547"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894345"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack Hub 中的问题
 
@@ -199,7 +199,7 @@ slmgr /ipk <AVMA_key>
 
 Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单的方式应用更新包。 虽然不常见，但在修补和更新过程中可能会出现问题。 如果在修补和更新过程中遇到问题，建议执行以下步骤：
 
-0. **先决条件** ：请确保已遵循 [更新活动清单](release-notes-checklist.md)，并 [启用主动日志收集](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)。
+0. **先决条件**：请确保已遵循 [更新活动清单](release-notes-checklist.md)，并 [启用主动日志收集](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)。
 
 1. 按照在更新失败时创建的失败警报中的补救步骤进行操作。
 
@@ -211,16 +211,28 @@ Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单�
 
 ### <a name="preparationfailed"></a>PreparationFailed
 
-**适用于** ：此问题适用于所有支持的版本。
+**适用于**：此问题适用于所有支持的版本。
 
 **原因：** 尝试安装 Azure Stack Hub 更新时，更新的状态可能会失败并将状态更改为 `PreparationFailed`。 对于连接到 Internet 的系统，这通常表明由于 Internet 连接不稳定，无法正确下载更新包。 
 
-**补救措施** ：可以通过再次单击“立即安装”来解决此问题。 如果此问题仍然存在，建议按照[安装更新](azure-stack-apply-updates.md?#install-updates-and-monitor-progress)部分的说明手动上传更新包。
+**补救措施**：可以通过再次单击“立即安装”来解决此问题。 如果此问题仍然存在，建议按照[安装更新](azure-stack-apply-updates.md?#install-updates-and-monitor-progress)部分的说明手动上传更新包。
 
-**发生率** ：通用
+**发生率**：通用
 
-**适用于** ：此问题仅适用于 2002 版本。
+### <a name="warnings-and-errors-reported-while-update-is-in-progress"></a>更新过程中报告的警告和错误
+
+**适用于**：此问题适用于所有支持的版本。
+
+**原因：** 当 Azure Stack Hub 更新处于“正在进行”状态时，可能会在门户中报告警告和错误。 组件在升级期间等待其他组件时可能会超时，从而导致错误。 Azure Stack Hub 有一种机制，可以重试或修正由于间歇性错误导致的一些任务。
+
+**补救措施**：当 Azure Stack Hub 更新处于“正在进行”状态时，可能会忽略门户中报告的警告和错误。
+
+**发生率**：通用
+
+### <a name="2002-update-failed"></a>2002 更新失败
+
+**适用于**：此问题仅适用于 2002 版本。
 
 **原因：** 尝试安装 2002 更新时，更新可能会失败并提供以下消息：`The private network parameter is missing from cloud parameters. Please use set-azsprivatenetwork cmdlet to set private networkTrace`。
 
-**补救措施** ： [设置专用内部网络](./azure-stack-network.md?view=azs-2002#private-network)。
+**补救措施**：[设置专用内部网络](./azure-stack-network.md?view=azs-2002#private-network)。

@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 10/10/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 283620934b5734c8dcba8063083972d3ce75be9e
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: e19aaea4c4e466906f69929cfddea02b7a61749a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937290"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021570"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>教程：在 Azure AD 权利管理中创建第一个访问包
 
 对于组织而言，管理对员工所需的所有资源（例如组、应用程序和站点）的访问是一项非常重要的功能。 应该为员工授予适当的访问权限级别以使其保持工作效率，同时，在不再需要这种权限级别时将其删除。
 
-本教程假设你在 Woodgrove Bank 担任 IT 管理员。 该组织要求你为某个市场营销活动创建资源包，内部用户通过自助服务请求该包。 请求不需要经过审批，用户的访问权限将在 30 天后过期。 对于本教程，市场营销活动资源只是单个组中的成员身份，但也可以是组、应用程序或 SharePoint Online 站点的集合。
+本教程假设你在 Woodgrove Bank 担任 IT 管理员。 该组织要求你为某项市场营销活动创建一个内部用户可用于自助服务请求的资源包。 请求不需要经过审批，用户的访问权限将在 30 天后过期。 对于本教程，市场营销活动资源只是单个组中的成员身份，但也可以是组、应用程序或 SharePoint Online 站点的集合。
 
 ![显示方案概述的示意图。](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
@@ -37,6 +37,8 @@ ms.locfileid: "91937290"
 > * 创建包含组（用作资源）的访问包
 > * 允许目录中的用户请求访问
 > * 演示内部用户如何请求该访问包
+
+可以使用 Microsoft Graph 以编程方式创建访问包。 有关如何以编程方式创建访问包的教程，请参阅[权利管理 API](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -112,6 +114,12 @@ ms.locfileid: "91937290"
 
     ![新建访问包 -“资源角色”选项卡](./media/entitlement-management-access-package-first/resource-roles.png)
 
+    >[!NOTE]
+    > 使用[动态组](../enterprise-users/groups-create-rule.md)时，不会看到除所有者外的任何其他可用角色。 这是设计的结果。
+    > ![方案概述](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+    
+
+
 12. 单击“下一步”，打开“请求”选项卡   。
 
     在此选项卡上，你将创建请求策略。 策略定义有关访问某个访问包的规则或准则。  请创建一个使资源目录中的特定用户能够请求此访问包的策略。
@@ -160,7 +168,7 @@ ms.locfileid: "91937290"
 
 ## <a name="step-3-request-access"></a>步骤 3：请求访问权限
 
-在此步骤中，你将**内部请求者**的身份执行步骤，并请求对访问包进行访问。 请求者使用名为“我的访问权限门户”的站点来提交其请求。 在“我的访问权限门户”中，请求者可以提交访问包的请求、查看他们已有权访问的访问包，以及查看其请求历史记录。
+在此步骤中，你将 **内部请求者** 的身份执行步骤，并请求对访问包进行访问。 请求者使用名为“我的访问权限门户”的站点来提交其请求。 在“我的访问权限门户”中，请求者可以提交访问包的请求、查看他们已有权访问的访问包，以及查看其请求历史记录。
 
 **必备角色：** 内部请求者
 

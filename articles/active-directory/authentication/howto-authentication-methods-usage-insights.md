@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98a466f88e13bc601b0a685743976e22217a0d5b
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 1fbb96f5b190d95616a8d487c5f12b092875f12a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003826"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022077"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>身份验证方法的使用情况和见解（预览版）
 
@@ -31,7 +31,7 @@ ms.locfileid: "97003826"
 - 安全管理员
 - 报告读者
 
-访问使用情况和见解无需获得额外的许可。 有关 Azure AD 多重身份验证和自助式密码重置 (SSPR) 许可信息，可查看 [Azure Active Directory 定价站点](https://www.azure.cn/pricing/details/active-directory/)。
+ 需要 Azure AD Premium P1 或 P2 许可证才能访问使用情况和见解。 有关 Azure AD 多重身份验证和自助式密码重置 (SSPR) 许可信息，可查看 [Azure Active Directory 定价站点](https://www.azure.cn/pricing/details/active-directory/)。
 
 ## <a name="how-it-works"></a>工作原理
 

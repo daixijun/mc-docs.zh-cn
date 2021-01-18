@@ -10,16 +10,16 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.tgt_pltfrm: Python
 ms.workload: identity
-ms.date: 10/09/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
-ms.reviewer: rayluo, nacanuma
+ms.reviewer: marsma, rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 508d7117aeadb1e1b08040fdcfa1d305f0115897
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 1778af586efd1ca66ea2d72130fc0c84cd077877
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937489"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022040"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>适用于 Python 的 ADAL 到 MSAL 迁移指南
 
@@ -31,7 +31,6 @@ ADAL 适用于 Azure Active Directory (Azure AD) v1.0 终结点。 Microsoft 身
 
 支持：
   - 工作和学校帐户（Azure AD 预配帐户）
-  - 通过 Azure AD B2C 产品/服务使用自己的电子邮件或社交身份（例如微博、微信）的客户
 
 - 与以下协议的标准兼容：
   - OAuth v2.0
@@ -49,7 +48,7 @@ ADAL Python 获取资源的令牌，而 MSAL Python 则是获取范围的令牌�
 
 ### <a name="error-handling"></a>错误处理。
 
-适用于 Python 的 Azure Active Directory 身份验证库 (ADAL) 使用异常 `AdalError` 来指示问题。 而适用于 Python 的 MSAL 通常使用错误代码。 有关详细信息，请参阅[适用于 Python 的 MSAL 错误处理](./msal-handling-exceptions.md?tabs=python)。
+适用于 Python 的 Azure Active Directory 身份验证库 (ADAL) 使用异常 `AdalError` 来指示问题。 而适用于 Python 的 MSAL 通常使用错误代码。 有关详细信息，请参阅[适用于 Python 的 MSAL 错误处理](msal-error-handling-python.md)。
 
 ### <a name="api-changes"></a>API 更改
 
@@ -87,7 +86,7 @@ def get_preexisting_rt_and_their_scopes_from_elsewhere():
     #   https://github.com/AzureAD/azure-activedirectory-library-for-python/blob/1.2.3/sample/device_code_sample.py#L72
     # which uses a resource rather than a scope,
     # you need to convert your v1 resource into v2 scopes
-    # See /active-directory/develop/azure-ad-endpoint-comparison#scopes-not-resources
+    # See /active-directory/azuread-dev/azure-ad-endpoint-comparison#scopes-not-resources
     # You may be able to append "/.default" to your v1 resource to form a scope
     # See /active-directory/develop/v2-permissions-and-consent#the-default-scope
 

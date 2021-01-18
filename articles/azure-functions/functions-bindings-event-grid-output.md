@@ -3,19 +3,19 @@ title: 适用于 Azure Functions 的 Azure 事件网格输出绑定
 description: 了解如何在 Azure Functions 中发送事件网格事件。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 06/05/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 33d7b4539df43ec967d4e62d3829c050436d72b1
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.custom: devx-track-csharp, fasttrack-edit
+ms.openlocfilehash: afce81944e5e378588d136a0bcce1de18a2adab4
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88228351"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022926"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>适用于 Azure Functions 的 Azure 事件网格输出绑定
 
-使用事件网格输出绑定将事件写入到自定义主题。 必须拥有有效的[自定义主题访问密钥](../event-grid/security-authentication.md)。
+使用事件网格输出绑定将事件写入到自定义主题。 必须拥有有效的[自定义主题访问密钥](../event-grid/security-authenticate-publishing-clients.md)。
 
 有关设置和配置的详细信息，请参阅[概述](./functions-bindings-event-grid.md)。
 
@@ -100,6 +100,10 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+事件网格输出绑定对于 Java 不可用。
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 以下示例显示了 *function.json* 文件中的事件网格输出绑定数据。
@@ -160,9 +164,69 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="java"></a>[Java](#tab/java)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-事件网格输出绑定对于 Java 不可用。
+下面的示例演示如何配置函数以输出事件网格事件消息。 `type` 设置为 `eventGrid` 的部分配置建立事件网格输出绑定所需的值。
+
+```powershell
+{
+  "bindings": [
+    {
+      "type": "eventGrid",
+      "name": "outputEvent",
+      "topicEndpointUri": "MyEventGridTopicUriSetting",
+      "topicKeySetting": "MyEventGridTopicKeySetting",
+      "direction": "out"
+    },
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    }
+  ]
+}
+```
+
+在函数中，请使用 `Push-OutputBinding` 通过事件网格输出绑定将事件发送到自定义主题。
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = $Request.Query.Message
+
+Push-OutputBinding -Name outputEvent -Value  @{
+    id = "1"
+    EventType = "testEvent"
+    Subject = "testapp/testPublish"
+    EventTime = "2020-08-27T21:03:07+00:00"
+    Data = @{
+        Message = $message
+    }
+    DataVersion = "1.0"
+}
+
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
+```
 
 ---
 
@@ -189,25 +253,30 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 
 C# 脚本不支持特性。
 
+# <a name="java"></a>[Java](#tab/java)
+
+事件网格输出绑定对于 Java 不可用。
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript 不支持特性。
 
-# <a name="java"></a>[Java](#tab/java)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-事件网格输出绑定对于 Java 不可用。
+PowerShell 不支持特性。
+
 
 ---
 
 ## <a name="configuration"></a>配置
 
-下表解释了在 function.json 文件和 `EventGrid` 特性中设置的绑定配置属性。
+下表解释了在 function.json  文件和 `EventGrid` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
 |type | 不适用 | 必须设置为“eventGrid”。 |
 |direction | 不适用 | 必须设置为“out”。 在 Azure 门户中创建绑定时，会自动设置该参数。 |
-|**name** | 不适用 | 函数代码中使用的表示事件的变量名称。 |
+|name | 不适用 | 函数代码中使用的表示事件的变量名称。 |
 |**topicEndpointUri** |**TopicEndpointUri** | 包含自定义主题 URI 的应用设置的名称，例如 `MyTopicEndpointUri`。 |
 |**topicKeySetting** |**TopicKeySetting** | 包含自定义主题访问密钥的应用设置的名称。 |
 
@@ -226,13 +295,18 @@ JavaScript 不支持特性。
 
 可以使用 `out EventGridEvent paramName` 等方法参数发送消息。 在 C# 脚本中，`paramName` 是在 *function.json* 的 `name` 属性中指定的值。 若要编写多条消息，可以使用 `ICollector<EventGridEvent>` 或 `IAsyncCollector<EventGridEvent>` 代替 `out EventGridEvent`。
 
+# <a name="java"></a>[Java](#tab/java)
+
+事件网格输出绑定对于 Java 不可用。
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 使用 `context.bindings.<name>` 访问输出事件，其中 `<name>` 是在 *function.json* 的 `name` 属性中指定的值。
 
-# <a name="java"></a>[Java](#tab/java)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-事件网格输出绑定对于 Java 不可用。
+通过使用 `Push-OutputBinding` cmdlet 访问输出事件，将事件发送到事件网格输出绑定。
+
 
 ---
 

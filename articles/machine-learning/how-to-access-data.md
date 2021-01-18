@@ -1,5 +1,5 @@
 ---
-title: 连接到 Azure 存储服务
+title: 连接到 Azure 上的存储服务
 titleSuffix: Azure Machine Learning
 description: 了解如何在使用 Azure 机器学习训练期间使用数据存储安全地连接到 Azure 存储服务
 services: machine-learning
@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
-ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: cb455bd44d8857aa64390ee8dc6d9d9746b9d527
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
+ms.openlocfilehash: 487b5dce20ea888711a9603e05bed0535379e8bb
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105332"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021996"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>连接到 Azure 上的存储服务
 
@@ -31,7 +31,7 @@ ms.locfileid: "97105332"
 ## <a name="prerequisites"></a>先决条件
 
 需要：
-- Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+- Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 试用 [Azure 机器学习的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 - 一个使用[支持的存储类型](#matrix)的 Azure 存储帐户。
 

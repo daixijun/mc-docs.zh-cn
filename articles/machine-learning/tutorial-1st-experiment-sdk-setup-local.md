@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 652ce6dca2f688a97204fe5c6e322622b4e8ab3e
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: ece9c33300ac3bd36f923e31cf031657d2404b65
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105266"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021133"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>教程：在你的开发环境中开始使用 Azure 机器学习（第 1 部分，共 4 部分）
 
@@ -51,7 +51,10 @@ ms.locfileid: "97105266"
 pip install azureml-sdk
 ```
 
-## <a name="create-a-directory-structure-for-code"></a>创建代码的目录结构
+> [!div class="nextstepaction"]
+> [我安装了 SDK](?success=install-sdk#dir) [我遇到了一个问题](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
+
+## <a name="create-a-directory-structure-for-code"></a><a name="dir"></a>创建代码的目录结构
 建议为本教程设置以下简单目录结构：
 
 ```markdown
@@ -62,7 +65,14 @@ tutorial
 - `tutorial`：项目的顶级目录。
 - `.azureml`：用于存储 Azure 机器学习配置文件的隐藏子目录。
 
-## <a name="create-an-azure-machine-learning-workspace"></a>创建 Azure 机器学习工作区
+> [!TIP]
+> 如果你使用的是 Mac，请在查找器窗口中使用 Command+Shift+. 来切换功能以查看和创建以点开头的目录。  或使用命令终端创建目录。
+
+
+> [!div class="nextstepaction"]
+> [我创建了目录](?success=create-dir#workspace) [我遇到了一个问题](https://www.research.net/r/7C8Z3DN?issue=create-dir)
+
+## <a name="create-an-azure-machine-learning-workspace"></a><a name="workspace"></a>创建 Azure 机器学习工作区
 
 工作区是 Azure 机器学习的顶级资源，可集中执行以下操作：
 
@@ -118,7 +128,10 @@ tutorial
 >
 > 与 Azure 机器学习工作区交互仍需要进行身份验证。
 
-## <a name="create-an-azure-machine-learning-compute-cluster"></a>创建 Azure 机器学习计算群集
+> [!div class="nextstepaction"]
+> [我创建了工作区](?success=create-workspace#cluster) [我遇到了一个问题](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
+
+## <a name="create-an-azure-machine-learning-compute-cluster"></a><a name="cluster"></a>创建 Azure 机器学习计算群集
 
 在顶级目录 `tutorial` 中创建名为“`02-create-compute.py`”的 Python 脚本。 使用以下代码填充该脚本，以创建 Azure 机器学习计算群集，该群集将会在 0 到 4 个节点之间自动缩放：
 
@@ -166,6 +179,9 @@ tutorial
 └──01-create-workspace.py
 └──02-create-compute.py
 ```
+
+> [!div class="nextstepaction"]
+> [我创建了计算群集](?success=create-compute-cluster#next-steps) [我遇到了一个问题](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
 
 ## <a name="next-steps"></a>后续步骤
 

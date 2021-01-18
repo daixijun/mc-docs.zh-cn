@@ -3,14 +3,14 @@ title: 自动将函数应用资源部署到 Azure
 description: 了解如何生成用于部署函数应用的 Azure 资源管理器模板。
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 01/04/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 151dab513a8a7d5731399d8bccc081d703786ce5
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: 253dcb8ab92bee2f411c786e63004d5380cca58f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246414"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021455"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>为 Azure Functions 中的函数应用自动执行资源部署
 
@@ -58,7 +58,7 @@ Azure Functions 部署通常包括以下资源：
 
 此外，在站点配置中，必须将属性 `AzureWebJobsStorage` 指定为应用设置。 如果函数应用未使用 Application Insights 进行监视，还应将 `AzureWebJobsDashboard` 指定为应用设置。
 
-Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内部队列。  未启用 Application Insights 时，运行时使用 `AzureWebJobsDashboard` 连接字符串登录到 Azure 表存储并启动门户中的“监视”选项卡****。
+Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内部队列。  未启用 Application Insights 时，运行时使用 `AzureWebJobsDashboard` 连接字符串登录到 Azure 表存储并启动门户中的“监视”选项卡。
 
 这些属性在 `siteConfig` 对象中的 `appSettings` 集合中指定：
 
@@ -339,7 +339,6 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
     }
 }
 ```
-
 
 <a name="app-service-plan"></a>
 

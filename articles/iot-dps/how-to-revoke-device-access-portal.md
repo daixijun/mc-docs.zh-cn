@@ -4,17 +4,17 @@ description: 如何通过 Azure IoT 中心设备预配服务 (DPS) 取消注册�
 author: wesmc7777
 ms.author: v-tawe
 origin.date: 04/05/2018
-ms.date: 12/03/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0d2ab66226dea7fdf236102d1d264ed0930bd0df
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.openlocfilehash: 23910cbf70f1ca0a54207d3a97b08346f48e62b0
+ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541139"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874886"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>如何从 Azure IoT 中心设备预配服务取消注册设备
 
@@ -27,7 +27,7 @@ ms.locfileid: "96541139"
 
 ## <a name="disallow-devices-by-using-an-individual-enrollment-entry"></a>通过使用单独注册条目来禁用设备
 
-单独登记适用于单个设备，可使用 X.509 证书或 SAS 令牌（在真实或虚拟 TPM 中）作为证明机制。 （使用 SAS 令牌作为证明机制的设备通过单独登记进行预配。）若要禁用具有单独注册的设备，可禁用或删除其注册条目。 
+单独注册适用于单个设备，可使用 X.509 证书、TPM 认可密钥（在真实或虚拟 TPM 中）或 SAS 令牌作为证明机制。 若要禁用具有单独注册的设备，可禁用或删除其注册条目。 
 
 若要通过禁用设备的注册条目来暂时禁用该设备，请执行以下操作： 
 

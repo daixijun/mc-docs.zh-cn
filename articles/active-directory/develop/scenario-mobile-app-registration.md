@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/23/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: addd46407786fc4b606c01fc70614db3537aa842
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: f7b0622797091956523d580e56eed3c3468b82e3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918389"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022518"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>注册调用 Web API 的移动应用
 
@@ -81,7 +81,12 @@ ms.locfileid: "95918389"
 
 如果应用仅使用用户名-密码身份验证，则无需为应用程序注册重定向 URI。 此流将往返访问 Microsoft 标识平台版本 2.0 终结点。 不会在任何特定 URI 上调用你的应用程序。
 
-但是，需要将应用程序标识为公共客户端应用程序。 为此，请从应用程序的“身份验证”部分开始。  在“高级设置”子部分的“默认客户端类型”段落中，对于“将应用程序视为公共客户端”问题，请选择“是”。    
+但是，需要将应用程序标识为公共客户端应用程序。 为此，请执行以下操作：
+
+1. 仍在 [Azure 门户](https://portal.azure.cn)中，选择“应用注册”中的应用，然后选择“身份验证” 。
+1. 在“高级设置” > “允许公共客户端流” > “启用以下移动和桌面流:”中，选择“是”。
+
+   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="在 Azure 门户中的“身份验证”窗格上启用公共客户端设置":::
 
 ## <a name="api-permissions"></a>API 权限
 

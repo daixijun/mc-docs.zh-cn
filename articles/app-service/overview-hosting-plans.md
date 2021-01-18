@@ -5,19 +5,19 @@ keywords: 应用服务, azure 应用服务, 缩放, 可缩放, 可伸缩性, 应
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 origin.date: 10/01/2020
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 52312fa231b789380c36c1c03e169ded7d4c5bc7
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: dd32528da412ab87dc6bc2d183fae77c0dbb61fa
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170838"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022973"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure 应用服务计划概述
 
-在应用服务（Web 应用、API 应用或移动应用）中，应用始终在应用服务计划中运行。 此外，[Azure Functions](../azure-functions/functions-scale.md#app-service-plan) 也可选择在应用服务计划中运行。 应用服务计划为要运行的 Web 应用定义一组计算资源。 这些计算资源类似于传统 Web 托管方案中的 _服务器场_ 。 可将一个或多个应用配置为在相同的计算资源中（或相同的应用服务计划中）运行。
+在应用服务（Web 应用、API 应用或移动应用）中，应用始终在应用服务计划中运行。 此外，[Azure Functions](../azure-functions/functions-scale.md#app-service-plan) 也可选择在应用服务计划中运行。 应用服务计划为要运行的 Web 应用定义一组计算资源。 这些计算资源类似于传统 Web 托管方案中的 _服务器场_。 可将一个或多个应用配置为在相同的计算资源中（或相同的应用服务计划中）运行。
 
 在特定的区域（例如“中国东部”）中创建应用服务计划时，将为该区域中的该计划创建一组计算资源。 放入此应用服务计划的任何应用都在应用服务计划定义的这些计算资源中运行。 每个应用服务计划定义：
 
@@ -28,9 +28,9 @@ ms.locfileid: "92170838"
 
 应用服务计划的定价层确定了所提供的应用服务功能和计划费用。  定价层有以下几个类别：
 
-- **共享计算** ：“免费”和“共享”，这两个基本层在其他应用服务应用（包括其他客户的应用）所在的同一个 Azure VM 上运行应用。   这些层为共享资源中运行的每个应用分配 CPU 配额，且资源不可横向扩展。
-- **专用计算** ：“基本”、“标准”、“高级”和“高级 V2”层在专用的 Azure VM 上运行应用。     只有同一应用服务计划中的应用可以共享相同的计算资源。 层越高，可用于横向扩展的 VM 实例就越多。
-- **隔离** ：此层级在专用 Azure 虚拟网络上运行专用 Azure VM。 它在计算隔离的基础上为应用提供了网络隔离。 此层提供最大的横向扩展能力。
+- **共享计算**：“免费”和“共享”，这两个基本层在其他应用服务应用（包括其他客户的应用）所在的同一个 Azure VM 上运行应用。   这些层为共享资源中运行的每个应用分配 CPU 配额，且资源不可横向扩展。
+- **专用计算**：“基本”、“标准”、“高级”和“高级 V2”层在专用的 Azure VM 上运行应用。     只有同一应用服务计划中的应用可以共享相同的计算资源。 层越高，可用于横向扩展的 VM 实例就越多。
+- **隔离**：此层级在专用 Azure 虚拟网络上运行专用 Azure VM。 它在计算隔离的基础上为应用提供了网络隔离。 此层提供最大的横向扩展能力。
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -39,13 +39,13 @@ ms.locfileid: "92170838"
 <a name="new-pricing-tier-premiumv2"></a>
 
 > [!NOTE]
-> 与“标准”层相比，新的“高级 V2”定价层保证 [Dv2 系列 VM](../virtual-machines/dv2-dsv2-series.md) 拥有更快的处理器、SSD 存储和四倍的内存核心比 。 高级 V2 还支持通过增加实例数扩大规模，同时仍提供“标准”层中的所有高级功能 。 **高级 V2** 中包含现有“高级”  层中提供的所有功能。
+> 与“标准”层相比，新的“高级 V2”定价层保证计算机拥有更快的处理器（每个虚拟 CPU 至少 195 [ACU](../virtual-machines/acu.md)）、SSD 存储和四倍的内存核心比 。 高级 V2 还支持通过增加实例数扩大规模，同时仍提供“标准”层中的所有高级功能 。 **高级 V2** 中包含现有“高级”  层中提供的所有功能。
 >
 > 类似于其他专用层，以下三种 VM 大小可用于此层：
 >
 > - 小型（2 个 CPU 核心，8 GiB 内存） 
 > - 中型（4 个 CPU 核心，16 GiB 内存） 
-> - 大型（8 个 CPU 核心，32 GiB 内存）  
+> - 大型（8 个 CPU 核心，32 GiB 内存）  
 >
 > 有关 **高级 V2** 定价信息，请参阅 [应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
 >

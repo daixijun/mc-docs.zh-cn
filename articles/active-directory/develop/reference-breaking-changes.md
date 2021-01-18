@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/18/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6d2b287edb9fa1352646491a83ed053083faa2f6
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: c49a8fa7246c45813c53cb6895c03f197d19b9ff
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647594"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022523"
 ---
 # <a name="whats-new-for-authentication"></a>身份验证的新增功能
 
@@ -67,7 +67,7 @@ ms.locfileid: "88647594"
 
 **受影响的终结点**：v1.0 和 v2.0
 
-**受影响的协议**：使用 response_type=query 的 OAuth 和 OIDC 流 - ，这涵盖了[授权代码流](v2-oauth2-auth-code-flow.md)（在某些情况下）和[隐式流](v2-oauth2-implicit-grant-flow.md)。
+**受影响的协议**：使用 response_type=query 的 OAuth 和 OIDC 流 - ，这涵盖了 [授权代码流](v2-oauth2-auth-code-flow.md)（在某些情况下）和 [隐式流](v2-oauth2-implicit-grant-flow.md)。
 
 通过 HTTP 重定向将身份验证响应从 login.partner.microsoftonline.cn 发送到应用程序时，该服务会将一个空片段追加到回复 URL。  这可以确保浏览器擦除身份验证请求中的任何现有片段，防止出现重定向攻击类。  任何应用都不应依赖于此行为。
 
@@ -80,7 +80,7 @@ ms.locfileid: "88647594"
 
 **受影响的终结点**：v1.0 和 v2.0
 
-**受影响的协议**：使用 POST 的任何位置（[客户端凭据](./v2-oauth2-client-creds-grant-flow.md)、[授权代码兑换](./v2-oauth2-auth-code-flow.md)、[ROPC](./v2-oauth-ropc.md)、[OBO](./v2-oauth2-on-behalf-of-flow.md)和[刷新令牌兑换](./v2-oauth2-auth-code-flow.md#refresh-the-access-token)）
+**受影响的协议**：使用 POST 的任何位置（[客户端凭据](./v2-oauth2-client-creds-grant-flow.md)、[授权代码兑换](./v2-oauth2-auth-code-flow.md)、[ROPC](./v2-oauth-ropc.md)、[OBO](./v2-oauth2-on-behalf-of-flow.md)和 [刷新令牌兑换](./v2-oauth2-auth-code-flow.md#refresh-the-access-token)）
 
 从 9 月 2 日那一周开始，使用 POST 方法的身份验证请求会按更严格的 HTTP 标准进行验证。  具体说来，空格和双引号 (“) 将不再从请求表单值中删除。 这些更改不应造成任何现有客户端出现中断，将确保发送到 Azure AD 的请求每次都能够得到可靠的处理。 在将来（见上），我们计划还要拒绝重复参数并忽略请求中的 BOM。
 
@@ -183,7 +183,7 @@ ms.locfileid: "88647594"
 
 **受影响的终结点**：v1.0 和 v2.0
 
-**受影响的协议**：隐式流和[代理流](v2-oauth2-on-behalf-of-flow.md)
+**受影响的协议**：隐式流和 [代理流](v2-oauth2-on-behalf-of-flow.md)
 
 在 2018 年 5 月 1 日之后，id_token 不能用作新应用程序的 OBO 流中的断言。 应改为使用访问令牌来保护 API，即使在同一应用程序的客户端和中间层之间也是如此。 在 2018 年 5 月 1 日之前注册的应用将继续有效，并能够使用 id_tokens 交换访问令牌；但是，此模式并不是最佳做法。
 

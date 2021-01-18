@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38296042b418ba83872a1321e09c71e9ac3d1edf
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 3a22d9acabb56ffc2a4e9dc79fb446b75047fdd2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918315"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021590"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>在 Azure Active Directory 中对 Microsoft 365 组强制执行命名策略
 
@@ -80,7 +80,6 @@ ms.locfileid: "95918315"
 - 合作伙伴层 1 支持
 - 合作伙伴层 2 支持
 - 用户管理员
-- 目录写入者
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>在 Azure 门户中配置命名策略
 
@@ -93,7 +92,7 @@ ms.locfileid: "95918315"
 
 1. 在“命名策略”页上，选择“组命名策略”。  
 1. 可以单独查看或编辑当前的前缀或后缀命名策略，只需选择需要在命名策略中强制实施的属性或字符串即可。
-1. 若要从列表中删除某个前缀或后缀，请选择该前缀或后缀，然后选择“删除”。  可以同时删除多个项。
+1. 若要从列表中删除某个前缀或后缀，请选择该前缀或后缀，然后选择“删除”。 可以同时删除多个项。
 1. 通过选择“保存”，保存对新策略的更改以使其生效。
 
 ### <a name="edit-custom-blocked-words"></a>编辑自定义阻止字词
@@ -102,7 +101,7 @@ ms.locfileid: "95918315"
 
     ![编辑并上传命名策略的阻止字词列表](./media/groups-naming-policy/blockedwords.png)
 
-1. 查看或编辑自定义阻止字词的当前列表，方法是选择“下载”。 
+1. 查看或编辑自定义阻止字词的当前列表，方法是选择“下载”。
 1. 上传自定义阻止字词的新列表，方法是选择文件图标。
 1. 通过选择“保存”，保存对新策略的更改以使其生效。
 
@@ -206,7 +205,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ### <a name="remove-the-naming-policy-using-azure-portal"></a>使用 Azure 门户删除命名策略
 
-1. 在“命名策略”页上，选择“删除策略”。  
+1. 在“命名策略”页上，选择“删除策略”。
 1. 确认删除之后，将会删除命名策略，包括所有前缀-后缀命名策略和任何自定义阻止字词。
 
 ### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>使用 Azure AD PowerShell 删除命名策略
@@ -266,4 +265,5 @@ Microsoft 365 管理中心 | Microsoft 365 管理中心遵循命名策略。 当
 - [管理组的设置](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [管理组的成员](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [管理组的成员身份](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [管理组中用户的动态规则](groups-dynamic-membership.md)
 

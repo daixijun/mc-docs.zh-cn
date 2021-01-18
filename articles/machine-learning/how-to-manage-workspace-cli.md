@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: dd70721310365add9422a079436db0ade35b274e
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 49b74a581a027f5b262b9fec4728e3e53776ca44
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104839"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021669"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>使用 Azure CLI 创建 Azure 机器学习工作区
 
@@ -24,14 +24,14 @@ ms.locfileid: "97104839"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习免费版或付费版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+* 一个 **Azure 订阅**。 如果没有订阅，可试用 [Azure 机器学习试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 若要从本地环境使用本文档中的 CLI 命令，需要使用 [Azure CLI](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
 
 
 ## <a name="limitations"></a>限制
 
-* 创建新工作区时，你可以允许工作区自动创建所需的 Azure 服务，也可以提供现有服务。 提供现有服务时，这些服务必须与工作区位于同一 Azure 订阅中。
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>将 CLI 连接到 Azure 订阅
 
@@ -47,7 +47,7 @@ az login
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-有关其他身份验证方法，请参阅[使用 Azure CLI 登录](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)。
+有关其他身份验证方法，请参阅[使用 Azure CLI 登录](/cli/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest)。
 
 ## <a name="install-the-machine-learning-extension"></a>安装机器学习扩展
 
@@ -77,6 +77,8 @@ Azure 机器学习工作区依赖于以下 Azure 服务或实体：
 | **Azure Application Insights** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure 容器注册表** | `--container-registry <service-id>` |
+
+Azure 容器注册表 (ACR) 当前不支持在资源组名称中使用 unicode 字符。 若要缓解此问题，请使用不包含这些字符的资源组。
 
 ### <a name="create-a-resource-group"></a>创建资源组
 

@@ -4,17 +4,17 @@ description: 了解如何将 Azure Stack Hub AD FS 标识提供者与数据中�
 author: WenJason
 ms.topic: article
 origin.date: 04/10/2019
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: aa0be0e12a3b200ea8a70ef567114974585c427d
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: d1b7f841713e711403774b273b9c65e7bf7efd43
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508105"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894442"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>将 AD FS 标识与 Azure Stack Hub 数据中心集成
 
@@ -93,6 +93,8 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
 2. 现在你已与特权终结点建立了会话，请运行以下命令： 
 
+   针对 Azure Stack Hub 版本 2008 和更高版本运行以下脚本 <br>
+
    ```powershell  
     $i = @(
            [pscustomobject]@{ 
@@ -105,6 +107,14 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
     Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -customCatalog $using:i} 
 
 
+   ```
+
+   针对 2008 以前的 Azure Stack Hub 版本运行以下脚本 <br>
+
+   ```powershell  
+   Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -CustomADGlobalCatalog contoso.com} 
+   
+   
    ```
 
    出现提示时，请指定用于 Graph 服务的用户帐户（例如 graphservice）的凭据。 Register-DirectoryService cmdlet 的输入必须是林名称/林中的根域，而不是林中的任何其他域。

@@ -4,17 +4,18 @@ description: 迁移到 Azure Kubernetes 服务 (AKS)。
 services: container-service
 ms.topic: article
 origin.date: 02/25/2020
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ebc71a87f95650b8e50ef075ddd6d6653d3755b9
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: 90cce1705662f61b9bb8aef48ec7ec22a3883b36
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021557"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023139"
 ---
 <!--Can be Release after confirmation-->
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>迁移到 Azure Kubernetes 服务 (AKS)
@@ -26,9 +27,9 @@ ms.locfileid: "90021557"
 * 将[可用性集](../virtual-machines/windows/tutorial-availability-sets.md)支持的 AKS 群集迁移到[虚拟机规模集](../virtual-machine-scale-sets/overview.md)
 * 迁移 AKS 群集以使用[标准 SKU 负载均衡器](./load-balancer-standard.md)
 * 从 [Azure 容器服务 (ACS) - 2020 年 1 月 31 日停用](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/)迁移到 AKS
-    
-    <!--Not Available on * Migrating from AKS engine to AKS-->
-    <!--Not Available on [AKS engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)-->
+* 从 [AKS 引擎](https://docs.azure.cn/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)迁移到 AKS
+
+    <!--CORRECT ON [AKS engine](https://docs.azure.cn/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)-->
     
 * 从不是基于 Azure 的 Kubernetes 群集迁移到 AKS
 * 将现有资源移到另一个区域
@@ -171,7 +172,7 @@ az aks create \
 
 ### <a name="deployment-of-your-cluster-configuration"></a>群集配置的部署
 
-建议使用现有的持续集成 (CI) 和持续交付 (CD) 管道将已知正常的配置部署到 AKS。 可以使用 Azure Pipelines [生成应用程序并将其部署到 AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops)。 克隆现有的部署任务，并确保 `kubeconfig` 指向新的 AKS 群集。
+建议使用现有的持续集成 (CI) 和持续交付 (CD) 管道将已知正常的配置部署到 AKS。 可以使用 Azure Pipelines [生成应用程序并将其部署到 AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template)。 克隆现有的部署任务，并确保 `kubeconfig` 指向新的 AKS 群集。
 
 如果无法做到这一点，请从现有 Kubernetes 群集导出资源定义，并将其应用到 AKS。 可以使用 `kubectl` 导出对象。
 
@@ -196,8 +197,8 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 > * 有状态应用程序的注意事项
 > * 群集配置的部署
 
-[region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service&regions=,china-non-regional,china-east,china-east-2,china-north,china-north-2,
+[region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service&regions=china-non-regional,china-east,china-east-2,china-north,china-north-2
 
-<!--Not Available on [azure-dev-spaces]: /dev-spaces/-->
+<!--Not Available on [azure-dev-spaces]: ../dev-spaces/index.yml-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

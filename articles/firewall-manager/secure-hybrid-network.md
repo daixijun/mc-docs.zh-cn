@@ -5,14 +5,15 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 06/30/2020
+origin.date: 06/30/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: cfc6bee75a0db04315eb7ea0942e01f08ca10ab5
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 9dffc4ad589ff116064c6ac0dc1c4e9907f6ea99
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104853"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021336"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>教程：使用 Azure 防火墙管理器保护中心虚拟网络
 
@@ -52,7 +53,7 @@ ms.locfileid: "97104853"
    此外，通往网关连接的虚拟网络或本地网络的路由会通过网关传输自动传播到对等互连的虚拟网络的路由表。 有关详细信息，请参阅[针对虚拟网络对等互连配置 VPN 网关传输](../vpn-gateway/vpn-gateway-peering-gateway-transit.md)。
 
 - 将 VNet-Spoke 对等互连到 VNet-Hub 时设置 **UseRemoteGateways**。 如果设置了 **UseRemoteGateways** 并且还在远程对等互连上设置了 **AllowGatewayTransit**，则辐射虚拟网络使用远程虚拟网络的网关进行传输。
-- 若要通过中心防火墙路由分支子网流量，需有一个用户定义的路由 (UDR) 且该路由应指向禁用了“虚拟网关路由传播”设置的防火墙。 此选项可防止路由分发到辐射子网。 这可以防止获知的路由与你的 UDR 冲突。
+- 若要通过中心防火墙路由辐射子网流量，需有一个用户定义的路由 (UDR) 且该路由应指向禁用了“虚拟网络路由传播”设置的防火墙。 此选项可防止路由分发到辐射子网。 这可以防止获知的路由与你的 UDR 冲突。
 - 请在中心网关子网上配置一个指向防火墙 IP 地址的 UDR，将其作为通向辐射网络的下一跃点。 无需在 Azure 防火墙子网中创建 UDR，因为它会从 BGP 探测路由。
 
 请参阅本教程的[创建路由](#create-the-routes)部分了解如何创建这些路由。
@@ -69,7 +70,7 @@ ms.locfileid: "97104853"
 
 ## <a name="create-a-firewall-policy"></a>创建防火墙策略
 
-1. 在 [https://portal.azure.com](https://portal.azure.com) 中登录 Azure 门户。
+1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
 2. 在 Azure 门户搜索栏中，键入“防火墙管理器”并按 **Enter**。
 3. 在“Azure 防火墙管理器”页上，选择“查看 Azure 防火墙策略”。
 
@@ -78,7 +79,7 @@ ms.locfileid: "97104853"
 1. 选择“创建 Azure 防火墙策略”。
 1. 选择你的订阅，为“资源组”选择“新建”，并创建名为 **FW-Hybrid-Test** 的资源组。
 2. 键入 **Pol-Net01** 作为策略名称。
-3. 对于“区域”，请选择“美国东部”。
+3. 对于“区域”，请选择“中国东部 2”。
 4. 选择“下一步:规则”。
 5. 选择“添加规则集合”。
 6. 对于“名称”，请键入 **RCNet01**。
@@ -115,7 +116,7 @@ ms.locfileid: "97104853"
 5. 对于“地址空间”，请键入 **10.5.0.0/16**。
 6. 对于“订阅”，请选择自己的订阅。
 7. 对于“资源组”，请选择“FW-Hybrid-Test”。
-8. 对于“位置”，请选择“美国东部”。
+8. 对于“位置”，请选择“中国东部 2”。
 9. 在“子网”下，为“名称”键入 **AzureFirewallSubnet**。 防火墙将位于此子网中，子网名称 **必须** 是 AzureFirewallSubnet。
 10. 对于“地址范围”，请键入 **10.5.0.0/26**。 
 11. 接受其他默认设置，然后选择“创建”。
@@ -163,7 +164,7 @@ ms.locfileid: "97104853"
 3. 依次选择“公共 IP 地址”、“创建”。
 4. 对于“名称”，请键入 **VNet-Onprem-GW-pip**。
 5. 对于“资源组”，请键入 **FW-Hybrid-Test**。
-6. 对于“位置”，请选择“美国东部”。
+6. 对于“位置”，请选择“中国东部 2” 。
 7. 接受其他默认值，然后选择“创建”。
 
 ## <a name="configure-and-deploy-the-firewall"></a>配置和部署防火墙
@@ -197,7 +198,7 @@ ms.locfileid: "97104853"
 2. 在搜索文本框中，键入“虚拟网络网关”并按 **Enter**。
 3. 依次选择“虚拟网络网关”、“创建”。
 4. 对于“名称”，请键入 **GW-hub**。
-5. 对于“区域”，请选择“(US)美国东部”。
+5. 对于“区域”，请选择“中国东部 2”。
 6. 对于“网关类型”，请选择“VPN”。
 7. 对于“VPN 类型”，请选择“基于路由”。
 8. 对于“SKU”，请选择“基本”。
@@ -214,7 +215,7 @@ ms.locfileid: "97104853"
 2. 在搜索文本框中，键入“虚拟网络网关”并按 **Enter**。
 3. 依次选择“虚拟网络网关”、“创建”。
 4. 对于“名称”，请键入 **GW-Onprem**。
-5. 对于“区域”，请选择“(US)美国东部”。
+5. 对于“区域”，请选择“中国东部 2”。
 6. 对于“网关类型”，请选择“VPN”。
 7. 对于“VPN 类型”，请选择“基于路由”。
 8. 对于“SKU”，请选择“基本”。
@@ -292,7 +293,7 @@ ms.locfileid: "97104853"
 4. 选择“创建”。
 5. 对于“名称”，请键入 **UDR-Hub-Spoke**。
 6. 选择“FW-Hybrid-Test”作为资源组。
-8. 对于“位置”，请选择“(US)美国东部”。
+8. 对于“位置”，请选择“中国东部 2”。
 9. 选择“创建”。
 10. 创建路由表后，请选择它以打开路由表页。
 11. 在左栏中选择“路由”。
@@ -319,7 +320,7 @@ ms.locfileid: "97104853"
 5. 选择“创建”。
 6. 键入 **UDR-DG** 作为名称。
 7. 选择“FW-Hybrid-Test”作为资源组。
-8. 对于“位置”，请选择“(US)美国东部”。
+8. 对于“位置”，请选择“中国东部 2”。
 4. 对于“虚拟网络网关路由传播”，请选择“已禁用”。
 1. 选择“创建”。
 2. 创建路由表后，请选择它以打开路由表页。
@@ -352,7 +353,7 @@ ms.locfileid: "97104853"
 3. 输入虚拟机的以下值：
     - **资源组** - 选择“FW-Hybrid-Test”。
     - **虚拟机名称**：*VM-Spoke-01*。
-    - **区域** -  *(US)美国东部*。
+    - “区域” - “中国东部 2”。
     - **用户名**：*azureuser*。
     - **密码**：键入密码
 
@@ -367,10 +368,12 @@ ms.locfileid: "97104853"
 
 ### <a name="install-iis"></a>安装 IIS
 
-1. 在 Azure 门户中打开 Cloud Shell，确保它设置为“PowerShell”。
+<!--MOONCAKE CUSTOMIZE-->
+
+1. 打开 PowerShell。
 2. 运行以下命令以在虚拟机上安装 IIS 并根据需要更改位置：
 
-   ```azurepowershell-interactive
+   ```powershell
    Set-AzVMExtension `
            -ResourceGroupName FW-Hybrid-Test `
            -ExtensionName IIS `
@@ -379,7 +382,7 @@ ms.locfileid: "97104853"
            -ExtensionType CustomScriptExtension `
            -TypeHandlerVersion 1.4 `
            -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell      Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-           -Location EastUS
+           -Location China East 2
    ```
 
 ### <a name="create-the-on-premises-virtual-machine"></a>创建本地虚拟机
@@ -391,7 +394,7 @@ ms.locfileid: "97104853"
 3. 输入虚拟机的以下值：
     - **资源组** - 选择现有资源组，然后选择“FW-Hybrid-Test”。
     - **虚拟机名称** - *VM-Onprem*。
-    - **区域** -  *(US)美国东部*。
+    - “区域” - “中国东部 2”。
     - **用户名**：*azureuser*。
     - **密码**：键入密码。
 

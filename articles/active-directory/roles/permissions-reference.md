@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 12/08/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0602417ae86a19d2662a622c3032d9d86795f8f
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: ab40692feae5648cf428505126a813af74905469
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004086"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021889"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的管理员角色权限
 
@@ -90,7 +90,7 @@ ms.locfileid: "97004086"
 
 ### <a name="azure-devops-administrator"></a>[Azure DevOps 管理员](#azure-devops-administrator-permissions)
 
-具有此角色的用户可以管理 Azure DevOps 策略，这样就可以仅限一组可配置的用户或组新建 Azure DevOps 组织。 充当此角色的用户可以通过有公司 Azure AD 组织作为保障的 Azure DevOps 组织来管理此策略。
+具有此角色的用户可以管理 Azure DevOps 策略，这样就可以仅限一组可配置的用户或组新建 Azure DevOps 组织。 充当此角色的用户可以通过由公司 Azure AD 组织支持的任何 Azure DevOps 组织来管理此策略。 此角色不会授予该公司 Azure AD 组织支持的任何 Azure DevOps 组织内的任何其他 Azure DevOps 特定权限（例如，项目集合管理员）。
 
 充当此角色的用户可以管理所有企业 Azure DevOps 策略。
 
@@ -138,7 +138,7 @@ In | 有权执行的操作
 
 ### <a name="compliance-data-administrator"></a>[合规性数据管理员](#compliance-data-administrator-permissions)
 
-具有此角色的用户有权在 Microsoft 365 合规中心、Microsoft 365 管理中心和 Azure 中跟踪数据。 这些用户还可以在 Exchange 管理中心、Compliance Manager、Teams 和 Skype for Business 管理中心跟踪合规数据，并可创建适用于 Azure 和 Microsoft 365 的支持票证。 [此文档](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center)详细介绍了合规性管理员与合规性数据管理员之间的差别。
+具有此角色的用户有权在 Microsoft 365 合规中心、Microsoft 365 管理中心和 Azure 中跟踪数据。 这些用户还可以在 Exchange 管理中心、Compliance Manager、Teams 和 Skype for Business 管理中心跟踪合规数据，并可创建适用于 Azure 和 Microsoft 365 的支持票证。 [此文档](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center)详细介绍了合规性管理员与合规性数据管理员之间的差别。
 
 In | 有权执行的操作
 ----- | ----------
@@ -899,6 +899,43 @@ Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP
 | microsoft.directory/users/ownedDevices/read | 读取 Azure Active Directory 中的 users.ownedDevices 属性。 |
 | microsoft.directory/users/ownedObjects/read | 读取 Azure Active Directory 中的 users.ownedObjects 属性。 |
 | microsoft.directory/users/registeredDevices/read | 读取 Azure Active Directory 中的 users.registeredDevices 属性。 |
+
+### <a name="directory-writers-permissions"></a>目录写入者权限
+
+可以读取和写入基本目录信息。 用于授予对应用程序的访问权限，不针对用户。
+
+| **操作** | **说明** |
+| --- | --- |
+| microsoft.directory/groups/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.appRoleAssignments 属性。 |
+| microsoft.directory/groups/assignLicense | 在 Azure Active Directory 中管理组的许可证。 |
+| microsoft.directory/groups/basic/update | 更新 Azure Active Directory 中组的基本属性。  |
+| microsoft.directory/groups/classification/update | 在 Azure Active Directory 中更新组的 classification 属性。 |
+| microsoft.directory/groups/create | 在 Azure Active Directory 中创建组。 |
+| microsoft.directory/groups/groupType/update | 在 Azure Active Directory 中更新组的 groupType 属性。 |
+| microsoft.directory/groups/members/update | 更新 Azure Active Directory 中的 groups.members 属性。 |
+| microsoft.directory/groups/owners/update | 更新 Azure Active Directory 中的 groups.owners 属性。 |
+| microsoft.directory/groups/reprocessLicenseAssignment | 在 Azure Active Directory 中重新处理组的许可证分配。 |
+| microsoft.directory/groups/securityEnabled/update | 在 Azure Active Directory 中更新组的 secutiryEnabled 属性。 |
+| microsoft.directory/groups/settings/update | 更新 Azure Active Directory 中的 groups.settings 属性。 |
+| microsoft.directory/groups/visibility/update | 更新组的 visibility 属性 |
+| microsoft.directory/groupSettings/basic/update | 更新 Azure Active Directory 中 groupSettings 的基本属性。 |
+| microsoft.directory/groupSettings/create | 在 Azure Active Directory 中创建 groupSettings 属性。 |
+| microsoft.directory/groupSettings/delete | 删除 Azure Active Directory 中的 groupSettings。 |
+| microsoft.directory/oAuth2PermissionGrants/basic/update | 在 Azure Active Directory 中更新 oAuth2PermissionGrants 的基本属性。 |
+| microsoft.directory/oAuth2PermissionGrants/create | 在 Azure Active Directory 中创建 oAuth2PermissionGrants。 |
+| microsoft.directory/servicePrincipals/synchronizationCredentials/manage | 管理应用程序预配机密和凭据。 |
+| microsoft.directory/servicePrincipals/synchronizationJobs/manage | 启动、重启和暂停应用程序预配同步作业。 |
+| microsoft.directory/servicePrincipals/synchronizationSchema/manage | 创建和管理应用程序预配同步作业和架构。 |
+| microsoft.directory/users/appRoleAssignments/update | 更新 Azure Active Directory 中的 users.appRoleAssignments 属性。 |
+| microsoft.directory/users/assignLicense | 管理 Azure Active Directory 中用户的许可证。 |
+| microsoft.directory/users/basic/update | 更新 Azure Active Directory 中用户的基本属性。 |
+| microsoft.directory/users/create | 在 Azure Active Directory 中创建用户。 |
+| microsoft.directory/users/disable | 在 Azure Active Directory 中禁用某个用户帐户。 |
+| microsoft.directory/users/enable | 在 Azure Active Directory 中启用某个用户帐户。 |
+| microsoft.directory/users/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有用户刷新令牌无效，要求用户在下次登录时重新进行身份验证 |
+| microsoft.directory/users/manager/update | 更新 Azure Active Directory 中的 users.manager 属性。 |
+| microsoft.directory/users/reprocessLicenseAssignment | 在 Azure Active Directory 中重新处理用户的许可证分配。 |
+| microsoft.directory/users/userPrincipalName /update | 在 Azure Active Directory 中更新 users.userPrincipalName 属性。 |
 
 ### <a name="exchange-service-administrator-permissions"></a>Exchange Service Administrator permissions
 

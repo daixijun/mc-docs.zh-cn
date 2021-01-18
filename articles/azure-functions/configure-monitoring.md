@@ -1,15 +1,15 @@
 ---
 title: 为 Azure Functions 配置监视
 description: 了解如何将函数应用连接到 Application Insights 以进行监视，以及如何配置数据收集。
-ms.date: 11/30/2020
+ms.date: 01/04/2021
 ms.topic: how-to
-ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: ac24af9350456179e35c826fae340a4421ed094e
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.custom: contperf-fy21q2, devx-track-azurecli
+ms.openlocfilehash: b4913c02af277addc5892bfb9531de0a758a6626
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507285"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022672"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>如何为 Azure Functions 配置监视
 
@@ -38,6 +38,9 @@ Azure Functions 与 Application Insights 集成，从而使你能够更好地监
 | **`Host.Results`** | **requests** | 这些运行时生成的日志指示函数是成功还是失败。 所有这些日志均在 `Information` 级别编写。 如果在 `Warning` 或更高级别进行筛选，则不会看到任何这些数据。 |
 | **`Microsoft`** | **traces** | 反映主机调用的 .NET 运行时组件的完全限定的日志类别。  |
 | **`Worker`** | **traces** | 语言工作进程为非 .NET 语言生成的日志。 语言工作日志也可以记录在 `Microsoft.*` 类别中，例如 `Microsoft.Azure.WebJobs.Script.Workers.Rpc.RpcFunctionInvocationDispatcher`。 这些日志在 `Information` 级别写入。|
+
+> [!NOTE]
+> 对于 .NET 类库函数，这些类别假定你使用的是 `ILogger` 而不是 `ILogger<T>`。 若要了解详细信息，请参阅 [Functions ILogger 文档](functions-dotnet-class-library.md#ilogger)。 
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 
@@ -231,6 +234,14 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 对于将数据发送到 Application Insights 的函数应用，它需要知道 Application Insights 资源的检测密钥。 该密钥必须位于名为 **APPINSIGHTS_INSTRUMENTATIONKEY** 的应用设置中。
 
 [在 Azure 门户中](functions-create-first-azure-function.md)创建函数应用时，请在命令行中使用 [Azure Functions Core Tools](./create-first-function-cli-csharp.md) 或 [Visual Studio Code](./create-first-function-vs-code-csharp.md)，默认情况下会启用 Application Insights 集成。 Application Insights 资源的名称与函数应用的相同，并且在同一区域或最接近的区域中创建。
+
+### <a name="new-function-app-in-the-portal"></a>门户中的新函数应用
+
+若要查看正在创建的 Application Insights 资源，请选择该资源，展开“Application Insights”窗口。 可以更改“新建资源名称”，或者在 [Azure 地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)中选择另一个需要在其中存储数据的“位置” 。
+
+![在创建函数应用时启用 Application Insights](./media/functions-monitoring/enable-ai-new-function-app.png)
+
+选择“创建”时，Application Insights 资源通过函数应用创建，该函数应用在应用程序设置中设置了 `APPINSIGHTS_INSTRUMENTATIONKEY`。 一切准备就绪。
 
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>添加到现有函数应用 

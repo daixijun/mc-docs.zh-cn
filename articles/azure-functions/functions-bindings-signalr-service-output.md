@@ -4,14 +4,14 @@ description: 了解 Azure Functions 的 SignalR 服务输出绑定。
 author: craigshoemaker
 ms.topic: reference
 ms.custom: devx-track-csharp
-ms.date: 11/18/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: 763fdbab84afc16d4030b0b8f6e28201f8df3906
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: bcc3e18556b3035d924d659b4aa9d8daf855de01
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849397"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022665"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Azure Functions 的 SignalR 服务输出绑定
 
@@ -612,5 +612,6 @@ public SignalRGroupAction removeFromGroup(
 
 ## <a name="next-steps"></a>后续步骤
 
+- [处理来自 SignalR 服务的消息（触发绑定）](./functions-bindings-signalr-service-trigger.md)
 - [返回服务终结点 URL 和访问令牌（输入绑定）](./functions-bindings-signalr-service-input.md)
 

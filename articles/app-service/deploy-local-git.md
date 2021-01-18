@@ -4,16 +4,16 @@ description: 了解如何实现从本地 Git 部署到 Azure 应用服务。 从
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
 origin.date: 06/18/2019
-ms.date: 03/16/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.reviewer: dariac
-ms.custom: seodec18
-ms.openlocfilehash: 76c9378f9f4a698e372773a501ab5f93b7695a20
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: ad30de78f605e06232edca5709aabc597ade6db9
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "80151723"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022686"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 
@@ -33,9 +33,9 @@ ms.locfileid: "80151723"
   git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
   ```
 
-[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-<!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
+[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="deploy-with-kudu-build-server"></a>使用 Kudu 生成服务器进行部署
 
@@ -47,7 +47,7 @@ ms.locfileid: "80151723"
 
 ### <a name="get-the-deployment-url"></a>获取部署 URL
 
-若要获取所需的 URL 来为现有应用启用本地 Git 部署，请在 Azure CLI 中运行 [`az webapp deployment source config-local-git`](/cli/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git)。 请将 \<app-name> 和 \<group-name> 替换为应用及其 Azure 资源组的名称。
+若要获取所需的 URL 来为现有应用启用本地 Git 部署，请在 Azure CLI 中运行 [`az webapp deployment source config-local-git`](https://docs.azure.cn/cli/webapp/deployment/source#az_webapp_deployment_source_config_local_git)。 将 \<app-name> 和 \<group-name> 分别替换为应用及其 Azure 资源组的名称。
 
 ```azurecli
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
@@ -56,7 +56,7 @@ az webapp deployment source config-local-git --name <app-name> --resource-group 
 <!-- > If you are using a linux app-service-plan, you need to add this parameter: --runtime python||3.7 -->
 
 
-或者，若要创建启用 Git 的新应用，请在 Azure CLI 中结合 `--deployment-local-git` 参数运行 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az-webapp-create)。 请将 \<app-name>、\<group-name> 和 \<plan-name> 替换为新 Git 应用、其 Azure 资源组及其 Azure 应用服务计划的名称。
+或者，若要创建启用 Git 的新应用，请在 Azure CLI 中结合 `--deployment-local-git` 参数运行 [`az webapp create`](https://docs.azure.cn/cli/webapp#az_webapp_create)。 请将 \<app-name>、\<group-name> 和 \<plan-name> 替换为新 Git 应用、其 Azure 资源组及其 Azure 应用服务计划的名称。
 
 ```azurecli
 az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
@@ -66,7 +66,7 @@ az webapp create --name <app-name> --resource-group <group-name> --plan <plan-na
 
 如果不使用此帐户级 URL，也可以使用应用级凭据启用本地 Git。 Azure 应用服务会自动为每个应用生成这些凭据。 
 
-在 Azure CLI 中运行以下命令以获取应用凭据。 请将 \<app-name> 和 \<group-name> 替换为应用和 Azure 资源组的名称。
+在 Azure CLI 中运行以下命令以获取应用凭据。 将 \<app-name> 和 \<group-name> 替换为应用的名称和 Azure 资源组名称。
 
 ```azurecli
 az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
@@ -100,7 +100,7 @@ az webapp deployment list-publishing-credentials --name <app-name> --resource-gr
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|应用未正常运行。|在 Azure 门户中启动应用。 如果 Web 应用已停止，Git 部署将不可用。|
 |`Couldn't resolve host 'hostname'`|“azure”远程实例的地址信息不正确。|使用 `git remote -v` 命令列出所有远程网站以及关联的 URL。 确认“azure”远程网站的 URL 正确。 如果需要，请删除此远程网站并使用正确的 URL 重新创建它。|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|在运行 `git push` 期间未指定分支，或者未在 `.gitconfig` 中设置 `push.default` 值。|再次运行 `git push`，并指定主分支：`git push azure master`。|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|在运行 `git push` 期间未指定分支，或者未在 `.gitconfig` 中设置 `push.default` 值。|再次运行 `git push`，并指定主分支：`git push azure master`。|
 |`src refspec [branchname] does not match any.`|你已尝试推送到“azure”远程实例上除主节点以外的分支。|再次运行 `git push`，并指定主分支：`git push azure master`。|
 |`RPC failed; result=22, HTTP code = 5xx.`|如果尝试通过 HTTPS 推送大型 Git 存储库，则可能出现此错误。|在本地计算机上更改 Git 配置，以增大 `postBuffer`。 例如：`git config --global http.postBuffer 524288000`。|
 |`Error - Changes committed to remote repository but your web app not updated.`|你已使用一个指定了其他所需模块的 _package.json_ 文件部署了 Node.js 应用。|检查发生此错误之前出现的 `npm ERR!` 错误消息，以了解有关失败的更多上下文。 下面是此错误的已知原因，以及相应的 `npm ERR!` 消息：<br /><br />**package.json 文件格式不当**：`npm ERR! Couldn't read dependencies.`<br /><br />**本机模块没有适用于 Windows 的二进制分发版**：<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />或 <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|

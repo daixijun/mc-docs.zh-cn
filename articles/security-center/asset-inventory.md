@@ -5,17 +5,17 @@ author: Johnnytechn
 manager: rkarlin
 services: security-center
 ms.author: v-johya
-ms.date: 11/12/2020
+ms.date: 01/06/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 802f600e52a3bcc0f233627ca8ac4e3ea95465fa
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: e244a80c514f881bb88e5426fa0bc270ccc1377d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638295"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023062"
 ---
-# <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>利用资产清单和管理工具浏览和管理资源
+# <a name="explore-and-manage-your-resources-with-asset-inventory"></a>使用资产清单浏览和管理资源
 
 Azure 安全中心的资产清单页提供了一个页面，用于查看已连接到安全中心的资源的安全状况。 
 
@@ -36,6 +36,17 @@ Azure 安全中心的资产清单页提供了一个页面，用于查看已连�
 > 资产库存页面上的安全建议与“建议”页面上的安全建议相同，但资产库存页面会根据受影响的资源进行显示。 有关如何解决建议的详细信息，请参阅[在 Azure 安全中心实施安全建议](security-center-recommendations.md)。
 
 
+## <a name="availability"></a>可用性
+
+|方面|详细信息|
+|----|:----|
+|发布状态：|正式发布 (GA)|
+|定价：|免费|
+|所需角色和权限：|所有用户|
+|云：|![是](./media/icons/yes-icon.png) 中国云|
+|||
+
+
 ## <a name="what-are-the-key-features-of-asset-inventory"></a>资产库存的主要功能是什么？
 
 库存页提供以下工具：
@@ -46,15 +57,13 @@ Azure 安全中心的资产清单页提供了一个页面，用于查看已连�
     - **不正常的资源**：具有有效安全建议的资源。 [详细了解安全建议](security-center-recommendations.md)。
     - **未受监视的资源**：有代理监视问题的资源 - 已部署 Log Analytics 代理，但代理没有发送数据或有其他运行状况问题。
 
-- 筛选器 - 页面顶部的多个筛选器提供一种根据你尝试回答的问题快速优化资源列表的方法。 例如，如果你想回答问题“我的哪台带有“生产”标记的计算机缺少 Log Analytics 代理？”，可以将“代理监视”筛选器与“标记”筛选器组合在一起，如以下剪辑所示 ：
-
-    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="筛选不受监视的生产资源":::
-
+- 筛选器 - 页面顶部的多个筛选器提供一种根据你尝试回答的问题快速优化资源列表的方法。
+<!--Not available in MC: combine the **Agent monitoring** filter with the **Tags** filter-->
     应用筛选器后，摘要值就会更新为与查询结果相关的值。 
 
-- 导出选项 - 库存提供了将所选筛选器选项的结果导出到 CSV 文件的选项。
+- 导出选项 - 库存提供了将所选筛选器选项的结果导出到 CSV 文件的选项。 此外，还可以将查询本身导出到 Azure Resource Graph 资源管理器，以进一步优化、保存或修改 Kusto 查询语言 (KQL) 查询。
 
-    ![库存的导出选项](./media/asset-inventory/inventory-export-options.png)
+    :::image type="content" source="./media/asset-inventory/inventory-export-options.png" alt-text="库存的导出选项":::
 
     > [!TIP]
     > KQL 文档为数据库提供一些示例数据以及一些简单的查询，以获取相应语言的体验。 [通过此 KQL 教程了解详细信息](/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer)。
@@ -112,7 +121,7 @@ ARG 用于提供高效资源探索，并具有大规模查询的功能。
 
 1. 若要进一步检查查询结果，请选择你感兴趣的资源。
 
-1. 若要在 Resource Graph Explorer 中以查询的形式查看当前选定的筛选器选项，请选择“在 Resource Graph Explorer 中查看”。
+1. 若要在 Resource Graph Explorer 中以查询的形式查看当前选定的筛选器选项，请选择“打开查询”。
 
     ![ARG 中的库存查询](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 
@@ -133,7 +142,8 @@ ARG 用于提供高效资源探索，并具有大规模查询的功能。
 
 ### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>为什么我的一些资源在 Azure Defender 或代理监视列中显示空值？
 
-并非所有受安全中心监视的资源都有代理。 例如，Azure 存储帐户或 PaaS 资源（如磁盘、逻辑应用、Data Lake Analysis 和事件中心）。
+<!--Customized-->
+并非所有受安全中心监视的资源都有代理。 例如，Azure 存储帐户或 PaaS 资源（如磁盘）。
 
 当定价或代理监视与资源无关时，库存的这些列中将不会显示任何内容。
 

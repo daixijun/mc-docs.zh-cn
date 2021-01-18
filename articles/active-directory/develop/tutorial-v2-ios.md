@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 656d2cc448a6cef080ebe680bced048d6b99e708
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 25decb5689c2ceab2dbf758b440ec2b8b0cbe774
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003961"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022516"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>教程：从 iOS 或 macOS 应用登录用户并调用 Microsoft Graph
 
@@ -71,16 +71,17 @@ ms.locfileid: "97003961"
 
 ## <a name="register-your-application"></a>注册应用程序
 
-1. 转到 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)
-2. 打开“应用注册”边栏选项卡，选择“+新建注册”。
-3. 输入应用的“名称”，不设置重定向 URI。
-4. 在“支持的帐户类型”  下，选择“任何组织目录(任何 Azure AD 目录 - 多租户)中的帐户”  。
-5. 选择“注册”
-6. 在显示的窗格的“管理”部分，选择“身份验证”。
-
-7. 选择屏幕顶部附近的“尝试新体验”，以开启新的应用注册体验，然后选择“+新建注册” > “+ 添加平台” > “iOS/macOS”。
-    - 输入项目的捆绑 ID。 如果下载了代码，则为 `com.microsoft.identitysample.MSALiOS`。 若要创建自己的项目，请在 Xcode 中选择项目，然后打开“常规”选项卡。此时捆绑标识符会显示在“标识”部分。
-8. 选择 `Configure` 并保存出现在“MSAL 配置”页中的“MSAL 配置” ，以便在稍后配置应用时输入它。 选择“完成”。
+1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
+1. 搜索并选择“Azure Active Directory”  。
+1. 在“管理”下，选择“应用注册” > “新建注册”  。
+1. 输入应用程序的 **名称**。 应用的用户可能会看到此名称，你稍后可对其进行更改。
+1. 在“支持的帐户类型”下，选择“任何组织目录(任何 Azure AD 目录 - 多租户)中的帐户”。
+1. 选择“注册”  。
+1. 在“管理”下，选择“身份验证” > “添加平台” > “iOS/macOS”   。
+1. 输入项目的捆绑 ID。 如果下载了代码，则为 `com.microsoft.identitysample.MSALiOS`。 若要创建自己的项目，请在 Xcode 中选择项目，然后打开“常规”选项卡。此时捆绑标识符会显示在“标识”部分。
+1. 选择“配置”并保存出现在“MSAL 配置”页中的“MSAL 配置”，以便在稍后配置应用时输入它  。 
+1. 选择“完成”。
 
 ## <a name="add-msal"></a>添加 MSAL
 
@@ -520,7 +521,7 @@ MSAL 公开了获取令牌的两种主要方法：`acquireTokenSilently()` 和 `
 
 1. 使用作用域创建 `MSALInteractiveTokenParameters`。
 2. 使用创建的参数调用 `acquireToken()`。
-3. 处理错误。 有关更多详细信息，请参阅[适用于 iOS 和 macOS 的 MSAL 错误处理指南](msal-handling-exceptions.md)。
+3. 处理错误。 有关更多详细信息，请参阅[适用于 iOS 和 macOS 的 MSAL 错误处理指南](msal-error-handling-ios.md)。
 4. 处理成功案例。
 
 将以下代码添加到 `ViewController` 类。

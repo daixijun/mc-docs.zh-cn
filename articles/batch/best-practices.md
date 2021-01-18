@@ -1,23 +1,27 @@
 ---
 title: 最佳做法
 description: 了解开发 Azure Batch 解决方案的最佳做法和有用技巧。
-origin.date: 11/18/2020
+ms.service: batch
+origin.date: 12/18/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 06/29/2020
 ms.author: v-yeche
 ms.topic: conceptual
-ms.openlocfilehash: 62512fe3bc3b3a8825fc7a1b50e3de2d106fccad
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 4984c30e37557e0fd925a060f0ba11065ba7f260
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746965"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021843"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 最佳做法
 
 本文介绍了有效使用 Azure Batch 服务的最佳做法和有用技巧集合，这些做法基于使用 Batch 的实际体验。 这些技巧有助于增强性能，并避免 Azure Batch 解决方案中出现设计缺陷。
+
+
+<!--For guidance about security in Azure Batch, see [Batch security and compliance best practices](security-best-practices.md)-->
 
 ## <a name="pools"></a>池
 
@@ -145,6 +149,12 @@ Batch 可以自动重试任务。 有两种类型的重试：用户控制的重�
 ### <a name="idempotent-start-tasks"></a>幂等启动任务
 
 就像其他任务一样，节点[启动任务](jobs-and-tasks.md#start-task)应该是幂等的，因为每次节点启动时，都要重新运行该任务。 幂等任务就是在多次运行时生成一致结果的任务。
+
+### <a name="isolated-nodes"></a>独立节点
+
+请考虑对具有符合性或法规要求的工作负荷使用独立的 VM 大小。 虚拟机配置模式下支持的独立大小包括 `Standard_M128ms`、`Standard_F72s_v2` 和 `Standard_E64i_v3`。 有关独立 VM 大小的详细信息，请参阅 [Azure 中的虚拟机隔离](../virtual-machines/isolation.md)。
+
+<!--Not Available on G-series, E80-series-->
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>通过操作系统服务接口管理长时间运行的服务
 

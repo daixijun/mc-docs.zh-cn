@@ -3,22 +3,22 @@ title: 在 Azure Active Directory 中紧急撤消用户访问权限 | Microsoft 
 description: 如何撤消 Azure Active Directory 中用户的所有访问权限
 services: active-directory
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: v-junlch
 manager: daveba
 ms.reviewer: krbain
-ms.date: 11/05/2020
+ms.date: 01/06/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8a3b3a428337df82dcc243f9d2b68b87788b55
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: bf54e2a560f1dfcec015aef7322fe58d83d9606b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327084"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022489"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>在 Azure Active Directory 中撤销用户访问
 
@@ -60,13 +60,13 @@ ms.locfileid: "94327084"
 
 作为 Active Directory 中的管理员，请连接到本地网络，打开 PowerShell，然后执行以下操作：
 
-1. 禁用 Active Directory 中的用户。 请参阅 [Disable-ADAccount](https://docs.microsoft.com/powershell/module/addsadministration/disable-adaccount?view=win10-ps)。
+1. 禁用 Active Directory 中的用户。 请参阅 [Disable-ADAccount](https://docs.microsoft.com/powershell/module/addsadministration/disable-adaccount)。
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. 在 Active Directory 中重置用户密码两次。 请参阅 [Set-ADAccountPassword](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps)。
+1. 在 Active Directory 中重置用户密码两次。 请参阅 [Set-ADAccountPassword](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountpassword)。
 
     > [!NOTE]
     > 更改用户密码两次的原因是为了降低传递哈希的风险，尤其是在本地密码复制出现延迟的情况下。 如果你可以安全地假设此帐户没有遭到泄露，则只能重置密码一次。
@@ -83,18 +83,18 @@ ms.locfileid: "94327084"
 
 作为 Azure Active Directory 中的管理员，打开 PowerShell，运行 ``Connect-AzureAD``，然后执行以下操作：
 
-1. 禁用 Azure AD 中的用户。 请参阅 [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0)。
+1. 禁用 Azure AD 中的用户。 请参阅 [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/Set-AzureADUser)。
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. 撤消用户的 Azure AD 刷新令牌。 请参阅 [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)。
+1. 撤消用户的 Azure AD 刷新令牌。 请参阅 [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken)。
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. 禁用用户的设备。 请参阅 [Get-AzureADUserRegisteredDevice](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0)。
+1. 禁用用户的设备。 请参阅 [Get-AzureADUserRegisteredDevice](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserregistereddevice)。
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
@@ -119,5 +119,6 @@ ms.locfileid: "94327084"
 
 ## <a name="next-steps"></a>后续步骤
 
+- [面向 Azure AD 管理员的安全访问做法](../roles/security-planning.md)
 - [添加或更新用户配置文件信息](../fundamentals/active-directory-users-profile-azure-portal.md)
 

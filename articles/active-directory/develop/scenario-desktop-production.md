@@ -2,26 +2,21 @@
 title: 将调用 Web API 的桌面应用移到生产环境 - Microsoft 标识平台 | Azure
 description: 了解如何将调用 Web API 的桌面应用移到生产环境
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: aa2f0104d5af3713f8e2da4a147ed79283676e8e
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: a5d78d30de99c3c43d921287fe16c67738d5ea74
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211490"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022520"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>用于调用 Web API 的桌面应用：移到生产环境
 
@@ -29,7 +24,7 @@ ms.locfileid: "92211490"
 
 ## <a name="handle-errors-in-desktop-applications"></a>在桌面应用程序中处理错误
 
-你已了解，在不同的流中如何处理静默流的错误，如代码片段所示。 你还了解，有些情况下需要交互（与增量许可中的情况一样）。
+你已了解，在不同的流中如何处理静默流的错误，如代码片段所示。 你还了解，有些情况下需要交互（与增量许可和条件访问中的情况一样）。
 
 ## <a name="have-the-user-consent-upfront-for-several-resources"></a>让用户提前许可多个资源
 
@@ -64,7 +59,7 @@ string[] scopesForVendorApi = new string[]
 var accounts = await app.GetAccountsAsync();
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .WithAccount(accounts.FirstOrDefault())
-                     .WithExtraScopeToConsent(scopesForVendorApi)
+                     .WithExtraScopesToConsent(scopesForVendorApi)
                      .ExecuteAsync();
 ```
 
@@ -110,4 +105,3 @@ AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync()
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-<!-- Update_Description: wording update -->

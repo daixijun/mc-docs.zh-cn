@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/20/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e8157cf60c8e383c6f5e30bbdeb1a749ae39092c
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 2acd0f9bc93e4abddc7cd782892c3ca86c5e9d00
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95970724"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022039"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>使用 Microsoft 身份验证库 (MSAL) 获取和缓存令牌
 
@@ -122,7 +122,9 @@ MSAL 维护一个令牌缓存（对于机密客户端应用程序，则会维护
 
 ## <a name="next-steps"></a>后续步骤
 
-如果使用的是适用于 Java 的 MSAL，请了解[适用于 Java 的 MSAL 中的自定义令牌缓存序列化](msal-java-token-cache-serialization.md)。
-
-了解如何[处理错误和异常](msal-handling-exceptions.md)。
+MSAL 支持的几个平台在该平台库的文档中有其他令牌缓存相关信息。 例如：
+- [使用 MSAL.NET 从令牌缓存获取令牌](msal-net-acquire-token-silently.md)
+- [使用 MSAL.js 进行单一登录](msal-js-sso.md)
+- [适用于 Python 的 MSAL 中的自定义令牌缓存序列化](msal-python-token-cache-serialization.md)
+- [MSAL for Java 中的自定义令牌缓存序列化](msal-java-token-cache-serialization.md)
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa1fcadd26c019f99a09865539e71fa7370142bf
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 3874de9722d72d7d8116bdabce27d84724c986cf
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003828"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022085"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>工作原理：Azure AD 自助密码重置
 
@@ -69,11 +69,8 @@ Azure Active Directory (Azure AD) 自助式密码重置 (SSPR) 使用户能够�
 > [!div class="nextstepaction"]
 > [教程：启用自助式密码重置 (SSPR)](tutorial-enable-sspr.md)
 
-## <a name="registration-options"></a>注册选项
 
-用户必须先注册自己以及要使用的身份验证方法，然后才能使用 SSPR 重置或更改其密码。 如前一部分所述，用户必须注册 SSPR，并应用相应的许可证。
-
-### <a name="require-users-to-register-when-they-sign-in"></a>要求用户在登录时注册
+## <a name="require-users-to-register-when-they-sign-in"></a>要求用户在登录时注册
 
 可以启用此选项在用户使用 Azure AD 登录到任何应用程序时要求用户完成 SSPR 注册。 此工作流包括以下应用程序：
 
@@ -92,7 +89,7 @@ Azure Active Directory (Azure AD) 自助式密码重置 (SSPR) 使用户能够�
 >
 > 如果用户已登录，则用于注册 SSPR 的此中断不会中断用户的连接。
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>设置用户必须在几天后重新确认其身份验证信息
+## <a name="reconfirm-authentication-information"></a>重新确认身份验证信息
 
 为了在需要使用身份验证方法来重置或更改用户的密码时确保身份验证方法正确，你可以要求用户在某段时间过后确认其已注册的信息。 仅当你启用了“要求用户在登录时注册”选项时，此选项才可用。
 

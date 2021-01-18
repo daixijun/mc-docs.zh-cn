@@ -1,6 +1,6 @@
 ---
-title: 分析工作负荷
-description: 在 Azure Synapse Analytics 中分析工作负荷的查询优先级的技巧。
+title: 分析专用 SQL 池的工作负荷
+description: 在 Azure Synapse Analytics 中分析专用 SQL 池的查询优先级的技巧。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,24 +8,24 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 02/04/2020
-ms.date: 08/03/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9ca8b8ac75edac23d1a5263997e230007667b8f5
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: baeb07c8fb3c49ed1c52b7486d61ea69a565fe83
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426347"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023267"
 ---
-# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中分析工作负荷
+# <a name="analyze-your-workload-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中分析专用 SQL 池的工作负荷
 
-在 Azure Synapse Analytics 中分析 Synapse SQL 工作负荷的技巧。 
+在 Azure Synapse Analytics 中分析专用 SQL 池工作负荷的技巧。 
 
 ## <a name="resource-classes"></a>资源类
 
-Synapse SQL 提供了资源类来将系统资源分配给查询。  有关资源类的详细信息，请参阅[资源类和工作负荷管理](resource-classes-for-workload-management.md)。  如果分配给查询的资源类需要的资源超出目前能够提供的量，则查询会等待。
+专用 SQL 池提供了资源类来将系统资源分配给查询。  有关资源类的详细信息，请参阅[资源类和工作负荷管理](resource-classes-for-workload-management.md)。  如果分配给查询的资源类需要的资源超出目前能够提供的量，则查询会等待。
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>对排队的查询进行的检测，以及其他 DMV
 
@@ -64,7 +64,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-Synapse SQL 具有以下等待类型：
+专用 SQL 池具有以下等待类型：
 
 * **LocalQueriesConcurrencyResourceType**：位于并发槽框架外部的查询。 DMV 查询和 `SELECT @@VERSION` 等系统函数是本地查询的示例。
 * **UserConcurrencyResourceType**：位于并发槽框架内部的查询。 针对最终用户表的查询代表使用此资源类型的示例。
@@ -154,4 +154,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何管理数据库用户和安全性的详细信息，请参阅[在 Synapse SQL 中保护数据库](sql-data-warehouse-overview-manage-security.md)。 若要进一步了解如何通过更大型资源类来改进聚集列存储索引质量，请参阅[重建索引以提升段质量](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)。
+有关如何管理数据库用户和安全性的详细信息，请参阅[保护专用 SQL 池（以前称为 SQL DW）](sql-data-warehouse-overview-manage-security.md)。 若要进一步了解如何通过更大型资源类来改进聚集列存储索引质量，请参阅[重建索引以提升段质量](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)。

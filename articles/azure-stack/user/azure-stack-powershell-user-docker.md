@@ -3,17 +3,17 @@ title: 使用 Docker 在 Azure Stack Hub 中运行 PowerShell
 description: 使用 Docker 在 Azure Stack Hub 中运行 PowerShell
 author: WenJason
 ms.topic: how-to
-origin.date: 10/16/2020
-ms.date: 12/07/2020
+origin.date: 12/16/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: fffc519edf86729f5057bd4bba10c2e5f112d5ec
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: be7f9d1d92c78aa1eb0ddd810d67912dfa0e8a96
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507978"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894458"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>使用 Docker 运行适用于 Azure Stack Hub 的 PowerShell
 
@@ -100,7 +100,7 @@ ms.locfileid: "96507978"
 
 ### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/rm)
 
-在这些说明中，你将运行基于 Windows 的容器映像，并安装 PowerShell 和 Azure Stack Hub 所需的模块。
+在这些说明中，你将运行基于 Windows 的容器映像，并安装 PowerShell 和 Azure Stack Hub 所需的模块。 如果计划在 Windows 中运行 Docker，则需要在物理计算机上运行 Docker。 Hyper-V 不支持嵌套虚拟化。
 
 1. 需要使用需要 Windows 10 的 Windows 容器来运行 Docker。 在运行 Docker 时，请切换到 Windows 容器。 支持 Az 模块的映像将需要 Docker 17.05 或更高版本。
 

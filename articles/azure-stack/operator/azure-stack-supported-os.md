@@ -4,17 +4,17 @@ titleSuffix: Azure Stack
 description: 了解在 Azure Stack Hub 上可以使用哪些来宾操作系统。
 author: WenJason
 ms.topic: article
-origin.date: 04/20/2020
-ms.date: 05/18/2020
+origin.date: 12/15/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 1a9dad835ed80b831f109c9e66e79e35aa9c973d
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: b65938f129d9664be0e8c6ceeae9f90aa9f24d56
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422380"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894359"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack Hub 支持的来宾操作系统
 
@@ -34,7 +34,7 @@ Azure Stack Hub 支持下表中列出的 Windows 来宾操作系统：
 | Windows 10 *（请参见注释 1）* | 64 位，Pro 和 Enterprise | 自带映像 |
 
 > [!NOTE]
-> 若要在 Azure Stack Hub 上部署 Windows 10 客户端操作系统，必须具备 [Windows 每用户授权](https://www.microsoft.com/licensing/product-licensing/windows10.aspx)，或者通过合格多租户托管商 ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)) 购买。
+> 若要在 Azure Stack Hub 上部署 Windows 10 客户端操作系统，必须具备 [Windows 每用户授权](https://www.microsoft.com/licensing/product-licensing/windows10.aspx)，或者通过[合格多租户托管商 (QMTH)](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) 购买它。
 
 市场映像可用于预付费或 BYOL (EA/SPLA) 授权。 不支持在单个 Azure Stack Hub 实例上同时使用这两者。 在部署期间，Azure Stack Hub 会将适当版本的来宾代理注入到映像中。
 

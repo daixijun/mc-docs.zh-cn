@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse 的列级别安全性是什么？
+title: 专用 SQL 池的列级别安全性
 description: 列级别安全性使客户可以基于用户的执行上下文或组成员身份来控制对数据库表列的访问，从而简化应用程序中的安全性设计和编码，并使你能够对列访问实施限制。
 services: synapse-analytics
 author: WenJason
@@ -8,23 +8,23 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 04/19/2020
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: ccfab4508d50fdc85ed3a485462fa7641b5ee4aa
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 1fc9f894f09c4f5feb8458b7c79d9934a5dff028
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375727"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023265"
 ---
-# <a name="column-level-security"></a>列级别安全性
+# <a name="column-level-security"></a>行级别安全性
 
 借助列级别安全性，客户可以根据用户的执行上下文或组成员身份，控制对表列的访问。
 
-Azure Synapse 可使用[行级别安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)了。 
+[行级别安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)可用于 Azure Synapse 中的专用 SQL 池。 
 
 列级别安全性简化了应用程序中的安全性设计和编程，使你能够限制列访问权限以保护敏感数据。 例如，确保具体用户只能访问表中与其部门相关的特定列。 访问限制逻辑位于数据库层中，而不是在另一个应用层中远离数据。 每当有任何一层的数据访问请求，数据库就会应用访问限制。 此限制会减少整个安全系统的外围应用，从而提高安全措施的可靠性。 此外，使用列级别安全性还无需引入用于筛选掉列的视图以限制用户访问。
 
@@ -85,5 +85,5 @@ SELECT * FROM Membership;
 
 下面是目前的一些列级别安全性用例示例：
 
-- 金融服务公司只允许客户经理访问客户的社会安全号码 (SSN)、电话号码和其他个人身份信息 (PII)。
+- 金融服务公司只允许客户经理访问客户的社会安全号码 (SSN)、电话号码和其他个人数据。
 - 医疗保健提供商只允许医生和护士访问敏感病史档案，不允许计费部门成员查看此类数据。

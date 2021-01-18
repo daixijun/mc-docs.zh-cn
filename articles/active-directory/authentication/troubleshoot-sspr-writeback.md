@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 11/10/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83f993ad32cc39b29d46d3e762698b22834159f6
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: a49ebd307399c8998885f6e7774359f3c0f0f291
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501759"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022074"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>排查 Azure Active Directory 中的自助式密码重置写回问题
 
@@ -178,7 +178,7 @@ Azure AD Connect 需要 AD DS“重置密码”权限才能执行密码写回。
 | 31016| WriteBackServiceStopped| 此事件表示密码写回服务已停止。 来自云的任何密码管理请求都不会成功。|
 | 31017| AuthTokenSuccess| 此事件表示为启动卸载或登记过程，我们已成功检索到在设置 Azure AD Connect 期间指定的全局管理员的授权令牌。|
 | 31018| KeyPairCreationSuccess| 此事件表示已成功创建密码加密密钥。 此密钥用于对从云发送到本地环境的密码进行加密。|
-| 31034| ServiceBusListenerError| 此事件指示连接到租户的服务总线侦听器时发生错误。 如果错误消息包含“远程证书无效”，请进行检查，以确保 Azure AD Connect 服务器具有所有必需的根 CA。 |
+| 31034| ServiceBusListenerError| 此事件指示连接到租户的服务总线侦听器时发生错误。 如果错误消息包含“远程证书无效”，请进行检查，以确保 Azure AD Connect 服务器具有所有必需的根 CA，如 [Azure TLS 证书更改](../../security/fundamentals/tls-certificate-changes.md)中所述。 |
 | 32000| UnknownError| 此事件表示在执行密码管理操作期间发生未知的错误。 有关更多详细信息，请查看事件中的异常文本。 如果有任何问题，请尝试禁用并重新启用密码写回。 如果这没有帮助，请在提交支持请求时提供事件日志的副本以及指定的跟踪 ID。|
 | 32001| ServiceError| 此事件表示连接到云密码重置服务时发生错误。 此错误通常在本地服务无法连接到密码重置 web 服务时发生。|
 | 32002| ServiceBusError| 此事件表示连接到租户的服务总线实例时发生错误。 发生此错误的原因可能是在本地环境中阻止了出站连接。 请检查防火墙，确保允许基于 TCP 443 的连接或者到 https://ssprdedicatedsbprodncu.servicebus.chinacloudapi.cn 的连接，并重试。 如果仍然出现问题，请尝试禁用并重新启用密码写回。|

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
-ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
-ms.openlocfilehash: f45186a4955216aff1633b2c076f169906584950
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
+ms.openlocfilehash: 2952dff9e4d01bfd97289d481ee3ade03c410f6c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501889"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022509"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft 标识平台终结点中的权限和许可
 
@@ -89,7 +89,7 @@ OpenID Connect 的 Microsoft 标识平台实现具有一些明确定义并托管
 [`offline_access` 范围](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) 可让应用长时间代表用户访问资源。 在同意页上，此范围将显示为“维持对已授予访问权限的数据的访问”权限。 用户批准 `offline_access` 范围后，应用可接收来自 Microsoft 标识平台令牌终结点的刷新令牌。 刷新令牌的生存期较长。 旧的访问令牌过期时，应用可以获取新的访问令牌。
 
 > [!NOTE]
-> 目前，此权限会出现在所有同意屏幕上，即使对于不提供刷新令牌的流（[隐式流](v2-oauth2-implicit-grant-flow.md)）也是如此。  这是为了涵盖客户端可以在隐式流中开始的场景，然后移至需要刷新令牌的代码流的场景。
+> 目前，此权限会出现在所有同意屏幕上，即使对于不提供刷新令牌的流（[隐式流](v2-oauth2-implicit-grant-flow.md)）也是如此。 这是为了涵盖客户端可以在隐式流中开始的场景，然后转到需要刷新令牌的代码流的场景。
 
 在 Microsoft 标识平台上（向 v2.0 终结点发出的请求），应用程序必须显式请求 `offline_access` 范围才能接收刷新令牌。 这意味着，在 [OAuth 2.0 授权代码流](active-directory-v2-protocols.md)中兑换授权代码时，只能从 `/token` 终结点接收访问令牌。 访问令牌在短期内有效。 访问令牌的有效期通常为一小时。 到时，应用需要将用户重定向回到 `/authorize` 终结点以获取新的授权代码。 此重定向期间，用户可能需要再次输入其凭据或重新同意权限，具体取决于应用类型。
 
@@ -304,7 +304,7 @@ response_type=token            //code or a hybrid flow is also possible here
 
 ### <a name="client-credentials-grant-flow-and-default"></a>客户端凭据授权流和“/.default”
 
-`./default` 的另一种用法是在非交互式应用程序（例如，使用[客户端凭据](v2-oauth2-client-creds-grant-flow.md)授权流来调用 Web API 的守护程序应用）中请求应用程序权限（或角色）时使用。
+`/.default` 的另一种用法是在非交互式应用程序（例如，使用[客户端凭据](v2-oauth2-client-creds-grant-flow.md)授权流来调用 Web API 的守护程序应用）中请求应用程序权限（或角色）时使用。
 
 若要为 Web API 创建应用程序权限（角色），请参阅[如何：在应用程序中添加应用角色](howto-add-app-roles-in-azure-ad-apps.md)。
 

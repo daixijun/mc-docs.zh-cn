@@ -1,20 +1,21 @@
 ---
 title: 模板函数 - 部署
-description: 介绍可在 Azure Resource Manager 模板中使用的用于检索部署信息的函数。
+description: 介绍可在 Azure 资源管理器模板（ARM 模板）中使用的用于检索部署信息的函数。
 ms.topic: conceptual
-origin.date: 04/27/2020
-ms.date: 06/22/2020
+origin.date: 11/18/2020
+author: rockboyfor
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: 9637c623e46bac888d90dc26d0c3e8a0e30b21c5
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: bfdc499c922fe1d9386d95e5dd8fe89c56bf1268
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098719"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022278"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>ARM 模板的部署函数
 
-资源管理器提供了以下函数，用于获取与 Azure 资源管理器 (ARM) 模板的当前部署相关的值：
+资源管理器提供了以下函数，用于获取与 Azure 资源管理器模板（ARM 模板）的当前部署相关的值：
 
 * [部署](#deployment)
 * [环境](#environment)
@@ -23,8 +24,9 @@ ms.locfileid: "85098719"
 
 若要从资源、资源组或订阅获取值，请参阅 [Resource functions](template-functions-resource.md)（资源函数）。
 
-<a name="deployment"></a>
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
+<a name="deployment"></a>
 ## <a name="deployment"></a>部署
 
 `deployment()`
@@ -36,28 +38,27 @@ ms.locfileid: "85098719"
 此函数返回部署期间传递的对象。 返回的对象中的属性因以下情况而异：
 
 * 你部署的模板是本地文件，还是通过 URI 访问的远程文件。
-* 你是部署到资源组，还是部署到其他作用域之一（[Azure 订阅](deploy-to-subscription.md)、[管理组](deploy-to-management-group.md)或[租户](deploy-to-tenant.md)）。
+* 你是部署到资源组，还是部署到其他作用域之一（[Azure 试用版订阅](deploy-to-subscription.md)、[管理组](deploy-to-management-group.md)或[租户](deploy-to-tenant.md)）。
 
 将本地模板部署到资源组时，该函数返回以下格式：
 
 ```json
 {
-    "name": "",
-    "properties": {
-        "template": {
-            "$schema": "",
-            "contentVersion": "",
-            "parameters": {},
-            "variables": {},
-            "resources": [
-            ],
-            "outputs": {}
-        },
-        "templateHash": "",
-        "parameters": {},
-        "mode": "",
-        "provisioningState": ""
-    }
+  "name": "",
+  "properties": {
+    "template": {
+      "$schema": "",
+      "contentVersion": "",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {}
+    },
+    "templateHash": "",
+    "parameters": {},
+    "mode": "",
+    "provisioningState": ""
+  }
 }
 ```
 
@@ -65,24 +66,24 @@ ms.locfileid: "85098719"
 
 ```json
 {
-    "name": "",
-    "properties": {
-        "templateLink": {
-            "uri": ""
-        },
-        "template": {
-            "$schema": "",
-            "contentVersion": "",
-            "parameters": {},
-            "variables": {},
-            "resources": [],
-            "outputs": {}
-        },
-        "templateHash": "",
-        "parameters": {},
-        "mode": "",
-        "provisioningState": ""
-    }
+  "name": "",
+  "properties": {
+    "templateLink": {
+      "uri": ""
+    },
+    "template": {
+      "$schema": "",
+      "contentVersion": "",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {}
+    },
+    "templateHash": "",
+    "parameters": {},
+    "mode": "",
+    "provisioningState": ""
+  }
 }
 ```
 
@@ -90,20 +91,20 @@ ms.locfileid: "85098719"
 
 ```json
 {
-    "name": "",
-    "location": "",
-    "properties": {
-        "template": {
-            "$schema": "",
-            "contentVersion": "",
-            "resources": [],
-            "outputs": {}
-        },
-        "templateHash": "",
-        "parameters": {},
-        "mode": "",
-        "provisioningState": ""
-    }
+  "name": "",
+  "location": "",
+  "properties": {
+    "template": {
+      "$schema": "",
+      "contentVersion": "",
+      "resources": [],
+      "outputs": {}
+    },
+    "templateHash": "",
+    "parameters": {},
+    "mode": "",
+    "provisioningState": ""
+  }
 }
 ```
 
@@ -111,11 +112,21 @@ ms.locfileid: "85098719"
 
 如何根据父模板的 URI，使用 deployment() 链接到另一个模板。
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
-"variables": {  
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+"variables": {
+  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
 }
-```  
+```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var sharedTemplateUrl = uri(deployment().prperties.templateLink.uri, 'shared-resources.json')
+```
+
+---
 
 如果从门户中的部署历史记录重新部署模板，则该模板将部署为本地文件。 部署函数不返回 `templateLink` 属性。 如果模板依赖于 `templateLink` 来构建指向另一个模板的链接，请不要使用门户进行重新部署， 而是使用最初部署模板时使用的命令。
 
@@ -123,19 +134,29 @@ ms.locfileid: "85098719"
 
 下面的[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json)返回部署对象：
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "deploymentOutput": {
-            "value": "[deployment()]",
-            "type" : "object"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "deploymentOutput": {
+      "type": "object",
+      "value": "[deployment()]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output deploymentOutput object = deployment()
+```
+
+---
 
 前面的示例返回以下对象：
 
@@ -210,55 +231,69 @@ ms.locfileid: "85098719"
 
 以下示例模板返回环境对象。
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "environmentOutput": {
-            "value": "[environment()]",
-            "type" : "object"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "environmentOutput": {
+      "type": "object",
+      "value": "[environment()]"
     }
-}
-```
-
-前面的示例在部署到全局 Azure 时返回以下对象：
-
-```json
-{
-  "name": "AzureChinaCloud",
-  "gallery": "https://gallery.chinacloudapi.cn/",
-  "graph": "https://graph.chinacloudapi.cn/",
-  "portal": "https://portal.azure.cn",
-  "graphAudience": "https://graph.chinacloudapi.cn/",
-  "activeDirectoryDataLake": "https://datalake.chinacloudapi.cn/",
-  "batch": "https://batch.core.chinacloudapi.cn/",
-  "media": "https://rest.media.chinacloudapi.cn",
-  "sqlManagement": "https://management.core.chinacloudapi.cn:8443/",
-  "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
-  "resourceManager": "https://management.chinacloudapi.cn/",
-  "authentication": {
-    "loginEndpoint": "https://login.chinacloudapi.cn/",
-    "audiences": [
-      "https://management.core.chinacloudapi.cn/",
-      "https://management.chinacloudapi.cn/"
-    ],
-    "tenant": "common",
-    "identityProvider": "AAD"
-  },
-  "suffixes": {
-    "acrLoginServer": ".azurecr.cn",
-    "azureDatalakeAnalyticsCatalogAndJob": "azuredatalakeanalytics.net",
-    "azureDatalakeStoreFileSystem": "azuredatalakestore.net",
-    "azureFrontDoorEndpointSuffix": "azurefd.net",
-    "keyvaultDns": ".vault.azure.cn",
-    "sqlServerHostname": ".database.chinacloudapi.cn",
-    "storage": "core.chinacloudapi.cn"
   }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output environmentOutput object = environment()
+```
+
+---
+
+前面的示例在部署到全局 Azure 时返回以下对象：
+
+<!--MOONCAKE CUSTOMZIE ON 01/08/2021-->
+
+```json
+{
+    "name": "AzureChinaCloud",
+    "gallery": "https://gallery.chinacloudapi.cn",
+    "graph": "https://graph.chinacloudapi.cn",
+    "portal": "https://portal.azure.cn",
+    "graphAudience": "https://graph.chinacloudapi.cn",
+    "activeDirectoryDataLake": null,
+    "batch": "https://batch.chinacloudapi.cn",
+    "media": "https://rest.media.chinacloudapi.cn",
+    "sqlManagement": "https://management.core.chinacloudapi.cn:8443",
+    "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
+    "resourceManager": "https://management.chinacloudapi.cn",
+    "authentication": {
+        "loginEndpoint": "https://login.chinacloudapi.cn",
+        "audiences": [
+            "https://management.core.chinacloudapi.cn",
+            "https://management.chinacloudapi.cn"
+        ],
+        "tenant": "common",
+        "identityProvider": "AAD"
+    },
+    "suffixes": {
+        "acrLoginServer": ".azurecr.cn",
+        "azureDatalakeAnalyticsCatalogAndJob": null,
+        "azureDatalakeStoreFileSystem": null,
+        "azureFrontDoorEndpointSuffix": "",
+        "keyvaultDns": ".vault.azure.cn",
+        "sqlServerHostname": ".database.chinacloudapi.cn",
+        "storage": "core.chinacloudapi.cn"
+    }
+}
+
+```
+<!--MOONCAKE CUSTOMZIE ON 01/08/2021-->
 
 ## <a name="parameters"></a>参数
 
@@ -268,7 +303,7 @@ ms.locfileid: "85098719"
 
 ### <a name="parameters"></a>parameters
 
-| 参数 | 必须 | 类型 | 说明 |
+| 参数 | 必需 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | parameterName |是 |string |要返回的参数名称。 |
 
@@ -280,78 +315,123 @@ ms.locfileid: "85098719"
 
 通常，使用参数设置资源值。 以下示例将 Web 站点的名称设置为在部署过程中传递的参数值。
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
-"parameters": { 
-  "siteName": {
-      "type": "string"
-  }
-},
+"parameters": {
+        "siteName": {
+            "type": "string"
+        }
+    }, 
 "resources": [
-   {
-      "apiVersion": "2016-08-01",
-      "name": "[parameters('siteName')]",
-      "type": "Microsoft.Web/Sites",
-      ...
-   }
+    {
+        "type": "Microsoft.Web/Sites",
+        "apiVersion": "2016-08-01",
+        "name": "[parameters('siteName')]",
+        ...
+    }
 ]
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param siteName string
+
+resource mySite 'Microsoft.Web/Sites@2016-08-01' = {
+  name: siteName
+  ...
+}
+```
+
+---
 
 ### <a name="example"></a>示例
 
 以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json)演示了 parameters 函数的简化用法。
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringParameter": {
-            "type" : "string",
-            "defaultValue": "option 1"
-        },
-        "intParameter": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "objectParameter": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b"}
-        },
-        "arrayParameter": {
-            "type": "array",
-            "defaultValue": [1, 2, 3]
-        },
-        "crossParameter": {
-            "type": "string",
-            "defaultValue": "[parameters('stringParameter')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringParameter": {
+      "type": "string",
+      "defaultValue": "option 1"
     },
-    "variables": {},
-    "resources": [],
-    "outputs": {
-        "stringOutput": {
-            "value": "[parameters('stringParameter')]",
-            "type" : "string"
-        },
-        "intOutput": {
-            "value": "[parameters('intParameter')]",
-            "type" : "int"
-        },
-        "objectOutput": {
-            "value": "[parameters('objectParameter')]",
-            "type" : "object"
-        },
-        "arrayOutput": {
-            "value": "[parameters('arrayParameter')]",
-            "type" : "array"
-        },
-        "crossOutput": {
-            "value": "[parameters('crossParameter')]",
-            "type" : "string"
-        }
+    "intParameter": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "objectParameter": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b"
+      }
+    },
+    "arrayParameter": {
+      "type": "array",
+      "defaultValue": [ 1, 2, 3 ]
+    },
+    "crossParameter": {
+      "type": "string",
+      "defaultValue": "[parameters('stringParameter')]"
     }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "stringOutput": {
+      "value": "[parameters('stringParameter')]",
+      "type": "string"
+    },
+    "intOutput": {
+      "value": "[parameters('intParameter')]",
+      "type": "int"
+    },
+    "objectOutput": {
+      "value": "[parameters('objectParameter')]",
+      "type": "object"
+    },
+    "arrayOutput": {
+      "value": "[parameters('arrayParameter')]",
+      "type": "array"
+    },
+    "crossOutput": {
+      "value": "[parameters('crossParameter')]",
+      "type": "string"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param stringParameter string = 'option 1'
+param intParameter int = 1
+param objectParameter object = {
+  'one': 'a'
+  'two': 'b'
+}
+param arrayParameter array = [
+  1
+  2
+  3
+]
+param crossParameter string = stringParameter
+
+output stringOutput string = stringParameter
+output intOutput int = intParameter
+output objectOutput object = objectParameter
+output arrayOutput array = arrayParameter
+output crossOutput string = crossParameter
+```
+
+---
 
 上述示例中使用默认值的输出为：
 
@@ -363,7 +443,7 @@ ms.locfileid: "85098719"
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | 选项 1 |
 
-如需详细了解如何使用参数，请参阅 [Azure 资源管理器模板中的参数](template-parameters.md)。
+如需详细了解如何使用参数，请参阅 [ARM 模板中的参数](template-parameters.md)。
 
 <a name="variables"></a>
 
@@ -375,7 +455,7 @@ ms.locfileid: "85098719"
 
 ### <a name="parameters"></a>parameters
 
-| 参数 | 必须 | 类型 | 说明 |
+| 参数 | 必需 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | variableName |是 |String |要返回的变量名称。 |
 
@@ -387,65 +467,111 @@ ms.locfileid: "85098719"
 
 通常，使用变量通过只构造一次复杂值来简化模板。 以下示例构造存储帐户的唯一名称。
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 "variables": {
-    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+  "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
 },
 "resources": [
-    {
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "[variables('storageName')]",
-        ...
-    },
-    {
-        "type": "Microsoft.Compute/virtualMachines",
-        "dependsOn": [
-            "[variables('storageName')]"
-        ],
-        ...
-    }
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageName')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "dependsOn": [
+      "[variables('storageName')]"
+    ],
+    ...
+  }
 ],
+
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var storageName = concat('storage', uniqueString(resourceGroup().id))
+
+resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: storageName
+  ...
+}
+
+resource myVm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
+  ...
+}
+```
+
+---
 
 ### <a name="example"></a>示例
 
 以下[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json)返回了不同的变量值。
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {
-        "var1": "myVariable",
-        "var2": [ 1,2,3,4 ],
-        "var3": "[ variables('var1') ]",
-        "var4": {
-            "property1": "value1",
-            "property2": "value2"
-          }
-    },
-    "resources": [],
-    "outputs": {
-        "exampleOutput1": {
-            "value": "[variables('var1')]",
-            "type" : "string"
-        },
-        "exampleOutput2": {
-            "value": "[variables('var2')]",
-            "type" : "array"
-        },
-        "exampleOutput3": {
-            "value": "[variables('var3')]",
-            "type" : "string"
-        },
-        "exampleOutput4": {
-            "value": "[variables('var4')]",
-            "type" : "object"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "var1": "myVariable",
+    "var2": [ 1, 2, 3, 4 ],
+    "var3": "[ variables('var1') ]",
+    "var4": {
+      "property1": "value1",
+      "property2": "value2"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "exampleOutput1": {
+      "value": "[variables('var1')]",
+      "type": "string"
+    },
+    "exampleOutput2": {
+      "value": "[variables('var2')]",
+      "type": "array"
+    },
+    "exampleOutput3": {
+      "value": "[variables('var3')]",
+      "type": "string"
+    },
+    "exampleOutput4": {
+      "value": "[variables('var4')]",
+      "type": "object"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+var var1 = 'myVariable'
+var var2 = [
+  1
+  2
+  3
+  4
+]
+var var3 = var1
+var var4 = {
+  'property1': 'value1'
+  'property2': 'value2'
+}
+
+output exampleOutput1 string = var1
+output exampleOutput2 array = var2
+output exampleOutput3 string = var3
+output exampleOutput4 object = var4
+```
+
+---
 
 上述示例中使用默认值的输出为：
 
@@ -456,12 +582,10 @@ ms.locfileid: "85098719"
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-如需详细了解如何使用变量，请参阅 [Azure 资源管理器模板中的变量](template-variables.md)。
+如需详细了解如何使用变量，请参阅 [ARM 模板中的变量](template-variables.md)。
 
 ## <a name="next-steps"></a>后续步骤
-* 有关 Azure 资源管理器模板中各部分的说明，请参阅[创作 Azure 资源管理器模板](template-syntax.md)。
-* 若要合并多个模板，请参阅[将链接的模板与 Azure 资源管理器配合使用](linked-templates.md)。
-* 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure 资源管理器中创建多个资源实例](copy-resources.md)。
-* 要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](deploy-powershell.md)。
+
+* 有关 ARM 模板中各部分的说明，请参阅[了解 ARM 模板的结构和语法](template-syntax.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -5,22 +5,55 @@ description: Microsoft 标识平台的新文档和更新的文档。
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 11/23/2020
+ms.date: 01/06/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: v-junlch
-ms.openlocfilehash: 843c9a22ff5929d071220b51df108cb872fb48db
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 4a288934b2372914b2aff25e8818dbf626bc2d23
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918312"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021618"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Microsoft 标识平台文档：新增功能
 
 欢迎查看 Microsoft 标识平台文档中的新内容。 本文列出了过去三个月内添加的新文档以及有重要更新的文档。
+
+## <a name="december-2020"></a>2020 年 12 月
+
+### <a name="new-articles"></a>新文章
+
+- [快速入门：实现用户登录并代表用户调用 Microsoft Graph 的 ASP.NET Core Web 应用](quickstart-v2-aspnet-core-webapp-calls-graph.md)
+- [处理 MSAL.NET 中的错误和异常](msal-error-handling-dotnet.md)
+- [处理 MSAL for iOS/macOS 中的错误和异常](msal-error-handling-ios.md)
+- [处理 MSAL for Java 中的错误和异常](msal-error-handling-java.md)
+- [处理 MSAL.js 中的错误和异常](msal-error-handling-js.md)
+- [处理 MSAL for Python 中的错误和异常](msal-error-handling-python.md)
+
+### <a name="updated-articles"></a>更新的文章
+
+- [教程：生成使用 Microsoft 标识平台的多租户守护程序](tutorial-v2-aspnet-daemon-web-app.md)
+- [用于登录用户的 Web 应用：应用注册](scenario-web-app-sign-user-app-registration.md)
+- [Microsoft 标识平台和隐式授权流](v2-oauth2-implicit-grant-flow.md)
+- [Microsoft 标识平台访问令牌](access-tokens.md)
+- [调用 Web API 的 Web API：获取应用的令牌](scenario-web-api-call-api-acquire-token.md)
+
+
+## <a name="november-2020"></a>2020 年 11 月
+
+### <a name="new-articles"></a>新文章
+
+- [如何在应用程序中使用启用了连续访问评估的 API](app-resilience-continuous-access-evaluation.md)
+
+### <a name="updated-articles"></a>更新的文章
+
+- [Microsoft 标识平台访问令牌](access-tokens.md)
+- [应用程序配置选项 (MSAL)](msal-client-application-configuration.md)
+- [如何：向应用提供可选声明](active-directory-optional-claims.md)
+- [如何：在应用程序中添加应用角色并在令牌中接收它们](howto-add-app-roles-in-azure-ad-apps.md)
 
 ## <a name="october-2020"></a>2020 年 10 月
 
@@ -63,23 +96,4 @@ ms.locfileid: "95918312"
 - [快速入门：配置客户端应用程序以访问 Web API](quickstart-configure-app-access-web-apis.md)
 - [快速入门：配置应用程序以公开 Web API](quickstart-configure-app-expose-web-apis.md)
 - [快速入门：将应用程序注册到 Microsoft 标识平台](quickstart-register-app.md)
-
-## <a name="august-2020"></a>2020 年 8 月
-
-### <a name="new-articles"></a>新文章
-
-- [将使用代理的 Android 应用程序从 ADAL.NET 迁移到 MSAL.NET](msal-net-migration-android-broker.md)
-- [处理适用于 Android 的 MSAL 中的异常和错误](msal-android-handling-exceptions.md)
-
-### <a name="updated-articles"></a>更新的文章
-
-- [将使用 Microsoft Authenticator 的 iOS 应用程序从 ADAL.NET 迁移到 MSAL.NET](msal-net-migration-ios-broker.md)
-- [在 Xamarin 应用程序中使用 Microsoft Authenticator 或 Intune 公司门户](msal-net-use-brokers-with-xamarin-apps.md)
-- [Xamarin Android 与 MSAL.NET 配合使用时的配置要求和故障排除提示](msal-net-xamarin-android-considerations.md)
-- [配置调用 Web API 的移动应用](scenario-mobile-app-configuration.md)
-- [如何：为租户中的特定应用自定义在令牌中发出的声明（预览版）](active-directory-claims-mapping.md)
-- [Microsoft 标识平台应用程序身份验证证书凭据](active-directory-certificate-credentials.md)
-- [重定向 URI（回复 URL）限制和局限](reply-url.md)
-- [快速入门：配置应用程序以公开 Web API](quickstart-configure-app-expose-web-apis.md)
-- [快速入门：调用受 Microsoft 标识平台保护的 ASP.NET Web API](quickstart-v2-dotnet-native-aspnet.md)
 

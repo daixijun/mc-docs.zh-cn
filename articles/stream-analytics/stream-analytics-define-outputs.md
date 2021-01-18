@@ -6,14 +6,14 @@ ms.author: v-johya
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.custom: contperfq1
-ms.date: 11/16/2020
-ms.openlocfilehash: 38eae524496fe110748acfc08e9b99d06b2f3a31
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.custom: contperf-fy21q1
+ms.date: 01/07/2021
+ms.openlocfilehash: a329d5bc4f5ef19cdc7822eed12811c283288383
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977427"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023161"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Azure 流分析的输出
 
@@ -25,9 +25,9 @@ Azure 流分析作业由输入、查询和输出构成。 可以将转换后的�
 
 | 输出类型 | 分区 | 安全 | 
 |-------------|--------------|----------|
-|[Azure SQL 数据库](sql-database-output.md)|是，可选。|SQL 用户身份验证 </br> MSI（预览）|
-|[Blob 存储和 Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|是|MSI </br> 访问密钥|
-|[Azure 事件中心](event-hubs-output.md)|是，需要在输出配置中设置分区键列。|访问密钥|
+|[Azure SQL 数据库](sql-database-output.md)|是，可选。|SQL 用户身份验证， </br> 托管标识（预览版）|
+|[Blob 存储和 Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|是|访问密钥， </br> 托管标识（预览版）|
+|[Azure 事件中心](event-hubs-output.md)|是，需要在输出配置中设置分区键列。|访问密钥， </br> 托管标识（预览版）|
 |[Azure 表存储](table-storage-output.md)|是|帐户密钥|
 |[Azure 服务总线队列](service-bus-queues-output.md)|是|访问密钥|
 |[Azure 服务总线主题](service-bus-topics-output.md)|是|访问密钥|
@@ -38,7 +38,7 @@ Azure 流分析作业由输入、查询和输出构成。 可以将转换后的�
 
 ## <a name="partitioning"></a>分区
 
-流分析支持所有输出的分区。 有关分区键和输出编写器数目的详细信息，请参阅你感兴趣的特定输出类型的文章。 在上一节中链接了所有输出文章。  
+流分析支持上述所有输出的分区。 有关分区键和输出编写器数目的详细信息，请参阅你感兴趣的特定输出类型的文章。 在上一节中链接了所有输出文章。  
 
 <!-- Not Available ## Power BI-->
 另外，若要对分区进行更高级的优化，可以在查询中使用 `INTO <partition count>`（请参阅 [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)）子句来控制输出写入器的数量，这可能有助于实现所需的作业拓扑。 如果输出适配器未分区，则一个输入分区中缺少数据将导致延迟最多可达延迟到达的时间量。 在这种情况下，输出将合并到单个写入器，这可能会导致管道中出现瓶颈。 若要了解有关延迟到达策略的详细信息，请参阅 [Azure 流分析事件顺序注意事项](./stream-analytics-time-handling.md)。

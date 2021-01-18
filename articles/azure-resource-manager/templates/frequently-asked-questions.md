@@ -1,23 +1,23 @@
 ---
 title: ARM 模板常见问题解答
-description: 有关 Azure 资源管理器模板的常见问题解答 (FAQ)。
+description: 有关 Azure 资源管理器模板（ARM 模板）的常见问题解答 (FAQ)。
 ms.topic: conceptual
 origin.date: 09/17/2020
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 2c7f02c28ae7d58b1e4356d0fc347f9a9af1b09b
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 22383f66a7e27b7ffd6c56458a65f92ff870711b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004057"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021871"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>有关 ARM 模板的常见问题解答
 
-本文解答有关 Azure 资源管理器 (ARM) 模板的常见问题。
+本文解答有关 Azure 资源管理器模板（ARM 模板）的常见问题。
 
 ## <a name="getting-started"></a>入门
 
@@ -29,11 +29,11 @@ ms.locfileid: "97004057"
 
 * **如何开始使用模板？**
 
-    若要简化 ARM 模板的创作，需要合适的工具。 我们建议安装 [Visual Studio Code](https://code.visualstudio.com/) 和 [Azure 资源管理器工具扩展](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)。 有关这些工具的简要介绍，请参阅[快速入门：使用 Visual Studio Code 创建 Azure 资源管理器模板](quickstart-create-templates-use-visual-studio-code.md)。
+    若要简化 ARM 模板的创作，需要合适的工具。 我们建议安装 [Visual Studio Code](https://code.visualstudio.com/) 和 [Azure 资源管理器工具扩展](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)。 有关这些工具的简要介绍，请参阅[快速入门：使用 Visual Studio Code 创建 ARM 模板](quickstart-create-templates-use-visual-studio-code.md)。
 
-    准备好学习如何创建 ARM 模板时，请开始学习[有关 ARM 模板的初学者教程系列](template-tutorial-create-first-template.md)。 这些教程指导你逐步完成构造 ARM 模板的过程。 你将了解模板的不同部分以及它们的协作方式。 
+    准备好学习如何创建 ARM 模板时，请开始学习[有关 ARM 模板的初学者教程系列](template-tutorial-create-first-template.md)。 这些教程指导你逐步完成构造 ARM 模板的过程。 你将了解模板的不同部分以及它们的协作方式。
 
-<!--Not Available on [Microsoft Learn module](/learn/modules/authoring-arm-templates/)-->
+    <!--Not Available on This content is also available as a [Microsoft Learn module](https://docs.microsoft.com/learn/modules/authoring-arm-templates/)-->
 
 * **我应使用 ARM 模板还是 Terraform 部署到 Azure？**
 
@@ -147,7 +147,7 @@ ms.locfileid: "97004057"
 
 * **使用 what-if 时，我看到了不属于模板的属性更改。这是预期的“干扰信息”吗？**
 
-    What-if 功能处于预览阶段。 我们正在努力减少干扰信息。 请在此处的 GitHub 存储库中提交问题，以帮助我们改进： https://aka.ms/WhatIfIssues
+    我们正在努力减少干扰信息。 请在此处的 GitHub 存储库中提交问题，以帮助我们改进： https://aka.ms/WhatIfIssues
 
 ## <a name="template-visualizer"></a>模板可视化工具
 
@@ -175,11 +175,11 @@ ms.locfileid: "97004057"
 
 * **是否可以将 ARM 模板集成到 Azure Pipelines 中？**
 
-    是的。 有关使用模板和管道的说明，请参阅[教程：使用 Azure Pipelines 持续集成 Azure 资源管理器模板](deployment-tutorial-pipeline.md)和[将 ARM 模板与 Azure Pipelines 集成](add-template-to-azure-pipelines.md)。
+    是的。 有关使用模板和管道的说明，请参阅[教程：使用 Azure Pipelines 持续集成 ARM 模板](deployment-tutorial-pipeline.md)和[将 ARM 模板与 Azure Pipelines 集成](add-template-to-azure-pipelines.md)。
 
 * **是否可以使用 GitHub 操作来部署模板？**
 
-    可以，请参阅[使用 GitHub Actions 部署 Azure 资源管理器模板](deploy-github-actions.md)。
+    可以，请参阅[使用 GitHub Actions 部署 ARM 模板](deploy-github-actions.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

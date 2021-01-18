@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/20/2017
-ms.date: 11/11/2020
+ms.date: 01/05/2021
 ms.author: v-johya
-ms.openlocfilehash: d6f190626f53f9436f54ca0cc17f7aaf9de64acd
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 8b8200f8d0b7945fdfd7d2daee63c6afae0fc984
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638193"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022105"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>如何使用 FreeBSD 的数据包筛选器在 Azure 中创建安全防火墙
 本文介绍如何通过 Azure Resource Manager 模板使用 FreeBSD 的数据包筛选器为通用 Web 服务器方案部署 NAT 防火墙。
@@ -37,10 +37,10 @@ Azure Resource Manager 模板设置一个使用 PF 执行 NAT/重定向的 FreeB
 az group create --name myResourceGroup --location chinanorth
 ```
 
-接下来，运行 [az group deployment create](https://docs.azure.cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create) 来部署模板 pf-freebsd-setup。 在相同的路径下面下载 azuredeploy.parameters.json，然后定义你自己的资源值（如 `adminPassword`、`networkPrefix` 和 `domainNamePrefix`）。 
+接下来，使用 [az deployment group create](/cli/deployment/group) 部署模板 pf-freebsd-setup。 在相同的路径下面下载 azuredeploy.parameters.json，然后定义你自己的资源值（如 `adminPassword`、`networkPrefix` 和 `domainNamePrefix`）。 
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup --name myDeploymentName \
+az deployment group create --resource-group myResourceGroup --name myDeploymentName \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json \
     --parameters '@azuredeploy.parameters.json' --verbose
 ```

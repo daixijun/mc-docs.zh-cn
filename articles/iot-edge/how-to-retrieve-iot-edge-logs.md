@@ -4,19 +4,19 @@ description: IoT Edge 模块日志检索以及上传到 Azure Blob 存储。
 author: v-tcassi
 manager: philmea
 ms.author: v-tawe
-origin.date: 09/14/2020
-ms.date: 12/03/2020
+origin.date: 11/12/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 75541f6073391f8ccaa9c5fc78279a3ac555164d
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.openlocfilehash: 5dbd4ce9392ec13b22855f5c7035ce42b73e2833
+ms.sourcegitcommit: 40db5a4b9ab8b5877e307ff7a567fd930ca81c72
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541187"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894298"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>检索 IoT Edge 部署中的日志
 
@@ -34,7 +34,7 @@ ms.locfileid: "96541187"
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` 应遵循 Syslog 严重性级别格式，`{Timestamp}` 应格式化为 `yyyy-mm-dd hh:mm:ss.fff zzz`。
+`{Log Level}` 应遵循 Syslog 严重性级别格式，`{Timestamp}` 应格式化为 `yyyy-MM-dd hh:mm:ss.fff zzz`。
 
 [IoT Edge 中的记录器类](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs)充当规范实现。
 
@@ -51,10 +51,10 @@ ms.locfileid: "96541187"
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "int",
+                "until": "int",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }
@@ -142,6 +142,14 @@ az iot hub invoke-module-method \
 
 使用 UploadModuleLogs 直接方法将请求的日志发送到指定的 Azure Blob 存储容器。
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> 若要从网关设备后的设备上传日志，需要在顶层设备上配置 [API 代理和 blob 存储模块](how-to-configure-api-proxy-module.md)。 这些模块通过网关设备将日志从较低层设备路由到云中的存储。
+
+::: moniker-end
+
 此方法接受类似于 GetModuleLogs 的 JSON 有效负载，并添加“sasUrl”键：
 
 ```json
@@ -152,10 +160,10 @@ az iot hub invoke-module-method \
           {
              "id": "regex string",
              "filter": {
-                "tail": int,
-                "since": int,
-                "until": int,
-                "loglevel": int,
+                "tail": "int",
+                "since": "int",
+                "until": "int",
+                "loglevel": "int",
                 "regex": "regex string"
              }
           }
@@ -261,6 +269,14 @@ az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d 
 ## <a name="upload-support-bundle-diagnostics"></a>上传支持捆绑诊断
 
 使用 UploadSupportBundle 直接方法将 IoT Edge 模块日志的 zip 文件捆绑并上传到可用的 Azure Blob 存储容器。 此直接方法在 IoT Edge 设备上运行 [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) 命令以获取日志。
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> 若要从网关设备后的设备上传日志，需要在顶层设备上配置 [API 代理和 blob 存储模块](how-to-configure-api-proxy-module.md)。 这些模块通过网关设备将日志从较低层设备路由到云中的存储。
+
+::: moniker-end
 
 此方法接受具有以下架构的 JSON 有效负载：
 

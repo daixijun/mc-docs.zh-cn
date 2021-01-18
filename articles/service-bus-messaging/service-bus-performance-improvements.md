@@ -1,20 +1,21 @@
 ---
 title: 使用 Azure 服务总线提高性能的最佳做法
 description: 介绍如何使用服务总线在交换中转消息时优化性能。
+ms.service: service-bus-messaging
 ms.topic: article
 origin.date: 11/11/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 65d8c4ab0abe714e2034c59ea6d46a2a20b2cc2f
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 2d81afc7232c7d337e8ad974ce7c2a771c181cfb
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105355"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023272"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服务总线消息传递改进性能的最佳实践
 
@@ -354,7 +355,7 @@ var queue = namespaceManager.CreateQueue(queueDescription);
 
 目标：使包含大量发件人的队列或主题的吞吐量最大化。 每个发送方均以中等速率发送消息。 接收方的数目较小。
 
-服务总线允许最多 1000 个与消息传送实体之间的并发连接。 该限制在命名空间级别是强制性的，队列、主题或订阅按命名空间受此并发连接的限制。 就队列而言，此数值在发送方和接收方之间共享。 如果发件人需要所有 1000 个连接，则将队列替换为主题和单个订阅。 主题接受来自发送方的最多 1000 个并发连接。 订阅接受来自接收方的其他 1000 个并发连接。 如果需要超过 1000 个并发发送方，则发送方应通过 HTTP 向服务总线协议发送消息。
+服务总线允许最多 1000 个与消息传送实体之间的并发连接。 该限制在命名空间级别强制实施，队列数、主题数或订阅数的上限受到单个命名空间的并发连接数的限制。 就队列而言，此数值在发送方和接收方之间共享。 如果发件人需要所有 1000 个连接，则将队列替换为主题和单个订阅。 主题接受来自发送方的最多 1000 个并发连接。 订阅接受来自接收方的其他 1000 个并发连接。 如果需要超过 1000 个并发发送方，则发送方应通过 HTTP 向服务总线协议发送消息。
 
 若要使吞吐量最大化，请执行以下步骤：
 

@@ -1,6 +1,6 @@
 ---
-title: 透明数据加密（门户）
-description: Azure Synapse Analytics 中的透明数据加密 (TDE)
+title: 用于专用 SQL 池（以前称为 SQL DW）的透明数据加密（门户）
+description: 用于 Azure Synapse Analytics 中专用 SQL 池（以前称为 SQL DW）的透明数据加密 (TDE)
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,18 +8,18 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 04/30/2019
-ms.date: 08/10/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4fdcfc6161354813e3770efc9663934cad55bd5b
-ms.sourcegitcommit: ac70b12de243a9949bf86b81b2576e595e55b2a6
+ms.openlocfilehash: d99f8221282e18a063e9d9d6efd137ec03379554
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87917220"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023049"
 ---
-# <a name="get-started-with-transparent-data-encryption-tde-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中的透明数据加密 (TDE) 入门
+# <a name="get-started-with-transparent-data-encryption-tde-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>用于 Azure Synapse Analytics 中专用 SQL 池（以前称为 SQL DW）的透明数据加密 (TDE) 入门
 
 > [!div class="op_single_selector"]
 >

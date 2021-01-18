@@ -3,14 +3,14 @@ title: 使用 Azure Data Box 进行脱机备份
 description: 了解如何使用 Azure Data Box 以脱机方式将较大初始备份数据从 MARS 代理植入到恢复服务保管库。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 09/22/2020
+ms.date: 01/07/2021
 ms.author: v-johya
-ms.openlocfilehash: 3d7aab6d2325a78bc8bb7bde8907345b56167f7a
-ms.sourcegitcommit: ac49de58da56f053c851dfea60644c8a30648fc0
+ms.openlocfilehash: 24a27a581235105dac1e8b26f55e59313be2cdbd
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91102057"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022255"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>使用 Azure Data Box 进行 Azure 备份脱机备份
 
@@ -146,12 +146,12 @@ ms.locfileid: "91102057"
 <!--Not available in MC: ### Set up Azure Data Box-->
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>将初始备份数据传输到 Azure Data Box 设备
 
-1. 在服务器上打开 **Azure 备份**应用程序。
+1. 在服务器上打开 **Azure 备份** 应用程序。
 1. 在“操作”窗格中，选择“计划备份”。 
 
     ![选择“计划备份”](./media/offline-backup-azure-data-box/schedule-backup.png)
 
-1. 按照**计划备份向导**中的步骤操作。
+1. 按照 **计划备份向导** 中的步骤操作。
 
 1. 通过选择“添加项”按钮来添加项。 请将项的总大小保持在你订购并接收的 [Azure Data Box SKU 支持的大小限制](#backup-data-size-and-supported-data-box-skus)内。
 
@@ -246,7 +246,7 @@ Azure 恢复服务 (MARS) 代理会在租户中为你创建一个 Azure Active D
 
 #### <a name="step-1-of-workaround"></a>解决方法的步骤 1
 
-使用在要创建导入或导出作业的订阅上具有管理员访问权限的另一个帐户，登录到 MAB UI 上显示的 PowerShell。
+使用在要创建 Data Box 作业的订阅上具有管理员访问权限的另一个帐户，登录到 MAB UI 上显示的 PowerShell。
 
 #### <a name="step-2-of-workaround"></a>解决方法的步骤 2
 

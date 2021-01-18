@@ -6,15 +6,15 @@ author: Johnnytechn
 manager: dcscontentpm
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 01/06/2021
 ms.author: v-johya
 origin.date: 09/10/2019
-ms.openlocfilehash: b069dccbba1b71bed719a686553a5fbf3ab6df44
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: f7fba5a5fb35ad84be4a8005852989df885fed4a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637809"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022741"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure 安全中心故障排除指南
 
@@ -30,7 +30,7 @@ ms.locfileid: "94637809"
 
 * 虚拟机行为分析 (VMBA)
 * 网络分析
-* SQL 数据库和 Azure Synapse Analytics（以前称为 SQL 数据仓库）分析
+* SQL 数据库和 Azure Synapse Analytics 分析
 * 上下文信息
 
 客户可以根据警报类型收集所需的信息，以便通过以下资源来调查警报：

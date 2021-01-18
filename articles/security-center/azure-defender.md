@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 892965f8f167cb28ba685b3583171bc9c1eb0228
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 653973d323599d26c17be4d96cb88129a0ab1a4b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638304"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022745"
 ---
 # <a name="introduction-to-azure-defender"></a>Azure Defender 简介
 
@@ -28,7 +28,7 @@ Azure 安全中心的功能涵盖了云安全性的两大重要领域：
 
 ## <a name="what-resource-types-can-azure-defender-secure"></a>Azure Defender 可以保护哪些资源类型？
 
-Azure Defender 为虚拟机、SQL 数据库等提供安全警报和高级威胁防护。
+Azure Defender 为虚拟机、SQL 数据库、容器等提供安全警报和高级威胁防护。
 
 从 Azure 安全中心的“定价和设置”区域启用 Azure Defender 时，将同时启用以下 Defender 计划，并为环境的计算、数据和服务层提供全面防护：
 
@@ -40,9 +40,9 @@ Azure Defender 为虚拟机、SQL 数据库等提供安全警报和高级威胁�
 
 
 
-## <a name="azure-defender-alerts"></a>Azure Defender 警报 
+## <a name="azure-defender-security-alerts"></a>Azure Defender 安全警报 
 
-当 Azure Defender 检测到环境中的任何区域遭到威胁时，会生成警报。 这些警报会描述受影响资源的详细信息、建议的修正步骤，在某些情况下还会提供触发逻辑应用作为响应的选项。
+当 Azure Defender 检测到环境中的任何区域遭到威胁时，会生成安全警报。 这些警报会描述受影响资源的详细信息、建议的修正步骤，在某些情况下还会提供触发逻辑应用作为响应的选项。
 
 无论警报是由安全中心生成，还是由安全中心从集成的安全产品接收，你都可以导出该警报。 若要将警报导出到任何第三方 SIEM 或任何其他外部工具，请按照[将警报流式传输到 SIEM、SOAR，或 IT 服务管理解决方案](export-to-siem.md)中的说明操作。
 

@@ -3,21 +3,21 @@ title: 适用于 Azure Functions 的 Azure Blob 存储触发器
 description: 了解如何在 Azure Blob 存储数据更改时运行 Azure 函数。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 11/30/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7aaca883f040e43608dd46281197585ad96690cb
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 35de784f217bd95ab3d8c65dec270eb4652ac27d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508042"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021476"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>适用于 Azure Functions 的 Azure Blob 存储触发器
 
 检测到新的或更新的 Blob 时，Blob 存储触发器会启动某个函数。 Blob 内容以[函数输入](./functions-bindings-storage-blob-input.md)的形式提供。
 
-Azure Blob 存储触发器需要使用常规用途存储帐户。 还支持具有分层命名空间的存储 V2 帐户。 若要使用仅限 Blob 的帐户，或者，如果应用程序有特殊需求，请查看使用此触发器的替代方法。
+Azure Blob 存储触发器需要使用常规用途存储帐户。 还支持具有[分层命名空间](../storage/blobs/data-lake-storage-namespace.md)的存储 V2 帐户。 若要使用仅限 Blob 的帐户，或者，如果应用程序有特殊需求，请查看使用此触发器的替代方法。
 
 若要了解设置和配置详细信息，请参阅[概述](./functions-bindings-storage-blob.md)。
 
@@ -246,7 +246,7 @@ JavaScript 不支持特性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**type** | 不适用 | 必须设置为 `blobTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
+|type | 不适用 | 必须设置为 `blobTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |**direction** | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 [用法](#usage)部分中已阐述异常。 |
 |**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。 |
 |**路径** | **BlobPath** |要监视的[容器](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)。  可以是某种 [Blob 名称模式](#blob-name-patterns)。 |
@@ -277,6 +277,9 @@ JavaScript 不支持特性。
 ## <a name="blob-name-patterns"></a>Blob 名称模式
 
 可以在 *function.json* 的 `path` 属性中或者在 `BlobTrigger` 特性构造函数中指定 Blob 名称模式。 名称模式可以是[筛选器或绑定表达式](./functions-bindings-expressions-patterns.md)。 以下部分提供了有关示例。
+
+> [!TIP]
+> 容器名称不能在名称模式中包含解析程序。
 
 ### <a name="get-file-name-and-extension"></a>获取文件名和扩展名
 

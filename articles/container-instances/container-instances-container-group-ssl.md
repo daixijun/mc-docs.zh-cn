@@ -4,14 +4,14 @@ description: 通过在挎斗中运行 Nginx 为 Azure 容器实例中运行的�
 ms.topic: article
 origin.date: 07/02/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: 0ac329564ce74e3bc4d02d6a25e021c65cf36c4a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 1269d5c75fe049eede176e5d41a20c2756df0dc3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105930"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022005"
 ---
 <!--Verified successfully-->
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>在挎斗容器中启用 TLS 终结点
@@ -29,9 +29,11 @@ ms.locfileid: "93105930"
 
 有关在容器组中启用 TLS 的其他方法，请参阅[后续步骤](#next-steps)。
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-可使用 Azure 本地安装的 Azure CLI 来完成本文。 如果想要在本地使用它，建议使用 2.0.55 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
+- 本文需要 2.0.55 或更高版本的 Azure CLI。 
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 <!--Not Available on Azure Cloud Shell or-->
 
@@ -245,6 +247,10 @@ app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-
 
 尽管本文在挎斗中使用 Nginx，但你可以使用另一个 TLS 提供程序，例如 [Caddy](https://caddyserver.com/)。
 
-<!--Not Available on [Azure virtual network](container-instances-vnet.md)-->
+如果在 [Azure 虚拟网络](container-instances-vnet.md)中部署容器组，则可考虑使用其他选项为后端容器实例启用 TLS 终结点，其中包括：
+
+* [Azure Functions 代理](../azure-functions/functions-proxies.md)
+* [Azure API 管理](../api-management/api-management-key-concepts.md)
+* [Azure 应用程序网关](../application-gateway/overview.md) - 请参阅[部署模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet)示例。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

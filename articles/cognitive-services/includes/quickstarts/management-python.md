@@ -6,18 +6,18 @@ author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/01/2020
+ms.date: 01/04/2021
 ms.author: v-johya
-ms.openlocfilehash: b350a255c891d9cc3caf0348f568856f15452306
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 2facc97f479cc241a90dd99da0287dd83a174810
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96477400"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024160"
 ---
 [参考文档](https://docs.microsoft.com/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python) | [库源代码](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [包 (PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [示例](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
 
-## <a name="prerequisites"></a>先决条件
+## <a name="python-prerequisites"></a>Python 先决条件
 
 * 有效的 Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Python 3.x](https://www.python.org/)
@@ -403,6 +403,125 @@ delete_resource("test_resource")
 
 ## <a name="create-a-cognitive-services-resource"></a>创建认知服务资源
 
+若要创建并订阅新的认知服务资源，请使用 Create 函数。 此函数向传入的资源组添加新的可计费资源。 创建新资源时，需要知道要使用的服务的种类，以及其定价层（或 SKU）和 Azure 位置。 下面的函数使用所有这些参数并创建资源。
+
+```python
+# <snippet_imports>
+from msrestazure.azure_active_directory import ServicePrincipalCredentials
+from azure.mgmt.cognitiveservices import CognitiveServicesManagementClient
+from azure.mgmt.cognitiveservices.models import CognitiveServicesAccount, Sku
+# </snippet_imports>
+
+# Azure Management
+#
+# This script requires the following modules:
+#   python -m pip install azure-mgmt-cognitiveservices
+#   python -m pip install msrestazure
+#
+# SDK: https://docs.microsoft.com/en-us/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python 
+#
+# This script runs under Python 3.4 or later.
+# The application ID and secret of the service principal you are using to connect to the Azure Management Service.
+
+# To create a service principal with the Azure CLI, see:
+# /cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest
+# To install the Azure CLI, see:
+# /cli/install-azure-cli?view=azure-cli-latest
+
+# To create a service principal with Azure PowerShell, see: 
+# https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-3.3.0
+# To install Azure PowerShell, see:
+# https://github.com/Azure/azure-powershell
+
+# When you create a service principal, you will see it has both an ID and an application ID.
+# For example, if you create a service principal with Azure PowerShell, it should look like the following:
+
+# Secret                : System.Security.SecureString
+# ServicePrincipalNames : {<application ID>, <application URL>}
+# ApplicationId         : <application ID>
+# ObjectType            : ServicePrincipal
+# DisplayName           : <name>
+# Id                    : <ID>
+# Type                  :
+
+# <snippet_constants>
+# Be sure to use the service pricipal application ID, not simply the ID. 
+service_principal_application_id = "MY-SERVICE-PRINCIPAL-APPLICATION-ID"
+service_principal_secret = "MY-SERVICE-PRINCIPAL-SECRET"
+
+# The ID of your Azure subscription. You can find this in the Azure Dashboard under Home > Subscriptions.
+subscription_id = "MY-SUBSCRIPTION-ID"
+
+# The Active Directory tenant ID. You can find this in the Azure Dashboard under Home > Azure Active Directory.
+tenant_id = "MY-TENANT-ID"
+
+# The name of the Azure resource group in which you want to create the resource.
+# You can find resource groups in the Azure Dashboard under Home > Resource groups.
+resource_group_name = "MY-RESOURCE-GROUP"
+# </snippet_constants>
+
+# <snippet_auth>
+credentials = ServicePrincipalCredentials(service_principal_application_id, service_principal_secret, tenant=tenant_id)
+client = CognitiveServicesManagementClient(credentials, subscription_id)
+# </snippet_auth>
+
+# <snippet_list_avail>
+def list_available_kinds_skus_locations():
+    print("Available SKUs:")
+    result = client.resource_skus.list()
+    print("Kind\tSKU Name\tSKU Tier\tLocations")
+    for x in result:
+        locations = ",".join(x.locations)
+        print(x.kind + "\t" + x.name + "\t" + x.tier + "\t" + locations)
+# </snippet_list_avail>
+
+# Note Azure resources are also sometimes referred to as accounts.
+
+# <snippet_list>
+def list_resources():
+    print("Resources in resource group: " + resource_group_name)
+    result = client.accounts.list_by_resource_group(resource_group_name)
+    for x in result:
+        print(x)
+        print()
+# </snippet_list>
+
+# <snippet_create>
+def create_resource (resource_name, kind, sku_name, location):
+    print("Creating resource: " + resource_name + "...")
+# The parameter "properties" must be an empty object.
+    parameters = CognitiveServicesAccount(sku=Sku(name=sku_name), kind=kind, location=location, properties={})
+    result = client.accounts.create(resource_group_name, resource_name, parameters)
+    print("Resource created.")
+    print()
+    print("ID: " + result.id)
+    print("Name: " + result.name)
+    print("Type: " + result.type)
+    print()
+# </snippet_create>
+
+# <snippet_delete>
+def delete_resource(resource_name) :
+    print("Deleting resource: " + resource_name + "...")
+    client.accounts.delete(resource_group_name, resource_name)
+    print("Resource deleted.")
+# </snippet_delete>
+
+# <snippet_calls>
+# Uncomment this to list all available resource kinds, SKUs, and locations for your Azure account.
+list_available_kinds_skus_locations()
+
+# Create a resource with kind Text Translation, SKU F0 (free tier), location global.
+create_resource("test_resource", "TextTranslation", "F0", "Global")
+
+# Uncomment this to list all resources for your Azure account.
+list_resources()
+
+# Delete the resource.
+delete_resource("test_resource")
+# </snippet_calls>
+```
+
 ### <a name="choose-a-service-and-pricing-tier"></a>选择服务和定价层
 
 创建新资源时，需要知道要使用的服务的种类，以及所需的[定价层](https://www.azure.cn/pricing/details/cognitive-services/)（或 SKU）。 创建资源时，将此信息和其他信息用作参数。 以下函数列出了可用的认知服务种类。
@@ -527,127 +646,6 @@ delete_resource("test_resource")
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
-
-## <a name="create-a-cognitive-services-resource"></a>创建认知服务资源
-
-若要创建并订阅新的认知服务资源，请使用 Create 函数。 此函数向传入的资源组添加新的可计费资源。 创建新资源时，需要知道要使用的服务的种类，以及其定价层（或 SKU）和 Azure 位置。 下面的函数使用所有这些参数并创建资源。
-
-```python
-# <snippet_imports>
-from msrestazure.azure_active_directory import ServicePrincipalCredentials
-from azure.mgmt.cognitiveservices import CognitiveServicesManagementClient
-from azure.mgmt.cognitiveservices.models import CognitiveServicesAccount, Sku
-# </snippet_imports>
-
-# Azure Management
-#
-# This script requires the following modules:
-#   python -m pip install azure-mgmt-cognitiveservices
-#   python -m pip install msrestazure
-#
-# SDK: https://docs.microsoft.com/en-us/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python 
-#
-# This script runs under Python 3.4 or later.
-# The application ID and secret of the service principal you are using to connect to the Azure Management Service.
-
-# To create a service principal with the Azure CLI, see:
-# /cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest
-# To install the Azure CLI, see:
-# /cli/install-azure-cli?view=azure-cli-latest
-
-# To create a service principal with Azure PowerShell, see: 
-# https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-3.3.0
-# To install Azure PowerShell, see:
-# https://github.com/Azure/azure-powershell
-
-# When you create a service principal, you will see it has both an ID and an application ID.
-# For example, if you create a service principal with Azure PowerShell, it should look like the following:
-
-# Secret                : System.Security.SecureString
-# ServicePrincipalNames : {<application ID>, <application URL>}
-# ApplicationId         : <application ID>
-# ObjectType            : ServicePrincipal
-# DisplayName           : <name>
-# Id                    : <ID>
-# Type                  :
-
-# <snippet_constants>
-# Be sure to use the service pricipal application ID, not simply the ID. 
-service_principal_application_id = "MY-SERVICE-PRINCIPAL-APPLICATION-ID"
-service_principal_secret = "MY-SERVICE-PRINCIPAL-SECRET"
-
-# The ID of your Azure subscription. You can find this in the Azure Dashboard under Home > Subscriptions.
-subscription_id = "MY-SUBSCRIPTION-ID"
-
-# The Active Directory tenant ID. You can find this in the Azure Dashboard under Home > Azure Active Directory.
-tenant_id = "MY-TENANT-ID"
-
-# The name of the Azure resource group in which you want to create the resource.
-# You can find resource groups in the Azure Dashboard under Home > Resource groups.
-resource_group_name = "MY-RESOURCE-GROUP"
-# </snippet_constants>
-
-# <snippet_auth>
-credentials = ServicePrincipalCredentials(service_principal_application_id, service_principal_secret, tenant=tenant_id)
-client = CognitiveServicesManagementClient(credentials, subscription_id)
-# </snippet_auth>
-
-# <snippet_list_avail>
-def list_available_kinds_skus_locations():
-    print("Available SKUs:")
-    result = client.resource_skus.list()
-    print("Kind\tSKU Name\tSKU Tier\tLocations")
-    for x in result:
-        locations = ",".join(x.locations)
-        print(x.kind + "\t" + x.name + "\t" + x.tier + "\t" + locations)
-# </snippet_list_avail>
-
-# Note Azure resources are also sometimes referred to as accounts.
-
-# <snippet_list>
-def list_resources():
-    print("Resources in resource group: " + resource_group_name)
-    result = client.accounts.list_by_resource_group(resource_group_name)
-    for x in result:
-        print(x)
-        print()
-# </snippet_list>
-
-# <snippet_create>
-def create_resource (resource_name, kind, sku_name, location):
-    print("Creating resource: " + resource_name + "...")
-# The parameter "properties" must be an empty object.
-    parameters = CognitiveServicesAccount(sku=Sku(name=sku_name), kind=kind, location=location, properties={})
-    result = client.accounts.create(resource_group_name, resource_name, parameters)
-    print("Resource created.")
-    print()
-    print("ID: " + result.id)
-    print("Name: " + result.name)
-    print("Type: " + result.type)
-    print()
-# </snippet_create>
-
-# <snippet_delete>
-def delete_resource(resource_name) :
-    print("Deleting resource: " + resource_name + "...")
-    client.accounts.delete(resource_group_name, resource_name)
-    print("Resource deleted.")
-# </snippet_delete>
-
-# <snippet_calls>
-# Uncomment this to list all available resource kinds, SKUs, and locations for your Azure account.
-list_available_kinds_skus_locations()
-
-# Create a resource with kind Text Translation, SKU F0 (free tier), location global.
-create_resource("test_resource", "TextTranslation", "F0", "Global")
-
-# Uncomment this to list all resources for your Azure account.
-list_resources()
-
-# Delete the resource.
-delete_resource("test_resource")
-# </snippet_calls>
-```
 
 ## <a name="view-your-resources"></a>查看资源
 
@@ -1023,7 +1021,7 @@ python <your-script-name>.py
 ## <a name="see-also"></a>另请参阅
 
 * [Azure 管理 SDK 参考文档](https://docs.microsoft.com/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python)
-* [什么是 Azure 认知服务？](../../Welcome.md)
+* [什么是 Azure 认知服务？](../../what-are-cognitive-services.md)
 * [对 Azure 认知服务的请求进行身份验证](../../authentication.md)
 * [使用 Azure 门户创建新资源](../../cognitive-services-apis-create-account.md)
 

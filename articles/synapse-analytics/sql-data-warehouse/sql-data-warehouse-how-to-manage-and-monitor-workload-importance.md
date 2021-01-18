@@ -1,27 +1,27 @@
 ---
-title: 管理和监视工作负荷重要性
-description: 了解如何在 Azure Synapse Analytics 中管理和监视请求级别重要性。
+title: 在专用 SQL 池中管理和监视工作负荷重要性
+description: 了解如何管理和监视 Azure Synapse Analytics 专用 SQL 池的请求级别重要性。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.topic: conceptual
 origin.date: 02/04/2020
-ms.date: 05/11/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: e79941a2356ba6b3e5a1cc4c7477c535ad1ed5b8
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 73321592c1ca01786c12628961155c5132a0a78b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198635"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021923"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中管理和监视工作负荷重要性
+# <a name="manage-and-monitor-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>在 Azure Synapse Analytics 的专用 SQL 池中管理和监视工作负荷重要性
 
-在 Azure Synapse 中使用 DMV 和目录视图管理和监视 Synapse SQL 请求级别重要性。
+在 Azure Synapse 中使用 DMV 和目录视图管理和监视专用 SQL 池请求级别重要性。
 
 ## <a name="monitor-importance"></a>监视重要性
 

@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 10/8/2019
-ms.date: 11/16/2020
-ms.openlocfilehash: d35a4875d66928c448c57f6d48b21b7b75d71633
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.date: 01/07/2021
+ms.openlocfilehash: 5fb63e0805a7a6547305b787b0a4716d8da4cea0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977215"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023150"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用参考数据在流分析中查找
 
@@ -112,13 +112,13 @@ Azure SQL 数据库参考数据由流分析作业进行检索并作为快照存�
 
 ## <a name="size-limitation"></a>大小限制
 
-建议使用小于 300 MB 的参考数据集，以获得最佳性能。 具有 6 个或更多 SU 的作业支持使用大于 300 MB 的参考数据。 此功能为预览版，不得在生产环境中使用。 使用非常大的参考数据可能会影响作业的性能。 随着查询复杂性增加以包括有状态处理（如开窗聚合、临时联接接和临时分析函数），支持的参考数据最大大小将会减小。 如果 Azure 流分析无法加载参考数据并执行复杂操作，则作业将耗尽内存并失败。 在这种情况下，SU % 利用率指标将达到 100%。    
+建议使用小于 300 MB 的参考数据集，以获得最佳性能。 具有 6 个 SU 或更多 SU 的作业支持 5 GB 或更小的参考数据集。 使用非常大的参考数据可能会影响作业的端到端延迟。 随着查询复杂性增加以包括有状态处理（如开窗聚合、临时联接接和临时分析函数），支持的参考数据最大大小将会减小。 如果 Azure 流分析无法加载参考数据并执行复杂操作，则作业将耗尽内存并失败。 在这种情况下，SU % 利用率指标将达到 100%。    
 
 |**流单元数**  |**建议的大小**  |
 |---------|---------|
 |1   |50 MB 或更小   |
 |3   |150 MB 或更小   |
-|至少 6   |300 MB 或更小。 预览版支持使用大于 300 MB 的参考数据，但这可能会影响作业的性能。    |
+|至少 6   |5 GB 或更小。    |
 
 对压缩的支持不可用于参考数据。
 
@@ -138,6 +138,18 @@ INTO    output
 FROM    Step1
 JOIN    refData2 ON refData2.Desc = Step1.Desc 
 ``` 
+
+## <a name="iot-edge-jobs"></a>IoT Edge 作业
+
+流分析边缘作业仅支持本地参考数据。 将作业部署到 IoT Edge 设备时，它将从用户定义的文件路径中加载参考数据。 在设备上将参考数据文件准备就绪。 对于 Windows 容器，请将参考数据文件放置在本地驱动器上并通过 Docker 容器共享本地驱动器。 对于 Linux 容器，请创建一个 Docker 卷并将该数据文件填充到该卷。
+
+IoT Edge 上的参考数据更新将由部署触发。 在触发后，流分析模块会选取更新的数据且不停止正在运行的作业。
+
+有两种方式可用来更新参考数据：
+
+* 从 Azure 门户中更新流分析作业中的参考数据路径。
+
+* 更新 IoT Edge 部署。
 
 ## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"]

@@ -1,24 +1,25 @@
 ---
-title: 在 Synapse SQL 池中使用事务
+title: 在 Azure Synapse Analytics SQL 池中使用事务
 description: 本文包含有关在 Synapse SQL 池中实现事务和开发解决方案的技巧。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 03/22/2019
-ms.date: 05/11/2020
+ms.date: 01/11/2021
 ms.author: v-jay
+ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: abf69a8766d3df767557b6ae71c79a366a87e100
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 6b069026c7c2dfcb71a2b3309eaa36fc84ddd46e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198417"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023051"
 ---
-# <a name="use-transactions-in-synapse-sql-pool"></a>在 Synapse SQL 池中使用事务
+# <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>在 Azure Synapse 的 SQL 池中使用事务 
 
 本文包含有关在 SQL 池中实现事务和开发解决方案的技巧。
 
@@ -28,7 +29,7 @@ ms.locfileid: "82198417"
 
 ## <a name="transaction-isolation-levels"></a>事务隔离级别
 
-SQL 池实现了 ACID 事务。 事务支持的隔离级别默认为 READ UNCOMMITTED。  在连接到 master 数据库时，可以通过打开用户数据库的 READ_COMMITTED_SNAPSHOT 数据库选项，将其更改为 READ COMMITTED SNAPSHOT ISOLATION。  
+SQL 池实现了 ACID 事务。 事务支持的隔离级别默认为 READ UNCOMMITTED。  在连接到 master 数据库时，可以通过打开用户 SQL 池的 READ_COMMITTED_SNAPSHOT 数据库选项，将其更改为 READ COMMITTED SNAPSHOT ISOLATION。  
 
 启用后，此数据库中的所有事务都将在 READ COMMITTED SNAPSHOT ISOLATION 下执行，并且将不接受在会话级别设置 READ UNCOMMITTED。 有关详细信息，请查看 [ALTER DATABASE SET 选项 (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)。
 

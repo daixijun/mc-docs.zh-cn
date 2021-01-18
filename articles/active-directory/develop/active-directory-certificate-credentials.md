@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 02db7becd84f5e751dea966c1a156f707f706091
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.openlocfilehash: b2108739a55d06cb88beeaeccf72343f25b0069d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92749990"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022053"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Microsoft 标识平台应用程序身份验证证书凭据
 
@@ -36,17 +36,17 @@ Microsoft 标识平台允许应用程序在任何可以使用客户端机密的�
 | --- | --- |
 | `alg` | 应为 **RS256** |
 | `typ` | 应为 **JWT** |
-| `x5t` | 编码为 Base64 字符串值的 x.509 证书哈希（也称为证书的 SHA-1 指纹）的十六进制表示形式。 例如，如果 x.509 证书哈希为 `84E05C1D98BCE3A5421D225B140B36E86A3D5534`（十六进制），`x5t` 声明就会是 `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64)。 |
+| `x5t` | 编码为 Base64url 字符串值的 x.509 证书哈希（也称为证书的 SHA-1 指纹）的十六进制表示形式。 例如，如果 x.509 证书哈希为 `84E05C1D98BCE3A5421D225B140B36E86A3D5534`（十六进制），`x5t` 声明就会是 `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64url)。 |
 
 ### <a name="claims-payload"></a>声明（有效负载）
 
-声明类型 | “值” | 说明
+声明类型 | 值 | 说明
 ---------- | ---------- | ----------
-aud | `https://login.partner.microsoftonline.cn/{tenantId}/v2.0` | “aud”（受众）声明标识 JWT 预期的接收者（在这里为 Azure AD）。请参阅 [RFC 7519 第 4.1.3 节](https://tools.ietf.org/html/rfc7519#section-4.1.3)。  在本例中，该收件人为登录服务器 (login.partner.microsoftonline.cn)。
-exp | 1601519414 | “exp”（过期时间）声明指定只能在哪个时间（含）之前接受 JWT 的处理。 请参阅 [RFC 7519 第 4.1.4 节](https://tools.ietf.org/html/rfc7519#section-4.1.4)。  这样就可以在这之前一直使用断言，所以时间要短 - 最多在 `nbf` 之后 5 - 10 分钟。  Azure AD 当前未对 `exp` 时间设置限制。 
+aud | `https://login.partner.microsoftonline.cn/{tenantId}/v2.0` | “aud”（受众）声明标识 JWT 预期的收件人（在这里为 Azure AD）。请参阅 [RFC 7519 的 4.1.3 节](https://tools.ietf.org/html/rfc7519#section-4.1.3)。  在本例中，该收件人为登录服务器 (login.partner.microsoftonline.cn)。
+exp | 1601519414 | “exp”（过期时间）声明指定只能在哪个时间（含）之前接受 JWT 的处理。 请参阅 [RFC 7519 的 4.1.4 节](https://tools.ietf.org/html/rfc7519#section-4.1.4)。  这样就可以在这之前一直使用断言，所以时间要短 - 最多在 `nbf` 之后 5 - 10 分钟。  Azure AD 当前未对 `exp` 时间设置限制。 
 iss | {ClientID} | “iss”（颁发者）声明标识颁发了 JWT 的主体，在本例中是你的客户端应用程序。  使用 GUID 应用程序 ID。
-jti | （一个 GUID） | “jti”(JWT ID) 声明为 JWT 提供唯一标识符。 分配标识符值时，所用方式必须确保几乎不可能将同一值意外分配给不同的数据对象；如果应用程序使用多个颁发者，还必须防止在不同的颁发者生成的值之间发生冲突。 “jti”值是一个区分大小写的字符串。 [RFC 7519 第 4.1.7 节](https://tools.ietf.org/html/rfc7519#section-4.1.7)
-nbf | 1601519114 | “nbf”（不早于）声明指定只能在哪个时间之后接受 JWT 的处理。 [RFC 7519 第 4.1.5 节](https://tools.ietf.org/html/rfc7519#section-4.1.5)。  使用当前时间是合适的。 
+jti | （一个 GUID） | “jti”(JWT ID) 声明为 JWT 提供唯一标识符。 分配标识符值时，所用方式必须确保几乎不可能将同一值意外分配给不同的数据对象；如果应用程序使用多个颁发者，还必须防止在不同的颁发者生成的值之间发生冲突。 “jti”值是一个区分大小写的字符串。 [RFC 7519 的 4.1.7 节](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+nbf | 1601519114 | “nbf”（不早于）声明指定只能在哪个时间之后接受 JWT 的处理。 [RFC 7519 的 4.1.5 节](https://tools.ietf.org/html/rfc7519#section-4.1.5)。  使用当前时间是合适的。 
 sub | {ClientID} | “sub”（使用者）声明标识 JWT 的使用者，在本例中也是你的应用程序。 使用与 `iss` 相同的值。 
 
 ### <a name="signature"></a>签名
@@ -131,7 +131,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 客户端断言可以在任何使用客户端机密的地方使用。  例如，在[授权代码流](v2-oauth2-auth-code-flow.md)中，你可以传入一个 `client_secret` 来证明请求来自你的应用。 可以用 `client_assertion` 和 `client_assertion_type` 参数替换它。 
 
-| 参数 | “值” | 说明|
+| 参数 | Value | 说明|
 |-----------|-------|------------|
 |`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| 这是一个固定值，表示你正在使用证书凭据。 |
 |`client_assertion`| JWT |这是上面创建的 JWT。 |

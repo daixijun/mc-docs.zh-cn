@@ -4,17 +4,17 @@ description: 了解如何以操作员身份使用 Azure Stack Hub 中的特权�
 author: WenJason
 ms.topic: article
 origin.date: 04/28/2020
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: ed7689cad7732fb9437e9248c36d48ee0f8ad3ac
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: c1f69a6ba86037d09334a66716b2b0e3bd5ab9c0
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508065"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894431"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>使用 Azure Stack Hub 中的特权终结点
 
@@ -48,51 +48,50 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 1. 建立信任。
 
-      - 在集成系统中，从权限提升的 Windows PowerShell 会话运行以下命令，将 PEP 添加为硬件生命周期主机或特权访问工作站上运行的强化 VM 的受信任主机。
+   - 在集成系统中，从权限提升的 Windows PowerShell 会话运行以下命令，将 PEP 添加为硬件生命周期主机或特权访问工作站上运行的强化 VM 的受信任主机。
 
       ```powershell  
-    Set-Item WSMan:\localhost\Client\TrustedHosts -Value '<IP Address of Privileged Endpoint>' -Concatenate
+      Set-Item WSMan:\localhost\Client\TrustedHosts -Value '<IP Address of Privileged Endpoint>' -Concatenate
       ```
+      
+   - 如果运行的是 ASDK，请登录到开发工具包主机。
 
-      - 如果运行的是 ASDK，请登录到开发工具包主机。
-
-2. 在运行在硬件生命周期主机或特权访问工作站上的强化 VM 中，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的 VM 上建立远程会话：
+1. 在运行在硬件生命周期主机或特权访问工作站上的强化 VM 中，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的 VM 上建立远程会话：
  
-  - 在集成系统上：
+   - 在集成系统上：
 
-    ```powershell  
-    $cred = Get-Credential
+      ```powershell  
+      $cred = Get-Credential
 
-    $pep = New-PSSession -ComputerName <IP_address_of_ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
-    Enter-PSSession $pep
-    ```
+      $pep = New-PSSession -ComputerName <IP_address_of_ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
+      Enter-PSSession $pep
+      ```
     
-    `ComputerName` 参数可以是托管 PEP 的某个 VM 的 IP 地址或 DNS 名称。
+      `ComputerName` 参数可以是托管 PEP 的某个 VM 的 IP 地址或 DNS 名称。
 
-    > [!NOTE]  
-    >验证 PEP 凭据时，Azure Stack Hub 不会进行远程调用。 它依赖于本地存储的 RSA 公钥来实现此目的。
+      > [!NOTE]  
+      > 验证 PEP 凭据时，Azure Stack Hub 不会进行远程调用。 它依赖于本地存储的 RSA 公钥来实现此目的。
 
    - 如果运行的是 ASDK：
 
-     ```powershell  
+      ```powershell  
       $cred = Get-Credential
     
       $pep = New-PSSession -ComputerName azs-ercs01 -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
       Enter-PSSession $pep
-     ```
+      ```
     
-   - 出现提示时，请使用以下凭据：
+   出现提示时，请使用以下凭据：
    
-       - **用户名**：指定 CloudAdmin 帐户，格式为 **&lt;*Azure Stack Hub 域*&gt;\cloudadmin**。 （对于 ASDK，用户名为 **azurestack\cloudadmin**。）
-  
-        - **密码**：输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
+   -  **用户名**：指定 CloudAdmin 帐户，格式为 **&lt;*Azure Stack Hub 域*&gt;\cloudadmin**。 （对于 ASDK，用户名为“azurestack\cloudadmin”）
+   - **密码**：输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
 
-      > [!NOTE]
-      > 如果无法连接到 ERCS 终结点，请使用另一个 ERCS VM IP 地址重试步骤一和步骤二。
+   > [!NOTE]
+   > 如果无法连接到 ERCS 终结点，请使用另一个 ERCS VM IP 地址重试步骤一和步骤二。
 
-3. 在连接后，提示符将更改为 **[*IP 地址或 ERCS VM 名称*]:PS>** 或 **[azs-ercs01]:PS>** ，具体取决于环境。 在此处运行 `Get-Command` 可查看可用的 cmdlet 列表。
+1. 在连接后，提示符将更改为 **[*IP 地址或 ERCS VM 名称*]:PS>** 或 **[azs-ercs01]:PS>** ，具体取决于环境。 在此处运行 `Get-Command` 可查看可用的 cmdlet 列表。
 
-    可以在 [Azure Stack Hub 特权终结点参考](../reference/pep-2002/index.md)中找到 cmdlet 的参考
+   可以在 [Azure Stack Hub 特权终结点参考](../reference/pep-2002/index.md)中找到 cmdlet 的参考
 
    其中的许多 cmdlet 仅供集成系统环境使用（例如与数据中心集成相关的 cmdlet）。 在 ASDK 中，以下 cmdlet 已经过验证：
 
@@ -131,61 +130,63 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 1. 建立信任。
 
-    - 在集成系统中，从权限提升的 Windows PowerShell 会话运行以下命令，将 PEP 添加为硬件生命周期主机或特权访问工作站上运行的强化 VM 的受信任主机。
+   - 在集成系统中，从权限提升的 Windows PowerShell 会话运行以下命令，将 PEP 添加为硬件生命周期主机或特权访问工作站上运行的强化 VM 的受信任主机。
 
-    ```powershell
-    winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-    ```
+      ```powershell
+      winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+      ```
 
-    - 如果运行的是 ASDK，请登录到开发工具包主机。
+   - 如果运行的是 ASDK，请登录到开发工具包主机。
 
-2. 在运行在硬件生命周期主机或特权访问工作站上的强化 VM 中，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的虚拟机上建立远程会话：
+1. 在运行在硬件生命周期主机或特权访问工作站上的强化 VM 中，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的虚拟机上建立远程会话：
 
-    - 在集成系统上：
+   - 在集成系统上：
     
       ```powershell  
-        $cred = Get-Credential
+      $cred = Get-Credential
       
-        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
+      $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
+        -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```
     
       `ComputerName` 参数可以是托管 PEP 的某个 VM 的 IP 地址或 DNS 名称。
 
-    - 如果运行的是 ASDK：
+   - 如果运行的是 ASDK：
      
-        ```powershell  
-          $cred = Get-Credential
+      ```powershell  
+      $cred = Get-Credential
     
-          $session = New-PSSession -ComputerName azs-ercs01 `
-             -ConfigurationName PrivilegedEndpoint -Credential $cred
-        ```
+      $session = New-PSSession -ComputerName azs-ercs01 `
+        -ConfigurationName PrivilegedEndpoint -Credential $cred
+      ```
 
-     出现提示时，请使用以下凭据：
+   出现提示时，请使用以下凭据：
 
-     - **用户名**：指定 CloudAdmin 帐户，格式为 **&lt;*Azure Stack Hub 域*&gt;\cloudadmin**。 （对于 ASDK，用户名为 **azurestack\cloudadmin**。）
-     - **密码**：输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
+   - **用户名**：指定 CloudAdmin 帐户，格式为 **&lt;*Azure Stack Hub 域*&gt;\cloudadmin**。 （对于 ASDK，用户名为 **azurestack\cloudadmin**。）
+      
+   - **密码**：输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
 
-3. 将 PEP 会话导入本地计算机：
+1. 将 PEP 会话导入本地计算机：
 
-    ```powershell 
-      Import-PSSession $session
-    ```
+   ```powershell 
+   Import-PSSession $session
+   ```
 
-4. 现在，可以在本地 PowerShell 会话中，配合 PEP 的所有函数和 cmdlet 如常使用 Tab 键补全和执行脚本操作，而无需降低 Azure Stack Hub 的安全级别。 请尽情享受其中的乐趣！
+1. 现在，可以在本地 PowerShell 会话中，配合 PEP 的所有函数和 cmdlet 如常使用 Tab 键补全和执行脚本操作，而无需降低 Azure Stack Hub 的安全级别。 请尽情享受其中的乐趣！
+
 
 ## <a name="close-the-privileged-endpoint-session"></a>关闭特权终结点会话
 
- 如前所述，PEP 会记录你在 PowerShell 会话中执行的每项操作（及其相应的输出）。 必须使用 `Close-PrivilegedEndpoint` cmdlet 关闭会话。 此 cmdlet 会正常关闭终结点，并将日志文件传送到外部文件共享进行保留。
+如前所述，PEP 会记录你在 PowerShell 会话中执行的每项操作（及其相应的输出）。 必须使用 `Close-PrivilegedEndpoint` cmdlet 关闭会话。 此 cmdlet 会正常关闭终结点，并将日志文件传送到外部文件共享进行保留。
 
 关闭终结点会话：
 
 1. 创建可供 PEP 访问的外部文件共享。 在开发工具包环境中，只能在开发工具包主机上创建文件共享。
-2. 运行以下 cmdlet：
+1. 运行以下 cmdlet：
 
-  ```powershell  
-     Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
-  ```
+   ```powershell  
+   Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+   ```
 
    该 cmdlet 使用下表中的参数：
 
@@ -202,50 +203,51 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 ## <a name="unlocking-the-privileged-endpoint-for-support-scenarios"></a>为支持场景解锁特权终结点
 
- 在支持场景中，Azure 支持工程师可能需要提升特权终结点 PowerShell 会话以访问 Azure Stack Hub 基础结构的内部运作。 此过程有时非正式地称为“破窗”或“解锁 PEP”。 PEP 会话提升过程是一个两步、两人、两个组织的身份验证过程。 解锁过程由 Azure Stack Hub 操作员启动，该操作员始终保持对其环境的控制。 操作员访问 PEP 并执行以下 cmdlet：
+在支持场景中，Azure 支持工程师可能需要提升特权终结点 PowerShell 会话以访问 Azure Stack Hub 基础结构的内部运作。 此过程有时非正式地称为“破窗”或“解锁 PEP”。 PEP 会话提升过程是一个两步、两人、两个组织的身份验证过程。 解锁过程由 Azure Stack Hub 操作员启动，该操作员始终保持对其环境的控制。 操作员访问 PEP 并执行以下 cmdlet：
  
  ```powershell  
       Get-SupportSessionToken
-  ```
- cmdlet 返回支持会话请求令牌，这是一个非常长的字母数字字符串。 然后，操作员通过所选媒介（例如聊天、电子邮件）将请求令牌传递给 Azure 支持工程师。 Azure 支持工程师使用请求令牌生成支持会话授权令牌（如果有效），并将其发送回 Azure Stack Hub 操作员。 在同一 PEP PowerShell 会话上，操作员会将授权令牌作为输入传递给此 cmdlet：
+ ```
 
- ```powershell  
+cmdlet 返回支持会话请求令牌，这是一个非常长的字母数字字符串。 然后，操作员通过所选媒介（例如聊天、电子邮件）将请求令牌传递给 Azure 支持工程师。 Azure 支持工程师使用请求令牌（如果有效）生成一个支持会话授权令牌，并将其发送回 Azure Stack Hub 操作员。 在同一 PEP PowerShell 会话上，操作员会将授权令牌作为输入传递给此 cmdlet：
+
+```powershell  
       unlock-supportsession
       cmdlet Unlock-SupportSession at command pipeline position 1
       Supply values for the following parameters:
       ResponseToken:
-  ```
+ ```
 
 如果授权令牌有效，则通过提供完整的管理功能和对基础结构的完全可访问性来提升 PEP PowerShell 会话。 
 
 > [!NOTE]
 > 在提升的 PEP 会话中执行的所有操作和 cmdlet 必须在 Azure 支持工程师的严格监督下执行。 否则，可能会导致情况严重的故障时间、数据丢失，并可能需要完全重新部署 Azure Stack Hub 环境。
 
- 一旦支持会话终止，请务必按照前一部分所述使用 Close-PrivilegedEndpoint cmdlet 重新关闭提升的 PEP 会话。 一旦 PEP 会话终止，解锁令牌将不再有效，并且无法再次用于解锁 PEP 会话。
+一旦支持会话终止，请务必按照前一部分所述使用 Close-PrivilegedEndpoint cmdlet 重新关闭提升的 PEP 会话。 一旦 PEP 会话终止，解锁令牌将不再有效，并且无法再次用于解锁 PEP 会话。
 提升的 PEP 会话的有效期为 8 小时，此后，如果未终止，则提升的 PEP 会话将自动锁定为常规 PEP 会话。
 
 ## <a name="content-of-the-privileged-endpoint-tokens"></a>特权终结点令牌的内容
 
- “PEP 支持会话请求”令牌和“授权”令牌利用加密来保护访问，并确保只有授权的令牌才能解锁 PEP 会话。 令牌的设计目的是为了通过加密方式来保证响应令牌只能由生成请求令牌的 PEP 会话接受。 PEP 令牌不包含任何可以唯一标识 Azure Stack Hub 环境或客户的信息。 它们完全是匿名的。 下面提供了每个令牌内容的详细信息。
+“PEP 支持会话请求”令牌和“授权”令牌利用加密来保护访问，并确保只有授权的令牌才能解锁 PEP 会话。 令牌的设计目的是为了通过加密方式来保证响应令牌只能由生成请求令牌的 PEP 会话接受。 PEP 令牌不包含任何可以唯一标识 Azure Stack Hub 环境或客户的信息。 它们完全是匿名的。 下面提供了每个令牌内容的详细信息。
  
 ### <a name="support-session-request-token"></a>支持会话请求令牌
 
- PEP 支持会话请求令牌由三个对象组成：
+PEP 支持会话请求令牌由三个对象组成：
 
-      - A randomly generated Session ID.
-      - A self-signed certificate, generated for the purpose of having a one-time public/private key pair. The certificate does not contain any information on the environment. 
-      - A time stamp that indicates the request token expiration.
-      
-  然后使用 Azure Stack Hub 环境注册的 Azure 云的公钥对请求令牌进行加密。
+- 随机生成的会话 ID。
+- 自签名证书，生成此证书的目的是让用户拥有一次性公钥/私钥对。 此证书不包含有关环境的任何信息。
+- 指示请求令牌到期时间的时间戳。
+
+然后使用 Azure Stack Hub 环境注册的 Azure 云的公钥对请求令牌进行加密。
  
- ### <a name="support-session-authorization-response-token"></a>支持会话授权响应令牌
+### <a name="support-session-authorization-response-token"></a>支持会话授权响应令牌
 
 PEP 支持授权响应令牌由两个对象组成：
 
-      - The randomly generated session ID extracted from the request token.
-      - A time stamp that indicates the response token expiration.
+- 从请求令牌中提取的随机生成的会话 ID。
+- 指示响应令牌到期时间的时间戳。
       
- 然后使用请求令牌中包含的自签名证书对响应令牌进行加密。 使用与 Azure Stack Hub 环境注册的 Azure 云相关联的私钥来解密自签名证书。
+然后使用请求令牌中包含的自签名证书对响应令牌进行加密。 使用与 Azure Stack Hub 环境注册的 Azure 云相关联的私钥来解密自签名证书。
 
 
 ## <a name="next-steps"></a>后续步骤

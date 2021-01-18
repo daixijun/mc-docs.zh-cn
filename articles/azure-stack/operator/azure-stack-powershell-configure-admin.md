@@ -4,16 +4,16 @@ description: 了解如何使用 PowerShell 连接到 Azure Stack Hub。
 author: WenJason
 ms.topic: article
 origin.date: 11/19/2020
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 11/19/2020
-ms.openlocfilehash: 2da228472a0d1bf07a4e139d513aa0a2d8cd8cab
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: e15b01b8a055498e95b2729d9ca8631aae40c393
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507720"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894435"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>使用 PowerShell 连接到 Azure Stack Hub
 
@@ -124,6 +124,7 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>后续步骤
 
+- [使用 PowerShell 管理 Azure Stack Hub 中的订阅、计划和套餐](azure-stack-powershell-plan-offer.md)
 - [为 Azure Stack Hub 开发模板](../user/azure-stack-develop-templates.md)。
 - [使用 PowerShell 部署模板](../user/azure-stack-deploy-template-powershell.md)。
   - [Azure Stack Hub 模块参考](https://docs.microsoft.com/powershell/azure/azure-stack/overview)。

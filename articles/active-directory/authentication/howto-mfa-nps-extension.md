@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 01/07/2021
 ms.author: v-junlch
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0f349e8d7255db6b5185c76cf11afa4c6039c487
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: a270d20e0410751e59d6fa6b342dd3cebf07a6ce
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004267"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022076"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>将现有网络策略服务器 (NPS) 基础结构与 Azure AD 多重身份验证集成
 
@@ -224,6 +224,10 @@ NPS 服务器会连接到 Azure AD，并对 MFA 请求进行身份验证。 为�
    ```
 
 1. 运行安装程序创建的 PowerShell 脚本。
+
+   你可能需要首先启用 TLS 1.2，以便 PowerShell 能够正确连接和下载包：
+   
+   `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
 
    > [!IMPORTANT]
    > 对于使用 Azure 中国世纪互联云的客户，请先编辑 AzureMfaNpsExtnConfigSetup.ps1 脚本中的 `Connect-MsolService` cmdlet，使其包含所需云的 AzureEnvironment 参数。 例如，指定 -AzureEnvironment AzureChinaCloud。

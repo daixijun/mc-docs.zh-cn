@@ -6,22 +6,21 @@ manager: dcscontentpm
 tags: top-support-issue
 ms.topic: article
 origin.date: 03/01/2019
-ms.date: 10/19/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 3b142f41b5a3493d44d4326be7c3e069667732c5
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 4107baab6e38d9259c1535a8b4a753bb2137aef9
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170598"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022675"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>排查 Azure 应用服务中的域和 TLS/SSL 证书问题
 
 本文列出了为 Azure 应用服务中的 Web 应用配置域或 TLS/SSL 证书时可能遇到的常见问题。 此外，还描述了这些问题的可能原因和解决方案。
 
 对于本文中的任何内容，如果需要更多帮助，可以联系 [MSDN 和 Stack Overflow 论坛](https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/contact/)并选择“获取支持”。
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -123,7 +122,7 @@ Internet 浏览器可能仍在缓存域的旧 IP 地址。
 
 **原因 2 的解决方法**
 
-清除浏览器缓存。 对于 Windows 设备，可以运行命令 `ipconfig /flushdns`。 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 验证域是否指向应用的 IP 地址。 
+清除浏览器缓存。 对于 Windows 设备，可以运行命令 `ipconfig /flushdns`。 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 验证域是否指向应用的 IP 地址。
 
 ### <a name="you-cant-add-a-subdomain"></a>无法添加子域 
 
@@ -204,17 +203,17 @@ Internet 浏览器可能仍在缓存域的旧 IP 地址。
 
 #### <a name="solution"></a>解决方案
 通过添加 TXT 记录来手动验证域：
- 
-1.  转到托管域名的域名服务 (DNS) 提供商站点。
-2.  添加域的 TXT 记录，该记录使用 Azure 门户中显示的域令牌的值。 
+
+1. 转到托管域名的域名服务 (DNS) 提供商站点。
+1. 添加域的 TXT 记录，该记录使用 Azure 门户中显示的域令牌的值。 
 
 等待几分钟以运行 DNS 传播，然后选择“刷新”按钮以触发验证。 
 
 另一种做法是使用 HTML 网页方法来手动验证域。 此方法可让证书颁发机构确认为其颁发证书的域的域所有权。
 
-1.  创建名为 {域验证令牌}.html 的 HTML 文件。 此文件的内容应为域验证令牌的值。
-3.  将此文件上传到托管域的 Web 服务器的根目录。
-4.  选择“刷新”，检查证书状态。 验证可能需要几分钟才能完成。
+1. 创建名为 {域验证令牌}.html 的 HTML 文件。 此文件的内容应为域验证令牌的值。
+1. 将此文件上传到托管域的 Web 服务器的根目录。
+1. 选择“刷新”，检查证书状态。 验证可能需要几分钟才能完成。
 
 例如，如果为 azure.com 购买了域验证令牌为 1234abcd 的标准证书，则对 https://azure.com/1234abcd.html 发出的 Web 请求应返回 1234abcd。 
 
@@ -238,7 +237,7 @@ Internet 浏览器可能仍在缓存域的旧 IP 地址。
 
 - 你不是订阅所有者，因此无权购买域。
 
-    **解决方案**：向帐户[分配“所有者”角色](../role-based-access-control/role-assignments-portal.md)。 或者联系订阅管理员以获取购买域的权限。
+    **解决方案**：向帐户 [分配“所有者”角色](../role-based-access-control/role-assignments-portal.md)。 或者联系订阅管理员以获取购买域的权限。
 - 已达到订阅中可购买域数的限制。 当前限制为 20 个。
 
     **解决方案**：若要请求提高限制，请联系 [Azure 支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
@@ -275,6 +274,8 @@ Internet 浏览器可能仍在缓存域的旧 IP 地址。
 
 通过 Azure 门户购买某个域时，应用服务应用程序会自动配置为使用该自定义域。 你不需要执行任何额外的步骤。
 
+<!--For more information, watch [Azure App Service Self Help: Add a Custom Domain Name](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name)-->
+
 **是否可以使用在 Azure 门户中购买的域来指向 Azure VM？**
 
 是的，可将该域指向 VM。 有关详细信息，请参阅[使用 Azure DNS 为 Azure 服务提供自定义域设置](../dns/dns-custom-domain.md)。
@@ -291,7 +292,7 @@ Internet 浏览器可能仍在缓存域的旧 IP 地址。
 
 最初的域购买费用仅适用于域注册。 除了注册费用以外，Azure DNS 还会根据用量收费。 有关详细详细，请参阅 [Azure DNS 定价](https://www.azure.cn/pricing/details/dns/)。
 
-**我的域是之前在 Azure 门户中购买的，现在想要从 GoDaddy 托管改为 Azure DNS 托管。该如何处理？**
+**我的域是之前在 Azure 门户中购买的，现在想要从 GoDaddy 托管改为 Azure DNS 托管。如何执行此操作？**
 
 不一定非要迁移到 Azure DNS 托管。 如果你确实想要迁移到 Azure DNS，Azure 门户中的域管理体验会提供有关转移到 Azure DNS 的步骤信息。 如果域通过应用服务购买的，则从 GoDaddy 托管迁移到 Azure DNS 的过程相对较为顺畅。
 

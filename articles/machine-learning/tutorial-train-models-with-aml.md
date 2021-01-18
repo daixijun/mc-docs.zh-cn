@@ -11,12 +11,12 @@ ms.author: sgilley
 origin.date: 03/18/2020
 ms.date: 10/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: a7b37537e9e30f574b6da24bee33ddc62142e1d8
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: fe137caecc5096c5eae25a40c6dfa7755984f923
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105040"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021659"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>教程：使用 MNIST 数据和 scikit-learn 训练图像分类模型 
 
@@ -35,7 +35,7 @@ ms.locfileid: "97105040"
 
 你会在[本教程的第二部分](tutorial-deploy-models-with-aml.md)学习如何选择模型并对其进行部署。
 
-如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用 [Azure 机器学习的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 >[!NOTE]
 > 本文中的代码已使用 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 版本 1.13.0 进行测试。

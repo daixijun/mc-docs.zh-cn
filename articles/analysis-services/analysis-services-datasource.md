@@ -5,17 +5,17 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 08/21/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 03/23/2020
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 068981fdac49697d02954b9e7b1596ef4ac88948
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: f0b90385f419e5cec78ac5f8fd2c2d194b360321
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470143"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022876"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -32,7 +32,7 @@ ms.locfileid: "92470143"
 |Azure Cosmos DB     |  是        |  否        |<sup>[1](#tab1400a)</sup> |
 |Azure Data Lake Store Gen2       |   是       |    否      |<sup>[1](#tab1400a)</sup>，<sup>[5](#gen2)</sup>|
 |Azure HDInsight HDFS    |     是     |   否       |<sup>[1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   是       |   否       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   是       |   否       |<sup>[1](#tab1400a)</sup><sup>[4](#databricks)</sup>|
 ||||
 
 <!--Not Available on |Azure Data Lake Store Gen1      |   Yes       |    No      |<sup>[1](#tab1400a)</sup> |-->
@@ -43,14 +43,12 @@ ms.locfileid: "92470143"
 <a name="tab1400a">1</a> - 仅限表格 1400 和更高模型。  
 <a name="azprovider">2</a> - 在表格 1200 和更高版本的模型中指定为“提供程序”数据源时，内存中模型和 DirectQuery 模型都需要 Microsoft OLE DB Driver for SQL Server MSOLEDBSQL（推荐）、SQL Server Native Client 11.0 或 .NET Framework Data Provider for SQL Server。  
 <a name="azsqlmanaged">3</a> - 支持 Azure SQL 托管实例。 由于 SQL 托管实例在具有专用 IP 地址的 Azure VNet 中运行，因此必须在该实例上启用公共终结点。 如果未启用，则需要[本地数据网关](analysis-services-gateway.md)。  
+<a name="databricks">4</a> - 目前不支持使用 Spark 连接器的 Azure Databricks。  
 <a name="gen2">5</a> - 目前不支持 ADLS Gen2 连接器，但是，Azure Blob 存储连接器可以与 ADLS Gen2 数据源一起使用。
-
-<!--Not Available on <a name="databricks">4</a> - Azure Databricks using the Spark connector is currently not supported.-->
-<!--Azure Databricks Previewed expected on Q4 2020-->
 
 ## <a name="other-data-sources"></a>其他数据源
 
-|数据源 | 内存中 | 直接连接 |注释   |
+|数据源 | 内存中 | DirectQuery |说明   |
 |  --- | --- | --- | --- |
 |Access 数据库     |  是 | 否 |  |
 |Active Directory     |  是 | 否 | <sup>[6](#tab1400b)</sup>  |
@@ -107,11 +105,11 @@ ms.locfileid: "92470143"
 
 启用旧数据源后，在表格模型资源管理器中，右键单击“数据源”，并单击“从数据源(旧的)导入”。  > 
 
-:::image type="content" source="media/analysis-services-datasource/aas-import-legacy-datasources.png" alt-text="启用旧数据源":::
+:::image type="content" source="media/analysis-services-datasource/aas-import-legacy-datasources.png" alt-text="“表格模型资源管理器”中的旧数据源":::
 
 与使用表格 1200 模型项目一样，请使用 **表导入向导** 连接到数据源。 在连接页上，单击“高级”。 在“设置高级属性”中，指定数据提供程序和其他连接设置。
 
-:::image type="content" source="media/analysis-services-datasource/aas-import-legacy-advanced.png" alt-text="启用旧数据源":::
+:::image type="content" source="media/analysis-services-datasource/aas-import-legacy-advanced.png" alt-text="旧数据源高级属性":::
 
 ## <a name="impersonation"></a>模拟
 某些情况下可能需要指定其他模拟帐户。 可以在 Visual Studio 或 SQL Server Management Studio (SSMS) 中指定模拟帐户。
@@ -127,7 +125,7 @@ ms.locfileid: "92470143"
 
 ## <a name="oauth-credentials"></a>OAuth 凭据
 
-对于在 1400 和更高兼容性级别下使用内存模式的表格模型，Azure SQL 数据库、Azure Synapse（以前称为 SQL 数据仓库）、Dynamics 365 和 SharePoint 列表支持 OAuth 凭据。 Azure Analysis Services 管理 OAuth 数据源的令牌刷新，以避免长时间运行的刷新操作超时。 若要生成有效的令牌，请使用 Power Query 设置凭据。
+对于在 1400 和更高兼容性级别下使用内存模式的表格模型，Azure SQL 数据库、Azure Synapse、Dynamics 365 和 SharePoint 列表支持 OAuth 凭据。 Azure Analysis Services 管理 OAuth 数据源的令牌刷新，以避免长时间运行的刷新操作超时。 若要生成有效的令牌，请使用 Power Query 设置凭据。
 
 OAuth 凭据不支持直接查询模式。
 

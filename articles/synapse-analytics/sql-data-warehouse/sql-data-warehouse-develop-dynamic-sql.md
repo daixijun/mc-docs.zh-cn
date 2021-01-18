@@ -1,31 +1,31 @@
 ---
 title: 使用动态 SQL
-description: 在 Synapse SQL 池中使用动态 SQL 开发解决方案的技巧。
+description: 有关在 Azure Synapse Analytics 中对专用 SQL 池使用动态 SQL 的开发解决方案技巧。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 04/17/2018
-ms.date: 05/11/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 58370194f828944135e9e7ffbeda3403bbe18ed0
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 3de64856a53218d84f62e63c2c28572b79068905
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198501"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021652"
 ---
-# <a name="dynamic-sql-in-synapse-sql-pool"></a>Synapse SQL 池中的动态 SQL
+# <a name="dynamic-sql-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池的动态 SQL
 
-本文提供了在 SQL 池中使用动态 SQL 开发解决方案的技巧。
+本文提供了在专用 SQL 池中使用动态 SQL 开发解决方案的技巧。
 
 ## <a name="dynamic-sql-example"></a>动态 SQL 示例
 
-针对 SQL 池开发应用程序代码时，可能需要借助动态 SQL 来提供灵活、通用且模块化的解决方案。 SQL 池目前不支持 blob 数据类型。
+针对专用 SQL 池开发应用程序代码时，可能需要借助动态 SQL 来提供灵活、通用且模块化的解决方案。 专用 SQL 池目前不支持 blob 数据类型。
 
 不支持 blob 数据类型可能会限制字符串的大小，因为 blob 数据类型包括 varchar(max) 和 nvarchar(max) 类型。
 

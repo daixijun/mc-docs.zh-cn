@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/03/2020
+ms.date: 01/06/2021
 ms.author: v-johya
 origin.date: 03/11/2020
-ms.openlocfilehash: de684acf3250bb0449e0b495fe5d83dee5965043
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 6916cdcebff5c37e4dd2c06e26e03d5efd1bb8ae
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746923"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022129"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>安全建议 - 参考指南
 

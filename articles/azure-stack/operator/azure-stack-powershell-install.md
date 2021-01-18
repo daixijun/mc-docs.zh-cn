@@ -3,24 +3,24 @@ title: 安装适用于 Azure Stack Hub 的 PowerShell AzureRM 模块
 description: 了解如何安装适用于 Azure Stack Hub 的 PowerShell。 了解如何安装 PowerShell AzureRM 模块和所需的 API 配置文件。
 author: WenJason
 ms.topic: article
-origin.date: 10/22/2020
-ms.date: 12/07/2020
+origin.date: 12/16/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 10/22/2020
-ms.openlocfilehash: 8438e9b7603b9e09cb2ffea7bf21d91fdc714183
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: 59f96ebc2ed660a6bb0c78a375930bc561f112a8
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507710"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894432"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>安装适用于 Azure Stack Hub 的 PowerShell AzureRM 模块
 
 Azure PowerShell Azure 资源管理器 (AzureRM) 提供了一组使用 Azure 资源管理器模型管理 Azure Stack Hub 资源的 cmdlet。
 
 > [!IMPORTANT]  
-> 你访问的是已过时的 Azure PowerShell 版本的网页。 Azure 资源管理器 (AzureRM) PowerShell 模块的所有版本均已过时，但并不缺乏支持。 Az PowerShell 模块现在是与 Azure 交互时建议使用的 PowerShell 模块。 若要开始使用 Az PowerShell 模块，请参阅[为 Azure Stack Hub 安装 PowerShell Az 预览模块](powershell-install-az-module.md)。 若要了解如何迁移到 Az PowerShell 模块， 请参阅[在 Azure Stack Hub 中从 AzureRM 迁移到 Azure PowerShell Az](migrate-azurerm-az.md)。
+> 你访问的是已过时的 Azure PowerShell 版本的网页。 Azure 资源管理器 (AzureRM) PowerShell 模块的所有版本均已过时，但并不缺乏支持。 若要与 Azure 和 Azure Stack Hub 进行交互，现建议使用的 PowerShell 模块是 Az PowerShell 模块。 若要开始使用 Az PowerShell 模块，请参阅[为 Azure Stack Hub 安装 PowerShell Az 预览模块](powershell-install-az-module.md)。 若要了解如何迁移到 Az PowerShell 模块， 请参阅[在 Azure Stack Hub 中从 AzureRM 迁移到 Azure PowerShell Az](migrate-azurerm-az.md)。
 
 还需要使用 API 配置文件为 Azure Stack Hub 资源提供程序指定兼容的终结点。
 

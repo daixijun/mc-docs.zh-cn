@@ -4,16 +4,16 @@ description: 了解如何将 Azure 认知服务部署到 Azure Stack Hub。
 author: WenJason
 ms.topic: article
 origin.date: 10/09/2020
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: guanghu
 ms.lastreviewed: 10/09/2020
-ms.openlocfilehash: 9dbe17056d16d2005afbd8f23accf0aa0c227f79
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: 28b584c6380cfc2cee54d1d61ac90befae8f764f
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330599"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894444"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>将 Azure 认知服务部署到 Azure Stack Hub
 
@@ -24,9 +24,10 @@ ms.locfileid: "93330599"
 容器支持目前适用于部分 Azure 认知服务：
 
 - **语音**
+    - 语音转文本（标准）
+    - 语音转文本（自定义）
     - 文本转语音（标准）
-    - 文本转语音（自定义）
-    - 文本转语音（标准）
+    - 文本转语音（神经）
 - **语言**
     - 语言理解
     - 文本分析（情绪分析）

@@ -6,29 +6,29 @@ author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 04/30/2019
-ms.date: 05/11/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ffa51587aa0587097ab189c437ca52bca3c3cd06
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 71876a80fe7e78cd77e6095599eb9aa47fc9d3a9
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198429"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023048"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>透明数据加密 (TDE) 入门
 
 > [!div class="op_single_selector"]
 >
-> * [安全性概述](sql-data-warehouse-overview-manage-security.md)
+> * [安全概述](sql-data-warehouse-overview-manage-security.md)
 > * [身份验证](sql-data-warehouse-authentication.md)
 > * [加密（门户）](sql-data-warehouse-encryption-tde.md)
 > * [加密 (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-## <a name="required-permissions"></a>所需权限
+## <a name="required-permissions"></a>所需的权限
 
 若要启用透明数据加密 (TDE)，用户必须是管理员或 dbmanager 角色的成员。
 
@@ -36,7 +36,7 @@ ms.locfileid: "82198429"
 
 执行下列步骤启用 TDE：
 
-1. 使用在 master 数据库中充当管理员或 *dbmanager* 角色成员的登录名，连接到托管数据库的服务器上的 **master** 数据库
+1. 使用在 master 数据库中充当管理员或 **dbmanager** 角色成员的登录名，连接到托管数据库的服务器上的 *master* 数据库
 2. 执行以下语句来加密数据库。
 
 ```sql
@@ -47,7 +47,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 执行以下步骤禁用 TDE：
 
-1. 使用在 master 数据库中充当管理员或 *dbmanager* 角色成员的登录名，连接到 **master** 数据库
+1. 使用在 master 数据库中充当管理员或 **dbmanager** 角色成员的登录名，连接到 *master* 数据库
 2. 执行以下语句来加密数据库。
 
 ```sql
@@ -55,13 +55,13 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> 在更改 TDE 设置之前，必须恢复暂停的 SQL 池。
+> 在更改 TDE 设置之前，必须恢复暂停的专用 SQL 池。
 
 ## <a name="verifying-encryption"></a>验证加密
 
 若要验证加密状态，请执行以下步骤：
 
-1. 使用在 master 数据库中充当管理员或 *dbmanager* 角色成员的登录名，连接到 **master** 数据库或实例数据库
+1. 使用在 master 数据库中充当管理员或 **dbmanager** 角色成员的登录名，连接到 *master* 数据库或实例数据库
 2. 执行以下语句来加密数据库。
 
 ```sql

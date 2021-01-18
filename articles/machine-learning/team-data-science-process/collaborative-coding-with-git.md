@@ -2,20 +2,20 @@
 title: 利用 Git 实现协作编码 - Team Data Science Process
 description: 如何配合敏捷规划使用 Git 针对数据科学项目执行协作代码开发。
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 145be69ed7585caadfe4c1b54ca98687e44318ad
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: f83d14226a68c38934365e3ec8dc5390f161ee21
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395275"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022165"
 ---
 # <a name="collaborative-coding-with-git"></a>使用 Git 进行协作编程
 
@@ -39,7 +39,7 @@ ms.locfileid: "91395275"
 git checkout -b <new branch name> <base branch name>
 
 ```
-如果未指定 \<base branch name>，则新分支将基于 `master`。 
+如果未指定 \<base branch name>，则新分支将基于 `main`。 
 
 若要切换到工作分支，请运行以下命令： 
 
@@ -47,11 +47,11 @@ git checkout -b <new branch name> <base branch name>
 git checkout <working branch name>
 ```
 
-切换到工作分支后，可以开始开发完成该工作项所需的代码或文档项目。 运行 `git checkout master` 会切换回 `master` 分支。
+切换到工作分支后，可以开始开发完成该工作项所需的代码或文档项目。 运行 `git checkout main` 会切换回 `main` 分支。
 
 一个好的做法是分别为每个用户情景工作项创建一个 Git 分支。 然后，根据用户情景分支分别为每个“任务”工作项创建一个分支。 如果安排了多个人员在处理同一项目的不同用户情景，或处理同一用户情景的不同任务，应按与“用户情景-任务”关系相应的层次结构来组织分支。 可以通过使每个团队成员处理不同的分支，或在处理同一分支时处理不同的代码或其他项目，从而最大程度地减少冲突。 
 
-下图展示了建议的 TDSP 分支策略。 你可能并不需要此处所示的许多分支，尤其是在只有一个或两个人参与同一个项目或者只有一个人参与某个用户情景的所有任务的情况下。 但是，将开发分支从主分支分离出来始终是一个很好的做法，可帮助防止发布分支因开发活动而中断。 可在[成功的 Git 分支模型](https://nvie.com/posts/a-successful-git-branching-model/)中查看 Git 分支模型的完整说明。
+下图展示了建议的 TDSP 分支策略。 你可能并不需要此处所示的许多分支，尤其是在只有一个或两个人参与同一个项目或者只有一个人参与某个用户情景的所有任务的情况下。 但是，将开发分支从主分支分离出来始终是一个很好的做法，有助于防止发布分支因开发活动而中断。 可在[成功的 Git 分支模型](https://nvie.com/posts/a-successful-git-branching-model/)中查看 Git 分支模型的完整说明。
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 
@@ -105,7 +105,7 @@ git push origin script
 也可以使用以下 Git bash 命令将 `script` 工作分支合并到它的基分支并在合并后将工作分支删除：
 
 ```bash
-git checkout master
+git checkout main
 git merge script
 git branch -d script
 ```

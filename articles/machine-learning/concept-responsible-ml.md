@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 83a99f61664026326cd1592f81cc0b135489addf
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: fddeab1850ffaf47962377d9f75a251073978611
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977248"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022782"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>什么是负责机器学习？ （预览版）
 
@@ -62,10 +62,7 @@ AI 系统中的不公平性可能会导致以下意外后果：
 
 在传统方案中，原始数据存储在文件和数据库中。 用户通常在分析数据时使用原始数据。 这是一个问题，因为可能会侵犯个人隐私。 差异隐私尝试通过向数据添加“噪音”或随机性来处理此问题，这样用户就无法识别任何单独的数据点。
 
-实现差异隐私系统较为棘手。 [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) 是一个开放源代码项目，其中包含用于生成全局差异隐私系统的不同组件。 若要详细了解差异隐私和 WhiteNoise 项目，请参阅[使用差异隐私和 WhiteNoise 保护数据隐私](./concept-differential-privacy.md)一文。
-
-> [!NOTE]
-> 请注意，我们正在重命名该工具包，并将在未来几周内引入新名称。 
+实现差异隐私系统较为棘手。 [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core) 是一个开放源代码项目，其中包含用于生成全局差异隐私系统的不同组件。 若要详细了解差异隐私和 SmartNoise 项目，请参阅[使用差异隐私和 SmartNoise 保护数据隐私](./concept-differential-privacy.md)一文。
 
 ## <a name="work-on-encrypted-data-with-homomorphic-encryption"></a>使用同态加密处理加密数据
 

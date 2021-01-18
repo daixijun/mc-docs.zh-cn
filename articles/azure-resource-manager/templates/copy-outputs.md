@@ -1,21 +1,22 @@
 ---
 title: 定义输出值的多个实例
-description: 从部署中返回值时，可以在 Azure 资源管理器模板中使用复制操作进行多次迭代。
+description: 从部署中返回值时，可以在 Azure 资源管理器模板（ARM 模板）中使用复制操作进行多次迭代。
 ms.topic: conceptual
 origin.date: 04/17/2020
-ms.date: 06/22/2020
+author: rockboyfor
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: 57d2f989e2c9fc45778db28b00afd46880dc0bd0
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: fa59614c4e7a9c4addf0956575a4562b2bd60b60
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098544"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022301"
 ---
 <!--Verified successfully-->
 # <a name="output-iteration-in-arm-templates"></a>ARM 模板中的输出迭代
 
-本文展示了如何为 Azure 资源管理器 (ARM) 模板中的输出创建多个值。 通过将 **copy** 元素添加到模板的 outputs 节，可以在部署过程中动态返回许多项。
+本文展示了如何为 Azure 资源管理器模板（ARM 模板）中的输出创建多个值。 通过将 `copy` 元素添加到模板的 outputs 节，可以在部署过程中动态返回许多项。
 
 还可以将 copy 用于[资源](copy-resources.md)、[资源中的属性](copy-properties.md)，以及[变量](copy-variables.md)。
 
@@ -30,9 +31,9 @@ copy 元素采用以下常规格式：
 }
 ```
 
-**count** 属性指定要对该输出值进行的迭代次数。
+`count` 属性指定要对该输出值进行的迭代次数。
 
-**input** 属性指定要重复的属性。 你将创建一个由 **input** 属性中的值构造的元素数组。 它可以是单个属性（例如字符串），也可以是具有多个属性的对象。
+`input` 属性指定要重复的属性。 可以创建一个由 `input` 属性中的值构造的元素数组。 它可以是单个属性（例如字符串），也可以是具有多个属性的对象。
 
 ## <a name="copy-limits"></a>复制限制
 
@@ -40,10 +41,10 @@ count 不能超过 800。
 
 count 不能为负数。 如果使用最新版本的 Azure CLI、PowerShell 或 REST API 部署模板，则它可以为零。 具体而言，必须使用：
 
-* Azure PowerShell 2.6 或更高版本****
-* Azure CLI 2.0.74 或更高版本****
-* REST API 版本 2019-05-10 或更高版本****
-* [链接的部署](linked-templates.md)必须将 API 版本 2019-05-10 或更高版本用于部署资源类型****
+* Azure PowerShell 2.6 或更高版本
+* Azure CLI 2.0.74 或更高版本
+* REST API 版本 2019-05-10 或更高版本
+* [链接的部署](linked-templates.md)必须将 API 版本 2019-05-10 或更高版本用于部署资源类型
 
 更早版本的 PowerShell、CLI 和 REST API 不支持将 count 设为零。
 
@@ -174,7 +175,7 @@ count 不能为负数。 如果使用最新版本的 Azure CLI、PowerShell 或 
     * [ARM 模板中的资源迭代](copy-resources.md)
     * [ARM 模板中的属性迭代](copy-properties.md)
     * [ARM 模板中的变量迭代](copy-variables.md)
-* 若要了解有关模板区段的信息，请参阅[创作 ARM 模板](template-syntax.md)。
-* 若要了解如何部署模板，请参阅[使用 ARM 模板部署应用程序](deploy-powershell.md)。
+* 若要了解模板的各个部分，请参阅[了解 ARM 模板的结构和语法](template-syntax.md)。
+* 若要了解如何部署模板，请参阅[使用 ARM 模板和 Azure PowerShell 来部署资源](deploy-powershell.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

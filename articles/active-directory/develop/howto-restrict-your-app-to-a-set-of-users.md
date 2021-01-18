@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 22ac63d815f997a90b9fd4dae8080abe2e9fe109
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: deaa0ad2f4a209e16859d3797d9e47bc1928d1aa
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647477"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022051"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>如何：将 Azure AD 应用限制为仅供 Azure AD 租户中的一组用户使用
 
@@ -41,7 +41,7 @@ ms.locfileid: "88647477"
 
 ## <a name="update-the-app-to-enable-user-assignment"></a>更新应用，允许用户分配
 
-可通过两种方式创建启用了用户分配的应用程序。 一种方式需要**全局管理员**角色，第二种方式不需要。
+可通过两种方式创建启用了用户分配的应用程序。 一种方式需要 **全局管理员** 角色，第二种方式不需要。
 
 ### <a name="enterprise-applications-requires-the-global-administrator-role"></a>企业应用程序（需要全局管理员角色）
 
@@ -70,8 +70,8 @@ ms.locfileid: "88647477"
 1. 在“目录”下，选择要在其中注册应用的 Azure AD 租户。
 1. 在左侧导航栏中，选择“Azure Active Directory”。
 1. 在 **Azure Active Directory** 窗格中，从 **Azure Active Directory** 左侧导航菜单中选择“应用注册”。
-1. 创建或选择要管理的应用。 你需要成为此应用注册的**所有者**。
-1. 在应用程序的“概述”页上，单击页面顶部“概要”下的“本地目录中的托管应用程序”链接。 这将带你进入应用注册的_托管企业应用程序_。
+1. 创建或选择要管理的应用。 你需要成为此应用注册的 **所有者**。
+1. 在应用程序的“概述”页上，单击页面顶部“概要”下的“本地目录中的托管应用程序”链接。 这将带你进入应用注册的 _托管企业应用程序_。
 1. 从左侧的导航边栏选项卡中，选择“属性”。
 1. 找到设置“需要进行用户分配?”，将其设置为“是”。  将此选项设置为“是”时，必须先将租户中的用户分配到此应用程序，否则用户无法登录到此应用程序。
 1. 选择“保存”以保存此配置更改。
@@ -80,7 +80,7 @@ ms.locfileid: "88647477"
 
 将应用配置为允许用户分配以后，即可继续操作，将用户和组分配到应用。
 
-1. 在应用程序的左侧导航菜单中选择“用户和组”窗格。
+1. 在企业应用程序的左侧导航菜单中选择“用户和组”窗格。
 1. 在“用户和组”列表顶部选择“添加用户”按钮，以便打开“添加分配”窗格。  
 1. 在“添加分配”窗格中，选择“用户”选择器。 
 

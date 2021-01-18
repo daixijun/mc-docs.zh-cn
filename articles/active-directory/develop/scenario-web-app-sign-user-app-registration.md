@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/23/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 1bc24114727a8ae6e2a37eefcd7b6d697b2bfde0
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 9c90ed4a692893cac703b8ec80762c999cb59241
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918327"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021277"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>用于登录用户的 Web 应用：应用注册
 
@@ -41,52 +41,52 @@ ms.locfileid: "95918327"
 > 要使用的门户根据应用程序是在 Azure 公有云中运行还是在国家云或主权云中运行而异。 有关详细信息，请参阅[国家云](./authentication-national-cloud.md#app-registration-endpoints)。
 
 
-1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn)。 或者，登录到适用于国家云的[所选 Azure 门户](./authentication-national-cloud.md#app-registration-endpoints)。
-2. 如果你的帐户有权限访问多个租户，请在右上角选择该帐户。 然后，将门户会话设置为所需的 Azure Active Directory (Azure AD) 租户。
-3. 在左侧窗格中选择“Azure Active Directory”服务，然后选择“应用注册” > “新建注册”。   
+1. 登录 [Azure 门户](https://portal.azure.cn)。 
+1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
+1. 搜索并选择“Azure Active Directory”  。
+1. 在“管理”下，选择“应用注册” > “新建注册”  。
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 1. “注册应用程序”页出现后，请输入应用程序的注册信息： 
+   1. 输入应用程序的名称（例如 `AspNetCore-WebApp`）。 应用的用户可能会看到此名称，你稍后可对其进行更改。
    1. 为应用程序选择支持的帐户类型。 （请参阅[支持的帐户类型](./v2-supported-account-types.md)。）
-   1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称。  例如，输入 **AspNetCore-WebApp**。
-   1. 在“重定向 URI”中，添加将在成功进行身份验证后接受返回的令牌响应的应用程序类型和 URI 目标。  例如，输入 https://localhost:44321  。  然后，选择“注册”。
-   ![屏幕截图显示了“注册应用程序”页，可在其中选择“注册”。](./media/scenario-webapp/scenario-webapp-app-registration-1.png)
-1. 选择“身份验证”菜单，然后添加以下信息：
-   1. 对于“回复 URL”，请添加“Web”类型的 **https://localhost:44321/signin-oidc**。
-   1. 在“高级设置”部分，将“注销 URL”设置为 **https://localhost:44321/signout-oidc** 。 
+   1. 在“重定向 URI”中，添加将在成功进行身份验证后接受返回的令牌响应的应用程序类型和 URI 目标。  例如，输入 `https://localhost:44321`。
+   1. 选择“注册”。
+1. 在“管理”下，选择“身份验证”，然后添加以下信息：
+   1. 在“Web”部分，添加 `https://localhost:44321/signin-oidc` 作为“重定向 URI” 。
+   1. 添加 `https://localhost:44321/signout-oidc` 作为“注销 URL”。
    1. 选择“隐式授权”下的“ID 令牌”。
    1. 选择“保存”。
-  ![屏幕截图显示了“身份验证选项”，可在其中进行所述的更改。](./media/scenario-webapp/scenario-webapp-app-registration-2.png)
- 
+   
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 1. 出现“注册应用程序”页后，请输入应用程序的注册信息：
+   1. 输入应用程序的名称（例如 `MailApp-openidconnect-v2`）。 应用的用户可能会看到此名称，你稍后可对其进行更改。
    1. 为应用程序选择支持的帐户类型。 （请参阅[支持的帐户类型](./v2-supported-account-types.md)。）
-   1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称。 例如，输入 **MailApp-openidconnect-v2**。
    1. 在“重定向 URI (可选)”部分，选择组合框中的“Web”并输入以下重定向 URI： **https://localhost:44326/** 。 
-1. 选择“注册”以创建应用程序。
-1. 选择“身份验证”菜单。
-1. 在“高级设置” | “隐式授权”部分，选择“ID 令牌”。   本示例需要启用[隐式授权流](v2-oauth2-implicit-grant-flow.md)才能将用户登录。
+   1. 选择“注册”以创建应用程序。
+1. 在“管理”下，选择“身份验证”。 
+1. 在“隐式授权”部分，选择“ID 令牌”。 本示例需要启用[隐式授权流](v2-oauth2-implicit-grant-flow.md)才能将用户登录。
 1. 选择“保存”。
 
 # <a name="java"></a>[Java](#tab/java)
 
-1. “注册应用程序”页显示后，请输入应用程序的显示名称。 例如，输入 **java-webapp**。
-1. 选择“任何组织目录中的帐户”，然后为“应用程序类型”选择“Web 应用/API”。
-1. 选择“注册”以注册应用程序。
-1. 在左侧菜单中选择“身份验证”。 在“重定向 URI”下选择“Web”。
-
-1. 输入两个重定向 URI：一个用于登录页，另一个用于图形页。 对于这个 URI，请使用相同的主机和端口号，后接 **/msal4jsample/secure/aad**（登录页）和 **msal4jsample/graph/me**（用户信息页）。
-
-   默认情况下，该示例使用：
-
+1. 出现“注册应用程序”页后，请输入应用程序的注册信息： 
+    1. 输入应用程序的名称（例如 `java-webapp`）。 应用的用户可能会看到此名称，你稍后可对其进行更改。 
+    1. 选择“任何组织目录中的帐户”。
+    1. 选择“注册”以注册应用程序。
+1. 在“管理”下，选择“身份验证” > “添加平台”  。
+1. 选择“Web”。
+1. 对于“重定向 URI”，请输入同一主机和端口号，后跟 `/msal4jsample/secure/aad` 作为登录页。 
+1. 选择“配置” 。
+1. 在“Web”部分，使用主机和端口号，后跟“/msal4jsample/graph/me”作为用户信息页的“重定向 URI”。
+默认情况下，该示例使用：
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-  然后选择“保存”。
-
-1. 从菜单中选择“证书和机密”。
+1. 选择“保存”。
+1. 在“管理”下，选择“证书和机密”。  
 1. 在“客户端机密”部分，选择“新建客户端机密”，然后： 
 
    1. 输入密钥说明。
@@ -97,14 +97,13 @@ ms.locfileid: "95918327"
 # <a name="python"></a>[Python](#tab/python)
 
 1. 出现“注册应用程序”页后，请输入应用程序的注册信息：
-   1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称。 例如，输入 **python-webapp**。
+   1. 输入应用程序的名称（例如 `python-webapp`）。 应用的用户可能会看到此名称，你稍后可对其进行更改。
    1. 将“支持的帐户类型”更改为“任何组织目录中的帐户”。 
    1. 在“重定向 URI (可选)”部分，选择组合框中的“Web”并输入以下重定向 URI：**http://localhost:5000/getAToken**。
-1. 选择“注册”以创建应用程序。
+   1. 选择“注册”以创建应用程序。
 1. 在应用的“概述”页上，找到“应用程序(客户端) ID”值，并记下该值供稍后使用。  稍后需要使用它为此项目配置 Visual Studio 配置文件。
-1. 在左侧菜单中，选择“证书和机密”。
+1. 在“管理”下，选择“证书和机密”。  
 1. 在“客户端机密”部分，选择“新建客户端机密”，然后：
-
    1. 输入密钥说明。
    1. 选择密钥持续时间“1 年”。
    1. 选择 **添加** 。
