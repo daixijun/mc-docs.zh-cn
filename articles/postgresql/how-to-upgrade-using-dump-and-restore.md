@@ -6,19 +6,19 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: how-to
 origin.date: 11/10/2020
-ms.date: 12/14/2020
-ms.openlocfilehash: 6f3e8d0ee2e396e0b63f5553c2215e6e64341de8
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.date: 01/11/2021
+ms.openlocfilehash: e596c1bfcd829efabf2ac7ffde511c594a52d191
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850911"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023015"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>使用转储和还原升级 PostgreSQL 数据库
 
 通过使用以下方法将数据库迁移到主版本更高的服务器，可以升级部署在 Azure Database for PostgreSQL - 单一服务器中的 PostgreSQL 服务器。
 * 使用 PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 和 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 的 **脱机** 方法，这种方法会导致迁移数据时停机。 本文档介绍这种升级/迁移方法。
-* 使用 [数据库迁移服务](/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS) 的 **联机** 方法。 这种方法减少了迁移时的停机时间，使目标数据库与源保持同步，并且可以选择何时进行切换。 但是，使用 DMS 需要满足一些先决条件和限制。 有关详细信息，请参阅 [DMS 文档](/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal)。 
+* 使用 [数据库迁移服务](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS) 的 **联机** 方法。 这种方法减少了迁移时的停机时间，使目标数据库与源保持同步，并且可以选择何时进行切换。 但是，使用 DMS 需要满足一些先决条件和限制。 有关详细信息，请参阅 [DMS 文档](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md)。 
 
  下表根据数据库大小和方案提供了一些建议。
 
@@ -29,7 +29,7 @@ ms.locfileid: "96850911"
 | 中小型数据库 (10 GB - 100 GB) | X | X |
 | 大型数据库 (> 100 GB) |  | X |
 | 可以承受升级时停机（与数据库大小无关） | X |  |
-| 能否满足 DMS [先决条件](/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites)，包括重启？ |  | X |
+| 能否满足 DMS [先决条件](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md#prerequisites)，包括重启？ |  | X |
 | 能否在升级过程中避开 DDL 和未记录的表？ | |  X |
 
 本指南提供了一些脱机迁移方法和示例，说明如何从源服务器迁移到运行更高版本 PostgreSQL 的目标服务器。
@@ -157,6 +157,9 @@ ms.locfileid: "96850911"
     ```bash
     $ pg_restore -v --no-owner --host=pg-11.postgres.database.chinacloudapi.cn --port=5432 --username=pg@pg-11 --dbname=bench5gb -j 4 dump.dir
     ```
+
+> [!TIP]
+> 本文档中提到的过程还可用于升级 Azure Database for PostgreSQL 灵活服务器（现处于预览阶段）。 主要区别是灵活服务器目标的连接字符串没有 `@dbName`。  例如，如果用户名为 `pg`，则连接字符串中的单个服务器用户名将为 `pg@pg-95`，而对于灵活服务器，只需使用 `pg`。
 
 ## <a name="next-steps"></a>后续步骤
 

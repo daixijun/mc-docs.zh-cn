@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 63fc0c69de0816fc914e7069768ae4152aa3a86d
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 95544e924e2666bcd44ded5a6e28dc278736d5ad
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105284"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023100"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>创建 Azure 机器学习计算群集
 
@@ -96,9 +96,8 @@ except ComputeTargetException:
 
 cpu_cluster.wait_for_completion(show_output=True)
 ```
+
 还可以在创建 Azure 机器学习计算时配置多个高级属性。 使用这些属性可以创建固定大小的持久性群集，或者在订阅中的现有 Azure 虚拟网络内创建持久性群集。  有关详细信息，请参阅 [AmlCompute 类](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py)。
-
-
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 
@@ -199,6 +198,14 @@ az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STAN
 ### <a name="managed-identity-usage"></a>托管标识用法
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
+
+## <a name="troubleshooting"></a>疑难解答
+
+如果用户在 GA 发布之前已通过 Azure 门户创建了自己的 Azure 机器学习工作区，则他们可能无法在该工作区中创建 AmlCompute。 可对服务提出支持请求，也可通过门户或 SDK 创建新的工作区以立即解除锁定。
+
+如果 Azure 机器学习计算群集在根据节点状态重设大小时卡住 (0 -> 0)，可能是由于 Azure 资源锁定而导致的。
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

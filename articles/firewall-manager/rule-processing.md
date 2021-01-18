@@ -1,18 +1,19 @@
 ---
-title: Azure 防火墙规则处理逻辑
+title: Azure 防火墙管理器规则处理逻辑
 description: 了解 Azure 防火墙规则处理逻辑
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+origin.date: 06/30/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: 10c31ae92df8cdc9aaba6ecf951c9c382f7490cb
-ms.sourcegitcommit: 091c672fa448b556f4c2c3979e006102d423e9d7
+ms.openlocfilehash: b1e9b30a8467d807d9c07ce9432a7d6378b70ca5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87162808"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023018"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Azure 防火墙规则处理逻辑
 

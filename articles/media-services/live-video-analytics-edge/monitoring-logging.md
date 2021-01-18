@@ -2,17 +2,14 @@
 title: 监视和日志记录 - Azure
 description: 本文概述了 IoT Edge 上实时视频分析的监视和日志记录。
 ms.topic: reference
-author: WenJason
-ms.author: v-jay
-ms.service: media-services
 origin.date: 04/27/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: 2258440b7397c899034e7d8b9eeee2d1fa0dcae5
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.date: 01/11/2021
+ms.openlocfilehash: a29549954cdf5f5d4df2b8e44a5ba9114ca0f020
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245636"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023069"
 ---
 # <a name="monitoring-and-logging"></a>监视和日志记录
 
@@ -36,16 +33,16 @@ IoT Edge 上的实时视频分析根据以下分类发出事件或遥测数据�
       
       ```
       {
-        &quot;body&quot;: {
-          &quot;outputType&quot;: &quot;assetName&quot;,
-          &quot;outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200512T233309Z&quot;
+        "body": {
+          "outputType": "assetName",
+          "outputLocation": "sampleAssetFromEVR-LVAEdge-20200512T233309Z"
         },
-        &quot;applicationProperties&quot;: {
-          &quot;topic&quot;: &quot;/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>&quot;,
-          &quot;subject&quot;: &quot;/graphInstances/Sample-Graph-2/sinks/assetSink&quot;,
-          &quot;eventType&quot;: &quot;Microsoft.Media.Graph.Operational.RecordingStarted&quot;,
-          &quot;eventTime&quot;: &quot;2020-05-12T23:33:10.392Z&quot;,
-          &quot;dataVersion&quot;: &quot;1.0"
+        "applicationProperties": {
+          "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>",
+          "subject": "/graphInstances/Sample-Graph-2/sinks/assetSink",
+          "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
+          "eventTime": "2020-05-12T23:33:10.392Z",
+          "dataVersion": "1.0"
         }
       }
       ```
@@ -227,6 +224,85 @@ subject 属性允许将一般事件映射到其生成模块。 例如，如果 R
 
 ISO8601 字符串中介绍了事件时间，它是事件发生的时间。
 
+### <a name="azure-monitor-collection-using-telegraf"></a>使用 Telegraf 进行 Azure Monitor 收集
+
+这些指标将在 IoT Edge 模块上的实时视频分析中进行报告：  
+
+|标准名称|类型|Label|说明|
+|-----------|----|-----|-----------|
+|lva_active_graph_instances|仪表|iothub、edge_device、module_name、graph_topology|每个拓扑的活动图形总数。|
+|lva_received_bytes_total|计数器|iothub、edge_device、module_name、graph_topology、graph_instance、graph_node|一个节点接收的字节总数。 仅支持用于 RTSP 源|
+|lva_data_dropped_total|计数器|iothub、edge_device、module_name、graph_topology、graph_instance、graph_node、data_kind|任何已删除的数据的计数器（事件、媒体等）|
+
+> [!NOTE]
+> 在容器的端口 9600 上公开了 [Prometheus 终结点](https://prometheus.io/docs/practices/naming/)。 如果你将 IoT Edge 模块上的实时视频分析命名为“lvaEdge”，则它们能够通过向 http://lvaEdge:9600/metrics 发送 GET 请求来访问指标。   
+
+请按照以下步骤，从 IoT Edge 模块上的实时视频分析启用指标收集：
+
+1. 在开发计算机上创建一个文件夹，并导航到该文件夹
+
+1. 在该文件夹中，创建具有以下内容的 `telegraf.toml` 文件
+    ```
+    [agent]
+        interval = "30s"
+        omit_hostname = true
+
+    [[inputs.prometheus]]
+      metric_version = 2
+      urls = ["http://edgeHub:9600/metrics", "http://edgeAgent:9600/metrics", "http://{LVA_EDGE_MODULE_NAME}:9600/metrics"]
+
+    [[outputs.azure_monitor]]
+      namespace_prefix = ""
+      region = "westus"
+      resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
+    ```
+    > [!IMPORTANT]
+    > 确保替换内容文件中的变量（由 `{ }` 标记）
+
+1. 在该文件夹中，创建一个具有以下内容的 `.dockerfile`
+    ```
+        FROM telegraf:1.15.3-alpine
+        COPY telegraf.toml /etc/telegraf/telegraf.conf
+    ```
+
+1. 现在使用 docker CLI 命令生成 docker 文件，并将该映像发布到 Azure 容器注册表。
+    1. 了解如何[推送和拉取 Docker 映像 - Azure 容器注册表](/container-registry/container-registry-get-started-docker-cli)。  可在[此处](/container-registry/)详细了解 Azure 容器注册表 (ACR)。
+
+
+1. 到 ACR 的推送完成后，在部署清单文件中添加以下节点：
+    ```
+    "telegraf": 
+    {
+      "settings": 
+        {
+            "image": "{ACR_LINK_TO_YOUR_TELEGRAF_IMAGE}"
+        },
+      "type": "docker",
+      "version": "1.0",
+      "status": "running",
+      "restartPolicy": "always",
+      "env": 
+        {
+            "AZURE_TENANT_ID": { "value": "{YOUR_TENANT_ID}" },
+            "AZURE_CLIENT_ID": { "value": "{YOUR CLIENT_ID}" },
+            "AZURE_CLIENT_SECRET": { "value": "{YOUR_CLIENT_SECRET}" }
+        }
+    ``` 
+    > [!IMPORTANT]
+    > 确保替换内容文件中的变量（由 `{ }` 标记）
+
+
+1. **身份验证**
+    1. Azure Monitor 可[通过服务主体进行身份验证](https://github.com/influxdata/telegraf/blob/master/plugins/outputs/azure_monitor/README.md#azure-authentication)。
+        1. Azure Monitor Telegraf 插件[公开多种身份验证方法](https://github.com/influxdata/telegraf/blob/master/plugins/outputs/azure_monitor/README.md#azure-authentication)。 以下环境变量必须设置为使用服务主体身份验证。  
+            •   AZURE_TENANT_ID：指定要对其进行身份验证的租户。  
+            •   AZURE_CLIENT_ID：指定要使用的应用客户端 ID。  
+            •   AZURE_CLIENT_SECRET：指定要使用的应用机密。  
+    >[!TIP]
+    > 可为服务主体提供“监视指标发布者”角色。
+
+1. 部署模块后，指标将显示在单个命名空间下的 Azure Monitor 中，其指标名称与 Prometheus 发出的名称匹配。 
+    1. 这样的话，请在 Azure 门户中导航到 IoT 中心，然后单击左侧导航窗格中的“指标”链接。 你应会在那里看到指标。
 ## <a name="logging"></a>日志记录
 
 与其他 IoT Edge 模块一样，你也可以[检查 Edge 设备上的容器日志](../../iot-edge/troubleshoot.md#check-container-logs-for-issues)。 可以通过[以下模块孪生](module-twin-configuration-schema.md)属性来控制写入日志的信息：

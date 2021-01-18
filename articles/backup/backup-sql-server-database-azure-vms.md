@@ -4,14 +4,14 @@ description: 本文介绍如何使用 Azure 备份从恢复服务保管库备份
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 09/11/2019
-ms.date: 11/17/2020
+ms.date: 01/07/2021
 ms.author: v-johya
-ms.openlocfilehash: db64f43d6d49c942a402e48afcaa6a9d6b1bc53b
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 3bf277cfd52135145d1ff96419dcd694cd5b0753
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977395"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023191"
 ---
 # <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>从恢复服务保管库备份多个 SQL Server VM
 
@@ -38,8 +38,9 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 1. 在托管 SQL Server 实例的 VM 所在的区域和订阅中标识或创建一个[恢复服务保管库](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault)。
 1. 验证 VM 是否已建立[网络连接](backup-sql-server-database-azure-vms.md#establish-network-connectivity)。
 1. 确保 SQL Server 数据库遵循 [Azure 备份的数据库命名准则](#database-naming-guidelines-for-azure-backup)。
-1. 对于 Azure 资源管理器 (ARM) VM，请确保 SQL Server VM 名称和资源组名称的组合长度不超过 84 个字符（对于经典 VM，则不超过 77 个字符）。 此限制是因为某些字符由该服务预留。
+1. 对于 Azure 资源管理器 VM，请确保 SQL Server VM 名称和资源组名称的组合长度不超过 84 个字符（对于经典 VM，则不超过 77 个字符）。 此限制是因为某些字符由该服务预留。
 1. 检查是否未为该数据库启用了其他任何备份解决方案。 在备份数据库之前，请禁用其他所有 SQL Server 备份。
+1. 使用 SQL Server 2008 R2 或 SQL Server 2012 时，你可能会遇到备份的时区问题，如[此处](https://support.microsoft.com/help/2697983/kb2697983-fix-an-incorrect-value-is-stored-in-the-time-zone-column-of)所述。 请确保使用最新累积更新，以避免上述与时区相关的问题。 如果将更新应用到 Azure VM 上的 SQL Server 实例不可行，请对虚拟机上的时区禁用夏令时 (DST)。
 
 > [!NOTE]
 > 可以同时针对某个 Azure VM 以及该 VM 上运行的 SQL Server 数据库启用 Azure 备份，这不会发生冲突。
@@ -236,7 +237,7 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 1. 选择“确定”接受设置来进行完整备份。
 1. 选择“差异备份”对应的“编辑”链接以修改默认设置 。
 
-    * 在“差异备份策略”中，选择“启用”打开频率和保留控件。  
+    * 在“差异备份策略”中，选择“启用”打开频率和保留控件。 
     * 每天只能触发一次差异备份。 不能在执行完整备份的同一天触发差异备份。
     * 差异备份最多可以保留 180 天。
     * Master 数据库不支持差异备份。

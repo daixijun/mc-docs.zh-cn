@@ -4,17 +4,17 @@ description: 在 Azure Service Fabric 上创建第一个 Linux 容器应用程�
 ms.topic: conceptual
 origin.date: 01/04/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 01/13/2020
 ms.author: v-yeche
 ms.custom: devx-track-python
-ms.openlocfilehash: 74865fa097660ae099b118bd546c9ade06ea462e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 50126f487b9cf7b6491982fcc62039aea4904abe
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327940"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022901"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 上创建第一个 Service Fabric 容器应用程序
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ ms.locfileid: "94327940"
 
 在 Dockerfile 中指定 Docker 容器。 Dockerfile 包含有关在容器中设置环境、加载要运行的应用程序以及映射端口的说明。 Dockerfile 是 `docker build` 命令的输入，该命令用于创建映像。 
 
-创建一个空目录并创建文件 *Dockerfile* （不带文件扩展名）。 将以下内容添加到 *Dockerfile* 并保存所做的更改：
+创建一个空目录并创建文件 *Dockerfile*（不带文件扩展名）。 将以下内容添加到 *Dockerfile* 并保存所做的更改：
 
 ```
 # Use an official Python runtime as a base image
@@ -69,7 +69,7 @@ CMD ["python", "app.py"]
 有关详细信息，请阅读 [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)（Dockerfile 参考）。
 
 ## <a name="create-a-basic-web-application"></a>创建基本 Web 应用程序
-创建一个侦听端口 80 并返回“Hello World!”的 Flask Web 应用程序。 在同一个目录中，创建文件 *requirements.txt* 。 添加以下内容并保存所做的更改：
+创建一个侦听端口 80 并返回“Hello World!”的 Flask Web 应用程序。 在同一个目录中，创建文件 *requirements.txt*。 添加以下内容并保存所做的更改：
 ```
 Flask
 ```
@@ -90,10 +90,17 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## <a name="build-the-image"></a>生成映像
-运行 `docker build` 命令，创建运行上述 Web 应用程序的映像。 打开 PowerShell 窗口，导航到 *c:\temp\helloworldapp* 。 运行以下命令：
+## <a name="login-to-docker-and-build-the-image"></a>登录到 Docker 并生成映像
 
-```bash
+接下来，我们将创建运行你的 Web 应用程序的映像。 从 Docker（如 Dockerfile 中的 `python:2.7-slim`）拉取公共映像时，最佳做法是使用 Docker Hub 帐户进行身份验证，而不是发出匿名拉取请求。
+
+> [!NOTE]
+> 频繁发出匿名拉取请求时，你可能会看到 Docker 错误，类似于 `ERROR: toomanyrequests: Too Many Requests.` 或 `You have reached your pull rate limit.`。请对 Docker Hub 进行身份验证以避免这些错误。 有关详细信息，请参阅[通过 Azure 容器注册表管理公共内容](../container-registry/buffer-gate-public-content.md)。
+
+打开 PowerShell 窗口并导航到包含 Dockerfile 的目录。 然后运行以下命令：
+
+```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -159,7 +166,7 @@ docker push myregistry.azurecr.cn/samples/helloworldapp
 ```
 
 ## <a name="package-the-docker-image-with-yeoman"></a>使用 Yeoman 打包 Docker 映像
-用于 Linux 的 Service Fabric SDK 包括 [Yeoman](https://yeoman.io/) 生成器，利用它可以轻松地创建第一个服务应用程序和添加容器映像。 让我们使用 Yeoman 创建具有单个 Docker 容器（名为 *SimpleContainerApp* ）的应用程序。
+用于 Linux 的 Service Fabric SDK 包括 [Yeoman](https://yeoman.io/) 生成器，利用它可以轻松地创建第一个服务应用程序和添加容器映像。 让我们使用 Yeoman 创建具有单个 Docker 容器（名为 *SimpleContainerApp*）的应用程序。
 
 若要创建 Service Fabric 容器应用程序，请打开终端窗口并运行 `yo azuresfcontainer`。 
 
@@ -180,7 +187,7 @@ docker push myregistry.azurecr.cn/samples/helloworldapp
 请参阅[容器存储库身份验证](configure-container-repository-credentials.md)，了解如何为容器映像的下载配置不同类型的身份验证。
 
 ## <a name="configure-isolation-mode"></a>配置隔离模式
-使用 6.3 运行时版本时，Linux 容器支持 VM 隔离，从而支持两种容器隔离模式：process 和 Hyper-V。 使用 Hyper-V 隔离模式时，内核将在每个容器与容器主机之间隔离。 使用 [Clear Containers](https://software.intel.com/articles/intel-clear-containers-2-using-clear-containers-with-docker) 实现 Hyper-V 隔离。 在应用程序清单文件中的 `ServicePackageContainerPolicy` 元素内，为 Linux 群集指定了隔离模式。 可以指定的隔离模式为 `process`、`hyperv` 和 `default`。 默认为 process 隔离模式。 以下代码片段演示如何在应用程序清单文件中指定隔离模式。
+使用 6.3 运行时版本时，Linux 容器支持 VM 隔离，从而支持两种容器隔离模式：process 和 Hyper-V。 使用 Hyper-V 隔离模式时，内核将在每个容器与容器主机之间隔离。 使用 [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker) 实现 Hyper-V 隔离。 在应用程序清单文件中的 `ServicePackageContainerPolicy` 元素内，为 Linux 群集指定了隔离模式。 可以指定的隔离模式为 `process`、`hyperv` 和 `default`。 默认为 process 隔离模式。 以下代码片段演示如何在应用程序清单文件中指定隔离模式。
 
 ```xml
 <ServiceManifestImport>
@@ -208,7 +215,7 @@ docker push myregistry.azurecr.cn/samples/helloworldapp
 
 ## <a name="configure-docker-healthcheck"></a>配置 docker HEALTHCHECK 
 
-从 v6.1 开始，Service Fabric 自动将 [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 事件集成到其系统运行状况报告。 这意味着，如果容器启用了 **HEALTHCHECK** ，则只要容器的运行状况状态如 Docker 所报告的那样更改，Service Fabric 就会报告运行状况。 当 *health_status* 为“正常”时，会在 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中显示运行状况报告“正常”；当 *health_status* 为“不正常”时，会显示“警告”。 
+从 v6.1 开始，Service Fabric 自动将 [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 事件集成到其系统运行状况报告。 这意味着，如果容器启用了 **HEALTHCHECK**，则只要容器的运行状况状态如 Docker 所报告的那样更改，Service Fabric 就会报告运行状况。 当 *health_status* 为“正常”时，会在 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中显示运行状况报告“正常”；当 *health_status* 为“不正常”时，会显示“警告”。 
 
 从 v6.4 的最新更新版开始，可以选择指定应将 Docker HEALTHCHECK 评估报告为错误。 如果此选项已启用，当 *health_status* 为“正常”时，将显示“正常”运行状况报告；当 *health_status* 为“不正常”时，将显示“错误”运行状况报告。
 
@@ -234,13 +241,13 @@ docker push myregistry.azurecr.cn/samples/helloworldapp
     </Policies>
 </ServiceManifestImport>
 ```
-默认情况下， *IncludeDockerHealthStatusInSystemHealthReport* 设置为 **true** ， *RestartContainerOnUnhealthyDockerHealthStatus* 设置为 **false** ，而 *TreatContainerUnhealthyStatusAsError* 设置为 **false** 。 
+默认情况下，*IncludeDockerHealthStatusInSystemHealthReport* 设置为 **true**，*RestartContainerOnUnhealthyDockerHealthStatus* 设置为 **false**，而 *TreatContainerUnhealthyStatusAsError* 设置为 **false**。 
 
-如果 *RestartContainerOnUnhealthyDockerHealthStatus* 设置为 **true** ，则会重启（可能在其他节点上进行）反复报告“不正常”的容器。
+如果 *RestartContainerOnUnhealthyDockerHealthStatus* 设置为 **true**，则会重启（可能在其他节点上进行）反复报告“不正常”的容器。
 
-如果 *TreatContainerUnhealthyStatusAsError* 设置为 **true** ，当容器的 *health_status* 为“运行不正常”时，将显示“错误”运行状况报告。
+如果 *TreatContainerUnhealthyStatusAsError* 设置为 **true**，当容器的 *health_status* 为“运行不正常”时，将显示“错误”运行状况报告。
 
-若要禁用整个 Service Fabric 群集的 **HEALTHCHECK** 集成，则需将 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) 设置为 **false** 。
+若要禁用整个 Service Fabric 群集的 **HEALTHCHECK** 集成，则需将 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) 设置为 **false**。
 
 ## <a name="deploy-the-application"></a>部署应用程序
 生成应用程序后，可以使用 Service Fabric CLI 将其部署到本地群集。
@@ -407,7 +414,7 @@ docker rmi myregistry.azurecr.cn/samples/helloworldapp
       },
       {
             "name": "ContainerImagesToSkip",
-            "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+            "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
       }
       ...
       }

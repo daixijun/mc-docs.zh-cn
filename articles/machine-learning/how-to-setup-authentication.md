@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 002e938299aa5e2339facd52622d7bceefb14afb
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
+ms.openlocfilehash: 591eaa3f636affa692822f67e063cbf275eb0401
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978255"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023329"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>为 Azure 机器学习资源和工作流设置身份验证
 
@@ -54,7 +54,7 @@ ms.locfileid: "94978255"
 >
 > 授予最低访问权限的原因是服务主体使用密码进行身份验证，并且该密码可以存储为自动化脚本的一部分。 如果密码泄漏，由于用户仅拥有执行特定任务所需的最低访问权限，因此可最大程度地减少对 SP 的恶意使用。
 
-创建 SP 并向其授予对工作区的访问权限的最简单方法是使用 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)。 若要创建服务主体并向其授予对工作区的访问权限，请执行以下步骤：
+创建 SP 并向其授予对工作区的访问权限的最简单方法是使用 [Azure CLI](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)。 若要创建服务主体并向其授予对工作区的访问权限，请执行以下步骤：
 
 > [!NOTE]
 > 你必须是订阅的管理员才能执行所有这些步骤。
@@ -67,9 +67,9 @@ ms.locfileid: "94978255"
 
     如果 CLI 可以打开默认的浏览器，则它会打开该浏览器并加载登录页。 否则，需要打开浏览器并按照命令行中的说明操作。 按说明操作时，需要浏览到 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 并输入授权代码。
 
-    如果你拥有多个 Azure 订阅，可使用 `az account set -s <subscription name or ID>` 命令设置订阅。 有关详细信息，请参阅[使用多个 Azure 订阅](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。
+    如果你拥有多个 Azure 订阅，可使用 `az account set -s <subscription name or ID>` 命令设置订阅。 有关详细信息，请参阅[使用多个 Azure 订阅](/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。
 
-    有关其他身份验证方法，请参阅[使用 Azure CLI 登录](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest)。
+    有关其他身份验证方法，请参阅[使用 Azure CLI 登录](/cli/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest)。
 
 1. 安装 Azure 机器学习扩展：
 
@@ -184,7 +184,7 @@ ms.locfileid: "94978255"
 > interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
 > ```
 
-使用 Azure CLI 时，可使用 `az login` 命令对 CLI 会话进行身份验证。 有关详细信息，请参阅 [Azure CLI 入门](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。
+使用 Azure CLI 时，可使用 `az login` 命令对 CLI 会话进行身份验证。 有关详细信息，请参阅 [Azure CLI 入门](/cli/get-started-with-azure-cli)。
 
 > [!TIP]
 > 如果你从之前使用 Azure CLI 以交互方式进行身份验证的环境中使用 SDK，则可通过 CLI 缓存的凭据使用 `AzureCliAuthentication` 类对工作区进行身份验证：
@@ -236,7 +236,7 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>从 Azure CLI 中使用服务主体
 
-可以将服务主体用于 Azure CLI 命令。 有关详细信息，请参阅[使用服务主体登录](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal)。
+可以将服务主体用于 Azure CLI 命令。 有关详细信息，请参阅[使用服务主体登录](/cli/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal)。
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>将服务主体用于 REST API（预览版）
 

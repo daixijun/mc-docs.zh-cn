@@ -13,14 +13,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/17/2019
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.author: v-jay
-ms.openlocfilehash: 436ea5c3ce903a00174e7216694e6ff22f649b22
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 4e37558beeec12bb188bd5f4b6f5aaad7085cf56
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104693"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023306"
 ---
 # <a name="load-balancer-health-probes"></a>负载均衡器运行状况探测
 
@@ -265,5 +265,7 @@ AzureLoadBalancer 服务标记在[网络安全组](../virtual-network/network-se
 - 详细了解[标准负载均衡器](./load-balancer-overview.md)
 - [使用 PowerShell 在资源管理器中开始创建公共负载均衡器](quickstart-load-balancer-standard-public-powershell.md)
 - [运行状况探测的 REST API](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
+
+<!-- Request new health probe abilities with [Load Balancer's Uservoice](https://aka.ms/lbuservoice)-->
 
 <!--[Load Balancer's Uservoice](https://aka.ms/lbuservoice)-->

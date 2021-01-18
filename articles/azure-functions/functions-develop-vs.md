@@ -3,13 +3,13 @@ title: 使用 Visual Studio 开发 Azure Functions
 description: 了解如何使用用于 Visual Studio 2019 的 Azure Functions 工具开发和测试 Azure Functions。
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: 4676cab4fa8f13aefcec5e9a3c6264ea4a8c49cc
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.date: 01/04/2021
+ms.openlocfilehash: 0f1bd2962028583c3d3f9b64fef5f31f2696024e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508571"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021475"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 开发 Azure Functions  
 
@@ -85,6 +85,18 @@ Visual Studio 在开发函数时具有以下优势：
 当你发布项目时，Visual Studio 不会自动上传 local.settings.json 中的设置。 为了确保这些设置也存在于 Azure 的函数应用中，请在发布项目之后上传它们。 有关详细信息，请参阅[函数应用设置](#function-app-settings)。 永远不会发布 `ConnectionStrings` 集合中的值。
 
 还可以在代码中将函数应用设置值读取为环境变量。 有关详细信息，请参阅[环境变量](functions-dotnet-class-library.md#environment-variables)。
+
+## <a name="configure-your-build-output-settings"></a>配置生成输出设置
+
+生成 Azure Functions 项目时，生成工具会优化输出，以便只保留与函数运行时共享的任何程序集的一个副本。 结果可实现经过优化的生成，可最大程度地节省空间。 但是，当你转向任何项目程序集的较新版本时，生成工具可能不知道必须保留这些程序集。 若要确保在优化过程中保留这些程序集，可以使用项目 (.csproj) 文件中的 `FunctionsPreservedDependencies` 元素指定它们：
+
+```xml
+  <ItemGroup>
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Extensions.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Features.dll" />
+  </ItemGroup>
+```
 
 ## <a name="configure-the-project-for-local-development"></a>为本地开发配置项目
 

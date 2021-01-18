@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/26/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: 8a6e01e29d7033a026fbfd57ae1b8ee54da1fdab
-ms.sourcegitcommit: ca5e5792f3c60aab406b7ddbd6f6fccc4280c57e
+ms.custom: has-adal-ref, devx-track-azurecli
+ms.openlocfilehash: 65b39011a70b64d3d791e27c5e47751fee041f32
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92750218"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021739"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 资源托管标识的 FAQ 和已知问题
 
@@ -78,13 +78,53 @@ az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  princi
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>是否可以使用托管标识来访问不同目录/租户中的资源？
 
-不是。 托管标识当前不支持跨目录方案。 
+否。 托管标识当前不支持跨目录方案。 
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>在资源上进行标识托管需要什么 Azure RBAC 权限？ 
 
 - 系统分配的托管标识：需要针对资源的写入权限。 例如，对于虚拟机，你需要 Microsoft.Compute/virtualMachines/write 权限。 此操作包含在特定于资源的内置角色（如[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)）中。
 - 用户分配的托管标识：需要对资源的写入权限。 例如，对于虚拟机，你需要 Microsoft.Compute/virtualMachines/write 权限。 除了针对托管标识分配的[托管标识操作员](../../role-based-access-control/built-in-roles.md#managed-identity-operator)角色外。
 
+### <a name="how-do-i-prevent-the-creation-of-user-assigned-managed-identities"></a>如何阻止创建用户分配的托管标识？
+
+可以使用 [Azure Policy](../../governance/policy/overview.md) 来阻止用户创建用户分配的托管标识
+
+- 导航到 [Azure 门户](https://portal.azure.cn)，然后转到“策略”。
+- 选择“定义”
+- 选择“+ 策略定义”并输入必要的信息。
+- 在策略规则部分，粘贴
+
+```json
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "field": "type",
+      "equals": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}
+
+```
+
+创建策略后，将其分配给你想要使用的资源组。
+
+- 导航到资源组。
+- 查找要用于测试的资源组。
+- 从左侧菜单中选择“策略”。
+- 选择“分配策略”
+- 在“基本信息”部分中，提供：
+    - 范围：用于测试的资源组
+    - 策略定义：之前创建的策略。
+- 将所有其他设置保留为默认设置，然后选择“查看 + 创建”
+
+此时，在资源组中创建用户分配的托管标识的任何尝试都将失败。
+
+  ![策略冲突](./media/known-issues/policy-violation.png)
 
 ## <a name="known-issues"></a>已知问题
 

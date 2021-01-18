@@ -11,22 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-origin.date: 08/31/2020
-ms.date: 09/28/2020
+origin.date: 12/01/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cdbaadb0edb4ddf761a97a4ba823499fc74bb7c2
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 40765762a18ee1e6f922e547fde9713cf8574a79
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244985"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023075"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-net"></a>如何使用编码器标准版通过 .NET 来生成缩略图
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-可以使用 Media Encoder Standard 以 [JPEG](https://en.wikipedia.org/wiki/JPEG)、[PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) 或 [BMP](https://en.wikipedia.org/wiki/BMP_file_format) 图像文件格式从输入视频生成一个或多个缩略图。
+可以使用 Media Encoder Standard 以 [JPEG](https://en.wikipedia.org/wiki/JPEG) 或 [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) 图像文件格式从输入视频生成一个或多个缩略图。
 
 ## <a name="recommended-reading-and-practice"></a>推荐阅读内容及演练
 

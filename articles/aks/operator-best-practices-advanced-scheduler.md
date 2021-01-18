@@ -6,16 +6,16 @@ services: container-service
 ms.topic: conceptual
 origin.date: 11/26/2018
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: e2203b96dbbbc26192c89d371ee81a70a058d97f
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 08d2fa20be8e27387071e8ca9d2c249326b8c4e4
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024522"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021238"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的高级计划程序功能的最佳做法
 
@@ -138,7 +138,7 @@ spec:
 
 ### <a name="node-affinity"></a>节点关联
 
-节点选择器是将 pod 分配到给定节点的基本方法。 使用节点关联可以获得更高的灵活性。 使用节点关联可以定义当 pod 无法与节点匹配时发生的情况。 可以要求 Kubernetes 计划程序与包含标记主机的 pod 相匹配。 或者，可以优先选择匹配，但如果不匹配，则允许在其他主机上计划 pod。
+节点选择器是将 pod 分配到给定节点的基本方法。 使用节点关联可以获得更高的灵活性。 使用节点关联可以定义当 pod 无法与节点匹配时发生的情况。 可以要求 Kubernetes 计划程序与包含标记主机的 pod 相匹配。 你也可以优先选择匹配，如果没有可用匹配，则允许在其他主机上计划 pod。
 
 以下示例将节点关联设置为 *requiredDuringSchedulingIgnoredDuringExecution*。 这种关联要求 Kubernetes 计划使用具有匹配标签的节点。 如果没有可用的节点，则 pod 必须等待计划继续。 若要允许在其他节点上计划 pod，可改为将值设置为 preferredDuringSchedulingIgnoreDuringExecution：
 

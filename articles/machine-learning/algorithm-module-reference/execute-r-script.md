@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: v-yiso
 ms.date: 07/27/2020
-ms.openlocfilehash: 2cb6bcf92dcfda6c2905874974ef345cadc6b6c6
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: cc93578cdc83a67ab1e8d583a326cf0bf3d91319
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977563"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022631"
 ---
 # <a name="execute-r-script-module"></a>“执行 R 脚本”模块
 
@@ -51,6 +51,9 @@ azureml_main <- function(dataframe1, dataframe2){
 > [!NOTE]
 > 在安装包时，请指定 CRAN 存储库，例如 `install.packages("zoo",repos = "http://cran.us.r-project.org")`。
 
+> [!WARNING]
+> “执行 R 脚本”模块不支持安装需要本机编译的包，例如，`qdap` 包需要 JAVA，`drc` 包需要 C++。 这是因为，此模块是在具有非管理员权限的预安装环境中执行的。
+
 此示例演示如何安装 Zoo：
 ```R
 # R version: 3.5.1
@@ -78,25 +81,27 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
  > 安装包之前，请检查它是否已经存在，以避免重复安装。 重复安装可能会导致 Web 服务请求超时。     
 
+## <a name="access-to-registered-dataset"></a>访问已注册的数据集
+
+可以参阅以下示例代码，在工作区中访问[已注册的数据集](../how-to-create-register-datasets.md)：
+
+```R
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="uploading-files"></a>上传文件
 “执行 R 脚本”模块支持通过使用 Azure 机器学习 R SDK 上传文件。
 
 以下示例演示了如何在“执行 R 脚本”中上传图像文件：
 ```R
-
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main,
-# which is the entry point for this module.
-
-# Note that functions dependent on the X11 library,
-# such as "View," are not supported because the X11 library
-# is not preinstalled.
-
-# The entry point function MUST have two input arguments.
-# If the input port is not connected, the corresponding
-# dataframe argument will be null.
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
 
@@ -118,22 +123,6 @@ azureml_main <- function(dataframe1, dataframe2){
 
 > [!div class="mx-imgBorder"]
 > ![预览上传的图像](media/module/upload-image-in-r-script.png)
-
-## <a name="access-to-registered-dataset"></a>访问已注册的数据集
-
-可以参阅以下示例代码，在工作区中[访问已注册的数据集](/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script)：
-
-```R
-  azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-  run = get_current_run()
-  ws = run$experiment$workspace
-  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
-  dataframe2 <- dataset$to_pandas_dataframe()
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
 
 ## <a name="how-to-configure-execute-r-script"></a>如何配置“执行 R 脚本”
 

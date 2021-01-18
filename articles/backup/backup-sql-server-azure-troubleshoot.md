@@ -4,14 +4,14 @@ description: 有关使用 Azure 备份来备份在 Azure VM 上运行的 SQL Ser
 ms.topic: troubleshooting
 author: Johnnytechn
 origin.date: 06/18/2019
-ms.date: 09/28/2020
+ms.date: 01/07/2021
 ms.author: v-johya
-ms.openlocfilehash: ecd254192704011afe03e6c88c491305609a21a7
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: 9b1e82a708b7509aa65f9cbdb928d32c91a27a8b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871446"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023180"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>排查使用 Azure 备份进行 SQL Server 数据库备份的问题
 
@@ -59,13 +59,47 @@ ms.locfileid: "91871446"
 
 1. SQL 还提供了一些有关使用防病毒程序的指南。 有关详细信息，请参阅[此文](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server)。
 
+## <a name="faulty-instance-in-a-vm-with-multiple-sql-server-instances"></a>具有多个 SQL Server 实例的 VM 中的故障实例
+
+仅当在 VM 内运行的所有 SQL 实例都报告为正常时，才能还原到 SQL VM。 如果一个或多个实例“出现故障”，则 VM 不会显示为还原目标。 这可能是在还原操作期间多实例 VM 可能不会显示在“服务器”下拉列表中的一个原因。
+
+可以在“配置备份”下验证 VM 中所有 SQL 实例的“备份就绪情况”：
+
+![验证备份就绪情况](./media/backup-sql-server-azure-troubleshoot/backup-readiness.png)
+
+如果要在正常运行的 SQL 实例上触发还原操作，请执行以下步骤：
+
+1. 登录到 SQL VM，并转到 `C:\Program Files\Azure Workload Backup\bin`。
+1. 创建名为 `ExtensionSettingsOverrides.json` 的 JSON 文件（如果它尚不存在）。 如果此文件已存在于 VM 中，请继续使用它。
+1. 在 JSON 文件中添加以下内容，并保存该文件：
+
+    ```json
+    {
+                  "<ExistingKey1>":"<ExistingValue1>",
+                    …………………………………………………… ,
+              "whitelistedInstancesForInquiry": "FaultyInstance_1,FaultyInstance_2"
+            }
+            
+            Sample content:        
+            { 
+              "whitelistedInstancesForInquiry": "CRPPA,CRPPB "
+            }
+
+    ```
+
+1. 在 Azure 门户中受影响的服务器上（可以看到备份就绪情况的同一位置）触发“重新发现 DB”操作。 VM 将作为还原操作的目标出现。
+
+    ![重新发现 DB](./media/backup-sql-server-azure-troubleshoot/rediscover-dbs.png)
+
+1. 还原操作完成后，从 ExtensionSettingsOverrides.json 文件中删除 whitelistedInstancesForInquiry 条目。
+
 ## <a name="error-messages"></a>错误消息
 
 ### <a name="backup-type-unsupported"></a>不受支持的备份类型
 
 | severity | 说明 | 可能的原因 | 建议的操作 |
 |---|---|---|---|
-| 警告 | 此数据库的当前设置不支持关联策略中的特定备份类型。 | <li>只能对 master 数据库执行完整数据库备份操作。 不可能执行差异备份和事务日志备份。 </li> <li>简单恢复模式中的任何数据库都不允许进行事务日志备份。</li> | 将数据库设置 sp 修改为支持策略中的所有备份类型。 或者，将当前策略更改为只包含受支持的备份类型。 否则，在计划备份期间将跳过不受支持的备份类型，或者按需备份的备份作业将失败。
+| 警告 | 此数据库的当前设置不支持关联策略中的特定备份类型。 | <li>只能对 master 数据库执行完整数据库备份操作。 不可能执行差异备份和事务日志备份。 </li> <li>简单恢复模式中的任何数据库都不允许进行事务日志备份。</li> | 修改数据库设置，以支持策略中的所有备份类型。 或者，将当前策略更改为只包含受支持的备份类型。 否则，在计划备份期间将跳过不受支持的备份类型，或者按需备份的备份作业将失败。
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -157,7 +191,7 @@ ms.locfileid: "91871446"
 
 | 错误消息 | 可能的原因 | 建议的操作 |
 |---|---|---|
-| 自动保护意向被删除或不再有效。 | 在 SQL Server 实例上启用自动保护时，将为该实例中的所有数据库运行“配置备份”作业。 如果在作业运行时禁用自动保护，则会使用此错误代码取消**正在进行的**作业。 | 重新启用自动保护可帮助保护所有剩余的数据库。 |
+| 自动保护意向被删除或不再有效。 | 在 SQL Server 实例上启用自动保护时，将为该实例中的所有数据库运行“配置备份”作业。 如果在作业运行时禁用自动保护，则会使用此错误代码取消 **正在进行的** 作业。 | 重新启用自动保护可帮助保护所有剩余的数据库。 |
 
 ### <a name="clouddosabsolutelimitreached"></a>CloudDosAbsoluteLimitReached
 

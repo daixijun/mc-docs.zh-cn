@@ -2,14 +2,14 @@
 title: 处理 Durable Functions 中的错误 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 扩展中处理错误。
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: 53a658936dad2d94c166291557a6a64b0b9eef63
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 0a5c72564e78e1424e31d71360b53556abcb0c8c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223319"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023111"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>处理 Durable Functions 中的错误 (Azure Functions)
 
@@ -152,7 +152,11 @@ module.exports = df.orchestrator(function*(context) {
 * **回退系数**：用来确定回退增加速率的系数。 默认值为 1。
 * **最大重试间隔**：尝试重试之间需要等待的最长时间。
 * **重试超时**：执行重试所花费的最长时间。 默认行为是可无限期重试。
-* **处理**：可以指定用户定义的回叫来确定是否应该重试函数。
+* **处理**：可以指定用户定义的回叫来确定是否应该重试函数。 
+
+> [!NOTE]
+> JavaScript 中的 Durable Functions 当前不支持用户定义的回叫 (`context.df.RetryOptions`)。
+
 
 ## <a name="function-timeouts"></a>函数超时
 

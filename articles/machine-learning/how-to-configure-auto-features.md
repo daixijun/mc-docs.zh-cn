@@ -1,7 +1,7 @@
 ---
-title: AutoML 试验中的特征化
+title: 使用自动化机器学习进行特征化
 titleSuffix: Azure Machine Learning
-description: 了解 Azure 机器学习提供哪些特征化设置以及自动化机器学习试验如何支持特征工程。
+description: 了解 Azure 机器学习中的数据特征化设置，以及如何为自动化 ML 试验自定义这些特征。
 author: nibaccam
 ms.author: nibaccam
 ms.reviewer: nibaccam
@@ -9,23 +9,22 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
-ms.date: 05/28/2020
-ms.openlocfilehash: 45232915eeabc9acaf712bba78d04b19f0d197e3
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.custom: how-to,automl,contperf-fy21q2
+ms.date: 12/18/2020
+ms.openlocfilehash: c833654b8f32376e44769cf453272ea8ac8bd3de
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977506"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021991"
 ---
-# <a name="featurization-in-automated-machine-learning"></a>自动化机器学习中的特征化
+# <a name="data-featurization-in-automated-machine-learning"></a>自动化机器学习中的数据特征化
 
 
 
-本指南中介绍：
+了解 Azure 机器学习中的数据特征化设置，以及如何为[自动化 ML 试验](concept-automated-ml.md)自定义这些特征。
 
-- Azure 机器学习提供了哪些特征化设置。
-- 如何为[自动化机器学习试验](concept-automated-ml.md)自定义这些功能。
+## <a name="feature-engineering-and-featurization"></a>特征工程和特征化
 
 “特征工程”是使用数据领域知识创建特征的过程，这些特征有助于机器学习 (ML) 算法提高学习效果。 在 Azure 机器学习中，应用了数据缩放和规范化技术来简化特征工程。 这些技术和此特征工程在自动化机器学习 (AutoML) 试验中统称为特征化。 
 
@@ -38,7 +37,7 @@ ms.locfileid: "94977506"
 
 ## <a name="configure-featurization"></a>配置特征化
 
-在每一个自动化机器学习试验中，默认情况下都会将[自动缩放和规范化技术](#featurization)应用于数据。 这些技术是特征化的类型，用于帮助对不同规模数据的特征敏感的某些算法。 不过，你还可以启用其他特征化，例如缺失值插补、编码和转换  。
+在每一个自动化机器学习试验中，默认情况下都会将[自动缩放和规范化技术](#featurization)应用于数据。 这些技术是特征化的类型，用于帮助对不同规模数据的特征敏感的某些算法。 可以启用更多特征化，例如缺失值插补、编码和转换  。
 
 > [!NOTE]
 > 自动化机器学习特征化步骤（例如特征规范化、处理缺失数据，或将文本转换为数字）成为了基础模型的一部分。 使用模型进行预测时，将自动向输入数据应用在训练期间应用的相同特征化步骤。
@@ -66,7 +65,7 @@ ms.locfileid: "94977506"
 | ------------- | ------------- |
 |删除高基数或者无差异的特征 |从训练集和验证集中删除这些特征。 适用于所有值都缺失的特征、所有行使用同一值的特征，或者包含高基数（例如哈希、ID 或 GUID）的特征。|
 |插补缺少的值* |对于数字特征，将在列中插补平均值。<br/><br/>对于分类特征，将插补最常用值。|
-|生成其他特征* |对于日期时间特征：年、月、日、星期、年日期、季、年周、小时、分钟、秒。<br><br> 对于预测任务，将创建以下附加的日期/时间特征：ISO 年份、半年、字符串形式的日历月份、周、字符串形式的周几、一季中的日期、一年中的日期、AM/PM（如果是中午 (12 pm) 之前的时间，则此项为 0，否则为 1）、字符串形式的 AM/PM、一天中的小时（12 小时制）<br/><br/>对于文本特征：基于单元语法、双元语法和三元语法的字词频率。 详细了解[如何通过 BERT 执行此操作](#bert-integration)。|
+|_*生成更多特征**_ |对于日期时间特征：年、月、日、星期、年日期、季、年周、小时、分钟、秒。<br><br> 对于预测任务，将创建以下附加的日期/时间特征：ISO 年份、半年、字符串形式的日历月份、周、字符串形式的周几、一季中的日期、一年中的日期、AM/PM（如果是中午 (12 pm) 之前的时间，则此项为 0，否则为 1）、字符串形式的 AM/PM、一天中的小时（12 小时制）<br/><br/>对于文本特征：基于单元语法、双元语法和三元语法的字词频率。 详细了解[如何通过 BERT 执行此操作](#bert-integration)。|
 |转换和编码|将唯一值较少的数字特征转换为分类特征。<br/><br/>将为低基数分类特征使用 One-hot 编码。 将为高基数分类特征使用 One-hot-hash 编码。|
 |单词嵌入*|文本特征化器使用预先训练的模型将文本标记的矢量转换为句子矢量。 每个单词在文档中的嵌入矢量与其余矢量聚合在一起，以生成文档特征矢量。|
 |目标编码|对于分类特征，此步骤将每个类别映射到回归问题的平均目标值，并映射到分类问题的每个类的类概率。 应用基于频率的加权和 k 折交叉验证，以减少稀疏数据类别导致的映射过度拟合与干扰。|
@@ -303,16 +302,18 @@ class_prob = fitted_model.predict_proba(X_test)
 
 如果基础模型不支持 `predict_proba()` 函数或者格式不正确，则会引发特定于模型类的异常。\ 有关如何针对不同的模型类型实现此函数的示例，请参阅 [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) 和 [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) 参考文档。
 
-## <a name="bert-integration"></a>BERT 集成
+<a name="bert-integration"></a>
+
+## <a name="bert-integration-in-automated-ml"></a>自动化 ML 中的 BERT 集成
 
 [BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) 在 AutoML 的特征化层中使用。 在此层中，如果列包含自由文本或其他类型的数据（例如时间戳或简单编号），则会相应地应用特征化。
 
 对于 BERT，已利用用户提供的标签对该模型进行了微调和训练。 在这里，文档嵌入会作为特征随其他特征（例如基于时间戳的特征、周中的某一天）一起输出。 
 
 
-### <a name="bert-steps"></a>BERT 步骤
+### <a name="steps-to-invoke-bert"></a>调用 BERT 的步骤
 
-若要调用 BERT，必须在 automl_settings 中设置 `enable_dnn: True`，并使用 GPU 计算（例如 `vm_size = "STANDARD_NC6"` 或性能更高的 GPU）。 如果使用 CPU 计算，则 AutoML 会启用 BiLSTM DNN 特征化器，而非启用 BERT。
+若要调用 BERT，请在 automl_settings 中设置 `enable_dnn: True`，并使用 GPU 计算（`vm_size = "STANDARD_NC6"` 或性能更高的 GPU）。 如果使用 CPU 计算，则 AutoML 会启用 BiLSTM DNN 特征化器，而非启用 BERT。
 
 AutoML 会为 BERT 执行以下步骤。 
 
@@ -327,7 +328,8 @@ AutoML 会为 BERT 执行以下步骤。
 BERT 的运行时间通常比其他的特征化器更长。 为了提高性能，我们建议使用“STANDARD_NC24r”或“STANDARD_NC24rs_V3”以提供其 RDMA 功能。 
 
 如果有多个节点可用（最多可以使用 8 个节点），则 AutoML 会在多个节点之间分配 BERT 训练。 可以通过将 `max_concurrent_iterations` 参数设置为大于 1，在 `AutoMLConfig` 对象中完成此操作。 
-### <a name="supported-languages"></a>支持的语言
+
+## <a name="supported-languages-for-bert-in-automl"></a>autoML 中 BERT 支持的语言 
 
 AutoML 目前支持大约 100 种语言，它根据数据集的语言选择合适的 BERT 模型。 对于德语数据，我们使用德语 BERT 模型。 对于英语，我们使用英语 BERT 模型。 对于所有其他语言，我们使用多语言 BERT 模型。
 

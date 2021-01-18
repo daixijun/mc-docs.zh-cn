@@ -8,18 +8,18 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 03/18/2019
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ec5230ed7e074feeb879384cdb0bc2da4ea2d388
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 500b6692d4de37241613fc3a54262cf0c80ff991
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153097"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022555"
 ---
-# <a name="indexing-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中使用专用 SQL 池为表编制索引
+# <a name="indexing-dedicated-sql-pool-tables-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中为专用 SQL 池表编制索引
 
 有关在专用 SQL 池中为表编制索引的建议和示例。
 

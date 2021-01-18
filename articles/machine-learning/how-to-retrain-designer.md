@@ -1,7 +1,7 @@
 ---
-title: 使用 Azure 机器学习设计器（预览版）重新训练模型
+title: 在设计器中使用管道参数重新训练模型
 titleSuffix: Azure Machine Learning
-description: 了解如何在 Azure 机器学习设计器（预览版）中通过已发布的管道重新训练模型。
+description: 使用 Azure 机器学习设计器中发布的管道和管道参数重新训练模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 3c1113f0dcd10798dc24225c98f0321f05dc5a70
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 3b47ae694027fa6a2ccaf839a398ef682a9f68e1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118251"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021800"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>使用 Azure 机器学习设计器重新训练模型
+# <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>在设计器中使用管道参数重新训练模型
 
 
-本操作说明文章介绍了如何使用 Azure 机器学习设计器重新训练机器学习模型。 你将使用已发布的管道自动执行工作流，并设置参数以使用新数据训练模型。 
+本操作方法文章介绍如何使用 Azure 机器学习设计器通过管道参数重新训练机器学习模型。 你将使用已发布的管道自动执行工作流，并设置参数以使用新数据训练模型。 通过管道参数可以为不同作业重复使用现有管道。  
 
 在本文中，学习如何：
 
@@ -47,7 +47,11 @@ ms.locfileid: "92118251"
 
 ## <a name="create-a-pipeline-parameter"></a>创建管道参数
 
-创建管道参数，以在运行时动态设置变量。 此例将训练数据路径从固定值更改为参数，这样便可以使用不同的数据重新训练模型。
+管道参数用于生成可在以后使用不同参数值重新提交的通用管道。 一些常见应用场景包括更新数据集或某些超参数以供重新训练。 创建管道参数，以在运行时动态设置变量。 
+
+管道参数可以添加到管道中的数据源或模块参数中。 重新提交管道时，可以指定这些参数的值。
+
+此例将训练数据路径从固定值更改为参数，这样便可以使用不同的数据重新训练模型。 还可以根据用例将其他模块参数添加为管道参数。
 
 1. 选择“导入数据”模块。
 
@@ -60,31 +64,22 @@ ms.locfileid: "92118251"
 
 1. 将鼠标悬停在“路径”字段，然后选择显示的“路径”字段上方的省略号 。
 
-    ![屏幕截图显示了如何创建管道参数](media/how-to-retrain-designer/add-pipeline-parameter.png)
-
 1. 选择“添加到管道参数”。
 
 1. 提供参数名称和默认值。
 
-   > [!NOTE]
-   > 你可以选择管道草稿标题旁边的“设置”齿轮图标来检查和编辑管道参数。 
+   ![屏幕截图显示了如何创建管道参数](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
-1. 选择“保存”。
+1. 选择“保存” 。
+
+   > [!NOTE]
+   > 还可以在模块详细信息窗格中从管道参数分离模块参数，类似于添加管道参数。
+   >
+   > 你可以选择管道草稿标题旁边的“设置”齿轮图标来检查和编辑管道参数。 
+   >    - 分离后，可在“设置”窗格中删除管道参数。
+   >    - 还可以在“设置”窗格中添加管道参数，然后将其应用于一些模块参数。
 
 1. 提交管道运行。
-
-## <a name="find-a-trained-model"></a>查找定型的模型
-
-设计器会将所有管道输出（包括定型的模型）保存到默认工作区存储帐户。 你也可以直接在设计器中访问定型的模型：
-
-1. 等待管道完成运行。
-1. 选择 **训练模型** 模块。
-1. 在画布右侧的模块详细信息窗格中，选择“输出 + 日志”。
-1. 在“其他输出”中可以找到模型以及运行日志。
-1. 或者，也可选择“查看输出”图标。 在这里，可以按照对话框中的说明直接导航到数据存储。 
-
-> [!div class="mx-imgBorder"]
-> ![屏幕截图显示了如何下载定型的模型](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>发布训练管道
 

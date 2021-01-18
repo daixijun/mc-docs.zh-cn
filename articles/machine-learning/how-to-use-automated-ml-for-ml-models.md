@@ -11,12 +11,12 @@ author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: 97bb5af31f4a3c271a99509405c6ef71f685e49c
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 235ff804175567354ba87f02a14d8ee624835574
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104567"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023326"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>使用 Azure 机器学习创建、查看和部署自动化机器学习模型
 
@@ -31,7 +31,7 @@ ms.locfileid: "97104567"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用 [Azure 机器学习的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * Azure 机器学习工作区。 请参阅[创建 Azure 机器学习工作区](how-to-manage-workspace.md)。 
 
@@ -170,7 +170,7 @@ ms.locfileid: "97104567"
 
 “模型”选项卡包含按指标评分排序的已创建模型列表。 默认情况下，列表中首先显示评分最高的模型（评分根据所选指标给出）。 随着训练作业尝试更多模型，它们会添加到列表中。 使用此项可以快速比较目前为止生成的模型的指标。
 
-[![运行详细信息仪表板](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
+![运行详细信息](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
 ### <a name="view-training-run-details"></a>查看训练运行详细信息
 
@@ -214,10 +214,10 @@ ms.locfileid: "97104567"
 1. 选择“部署”。 完成部署可能需要大约 20 分钟。
     部署开始后，将显示“模型摘要”选项卡。 在“部署状态”部分下查看部署进度。 
 
-现在，你已获得一个正常运行的、可以生成预测结果的 Web 服务！ 可以通过 [Power BI 内置的 Azure 机器学习支持](how-to-consume-web-service.md#consume-the-service-from-power-bi)查询该服务，以测试预测。
+现在，你已获得一个正常运行的、可以生成预测结果的 Web 服务！ 可以通过 [Power BI 内置的 Azure 机器学习支持](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)查询该服务，以测试预测。
 
 ## <a name="next-steps"></a>后续步骤
 
-* [了解如何使用 Web 服务](./how-to-consume-web-service.md)。
+* [了解如何使用 Web 服务](how-to-consume-web-service.md)。
 * [了解自动化机器学习结果](how-to-understand-automated-ml.md)。
 * [详细了解自动化机器学习](concept-automated-ml.md)和 Azure 机器学习。

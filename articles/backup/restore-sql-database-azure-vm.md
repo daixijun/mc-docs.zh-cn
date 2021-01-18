@@ -4,14 +4,14 @@ description: 本文介绍如何还原 Azure VM 上运行的、使用 Azure 备�
 ms.topic: conceptual
 origin.date: 05/22/2019
 author: Johnnytechn
-ms.date: 11/17/2020
+ms.date: 01/07/2021
 ms.author: v-johya
-ms.openlocfilehash: 1af5d2b8548c565957a60a42458f8c5ca27f2423
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 637a2847ba19c5e7595fe76e5bf1f72367f5eaa9
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977189"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021170"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>还原 Azure VM 上的 SQL Server 数据库
 
@@ -27,12 +27,13 @@ Azure 备份可以还原 Azure VM 上运行的 SQL Server 数据库，如下所�
 - 使用事务日志备份还原到特定的日期或时间（精确到秒）。 Azure 备份可自动确定相应的完整备份、差异备份和日志链备份，这些是根据所选时间进行还原所必需的。
 - 还原特定的完整备份或差异备份，这样就可以还原到特定的恢复点。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="restore-prerequisites"></a>还原先决条件
 
 在还原数据库之前，请注意以下事项：
 
 - 可将数据库还原到同一 Azure 区域中的 SQL Server 实例。
 - 目标服务器必须注册到与源服务器相同的保管库。
+- 如果在服务器上运行多个实例，则所有实例都应启动并运行。 否则，服务器将不会出现在目标服务器列表中，从而无法将数据库还原到该服务器。 有关详细信息，请参阅[故障排除步骤](backup-sql-server-azure-troubleshoot.md#faulty-instance-in-a-vm-with-multiple-sql-server-instances)。
 - 若要将 TDE 加密的数据库还原到另一个 SQL Server，需先[将证书还原到目标服务器](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server)。
 - 应使用[还原为文件](#restore-as-files)选项还原启用了 [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) 的数据库。
 - 在还原“master”数据库之前，请使用启动选项 **-m AzureWorkloadBackup** 在单用户模式下启动 SQL Server 实例。
@@ -40,7 +41,6 @@ Azure 备份可以还原 Azure VM 上运行的 SQL Server 数据库，如下所�
   - 只能使用指定的客户端名称打开连接。
 - 对于所有系统数据库（模型数据库、master 数据库、msdb 数据库），请在触发还原操作之前停止 SQL Server 代理服务。
 - 关闭任何可能尝试与其中任何数据库建立连接的应用程序。
-- 如果服务器上有多个实例在运行，所有实例都应启动并运行，否则，该服务器不会显示在可将数据库还原到的目标服务器列表中。
 
 ## <a name="restore-a-database"></a>还原数据库
 

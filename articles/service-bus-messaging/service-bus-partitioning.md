@@ -1,20 +1,21 @@
 ---
-title: 创建分区的 Azure 服务总线队列和主题 | Azure
+title: 创建分区的 Azure 服务总线队列和主题 | Azure Docs
 description: 介绍如何使用多个消息中转站对服务总线队列和主题进行分区。
+ms.service: service-bus-messaging
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 07/20/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: de1fa29ade5c5ae18672d2ed91cd553926a0caa3
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 0029b6dcf1959130daf684b75635c85faec21705
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94976990"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022557"
 ---
 # <a name="partitioned-queues-and-topics"></a>分区队列和主题
 
@@ -34,8 +35,9 @@ Azure 服务总线使用多个消息中转站处理消息，并使用多个消�
 在未分区实体上进行的速览操作始终返回最旧的消息，但在已分区实体上进行操作时情况有所不同， 它只返回其消息中转站首先响应的分区之一中的最旧消息。 不保证返回的消息是所有分区中最旧的消息。 
 
 向分区队列或主题发送一条消息，或从分区队列或主题接收消息时无需额外付费。
->[!NOTE]
-> 速览操作根据消息的 SequenceNumber 返回分区中最旧的消息。 对于已分区实体，发出相对于分区的序列号。 有关详细信息，请参阅[消息序列化和时间戳](../service-bus-messaging/message-sequencing.md)。
+
+> [!NOTE]
+> 速览操作根据消息的序列号返回分区中最旧的消息。 对于已分区实体，序列号是相对于分区进行分发。 有关详细信息，请参阅[消息序列化和时间戳](../service-bus-messaging/message-sequencing.md)。
 
 ## <a name="enable-partitioning"></a>启用分区
 
@@ -99,8 +101,8 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
     Message msg = new Message("This is a message");
     msg.PartitionKey = "myPartitionKey";
-    messageSender.SendAsync(msg); 
-    ts.CompleteAsync();
+    await messageSender.SendAsync(msg); 
+    await ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```
@@ -119,8 +121,8 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
     Message msg = new Message("This is a message");
     msg.SessionId = "mySession";
-    messageSender.SendAsync(msg); 
-    ts.CompleteAsync();
+    await messageSender.SendAsync(msg); 
+    await ts.CompleteAsync();
 }
 committableTransaction.Commit();
 ```

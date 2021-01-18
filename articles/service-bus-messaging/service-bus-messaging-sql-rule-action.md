@@ -1,19 +1,20 @@
 ---
-title: Azure 服务总线订阅规则 SQL 操作语法 | Azure
+title: Azure 服务总线订阅规则 SQL 操作语法 | Azure Docs
 description: 本文提供了有关 SQL 规则操作语法的参考。 这些操作是以针对消息执行的基于 SQL 语言的语法编写的。
+ms.service: service-bus-messaging
 ms.topic: article
 origin.date: 11/24/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 55218babdf8d642f34b2601795c00ad7fbcf2dc3
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 5980294c434fd6624984fbd60a8a7ae9bb9feaac
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105241"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022993"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>订阅规则 SQL 操作语法
 

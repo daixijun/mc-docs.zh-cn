@@ -3,14 +3,15 @@ title: 适用于 Functions 2.x 及更高版本的 Azure Cosmos DB 输出绑定
 description: 了解如何在 Azure Functions 中使用 Azure Cosmos DB 输出绑定。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 07/14/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: 47ee75757f64d6e039fad6572452a397987f9ee1
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b663ac14fcda70938c136f0e28b63bdd5f879e2c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440418"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021231"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>适用于 Azure Functions 2.x 及更高版本的 Azure Cosmos DB 输出绑定
 
@@ -302,6 +303,29 @@ JavaScript 代码如下所示：
     };
 ```
 
+对于批量插入，请先构建对象，然后运行 stringify 函数。 JavaScript 代码如下所示：
+
+```javascript
+    module.exports = function (context) {
+    
+        context.bindings.employeeDocument = JSON.stringify([
+        {
+            "id": "John Henry-123456",
+            "name": "John Henry",
+            "employeeId": "123456",
+            "address": "A town nearby"
+        },
+        {
+            "id": "John Doe-123457",
+            "name": "John Doe",
+            "employeeId": "123457",
+            "address": "A town far away"
+        }]);
+    
+      context.done();
+    };
+```
+
 # <a name="java"></a>[Java](#tab/java)
 
 * [队列触发器，通过返回值将消息保存到数据库](#queue-trigger-save-message-to-database-via-return-value-java)
@@ -505,11 +529,11 @@ JavaScript 不支持特性。
 
 ## <a name="configuration"></a>配置
 
-下表解释了在 function.json 文件和 `CosmosDB` 特性中设置的绑定配置属性。
+下表解释了在 function.json  文件和 `CosmosDB` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**type**     | 不适用 | 必须设置为 `cosmosDB`。        |
+|type     | 不适用 | 必须设置为 `cosmosDB`。        |
 |**direction**     | 不适用 | 必须设置为 `out`。         |
 |**name**     | 不适用 | 表示函数中的文档的绑定参数的名称。  |
 |**databaseName** | **DatabaseName**|包含在其中创建文档的集合的数据库。     |

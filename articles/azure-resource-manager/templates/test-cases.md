@@ -2,18 +2,18 @@
 title: 测试工具包的测试用例
 description: 介绍由 ARM 模板测试工具包运行的测试。
 ms.topic: conceptual
-origin.date: 09/02/2020
-ms.date: 09/21/2020
+origin.date: 12/03/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 31a7edf49bb5fe2db28fb3f352e4276eea795a0f
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: db287c7a9054f6e189c9821002e7fdb824868867
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146217"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022450"
 ---
 <!--Verified successfully-->
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>ARM 模板测试工具包的默认测试用例
@@ -141,9 +141,11 @@ ms.locfileid: "91146217"
 
 测试名称：不应硬编码位置
 
-模板用户可访问的模板区域可能有限。 将资源位置设置为 `"[resourceGroup().location]"` 时，可能会在其他用户无法访问的区域中创建资源组。 这会导致这些用户无法使用模板。
+模板应具有位置参数。 可使用此参数设置模板中资源的位置。 在主模板（名为 azuredeploy.json 或 mainTemplate.json）中，此参数可以默认为资源组位置。 在链接模板或嵌套模板中，位置参数不应具有默认位置。
 
-定义每个资源的位置时，请使用默认为资源组位置的参数。 提供此参数后，用户可以在方便的情况下使用默认值，也可以指定其他位置。
+模板用户可访问的模板区域可能有限。 如果对资源位置进行硬编码，可能会阻止用户在该区域中创建资源。 即使将资源位置设置为 `"[resourceGroup().location]"`，也可能会阻止用户。 可能会在其他用户无法访问的区域中创建资源组。 这会导致这些用户无法使用模板。
+
+提供默认为资源组位置的位置参数后，用户可以在方便的情况下使用默认值，也可以指定其他位置。
 
 下面的示例未通过此测试，因为资源上的位置设置为 `resourceGroup().location`。
 
@@ -199,7 +201,7 @@ ms.locfileid: "91146217"
 }
 ```
 
-应创建一个默认为资源组位置但允许用户提供不同值的参数。 下面的示例通过了此测试。
+应创建一个默认为资源组位置但允许用户提供不同值的参数。 当该模板用作主模板时，下面的示例通过此测试。
 
 ```json
 {
@@ -231,6 +233,8 @@ ms.locfileid: "91146217"
     "outputs": {}
 }
 ```
+
+但是，如果前面的示例用作链接模板，测试将失败。 用作链接模板时，删除默认值。
 
 ## <a name="resources-should-have-location"></a>资源应具有位置
 
@@ -695,4 +699,5 @@ ms.locfileid: "91146217"
 
 若要了解如何运行测试工具包，请参阅[使用 ARM 模板测试工具包](test-toolkit.md)。
 
+<!--Not Available on [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](https://docs.microsoft.com/learn/modules/arm-template-test/)-->
 <!-- Update_Description: update meta properties, wording update, update link -->

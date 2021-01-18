@@ -1,25 +1,31 @@
 ---
 title: Azure 服务总线消息传送概述 | Azure
 description: 本文粗略概述了 Azure 服务总线（一种完全托管的企业集成消息代理）。
+ms.service: service-bus-messaging
 ms.topic: overview
 origin.date: 11/20/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6ae7188f0ebe7f0db05f232d42702458e93ffdb2
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: db1f71bc752e18520430215c5a7dec450809c235
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105245"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022995"
 ---
 # <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
 
-Azure 服务总线是一个完全托管的企业消息代理，其中包含消息队列和公用订阅主题。 服务总线用于使应用程序和服务彼此分离、在争用辅助角色之间进行负载平衡、跨服务和应用程序边界安全地路由和传输数据和控制，以及协调需要高度可靠性的事务性工作。 
+Azure 服务总线是一个完全托管的企业消息代理，其中包含消息队列和发布订阅主题。 服务总线用于分离应用程序和服务，提供以下优势：
 
-数据通过消息在不同的应用程序和服务之间传输。 消息是使用元数据修饰的容器，可以包含任何类型的信息，其中包括使用常用格式（例如 JSON、XML、Apache Avro 或纯文本）编码的结构化数据。 
+- 跨争用工作节点实现工作负载均衡
+- 跨服务和应用程序边界安全路由和传输数据和控制
+- 协调需要高度可靠性的事务性工作 
+
+## <a name="overview"></a>概述
+数据通过消息在不同的应用程序和服务之间传输。 消息是用元数据修饰的容器，它包含数据。 数据可以是任何类型的信息，包括以常用格式编码的结构化数据，例如：JSON、XML、Apache Avro 和纯文本。
 
 一些常见的消息传送方案包括：
 
@@ -27,18 +33,33 @@ Azure 服务总线是一个完全托管的企业消息代理，其中包含消�
 * *分离应用程序*。 提高应用程序和服务的可靠性和可伸缩性。 制作者和使用者不必同时在线或可用，且[负载经过平衡](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling)，这样一来，流量高峰不会使服务负担过重。 
 * *负载均衡*。 允许多个[竞争性使用者](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers)同间从队列读取内容，每个使用者都安全地获取对特定消息的独占所有权。 
 * *主题和订阅*。 在[发布服务器和订阅服务器](https://docs.microsoft.com/azure/architecture/patterns/publisher-subscriber)之间启用 1:n 关系，使订阅服务器可以从已发布的消息流中选择特定消息。
-* *Transactions*。 允许从一个队列中获取消息，并将处理结果发布到一个或多个不同的队列中，然后从原始队列中删除输入消息，所有操作都在原子事务的作用域中执行。 这样可确保事务的结果仅在成功时才对下游使用者可见（包括成功处置输入消息），从而允许使用一次性处理语义。 对于更大的解决方案上下文中的[补偿事务](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction)模式，此事务模型是一个可靠的基础。 
+* *Transactions*。 允许你执行多个操作，所有操作都在原子事务的作用域中执行。 例如，可以在事务的作用域中执行以下操作。  
+
+    1. 从一个队列获取消息。
+    2. 将处理结果发布到一个或多个不同的队列。
+    3. 从原始队列移动输入消息。 
+    
+    仅在成功时才对下游使用者显示结果，包括成功处置输入消息，允许使用一次性处理语义。 对于更大的解决方案上下文中的[补偿事务](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction)模式，此事务模型是一个可靠的基础。 
 * *消息会话*。 对于需要严格消息排序或消息延迟的工作流和多路复用传输，实现大规模协调。
 
-如果你熟悉 IBM MQ、VMWare RabbitMQ、Red Hat A-MQ 或 Apache ActiveMQ 等消息代理，你会发现 Azure 服务总线的概念与你所知的概念非常相似。 由于服务总线是一种平台即服务产品/服务，其与这些软件包的主要区别在于，你不必担心如何放置日志和管理磁盘空间、处理备份、持续修补操作系统或产品，也不必担心硬件故障以及故障转移到保留计算机。 Azure 会为你完成这些琐事。 
+如果熟悉 Apache ActiveMQ 等其他消息代理，服务总线的概念与你已知的概念相似。 服务总线是一个平台即服务 (PaaS) 产品，一个关键区别在于你不用担心以下操作。 Azure 会为你完成这些琐事。 
 
-服务总线的主要线路协议为[高级消息队列协议 (AMQP) 1.0](service-bus-amqp-overview.md)，这是由大型平台供应商和用户联盟开发的开放 ISO/IEC 标准，允许客户编写可针对服务总线和本地代理（例如 ActiveMQ 或 RabbitMQ）交替工作的应用程序。 如果你想生成这样的抽象，[AMQP 协议指南](service-bus-amqp-protocol-guide.md)提供了详细信息。
+- 存放日志和管理磁盘空间
+- 处理备份
+- 持续修补操作系统或产品
+- 担心硬件失败 
+- 故障转移到保留计算机
 
-[服务总线高级层](service-bus-premium-messaging.md)完全符合 Java/Jakarta EE [Java Message Service (JMS) 2.0](how-to-use-java-message-service-20.md) API 的要求，并且服务总线标准层支持专注于队列的 JMS 1.1 子集。 JMS 是 Java 开发人员的消息代理的一般抽象，可与许多应用程序和框架（包括热门的 Spring 框架）集成。 从上文提到的其中一个代理切换到 Azure 服务总线通常只涉及重新创建队列和主题的拓扑以及更改客户端提供程序依赖关系和配置，例如，如 [ActiveMQ 迁移指南](migrate-jms-activemq-to-servicebus.md)中所述。
+## <a name="compliance-with-standards-and-protocols"></a>符合标准和协议
 
-## <a name="service-bus-concepts-and-terminology"></a>服务总线概念和术语 
+服务总线的主要网络协议是[高级消息队列协议 (AMQP) 1.0](service-bus-amqp-overview.md)，它是一项开放式 ISO/IEC 标准。 它允许客户编写针对服务总线和本地代理（例如 ActiveMQ 或 RabbitMQ）的应用程序。 如果你想生成这样的抽象，[AMQP 协议指南](service-bus-amqp-protocol-guide.md)提供了详细信息。
+
+[服务总线高级版](service-bus-premium-messaging.md)完全兼容 Java/Jakarta EE [Java 消息服务 (JMS) 2.0](how-to-use-java-message-service-20.md) API。 而服务总线标准版支持专注于队列的 JMS 1.1 子网。 JMS 是消息代理的一般抽象，可与许多应用程序和框架（包括热门的 Spring 框架）集成。 若要从其他代理切换到 Azure 服务总线，重新创建队列和主题的拓扑，并更改客户端提供程序依赖关系和配置即可。 有关示例，请参阅 [ActiveMQ 迁移指南](migrate-jms-activemq-to-servicebus.md)。
+
+## <a name="concepts-and-terminology"></a>概念和术语 
 
 本部分讨论了服务总线的概念和术语。
+
 ### <a name="namespaces"></a>命名空间
 
 命名空间是一个适用于所有消息传送组件的容器。 多个队列和主题可以位于一个命名空间中，命名空间通常用作应用程序容器。 

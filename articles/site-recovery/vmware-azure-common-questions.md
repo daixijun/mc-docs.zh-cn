@@ -3,17 +3,17 @@ title: 有关使用 Azure Site Recovery 进行 VMware 灾难恢复的常见问�
 description: 获取使用 Azure Site Recovery 将本地 VMware VM 灾难恢复到 Azure 时出现的常见问题的解答。
 origin.date: 11/14/2019
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.topic: conceptual
-ms.openlocfilehash: 730e1ed75b5670753b7775460331829f574663ee
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 118b0eb40171f1372e358d894895b26a7088a26a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94976982"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023280"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>有关 VMware 到 Azure 的复制的常见问题
 
@@ -153,6 +153,10 @@ Site Recovery 将本地 VMware VM 和物理服务器复制到 Azure 中的托管
 不支持扩展或链式复制。 
 
 <!--Not Available on Request this feature in the [feedback forum](https://support.azure.cn/support/contact/)-->
+
+### <a name="how-can-i-track-progress-of-initial-replicationsynchronization"></a>如何跟踪初始复制/同步的进度？
+
+此功能最近已应用于 Site Recovery 服务。 将 Site Recovery 基础结构（配置服务器、横向扩展进程服务器）和移动代理更新至版本 9.36 或更高版本，以获取准确的详细信息。 有关如何跟踪进度的详细信息，请参阅[此处](vmware-azure-enable-replication.md#monitor-initial-replication)。
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>是否可以执行脱机初始复制？
 

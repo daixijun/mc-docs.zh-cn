@@ -4,22 +4,25 @@ description: 在 Azure 应用服务中创建免费的证书、导入应用服务
 tags: buy-ssl-certificates
 ms.topic: tutorial
 origin.date: 10/25/2019
-ms.date: 10/19/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 60c52586d1bfdcdc1a1994448f5eff67e79ad6e2
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: df1bc5a2f8fb51f42963ad88d4ed923eb299a3ef
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170766"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023009"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>在 Azure 应用服务中添加 TLS/SSL 证书
 
 [Azure 应用服务](overview.md)提供高度可缩放、自修复的 Web 托管服务。 本文介绍如何创建私有证书或公用证书，或将其上传或导入到应用服务中。 
 
 将证书添加到应用服务应用或[函数应用](../azure-functions/index.yml)后，即可[使用它来保护自定义 DNS 名称](configure-ssl-bindings.md)或[在应用程序代码中使用它](configure-ssl-certificate-in-code.md)。
+
+> [!NOTE]
+> 上传到应用的证书存储在与该应用的资源组和区域组合（内部称为网络空间）绑定的部署单元中。 这使得相应证书可供相同资源组和区域组合中的其他应用访问。 
 
 下表列出了用于在应用服务中添加证书的选项：
 
@@ -42,7 +45,7 @@ ms.locfileid: "92170766"
 ## <a name="private-certificate-requirements"></a>私有证书要求
 
 > [!NOTE]
-> Azure Web 应用**不**支持 AES256，并且所有 pfx 文件都应使用 TripleDES 进行加密。
+> Azure Web 应用 **不** 支持 AES256，并且所有 pfx 文件都应使用 TripleDES 进行加密。
 
 <!-- The [free App Service Managed Certificate](#create-a-free-certificate-preview) or the [App Service certificate](#import-an-app-service-certificate) already satisfy the requirements of App Service.  -->
 
@@ -131,6 +134,7 @@ Use the following table to help you configure the certificate. When finished, cl
 | Certificate SKU | Determines the type of certificate to create, whether a standard certificate or a wildcard certificate. |
 | Legal Terms | Click to confirm that you agree with the legal terms. The certificates are obtained from GoDaddy. |
 
+    
 ### Store in Azure Key Vault
 
 Once the certificate purchase process is complete, there are few more steps you need to complete before you can start using this certificate. 
@@ -289,7 +293,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 在“名称”中，键入证书的名称。 在“CER 证书文件”中，选择 CER 文件。
 
-单击“上载” 。 
+单击“上载” 。
 
 ![将公用证书上传到应用服务中](./media/configure-ssl-certificate/upload-public-cert.png)
 

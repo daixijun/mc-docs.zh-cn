@@ -1,19 +1,19 @@
 ---
 title: 使用警报抑制规则在 Azure 安全中心中抑制误报或其他不需要的安全警报。
-description: 本文介绍如何使用 Azure 安全中心的抑制规则隐藏不需要的 Azure Defender 警报
+description: 本文介绍如何使用 Azure 安全中心的抑制规则隐藏不需要的安全警报
 author: Johnnytechn
 manager: rkarlin
 services: security-center
 ms.author: v-johya
-ms.date: 12/04/2020
+ms.date: 01/06/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 9b543d9ca7013cd023a45d5419301bea603178ad
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: de3f0f70f62fde1ed6cd1e9996f8f7076a6a1bbb
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747165"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023066"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>禁止来自 Azure Defender 的警报
 
@@ -23,7 +23,7 @@ ms.locfileid: "96747165"
 
 |方面|详细信息|
 |----|:----|
-|发布状态：|预览|
+|发布状态：| 正式发布 |
 |定价：|免费<br>（大多数安全警报仅适用于 Azure Defender）|
 |所需角色和权限：|“安全管理员”和“所有者”可以创建/删除规则 。<br>“安全读取者”和“读取者”可以查看规则 。|
 |云：|![是](./media/icons/yes-icon.png) 中国云|

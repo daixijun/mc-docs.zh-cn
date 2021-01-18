@@ -1,29 +1,29 @@
 ---
-title: Synapse SQL 建议
+title: 专用 SQL 池 Azure 顾问建议
 description: 了解 Synapse SQL 建议及其生成方式
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
-origin.date: 04/30/2020
-ms.date: 07/06/2020
+ms.subservice: sql-dw
+origin.date: 06/26/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: ab712579656d55a2a5fa0bcc4524a1bb1f024e76
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: fd60fa2d0bf6e2d9313d8fcf5c8b60e1e483fef2
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426462"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021935"
 ---
-# <a name="synapse-sql-recommendations"></a>Synapse SQL 建议
+# <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure 顾问针对 Azure Synapse Analytics 中专用 SQL 池的建议
 
-本文介绍了通过 Azure 顾问提供的 Synapse SQL 建议。  
+本文介绍 Azure 顾问中提供的专用 SQL 池建议。  
 
-Synapse SQL 提供建议，确保以一致的方式优化数据仓库工作负荷的性能。 建议与 [Azure 顾问](../../advisor/advisor-performance-recommendations.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)紧密集成，直接在 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_Azure_Expert/AdvisorBlade)中为你提供最佳做法。 Synapse SQL 每天收集一次活动工作负荷的遥测和外围应用建议。 下面概述了支持的建议方案，以及如何应用建议的操作。
+专用 SQL 池提供建议，确保以一致的方式优化数据仓库工作负荷的性能。 建议与 [Azure 顾问](../../advisor/advisor-performance-recommendations.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)紧密集成，直接在 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_Azure_Expert/AdvisorBlade)中为你提供最佳做法。 专用 SQL 池每天收集一次活动工作负荷的遥测和外围应用建议。 下面概述了支持的建议方案，以及如何应用建议的操作。
 
 可以立即[查看你的建议](https://portal.azure.cn/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade)！ 
 
@@ -74,4 +74,4 @@ Synapse SQL 提供建议，确保以一致的方式优化数据仓库工作负�
 
 ## <a name="data-loading-misconfiguration"></a>数据加载配置错误
 
-应始终从与 SQL 池位于相同区域的存储帐户加载数据，以最大程度地减少延迟。 使用 [COPY 语句进行高吞吐量数据引入](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)，并在存储帐户中拆分暂存文件以最大限度地提高吞吐量。 如果无法使用 COPY 语句，可以使用 SqlBulkCopy API 或批处理容量较高的 bcp 来提高吞吐量。 有关其他数据加载指南，请访问以下[文档](/synapse-analytics/sql-data-warehouse/guidance-for-loading-data)。 
+应始终从与专用 SQL 池位于相同区域的存储帐户加载数据，以最大程度地减少延迟。 使用 [COPY 语句进行高吞吐量数据引入](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)，并在存储帐户中拆分暂存文件以最大限度地提高吞吐量。 如果无法使用 COPY 语句，可以使用 SqlBulkCopy API 或批处理容量较高的 bcp 来提高吞吐量。 有关其他数据加载指南，请访问以下[文档](/synapse-analytics/sql-data-warehouse/guidance-for-loading-data)。 

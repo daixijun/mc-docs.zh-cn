@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 09/25/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 04dbb92b04687d55dc780cd6a1112179bad5728d
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 5c134098690cfe5090da6f6fe9973449ea73615a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978308"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021987"
 ---
 # <a name="configure-and-submit-training-runs"></a>配置和提交训练运行
 
-本文介绍如何配置和提交 Azure 机器学习运行以训练模型。
+本文介绍如何配置和提交 Azure 机器学习运行以训练模型。 代码片段说明了配置和提交训练脚本的关键部分。  然后，使用其中一个[示例笔记本](#notebooks)查找完整的端到端工作示例。
 
 训练时，通常先在本地计算机上启动，然后再横向扩展到基于云的群集。 使用 Azure 机器学习，你可以在各种计算目标上运行脚本，而无需更改训练脚本。
 
@@ -172,6 +172,38 @@ run.wait_for_completion(show_output=True)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+
+## <a name="troubleshooting"></a>疑难解答
+
+ * **ModuleErrors（没有名为“xxx”的模块）** ：如果在 Azure ML 中提交试验时遇到 ModuleErrors，则训练脚本需要安装某个包，但并未添加该包。 你提供包名称后，Azure ML 在用于训练运行的环境中安装该包。
+
+    如果使用估算器提交试验，则可以根据要从哪个源安装包，通过估算器中的 `pip_packages` 或 `conda_packages` 参数指定包名称。 还可以使用 `conda_dependencies_file` 指定包含所有依赖项的 yml 文件，或使用 `pip_requirements_file` 参数列出 txt 文件中的所有 pip 要求。 如果你有自己的 Azure ML 环境对象，并且希望替代估算器使用的默认映像，则可以通过估算器构造函数的 `environment` 参数来指定该环境。
+    
+    可以在 [AzureML 容器](https://github.com/Azure/AzureML-Containers)中看到 Azure ML 维护的 Docker 映像及其内容。
+    框架特定的依赖项列在相应的框架文档中：
+    *  [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    * [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    * [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    *  [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    
+    > [!Note]
+    > 如果你认为某个特定的包比较常用，需要添加到 Azure ML 维护的映像和环境中，请在 [AzureML 容器](https://github.com/Azure/AzureML-Containers)中提出 GitHub 问题。 
+ 
+* **NameError（未定义名称）、AttributeError（对象没有属性）** ：此异常应该是训练脚本引发的。 可以在 Azure 门户中查看日志文件，以获取有关未定义特定名称或属性错误的详细信息。 在 SDK 中，可以使用 `run.get_details()` 来查看错误消息。 这还会列出针对运行生成的所有日志文件。 在重新提交运行之前，请务必检查训练脚本并修复错误。 
+
+
+* **运行或试验删除**：可以通过以下方式将试验存档：使用 [Experiment.archive](https://docs.microsoft.com/python//api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) 方法，或者从 Azure 机器学习工作室客户端中的“试验”选项卡视图中使用“存档试验”按钮。 执行此操作后，在列出查询和视图时将隐藏该试验，但不会将其删除。
+
+    目前不支持永久删除个体试验或运行。 有关删除工作区资产的详细信息，请参阅[导出或删除机器学习服务工作区数据](how-to-export-delete-data.md)。
+
+* **指标文档太大**：对于一次性可从训练运行记录的指标对象大小，Azure 机器学习施加了内部限制。 如果在记录列表值指标时遇到“指标文档太大”错误，请尝试将列表拆分为较小的区块，例如：
+
+    ```python
+    run.log_list("my metric name", my_metric[:N])
+    run.log_list("my metric name", my_metric[N:])
+    ```
+
+    在内部，Azure ML 会将具有相同指标名称的块串联到一个连续列表中。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,25 +1,25 @@
 ---
-title: 提高列存储索引性能
-description: 降低内存需求或增加可用内存，使每个行组中的行数最大化。
+title: 提高专用 SQL 池的列存储索引性能
+description: 降低内存需求或增加可用内存，使专用 SQL 池中每个行组的行数最大化。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 03/22/2019
-ms.date: 05/11/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: caa59f169a5674abdbe742104c6178ca04a25d20
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.openlocfilehash: 8bd38861f4b7592bdbd333a0af3bf1c1cdbd4092
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198609"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022982"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>最大化列存储的行组质量
+# <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>最大程度提高专用 SQL 池中列存储索引的行组质量 
 
 行组质量由行组中的行数决定。 增加可用内存可以使列存储索引压缩到每个行组中的行数最大化。  使用这些方法来提高列存储索引的压缩率和请求性能。
 
@@ -121,7 +121,7 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 
 ### <a name="avoid-over-partitioning"></a>避免过度分区
 
-列存储索引会为每个分区创建一个或多个行组。 对于 Azure Synapse Analytics 中的 SQL 池，由于数据是分布式的并且每次分布都会进行分区，因此分区数会快速增加。
+列存储索引会为每个分区创建一个或多个行组。 对于 Azure Synapse Analytics 中的专用 SQL 池，由于数据是分布式的并且每次分布都会进行分区，因此分区数会快速增加。
 
 如果表中分区过多，可能没有足够行来填充行组。 如果缺少行，在压缩过程中不会产生内存不足的情况， 但是这会导致行组无法实现最佳列存储查询性能。
 
@@ -164,4 +164,4 @@ DWU 大小和用户资源类共同确定用户查询可用的内存量。
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解提升 SQL 池性能的更多方法，请参阅[性能概述](cheat-sheet.md)。
+若要了解提升专用 SQL 池性能的更多方法，请参阅[性能概述](cheat-sheet.md)。

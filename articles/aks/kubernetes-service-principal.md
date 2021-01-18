@@ -4,16 +4,17 @@ description: 在 Azure Kubernetes 服务 (AKS) 中为群集创建和管理 Azure
 services: container-service
 ms.topic: conceptual
 origin.date: 06/16/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 06/16/2020
 ms.author: v-yeche
-ms.openlocfilehash: b2c18336fce34956e3c3a5b38caa857fcd639622
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.openlocfilehash: d4dffa42df704fa0acc3259114ade854b5f2ec9a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020820"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022316"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>使用 Azure Kubernetes 服务 (AKS) 的服务主体
 
@@ -27,7 +28,7 @@ AKS 群集需要 [Azure Active Directory (AD) 服务主体][aad-service-principa
 
 如果使用来自另一 Azure AD 租户的服务主体，则还需围绕部署群集时可用的权限进行更多的考虑。 你可能没有读取和写入目录信息的适当权限。 有关详细信息，请参阅 [Azure Active Directory 中的默认用户权限是什么？][azure-ad-permissions]
 
-还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][install-azure-cli]。
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>自动创建和使用服务主体
 
@@ -77,9 +78,9 @@ az aks create \
 如果使用 Azure 门户来部署 AKS 群集，请在“创建 Kubernetes 群集”对话框的“身份验证”页上选择“配置服务主体”。  选择“使用现有”并指定以下值：
 
 - **服务主体客户端 ID** 是你的 *appId*
-- **服务主体客户端机密**是密码值
+- **服务主体客户端机密** 是密码值
 
-![浏览到 Azure Vote 的图像](media/kubernetes-service-principal/portal-configure-service-principal.png)
+    :::image type="content" source="media/kubernetes-service-principal/portal-configure-service-principal.png" alt-text="浏览到 Azure Vote 的图像":::
 
 ## <a name="delegate-access-to-other-azure-resources"></a>委托对其他 Azure 资源的访问权限
 
@@ -104,19 +105,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ### <a name="networking"></a>网络
 
-可以使用高级网络，在该网络中，虚拟网络和子网或公共 IP 地址位于另一资源组中。 分配下列角色权限集之一：
-
-- 创建一个[自定义角色][rbac-custom-role]，并定义以下角色权限：
-    - *Microsoft.Network/virtualNetworks/subnets/join/action*
-    - *Microsoft.Network/virtualNetworks/subnets/read*
-    - *Microsoft.Network/virtualNetworks/subnets/write*
-    - *Microsoft.Network/publicIPAddresses/join/action*
-    - *Microsoft.Network/publicIPAddresses/read*
-    - *Microsoft.Network/publicIPAddresses/write*
-    - 如果[在 Kubenet 群集上使用自定义路由表](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet)，请添加以下附加权限：
-        - Microsoft.Network/routeTables/write
-        - Microsoft.Network/routeTables/read
-- 或者，在虚拟网络的子网上分配[网络参与者][rbac-network-contributor]内置角色
+可以使用高级网络，在该网络中，虚拟网络和子网或公共 IP 地址位于另一资源组中。 在虚拟网络的子网上分配[网络参与者][rbac-network-contributor]内置角色。 或者，可以创建有权访问该资源组中网络资源的[自定义角色][rbac-custom-role]。 有关更多详细信息，请参阅 [AKS 服务权限][aks-permissions]。
 
 ### <a name="storage"></a>存储
 
@@ -138,7 +127,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 - Kubernetes 的服务主体是群集配置的一部分。 但是，请勿使用标识来部署群集。
 - 默认情况下，服务主体凭据的有效期为一年。 可以随时[更新或轮换服务主体凭据][update-credentials]。
 - 每个服务主体都与一个 Azure AD 应用程序相关联。 Kubernetes 群集的服务主体可以与任何有效的 Azure AD 应用程序名称（例如 *https://www.contoso.org/example* ）相关联。 应用程序的 URL 不一定是实际的终结点。
-- 指定服务主体**客户端 ID** 时，请使用 `appId` 的值。
+- 指定服务主体 **客户端 ID** 时，请使用 `appId` 的值。
 - 在 Kubernetes 群集的代理节点 VM 中，服务主体凭据存储在 `/etc/kubernetes/azure.json` 文件中
 - 使用 [az aks create][az-aks-create] 命令自动生成服务主体时，会将服务主体凭据写入用于运行命令的计算机上的 `~/.azure/aksServicePrincipal.json` 文件中。
 - 如果没有在其他 AKS CLI 命令中明确传递服务主体，则将使用位于 `~/.azure/aksServicePrincipal.json` 的默认服务主体。  
@@ -178,21 +167,22 @@ ls -la $HOME/.azure/aksServicePrincipal.json
 
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
 [acr-intro]: ../container-registry/container-registry-intro.md
-[az-ad-sp-create]: https://docs.azure.cn/cli/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-create]: https://docs.azure.cn/cli/ad/sp#az_ad_sp_create_for_rbac
 [azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 [service-principal]:../active-directory/develop/app-objects-and-service-principals.md
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md
-[az-ad-app-list]: https://docs.azure.cn/cli/ad/app#az-ad-app-list
-[az-ad-app-delete]: https://docs.azure.cn/cli/ad/app#az-ad-app-delete
-[az-aks-create]: https://docs.microsoft.com/cli/azure/aks#az_aks_create
-[az-aks-update]: https://docs.microsoft.com/cli/azure/aks#az_aks_update
+[az-ad-app-list]: https://docs.azure.cn/cli/ad/app#az_ad_app_list
+[az-ad-app-delete]: https://docs.azure.cn/cli/ad/app#az_ad_app_delete
+[az-aks-create]: https://docs.azure.cn/cli/aks#az_aks_create
+[az-aks-update]: https://docs.azure.cn/cli/aks#az_aks_update
 [rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
-[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az-role-assignment-create
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment#az_role_assignment_create
 [aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md
+[aks-permissions]: concepts-identity.md#aks-service-permissions
 
 <!-- Update_Description: update meta properties, wording update, update link -->

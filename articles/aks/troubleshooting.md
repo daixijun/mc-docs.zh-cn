@@ -5,16 +5,16 @@ services: container-service
 ms.topic: troubleshooting
 origin.date: 06/20/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 19a73032221b82e7738171b91ce9383ab62bc59d
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 935f1bc0972e98c20f4a2828f3bc5efe48bef9e5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004165"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022889"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑难解答
 
@@ -29,11 +29,6 @@ ms.locfileid: "97004165"
 
  [请求更多核心](https://support.azure.cn/support/support-azure/)。
 
-## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>对 AKS 而言，每个节点设置的最大 Pod 是多少？
-
-如果在 Azure 门户中部署 AKS 群集，则每个节点的最大 Pod 均默认设置为 30。
-如果在 Azure CLI 中部署 AKS 群集，则每个节点的最大 Pod 均默认设置为 110。 （确保使用最新版本的 Azure CLI）。 可以使用 `az aks create` 命令中的 `--max-pods` 标记来更改此设置。
-
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>在使用高级网络部署 AKS 群集时收到 insufficientSubnetSize 错误。 我该怎么办？
 
 此错误表示用于群集的子网在其 CIDR 中不再具有用于成功分配资源的可用 IP。 对于 Kubenet 群集，需要为群集中的每个节点提供足够的 IP 空间。 对于 Azure CNI 群集，需要为群集中的每个节点和 Pod 提供足够的 IP 空间。
@@ -43,18 +38,18 @@ ms.locfileid: "97004165"
 
 以下三 (3) 种情况会导致子网大小不足的错误：
 
-1. AKS 缩放或 AKS Nodepool 缩放
+1. AKS 缩放或 AKS 节点池缩放
     1. 如果使用的是 Kubenet，当 `number of free IPs in the subnet` 小于 `number of new nodes requested` 时就会发生这种情况。
     1. 如果使用的是 Azure CNI，当 `number of free IPs in the subnet` 小于 `number of nodes requested times (*) the node pool's --max-pod value` 时就会发生这种情况。
 
-1. AKS 升级或 AKS Nodepool 升级
+1. AKS 升级或 AKS 节点池升级
     1. 如果使用的是 Kubenet，当 `number of free IPs in the subnet` 小于 `number of buffer nodes needed to upgrade` 时就会发生这种情况。
     1. 如果使用的是 Azure CNI，当 `number of free IPs in the subnet` 小于 `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` 时就会发生这种情况。
 
     <!--Not Available on By default AKS clusters set a max surge (upgrade buffer) value of one (1), but this upgrade behavior can be customized by setting the max surge value of a node pool which will increase the number of available IPs needed to complete an upgrade.-->
     <!--Not Available on [max surge value of a node pool](upgrade-cluster.md#customize-node-surge-upgrade-preview)-->
     
-1. AKS 创建或 AKS Nodepool 添加
+1. 创建 AKS 或添加 AKS 节点池
     1. 如果使用的是 Kubenet，当 `number of free IPs in the subnet` 小于 `number of nodes requested for the node pool` 时就会发生这种情况。
     1. 如果使用的是 Azure CNI，当 `number of free IPs in the subnet` 小于 `number of nodes requested times (*) the node pool's --max-pod value` 时就会发生这种情况。
 
@@ -62,9 +57,9 @@ ms.locfileid: "97004165"
 
 1. 使用足以实现操作目标的更大的 CIDR 范围来重建新子网：
     1. 创建具有所需的无重叠新范围的新子网。
-    1. 在新子网上创建新的 nodepool。
-    1. 从驻留在要替换的旧子网中的旧 nodepool 中清空 Pod。
-    1. 删除旧的子网和旧的 nodepool。
+    1. 在新子网上创建新的节点池。
+    1. 从驻留在要替换的旧子网中的旧节点池中清空 Pod。
+    1. 删除旧子网和旧节点池。
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>我的 Pod 停滞在 CrashLoopBackOff 模式。 我该怎么办？
 
@@ -97,15 +92,11 @@ AKS 具有 HA 控制平面，可以根据内核数进行垂直缩放，以确保
 
 目前不支持在现有群集上启用 Kubernetes 基于角色的访问控制 (Kubernetes RBAC)，必须在创建新群集时对其进行设置。 在使用 CLI、门户或 `2020-03-01` 之后的 API 版本时，默认会启用 Kubernetes RBAC。
 
-## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>我创建了启用了 Kubernetes RBAC 的群集，现在，我在 Kubernetes 仪表板上看到了很多警告。 仪表板以前在没有任何警告的情况下工作。 我该怎么办？
-
-出现警告的原因是群集启用了 Kubernetes RBAC，并且现在默认限制对仪表板的访问。 一般来说，此方法比较棒，因为仪表板默认公开给群集的所有用户可能会导致安全威胁。 如果仍想要启用仪表板，请遵循此[博客文章](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/)中的步骤进行操作。
-
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>无法使用 Kubectl 日志获取日志或无法连接到 API 服务器。 我收到“来自服务器的错误：拨号后端时出错: 拨打 tcp...”。 我该怎么办？
 
 确保端口 22、9000 和 1194 已打开，以便连接到 API 服务器。 使用 `kubectl get pods --namespace kube-system` 命令检查 `tunnelfront` 或 `aks-link` Pod 是否正在 kube-system 命名空间中运行。 如果没有，请强制删除 Pod，它会重启。
 
-## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>当连接到 AKS API 时，我从客户端收到 `"tls: client offered only unsupported versions"`。   应采取何种操作？
+## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>当连接到 AKS API 时，我从客户端收到 `"tls: client offered only unsupported versions"`。 我该怎么办？
 
 AKS 支持的最低 TLS 版本是 TLS 1.2。
 
@@ -194,11 +185,11 @@ Azure 平台和 AKS 都实施了命名限制。 如果资源名称或参数违�
 
 ## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>使用 AKS API 时，我收到 `"AADSTS7000215: Invalid client secret is provided."`。   应采取何种操作？
 
-这通常是由于服务主体凭据过期导致的。 [更新 AKS 群集的凭据。](update-credentials.md)
+此问题是由于服务主体凭据过期而引起的。 [更新 AKS 群集的凭据。](update-credentials.md)
 
 ## <a name="i-cant-access-my-cluster-api-from-my-automationdev-machinetooling-when-using-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>使用 API 服务器授权的 IP 范围时，无法从“自动化/开发计算机/工具”访问我的群集 API。 如何修复此问题？
 
-这需要 `--api-server-authorized-ip-ranges` 包括所使用的自动化/开发/工具系统的 IP 或 IP 范围。 请参阅[使用经授权的 IP 地址范围保护对 API 服务器的访问](api-server-authorized-ip-ranges.md)中的“如何查找我的 IP”部分。
+若要解决此问题，请确保 `--api-server-authorized-ip-ranges` 包括所使用的自动化/开发/工具系统的 IP 或 IP 范围。 请参阅[使用经授权的 IP 地址范围保护对 API 服务器的访问](api-server-authorized-ip-ranges.md)中的“如何查找我的 IP”部分。
 
 ## <a name="im-unable-to-view-resources-in-kubernetes-resource-viewer-in-azure-portal-for-my-cluster-configured-with-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>我无法在 Azure 门户的 Kubernetes 资源查看器中查看配置了 API 服务器授权 IP 范围的群集的资源。 如何修复此问题？
 
@@ -222,11 +213,11 @@ Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The
 
 这些限制错误在[此处](../azure-resource-manager/management/request-limits-and-throttling.md)和[此处](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)进行了详细说明
 
-来自 AKS 工程团队的建议是确保运行的版本至少是 1.18.x（其中包含许多改进）。 有关这些改进的更多详细信息，可参阅[此文](https://github.com/Azure/AKS/issues/1413)和[此文](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)。
+AKS 工程团队的建议是确保运行的版本至少是 1.18.x（其中包含许多改进功能）。 有关这些改进的更多详细信息，可参阅[此文](https://github.com/Azure/AKS/issues/1413)和[此文](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)。
 
 鉴于这些限制错误是在订阅级别测量的，在以下情况下它们仍可能发生：
-- 有发出 GET 请求的第三方应用程序（例如， 监视应用程序等）。建议降低这些调用的频率。
-- VMSS 中有大量 AKS 群集/节点池。 通常的建议是确保给定订阅中的群集少于 20-30 个。
+- 有第三方应用程序在发出 GET 请求（如监视应用程序等）。 建议降低这些调用的频率。
+- 有许多 AKS 群集/节点池在使用虚拟机规模集。 尝试将多个群集拆分为不同的订阅，特别是如果你希望它们处于非常活跃的状态（例如活动的群集自动缩放程序）或具有多个客户端（例如 rancher、terraform 等）。
 
 ## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>无论我是否执行操作，群集的预配状态都会从“就绪”变为“失败”。 应采取何种操作？
 
@@ -234,43 +225,13 @@ Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The
 
 如果群集的预配状态仍为“失败”或者群集上的应用程序停止工作，请[提交支持请求](https://www.azure.cn/support/contact/#submit)。
 
+## <a name="my-watch-is-stale-or-azure-ad-pod-identity-nmi-is-returning-status-500"></a>我的手表已过时或 Azure AD Pod 标识 NMI 返回状态 500
+
+如果你像本[示例](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall)那样使用 Azure 防火墙，则可能会遇到此问题，因为使用应用程序规则通过防火墙的长期 TCP 连接当前有一个 bug（将在 Q1CY21 中解决），这会导致 Go `keepalives` 在防火墙终止。 在解决此问题之前，可以通过将网络规则（而不是应用程序规则）添加到 AKS API 服务器 IP 来缓解此问题。
+
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Azure 存储和 AKS 疑难解答
 
-### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-disk"></a>适用于 Azure 磁盘的 Kubernetes 的建议稳定版本是什么？ 
-
-| Kubernetes 版本 | 建议的版本 |
-|--|:--:|
-| 1.12 | 1.12.9 或更高版本 |
-| 1.13 | 1.13.6 或更高版本 |
-| 1.14 | 1.14.2 或更高版本 |
-
-### <a name="waitforattach-failed-for-azure-disk-parsing-devdiskazurescsi1lun1-invalid-syntax"></a>Azure 磁盘的 WaitForAttach 失败：分析“/dev/disk/azure/scsi1/lun1”：语法无效
-
-在 Kubernetes 版本 1.10 中，重新装载 Azure 磁盘可能会导致 MountVolume.WaitForAttach 失败。
-
-在 Linux 上，可能会收到 DevicePath 格式不正确的错误消息。 例如：
-
-```console
-MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
-  Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
-```
-
-在 Windows 上，可能会收到 DevicePath(LUN) 编号出错的错误消息。 例如：
-
-```console
-Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
-1102-dynamic-pvc-6c526c51-4a18-11e8-ab5c-000d3af7b38e) lun:(4)
-```
-
-此问题在以下版本的 Kubernetes 中已得到修复：
-
-| Kubernetes 版本 | 已修复的版本 |
-|--|:--:|
-| 1.10 | 1.10.2 或更高版本 |
-| 1.11 | 1.11.0 或更高版本 |
-| 1.12 和更高版本 | 空值 |
-
-### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>在 Azure 磁盘的 mountOptions 中设置 uid 和 gid 失败
+### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>在 Azure 磁盘的 mountOptions 中设置 uid 和 `GID` 失败
 
 Azure 磁盘默认使用 ext4,xfs 文件系统，在装载时无法设置 uid=x,gid=x 之类的 mountOptions。 例如，如果尝试设置 mountpoptions uid=999、gid=999，将看到如下错误：
 
@@ -301,7 +262,7 @@ spec:
   >[!NOTE]
   > 因为 gid 和 uid 默认作为根或 0 装载。 如果 gid 或 uid 设置为非根（例如 1000），Kubernetes 将使用 `chown` 来更改该磁盘中的所有目录和文件。 此操作可能非常耗时，并可能导致磁盘装载速度变得很慢。
 
-* 使用 initContainers 中的 `chown` 来设置 gid 和 uid。 例如：
+* 使用 initContainers 中的 `chown` 来设置 `GID` 和 `UID`。 例如：
 
 ```yaml
 initContainers:
@@ -398,8 +359,9 @@ parameters:
 
 其他一些有用的 *mountOptions* 设置：
 
-* *mfsymlinks* 将使 Azure 文件存储装入点 (cifs) 支持符号链接
-* *nobrl* 将阻止向服务器发送字节范围锁请求。 对于使用 cifs 样式的强制字节范围锁中断的某些应用程序，此设置是必需的。 大多数 cifs 服务器尚不支持请求建议字节范围锁。 如果不使用 nobrl，则使用 cifs 样式的强制字节范围锁中断的应用程序可能会导致以下类似错误消息：
+* `mfsymlinks` 将使 Azure 文件存储装入点 (cifs) 支持符号链接
+* `nobrl` 将阻止向服务器发送字节范围锁请求。 对于使用 cifs 样式的强制字节范围锁中断的某些应用程序，此设置是必需的。 大多数 cifs 服务器尚不支持请求建议字节范围锁。 如果不使用 nobrl，则使用 cifs 样式的强制字节范围锁中断的应用程序可能会导致以下类似错误消息：
+    
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -415,7 +377,7 @@ fixing permissions on existing directory /var/lib/postgresql/data
 
 此错误是由使用 cifs/SMB 协议的 Azure 文件存储插件造成的。 使用 cifs/SMB 协议时，在装载后无法更改文件和目录权限。
 
-若要解决此问题，请结合 Azure 磁盘插件使用 *subPath*。 
+若要解决此问题，请结合 Azure 磁盘插件使用 `subPath`。 
 
 > [!NOTE] 
 > 对于 ext3/4 磁盘类型，格式化磁盘后会出现一个 lost+found 目录。
@@ -484,7 +446,7 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 
 此错误是由于上游群集自动缩放程序争用条件导致的。 在这种情况下，集群自动缩放程序返回的值与群集中实际存在的值不同。 为此，请禁用[群集自动缩放程序][cluster-autoscaler]，然后再重新启用它。
 
-### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>磁盘连接速度缓慢，GetAzureDiskLun 需要 10 到 15 分钟的时间，并且会收到一条错误消息
+### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>磁盘附加速度缓慢，`GetAzureDiskLun` 需要 10 到 15 分钟，并且会显示一个错误
 
 在 1.15.0 之前的 Kubernetes 版本中，可能会收到错误消息，如“错误: WaitForAttach 找不到磁盘的 Lun”。  为解决此问题，请等待大约 15 分钟，然后重试。
 
@@ -492,13 +454,13 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 
 从 Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [开始，kubelet 只能将已定义的带有 kubernetes.io 前缀的标签子集](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal)应用于节点。 未经许可，AKS 无法代表你删除活动标签，因为这可能导致受影响的工作负载发生故障。
 
-因此，要缓解这种情况，可以执行以下操作：
+因此，要缓解这种问题，可以执行以下操作：
 
 1. 将群集控制平面升级到 1.16 或更高版本
 2. 在 1.16 或更高版本上添加一个没有受支持的 kubernetes.io 标签的新 nodepoool
-3. 删除较旧的 nodepool
+3. 删除较旧的节点池
 
-AKS 正在研究对 nodepool 上的活动标签进行改变的功能以改进这种缓解效果。
+AKS 正在研究对节点池上的活动标签进行改变的功能以改进这种缓解效果。
 
 <!-- LINKS - internal -->
 

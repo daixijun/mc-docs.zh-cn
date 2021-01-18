@@ -1,22 +1,22 @@
 ---
-title: 设置开发环境 | Python
+title: 设置 Python 开发环境
 titleSuffix: Azure Machine Learning
-description: 了解如何为 Azure 机器学习设置 Python 开发环境。 使用 Conda 环境、创建配置文件，以及配置自己的基于云的 Notebook 服务器、Jupyter Notebook、Azure Databricks、IDE、代码编辑器和 Data Science Virtual Machine。
+description: 在 Jupyter Notebook、Visual Studio Code、Azure Databricks 和 Data Science Virtual Machine 中设置 Azure 机器学习 Python 开发环境。
 services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 09/30/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 0a703830bd1852502d67595d09bd587aecdbf88a
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: 2b89e606b11597caf17f80fae8cb6ece4e0666e5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977502"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022436"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>为 Azure 机器学习设置 Python 开发环境
 
@@ -29,6 +29,7 @@ ms.locfileid: "94977502"
 | [本地环境](#local) | 可以全面控制开发环境和依赖项。 使用所选的任何生成工具、环境或 IDE 来运行。 | 入门需要更长的时间。 必须安装必要的 SDK 包，此外，必须安装一个环境（如果尚未安装）。 |
 | [Data Science Virtual Machine (DSVM)](#dsvm) | 类似于基于云的计算实例（已预装 Python 和 SDK），但预装了其他流行的数据科学和机器学习工具。 易于缩放，并可与其他自定义工具和工作流结合使用。 | 与基于云的计算实例相比，入门过程更慢。 |
 | [Azure 机器学习计算实例](#compute-instance) | 最容易入门。 整个 SDK 已安装在工作区 VM 中，笔记本教程已预先克隆，随时可供运行。 | 缺少对开发环境和依赖项的控制。 Linux VM 会产生额外的成本（可以停止不使用的 VM，以免产生费用）。 请参阅[定价详细信息](https://www.azure.cn/pricing/details/virtual-machines/linux/)。 |
+| [Azure Databricks](how-to-configure-databricks-automl-environment.md) | 非常适合用于在可缩放的 Apache Spark 平台上运行大规模的密集型机器学习工作流。 | 对于试验性机器学习或较小规模的试验和工作流而言性能过剩。 Azure Databricks 会产生额外的成本。 请参阅[定价详细信息](https://www.azure.cn/pricing/details/databricks/)。 |
 
 本文还将提供以下工具的更多用法提示：
 

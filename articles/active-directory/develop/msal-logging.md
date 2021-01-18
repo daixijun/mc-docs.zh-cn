@@ -1,29 +1,24 @@
 ---
-title: Microsoft 身份验证库 (MSAL) 应用程序中的日志记录
+title: MSAL 应用中的日志记录 | Azure
 titleSuffix: Microsoft identity platform
 description: 了解如何在 Microsoft 身份验证库 (MSAL) 应用程序中进行日志记录。
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/09/2019
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9038ff1d74312fc20407c503598b735ae725e26
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: ea6fed8fe8273778128f2019277f503ff0010bb6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75335286"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021773"
 ---
 # <a name="logging-in-msal-applications"></a>MSAL 应用程序中的日志记录
 
@@ -147,15 +142,15 @@ var msalConfig = {
     auth: {
         clientId: "<Enter your client id>",
     },
-     system: {
-             logger: new Msal.Logger(
-                                loggerCallback ,{
-                                     level: Msal.LogLevel.Verbose,
-                                     piiLoggingEnabled: false,
-                                     correlationId: '1234'
-                                }
-                        )
-     }
+    system: {
+        logger: new Msal.Logger(
+            loggerCallback , {
+                level: Msal.LogLevel.Verbose,
+                piiLoggingEnabled: false,
+                correlationId: '1234'
+            }
+        )
+    }
 }
 
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
@@ -398,4 +393,3 @@ logging.getLogger("msal").setLevel(logging.WARN)
 
 ---
 
-<!-- Update_Description: wording update -->

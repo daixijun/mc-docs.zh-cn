@@ -1,20 +1,20 @@
 ---
-title: 虚拟机和磁盘性能
-description: 详细了解如何组合使用 VM 及其附加的磁盘以提高性能
+title: 虚拟机和磁盘性能 - Linux
+description: 详细了解如何在 Linux 上组合使用虚拟机及其附加的磁盘以提高性能。
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/01/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: b8227f1f48cf69d891d74e4137936df2e05220be
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 6bdcd64eb90d592d2d9e89a65ee684c616eb6486
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747486"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023202"
 ---
-# <a name="virtual-machine-and-disk-performance"></a>虚拟机和磁盘性能
+# <a name="virtual-machine-and-disk-performance-linux"></a>虚拟机和磁盘性能 (Linux)
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## <a name="virtual-machine-uncached-vs-cached-limits"></a>虚拟机非缓存限制与缓存限制

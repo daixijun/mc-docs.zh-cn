@@ -4,15 +4,15 @@ description: 了解如何在 .NET 函数中使用依赖项注入来注册和使�
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 10/19/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
 ms.reviewer: jehollan
-ms.openlocfilehash: b7df3f0828d953e4e6de15ea8d49e4467ac35416
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: a24a2a17aaa4bcdc76a7fcca1db3031896447973
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472699"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021462"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>在 .NET Azure Functions 中使用依赖项注入
 
@@ -29,6 +29,8 @@ Azure Functions 支持依赖项注入 (DI) 软件设计模式，这是一种在�
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 包版本 1.0.28 或更高版本
+
+- [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/)（当前仅支持 3.x 版及更低版本）
 
 ## <a name="register-services"></a>注册服务
 
@@ -118,9 +120,9 @@ namespace MyNamespace
 
 Azure Functions 应用提供与 [ASP.NET 依赖项注入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes)相同的服务生存期。 就 Functions 应用来说，不同的服务生存期表现如下：
 
-- **暂时性** ：每次请求此服务时，都会创建暂时性服务。
-- **限定范围** ：限定范围的服务的生存期与函数执行生存期相匹配。 作用域服务在每次执行时创建一次。 在执行期间对该服务的后续请求会重复使用现有服务实例。
-- **单一实例** ：单一实例服务生存期与主机生存期相匹配，并且在该实例上的各个函数执行之间重用。 对于连接和客户端（例如 `DocumentClient` 或 `HttpClient` 实例），建议使用单一实例生存期服务。
+- **暂时性**：每次解析此服务时，都会创建暂时性服务。
+- **限定范围**：限定范围的服务的生存期与函数执行生存期相匹配。 每次执行函数后，都会创建设有范围的服务。 在执行期间对该服务的后续请求会重复使用现有服务实例。
+- **单一实例**：单一实例服务生存期与主机生存期相匹配，并且在该实例上的各个函数执行之间重用。 对于连接和客户端（例如 `DocumentClient` 或 `HttpClient` 实例），建议使用单一实例生存期服务。
 
 在 GitHub 上查看或下载[不同服务生存期的示例](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes)。
 
@@ -181,6 +183,8 @@ namespace MyNamespace
     }
 }
 ```
+
+若要详细了解日志级别，请参阅[配置日志级别](configure-monitoring.md#configure-log-levels)。
 
 ## <a name="function-app-provided-services"></a>函数应用提供的服务
 

@@ -4,16 +4,16 @@ description: 了解使用 Azure Stack Hub 中的 VM 时的不同功能和注意�
 author: WenJason
 ms.topic: article
 origin.date: 11/22/2020
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: e7f89bb4f5a65a54ebd88a2704773f8c90045d0e
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: d1c10870d1e22f74e3bee01a4eb9a8309500e319
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507309"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894394"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM 功能
 
@@ -70,7 +70,7 @@ VM 大小及其关联的资源数量在 Azure Stack Hub 与 Azure 之间是一�
 
 ## <a name="vm-extensions"></a>VM 扩展
 
-Azure Stack Hub 包含少量的扩展。 可以通过市场联合来获取更新和其他扩展。
+Azure Stack Hub 包含少量的扩展。 可以通过市场联合来获取更新和其他扩展。 不支持将自定义扩展引入 Azure Stack Hub；扩展必须先加入到 Azure 中，然后才可在 Azure Stack Hub 中提供。
 
 使用以下 PowerShell 脚本可获取 Azure Stack Hub 环境中可用的 VM 扩展的列表。
 

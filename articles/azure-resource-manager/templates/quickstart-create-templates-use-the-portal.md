@@ -1,30 +1,30 @@
 ---
 title: 部署模板 - Azure 门户
-description: 了解如何使用 Azure 门户创建第一个 Azure 资源管理器模板，以及如何部署该模板。
-author: rockboyfor
+description: 了解如何使用 Azure 门户创建第一个 Azure 资源管理器模板（ARM 模板），以及如何部署该模板。
 origin.date: 06/29/2020
-ms.date: 07/13/2020
+author: rockboyfor
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: 09740867a310c231e04664b5e9332b7c6f979f12
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 16a1441a271ad8b3a45397e122b45e727f5f91b1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432620"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022662"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建和部署 ARM 模板
 
-了解如何使用 Azure 门户生成 Azure 资源管理器 (ARM) 模板，以及从门户编辑和部署该模板的过程。 ARM 模板为 JSON 文件，用于定义针对解决方案进行部署时所需的资源。 若要了解与部署和管理 Azure 解决方案关联的概念，请参阅[模版部署概述](overview.md)。
+了解如何使用 Azure 门户生成 Azure 资源管理器模板（ARM 模板），以及从门户编辑和部署该模板的过程。 ARM 模板为 JSON 文件，用于定义针对解决方案进行部署时所需的资源。 若要了解与部署和管理 Azure 解决方案关联的概念，请参阅[模版部署概述](overview.md)。
 
-![资源管理器模板快速入门门户图](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
+:::image type="content" source="./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png" alt-text="资源管理器模板快速入门门户图":::
 
 完成本教程后，部署 Azure 存储帐户。 可以通过同一过程来部署其他 Azure 资源。
 
-如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+如果没有 Azure 订阅，请在开始前[创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="generate-a-template-using-the-portal"></a>使用门户生成模板
 
@@ -37,11 +37,11 @@ ms.locfileid: "96432620"
 1. 在 Web 浏览器中转到 [Azure 门户](https://portal.azure.cn)，然后登录。
 1. 在 Azure 门户菜单中，选择“创建资源”。
 
-    ![在 Azure 门户菜单中，选择“创建资源”](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
+    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png" alt-text="在 Azure 门户菜单中，选择“创建资源”":::
 
 1. 选择“存储” > “存储帐户” 。
 
-    ![创建 Azure 存储帐户](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
+    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png" alt-text="创建 Azure 存储帐户":::
 1. 输入以下信息：
 
     |名称|Value|
@@ -61,7 +61,7 @@ ms.locfileid: "96432620"
 1. 在屏幕底部选择“查看 + 创建”。 请勿在下一步中选择“创建”。
 1. 在屏幕底部选择“下载自动化模板”。 门户显示生成的模板：
 
-    ![通过门户生成模板](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
+    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png" alt-text="通过门户生成模板":::
 
     主窗格会显示该模板。 它是包含六个顶级元素（`schema`、`contentVersion`、`parameters`、`variables`、`resources`、`output`）的 JSON 文件。 有关详细信息，请参阅[了解 ARM 模板的结构和语法](./template-syntax.md)
 
@@ -72,7 +72,7 @@ ms.locfileid: "96432620"
 1. 打开下载的 zip 文件，然后将“template.json”保存到计算机。 在下一部分，请使用模板部署工具来编辑此模板。
 1. 选择“参数”选项卡，查看为参数提供的值。 部署模板时，请写下这些值，下一部分需要它们。
 
-    ![屏幕截图突出显示了“参数”选项卡，其中显示了你提供的值。](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
+    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png" alt-text="屏幕截图突出显示了“参数”选项卡，其中显示了你提供的值。":::
 
     使用模板文件和参数文件可以创建一个资源（在本教程中为 Azure 存储帐户）。
 
@@ -89,13 +89,13 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
 
 1. 从 Azure 门户菜单的搜索框中，键入“部署”，然后选择“部署自定义模板” 。
 
-    ![Azure 资源管理器模板库](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
+    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png" alt-text="Azure 资源管理器模板库":::
 
 1. 选择“在编辑器中生成自己的模板”。
 1. 选择“加载文件”，然后按说明加载在上部分下载的 template.json。
 1. 对模板进行以下三处更改：
 
-    ![Azure Resource Manager 模板](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
+    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png" alt-text="Azure Resource Manager 模板":::
 
     - 删除“storageAccountName”参数，如上一屏幕截图所示。
     - 添加一个名为“storageAccountName”的变量，如上一屏幕截图所示：
@@ -188,11 +188,11 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
 1. 选择“创建” 。
 1. 选择屏幕顶部的铃铛图标（通知）可查看部署状态。 此时会看到“部署正在进行”。 等待部署完成。
 
-    ![Azure 资源管理器模板部署通知](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
+    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png" alt-text="Azure 资源管理器模板部署通知":::
 
 1. 从通知窗格选择“转到资源组”。 将看到类似于以下的屏幕：
 
-    ![Azure 资源管理器模板部署资源组](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
+    :::image type="content" source="./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png" alt-text="Azure 资源管理器模板部署资源组":::
 
     可以看到部署状态为成功，资源组中只有一个存储帐户。 存储帐户名称是模板生成的唯一字符串。 若要详细了解如何使用 Azure 存储帐户，请参阅[快速入门：使用 Azure 门户上传、下载和列出 Blob](../../storage/blobs/storage-quickstart-blobs-portal.md)。
 

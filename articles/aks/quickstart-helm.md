@@ -2,19 +2,19 @@
 title: 使用 Helm 在 Azure Kubernetes 服务 (AKS) 上进行开发
 description: 结合使用 Helm 与 AKS 和 Azure 容器注册表，打包和运行群集中的应用程序容器。
 services: container-service
-author: rockboyfor
 ms.topic: article
 origin.date: 07/28/2020
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 9f0223e439254bfe1b11c9a86491d20965d8cead
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 2fdb16ff552966d7985488c6311d122ad5674c5c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432529"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022890"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>快速入门：使用 Helm 在 Azure Kubernetes 服务 (AKS) 上进行开发
 
@@ -208,11 +208,11 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [!div class="nextstepaction"]
 > [Helm 文档][helm-documentation]
 
-[az-acr-create]: https://docs.azure.cn/cli/acr#az-acr-create
-[az-acr-build]: https://docs.azure.cn/cli/acr#az-acr-build
-[az-group-delete]: https://docs.azure.cn/cli/group#az-group-delete
-[az aks get-credentials]: https://docs.microsoft.com/cli/azure/aks#az_aks_get_credentials
-[az aks install-cli]: https://docs.microsoft.com/cli/azure/aks#az_aks_install_cli
+[az-acr-create]: https://docs.azure.cn/cli/acr#az_acr_create
+[az-acr-build]: https://docs.azure.cn/cli/acr#az_acr_build
+[az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
+[az aks get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
+[az aks install-cli]: https://docs.azure.cn/cli/aks#az_aks_install_cli
 [example-nodejs]: https://github.com/Azure/dev-spaces/tree/master/samples/nodejs/getting-started/webfrontend
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [helm]: https://helm.sh/

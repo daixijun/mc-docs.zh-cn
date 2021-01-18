@@ -1,39 +1,40 @@
 ---
-title: 在云中渲染场景
-description: 教程 - 如何使用 Batch 渲染服务和 Azure 命令行界面通过 Arnold 来渲染 Autodesk 3ds Max 场景
+title: 教程 - 在云中渲染场景
+description: 了解如何使用 Batch 渲染服务和 Azure 命令行界面通过 Arnold 来渲染 Autodesk 3ds Max 场景
+ms.service: batch
 ms.topic: tutorial
-origin.date: 03/05/2020
+origin.date: 12/30/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 04/29/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 5010df4cda736a2f1681e41acdf0eb05a148c862
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 498a96370fd22c58d4fc81385f97059ae08abcf8
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978216"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022824"
 ---
-# <a name="tutorial-render-a-scene-with-azure-batch"></a>教程：使用 Azure Batch 渲染场景 
+# <a name="tutorial-render-a-scene-with-azure-batch"></a>教程：使用 Azure Batch 渲染场景
 
 Azure Batch 提供云规模的渲染功能，按使用付费。 Azure Batch 支持渲染应用，包括 Autodesk Maya、3ds Max、Arnold 和 V-Ray。 本教程介绍如何执行相关步骤，以便使用 Azure 命令行界面通过 Batch 来渲染小型场景。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
-> * 将场景上传到 Azure 存储
-> * 创建用于渲染的 Batch 池
-> * 渲染单帧场景
-> * 缩放池并渲染多帧场景
-> * 下载渲染的输出
+> - 将场景上传到 Azure 存储
+> - 创建用于渲染的 Batch 池
+> - 渲染单帧场景
+> - 缩放池并渲染多帧场景
+> - 下载渲染的输出
 
 本教程使用 Batch，通过 [Arnold](https://www.autodesk.com/products/arnold/overview) 光线跟踪渲染器来渲染 3ds Max 场景。 Batch 池使用一个 Azure 市场映像，该映像中预安装了提供按使用付费的许可的图形和渲染应用程序。
 
 ## <a name="prerequisites"></a>先决条件
 
- - 若要以“按使用付费”模式使用 Batch 中的渲染应用程序，需要有一个标准预付费套餐订阅或其他 Azure 购买选项。 **如果使用的是提供货币额度的免费 Azure 套餐，则不支持按使用付费的许可。**
+- 若要以“按使用付费”模式使用 Batch 中的渲染应用程序，需要有一个标准预付费套餐订阅或其他 Azure 购买选项。 **如果使用的是提供货币额度的免费 Azure 套餐，则不支持按使用付费的许可。**
 
- - [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene) 上提供了本教程的示例 3ds Max 场景，以及示例 Bash 脚本和 JSON 配置文件。 3ds Max 场景来自 [Autodesk 3ds Max 示例文件](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)。 （提供的 Autodesk 3ds Max 示例文件已获得 Creative Commons Attribution-NonCommercial-Share Alike 许可。 版权所有 &copy; Autodesk, Inc.）
+- [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene) 上提供了本教程的示例 3ds Max 场景，以及示例 Bash 脚本和 JSON 配置文件。 3ds Max 场景来自 [Autodesk 3ds Max 示例文件](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)。 （提供的 Autodesk 3ds Max 示例文件已获得 Creative Commons Attribution-NonCommercial-Share Alike 许可。 版权所有 &copy; Autodesk, Inc.）
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -45,13 +46,14 @@ Azure Batch 提供云规模的渲染功能，按使用付费。 Azure Batch 支�
 
 > [!TIP]
 > 可以在 Azure Batch 扩展模板 GitHub 存储库中查看 [Arnold 作业模板](https://github.com/Azure/batch-extension-templates/tree/master/templates/arnold/render-windows-frames)。
+
 ## <a name="create-a-batch-account"></a>创建批处理帐户
 
-在订阅中创建资源组、Batch 帐户和链接存储帐户（如果尚未这样做）。 
+在订阅中创建资源组、Batch 帐户和链接存储帐户（如果尚未这样做）。
 
 使用 [az group create](https://docs.azure.cn/cli/group#az_group_create) 命令创建资源组。 以下示例在“chinaeast2”位置创建名为“myResourceGroup”的资源组。
 
-```azurecli 
+```azurecli
 az group create \
     --name myResourceGroup \
     --location chinaeast2
@@ -66,9 +68,10 @@ az storage account create \
     --location chinaeast2 \
     --sku Standard_LRS
 ```
+
 使用 [az batch account create](https://docs.azure.cn/cli/batch/account#az_batch_account_create) 命令创建 Batch 帐户。 以下示例在 *myResourceGroup* 中创建名为 *mybatchaccount* 的 Batch 帐户，并链接已创建的存储帐户。  
 
-```azurecli 
+```azurecli
 az batch account create \
     --name mybatchaccount \
     --storage-account mystorageaccount \
@@ -78,12 +81,13 @@ az batch account create \
 
 若要创建和管理计算池和作业，需使用 Batch 进行身份验证。 使用 [az batch account login](https://docs.azure.cn/cli/batch/account#az_batch_account_login) 命令登录到帐户。 登录后，`az batch` 命令使用此帐户上下文。 以下示例使用基于 Batch 帐户名称和密钥的共享密钥身份验证。 Batch 还支持通过 [Azure Active Directory](batch-aad-auth.md) 进行身份验证，以便对单个用户或无人参与应用程序进行身份验证。
 
-```azurecli 
+```azurecli
 az batch account login \
     --name mybatchaccount \
     --resource-group myResourceGroup \
     --shared-key-auth
 ```
+
 ## <a name="upload-a-scene-to-storage"></a>将场景上传到存储
 
 若要将输入场景上传到存储，首先需访问存储帐户并为 Blob 创建目标容器。 若要访问 Azure 存储帐户，请导出 `AZURE_STORAGE_KEY` 和 `AZURE_STORAGE_ACCOUNT` 环境变量。 第一个 Bash shell 命令使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_list) 命令来获取第一个帐户密钥。 设置这些环境变量后，存储命令使用此帐户上下文。
@@ -120,6 +124,7 @@ az storage blob upload-batch \
 
 使用 [az batch pool create](https://docs.azure.cn/cli/batch/pool#az_batch_pool_create) 命令创建用于渲染的 Batch 池。 此示例在 JSON 文件中指定池设置。 在当前 shell 中，创建名为 *mypool.json* 的文件，然后复制并粘贴以下内容。 请确保正确复制所有文本。 （可以从 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json) 下载文件。）
 
+
 ```json
 {
   "id": "myrenderpool",
@@ -155,12 +160,13 @@ Batch 支持专用节点。 专用节点为池保留。
 
 <!--MOONCAKE CUSTOMIZE ON 08/20/2020-->
 
-将 JSON 文件传递至 `az batch pool create` 命令即可创建该池：
+如果尚未登录到批处理帐户，请使用 [az batch account login](https://docs.azure.cn/cli/batch/account#az_batch_account_login) 命令执行此操作。 然后将 JSON 文件传递到 `az batch pool create` 命令即可创建该池：
 
 ```azurecli
 az batch pool create \
     --json-file mypool.json
-``` 
+```
+
 池的预配需要数分钟。 若要查看池的状态，请运行 [az batch pool show](https://docs.azure.cn/cli/batch/pool#az_batch_pool_show) 命令。 以下命令获取池的分配状态：
 
 ```azurecli
@@ -173,7 +179,7 @@ az batch pool show \
 
 ## <a name="create-a-blob-container-for-output"></a>创建用于输出的 Blob 容器
 
-在本教程的示例中，渲染作业中的每个任务都会创建一个输出文件。 在计划此作业之前，请在存储帐户中创建一个 Blob 容器，作为输出文件的目标。 以下示例使用 [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) 命令创建可以公开读取访问的 *job-myrenderjob* 容器。 
+在本教程的示例中，渲染作业中的每个任务都会创建一个输出文件。 在计划此作业之前，请在存储帐户中创建一个 Blob 容器，作为输出文件的目标。 以下示例使用 [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) 命令创建可以公开读取访问的 *job-myrenderjob* 容器。
 
 ```azurecli
 az storage container create \
@@ -181,21 +187,19 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-为了将输出文件写入到容器中，Batch 需要使用共享访问签名 (SAS) 令牌。 使用 [az storage account generate-sas](https://docs.azure.cn/cli/storage/account#az_storage_account_generate_sas) 命令创建该令牌。 以下示例创建的令牌用于向帐户中的任何 Blob 容器写入内容，该令牌在 2020 年 11 月 15 日过期：
+为了将输出文件写入到容器中，Batch 需要使用共享访问签名 (SAS) 令牌。 使用 [az storage account generate-sas](https://docs.azure.cn/cli/storage/account#az_storage_account_generate_sas) 命令创建该令牌。 以下示例创建的令牌用于向帐户中的任何 Blob 容器写入内容，该令牌在 2021 年 11 月 15 日过期：
 
 ```azurecli
 az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2020-11-15
+    --expiry 2021-11-15
 ```
 
-记下该命令返回的令牌，如下所示。 在稍后的步骤中会使用此令牌。
+记下该命令返回的令牌，如下所示。 在稍后的步骤中将使用此令牌。
 
-```
-se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-```
+`se=2021-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 
 ## <a name="render-a-single-frame-scene"></a>渲染单帧场景
 
@@ -218,11 +222,7 @@ az batch job create \
 在 JSON 文件中修改 `blobSource` 和 `containerURL` 元素，使之包括存储帐户和 SAS 令牌的名称。 
 
 > [!TIP]
-> `containerURL` 以 SAS 令牌结尾，类似于：
-> 
-> ```
-> https://mystorageaccount.blob.core.chinacloudapi.cn/job-myrenderjob/$TaskOutput?se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-> ```
+> `containerURL` 以 SAS 令牌结尾，类似于：`https://mystorageaccount.blob.core.chinacloudapi.cn/job-myrenderjob/$TaskOutput?se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 
 ```json
 {
@@ -349,7 +349,7 @@ az storage blob download-batch \
 
 如果不再需要资源组、Batch 帐户、池和所有相关的资源，则可以使用 [az group delete](https://docs.azure.cn/cli/group#az_group_delete) 命令将其删除。 删除资源，如下所示：
 
-```azurecli 
+```azurecli
 az group delete --name myResourceGroup
 ```
 
@@ -358,13 +358,13 @@ az group delete --name myResourceGroup
 本教程介绍了如何：
 
 > [!div class="checklist"]
-> * 将场景上传到 Azure 存储
-> * 创建用于渲染的 Batch 池
-> * 使用 Arnold 渲染单帧场景
-> * 缩放池并渲染多帧场景
-> * 下载渲染的输出
+> - 将场景上传到 Azure 存储
+> - 创建用于渲染的 Batch 池
+> - 使用 Arnold 渲染单帧场景
+> - 缩放池并渲染多帧场景
+> - 下载渲染的输出
 
-若要详细了解云规模的渲染，请查看 Batch 渲染服务的选项。 
+若要详细了解云规模的渲染，请参阅批量渲染文档。
 
 > [!div class="nextstepaction"]
 > [Batch Rendering 服务](batch-rendering-service.md)

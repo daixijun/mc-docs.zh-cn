@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: zhanxia
 ms.date: 04/16/2020
-ms.openlocfilehash: 0a30f9d243817c60669fcf3d029301fefafa8ee7
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 59f220e2647394a4a53bc71854f06aa78b5bb369
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104996"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022630"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>设计器的异常和错误代码
 
@@ -279,7 +279,7 @@ Azure 机器学习不支持某些更新的帐户类型。 例如，新的“热�
 ## <a name="error-0014"></a>错误 0014  
  如果列中唯一值计数大于允许值，将出现异常。  
 
- 当列包含的唯一值过多时，将出现此错误。  例如，如果你指定将某列作为分类数据进行处理，但由于列中的唯一值过多而难以完成处理，则可能会看到此错误。 如果两个输入中的唯一值数目不匹配，也可能会看到此错误。   
+ 当列包含的唯一值（如 ID 列或文本列）过多时，将出现此错误。 如果你指定将某列作为分类数据进行处理，但由于列中的唯一值过多而难以完成处理，则可能会看到此错误。 如果两个输入中的唯一值数目不匹配，也可能会看到此错误。   
 
 如果同时满足以下条件，将出现唯一值大于允许值的错误：
 
@@ -292,7 +292,9 @@ Azure 机器学习不支持某些更新的帐户类型。 例如，新的“热�
 
 对于打算用于分组或分类的列，请采取措施来减少列中的唯一值数目。 根据列的数据类型，可以通过不同的方式减小唯一值数目。 
 
-通常在这种情况下，出现错误的列作为用来训练模型的特征是没有意义的。 因此，可以使用[编辑元数据](../algorithm-module-reference/edit-metadata.md)将该列标记为“清除特征”，这样就不会在训练模型期间使用它。 
+对于在模型训练期间不具有有意义特征的 ID 列，可以使用[编辑元数据](../algorithm-module-reference/edit-metadata.md)将该列标记为“清除特征”，这样就不会在训练模型期间使用它。 
+
+对于文本列，可以使用[特征哈希](../algorithm-module-reference/feature-hashing.md)或[从文本模块中提取 N 元语法特征](../algorithm-module-reference/extract-n-gram-features-from-text.md)来预处理文本列。
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  

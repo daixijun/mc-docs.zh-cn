@@ -6,14 +6,14 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp
 ms.topic: article
 origin.date: 02/18/2019
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
-ms.openlocfilehash: 8833728ce48895e9b0e6c9ed2b9522d0db0069ee
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 4e2d6edfdf34d437c45739adda8b97ea4b257805
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170700"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023119"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 进行事件驱动的后台处理
 
@@ -68,7 +68,8 @@ static void Main(string[] args)
 }
 ```
 
-由于版本 3.x 使用默认的 .NET Core 配置 API，因此没有用于更改连接字符串名称的 API。
+> [!NOTE]
+> 由于版本 3.x 使用默认的 .NET Core 配置 API，因此没有用于更改连接字符串名称的 API。 请参阅[使用 Visual Studio 开发和部署 WebJobs](webjobs-dotnet-deploy-vs.md)
 
 ### <a name="host-development-settings"></a>主机开发设置
 
@@ -187,7 +188,7 @@ string value,
 
 手动触发函数的过程取决于 SDK 版本。
 
-#### <a name="version-3x"></a>版本 3.*x*
+#### <a name="version-3x"></a>版本 3.x
 
 ```cs
 static async Task Main(string[] args)
@@ -214,7 +215,7 @@ static async Task Main(string[] args)
 }
 ```
 
-#### <a name="version-2x"></a>版本 2.*x*
+#### <a name="version-2x"></a>版本 2.x
 
 ```cs
 static void Main(string[] args)
@@ -234,7 +235,7 @@ static void Main(string[] args)
 
 安装和管理绑定类型的过程取决于使用的是 SDK 版本 3.*x* 还是版本 2.*x*。 可以在特定绑定类型的 Azure Functions [参考文章](#binding-reference-information)的“包”部分找到要为该绑定类型安装的包。 异常是 Files 触发器和绑定（适用于本地文件系统），不受 Azure Functions 的支持。
 
-#### <a name="version-3x"></a>版本 3.*x*
+#### <a name="version-3x"></a>版本 3.x
 
 在版本 3.*x* 中，存储绑定包含在 `Microsoft.Azure.WebJobs.Extensions.Storage` 包中。 在 `ConfigureWebJobs` 方法中调用 `AddAzureStorage` 扩展方法，如下所示：
 
@@ -276,7 +277,7 @@ static async Task Main()
 
 若要使用属于核心服务的 Timer 触发器或 Files 绑定，请分别调用 `AddTimers` 或 `AddFiles` 扩展方法。
 
-#### <a name="version-2x"></a>版本 2.*x*
+#### <a name="version-2x"></a>版本 2.x
 
 以下触发器和绑定类型包含在版本 2.*x* 的 `Microsoft.Azure.WebJobs` 包中：
 
@@ -316,7 +317,7 @@ public class Functions
 
 绑定到 [`ExecutionContext`] 的过程取决于所用的 SDK 版本。
 
-#### <a name="version-3x"></a>版本 3.*x*
+#### <a name="version-3x"></a>版本 3.x
 
 在 `ConfigureWebJobs` 方法中调用 `AddExecutionContextBinding` 扩展方法，如下所示：
 
@@ -337,7 +338,7 @@ static async Task Main()
 }
 ```
 
-#### <a name="version-2x"></a>版本 2.*x*
+#### <a name="version-2x"></a>版本 2.x
 
 前面所述的 `Microsoft.Azure.WebJobs.Extensions` 包还提供了一个可以通过调用 `UseCore` 方法注册的特殊绑定类型。 使用此绑定可以在函数签名中定义 [`ExecutionContext`] 参数，函数签名的启用方式如下：
 
@@ -432,7 +433,7 @@ static async Task Main()
 
 这些示例演示如何配置队列存储触发器：
 
-#### <a name="version-3x"></a>版本 3.*x*
+#### <a name="version-3x"></a>版本 3.x
 
 ```cs
 static async Task Main()
@@ -458,7 +459,7 @@ static async Task Main()
 
 有关更多详细信息，请参阅[队列存储绑定](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties)一文。
 
-#### <a name="version-2x"></a>版本 2.*x*
+#### <a name="version-2x"></a>版本 2.x
 
 ```cs
 static void Main(string[] args)
@@ -533,7 +534,7 @@ static async Task Main()
 
 某些触发器和绑定类型定义其自身的自定义配置类型。 例如，File 触发器允许指定要监视的根路径，如以下示例中所示：
 
-#### <a name="version-3x"></a>版本 3.*x*
+#### <a name="version-3x"></a>版本 3.x
 
 ```cs
 static async Task Main()
@@ -552,7 +553,7 @@ static async Task Main()
 }
 ```
 
-#### <a name="version-2x"></a>版本 2.*x*
+#### <a name="version-2x"></a>版本 2.x
 
 ```cs
 static void Main()
@@ -615,7 +616,7 @@ public class CustomNameResolver : INameResolver
 }
 ```
 
-#### <a name="version-3x"></a>版本 3.*x*
+#### <a name="version-3x"></a>版本 3.x
 
 使用依赖关系注入配置解析程序。 这些示例需要下列 `using` 语句：
 
@@ -834,12 +835,12 @@ WebJobs SDK 在幕后使用 [Azure Blob 租约](../storage/common/storage-concur
 |信息 | 2 |
 |警告     | 3 |
 |错误       | 4 |
-|关键    | 5 |
+|严重    | 5 |
 |无        | 6 |
 
 可以将每个类别单独筛选为特定的 [`LogLevel`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loglevel)。 例如，你可能想要查看有关 Blob 触发器处理的所有日志，但对于其他任何操作，只想查看 `Error` 和更高级别的日志。
 
-#### <a name="version-3x"></a>版本 3.*x*
+#### <a name="version-3x"></a>版本 3.x
 
 版本 3.*x* 的 SDK 依赖于 .NET Core 内置的筛选。 使用 `LogCategories` 类，可以为特定函数、触发器或用户定义类别。 它还能为特定主机状态（例如，`Startup` 和 `Results`）定义筛选器。 这样就可以微调日志记录输出。 如果在定义类别中未找到任何匹配项，筛选器在决定是否筛选消息时会回退到 `Default` 值。
 
@@ -876,7 +877,7 @@ static async Task Main(string[] args)
 }
 ```
 
-#### <a name="version-2x"></a>版本 2.*x*
+#### <a name="version-2x"></a>版本 2.x
 
 在版本 2.*x* 的 SDK 中，`LogCategoryFilter` 类用于控制筛选。 `LogCategoryFilter` 包含初始值为 `Information` 的 `Default` 属性，这意味着，将会记录级别为 `Information`、`Warning`、`Error` 或 `Critical` 的所有消息，但会筛选掉级别为 `Debug` 或 `Trace` 的所有消息。
 

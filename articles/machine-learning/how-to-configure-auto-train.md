@@ -1,7 +1,7 @@
 ---
 title: 创建自动化机器学习试验
 titleSuffix: Azure Machine Learning
-description: 自动化机器学习将为你选择一种算法，并生成随时可用于部署的模型。 了解可用于配置自动化机器学习试验的选项。
+description: 了解如何为自动化机器学习试验定义数据源、计算和配置设置。
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 27fec691ecb13c54edafe7d61759f28bc3c46658
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 7ca2e0faa7816a33652e7b9b2930f0693e21aca7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105282"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022438"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>使用 Python 配置自动化 ML 试验
 
@@ -117,7 +117,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
     有关使用 Azure 机器学习托管计算的远程示例，请参阅[此笔记本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)。 
 
-* Azure 订阅中的 **Azure Databricks 群集**。 有关包含 Azure Databricks 的示例 Notebook，请参阅此 [GitHub 站点](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl)。
+* Azure 订阅中的 **Azure Databricks 群集**。 有关更多详细信息，可参阅[为自动化 ML 设置 Azure Databricks 群集](how-to-configure-databricks-automl-environment.md)。 有关包含 Azure Databricks 的示例 Notebook，请参阅此 [GitHub 站点](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl)。
 
 <a name='configure-experiment'></a>
 
@@ -375,6 +375,99 @@ run = experiment.submit(automl_config, show_output=True)
 
 > [!NOTE]
 > 解释客户端目前不支持 ForecastTCN 模型。 如果此模型作为最佳模型返回，则不会返回解释仪表板，并且不支持按需解释运行。
+
+## <a name="troubleshooting"></a>疑难解答
+
+* **`AutoML` 依赖项到新版本的最新升级将破坏兼容性**：从 SDK 1.13.0 版开始，模型将不加载到较旧的 SDK 中，这是因为在之前的包中固定的旧版本与现在固定的更新的版本不兼容。 你将看到错误，例如：
+  * 找不到模块：例如 `No module named 'sklearn.decomposition._truncated_svd`
+  * 导入错误：例如 `ImportError: cannot import name 'RollingOriginValidator'`
+  * 属性错误：例如： `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
+  
+  若要解决此问题，请执行下面两个步骤之一，具体取决于你的 `AutoML` SDK 训练版本：
+    * 如果 `AutoML` SDK 训练版本高于 1.13.0，则需要 `pandas == 0.25.1` 和 `sckit-learn==0.22.1`。 如果版本不匹配，请将 scikit-learn 和/或 pandas 升级为正确的版本，如下所示：
+      
+      ```bash
+         pip install --upgrade pandas==0.25.1
+         pip install --upgrade scikit-learn==0.22.1
+      ```
+      
+    * 如果 `AutoML` SDK 训练版本低于或等于 1.12.0，则需要 `pandas == 0.23.4` 和 `sckit-learn==0.20.3`。 如果版本不匹配，请将 scikit-learn 和/或 pandas 降级为正确的版本，如下所示：
+  
+      ```bash
+        pip install --upgrade pandas==0.23.4
+        pip install --upgrade scikit-learn==0.20.3
+      ```
+
+* **部署失败**：对于版本低于或等于 1.18.0 的 SDK，为部署创建的基本映像可能会失败，并出现以下错误：“导入错误: 无法从 `werkzeug` 中导入名称 `cached_property`”。 
+
+  以下步骤可解决此问题：
+  1. 下载模型包
+  2. 将包解压缩
+  3. 使用解压缩资产进行部署
+
+* **预测 R2 评分始终为零**：如果提供的训练数据的时间序列包含的值与上一个 `n_cv_splits` + `forecasting_horizon` 数据点相同，则会出现此问题。 如果该模式在你的时间序列中是预期的，可将主要指标切换为标准均方根误差。
+ 
+* **TensorFlow**：从 SDK 1.5.0 版开始，自动化机器学习默认不安装 TensorFlow 模型。 若要安装 TensorFlow 并将其用于自动化 ML 试验，请通过 CondaDependecies 安装 tensorflow==1.12.0。 
+ 
+   ```python
+   from azureml.core.runconfig import RunConfiguration
+   from azureml.core.conda_dependencies import CondaDependencies
+   run_config = RunConfiguration()
+   run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
+  ```
+
+* **试验图表**：自 4 月 12 日以来，自动化 ML 试验迭代中显示的二元分类图表（精准率-召回率、ROC、增益曲线等）在用户界面中无法正常呈现。 绘制的图表目前显示相反的结果：表现更好的模型反而显示更低的结果。 我们研究解决方法。
+
+* **Databricks 取消自动化机器学习运行**：在 Azure Databricks 上使用自动化机器学习功能时，若要取消某个运行并启动新的试验运行，请重启 Azure Databricks 群集。
+
+* **Databricks 自动化机器学习的迭代数超过 10 个**：在自动化机器学习设置中，如果迭代数超过 10 个，请在提交运行时将 `show_output` 设置为 `False`。
+
+* **Databricks Azure 机器学习 SDK 和自动化机器学习的小组件**：Databricks 笔记本不支持 Azure 机器学习 SDK 小组件，因为笔记本无法分析 HTML 小组件。 可以通过在 Azure Databricks 笔记本单元中使用以下 Python 代码，在门户中查看该小组件：
+
+    ```
+    displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+    ```
+* **automl_setup 失败**： 
+    * 在 Windows 上，从 Anaconda 提示符运行 automl_setup。 点击此链接[安装 Miniconda](https://docs.conda.io/en/latest/miniconda.html)。
+    * 通过运行 `conda info` 命令，确保已安装 conda 64 位而不是 32 位。 对于 Windows，`platform` 应为 `win-64`，对于 Mac，应为 `osx-64`。
+    * 确保已安装 conda 4.4.10 或更高版本。 可以使用命令 `conda -V` 检查该版本。 如果安装了以前的版本，可以使用以下命令对其进行更新：`conda update conda`。
+    * Linux - `gcc: error trying to exec 'cc1plus'`
+      *  如果遇到 `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` 错误，请使用命令 `sudo apt-get install build-essential` 安装版本要素。
+      * 将新名称作为第一个参数传递给 automl_setup 以创建新的 conda 环境。 使用 `conda env list` 查看现有的 conda 环境，并使用 `conda env remove -n <environmentname>` 删除它们。
+      
+* **automl_setup_linux.sh 失败**：如果 automl_setup_linus.sh 在 Ubuntu Linux 上失败，并出现错误：`unable to execute 'gcc': No such file or directory`-
+  1. 确保已启用出站端口 53 和 80。 在 Azure VM 上，可选择 VM 并单击“网络”，从 Azure 门户执行此操作。
+  2. 运行命令 `sudo apt-get update`
+  3. 运行命令 `sudo apt-get install build-essential --fix-missing`
+  4. 再次运行 `automl_setup_linux.sh`
+
+* **configuration.ipynb 失败**：
+  * 对于本地 conda，请首先确保 automl_setup 已成功运行。
+  * 确保 subscription_id 是正确的。 依次选择“所有服务”和“订阅”，在 Azure 门户中查找 subscription_id。 字符“<”和“>”不应包含在 subscription_id 值中。 例如，`subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` 的格式有效。
+  * 确保参与者或所有者有权访问“订阅”。
+  * 检查该区域是否为受支持的区域之一：`eastus2`、`eastus`、`westcentralus`、`southeastasia`、`westeurope`、`australiaeast`、`westus2`、`southcentralus`。
+  * 确保使用 Azure 门户访问该区域。
+  
+* **`import AutoMLConfig` 失败**：自动化机器学习版本 1.0.76 中存在包更改，这要求先卸载以前的版本，再更新到新版本。 如果从 v1.0.76 之前的 SDK 版本升级到 v1.0.76 或更高版本后遇到 `ImportError: cannot import name AutoMLConfig`，请先运行 `pip uninstall azureml-train automl` 再运行 `pip install azureml-train-auotml` 来解决该错误。 automl_setup.cmd 脚本会自动执行此操作。 
+
+* **workspace.from_config 失败**：如果调用 ws = Workspace.from_config()' 失败 -
+  1. 确保 configuration.ipynb 笔记本已成功运行。
+  2. 如果正在从不在运行 `configuration.ipynb` 的文件夹下的文件夹中运行笔记本，则将文件夹 aml_config 及其包含的文件 config.json 复制到新文件夹中。 Workspace.from_config 读取笔记本文件夹或其父文件夹的 config.json。
+  3. 如果正在使用新的订阅、资源组、工作区或区域，请确保再次运行 `configuration.ipynb` 笔记本。 仅当指定订阅下的指定资源组中已存在工作区时，直接更改 config.json 才会生效。
+  4. 如果要更改区域，请更改工作区、资源组或订阅。 即使指定的区域不同，`Workspace.create` 也不会创建或更新工作区（如果已存在）。
+  
+* **示例笔记本失败**：如果示例笔记本失败，并出现属性、方法或库不存在的错误：
+  * 确保在 Jupyter Notebook 中选择了正确的内核。 内核显示在笔记本页面的右上方。 默认值为 azure_automl。 内核作为笔记本的一部分进行保存。 因此，如果切换到新的 conda 环境，则必须在笔记本中选择新内核。
+      * 对于 Azure Notebooks，它应为 Python 3.6。 
+      * 对于本地 conda 环境，它应为在 automl_setup 中指定的 conda 环境名称。
+  * 确保笔记本适用于正在使用的 SDK 版本。 可在 Jupyter Notebook 单元中执行 `azureml.core.VERSION` 来检查 SDK 版本。 通过单击 `Branch` 按钮，选择 `Tags` 选项卡，然后选择版本，可以从 GitHub 下载以前版本的示例笔记本。
+
+* **`import numpy` 在 Windows 中失败**：在某些 Windows 环境中，最新的 Python 3.6.8 版本加载 numpy 时会出现错误。 如果出现此问题，请尝试使用 Python 3.6.7 版本。
+
+* **`import numpy` 失败**：在自动化 ML conda 环境中检查 TensorFlow 版本。 支持的版本为 <1.13 的版本。 如果版本高于或等于 1.13，请从环境中卸载 TensorFlow。可按如下所示检查 TensorFlow 的版本并进行卸载 -
+  1. 启动命令 shell，激活安装了自动化 ML 包的 conda 环境。
+  2. 输入 `pip freeze` 并查找 `tensorflow`，如果找到，则列出的版本应 <1.13
+  3. 如果列出的版本不受支持，请在命令行界面中使用 `pip uninstall tensorflow`，并输入 y 进行确认。
 
 ## <a name="next-steps"></a>后续步骤
 

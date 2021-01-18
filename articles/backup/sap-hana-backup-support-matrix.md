@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.author: v-johya
 ms.topic: conceptual
 origin.date: 11/7/2019
-ms.date: 12/10/2020
+ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: ab144b8dc26d2724b422f0cdf9dfcce069b1f0d8
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 4f9c49b478abc9cb0f4ecaa85c40c84283c22af6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105339"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021162"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>针对备份 Azure VM 上的 SAP HANA 数据库的支持矩阵
 
@@ -27,7 +27,7 @@ Azure 备份支持将 SAP HANA 数据库备份到 Azure。 本文总结了在使
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **拓扑**               | 仅在 Azure Linux VM 中运行的 SAP HANA                    | HANA 大型实例 (HLI)                                   |
 | **区域**                   |  中国东部、中国北部、中国东部 2、中国北部 2  |
-| **OS 版本**            | 带 SP2、SP3、SP4 和 SP5 的 SLES 12；带 SP0 和 SP1 的 SLES 15 <br><br>  自 2020 年 8 月 1 日起，适用于 RHEL 的 SAP HANA 备份（7.4、7.6、7.7 和 8.1）已正式发布。                |                                             |
+| **OS 版本**            | 带 SP2、SP3、SP4 和 SP5 的 SLES 12；带 SP0、SP1 和 SP2 的 SLES 15 <br><br>  自 2020 年 8 月 1 日起，适用于 RHEL 的 SAP HANA 备份（7.4、7.6、7.7 和 8.1）已正式发布。                |                                             |
 | **HANA 版本**          | SDC on HANA 1.x、MDC on HANA 2.x <= SPS04 Rev 48、SPS05（尚未对启用了加密的方案进行验证）      |                                                            |
 | **HANA 部署**       | 基于单个 Azure VM 的 SAP HANA - 仅纵向扩展 <br><br> 进行高可用性部署时，两个不同计算机上的两个节点均被视为具有单独数据链的单个节点。               | 横向扩展 <br><br> 在高可用性部署中，备份不会自动故障转移到辅助节点。 应为每个节点单独进行备份配置。                                           |
 | **HANA 实例**         | 单个 Azure VM 上的单个 SAP HANA 实例 - 仅纵向扩展 | 单个 VM 上的多个 SAP HANA 实例                  |

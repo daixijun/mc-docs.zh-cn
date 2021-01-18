@@ -1,23 +1,23 @@
 ---
 title: 在门户中配置应用
-description: 了解如何在 Azure 门户中配置应用服务应用的常用设置。 应用设置、连接字符串、平台、语言堆栈、容器等
+description: 了解如何在 Azure 门户中配置应用服务应用的常用设置。 应用设置、应用配置、连接字符串、平台、语言堆栈、容器等。
 keywords: azure 应用服务, web 应用, 应用设置, 环境变量
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-origin.date: 08/13/2019
-ms.date: 10/19/2020
+origin.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-tawe
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: f282e78f7bb2d028aa9ff38000812007b4490bb0
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: e0a5c7a0bf0e590ba9867c9089e882ecbb0ffaa6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170817"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021501"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>在 Azure 门户中配置应用服务应用
 
-本主题介绍如何使用 [Azure 门户]配置 Web 应用、移动后端或 API 应用的常用设置。
+本文介绍如何使用 [Azure 门户]配置 Web 应用、移动后端或 API 应用的常用设置。
 
 ## <a name="configure-app-settings"></a>配置应用设置
 
@@ -31,7 +31,7 @@ ms.locfileid: "92170817"
 
 ![应用程序设置](./media/configure-common/open-ui.png)
 
-对于 ASP.NET 和 ASP.NET Core 开发人员而言，在应用服务中设置应用设置类似于在 Web.config  或 appsettings.json  中的 `<appSettings>` 内进行设置，但应用服务中的值会替代 Web.config  或 appsettings.json  中的值。 可以在 Web.config  或 appsettings.json  中保留开发设置（例如，本地 MySQL 密码），但在应用服务中保留生产机密（例如 Azure MySQL 数据库密码）会更安全。 相同的代码在本地调试时使用开发设置，部署到 Azure 时使用生产机密。
+对于 ASP.NET 和 ASP.NET Core 开发人员而言，在应用服务中设置应用设置类似于在 Web.config  或 appsettings.json  中的 `<appSettings>` 内进行设置，但应用服务中的值会替代 Web.config  或 appsettings.json  中的值。 可以在 Web.config 或 appsettings.json 中保留开发设置（例如本地 MySQL 密码），并在应用服务中安全地保留生产机密（例如 Azure MySQL 数据库密码） 。 相同的代码在本地调试时使用开发设置，部署到 Azure 时使用生产机密。
 
 同样，其他语言堆栈也会在运行时获取应用设置作为环境变量。 有关特定的语言堆栈步骤，请参阅：
 
@@ -121,7 +121,10 @@ ms.locfileid: "92170817"
 
 对于 ASP.NET 和 ASP.NET Core 开发人员而言，在应用服务中设置连接字符串类似于在 *Web.config* 中的 `<connectionStrings>` 内进行设置，但应用服务中设置的值会替代 *Web.config* 中的值。可将开发设置（例如，数据库文件）保留在 Web.config  中，并将生产机密（例如，SQL 数据库凭据）安全保留在应用服务中。 相同的代码在本地调试时使用开发设置，部署到 Azure 时使用生产机密。
 
-对于其他语言堆栈，最好是改用[应用设置](#configure-app-settings)，因为连接字符串需要在变量键中使用特殊的格式才能访问值。 但以下情况例外：如果在应用中配置了相应的连接字符串，则某些 Azure 数据库类型会连同应用一起备份。 有关详细信息，请参阅[备份的内容](manage-backup.md#what-gets-backed-up)。 如果不需要这种自动化备份，请使用应用设置。
+对于其他语言堆栈，最好是改用[应用设置](#configure-app-settings)，因为连接字符串需要在变量键中使用特殊的格式才能访问值。 
+
+> [!NOTE]
+> 有一种情况你需要使用连接字符串而不是非 .NET 语言的应用设置：仅当你在应用服务应用中为数据库配置连接字符串时，某些 Azure 数据库类型才会与应用一起备份。 有关详细信息，请参阅[备份的内容](manage-backup.md#what-gets-backed-up)。 如果不需要这种自动化备份，请使用应用设置。
 
 在运行时，连接字符串可用作环境变量，其前缀为以下连接类型：
 
@@ -194,37 +197,37 @@ ms.locfileid: "92170817"
 
 在此处可以配置应用的某些常用设置。 某些设置要求[纵向扩展到更高的定价层](manage-scale-up.md)。
 
-- **堆栈设置** ：用于运行应用的软件堆栈，包括语言和 SDK 版本。
+- **堆栈设置**：用于运行应用的软件堆栈，包括语言和 SDK 版本。
 
     对于 Linux 应用和自定义容器应用，可选择语言运行时版本，并设置启动命令文件或可选的启动命令。
 
     ![Linux 容器的常规设置](./media/configure-common/open-general-linux.png)
 
-- **平台设置** ：用于配置托管平台的设置，包括：
-    - **位数** ：32 位或 64 位。
-    - **WebSocket 协议** ：例如， [ASP.NET SignalR] 或 [socket.io](https://socket.io/)。
-    - **Always On** ：即使没有流量，也保持应用的加载状态。 对于连续性 WebJobs 或使用 CRON 表达式触发的 WebJobs，它是必需的。
+- **平台设置**：用于配置托管平台的设置，包括：
+    - **位数**：32 位或 64 位。
+    - **WebSocket 协议**：例如，[ASP.NET SignalR] 或 [socket.io](https://socket.io/)。
+    - **Always On**：即使没有流量，也保持应用的加载状态。 对于连续性 WebJobs 或使用 CRON 表达式触发的 WebJobs，它是必需的。
       > [!NOTE]
       > 借助 Always On 功能，前端负载均衡器会将请求发送到应用程序根目录。 无法配置应用服务的此应用程序终结点。
-    - **托管管道版本** ：IIS [管道模式]。 如果某个旧式应用需要旧版 IIS，请将此选项设置为“经典”。 
-    - **HTTP 版本** ：设置为 **2.0** ，以启用对 HTTPS/2 协议的支持。
+    - **托管管道版本**：IIS [管道模式]。 如果某个旧式应用需要旧版 IIS，请将此选项设置为“经典”。 
+    - **HTTP 版本**：设置为 **2.0**，以启用对 HTTPS/2 协议的支持。
     > [!NOTE]
     > 大多数新型浏览器仅支持通过 TLS 的 HTTP/2 协议，而非加密流量继续使用 HTTP/1.1。 若要确保客户端浏览器使用 HTTP/2 连接到应用，请保护自定义 DNS 名称。 有关详细信息，请参阅[在 Azure 应用服务中使用 TLS/SSL 绑定保护自定义 DNS 名称](configure-ssl-bindings.md)。
-    - **ARR 相关性** ：在多实例部署中，请确保在会话的整个生存期内，将客户端路由到同一实例。 对于无状态应用程序，请将此选项设置为“关闭”。 
-- **调试** ：为 [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug)、 [ASP.NET Core](https://docs.microsoft.com/visualstudio/debugger/remote-debugging-azure) 或 [Node.js](configure-language-nodejs.md#debug-remotely) 应用启用远程调试。 此选项在 48 小时后会自动关闭。
-- **传入的客户端证书** ：要求在 [相互身份验证](app-service-web-configure-tls-mutual-auth.md)中使用客户端证书。
+    - **ARR 相关性**：在多实例部署中，请确保在会话的整个生存期内，将客户端路由到同一实例。 对于无状态应用程序，请将此选项设置为“关闭”。 
+- **调试**：为 [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug)、[ASP.NET Core](https://docs.microsoft.com/visualstudio/debugger/remote-debugging-azure) 或 [Node.js](configure-language-nodejs.md#debug-remotely) 应用启用远程调试。 此选项在 48 小时后会自动关闭。
+- **传入的客户端证书**：要求在 [相互身份验证](app-service-web-configure-tls-mutual-auth.md)中使用客户端证书。
 
-## <a name="configure-default-documents"></a>配置默认文档
+<!--## Configure default documents
 
-此设置仅适用于 Windows 应用。
+This setting is only for Windows apps.
 
-在 [Azure 门户]中搜索并选择“应用服务”  ，然后选择应用。 在应用的左侧菜单中，选择“配置” > “默认文档”。  
+In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **Default documents**.
 
-![默认文档](./media/configure-common/open-documents.png)
+![Default documents](./media/configure-common/open-documents.png)
 
-默认文档是在网站的根 URL 中显示的网页。 使用列表中第一个匹配文件。 若要添加新的默认文档，请单击“新建文档”。  别忘了单击“保存”。 
+The default document is the web page that's displayed at the root URL for a website. The first matching file in the list is used. To add a new default document, click **New document**. Don't forget to click **Save**.
 
-如果应用使用的模块基于 URL 进行路由而不是提供静态内容，则无需使用默认文档。
+If the app uses modules that route based on URL instead of serving static content, there is no need for default documents.-->
 
 ## <a name="configure-path-mappings"></a>配置路径映射
 
@@ -232,40 +235,46 @@ ms.locfileid: "92170817"
 
 ![路径映射](./media/configure-common/open-path.png)
 
-“路径映射”页根据 OS 类型显示不同的内容。 
+> [!NOTE] 
+> “路径映射”选项卡可能会显示特定于 OS 的设置，该设置与此处所示示例不同。
 
-### <a name="windows-apps-uncontainerized"></a>Windows 应用（未容器化）
+<!--### Windows apps (uncontainerized)
 
-对于 Windows 应用，可以自定义 IIS 处理程序映射和虚拟应用程序与目录。
+For Windows apps, you can customize the IIS handler mappings and virtual applications and directories.
 
-使用处理程序映射可以添加自定义脚本处理程序用于处理特定文件扩展名的请求。 若要添加自定义处理程序，请单击“新建处理程序”。  按如下所述配置处理程序：
+Handler mappings let you add custom script processors to handle requests for specific file extensions. To add a custom handler, click **New handler mapping**. Configure the handler as follows:
 
-- **扩展名** 。 要处理的扩展名，例如 *\*.php* 或 *handler.fcgi* 。
-- **脚本处理程序** 。 脚本处理程序的绝对路径。 与文件扩展名匹配的文件请求由脚本处理程序处理。 使用路径 `D:\home\site\wwwroot` 表示应用的根目录。
-- **参数** 。 脚本处理程序的可选命令行参数
+- **Extension**. The file extension you want to handle, such as *\*.php* or *handler.fcgi*.
+- **Script processor**. The absolute path of the script processor to you. Requests to files that match the file extension are processed by the script processor. Use the path `D:\home\site\wwwroot` to refer to your app's root directory.
+- **Arguments**. Optional command-line arguments for the script processor.
 
-每个应用具有已映射到 `D:\home\site\wwwroot`（代码的默认部署位置）的默认根路径 (`/`)。 如果应用根位于其他文件夹中，或者存储库包含多个应用程序，则你可以在此处编辑或添加虚拟应用程序和目录。 单击“新建虚拟应用程序或目录”。 
+Each app has the default root path (`/`) mapped to `D:\home\site\wwwroot`, where your code is deployed by default. If your app root is in a different folder, or if your repository has more than one application, you can edit or add virtual applications and directories here. 
 
-若要配置虚拟应用程序和目录，请指定每个虚拟目录及其相对于网站根目录 (`D:\home`) 的物理路径。 还可选中“应用程序”  复选框，将虚拟目录标记为应用程序。
+From the **Path mappings** tab, click **New virtual application or directory**. 
+
+- To map a virtual directory to a physical path, leave the **Directory** check box selected. Specify the virtual directory and the corresponding relative (physical) path to the website root (`D:\home`).
+- To mark a virtual directory as a web application, clear the **Directory** check box.
+  
+  ![Directory check box](./media/configure-common/directory-check-box.png)-->
 
 ### <a name="containerized-apps"></a>容器化应用
 
-<!-- You can [add custom storage for your containerized app](configure-connect-to-azure-storage.md). Containerized apps include all Linux apps and also the Windows and Linux custom containers running on App Service. -->
+<!-- You can [add custom storage for your containerized app](configure-connect-to-azure-storage.md) -->
 
 单击“新 Azure 存储装载”，然后按如下所示配置自定义存储：
 
-- **名称** ：显示名称。
-- **配置选项** ：“基本”或“高级”。
-- **存储帐户** ：具有所需容器的存储帐户。
-- **存储类型** ：“Azure Blob”或“Azure 文件存储”。
+- **名称**：显示名称。
+- **配置选项**：“基本”或“高级”。
+- **存储帐户**：具有所需容器的存储帐户。
+- **存储类型**：“Azure Blob”或“Azure 文件存储”。
   > [!NOTE]
   > Windows 容器应用仅支持 Azure 文件存储。
-- **存储容器** ：对于基本配置，为所需的容器。
-- **共享名** ：对于高级配置，为文件共享名。
-- **访问密钥** ：对于高级配置，为访问密钥。
-- **装载路径** ：容器中用于装载自定义存储的绝对路径。
+- **存储容器**：对于基本配置，为所需的容器。
+- **共享名**：对于高级配置，为文件共享名。
+- **访问密钥**：对于高级配置，为访问密钥。
+- **装载路径**：容器中用于装载自定义存储的绝对路径。
 
-<!-- For more information, see [Access Azure Storage as a network share from a container in App Service](configure-connect-to-azure-storage.md). -->
+<!-- For more information, see [Access Azure Storage as a network share from a container in App Service](configure-connect-to-azure-storage.md)-->
 
 ## <a name="configure-language-stack-settings"></a>配置语言堆栈设置
 

@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: conceptual
 ms.author: v-johya
-ms.date: 12/01/2020
+ms.date: 01/05/2021
 ms.custom: seodec18
-ms.openlocfilehash: 1ec5e9439caf602bcd4740c9c710b95515b51782
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 69cf1a91b2ed70d4965fa0ec686289aea1c0e3fb
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747119"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023197"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>适用于 Linux VM 的 Azure 磁盘加密 
 
@@ -70,7 +70,7 @@ Azure 磁盘加密对于没有临时磁盘（Dv4、Dsv4、Ev4 和 Esv4）的 VM 
 | Canonical | Ubuntu 14.04.5</br>[其 Azure 优化内核更新到 4.15 或更高版本](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS 和数据磁盘 |
 | OpenLogic | CentOS 7.8 | 7.8 | OpenLogic:CentOS:7_8:latest | OS 和数据磁盘 |
 | OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | OS 和数据磁盘 |
-| OpenLogic | CentOS 7.7 | 7-LVM | OpenLogic:CentOS:7-LVM:latest | OS 和数据磁盘 |
+| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.8.2020111100 | OS 和数据磁盘 |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | OS 和数据磁盘 |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | OS 和数据磁盘 |
 | OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | OS 和数据磁盘 |

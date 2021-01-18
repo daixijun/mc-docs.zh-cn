@@ -1,7 +1,7 @@
 ---
 title: 使用 azureml-datasets 进行训练
 titleSuffix: Azure Machine Learning
-description: 了解如何在训练中使用数据集
+description: 了解如何通过 Azure 机器学习数据集使数据可用于本地或远程计算以训练 ML 模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,25 +12,25 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: bb24e722731aadab13883b45e61d5fc07d624792
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 24033cc6f202dc04c9c46cfb42ac59796963261a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104558"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021791"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>使用 Azure 机器学习中的数据集进行训练
 
 
 本文介绍如何在训练实验中使用 [Azure 机器学习数据集](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py)。  可以在本地或远程计算目标中使用数据集，而不必考虑连接字符串或数据路径。
 
-Azure 机器学习数据集提供了与 Azure 机器学习训练功能（如 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py)、[HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) 和 [Azure 机器学习管道](how-to-create-your-first-pipeline.md)）的无缝集成。
+Azure 机器学习数据集提供了与 Azure 机器学习训练功能（如 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py)、[HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) 和 [Azure 机器学习管道](how-to-create-machine-learning-pipelines.md)）的无缝集成。
 
 ## <a name="prerequisites"></a>先决条件
 
 若要创建数据集并使用数据集进行训练，需要具有以下各项：
 
-* Azure 订阅。 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用[免费版或付费版 Azure 机器学习](https://aka.ms/AMLFree)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用 [Azure 机器学习的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * [Azure 机器学习工作区](how-to-manage-workspace.md)。
 
@@ -257,10 +257,37 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 + [数据集笔记本](https://aka.ms/dataset-tutorial)演示了本文中的概念并在其基础上进行了扩展。
 + 请参阅[如何在 ML 管道中参数化数据集](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb)。
 
+## <a name="troubleshooting"></a>疑难解答
+
+* **数据集初始化失败：“等待装入点准备完毕”已超时**： 
+  * 如果你没有任何出站[网络安全组](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)规则并且正在使用 `azureml-sdk>=1.12.0`，请将 `azureml-dataset-runtime` 及其依赖项更新为特定次要版本的最新版本，而如果你正在运行中使用该版本，请重新创建环境，以便获得具有修补程序的最新补丁。 
+  * 如果使用的是 `azureml-sdk<1.12.0`，请升级到最新版本。
+  * 如果具有出站 NSG 规则，请确保存在允许服务标记 `AzureResourceMonitor` 的所有流量的出站规则。
+
+### <a name="overloaded-azurefile-storage"></a>AzureFile 存储过载
+
+如果收到 `Unable to upload project files to working directory in AzureFile because the storage is overloaded` 错误，请应用以下解决方法。
+
+如果对其他工作负载（例如数据传输）使用文件共享，则我们建议使用 Blob，以便可以自由使用文件共享来提交运行。 还可以在两个不同的工作区之间拆分工作负荷。
+
+### <a name="passing-data-as-input"></a>作为输入传递数据
+
+*  **TypeError：FileNotFound:无此类文件或目录：** 如果文件不在提供的文件路径中，则会出现此错误。 需确保引用文件的方式与在计算目标上将数据集装载到的位置相一致。 为确保确定性状态，我们建议在将数据集装载到计算目标时使用抽象路径。 例如，在以下代码中，我们将数据集装载到计算目标文件系统的根目录 `/tmp` 下。 
+    
+    ```python
+    # Note the leading / in '/tmp/dataset'
+    script_params = {
+        '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+    } 
+    ```
+
+    如果不包含前导正斜杠“/”，则需要为计算目标上的工作目录添加前缀（例如 `/mnt/batch/.../tmp/dataset`），以指示要将数据集装载到的位置。
+
+
 ## <a name="next-steps"></a>后续步骤
 
 * 使用 TabularDataset [自动训练机器学习模型](how-to-auto-train-remote.md)。
 
 * 使用 FileDataset [训练图像分类模型](https://aka.ms/filedataset-samplenotebook)。
 
-* [通过管道使用数据集进行训练](how-to-create-your-first-pipeline.md)。
+* [通过管道使用数据集进行训练](how-to-create-machine-learning-pipelines.md)。

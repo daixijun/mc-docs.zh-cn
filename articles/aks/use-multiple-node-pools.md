@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 04/08/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 05/25/2020
 ms.author: v-yeche
-ms.openlocfilehash: 73032ac33f8da6376c5858dca449aaeb25286153
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 12207be7a25562c0df23b5ca8b00217f8f61140a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024485"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021503"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>为 Azure Kubernetes 服务 (AKS) 中的群集创建和管理多个节点池
 
@@ -691,7 +691,7 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 }
 ```
 
-如以下示例中所示，使用 [az group deployment create][az-group-deployment-create] 命令部署此模板。 系统将提示输入现有的 AKS 群集名称和位置：
+使用 [az group deployment create][az-group-deployment-create] 命令部署此模板，如以下示例中所示。 系统将提示输入现有的 AKS 群集名称和位置：
 
 ```azurecli
 az group deployment create \
@@ -752,7 +752,8 @@ az group delete --name myResourceGroup --yes --no-wait
 
 要创建和使用 Windows Server 容器节点池，请参阅[在 AKS 中创建 Windows Server 容器][aks-windows]。
 
-<!--Not Available on [proximity placement groups][reduce-latency-ppg]-->
+使用[邻近放置组][reduce-latency-ppg]来降低 AKS 应用程序的延迟。
+
 <!-- EXTERNAL LINKS -->
 
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -778,7 +779,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-extension-update]: https://docs.azure.cn/cli/extension#az_extension_update
 [az-group-create]: https://docs.azure.cn/cli/group#az_group_create
 [az-group-delete]: https://docs.azure.cn/cli/group#az_group_delete
-[az-group-deployment-create]: https://docs.azure.cn/cli/group/deployment#az_group_deployment_create
+[az-deployment-group-create]: https://docs.azure.cn/cli/deployment/group#az_deployment_group_create
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
@@ -794,6 +795,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-list-ips]: https://docs.azure.cn/cli/vmss#az_vmss_list_instance_public_ips
 
 <!--CORRECT ON https://docs.azure.cn/cli/vmss#az_vmss_list_instance_public_ips-->
-<!--Not Available on [reduce-latency-ppg]: reduce-latency-ppg.md-->
+
+[reduce-latency-ppg]: reduce-latency-ppg.md
 
 <!-- Update_Description: update meta properties, wording update, update link -->

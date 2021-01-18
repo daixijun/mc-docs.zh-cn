@@ -5,22 +5,22 @@ description: 了解全球 Azure、Azure Stack Hub 与 Azure Stack HCI 之间的�
 author: WenJason
 ms.topic: overview
 origin.date: 07/10/2019
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 278ced3a83fccb10392b07fb20ac4fdafae8eadd
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 584e1d3a028c0310c46532269255cac5fa9448a3
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507941"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894384"
 ---
-# <a name="differences-between-azure-azure-stack-hub-and-azure-stack-hci"></a>Azure、Azure Stack Hub 与 Azure Stack HCI 之间的差异
+# <a name="differences-between-azure-azure-stack-hub"></a>Azure 与 Azure Stack Hub 之间的差异
 
 Microsoft 在一个 Azure 生态系统中提供 Azure 和 Azure Stack Hub 系列的服务。 无论企业使用 Azure 还是本地资源，都可以结合 Azure 资源管理器使用相同的应用程序模型、自助门户和 API 来提供基于云的功能。
 
-本文介绍 Azure、Azure Stack Hub 和 Azure Stack HCI 的功能差异。 它提供了常见的方案建议，帮助你在为组织交付基于 Microsoft 云的服务时做出最佳选择。
+本文介绍 Azure 和 Azure Stack Hub 功能之间的差异。 它提供了常见的方案建议，帮助你在为组织交付基于 Microsoft 云的服务时做出最佳选择。
 
 ![Azure 生态系统概述](./media/compare-azure-azure-stack/azure-family-updated.png)
 
@@ -66,24 +66,6 @@ Azure Stack Hub 的 PaaS 功能是可选的，因为 Azure Stack Hub 不是由 M
 - 公民参与
 
 若要详细了解 Azure Stack Hub，请参阅[什么是 Azure Stack Hub](azure-stack-overview.md)。
-
-## <a name="azure-stack-hci"></a>Azure Stack HCI
-
-[Azure Stack HCI](../hci/overview.md) 是超融合的群集，可在本地环境使用经过验证的硬件来运行虚拟化 Windows 和 Linux 工作负载，并轻松连接到 Azure 以实现基于云的备份、恢复和监视。 最初基于 Windows Server 2019 的 Azure Stack HCI 现在作为 Azure 服务提供，并内置了基于订阅的许可模式和混合功能。 尽管 Azure Stack HCI 基于与 Windows Server 相同的核心操作系统组件，但它是一个全新的产品系列，专注于成为最佳的虚拟化主机。
-
-Azure Stack HCI 使用 OEM 合作伙伴提供的经 Microsoft 验证的硬件来确保最佳性能和可靠性。 这些解决方案包括对 NVMe 驱动器、永久性内存和远程直接内存访问 (RDMA) 网络等技术的支持。
-
-### <a name="example-use-cases-for-azure-stack-hci"></a>Azure Stack HCI 的示例用例
-
-- 远程或分支机构系统
-- 数据中心整合
-- 虚拟桌面基础结构
-- 业务关键型基础结构
-- 低成本存储
-- 云中的高可用性和灾难恢复
-- 虚拟化企业应用，如 SQL Server
-
-请访问 [Azure Stack HCI 网站](/azure-stack/hci/)，以查看 Azure 合作伙伴目前提供的 70 多种 Azure Stack HCI 解决方案。
 
 ## <a name="next-steps"></a>后续步骤
 

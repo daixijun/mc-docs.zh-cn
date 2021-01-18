@@ -1,18 +1,19 @@
 ---
 title: 模板概述
-description: 介绍使用 Azure 资源管理器模板部署资源的好处。
+description: 介绍使用 Azure 资源管理器模板（ARM 模板）部署资源的好处。
 ms.topic: conceptual
-origin.date: 06/22/2020
-ms.date: 07/13/2020
+origin.date: 12/17/2020
+author: rockboyfor
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: f4866ee4afc5ed3c8df58f03fde6e388a4f60bbd
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 0b2a30bfada56b5fd1f1a39bd7738d2f6e781cad
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024619"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022850"
 ---
 <!--Verify successfully-->
 # <a name="what-are-arm-templates"></a>什么是 ARM 模板？
@@ -21,7 +22,7 @@ ms.locfileid: "96024619"
 
 为了解决这些难题，可将部署自动化，并运用基础结构即代码。 在代码中定义需要部署的基础结构。 基础结构代码将成为项目的一部分。 与应用程序代码一样，可将基础结构代码存储在源存储库中，并控制其版本。 团队中的任何人都可以运行该代码并部署类似的环境。
 
-若要针对 Azure 解决方案实现基础结构即代码，请使用 Azure 资源管理器 (ARM) 模板。 该模板是一个定义项目基础结构和配置的 JavaScript 对象表示法 (JSON) 文件。 该模板使用声明性语法，使你可以指明要部署的内容，而不需要编写一系列编程命令来创建内容。 在该模板中，指定要部署的资源以及这些资源的属性。
+若要针对 Azure 解决方案实现基础结构即代码，请使用 Azure 资源管理器模板（ARM 模板）。 该模板是一个定义项目基础结构和配置的 JavaScript 对象表示法 (JSON) 文件。 该模板使用声明性语法，使你可以指明要部署的内容，而不需要编写一系列编程命令来创建内容。 在该模板中，指定要部署的资源以及这些资源的属性。
 
 ## <a name="why-choose-arm-templates"></a>为什么选择 ARM 模板？
 
@@ -33,7 +34,7 @@ ms.locfileid: "96024619"
 
 * **业务流程**：无需担心有序操作的复杂性。 资源管理器会协调相互依赖的资源的部署，以按正确的顺序创建这些资源。 在可能的情况下，资源管理器将会并行部署资源，因此，其完成速度比串行部署更快。 通过一个命令部署模板，而无需使用多个强制性命令。
 
-    ![模板部署的比较](./media/overview/template-processing.png)
+    :::image type="content" source="./media/overview/template-processing.png" alt-text="模板部署的比较":::
 
 * **模块化文件**：可将模板分解为较小的可重用组件，并在部署时将其链接到一起。 还可以在一个模板中嵌套另一个模板。
 
@@ -43,13 +44,13 @@ ms.locfileid: "96024619"
 
 * **测试**：可以使用 ARM 模板工具包 (arm-ttk) 对模板进行测试，确保模板符合建议的准则。 此测试工具包是一个 PowerShell 脚本，可从 [GitHub](https://github.com/Azure/arm-ttk) 下载。 使用此工具包，可以更轻松地使用模板语言开发专门技术。
 
-* **预览更改**：可以使用 [模拟操作](template-deploy-what-if.md)在部署模板前预览更改。 通过模拟，你可看到将创建、更新或删除哪些资源，以及将更改的任何资源属性。 模拟操作会检查环境的当前状态，因此无需管理状态。
+* **预览更改**：可以使用 [模拟操作](template-deploy-what-if.md)在部署模板前预览更改。 通过 What-if，你可查看将创建、更新或删除的资源，以及将更改的任何资源属性。 模拟操作会检查环境的当前状态，因此无需管理状态。
 
 * **内置验证**：只有在通过验证后才会部署模板。 资源管理器在开始部署之前会检查模板，以确保部署成功。 部署不太可能会在半完成状态时停止。
 
 * **受跟踪的部署**：在 Azure 门户中，可以查看部署历史记录并获取有关模板部署的信息。 可以查看已部署的模板、已传入的参数值，以及任何输出值。 其他基础结构即代码服务不是通过门户跟踪的。
 
-    ![部署历史记录](./media/overview/deployment-history.png)
+    :::image type="content" source="./media/overview/deployment-history.png" alt-text="部署历史记录":::
 
 * **策略即代码**：[Azure Policy](../../governance/policy/overview.md) 是一个用于自动化监管的策略即代码框架。 如果使用 Azure 策略，在通过模板进行部署时，将会针对不合规的资源执行策略修正。
 
@@ -85,13 +86,13 @@ ms.locfileid: "96024619"
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2016-01-01",
+    "apiVersion": "2019-04-01",
     "name": "mystorageaccount",
     "location": "chinanorth",
     "sku": {
       "name": "Standard_LRS"
     },
-    "kind": "Storage",
+    "kind": "StorageV2",
     "properties": {}
   }
 ]
@@ -101,37 +102,42 @@ ms.locfileid: "96024619"
 
 ```HTTP
 PUT
-https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2019-04-01
 REQUEST BODY
 {
   "location": "chinanorth",
   "sku": {
     "name": "Standard_LRS"
   },
-  "kind": "Storage",
+  "kind": "StorageV2",
   "properties": {}
 }
 ```
+
+请注意，在资源模板中设置的 apiVersion 将用作 REST 操作的 API 版本。 你可以重复部署模板并可以相信它会继续工作。 通过使用相同的 API 版本，你就无需担心可能在更高版本中引入的中断性变更。
 
 ## <a name="template-design"></a>模板设计
 
 模板和资源组的定义方式全由你决定，解决方案的管理方式也是如此。 例如，可以通过单个模板在单个资源组中部署三层式应用程序。
 
-![三层模板](./media/overview/3-tier-template.png)
+:::image type="content" source="./media/overview/3-tier-template.png" alt-text="三层模板":::
 
 但无需在单个模板中定义整个基础结构。 通常，合理的做法是将部署要求划分成一组有针对性的模板。 可以轻松地将这些模板重复用于不同的解决方案。 若要部署特定的解决方案，请创建链接所有所需模板的主模板。 下图显示如何通过包含三个嵌套模板的父模板部署三层式解决方案。
 
-![嵌套层模板](./media/overview/nested-tiers-template.png)
+:::image type="content" source="./media/overview/nested-tiers-template.png" alt-text="嵌套层模板":::
 
 如果希望层具有不同的生命周期，可将这三个层部署到不同的资源组。 请注意，资源仍可链接到其他资源组中的资源。
 
-![层模板](./media/overview/tier-templates.png)
+:::image type="content" source="./media/overview/tier-templates.png" alt-text="层模板":::
 
 有关嵌套模板的信息，请参阅[将链接模板与 Azure 资源管理器配合使用](linked-templates.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
 * 有关引导你完成模板创建过程的分步教程，请参阅[教程：创建和部署第一个 ARM 模板](template-tutorial-create-first-template.md)。
+
+    <!--Not Available on [Deploy and manage resources in Azure by using ARM templates](https://docs.microsoft.com/learn/paths/deploy-manage-resource-manager-templates/)-->
+    
 * 有关模板文件中的属性的信息，请参阅[了解 ARM 模板的结构和语法](template-syntax.md)。
 * 若要了解如何导出模板，请参阅[快速入门：使用 Azure 门户创建和部署 ARM 模板](quickstart-create-templates-use-the-portal.md)。
 * 有关常见问题的解答，请参阅[有关 ARM 模板的常见问题解答](frequently-asked-questions.md)。

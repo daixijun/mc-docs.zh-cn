@@ -1,25 +1,25 @@
 ---
-title: 使用 VSTS 进行连接
-description: 使用 Visual Studio 查询 Azure Synapse Analytics。
+title: 通过 VSTS 连接到专用 SQL 池（以前称为 SQL DW）
+description: 使用 Visual Studio 在 Azure Synapse Analytics 中查询专用 SQL 池（以前称为 SQL DW）。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 08/15/2019
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 47766b5b1f976e05df47b21d6a71a8d643d2ff02
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 5719fa88bed41d9876fcc88e83af9cacad1a9a01
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153113"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022983"
 ---
-# <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>使用 Visual Studio 和 SSDT 连接到 Azure Synapse Analytics
+# <a name="connect-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>使用 Visual Studio 和 SSDT 连接到 Azure Synapse Analytics 中的专用 SQL 池（以前称为 SQL DW）
 
 > [!div class="op_single_selector"]
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
@@ -28,16 +28,16 @@ ms.locfileid: "96153113"
 > 
 > 
 
-使用 Visual Studio 只需几分钟即可查询 Azure Synapse 中的专用 SQL 池。 此方法使用 Visual Studio 2019 中的 SQL Server Data Tools (SSDT) 扩展。 
+使用 Visual Studio 只需几分钟即可查询 Azure Synapse 中的专用 SQL 池（以前称为 SQL DW）。 此方法使用 Visual Studio 2019 中的 SQL Server Data Tools (SSDT) 扩展。 
 
 ## <a name="prerequisites"></a>先决条件
 要使用本教程，需要：
 
-* 现有专用 SQL 池。 若要创建一个，请参阅[创建专用 SQL 池](create-data-warehouse-portal.md)。
+* 现有专用 SQL 池（以前称为 SQL DW）。 若要创建一个，请参阅[创建专用 SQL 池（以前称为 SQL DW）](create-data-warehouse-portal.md)。
 * 适用于 Visual Studio 的 SSDT。 如果安装了 Visual Studio，则可能已有 SSDT for Visual Studio。 有关安装指说明和选项，请参阅 [安装 Visual Studio 和 SSDT](sql-data-warehouse-install-visual-studio.md)。
-* 完全限定的 SQL Server 名称。 若要查找此信息，请参阅[连接到专用 SQL 池](sql-data-warehouse-connect-overview.md)。
+* 完全限定的 SQL Server 名称。 若要查找此信息，请参阅[连接到专用 SQL 池（以前称为 SQL DW）](sql-data-warehouse-connect-overview.md)。
 
-## <a name="1-connect-to-your-dedicated-sql-pool"></a>1.连接到专用 SQL 池
+## <a name="1-connect-to-your-dedicated-sql-pool-formerly-sql-dw"></a>1.连接到专用 SQL 池（以前称为 SQL DW）
 1. 打开 Visual Studio 2019。
 2. 通过选择“视图”   > “SQL Server 对象资源管理器”  打开 SQL Server 对象资源管理器。
    
@@ -77,4 +77,4 @@ ms.locfileid: "96153113"
     ![查询结果](./media/sql-data-warehouse-query-visual-studio/query-results.png)
 
 ## <a name="next-steps"></a>后续步骤
-若要为你的环境配置 Azure Active Directory 身份验证，请参阅[向专用 SQL 池进行身份验证](sql-data-warehouse-authentication.md)。
+若要为你的环境配置 Azure Active Directory 身份验证，请参阅[向专用 SQL 池（以前称为 SQL DW）进行身份验证](sql-data-warehouse-authentication.md)。

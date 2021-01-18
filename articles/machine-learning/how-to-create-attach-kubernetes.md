@@ -1,7 +1,7 @@
 ---
 title: 创建并附加 Azure Kubernetes 服务
 titleSuffix: Azure Machine Learning
-description: Azure Kubernetes 服务 (AKS) 可用于将机器学习模型部署为 Web 服务。 了解如何通过 Azure 机器学习创建新的 AKS 群集。 你还将了解如何将现有的 AKS 群集附加到 Azure 机器学习工作区。
+description: 了解如何通过 Azure 机器学习创建新的 Azure Kubernetes 服务群集，或者如何将现有 AKS 群集附加到工作区。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 5804e74ff946daf66bce2a6ff48134fd1b6bda99
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 47faa166e8e45353cb6156922e094cfba5d48e5c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105278"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023098"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>创建并附加 Azure Kubernetes 服务群集
 
@@ -304,6 +304,52 @@ az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 在 Azure 机器学习工作室中，选择“计算”、“推理群集”以及要删除的群集。 使用“拆离”链接拆离群集。
+
+---
+
+## <a name="troubleshooting"></a>疑难解答
+
+### <a name="update-the-cluster"></a>更新群集
+
+必须手动应用对 Azure Kubernetes 服务群集中安装的 Azure 机器学习组件的更新。 
+
+可以通过从 Azure 机器学习工作区分离群集，然后将群集重新附加到工作区，来应用这些更新。 如果在群集中启用了 TLS，则重新附加群集时需要提供 TLS/SSL 证书和私钥。 
+
+```python
+compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
+compute_target.detach()
+compute_target.wait_for_completion(show_output=True)
+
+attach_config = AksCompute.attach_configuration(resource_group=resourceGroup, cluster_name=kubernetesClusterName)
+
+## If SSL is enabled.
+attach_config.enable_ssl(
+    ssl_cert_pem_file="cert.pem",
+    ssl_key_pem_file="key.pem",
+    ssl_cname=sslCname)
+
+attach_config.validate_configuration()
+
+compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceName, attach_configuration=attach_config)
+compute_target.wait_for_completion(show_output=True)
+```
+
+如果不再具有 TLS/SSL 证书和私钥，或者使用 Azure 机器学习生成的证书，则可以在分离群集之前，使用 `kubectl` 连接到群集并检索机密 `azuremlfessl` 来检索文件。
+
+```bash
+kubectl get secret/azuremlfessl -o yaml
+```
+
+>[!Note]
+>Kubernetes 存储的机密采用 base-64 编码格式。 在将机密提供给 `attach_config.enable_ssl` 之前，需要对机密的 `cert.pem` 和 `key.pem` 组成部分进行 base-64 解码。 
+
+### <a name="webservice-failures"></a>Web 服务失败
+
+对于 AKS 中的许多 Web 服务失败，可以使用 `kubectl` 连接到群集进行调试。 可以通过运行以下内容来获取 AKS 群集的 `kubeconfig.json`
+
+```azurecli
+az aks get-credentials -g <rg> -n <aks cluster name>
+```
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 030c6a46fe0852a0804cdd11ef0ee7732d3a2884
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: bd2b11d4b7b08b35e6da29cf8e33df1121968948
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978189"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023281"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>在 Azure 机器学习工作室中创建计算目标以进行模型训练和部署
 
@@ -32,7 +32,7 @@ ms.locfileid: "94978189"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用 [Azure 机器学习的免费版或付费版](https://aka.ms/AMLFree)
+* 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用 [Azure 机器学习的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 一个 [Azure 机器学习工作区](how-to-manage-workspace.md)
 
 ## <a name="whats-a-compute-target"></a>什么是计算目标？ 

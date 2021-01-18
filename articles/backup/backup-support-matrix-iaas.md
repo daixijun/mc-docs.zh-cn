@@ -4,14 +4,14 @@ description: 提供有关在使用 Azure 备份服务备份 Azure VM 时的支�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/13/2019
-ms.date: 12/10/2020
+ms.date: 01/07/2021
 ms.author: v-johya
-ms.openlocfilehash: 4435487f4e1fe2b02e27d7dd64c4c2d33cc526e6
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 307e9e35037eb4340102f90d39dbc0ebd35b5604
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104380"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023179"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 备份的支持矩阵
 
@@ -52,7 +52,6 @@ ms.locfileid: "97104380"
 自动时钟调整 | 不支持。<br/><br/> 备份 VM 时，Azure 备份不会根据夏令时自动调整。<br/><br/>  请根据需要手动修改策略。
 [混合备份的安全功能](./backup-azure-security-feature.md) |不支持禁用安全功能。
 备份其计算机时间已发生更改的 VM | 不支持。<br/><br/> 如果为该 VM 启用备份后，计算机时间变为将来的日期时间，那么即使还原时间更改，也无法保证成功备份。
-[虚拟机规模集](../virtual-machine-scale-sets/overview.md)中的 Azure VM |不支持可用性集。
 
 ## <a name="operating-system-support-windows"></a>操作系统支持 (Windows)
 
@@ -142,7 +141,6 @@ DPM/MABS 磁盘上的恢复点数 | 文件服务器为 64 个，应用服务器�
 VM 大小 |至少有 2 个 CPU 核心和 1-GB RAM 的任意 Azure VM 大小。<br/><br/> [了解详细信息。](../virtual-machines/sizes.md)
 备份[可用性集](../virtual-machines/availability.md#availability-sets)中的 VM | 。<br/><br/> 无法使用快速创建 VM 的选项来还原可用性集中的 VM。 还原 VM 时，请还原磁盘并用它来部署 VM，或者还原磁盘并用它来替换现有磁盘。
 备份使用[混合使用权益 (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 部署的 VM | 。
-备份[规模集](../virtual-machine-scale-sets/overview.md)中部署的 VM |。 不支持可用性集。
 备份从 [Azure 市场](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)部署的 VM<br/><br/> （由 Microsoft 或第三方发布） |。<br/><br/> VM 必须运行受支持的操作系统。<br/><br/> 恢复 VM 上的文件时，可以仅还原到兼容的 OS（不是早期版本或更高版本的 OS）。 我们不会还原作为 VM 备份的 Azure 市场 VM，因为这需要购买信息。 它们仅作为磁盘还原。
 备份从自定义映像部署的 VM（第三方） |。<br/><br/> VM 必须运行受支持的操作系统。<br/><br/> 恢复 VM 上的文件时，可以仅还原到兼容的 OS（不是早期版本或更高版本的 OS）。
 备份已迁移到 Azure 的 VM| 。<br/><br/> 若要备份 VM，必须在迁移的计算机上安装 VM 代理。
@@ -160,7 +158,7 @@ Azure VM 数据磁盘 | 支持备份最多包含 32 个磁盘的 Azure VM。<br>
 存储类型 | 标准 HDD、标准 SSD、高级 SSD。
 托管磁盘 | 。
 加密的磁盘 | 。<br/><br/> 可以备份已启用 Azure 磁盘加密的 Azure VM（包含或不包含 Azure AD 应用）。<br/><br/> 无法在文件/文件夹级别恢复已加密的 VM。 必须恢复整个 VM。<br/><br/> 可以在已受 Azure 备份保护的 VM 上启用加密。
-已启用写入加速器的磁盘 | 不支持。<br/><br/> Azure 备份会在备份期间自动排除已启用写入加速器 (WA) 的磁盘。 由于未对其进行备份，无法从 VM 的恢复点还原这些磁盘。 <br><br> **重要说明**：具有 WA 磁盘的虚拟机需要连接 Internet 才能成功进行备份（即使已从备份中排除这些磁盘）。
+已启用写入加速器的磁盘 | 不支持。<br/><br/> Azure 备份服务将备份虚拟机，这些虚拟机的磁盘在备份期间启用了加速存写 (WA)。  
 备份和还原已删除重复数据的 VM/磁盘 | Azure 备份不支持删除重复数据。 有关详细信息，请参阅[此文](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  - Azure 备份不会跨恢复服务保管库中的 VM 删除重复数据 <br/> <br/>  - 如果在还原期间有处于重复数据删除状态的 VM，则无法还原文件，因为保管库不能识别该格式。 但是，你能够成功执行完整的 VM 还原。
 将磁盘添加到受保护的 VM | 。
 调整受保护 VM 上的磁盘大小 | 。

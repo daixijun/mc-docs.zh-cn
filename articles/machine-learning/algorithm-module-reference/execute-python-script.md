@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 origin.date: 07/27/2020
 ms.date: 09/29/2020
-ms.openlocfilehash: 1d2742bcde5d4753406ee5090880c3d8614796b9
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 9dd09d0852d8c072b48320cce7a9fc549dc0a1c1
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978157"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022634"
 ---
 # <a name="execute-python-script-module"></a>“执行 Python 脚本”模块
 
@@ -59,6 +59,36 @@ if spec is None:
 
 > [!WARNING]
 > “执行 Python 脚本”模块不支持使用“apt-get”之类的命令安装依赖于其他本机库的包，例如 Java、PyODBC 等。这是因为，此模块是在仅预安装了 Python 并且具有非管理员权限的简单环境中执行的。  
+
+## <a name="access-to-registered-datasets"></a>访问已注册的数据集
+
+可以参阅以下示例代码，在工作区中[访问已注册的数据集](../how-to-create-register-datasets.md)：
+
+```Python
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    ws = run.experiment.workspace
+
+    from azureml.core import Dataset
+    dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
+    dataframe1 = dataset.to_pandas_dataframe()
+     
+    # If a zip file is connected to the third input port,
+    # it is unzipped under "./Script Bundle". This directory is added
+    # to sys.path. Therefore, if your zip file contains a Python file
+    # mymodule.py you can import it using:
+    # import mymodule
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+```
 
 ## <a name="upload-files"></a>上传文件
 “执行 Python 脚本”支持使用 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-) 上传文件。
@@ -126,7 +156,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     1. 将脚本和其他自定义资源捆绑到一个 zip 文件中。
     1. 将 zip 文件作为“文件数据集”上传到工作室。 
     1. 从设计器创作页面左侧模块窗格的“数据集”列表中拖取数据集模块。 
-    1. 将数据集模块连接到“执行 R 脚本”模块的“脚本包”端口。
+    1. 将数据集模块连接到“执行 Python 脚本”模块的“脚本包”端口 。
     
     在管道执行期间，可以使用已上传的压缩存档中包含的任何文件。 如果存档中包含目录结构，则会保留结构。
  

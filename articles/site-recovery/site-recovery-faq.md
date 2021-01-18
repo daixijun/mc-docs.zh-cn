@@ -4,16 +4,16 @@ description: 本文讨论有关 Azure Site Recovery 的常见问题。
 ms.topic: conceptual
 origin.date: 07/14/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d9b6dd25baec3809002d6f7344588638a4eaa64e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: f3a38b80695b1d8d9a9350ff7856db2d1f0e7c5c
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328644"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023283"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>有关 Azure Site Recovery 的一般问题
 
@@ -131,10 +131,10 @@ Azure Site Recovery 的微服务之间的所有通信均通过 TLS 1.2 协议进
 ## <a name="disaster-recovery"></a>灾难恢复
 
 ### <a name="what-can-site-recovery-protect"></a>站点恢复可以保护哪些计算机？
-* **Azure VM** ：Site Recovery 可复制受支持 Azure VM 上运行的任何工作负载
-* **Hyper-V 虚拟机** ：站点恢复可以保护 Hyper-V VM 上运行的任何工作负载。
-* **物理服务器** ：站点恢复可以保护运行 Windows 或 Linux 的物理服务器。
-* **VMware 虚拟机** ：站点恢复可以保护 VMware VM 上运行的任何工作负载。
+* **Azure VM**：Site Recovery 可复制受支持 Azure VM 上运行的任何工作负载
+* **Hyper-V 虚拟机**：站点恢复可以保护 Hyper-V VM 上运行的任何工作负载。
+* **物理服务器**：站点恢复可以保护运行 Windows 或 Linux 的物理服务器。
+* **VMware 虚拟机**：站点恢复可以保护 VMware VM 上运行的任何工作负载。
 
 ### <a name="what-workloads-can-i-protect-with-site-recovery"></a>我可以使用站点恢复来保护哪些工作负荷？
 可以使用站点恢复来保护在支持的 VM 或物理服务器上运行的大多数工作负荷。 站点恢复为应用程序感知型复制提供支持，因此，应用可以恢复为智能状态。 它除了与 Microsoft 应用程序（例如 SharePoint、Exchange、Dynamics、SQL Server 及 Active Directory）集成之外，还能与行业领先的供应商（包括 Oracle、SAP、IBM 及 Red Hat）紧密配合。 [详细了解](site-recovery-workload.md)工作负荷保护。
@@ -184,8 +184,8 @@ Azure Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户�
 需要 LRS 或 GRS 存储。 建议使用 GRS，以便在发生区域性故障或无法恢复主要区域时，能够复原数据。 该帐户必须位于与恢复服务保管库相同的区域中。 在 Azure 门户中部署 Site Recovery 时，支持将高级存储用于 VMware VM、Hyper-V VM 和物理服务器复制。 托管磁盘仅支持 LRS。
 
 ### <a name="how-often-can-i-replicate-data"></a>我可以多久复制数据一次？
-* **Hyper-V** ：可以每隔 30 秒（高级存储除外）、5 分钟或 15 分钟复制一次 Hyper-V VM。
-* **Azure VM、VMware VM、物理服务器** ：复制频率无关紧要。 复制是连续的。
+* **Hyper-V**：可以每隔 30 秒（高级存储除外）、5 分钟或 15 分钟复制一次 Hyper-V VM。
+* **Azure VM、VMware VM、物理服务器**：复制频率无关紧要。 复制是连续的。
 
 <!--MOONCAKE: CUSTOMIZTION-->
 
@@ -272,6 +272,9 @@ Site Recovery 每隔 5 分钟创建崩溃一致性恢复点。
 应用程序一致性恢复点是从应用程序一致性快照创建的。 应用一致性恢复点除了捕获与故障一致性快照相同的数据，还捕获内存中数据以及进程中的所有事务。
 
 由于包含额外内容，因此应用一致性快照涉及最多且耗时最长。 我们建议对数据库操作系统以及 SQL Server 等应用程序使用应用程序一致性恢复点。
+
+>[!Note]
+>如果 Windows 计算机上的卷超过 64 个，则在该计算机上创建应用程序一致性恢复点将失败。
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>应用程序一致性恢复点对应用程序性能有何影响？
 

@@ -3,20 +3,21 @@ title: 模板中的用户定义函数
 description: 介绍如何在 Azure 资源管理器模板中定义和使用用户定义函数。
 ms.topic: conceptual
 origin.date: 03/09/2020
-ms.date: 06/22/2020
+author: rockboyfor
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: 3d212bdd8c0b196f68393284cf9b5d3f6b1c7df9
-ms.sourcegitcommit: 48b5ae0164f278f2fff626ee60db86802837b0b4
+ms.openlocfilehash: ab56bd31589236e531d66c16e3fc427226295350
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85098713"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022251"
 ---
-# <a name="user-defined-functions-in-azure-resource-manager-template"></a>Azure 资源管理器模板中的用户定义函数
+# <a name="user-defined-functions-in-arm-template"></a>ARM 模板中用户定义的函数
 
 在模板中，可以创建自己的函数。 这些函数可在模板中使用。 用户定义函数不同于模板中自动可用的[标准模板函数](template-functions.md)。 当有复杂的表达式在模板中重复使用时，请创建自己的函数。
 
-本文介绍如何在 Azure 资源管理器模板中添加用户定义函数。
+本文介绍如何在 Azure 资源管理器模板（ARM 模板）中添加用户定义的函数。
 
 ## <a name="define-the-function"></a>定义函数
 
@@ -107,7 +108,7 @@ ms.locfileid: "85098713"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要了解用户定义函数的可用属性，请参阅[了解 Azure 资源管理器模板的结构和语法](template-syntax.md)。
-* 有关可用模板函数的列表，请参阅 [Azure 资源管理器模板函数](template-functions.md)。
+* 若要了解用户定义的函数的可用属性，请参阅[了解 ARM 模板的结构和语法](template-syntax.md)。
+* 有关可用模板函数的列表，请参阅 [ARM 模板函数](template-functions.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

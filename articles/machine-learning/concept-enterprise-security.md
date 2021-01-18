@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/20/2020
-ms.openlocfilehash: b2441768aeb395deabbc87c91e4f93996d1ee690
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 66a7a17eae6b7aedd436430110189e1ee9744711
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104355"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023279"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure 机器学习的企业安全性和治理
 
@@ -52,7 +52,7 @@ ms.locfileid: "97104355"
 
 不建议管理员撤销托管标识对上表中所述资源的访问权限。 可以使用[“重新同步密钥”操作](how-to-change-storage-access-key.md)来恢复访问权限。
 
-对于每个工作区区域，Azure 机器学习还会在订阅中另外创建一个拥有参与者级别访问权限的应用程序（名称以 `aml-` 或 `Microsoft-AzureML-Support-App-` 开头）。 例如，在同一订阅中，如果在美国东部和欧洲北部各有一个工作区，则会看到两个这样的应用程序。 Azure 机器学习可以通过这些应用程序来帮助你管理计算资源。
+对于每个工作区区域，Azure 机器学习还会在订阅中另外创建一个拥有参与者级别访问权限的应用程序（名称以 `aml-` 或 `Microsoft-AzureML-Support-App-` 开头）。 例如，在同一订阅中，如果在中国东部和中国北部各有一个工作区，则会看到两个这样的应用程序。 Azure 机器学习可以通过这些应用程序来帮助你管理计算资源。
 
 你还可以配置自己的托管标识，以便将其与 Azure 虚拟机和 Azure 机器学习计算群集一起使用。 使用 VM 时，可以从 SDK 使用托管标识来访问工作区，而不是使用各个用户的 Azure AD 帐户。 使用计算群集时，可以使用托管标识来访问运行训练作业的用户可能无权访问的资源，例如安全数据存储。 有关详细信息，请参阅 [Azure 机器学习工作区的身份验证](how-to-setup-authentication.md)。
 

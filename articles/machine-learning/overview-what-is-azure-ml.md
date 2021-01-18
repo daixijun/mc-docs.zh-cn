@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 origin.date: 11/04/2019
 ms.date: 03/16/2020
-ms.openlocfilehash: ebcdf49145c329a9b0a609e18c8aa1e2414b6879
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: d074a7acd9bf37597e1fe37766631061020687df
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104546"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023241"
 ---
 # <a name="what-is-azure-machine-learning"></a>什么是 Azure 机器学习？
 
@@ -29,7 +29,7 @@ Azure 机器学习可用于任何类型的机器学习，从传统 ml 到深度�
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
 > [!Tip]
-> **免费试用！**  如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 你将获得可用于 Azure 服务的赠送额度。 额度用完后，可以保留该帐户并继续使用[免费的 Azure 服务](https://azure.microsoft.com/free/)。 除非显式更改设置并要求付费，否则不会对信用卡收取任何费用。
+> **免费试用！**  如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用 [Azure 机器学习的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 你将获得可用于 Azure 服务的赠送额度。 额度用完后，可以保留该帐户并继续使用[免费的 Azure 服务](https://azure.microsoft.com/free/)。 除非显式更改设置并要求付费，否则不会对信用卡收取任何费用。
 
 
 ## <a name="what-is-machine-learning"></a>什么是机器学习？
@@ -63,7 +63,7 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 
 开始使用 Azure 机器学习 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> 或 <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a> 在本地计算机上训练。 然后，横向扩展到云。 
 
-借助许多可用的[计算目标](how-to-create-attach-compute-studio.md)（例如 Azure 机器学习计算）以及[高级超参数优化服务](how-to-tune-hyperparameters.md)，可以利用云的强大功能更快地生成更好的模型。
+借助许多可用的[计算目标](how-to-create-attach-compute-studio.md)（例如 Azure 机器学习计算和 [Azure Databricks](/databricks/scenarios/what-is-azure-databricks)）以及[高级超参数优化服务](how-to-tune-hyperparameters.md)，可以利用云的强大功能更快地生成更好的模型。
 
 也可使用 SDK [自动完成模型训练和优化](tutorial-auto-train-models.md)。
 

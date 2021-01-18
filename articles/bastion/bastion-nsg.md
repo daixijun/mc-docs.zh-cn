@@ -4,18 +4,18 @@ description: 可以将网络安全组与 Azure Bastion 配合使用。 了解此
 services: bastion
 ms.service: bastion
 ms.topic: conceptual
-origin.date: 11/12/2020
+origin.date: 12/09/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 3a638e98d7800d1f17ffa0115a1276173c6496ee
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: a7a8f7aef0aa4b293a2beae6248b1a5d0b174c06
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024645"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023004"
 ---
 <!--Verified succesfully for only charactors only-->
 # <a name="working-with-nsg-access-and-azure-bastion"></a>使用 NSG 访问和 Azure Bastion
@@ -46,14 +46,17 @@ _ **入口流量：**
 
     * **来自公共 Internet 的入口流量：** Azure Bastion 将创建一个公共 IP，需要在该公共 IP 上启用端口 443，用于入口流量。 不需要在 AzureBastionSubnet 上打开端口 3389/22。
     * **来自 Azure Bastion 控制平面的入口流量：** 对于控制平面连接，请启用从 GatewayManager 服务标记进行的端口 443 入站。 这使控制平面（即网关管理器）能够与 Azure Bastion 通信。
-    * **来自 Azure 负载均衡器的入口流量：** 对于运行状况探测，请从 AzureLoadBalancer 服务标记启用端口 443 入站。 这使得 Azure 负载均衡器能够检测连接性 
+    * **来自 Azure Bastion 数据平面的入口流量：** 对于 Azure Bastion 基础组件之间的数据平面通信，启用端口 8080、5701 从 VirtualNetwork 服务标记到 VirtualNetwork 服务标记入站 。 这使得 Azure Bastion 的组件能够彼此通信。
+    * **来自 Azure 负载均衡器的入口流量：** 对于运行状况探测，请从 AzureLoadBalancer 服务标记启用端口 443 入站。 这使得 Azure 负载均衡器能够检测连接性
 
     :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="屏幕截图显示 Azure Bastion 连接的入站安全规则。":::
 
 * **出口流量：**
 
     * **流向目标 VM 的出口流量：** Azure Bastion 将通过专用 IP 到达目标 VM。 NSG 需要允许端口 3389 和 22 的出口流量流向其他目标 VM 子网。
+    * **流向 Azure Bastion 数据平面的出口流量：** 对于 Azure Bastion 基础组件之间的数据平面通信，启用端口 8080、5701 从 VirtualNetwork 服务标记到 VirtualNetwork 服务标记出站 。 这使得 Azure Bastion 的组件能够彼此通信。
     * **流向 Azure 中其他公共终结点的出口流量：** Azure Bastion 需要能够连接到 Azure 中的各种公共终结点，以便执行相应操作（例如，存储诊断日志和计量日志）。 因此，Azure Bastion 需要出站到 443，再到 AzureCloud 服务标记。
+    * **流向目标 Internet 的出口流量：** 若要进行会话和证书验证，Azure Bastion 需要能与 Internet 通信。 出于此原因，我们建议启用端口 80 出站到 Internet。
 
     :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="屏幕截图显示 Azure Bastion 连接的出站安全规则。":::
 

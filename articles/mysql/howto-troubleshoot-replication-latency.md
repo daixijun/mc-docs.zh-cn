@@ -7,13 +7,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: troubleshooting
 origin.date: 10/25/2020
-ms.date: 11/09/2020
-ms.openlocfilehash: 770a18aa163087b5e73076642ab43c74f5da25fe
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 01/11/2021
+ms.openlocfilehash: 69cddaac8c67647f5bc4023b0d0b7a138c0f5760
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328489"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022907"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>排查 Azure Database for MySQL 中的复制延迟问题
 
@@ -32,6 +32,9 @@ ms.locfileid: "94328489"
 - 在源服务器和辅助服务器上运行的查询。 
 
 在本文中，你将了解如何排查 Azure Database for MySQL 中的复制延迟问题。 你还将了解副本服务器上复制延迟增加的一些常见原因。
+
+> [!NOTE]
+> 本文包含对术语“从属”的引用，这是 Azure 不再使用的术语。 在从软件中删除该术语后，我们会将其从本文中删除。
 
 ## <a name="replication-concepts"></a>复制概念
 

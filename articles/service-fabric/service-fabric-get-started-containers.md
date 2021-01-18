@@ -4,17 +4,17 @@ description: 在 Azure Service Fabric 上创建第一个 Windows 容器应用程
 ms.topic: conceptual
 origin.date: 01/25/2019
 author: rockboyfor
-ms.date: 09/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 02/24/2020
 ms.author: v-yeche
 ms.custom: devx-track-python
-ms.openlocfilehash: 2907c9464f53ef564387f8dfdb1056677e551303
-ms.sourcegitcommit: e1cd3a0b88d3ad962891cf90bac47fee04d5baf5
+ms.openlocfilehash: 382ed2f129c4d8b73847d617cc6788748e52643e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89655730"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023087"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 上创建第一个 Service Fabric 容器应用程序
 
@@ -258,11 +258,12 @@ Service Fabric SDK 和工具提供服务模板，用于创建容器化应用程�
 > [!NOTE]
 > 可以通过使用适用的属性值声明其他 PortBinding 元素来添加服务的其他端口绑定。
 
-<!--Not Available on ## Configure container repository authentication-->
-<!--Not Available on [Container Repository Authentication](configure-container-repository-credentials.md)-->
+## <a name="configure-container-repository-authentication"></a>配置容器存储库身份验证
+
+请参阅[容器存储库身份验证](configure-container-repository-credentials.md)，了解如何为容器映像的下载配置不同类型的身份验证。
 
 ## <a name="configure-isolation-mode"></a>配置隔离模式
-Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔离模式时，在同一台主机计算机上运行的所有容器会与主机共享内核。 使用 Hyper-V 隔离模式时，内核会在每个 Hyper-V 容器与容器主机之间隔离。 隔离模式在应用程序清单文件中的 `ContainerHostPolicies` 元素内指定。 可以指定的隔离模式为 `process`、`hyperv` 和 `default`。 Windows Server 主机上默认采用进程隔离模式。 Windows 10 主机仅支持 Hyper-V 隔离模式，因此无论容器的离模式设置如何，它都在 Hyper-V 隔离模式下运行。 以下代码片段演示如何在应用程序清单文件中指定隔离模式。
+Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔离模式时，在同一台主机计算机上运行的所有容器将与主机共享内核。 使用 Hyper-V 隔离模式时，内核将在每个 Hyper-V 容器与容器主机之间隔离。 隔离模式在应用程序清单文件中的 `ContainerHostPolicies` 元素内指定。 可以指定的隔离模式为 `process`、`hyperv` 和 `default`。 Windows Server 主机上默认采用进程隔离模式。 Windows 10 主机仅支持 Hyper-V 隔离模式，因此无论容器的离模式设置如何，它都在 Hyper-V 隔离模式下运行。 以下代码片段演示如何在应用程序清单文件中指定隔离模式。
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
@@ -273,7 +274,7 @@ Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔
 >
 
 ## <a name="configure-resource-governance"></a>配置资源调控
-[资源调控](service-fabric-resource-governance.md)限制容器能够在主机上使用的资源。 在应用程序清单中指定的 `ResourceGovernancePolicy` 元素用于声明服务代码包的资源限制。 可以为以下资源设置资源限制：内存、MemorySwap、CpuShares（CPU 相对权重）、MemoryReservationInMB、BlkioWeight（BlockIO 相对权重）。 在此示例中，服务包 Guest1Pkg 在放置它的群集节点上获得一个核心。 内存限制是绝对的，所以此代码包限制为 1024 MB 内存（和相同的软保证预留）。 代码包（容器或进程）无法分配超出此限制的内存，尝试执行此操作会引发内存不足异常。 若要强制执行资源限制，服务包中的所有代码包均应指定内存限制。
+[资源调控](service-fabric-resource-governance.md)限制容器能够在主机上使用的资源。 在应用程序清单中指定的 `ResourceGovernancePolicy` 元素用于声明服务代码包的资源限制。 可为以下资源设置资源限制：内存、MemorySwap、CpuShares（CPU 相对权重）、MemoryReservationInMB、BlkioWeight（BlockIO 相对权重）。 在此示例中，服务包 Guest1Pkg 在放置它的群集节点上获得一个核心。 内存限制是绝对的，所以此代码包限制为 1024 MB 内存（和相同的软保证预留）。 代码包（容器或进程）无法分配超出此限制的内存，尝试执行此操作会引发内存不足异常。 若要强制执行资源限制，服务包中的所有代码包均应指定内存限制。
 
 ```xml
 <ServiceManifestImport>
@@ -286,7 +287,7 @@ Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔
 ```
 ## <a name="configure-docker-healthcheck"></a>配置 docker HEALTHCHECK 
 
-从 v6.1 开始，Service Fabric 自动将 [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 事件集成到其系统运行状况报告。 这意味着，如果容器启用了 **HEALTHCHECK**，则只要容器的运行状况状态如 Docker 所报告的那样更改，Service Fabric 就会报告运行状况。  当 *health_status* 为“正常”  时，会在 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中显示运行状况报告“正常”；  当 *health_status* 为“不正常”时，  会显示“警告”。 
+从 v6.1 开始，Service Fabric 自动将 [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 事件集成到其系统运行状况报告。 这意味着，如果容器启用了 **HEALTHCHECK**，则只要容器的运行状况状态如 Docker 所报告的那样更改，Service Fabric 就会报告运行状况。 当 *health_status* 为“正常”时，会在 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中显示运行状况报告“正常”；当 *health_status* 为“不正常”时，会显示“警告”。 
 
 从 v6.4 的最新更新版开始，可以选择指定应将 Docker HEALTHCHECK 评估报告为错误。 如果此选项已启用，当 *health_status* 为“正常”时，将显示“正常”运行状况报告；当 *health_status* 为“不正常”时，将显示“错误”运行状况报告。
 
@@ -321,11 +322,11 @@ Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔
 若要禁用整个 Service Fabric 群集的 **HEALTHCHECK** 集成，则需将 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) 设置为 **false**。
 
 ## <a name="deploy-the-container-application"></a>部署容器应用程序
-保存所有更改，生成应用程序。 若要发布应用程序，请右键单击解决方案资源管理器中的“MyFirstContainer”，选择“发布”。  
+保存所有更改，生成应用程序。 若要发布应用程序，请右键单击解决方案资源管理器中的“MyFirstContainer”，然后选择“发布”。
 
-在“连接终结点”中  输入群集的管理终结点。 例如，`containercluster.chinanorth2.cloudapp.chinacloudapi.cn:19000`。 在 [Azure 门户](https://portal.azure.cn)中，可以在群集的“概览”选项卡中查找客户端连接终结点。
+在“连接终结点”中输入群集的管理终结点。 例如，`containercluster.chinanorth2.cloudapp.chinacloudapi.cn:19000`。 在 [Azure 门户](https://portal.azure.cn)中，可以在群集的“概览”选项卡中查找客户端连接终结点。
 
-单击“发布”。 
+单击“发布” 。
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 是一项基于 Web 的工具，用于检验和管理 Service Fabric 群集中的应用程序和节点。 打开浏览器，导航到 `http://containercluster.chinanorth2.cloudapp.chinacloudapi.cn:19080/Explorer/` ，并执行应用程序部署。 将映像下载到群集节点（这可能需要一段时间，具体时间取决于映像大小）之前，应用程序可部署但处于错误状态：![错误][1]
 
@@ -401,7 +402,7 @@ WIndows Server 2016 的内部版本为 14393，Windows Server 版本 1709 的内
 未标记的容器映像将作为在 ServiceManifest 中提供的映像的替代。 因此，映像“myregistry.azurecr.cn/samples/helloworldappDefault”将替代 ServiceManifest 中的 ImageName“myregistry.azurecr.cn/samples/helloworldapp”。
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Service Fabric 应用程序和服务清单的完整示例
-下面是本文中使用的服务和应用程序完整清单。
+下面本文中使用的服务和应用程序完整清单。
 
 ### <a name="servicemanifestxml"></a>ServiceManifest.xml
 ```xml
@@ -521,7 +522,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>将运行时配置为删除未使用的容器映像
 
-可将 Service Fabric 群集配置为从节点删除未使用的容器映像。 如果节点上存在过多容器映像，则可通过此配置回收磁盘空间。 若要启用此功能，请更新群集清单中的 [Hosting](service-fabric-cluster-fabric-settings.md#hosting) 节，如以下代码片段所示： 
+可以将 Service Fabric 群集配置为从节点删除未使用的容器映像。 如果节点上存在过多容器映像，则可通过此配置回收磁盘空间。 若要启用此功能，请更新群集清单中的 [Hosting](service-fabric-cluster-fabric-settings.md#hosting) 节，如以下代码片段所示： 
 
 ```json
 "fabricSettings": [
@@ -567,13 +568,13 @@ Service Fabric 运行时为下载和解压缩容器映像分配了 20 分钟的�
 
 ## <a name="set-container-retention-policy"></a>设置容器保留策略
 
-Service Fabric（6.1 或更高版本）支持保留终止的或无法启动的容器，这样有助于诊断容器启动故障。 此策略可以在  ApplicationManifest.xml 文件中设置，如以下代码片段所示：
+Service Fabric（6.1 或更高版本）支持保留终止的或无法启动的容器，这样有助于诊断容器启动故障。 此策略可以在 ApplicationManifest.xml 文件中设置，如以下代码片段所示：
 
 ```xml
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
- ContainersRetentionCount 设置指定在容器故障时需保留的容器数。 如果指定一个负值，则会保留所有故障容器。 如果不指定  ContainersRetentionCount 属性，则不会保留任何容器。  ContainersRetentionCount 属性还支持应用程序参数，因此用户可以为测试性群集和生产群集指定不同的值。 使用此功能时可使用放置约束，将容器服务的目标设置为特定的节点，防止将容器服务移至其他节点。 使用此功能保留的容器必须手动删除。
+ContainersRetentionCount 设置指定在容器故障时需保留的容器数。 如果指定一个负值，则会保留所有故障容器。 如果不指定 ContainersRetentionCount 属性，则不会保留任何容器。 ContainersRetentionCount 属性还支持应用程序参数，因此用户可以为测试性群集和生产群集指定不同的值。 使用此功能时可使用放置约束，将容器服务的目标设置为特定的节点，防止将容器服务移至其他节点。 使用此功能保留的容器必须手动删除。
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>使用自定义参数启动 Docker 守护程序
 

@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 9ea5d2a9b10a8b3508ec520f0cd0232d496f63ee
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 8e9628e3a55e305e8a7119178e37e4d502ad9485
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104855"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022179"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>创建和管理 Azure 机器学习工作区 
 
@@ -25,11 +25,13 @@ ms.locfileid: "97104855"
 
 ## <a name="prerequisites"></a>必备条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用[免费版或付费版 Azure 机器学习](https://aka.ms/AMLFree)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始操作前先创建一个免费帐户。 立即试用 [Azure 机器学习的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 如果使用 Python SDK，请[安装 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)。
 ## <a name="limitations"></a>限制
 
-* 创建新工作区时，你可以允许工作区自动创建所需的 Azure 服务，也可以提供现有服务。 提供现有服务时，这些服务必须与工作区位于同一 Azure 订阅中。
+[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
+默认情况下，创建工作区时还会创建 Azure 容器注册表 (ACR)。  由于 ACR 当前不支持在资源组名称中使用 unicode 字符，因此请使用不包含这些字符的资源组。
 
 ## <a name="create-a-workspace"></a>创建工作区
 
@@ -364,6 +366,17 @@ ws.delete(delete_dependent_resources=False, no_wait=False)
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## <a name="troubleshooting"></a>故障排除
+
+* Azure 机器学习工作室支持的浏览器：建议使用与操作系统兼容的最新浏览器。 支持以下浏览器：
+  * Microsoft Edge（新的 Microsoft Edge（最新版）， 不是旧版 Microsoft Edge）
+  * Safari（最新版本，仅限 Mac）
+  * Chrome（最新版本）
+  * Firefox（最新版本）
+
+* **Azure 门户**： 
+  * 如果通过 SDK 的共享链接或 Azure 门户直接访问工作区，则无法查看扩展中包含订阅信息的标准“概述”页面。 此情况下，也无法切换到其他工作区。 若要查看其他工作区，请直接转到 [Azure 机器学习工作室](https://studio.ml.azure.cn)并搜索工作区名称。
+
+  * 所有资产（数据集、试验、计算等）仅适用于 [Azure 机器学习工作室](https://studio.ml.azure.cn)， 它们不可在 Azure 门户中使用。
 
 ### <a name="resource-provider-errors"></a>资源提供程序错误
 

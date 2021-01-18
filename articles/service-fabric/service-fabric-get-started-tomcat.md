@@ -3,14 +3,14 @@ title: 为 Linux 上的 Apache Tomcat 创建容器
 description: 创建 Linux 容器，以在 Azure Service Fabric 上公开 Apache Tomcat 服务器上运行的应用程序。 生成包含应用程序和 Apache Tomcat 服务器的 Docker 映像，将该映像推送到容器注册表，然后生成并部署 Service Fabric 容器应用程序。
 ms.topic: conceptual
 origin.date: 06/08/2018
-ms.date: 02/24/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: 328ca3141098de6508fe6ae0dbcbabe1f5e1a9d7
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 10beeeb6105339ea627a0aa859bb41c1d124cb46
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77540432"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023085"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>在 Linux 上创建运行 Apache Tomcat 服务器的 Service Fabric 容器
 Apache Tomcat 是 Java Servlet 和 Java Server 技术的常见开源实现。 本文介绍如何使用 Apache Tomcat 和简单的 Web 应用程序生成容器，然后将该容器部署到运行 Linux 的 Service Fabric 群集并连接到 Web 应用程序。  
@@ -52,9 +52,11 @@ Apache Tomcat 是 Java Servlet 和 Java Server 技术的常见开源实现。 �
 
     有关详细信息，请参阅 [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)（Dockerfile 参考）。
 
-4. 运行 `docker build` 命令，创建运行上述 Web 应用程序的映像：
+
+4. 登录 Docker 并运行 `docker build` 命令，来创建运行上述 Web 应用程序的映像：
 
     ```bash
+    docker login
     docker build . -t tomcattest
     ```
 
@@ -99,7 +101,7 @@ Apache Tomcat 是 Java Servlet 和 Java Server 技术的常见开源实现。 �
     ```
 
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>将 Tomcat 映像推送到容器注册表
-现在，已确认 Tomcat 映像在在开发计算机上的容器中运行，将其推送到容器注册表中的存储库中。 本文使用 Azure 容器注册表来存储图像，但是，只需对步骤稍作修改即可使用所选的任何容器注册表。 本文中的注册表名称假定为 myregistry，完整注册表名称为 myregistry.azurecr.cn  。 可根据自己的方案相应更改上述内容。 
+你现已确认 Tomcat 映像在开发计算机上的容器中运行，请将其推送到容器注册表中的存储库中，以[减少](../container-registry/buffer-gate-public-content.md)对映像开发和部署工作流的干扰。 本文使用 Azure 容器注册表来存储图像，但是，只需对步骤稍作修改即可使用所选的任何容器注册表。 本文中的注册表名称假定为 myregistry，完整注册表名称为 myregistry.azurecr.cn  。 可根据自己的方案相应更改上述内容。 
 
 1. 运行 `docker login`，以使用[注册表凭据](../container-registry/container-registry-authentication.md)登录到容器注册表。
 

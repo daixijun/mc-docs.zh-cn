@@ -3,22 +3,22 @@ title: 使用模板导入 SQL BACPAC 文件
 description: 了解如何使用 Azure SQL 数据库扩展，以通过 Azure 资源管理器模板导入 SQL BACPAC 文件。
 origin.date: 12/09/2019
 author: rockboyfor
-ms.date: 08/24/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 077317e275033c80f90476ebe8e04f76817097f4
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: fccb64b5bb2ca946d711aab92436ffabd686afa7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431724"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023027"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>教程：使用 ARM 模板导入 SQL BACPAC 文件
 
-了解如何使用 Azure SQL 数据库扩展，以通过 Azure 资源管理器 (ARM) 模板导入 BACPAC 文件。 部署项目包括主模板文件以及完成部署所需的任何文件。 BACPAC 文件是一个项目。
+了解如何使用 Azure SQL 数据库扩展，以通过 Azure 资源管理器模板（ARM 模板）导入 [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) 文件。 部署项目包括主模板文件以及完成部署所需的任何文件。 BACPAC 文件是一个项目。
 
 在本教程中，你将创建一个模板来部署[逻辑 SQL Server](../../azure-sql/database/logical-servers.md)、单个数据库并导入 BACPAC 文件。 要了解如何使用 ARM 模板来部署 Azure 虚拟机扩展，请参阅[教程：使用 ARM 模板部署虚拟机扩展](./template-tutorial-deploy-vm-extensions.md)。
 
@@ -32,13 +32,13 @@ ms.locfileid: "96431724"
 > * 部署模板。
 > * 验证部署。
 
-如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+如果没有 Azure 订阅，请在开始前[创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本文，需要做好以下准备：
 
-* 包含资源管理器工具扩展的 Visual Studio Code。 请参阅[快速入门：使用 Visual Studio Code 创建 Azure 资源管理器模板](./quickstart-create-templates-use-visual-studio-code.md)。
+* 包含资源管理器工具扩展的 Visual Studio Code。 请参阅[快速入门：使用 Visual Studio Code 创建 ARM 模板](./quickstart-create-templates-use-visual-studio-code.md)。
 * 若要增强安全性，请使用为服务器管理员帐户生成的密码。 下面是一个可用于生成密码的示例：
 
     ```console
@@ -122,7 +122,7 @@ BACPAC 文件在 [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/m
     模板中定义了两个资源：
 
     * `Microsoft.Sql/servers`。
-    * `Microsoft.SQL.servers/databases`。
+    * `Microsoft.SQL.servers/databases`.
 
     <!--Not Available on [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers)-->
     <!--Not Available on [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)-->
@@ -133,7 +133,7 @@ BACPAC 文件在 [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/m
 
 ## <a name="edit-the-template"></a>编辑模板
 
-1. 在“parameters”节的末尾再添加两个参数，以设置存储帐户密钥和 BACPAC URL。
+1. 在 `parameters` 部分的末尾再添加两个参数，以设置存储帐户密钥和 BACPAC URL。
 
     ```json
     "storageAccountKey": {
@@ -150,7 +150,7 @@ BACPAC 文件在 [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/m
     }
     ```
 
-    在“adminPassword”后面添加一个逗号。 若要从 Visual Studio Code 设置 JSON 文件的格式，请选择 Shift+Alt+F。
+    在 `adminPassword` 属性的右大括号 (`}`) 后面添加一个逗号。 若要从 Visual Studio Code 设置 JSON 文件的格式，请选择 Shift+Alt+F。
 
     若要获取这两个值，请参阅[准备 BACPAC 文件](#prepare-a-bacpac-file)。
 
@@ -209,13 +209,13 @@ BACPAC 文件在 [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/m
 
         若要了解资源定义，请参阅 [SQL 数据库扩展参考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions)。 下面是一些重要元素：
 
-        * **dependsOn**：必须在创建数据库以后才能创建扩展资源。
-        * **storageKeyType**：指定要使用的存储密钥的类型。 值可以是 `StorageAccessKey` 或 `SharedAccessKey`。 在本教程中使用 `StorageAccessKey`。
-        * **storageKey**：指定存储 BACPAC 文件的存储帐户的密钥。 如果存储密钥类型为 `SharedAccessKey`，则它前面必须是“?”。
-        * **storageUri**：指定存储帐户中存储的 BACPAC 文件的 URL。
-        * **administratorLoginPassword**：SQL 管理员的密码。 使用生成的密码。 请参阅[先决条件](#prerequisites)。
+        * `dependsOn`：必须在创建数据库以后才能创建扩展资源。
+        * `storageKeyType`：指定要使用的存储密钥的类型。 值可以是 `StorageAccessKey` 或 `SharedAccessKey`。 在本教程中使用 `StorageAccessKey`。
+        * `storageKey`：指定存储 BACPAC 文件的存储帐户的密钥。 如果存储密钥类型为 `SharedAccessKey`，则它前面必须是“?”。
+        * `storageUri`：指定存储帐户中存储的 BACPAC 文件的 URL。
+        * `administratorLoginPassword`：SQL 管理员的密码。 使用生成的密码。 请参阅[先决条件](#prerequisites)。
 
-完成的模板如下所示：
+已完成的模板如下所示：
 
 ```json
 {

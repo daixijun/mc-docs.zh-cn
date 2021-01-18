@@ -2,13 +2,13 @@
 title: Azure Functions 2.x 的 host.json 参考
 description: 使用 v2 运行时的 Azure Functions host.json 文件的参考文档。
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: 7762d5eea007a126c257aa18ad46f296c15fc7ea
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.date: 01/04/2021
+ms.openlocfilehash: 636cdfb3567529b22c93c17af8c665864287d861
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507578"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021461"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 及更高版本的 host.json 参考 
 
@@ -129,7 +129,8 @@ host.json 中与绑定相关的配置将同样地应用于函数应用中的每�
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 
@@ -218,6 +219,28 @@ Application Insights 的控制选项，包括[采样选项](./configure-monitori
 ## <a name="cosmosdb"></a>CosmosDB
 
 可在 [Cosmos DB 触发器和绑定](functions-bindings-cosmosdb-v2-output.md#host-json)中查找配置设置。
+
+## <a name="customhandler"></a>customHandler
+
+自定义处理程序的配置设置。 有关详细信息，请参阅 [Azure Functions 自定义处理程序](functions-custom-handlers.md#configuration)。
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|属性 | 默认 | 说明 |
+| --------- | --------- | --------- |
+| defaultExecutablePath | 不适用 | 要作为自定义处理程序进程启动的可执行文件。 在使用自定义处理程序时，它是必需设置，并且其值与函数应用根有关。 |
+| workingDirectory | 函数应用根 | 要在其中启动自定义处理程序进程的工作目录。 它是一个可选设置，其值与函数应用根有关。 |
+| 参数 | 不适用 | 要传递给自定义处理程序进程的命令行参数的数组。 |
+| enableForwardingHttpRequest | false | 如果设置，则仅包含 HTTP 触发器和 HTTP 输出的所有函数都将转发原始 HTTP 请求而不是自定义处理程序[请求负载](functions-custom-handlers.md#request-payload)。 |
 
 ## <a name="durabletask"></a>durableTask
 
@@ -422,6 +445,16 @@ Application Insights 的控制选项，包括[采样选项](./configure-monitori
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="watchfiles"></a>watchFiles
+
+一个或多个文件名称的数组，系统会监视这些文件，查看是否存在需要重启应用的更改。  这可保证当这些文件中的代码发生更改时，函数会拾取这些更新。
+
+```json
+{
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 

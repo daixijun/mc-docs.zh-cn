@@ -1,26 +1,26 @@
 ---
-title: Web 服务部署故障排除
+title: 远程模型部署故障排除
 titleSuffix: Azure Machine Learning
-description: 了解如何规避、解决及排查 Azure Kubernetes 服务和 Azure 容器实例的常见 Docker 部署错误。
+description: 了解如何规避、解决及排查 Azure Kubernetes 服务和 Azure 容器实例的一些常见 Docker 部署错误。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: gvashishtha
 ms.author: gopalv
 ms.reviewer: jmartens
-ms.date: 11/02/2020
+ms.date: 11/25/2020
 ms.topic: troubleshooting
-ms.custom: contperfq4, devx-track-python, deploy
-ms.openlocfilehash: 8d4077e12a1be906be99cfc4e0a294d7f4c1f0df
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
+ms.openlocfilehash: e6f6df0ed46e518e857f8740961b06b61021be22
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104556"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023325"
 ---
-# <a name="troubleshoot-model-deployment"></a>排查模型部署问题
+# <a name="troubleshooting-remote-model-deployment"></a>远程模型部署故障排除 
 
-了解如何使用 Azure 机器学习排查、解决或规避 Azure 容器实例 (ACI) 和 Azure Kubernetes 服务 (AKS) 的常见 Docker 部署错误。
+了解如何使用 Azure 机器学习排查、解决或规避在将模型部署到 Azure 容器实例 (ACI) 和 Azure Kubernetes 服务 (AKS) 时可能遇到的常见错误。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -177,6 +177,16 @@ Azure Kubernetes 服务部署支持自动缩放，这允许添加副本以支持
 504 状态代码指示请求已超时。默认超时值为 1 分钟。
 
 可以通过修改 score.py 删除不必要的调用来增加超时值或尝试加快服务速度。 如果这些操作不能解决问题，请使用本文中的信息调试 score.py 文件。 代码可能处于无响应状态或无限循环。
+
+## <a name="other-error-messages"></a>其他错误消息
+
+对以下错误采取以下操作：
+
+|错误  | 解决方法  |
+|---------|---------|
+|部署 Web 服务时映像生成失败     |  将“pynacl==1.2.1”作为 pip 依赖项添加到 Conda 文件以进行映像配置       |
+|`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   请将部署中使用的 VM 的 SKU 更改为具有更多内存的 SKU。 |
+|FPGA 失败     |  你将无法在 FPGA 上部署模型，直到已请求并获得 FPGA 配额批准为止。 若要请求访问权限，请填写配额请求表单： https://aka.ms/aml-real-time-ai       |
 
 ## <a name="advanced-debugging"></a>高级调试
 

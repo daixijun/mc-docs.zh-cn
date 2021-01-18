@@ -1,17 +1,17 @@
 ---
-title: MABS（Microsoft Azure 备份服务器）V3 UR1 保护矩阵
+title: MABS（Azure 备份服务器）V3 UR1 保护矩阵
 description: 本文提供了一个支持矩阵，列出了受 Azure 备份服务器保护的所有工作负荷、数据类型和安装。
 author: Johnnytechn
 origin.date: 11/13/2018
-ms.date: 09/28/2020
+ms.date: 01/07/2021
 ms.topic: conceptual
 ms.author: v-johya
-ms.openlocfilehash: c48b3dfa32296c198252c2a626f5f2bed10b27d7
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: bb62d313dca2fc5cb1c9dc3110be6a6cec57fe60
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871149"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022832"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>MABS（Azure 备份服务器）V3 UR1 保护矩阵
 
@@ -60,7 +60,7 @@ ms.locfileid: "91871149"
 
 | **工作负载** | **版本**                               | **Azure 备份服务器安装**                      | **支持的 Azure 备份服务器** | **保护和恢复**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | 以 Hyper-V 或 VMware 来宾身份运行的 Linux | 物理服务器、本地 Hyper-V VM、VMWare 中的 Windows VM | V3 UR1                             | Hyper-V 必须在 Windows Server 2012 R2、Windows Server 2016 或 Windows Server 2019 上运行。 保护：整个虚拟机   <br><br>   恢复：整个虚拟机   <br><br>    仅支持文件一致性快照。    <br><br>   有关支持的 Linux 发行版和版本的完整列表，请参阅 [Azure 认可的发行版中的 Linux](../virtual-machines/linux/endorsed-distros.md) 一文。 |
+| Linux        | 以 [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) 或 [VMware](backup-azure-backup-server-vmware.md) 来宾身份运行的 Linux | 物理服务器、本地 Hyper-V VM、VMWare 中的 Windows VM | V3 UR1                             | Hyper-V 必须在 Windows Server 2012 R2、Windows Server 2016 或 Windows Server 2019 上运行。 保护：整个虚拟机   <br><br>   恢复：整个虚拟机   <br><br>    仅支持文件一致的快照。    <br><br>   有关支持的 Linux 发行版和版本的完整列表，请参阅 [Azure 认可的发行版中的 Linux](../virtual-machines/linux/endorsed-distros.md) 一文。 |
 
 ## <a name="azure-expressroute-support"></a>Azure ExpressRoute 支持
 

@@ -9,15 +9,15 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 01/09/2020
+ms.date: 12/04/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 47a45666f7a7e4ebc93c78c203d4a58b3538b2f0
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 463b329709f0bd837ddcf069d3789fa0251902de
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105328"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022434"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>在 Python 中启动、监视和取消训练运行
 
@@ -39,7 +39,7 @@ ms.locfileid: "97105328"
 
 需要准备好以下各项：
 
-* Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用 [Azure 机器学习的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 一个 [Azure 机器学习工作区](how-to-manage-workspace.md)。
 
@@ -275,11 +275,11 @@ with exp.start_logging() as parent_run:
 > [!NOTE]
 > 当子运行超出范围时，会自动标记为已完成。
 
-若要高效地创建许多子运行，请使用 [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-) 方法。 由于每次创建操作都会造成网络调用，因此，创建一批运行比逐个创建更为高效。
+若要高效地创建许多子运行，请使用 [`create_children()`](https://docs.microsoft.com/python//api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-) 方法。 由于每次创建操作都会造成网络调用，因此，创建一批运行比逐个创建更为高效。
 
 ### <a name="submit-child-runs"></a>提交子运行
 
-也可以从父运行提交子运行。 通过此操作可创建父运行和子运行的层次结构。 
+也可以从父运行提交子运行。 通过此操作可创建父运行和子运行的层次结构。 你无法创建没有父运行的子运行：即使父运行只启动子运行而不执行任何操作，仍需要创建层次结构。 所有运行的状态都是独立的：即使一个或多个子运行已取消或失败，父运行也可以处于 `"Completed"` 成功状态。  
 
 你可能会希望子运行使用与父运行不同的运行配置。 例如，对父运行使用常规的基于 CPU 的配置，而对子运行使用基于 GPU 的配置。 另一种常见的需求是向每个子运行传递不同的参数和数据。 若要自定义子运行，请为该子运行创建一个 `ScriptRunConfig` 对象。 下面的代码执行以下操作：
 
@@ -328,6 +328,24 @@ child_run.parent.id
 ```python
 print(parent_run.get_children())
 ```
+
+### <a name="log-to-parent-or-root-run"></a>记录到父运行或根运行
+
+你可以使用 `Run.parent` 字段访问启动当前子运行的运行。 对于这种情况，一个常见的用例是将日志结果合并到单一位置。 请注意，子运行以异步方式执行，只能保证父运行等待其子运行完成，无法保证它们顺序一致和保持同步。
+
+```python
+# in child (or even grandchild) run
+
+def root_run(self : Run) -> Run :
+    if self.parent is None : 
+        return self
+    return root_run(self.parent)
+
+current_child_run = Run.get_context()
+root_run(current_child_run).log("MyMetric", f"Data from child run {current_child_run.id}")
+
+```
+
 
 ## <a name="tag-and-find-runs"></a>标记和查找运行
 

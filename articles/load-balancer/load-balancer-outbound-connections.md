@@ -1,24 +1,24 @@
 ---
-title: 出站代理 Azure 负载均衡器
-description: 介绍如何将 Azure 负载均衡器用作出站 Internet 连接的代理
+title: 用于出站连接的 SNAT
+description: 描述如何使用 Azure 负载均衡器执行 SNAT 来进行出站 Internet 连接
 services: load-balancer
 author: WenJason
 ms.service: load-balancer
 ms.topic: conceptual
 ms.custom: contperfq1
 origin.date: 10/13/2020
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.author: v-jay
-ms.openlocfilehash: d3f73115dba08e85e75330f77a35b513616e4c84
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: f36e78143253e38642493d9a02e6943f79890339
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105289"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022447"
 ---
 # <a name="using-snat-for-outbound-connections"></a>使用 SNAT 进行出站连接
 
-可以使用 Azure 公共负载均衡器的前端 IP 为后端实例提供到 Internet 的出站连接。此配置使用源网络地址转换 (SNAT)。 SNAT 将后端的 IP 地址重写为负载均衡器的公共 IP 地址。 
+可使用 Azure 公共负载均衡器的前端 IP 为后端实例提供到 Internet 的出站连接。 此配置使用源网络地址转换 (SNAT)。 SNAT 将后端的 IP 地址重写为负载均衡器的公共 IP 地址。 
 
 SNAT 启用后端实例的 IP 伪装。 此伪装可以防止外部源直接访问后端实例。 在后端实例之间共享 IP 地址可降低静态公共 IP 的成本，并支持简化带有来自已知公共 IP 的流量的 IP 允许列表等场景。 
 
@@ -164,8 +164,6 @@ Azure 负载均衡器出站规则和虚拟网络 NAT 是用于虚拟网络流出
 
 ## <a name="constraints"></a>约束
 
-* 接收或发送 TCP RST 后，将在 15 秒后释放端口
-* 接收或发送 FINACK 后，将在 240 秒后释放端口
 * 如果连接处于闲置状态且没有发送新的数据包，则将在 4 - 120 分钟后释放端口。
   * 可以通过出站规则配置此阈值。
 * 每个 IP 地址提供 64,000 个端口，这些端口可用于 SNAT。

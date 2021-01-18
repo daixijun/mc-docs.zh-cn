@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/03/2020
+ms.date: 01/06/2021
 ms.author: v-johya
 origin.date: 02/25/2020
-ms.openlocfilehash: 00a7279f23a00b52199895fe9473b18137f997d7
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 38ea7e0f66b927806c9c421d02539186e947715d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747159"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023203"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>常见问题解答 - 有关数据收集、代理和工作区的问题
 
@@ -76,9 +76,9 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 对于中国的 VM，工作区位置为中国。
 
 
-## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Log Analytics 代理收集哪些数据？
+## <a name="what-security-events-are-collected-by-the-log-analytics-agent"></a>Log Analytics 代理收集哪些安全事件？
 
-有关代理监视的应用程序和服务的完整列表，请参阅 [Azure Monitor 监视哪些内容？](../azure-monitor/monitor-reference.md#azure-services)。
+有关代理收集的安全事件的完整列表，请参阅[为“常用”和“最小”安全事件设置存储了哪些事件类型？](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal)。
 
 > [!IMPORTANT]
 > 请注意，对于某些服务（例如 Azure 防火墙），如果启用了日志记录并选择记录琐碎资源（例如，将日志设置为“详细”），则可能会对 Log Analytics 工作区的存储需求产生重大影响。 

@@ -4,14 +4,14 @@ description: 了解如何在 Azure 容器实例中启用可使用其他 Azure �
 ms.topic: article
 origin.date: 07/02/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/11/2021
 ms.author: v-yeche
-ms.openlocfilehash: d4d651b9869a08a025538b022411aee21db2a6ae
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b51bd1c92ce59207f8c3bf0bdb185f9a09268805
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106319"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022169"
 ---
 <!--Verified succssfully based on 06/08/2020-->
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>如何将托管标识与 Azure 容器实例结合使用
@@ -49,9 +49,11 @@ Azure 容器实例支持以下两种类型的 Azure 托管标识：用户分配�
 * 目前不能在部署到虚拟网络的容器组中使用托管标识。
 * 创建容器组时，不能使用托管标识从 Azure 容器注册表中拉取映像。 该标识仅在正在运行的容器中可用。
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.49 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
+- 本文要求使用 2.0.49 版或更高版本的 Azure CLI。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="create-an-azure-key-vault"></a>创建 Azure Key Vault
 

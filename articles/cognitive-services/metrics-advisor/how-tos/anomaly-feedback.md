@@ -8,59 +8,106 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 01/04/2021
 ms.author: v-johya
-ms.openlocfilehash: 76aa2d734c068c37d318843ec039e639227eb9db
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: 4af88ebcfc71f30e33e6aeb8da5a5de43636501b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472940"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022244"
 ---
-# <a name="adjust-anomaly-detection-using-feedback"></a>使用反馈调整异常检测
+# <a name="provide-anomaly-feedback"></a>提供异常反馈
 
-如果你对指标监视器提供的某些异常情况检测结果不满意，可以手动添加反馈来影响应用于数据的模型。 
+用户反馈是异常检测系统中发现缺陷的重要方法之一。 在这里，我们为用户提供了一种直接在时序上标记错误检测结果的方法，并立即应用反馈。 这样，用户可以指示异常检测系统如何通过主动交互对特定时序执行异常检测。 
 
-使用页面右上角的按钮激活反馈批注模式。
+> [!NOTE]
+> 目前，反馈只会通过“智能检测”来影响异常检测结果，而不会通过“硬阈值”和“变化阈值”来影响异常检测结果  。
 
-:::image type="content" source="../media/feedback/annotation-mode.png" alt-text="反馈批注模式。":::
+## <a name="how-to-give-time-series-feedback"></a>如何提供时序反馈
 
-反馈批注模式激活后，便可为单个点或多个连续点提供反馈。
+可以在任何序列上的指标详细信息页提供反馈。 只需选择任意点，你就会看到以下反馈对话框。 此对话框将显示所选序列的维度。 你可以重新选择维度值，甚至可以删除其中一些维度值来获取一批时序数据。 选择时序后，可选择“添加”按钮添加反馈，你可以提供四种反馈。 若要追加多个反馈项，请在完成批注后，选择“保存”按钮。
 
-## <a name="give-feedback-for-one-point"></a>为单个点提供反馈 
+:::image type="content" source="../media/feedback/click-on-any-point.png" alt-text="具有蓝线和在不同点具有红点的时序数据关系图。红色框围绕一个点，并包含文本：选择任意点":::
 
-反馈批注模式激活后，单击某个点打开“添加反馈”面板。 可设置要应用的反馈类型。 此反馈将融入将来点的检测中。  
+:::image type="content" source="../media/feedback/select-or-remove.png" alt-text="“添加反馈”对话框，其中包含两个维度以及“选择或删除维度”和“添加反馈”选项。":::
 
-* 如果你认为该点被指标监视器错误地标记，请选择“异常”。 可以指定某个点是否应为异常。 
-* 如果你认为该点是趋势变化的开始，请选择“ChangePoint”。
-* 选择“时间段”以指示季节性。 指标监视器可以自动检测季节性的间隔，也可以手动指定。 
+### <a name="mark-the-anomaly-point-type"></a>标记异常点类型
 
-请考虑同时在“注释”文本框中留下注释，然后单击“保存”以保存反馈 。
+如下图所示，“反馈”对话框将自动填充所选点的时间戳，但你可以编辑此值。 然后选择是否要将此项标识为 `Anomaly`、`NotAnomaly` 或 `AutoDetect`。
 
-:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="反馈批注模式。":::
+:::image type="content" source="../media/feedback/anomaly-value.png" alt-text="具有“Anomaly”、“NotAnomaly”和“AutoDetect”选项的下拉菜单":::
 
-## <a name="give-feedback-for-multiple-continuous-points"></a>为多个连续点提供反馈
+该选择会将你的反馈应用于同一序列的未来异常情况检测处理。 已处理的点将不会重新计算。 这意味着，如果你将 Anomaly 标记为 NotAnomaly，未来我们将取消类似的异常，如果你将 `NotAnomaly` 点标记为 `Anomaly`，未来我们会将类似点检测为 `Anomaly`。 如果选择 `AutoDetect`，则未来将忽略同一点上以前的任何反馈。
 
-可通过单击鼠标并将鼠标拖动到要批注的点上，同时为多个连续点提供反馈。 你将看到与上面相同的反馈菜单。 单击“保存”后，相同的反馈将应用于所有选定的点。
+## <a name="provide-feedback-for-multiple-continuous-points"></a>为多个连续点提供反馈 
 
-:::image type="content" source="../media/feedback/continuous-points.png" alt-text="反馈批注模式。":::
+如果希望同时为多个连续点提供异常反馈，请选择要为其添加批注的点组。 当你提供异常反馈时，你将看到所选的时间范围已自动填充。
 
-## <a name="how-to-view-my-feedback"></a>如何查看我的反馈
+:::image type="content" source="../media/feedback/continuous-anomaly-feedback.png" alt-text="异常反馈菜单，其中选择了异常和特定的时间范围":::
 
-若要查看某个点的异常情况检测是否已更改，请将鼠标悬停在该点上。 如果检测已更改，工具提示将显示“受反馈影响: true”。 如果显示“False”，则对该点的反馈计算已完成，但异常情况检测结果未更改。
+若要查看个别点是否受异常反馈的影响，请在浏览时序时选择单个点。 如果该点的异常情况检测结果已根据反馈更改，工具提示将显示“受反馈影响: true”。 如果显示“受反馈影响: false”，这意味着已对此点执行异常反馈计算，但不应更改异常情况检测结果。
 
-:::image type="content" source="../media/feedback/affected-point.png" alt-text="反馈批注模式。":::
+:::image type="content" source="../media/feedback/affected-by-feedback.png" alt-text="工具提示显示，其中文本：“受反馈影响: true”已用红框突出显示":::
 
-## <a name="when-should-i-annotate-an-anomaly-as-normal"></a>何时应将异常批注为“正常”
+在以下情况下，我们不建议提供反馈：
 
-当你可能认为异常是错误警报时，有很多原因。 如果满足以下任一情况，请考虑使用以下指标顾问功能：
+- 异常是由假日导致的。 建议使用预设事件来解决此类误报，这样会更精确。
+- 异常是由已知数据源更改导致的。 例如，当时上游系统发生更改。 在这种情况下，预期会发出异常警报，因为系统不知道导致值更改的原因以及何时会再次发生类似的值更改。 因此，建议不要将此类问题批注为 `NotAnomaly`。
+
+## <a name="change-points"></a>更改点
+
+有时，数据的趋势变化会影响异常情况检测结果。 在决定某点是否为异常点时，应将历史数据的最新窗口纳入考虑范围。 当时序发生趋势变化时，可以标记确切的更改点，这将有助于我们以后分析异常探测器。
+
+如下图所示，你可以选择 `ChangePoint` 作为反馈类型，然后从下拉列表中选择 `ChangePoint`、`NotChangePoint` 或 `AutoDetect`。
+
+:::image type="content" source="../media/feedback/changepoint.png" alt-text="“更改点”菜单，其中具有包含 ChangePoint、NotChangePoint 和 AutoDetect 选项的下拉列表":::
+
+> [!NOTE]
+> 如果数据不断变化，只需将一个点标记为 `ChangePoint`，因此，如果你标记了 `timerange`，我们将自动填充最后一个点的时间戳和时间。 在这种情况下，批注只会影响 12 个点后的异常情况检测结果。
+
+## <a name="seasonality"></a>季节性
+
+对于季节性数据，执行异常情况检测时，需要估算时序的周期（季节性），并将其应用于异常情况检测阶段。 有时，很难确定精确的周期，而且周期也可能发生变化。 定义错误的周期可能会对异常情况检测结果产生副作用。 你可以在工具提示中查找当前周期，其名称为 `Min Period`。
+
+:::image type="content" source="../media/feedback/min-period.png" alt-text="工具提示被“周期”一词覆盖，并用红框红色突出显示了数字 7。":::
+
+你可以提供周期反馈来修复这种异常情况检测错误。 如图所示，你可以设置一个周期值。 单位 `interval` 表示一个粒度。 在这里，零间隔表示数据是非季节性的。 如果你想取消之前的反馈，并让管道自动检测周期，也可以选择 `AutoDetect`。 
+ 
+> [!NOTE]
+> 设置周期时，无需指定时间戳或时间范围，该周期将影响从你提供反馈的那一刻起整个时序上的未来异常情况检测。
 
 
-|方案  |建议 |
-|---------|---------|
-|异常是由已知数据源变化（例如系统变化）引起的。     | 如果希望此方案不会定期重演，请勿批注此异常情况。        |
-|异常是由假日导致的。     | 使用[预设事件](configure-metrics.md#preset-events)指定时间标记异常情况检测。       |
-|检测到异常有一个常规模式（例如在周末），它们不应为异常。      |使用反馈功能或预设事件。        |
+:::image type="content" source="../media/feedback/period-feedback.png" alt-text="“自动检测”周期设置为 28 且间隔设置为 0 以指示非季节性的菜单。":::
+
+## <a name="provide-comment-feedback"></a>提供注释反馈
+
+还可添加注释以批注数据，并为数据提供上下文。 若要添加注释，请选择时间范围并添加注释文本。
+
+:::image type="content" source="../media/feedback/feedback-comment.png" alt-text="可以设置时间范围和框以添加基于文本的注释的菜单":::
+
+## <a name="time-series-batch-feedback"></a>时序批反馈
+
+如前文所述，使用反馈模式，你可以重新选择或删除维度值，以获取由维度筛选器定义的一批时序。 还可以通过单击左侧面板中反馈的“+”按钮，然后选择维度和维度值来打开此模式。
+
+:::image type="content" source="../media/feedback/feedback-time-series.png" alt-text="在“反馈”一词旁用红框突出显示蓝色加号的菜单":::
+
+:::image type="content" source="../media/feedback/feedback-dimension.png" alt-text="具有 Dim1 和 Dim2 指示的两个维度的“添加反馈”菜单":::
+
+## <a name="how-to-view-feedback-history"></a>如何查看反馈历史记录
+
+可通过两种方式查看反馈历史记录。 可在左侧面板中选择“反馈历史记录”按钮，随后你就将看到反馈列表模式。 该列表将列出你之前为单个序列或维度筛选器提供的所有反馈。
+
+:::image type="content" source="../media/feedback/feedback-history-options.png" alt-text="反馈列表菜单":::
+
+查看反馈历史记录的另一种方法是从序列进行查看。 每个序列的右上角显示多个按钮。 选择“显示反馈”按钮，该行将从显示异常点切换为显示反馈条目。 绿色标志表示更改点，蓝色点为其他反馈点。 你还可以选择它们，并将获得一个反馈列表模式，其中将列出对这些点提供的反馈的详细信息。
+
+:::image type="content" source="../media/feedback/feedback-history-graph.png" alt-text="反馈历史记录图":::
+
+:::image type="content" source="../media/feedback/feedback-list.png" alt-text="具有两个维度的反馈列表菜单":::
+
+> [!NOTE]
+> 任何有权访问该指标的人都可以提供反馈，因此你可能会看到其他数据源所有者提供的反馈。 如果你和其他人编辑了同一个点，你的反馈将覆盖以前的反馈条目。       
 
 ## <a name="next-steps"></a>后续步骤
 - [诊断事件](diagnose-incident.md)。

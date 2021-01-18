@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b600a8624b6afd9c7d02f53089e7467fc12a15a0
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: f543379d9fb70ddf746e517c129eac1e8a8e3be5
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509013"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021745"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>使用 Azure 资源管理器创建、列出和删除用户分配的托管标识
 
@@ -35,8 +35,8 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 - [删除用户分配的托管标识](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
   ## <a name="prerequisites"></a>先决条件
 
-- 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#managed-identity-types)。
-- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)，然后再继续。
+- 如果不熟悉 Azure 资源托管标识，请参阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#managed-identity-types)。
+- 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)，然后再继续。
 
 ## <a name="template-creation-and-editing"></a>模板创建和编辑
 

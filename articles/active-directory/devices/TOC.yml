@@ -1,0 +1,81 @@
+- name: 设备标识文档
+  href: index.yml
+- name: 概述
+  items:
+    - name: 什么是设备标识？
+      href: overview.md
+- name: 教程
+  expanded: false
+  items:
+    - name: 为托管域配置混合 Azure AD 加入
+      href: hybrid-azuread-join-managed-domains.md
+    - name: 为联盟域配置混合 Azure AD 加入
+      href: hybrid-azuread-join-federated-domains.md
+    - name: 手动配置混合 Azure AD 加入
+      href: hybrid-azuread-join-manual.md
+    - name: 在 Windows 10 首次运行体验期间配置 Azure AD 加入
+      href: azuread-joined-devices-frx.md
+- name: 概念
+  expanded: true
+  items:
+    - name: Azure AD 注册设备
+      href: concept-azure-ad-register.md
+    - name: Azure AD 加入设备
+      href: concept-azure-ad-join.md
+    - name: 混合 Azure AD 加入设备
+      href: concept-azure-ad-join-hybrid.md
+    - name: SSO 到本地资源
+      href: azuread-join-sso.md
+    - name: 主刷新令牌
+      href: concept-primary-refresh-token.md
+- name: 操作指南
+  expanded: false
+  items:
+    - Name: 规划 Azure AD 设备部署
+      href: plan-device-deployment.md
+    - name: 计划 Azure AD 加入实现
+      href: azureadjoin-plan.md
+    - name: 将本地管理员分配到加入 Azure AD 的设备
+      href: assign-local-admin.md
+    - name: 计划混合 Azure AD 加入实现
+      href: hybrid-azuread-join-plan.md
+    - name: 以受控方式验证混合 Azure AD 加入
+      href: hybrid-azuread-join-control.md
+    - name: 管理设备标识
+      href: device-management-azure-portal.md
+    - name: 管理过时设备
+      href: manage-stale-devices.md
+    - name: Azure VM 和 Azure AD
+      href: howto-vm-sign-in-azure-ad-windows.md
+    - name: 虚拟桌面基础结构
+      href: howto-device-identity-virtual-desktop-infrastructure.md
+    - name: 排查设备标识问题
+      items:
+        - name: 排查加入混合 Azure AD 的 Windows 当前设备问题
+          href: troubleshoot-hybrid-join-windows-current.md
+        - name: 使用 dsregcmd 排除故障
+          href: troubleshoot-device-dsregcmd.md
+        - name: 排查加入混合 Azure AD 的下层 Windows 设备问题
+          href: troubleshoot-hybrid-join-windows-legacy.md
+    - name: 常见问题
+      items:
+        - name: 常见问题解答
+          href: faq.md
+- name: 参考
+  items:
+    - name: 执行 TLS 1.2
+      href: reference-device-registration-tls-1-2.md
+    - name: 图形 API
+      items:
+        - name: 设备标识 API
+          href: 'https://docs.microsoft.com/graph/api/resources/device?view=graph-rest-1.0'
+- name: 资源
+  items:
+    - name: Azure 反馈论坛
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: Microsoft Q&A 问题页面
+      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+    - name: 定价
+      href: 'https://www.azure.cn/pricing/details/active-directory/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'

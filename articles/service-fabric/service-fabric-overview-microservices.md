@@ -4,17 +4,16 @@ description: 概述了为何使用微服务方法生成云应用程序对于开�
 ms.topic: conceptual
 origin.date: 01/07/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: sfrev
-ms.openlocfilehash: a7e8dc871148c25b025fa5649ed931776b62ec75
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: a51340d3b8676a7d1532fc69893b917cf6c77d64
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127589"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022391"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>为何使用微服务方法构建应用程序？
 
@@ -50,7 +49,7 @@ ms.locfileid: "92127589"
 
 若要让微服务方法奏效，必须在以下方面制定标准：在通信方式上达成共识，只注重需要从服务获得什么，不在乎僵化的约定。 必须在设计的初期定义这些约定，因为之后服务将各自独立更新。 在设计微服务方法时出现的另一个描述是“面向服务的精细体系结构 (SOA)”。
 
-简而言之，微服务设计方法是分离的服务联合，各自独立更改，并达成一致的通信标准。
+***简而言之，微服务设计方法是分离的服务联合，各自独立更改，并达成一致的通信标准。**
 
 随着越来越多云应用程序的生成，人们发现从长远来看，这种将整体应用程序分解成独立、方案焦点式服务的做法是较好的方法。
 
@@ -74,7 +73,7 @@ ms.locfileid: "92127589"
 
 微服务有不同的定义。 但是，微服务的以下大部分特征已被广为接受：
 
-* 封装客户方案或业务方案。 要解决哪种问题？
+封装客户方案或业务方案。 要解决哪种问题？
 * 由小型工程团队开发。
 * 使用任何编程语言编写并使用任何框架。
 * 由独立控制版本、部署及缩放的代码和（可选）状态组成。
@@ -84,7 +83,7 @@ ms.locfileid: "92127589"
 
 总而言之：
 
-微服务应用程序由独立控制版本和可缩放的、以客户为中心的服务组成，这些服务通过标准协议和定义完善的接口彼此通信。
+***微服务应用程序由独立控制版本和可缩放的、以客户为中心的服务组成，这些服务通过标准协议和定义完善的接口彼此通信。**
 
 ### <a name="written-in-any-programming-language-using-any-framework"></a>使用任何编程语言编写并使用任何框架
 
@@ -102,9 +101,9 @@ ms.locfileid: "92127589"
 
 ![Service Fabric 平台状态存储][Image2]
 
-左侧的单一式方法具有单一数据库和多层的特定技术。
+_*_左侧的单一式方法具有单一数据库和多层的特定技术。_*_
 
-右侧的微服务方法显示互连的微服务图，其中状态通常以微服务为范围，并使用各种技术。
+_*_右侧的微服务方法显示互连的微服务图，其中状态通常以微服务为范围，并使用各种技术。_*_
 
 在单一式方法中，应用程序通常使用单一数据库。 使用一个数据库的优点是位置单一，容易部署。 每个组件可以通过单个表存储其状态。 困难之处在于团队必须严格区分状态。 某人无可避免地就想将某个列添加到现有客户表、在表之间执行联接，并且对存储层形成依赖性。 发生这种情况后，无法缩放各个组件。
 
@@ -143,17 +142,17 @@ ms.locfileid: "92127589"
 
 Azure 从提供盒装产品（通常是单一式）转换到提供服务后，Azure Service Fabric 横空问世。 构建和运营 Azure SQL 数据库和 Azure Cosmos DB 等大型服务的经验造就了 Service Fabric。 该平台随着越来越多服务采用它而不断发展变化。 Service Fabric 不仅要在 Azure 中运行，还要在独立的 Windows Server 部署中运行。
 
-Service Fabric 旨在解决构建和运行服务方面的难题，并有效地使用基础结构资源，使团队可以使用微服务方法来解决业务问题。
+_*_Service Fabric 旨在解决构建和运行服务方面的难题，并有效地使用基础结构资源，使团队可以使用微服务方法来解决业务问题。_*_
 
 <!--Not Available on https://channel9.msdn.com-->
 
 Service Fabric 可帮助你构建使用微服务方法的应用程序，它提供：
 
-* 提供系统服务的平台，用于部署、升级、检测和重启失败的服务、发现服务、路由消息、管理状态和监视运行状况。
+提供系统服务的平台，用于部署、升级、检测和重启失败的服务、发现服务、路由消息、管理状态和监视运行状况。
 * 能够部署在容器中运行或作为进程运行的应用程序。 Service Fabric 是容器和进程 Orchestrator。
 * 生产编程 API，用于帮助你将应用程序构建为微服务：[ASP.NET Core、Reliable Actors 和 Reliable Services](service-fabric-choose-framework.md)。 例如，可以获取运行状况和诊断信息，或利用内置的高可用性。
 
-Service Fabric 与服务生成方式无关，可以使用任意技术。不过，它确实提供内置编程 API，以便用户可以更轻松地生成微服务。
+***Service Fabric 与服务生成方式无关，可以使用任意技术。不过，它确实提供内置编程 API，以便用户可以更轻松地生成微服务。**
 
 ### <a name="migrating-existing-applications-to-service-fabric"></a>将现有应用程序迁移到 Service Fabric
 
@@ -167,7 +166,7 @@ Service Fabric 允许重用现有代码，可以通过新的微服务对现有�
 
 ![迁移到微服务][Image3]
 
-请记住，可以在上述任意阶段启动和停止。 并不强求继续执行到下一阶段。 
+请记住，可在上述任意阶段启动和停止。 并不强求继续执行到下一阶段。 
 
 让我们看看每个阶段的示例。
 

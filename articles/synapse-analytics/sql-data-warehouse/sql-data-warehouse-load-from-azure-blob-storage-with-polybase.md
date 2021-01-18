@@ -1,27 +1,27 @@
 ---
-title: 将 Contoso 零售数据加载到 Synapse SQL
-description: 使用 PolyBase 和 T-SQL 命令可将两张表从 Contoso 零售数据加载到 Synapse SQL。
+title: 将 Contoso 零售数据加载到专用 SQL 池
+description: 使用 PolyBase 和 T-SQL 命令可将两张表从 Contoso 零售数据加载到专用 SQL 池。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-origin.date: 04/17/2018
-ms.date: 11/09/2020
+origin.date: 11/20/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7cf0316737b384058613436d8e466709869fd243
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 51801ce12cce43da6af24f51cf93293edf05cc6e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375696"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022984"
 ---
-# <a name="load-contoso-retail-data-to-synapse-sql"></a>将 Contoso 零售数据加载到 Synapse SQL 
+# <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>将 Contoso 零售数据加载到 Azure Synapse Analytics 中的专用 SQL 池中
 
-本教程介绍如何使用 PolyBase 和 T-SQL 命令将两个表从 Contoso 零售数据载入 Synapse SQL。
+本教程介绍如何使用 PolyBase 和 T-SQL 命令将两个表从 Contoso 零售数据加载到专用 SQL 池。
 
 在本教程中，你会：
 
@@ -31,11 +31,11 @@ ms.locfileid: "93375696"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-若要运行本教程，需要一个已经有一个 Synapse SQL 的 Azure 帐户。 如果尚未预配数据仓库，请参阅[创建数据仓库并设置服务器级防火墙规则](create-data-warehouse-portal.md)。
+若要运行本教程，需要一个已经具有专用 SQL 池的 Azure 帐户。 如果尚未预配数据仓库，请参阅[创建数据仓库并设置服务器级防火墙规则](create-data-warehouse-portal.md)。
 
 ## <a name="configure-the-data-source"></a>配置数据源
 
-PolyBase 使用 T-SQL 外部对象，定义外部数据的位置和属性。 外部对象定义将存储在 Synapse SQL 中。 数据存储在外部。
+PolyBase 使用 T-SQL 外部对象，定义外部数据的位置和属性。 外部对象定义存储在专用 SQL 池中。 数据存储在外部。
 
 ## <a name="create-a-credential"></a>创建凭据
 
@@ -275,7 +275,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>优化列存储压缩
 
-默认情况下，Synapse SQL 将表存储为聚集列存储索引。 加载完成后，某些数据行可能未压缩到列存储中。  有不同的原因会导致发生此问题： 若要了解详细信息，请参阅[管理列存储索引](sql-data-warehouse-tables-index.md)。
+默认情况下，专用 SQL 池将表存储为聚集列存储索引。 加载完成后，某些数据行可能未压缩到列存储中。  有不同的原因会导致发生此问题： 若要了解详细信息，请参阅[管理列存储索引](sql-data-warehouse-tables-index.md)。
 
 若要在加载后优化查询性能和列存储压缩，请重新生成表，以强制列存储索引压缩所有行。
 

@@ -1,27 +1,27 @@
 ---
-title: 连接到 Synapse SQL 池
+title: 连接到 Azure Synapse 中的 SQL 池
 description: 连接到 SQL 池。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 04/17/2018
-ms.date: 05/11/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 936c351eb5ab4ead81af11cae04e97603b20f5f2
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
+ms.openlocfilehash: ae45207b7ea3ed1d5fca73984a18c3c7abe1b1fc
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198519"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021933"
 ---
-# <a name="connect-to-synapse-sql-pool"></a>连接到 Synapse SQL 池
+# <a name="connect-to-a-sql-pool-in-azure-synapse"></a>连接到 Azure Synapse 中的 SQL 池 
 
-连接到 SQL 池。
+连接到 Azure Synapse 中的 SQL 池。
 
 ## <a name="find-your-server-name"></a>查找服务器名称
 
@@ -71,7 +71,7 @@ jdbc:sqlserver://yourserver.database.chinacloudapi.cn:1433;database=yourdatabase
 
 SQL 池在连接和创建对象期间会标准化一些设置。 这些设置不能重写，其中包括：
 
-| 数据库设置 | 值 |
+| SQL 池设置 | 值 |
 |:--- |:--- |
 | [ANSI_NULLS](https://docs.microsoft.com/sql/t-sql/statements/set-ansi-nulls-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |ON |
 | [QUOTED_IDENTIFIERS](https://docs.microsoft.com/sql/t-sql/statements/set-quoted-identifier-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |ON |

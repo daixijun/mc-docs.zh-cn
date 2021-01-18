@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/12/2019
-ms.date: 12/03/2020
+ms.date: 01/06/2021
 ms.author: v-johya
-ms.openlocfilehash: 60fba9c1e6a21e12d532abb35dfcd8d89cd4b8e5
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 4d0fb7d4c49cbf5e401e77ce454ce2eaa6000d23
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746919"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022127"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>教程：提高合规性
 
@@ -35,16 +35,20 @@ Azure 安全中心使用合规性仪表板，可以根据合规性要求简化�
 
 ## <a name="prerequisites"></a>先决条件
 
-若要逐步执行本教程中介绍的功能，必须启用 [Azure Defender](azure-defender.md)。 可以免费试用 Azure Defender 30 天。
+若要逐步执行本教程中介绍的功能：
+
+- 必须启用 [Azure Defender](azure-defender.md)。 可以免费试用 Azure Defender 30 天。
+- 你需要使用对策略合规性数据具有读取器访问权限的帐户登录（安全读取器不足）。 订阅的全局读取器角色将起作用。 至少需要分配“资源策略参与者”和“安全管理员”角色 。
 
 ##  <a name="assess-your-regulatory-compliance"></a>评估合规性
 
 安全中心会持续评估资源的配置以识别安全问题和漏洞。 这些评估以建议的形式提供，着重于改进安全机制。 在合规性仪表板中，可以查看一组符合性标准及其所有要求，其中的受支持的要求会映射到适用的安全评估。 这样你就可以根据这些评估的状态和标准来查看自己的符合性情况。
 
 可以通过合规性仪表板视图重点了解你在符合某个重要的标准或规范方面存在哪些差距。 有了这个专注的视图，你还可以持续监视动态云环境和混合环境中一段时间内的符合性分数。
+<!--Not available in MC: Azure CIS-->
 
 >[!NOTE]
-> 默认情况下，安全中心支持以下法规标准：Azure CIS、PCI DSS 3.2、ISO 27001 和 SOC TSP。 
+> 默认情况下，安全中心支持以下法规标准：PCI DSS 3.2、ISO 27001 和 SOC TSP。 
 
 1. 从安全中心的菜单中，选择“法规符合性”。 <br>
 在屏幕顶部会显示一个仪表板，其中概述了你的符合性状态以及一组支持的符合性法规。 可以查看总体符合性分数，以及与每个标准相关联的已通过评估和失败的评估的数目。
@@ -67,15 +71,8 @@ Azure 安全中心使用合规性仪表板，可以根据合规性要求简化�
 
 1.  单击在仪表板中显示的失败评估即可查看该建议的详细信息。 每项建议都包含一组修正步骤，遵循这些步骤即可解决问题。
 
-1.  可以选择特定的资源来查看更多的详细信息，然后解决与该资源的建议相关的问题。 <br>例如，在“Azure CIS 1.1.0 (新)标准”中，可以选择建议“应对虚拟机应用磁盘加密” 。
-
-    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="从标准中选择一个建议会直接转到相关建议的详细信息页面":::
-
-1. 在此示例中，当你在建议详细信息页面中选择“执行操作”时，你将进入 Azure 门户的 Azure 虚拟机页，可在其中打开“安全”选项卡并启用加密 ：
-
-    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="建议详细信息页上的“执行操作”按钮会转到修正选项":::
-
-    有关如何应用建议的详细信息，请参阅[在 Azure 安全中心实施安全建议](security-center-recommendations.md)。
+1.  可以选择特定的资源来查看更多的详细信息，然后解决与该资源的建议相关的问题。 
+<!--Not available in MC: Azure CIS-->
 
 1.  在采取行动解决与建议相关的问题以后，就会在合规性仪表板报告中看到相关影响，因为你的符合性分数提高了。
 

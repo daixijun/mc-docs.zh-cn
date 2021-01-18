@@ -6,18 +6,18 @@ author: Johnnytechn
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/01/2020
+ms.date: 01/04/2021
 ms.author: v-johya
-ms.openlocfilehash: 566a3276eaf03d9fbc09fff4c9fc08d9562d552c
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 295df26bea76936cfcd4ef60ed903f080c31b65a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96476843"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024337"
 ---
 [参考文档](https://docs.microsoft.com/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable) | [库源代码](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [包 (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
-## <a name="prerequisites"></a>先决条件
+## <a name="java-prerequisites"></a>Java 先决条件
 
 * 有效的 Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * 最新版本的 [Java 开发工具包 (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -684,6 +684,157 @@ public class Quickstart {
 
 ## <a name="create-a-cognitive-services-resource"></a>创建认知服务资源
 
+若要创建并订阅新的认知服务资源，请使用 create 方法。 此方法向传入的资源组添加新的可计费资源。 创建新资源时，需要知道要使用的服务的种类，以及其定价层（或 SKU）和 Azure 位置。 下面的方法使用所有这些参数并创建资源。
+
+```java
+// <snippet_imports>
+import com.microsoft.azure.*;
+import com.microsoft.azure.arm.resources.Region;
+import com.microsoft.azure.credentials.*;
+import com.microsoft.azure.management.cognitiveservices.v2017_04_18.*;
+import com.microsoft.azure.management.cognitiveservices.v2017_04_18.implementation.*;
+
+import java.io.*;
+import java.lang.Object.*;
+import java.util.*;
+import java.net.*;
+// </snippet_imports>
+
+/* To compile and run, enter the following at a command prompt:
+ * javac Quickstart.java -cp .;lib\*
+ * java -cp .;lib\* Quickstart
+ * This presumes your libraries are stored in a folder named "lib"
+ * directly under the current folder. If not, please adjust the
+ * -classpath/-cp value accordingly.
+ */
+
+public class Quickstart {
+    /*
+    The application ID and secret of the service principal you are using to connect to the Azure Management Service.
+
+    To create a service principal with the Azure CLI, see:
+    /cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest
+    To install the Azure CLI, see:
+    /cli/install-azure-cli?view=azure-cli-latest
+
+    To create a service principal with Azure PowerShell, see: 
+    https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-3.3.0
+    To install Azure PowerShell, see:
+    https://github.com/Azure/azure-powershell
+
+    When you create a service principal, you will see it has both an ID and an application ID.
+    For example, if you create a service principal with Azure PowerShell, it should look like the following:
+
+    Secret                : System.Security.SecureString
+    ServicePrincipalNames : {<application ID>, <application URL>}
+    ApplicationId         : <application ID>
+    ObjectType            : ServicePrincipal
+    DisplayName           : <name>
+    Id                    : <ID>
+    Type                  :
+    */
+
+    // <snippet_constants>
+    /*
+    Be sure to use the service pricipal application ID, not simply the ID. 
+    */
+    private static String applicationId = "INSERT APPLICATION ID HERE";
+    private static String applicationSecret = "INSERT APPLICATION SECRET HERE";
+
+    /* The ID of your Azure subscription. You can find this in the Azure Dashboard under Home > Subscriptions. */
+    private static String subscriptionId = "INSERT SUBSCRIPTION ID HERE";
+
+    /* The Active Directory tenant ID. You can find this in the Azure Dashboard under Home > Azure Active Directory. */
+    private static String tenantId = "INSERT TENANT ID HERE";
+
+    /* The name of the Azure resource group in which you want to create the resource.
+    You can find resource groups in the Azure Dashboard under Home > Resource groups. */
+    private static String resourceGroupName = "INSERT RESOURCE GROUP NAME HERE";
+    // </snippet_constants>
+
+    public static void main(String[] args) {
+
+        // <snippet_auth>
+        // auth
+        private static ApplicationTokenCredentials credentials = new ApplicationTokenCredentials(applicationId, tenantId, applicationSecret, AzureEnvironment.AZURE);
+
+        CognitiveServicesManager client = CognitiveServicesManager.authenticate(credentials, subscriptionId);
+        // </snippet_auth>
+
+        // <snippet_calls>
+        // list all available resource kinds, SKUs, and locations for your Azure account.
+        list_available_kinds_skus_locations (client);
+
+        // list all resources for your Azure account.
+        list_resources (client);
+
+        // Create a resource with kind Text Translation, SKU F0 (free tier), location global.
+        String resourceId = create_resource (client, "test_resource", resourceGroupName, "TextAnalytics", "S0", Region.US_WEST);
+
+        // Delete the resource.
+        delete_resource (client, resourceId);
+    }
+    // </snippet_calls>
+
+    // <snippet_list_avail>
+    public void list_available_kinds_skus_locations (CognitiveServicesManager client) {
+        System.out.println ("Available SKUs:");
+        System.out.println("Kind\tSKU Name\tSKU Tier\tLocations");
+        ResourceSkus skus = client.resourceSkus();
+        // See https://github.com/ReactiveX/RxJava/wiki/Blocking-Observable-Operators
+        for (ResourceSku sku : skus.listAsync().toBlocking().toIterable()) {
+            String locations = String.join (",", sku.locations());
+            System.out.println (sku.kind() + "\t" + sku.name() + "\t" + sku.tier() + "\t" + locations);
+        }
+    }
+    // </snippet_list_avail>
+
+    // Note: Region values are listed in:
+    // https://github.com/Azure/autorest-clientruntime-for-java/blob/master/azure-arm-client-runtime/src/main/java/com/microsoft/azure/arm/resources/Region.java
+    // <snippet_create>
+    public String create_resource (CognitiveServicesManager client, String resourceName, String resourceGroupName, String kind, String skuName, Region region) {
+        System.out.println ("Creating resource: " + resourceName + "...");
+
+        CognitiveServicesAccount result = client.accounts().define(resourceName)
+            .withRegion(region)
+            .withExistingResourceGroup(resourceGroupName)
+            .withKind(kind)
+            .withSku(new Sku().withName(skuName))
+            .create();
+
+        System.out.println ("Resource created.");
+        System.out.println ("ID: " + result.id());
+        System.out.println ("Provisioning state: " + result.properties().provisioningState().toString());
+        System.out.println ();
+
+        return result.id();
+    }
+    // </snippet_create>
+
+    // <snippet_list>
+    public void list_resources (CognitiveServicesManager client) {
+        System.out.println ("Resources in resource group: " + resourceGroupName);
+        // Note Azure resources are also sometimes referred to as accounts.
+        Accounts accounts = client.accounts();
+        for (CognitiveServicesAccount account : accounts.listByResourceGroupAsync(resourceGroupName).toBlocking().toIterable()) {
+            System.out.println ("Kind: " + account.kind ());
+            System.out.println ("SKU Name: " + account.sku().name());
+            System.out.println ();
+        }
+    }
+    // </snippet_list>
+    
+    // <snippet_delete>
+    public void delete_resource (CognitiveServicesManager client, String resourceId) {
+        System.out.println ("Deleting resource: " + resourceId + "...");
+        client.accounts().deleteByIds (resourceId);
+        System.out.println ("Resource deleted.");
+        System.out.println ();
+    }
+    // </snippet_delete>
+}
+```
+
 ### <a name="choose-a-service-and-pricing-tier"></a>选择服务和定价层
 
 创建新资源时，需要知道要使用的服务的种类，以及所需的[定价层](https://www.azure.cn/pricing/details/cognitive-services/)（或 SKU）。 创建资源时，将此信息和其他信息用作参数。 可以通过调用以下方法来获取可用认知服务“种类”的列表：
@@ -840,159 +991,6 @@ public class Quickstart {
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
-
-## <a name="create-a-cognitive-services-resource"></a>创建认知服务资源
-
-若要创建并订阅新的认知服务资源，请使用 create 方法。 此方法向传入的资源组添加新的可计费资源。 创建新资源时，需要知道要使用的服务的种类，以及其定价层（或 SKU）和 Azure 位置。 下面的方法使用所有这些参数并创建资源。
-
-```java
-// <snippet_imports>
-import com.microsoft.azure.*;
-import com.microsoft.azure.arm.resources.Region;
-import com.microsoft.azure.credentials.*;
-import com.microsoft.azure.management.cognitiveservices.v2017_04_18.*;
-import com.microsoft.azure.management.cognitiveservices.v2017_04_18.implementation.*;
-
-import java.io.*;
-import java.lang.Object.*;
-import java.util.*;
-import java.net.*;
-// </snippet_imports>
-
-/* To compile and run, enter the following at a command prompt:
- * javac Quickstart.java -cp .;lib\*
- * java -cp .;lib\* Quickstart
- * This presumes your libraries are stored in a folder named "lib"
- * directly under the current folder. If not, please adjust the
- * -classpath/-cp value accordingly.
- */
-
-public class Quickstart {
-    /*
-    The application ID and secret of the service principal you are using to connect to the Azure Management Service.
-
-    To create a service principal with the Azure CLI, see:
-    /cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest
-    To install the Azure CLI, see:
-    /cli/install-azure-cli?view=azure-cli-latest
-
-    To create a service principal with Azure PowerShell, see: 
-    https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-3.3.0
-    To install Azure PowerShell, see:
-    https://github.com/Azure/azure-powershell
-
-    When you create a service principal, you will see it has both an ID and an application ID.
-    For example, if you create a service principal with Azure PowerShell, it should look like the following:
-
-    Secret                : System.Security.SecureString
-    ServicePrincipalNames : {<application ID>, <application URL>}
-    ApplicationId         : <application ID>
-    ObjectType            : ServicePrincipal
-    DisplayName           : <name>
-    Id                    : <ID>
-    Type                  :
-    */
-
-    // <snippet_constants>
-    /*
-    Be sure to use the service pricipal application ID, not simply the ID. 
-    */
-    private static String applicationId = "INSERT APPLICATION ID HERE";
-    private static String applicationSecret = "INSERT APPLICATION SECRET HERE";
-
-    /* The ID of your Azure subscription. You can find this in the Azure Dashboard under Home > Subscriptions. */
-    private static String subscriptionId = "INSERT SUBSCRIPTION ID HERE";
-
-    /* The Active Directory tenant ID. You can find this in the Azure Dashboard under Home > Azure Active Directory. */
-    private static String tenantId = "INSERT TENANT ID HERE";
-
-    /* The name of the Azure resource group in which you want to create the resource.
-    You can find resource groups in the Azure Dashboard under Home > Resource groups. */
-    private static String resourceGroupName = "INSERT RESOURCE GROUP NAME HERE";
-    // </snippet_constants>
-
-    public static void main(String[] args) {
-
-        // <snippet_auth>
-        // auth
-        private static ApplicationTokenCredentials credentials = new ApplicationTokenCredentials(applicationId, tenantId, applicationSecret, AzureEnvironment.AZURE);
-
-        CognitiveServicesManager client = CognitiveServicesManager.authenticate(credentials, subscriptionId);
-        // </snippet_auth>
-
-        // <snippet_calls>
-        // list all available resource kinds, SKUs, and locations for your Azure account.
-        list_available_kinds_skus_locations (client);
-
-        // list all resources for your Azure account.
-        list_resources (client);
-
-        // Create a resource with kind Text Translation, SKU F0 (free tier), location global.
-        String resourceId = create_resource (client, "test_resource", resourceGroupName, "TextAnalytics", "S0", Region.US_WEST);
-
-        // Delete the resource.
-        delete_resource (client, resourceId);
-    }
-    // </snippet_calls>
-
-    // <snippet_list_avail>
-    public void list_available_kinds_skus_locations (CognitiveServicesManager client) {
-        System.out.println ("Available SKUs:");
-        System.out.println("Kind\tSKU Name\tSKU Tier\tLocations");
-        ResourceSkus skus = client.resourceSkus();
-        // See https://github.com/ReactiveX/RxJava/wiki/Blocking-Observable-Operators
-        for (ResourceSku sku : skus.listAsync().toBlocking().toIterable()) {
-            String locations = String.join (",", sku.locations());
-            System.out.println (sku.kind() + "\t" + sku.name() + "\t" + sku.tier() + "\t" + locations);
-        }
-    }
-    // </snippet_list_avail>
-
-    // Note: Region values are listed in:
-    // https://github.com/Azure/autorest-clientruntime-for-java/blob/master/azure-arm-client-runtime/src/main/java/com/microsoft/azure/arm/resources/Region.java
-    // <snippet_create>
-    public String create_resource (CognitiveServicesManager client, String resourceName, String resourceGroupName, String kind, String skuName, Region region) {
-        System.out.println ("Creating resource: " + resourceName + "...");
-
-        CognitiveServicesAccount result = client.accounts().define(resourceName)
-            .withRegion(region)
-            .withExistingResourceGroup(resourceGroupName)
-            .withKind(kind)
-            .withSku(new Sku().withName(skuName))
-            .create();
-
-        System.out.println ("Resource created.");
-        System.out.println ("ID: " + result.id());
-        System.out.println ("Provisioning state: " + result.properties().provisioningState().toString());
-        System.out.println ();
-
-        return result.id();
-    }
-    // </snippet_create>
-
-    // <snippet_list>
-    public void list_resources (CognitiveServicesManager client) {
-        System.out.println ("Resources in resource group: " + resourceGroupName);
-        // Note Azure resources are also sometimes referred to as accounts.
-        Accounts accounts = client.accounts();
-        for (CognitiveServicesAccount account : accounts.listByResourceGroupAsync(resourceGroupName).toBlocking().toIterable()) {
-            System.out.println ("Kind: " + account.kind ());
-            System.out.println ("SKU Name: " + account.sku().name());
-            System.out.println ();
-        }
-    }
-    // </snippet_list>
-    
-    // <snippet_delete>
-    public void delete_resource (CognitiveServicesManager client, String resourceId) {
-        System.out.println ("Deleting resource: " + resourceId + "...");
-        client.accounts().deleteByIds (resourceId);
-        System.out.println ("Resource deleted.");
-        System.out.println ();
-    }
-    // </snippet_delete>
-}
-```
 
 ## <a name="view-your-resources"></a>查看资源
 
@@ -1303,7 +1301,7 @@ public class Quickstart {
 ## <a name="see-also"></a>另请参阅
 
 * [Azure 管理 SDK 参考文档](https://docs.microsoft.com/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)
-* [什么是 Azure 认知服务？](../../Welcome.md)
+* [什么是 Azure 认知服务？](../../what-are-cognitive-services.md)
 * [对 Azure 认知服务的请求进行身份验证](../../authentication.md)
 * [使用 Azure 门户创建新资源](../../cognitive-services-apis-create-account.md)
 

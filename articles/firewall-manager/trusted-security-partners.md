@@ -5,24 +5,25 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+origin.date: 06/30/2020
+ms.date: 12/28/2020
 ms.author: victorh
-ms.openlocfilehash: e97b221a98547dbe86e7fd47798cd607abf94194
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 7496a18f4c9d411577f5273de60304c8083af60f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104312"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023247"
 ---
 # <a name="what-are-security-partner-providers"></a>什么是安全合作伙伴提供程序？
 
-Azure 防火墙管理器中的安全合作伙伴提供程序可让你使用熟悉的同类最佳第三方安全即服务 (SECaaS) 产品/服务来保护用户的 Internet 访问。
+通过 Azure 防火墙管理器中的安全合作伙伴提供程序，你可使用熟悉的同类最佳第三方安全即服务 (SECaaS) 产品/服务来保护用户的 Internet 访问。
 
-通过快速配置，你可以使用受支持的安全合作伙伴保护中心的安全，并从虚拟网络 (VNet) 或区域中的分支位置路由和筛选 Internet 流量。 可以使用自动路由管理来做到这一点，而无需设置和管理用户定义的路由 (UDR)。
+通过快速配置，你可以使用受支持的安全合作伙伴保护中心的安全，并从虚拟网络 (VNet) 或区域中的分支位置路由和筛选 Internet 流量。 可使用自动化路由管理来做到这一点，无需设置和管理用户定义的路由 (UDR)。
 
 可以在多个 Azure 区域中部署配置有所选安全合作伙伴的安全中心，使全球任何地方的用户可以在这些区域中进行连接并获得安全性。 通过将安全合作伙伴的产品/服务用于 Internet/SaaS 应用程序流量并将 Azure 防火墙用于安全中心中的专用流量，现在，你可以开始在 Azure 上构建与全球分布的用户和应用程序非常接近的安全边缘。
 
-受支持的安全合作伙伴为 ZScaler、Check Point（预览）和 iboss（预览）  。
+受支持的安全合作伙伴有 Zscaler、[Check Point](check-point-overview.md) 和 iboss   。
 
 ![安全合作伙伴提供程序](media/trusted-security-partners/trusted-security-partners.png)
 
@@ -60,7 +61,7 @@ Internet 流量通常包括 Web 流量。 但它也包括传到 Microsoft 365 �
 
 对于 Microsoft 365 而言，网络延迟和性能对于成功的用户体验至关重要。 若要围绕最佳性能和用户体验实现这些目标，客户必须首先实现 Microsoft 365 直接和本地转义，然后再考虑通过 Azure 路由剩余的 Internet 流量。
 
-[Microsoft 365 网络连接原则](/microsoft-365/enterprise/microsoft-365-network-connectivity-principles)要求将关键的 Microsoft 365 网络连接从用户分支或移动设备进行本地路由，并通过 Internet 直接路由到最近的 Microsoft 网络接入点。
+<!--[Microsoft 365 network connectivity principles](https://docs.azure.cn/microsoft-365/enterprise/microsoft-365-network-connectivity-principles)-->
 
 此外，Microsoft 365 连接经过了加密以保护隐私，并且使用有效的专用协议来保障性能。 这使得将这些连接受制于传统的网络级别安全解决方案不切实际并且会造成影响。 出于这些原因，我们强烈建议客户首先直接从分支发送 Microsoft 365 流量，然后再通过 Azure 发送剩余流量。 Microsoft 与多个 SD-WAN 解决方案提供商建立了合作伙伴关系，这些提供商与 Azure 和 Microsoft 365 集成，让客户能够轻松启用 Microsoft 365 直接和本地 Internet 突破。 请参阅[什么是 Azure 虚拟 WAN？](../virtual-wan/virtual-wan-about.md)了解详情
 

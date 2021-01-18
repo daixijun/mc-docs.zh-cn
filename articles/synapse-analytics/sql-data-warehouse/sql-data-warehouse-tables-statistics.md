@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 05/09/2018
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 932e435988c878e52edbcf8919a7c8d71fb140a0
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: b83cb1ec373e4ecb83a3054d84c4a2816c3eb161
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153049"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022896"
 ---
 # <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池的表统计信息
 
@@ -313,11 +313,11 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>使用存储过程基于数据库中的所有列创建统计信息
+### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-sql-pool"></a>使用存储过程基于 SQL 池中的所有列创建统计信息
 
-专用 SQL 池不提供相当于 SQL Server 中 sp_create_stats 的系统存储过程。 此存储过程基于数据库中尚不包含统计信息的每个列创建单列统计信息对象。
+专用 SQL 池不提供相当于 SQL Server 中 sp_create_stats 的系统存储过程。 此存储过程基于 SQL 池中尚不包含统计信息的每一列创建单列统计信息对象。
 
-以下示例可以帮助你开始进行数据库设计。 可以根据需要任意改写此存储过程。
+可参考下列开始进行 SQL 池设计。 可以根据需要任意改写此存储过程。
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]

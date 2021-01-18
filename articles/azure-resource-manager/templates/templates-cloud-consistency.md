@@ -4,23 +4,23 @@ description: 开发可针对不同的云环境一致地工作的 Azure 资源管
 ms.topic: conceptual
 origin.date: 12/09/2018
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: cbb423557ee0692d52dc092c2a196760760c5955
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 541b17b50d2970c807b87d040ddf3f9ad368e759
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024604"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022460"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>开发用于确保云一致性的 ARM 模板
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Azure 的主要优势是一致性。 一个位置的开发投入可在另一个位置重复使用。 Azure 资源管理器 (ARM) 模板可确保部署在全球 Azure、Azure 主权云和 Azure Stack 等环境中保持一致性和可重复性。 若要在各种云中重复使用模板，需要参照本指南的说明，考虑特定于云的依赖关系。
+Azure 的主要优势是一致性。 一个位置的开发投入可在另一个位置重复使用。 Azure 资源管理器模板（ARM 模板）可确保部署在全球 Azure、Azure 主权云和 Azure Stack 等环境中保持一致性和可重复性。 若要在各种云中重复使用模板，需要参照本指南的说明，考虑特定于云的依赖关系。
 
 Azure 在很多位置提供了面向企业的智能云服务，其中包括：
 
@@ -458,11 +458,11 @@ API 配置文件可确保 API 版本可跨位置使用，因此不需要手动�
 
 <!--Notice: Global Azure Cloud should be mystorageaccount1.blob.core.windows.net-->
 
-* 在全球 Azure 云上创建时会产生 mystorageaccount1.blob.core.windows.net。
+* 在全球 Azure 云上创建时，为 `mystorageaccount1.blob.core.windows.net`。
     
     <!--Notice: Global Azure Cloud should be mystorageaccount1.blob.core.windows.net-->
     
-* 在 Azure 中国世纪互联云创建时会产生 mystorageaccount1.blob.core.chinacloudapi.cn。
+* 在 Azure 中国世纪互联云中创建时，为 `mystorageaccount1.blob.core.chinacloudapi.cn`。
 
 以下引用模板函数从存储资源提供程序中检索终结点命名空间：
 

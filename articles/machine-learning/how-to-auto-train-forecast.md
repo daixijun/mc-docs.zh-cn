@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: how-to
 ms.date: 08/20/2020
-ms.openlocfilehash: a020162aae926aaa68487b1763ad0321b0032843
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 460b99df13869b23a0abf0a39147daced5f400e7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105330"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021994"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自动训练时序预测模型
 
@@ -146,6 +146,7 @@ ForecastTCN（预览版）| ForecastTCN 是一种神经网络模型，旨在处�
 |`forecast_horizon`|定义要预测的未来的时段数。 范围以时序频率为单位。 单位基于预测器应预测出的训练数据的时间间隔，例如每月、每周。|✓|
 |`enable_dnn`|[启用预测 DNN]()。||
 |`time_series_id_column_names`|列名，用于唯一标识多行数据中具有相同时间戳的时序。 如果未定义时序标识符，则假定该数据集为一个时序。 要详细了解单个时序，请查看 [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)。||
+|`freq`| 时序数据集频率。 此参数表示事件预计发生的时间段，例如每日、每周、每年等。频率必须是 [pandas 偏移别名](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)。||
 |`target_lags`|要根据数据频率滞后目标值的行数。 此滞后表示为一个列表或整数。 默认情况下，在独立变量和依赖变量之间的关系不匹配或关联时，应使用滞后。 ||
 |`feature_lags`| 当设置了 `target_lags` 并且 `feature_lags` 设置为 `auto` 时，要滞后的功能将由自动化 ML 自动确定。 启用功能滞后有助于提高准确性。 默认情况下会禁用功能滞后。 ||
 |`target_rolling_window_size`|要用于生成预测值的 *n* 个历史时间段，该值小于或等于训练集大小。 如果省略，则 *n* 为完整训练集大小。 如果训练模型时只想考虑一定量的历史记录，请指定此参数。 详细了解[目标滚动窗口聚合](#target-rolling-window-aggregation)。||
@@ -283,7 +284,7 @@ automl_config = AutoMLConfig(task='forecasting',
 
 ### <a name="short-series-handling"></a>短时序处理
 
-如果没有足够的数据点来执行模型开发的训练和验证阶段，自动化 ML 就会将一个时序视为短时序。 数据点的数量因各个试验而异，并且依赖于 max_horizon、交叉验证拆分数以及模型回看的长度，该长度是构建时序功能所需的最长历史记录。 有关精确的计算，请参阅 [short_series_handling_config 参考文档](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration)。
+如果没有足够的数据点来执行模型开发的训练和验证阶段，自动化 ML 就会将一个时序视为短时序。 数据点的数量因各个试验而异，并且依赖于 max_horizon、交叉验证拆分数以及模型回看的长度，该长度是构建时序功能所需的最长历史记录。 有关精确的计算，请参阅 [short_series_handling_config 参考文档](https://docs.microsoft.com/python//api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration)。
 
 默认情况下，自动化 ML 通过在 `ForecastingParameters` 对象中使用 `short_series_handling_config` 参数来提供“短时序处理”。 
 

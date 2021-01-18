@@ -6,20 +6,20 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 7/17/2020
-ms.date: 08/17/2020
-ms.openlocfilehash: 789d4a108399b13bc059dea9fb90775cee4123c1
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.date: 01/11/2021
+ms.openlocfilehash: 5084c650b66fe68c41879571ad3dcd39cc8180a7
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223044"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023092"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Azure Database for MariaDB 服务器防火墙规则
 在指定哪些计算机具有访问权限之前，防火墙将禁止所有对数据库服务器的访问。 防火墙基于每个请求的起始 IP 地址授予对服务器的访问权限。
 
 要配置防火墙，请创建防火墙规则，指定可接受的 IP 地址的范围。 可以在服务器级别创建防火墙规则。
 
-防火墙规则：**** 这些规则允许客户端访问整个 Azure Database for MariaDB 服务器，即同一逻辑服务器内的所有数据库。 可使用 Azure 门户或 Azure CLI 命令配置服务器级的防火墙规则。 若要创建服务器级防火墙规则，用户必须是订阅所有者或订阅参与者。
+防火墙规则：这些规则允许客户端访问整个 Azure Database for MariaDB 服务器，即同一逻辑服务器内的所有数据库。 可使用 Azure 门户或 Azure CLI 命令配置服务器级的防火墙规则。 若要创建服务器级防火墙规则，用户必须是订阅所有者或订阅参与者。
 
 ## <a name="firewall-overview"></a>防火墙概述
 防火墙将默认阻止对 Azure Database for MariaDB 服务器的所有数据库访问。 若要从另一台计算机开始使用服务器，需要指定一个或多个服务器级防火墙规则以允许访问服务器。 使用防火墙规则指定要允许的来自 Internet 的 IP 地址范围。 对 Azure 门户网站本身的访问不受防火墙规则影响。
@@ -38,10 +38,10 @@ ms.locfileid: "88223044"
 ## <a name="connecting-from-azure"></a>从 Azure 连接
 建议找到任何应用程序或服务的传出 IP 地址，并显式允许访问这些单个 IP 地址或范围。 例如，可以查找 Azure 应用服务的传出 IP 地址，或使用绑定到虚拟机或其他资源的公共 IP（请参阅下面的内容，了解如何通过服务终结点与虚拟机的专用 IP 进行连接）。 
 
-如果某个固定的传出 IP 地址不适用于 Azure 服务，可以考虑启用来自所有 Azure 数据中心 IP 地址的连接。 可以从 Azure 门户启用此设置，方法是：从“连接安全性”**** 窗格将“允许访问 Azure 服务”**** 选项设为“启用”**** 并点击“保存”****。 在 Azure CLI 中，起始和结束地址为 0.0.0.0 的防火墙规则设置执行等效操作。 如果不允许连接尝试，则请求将不会到达 Azure Database for MariaDB 服务器。
+如果某个固定的传出 IP 地址不适用于 Azure 服务，可以考虑启用来自所有 Azure 数据中心 IP 地址的连接。 可以从 Azure 门户启用此设置，方法是：从“连接安全性”窗格将“允许访问 Azure 服务”选项设为“启用”并点击“保存”。 在 Azure CLI 中，起始和结束地址为 0.0.0.0 的防火墙规则设置执行等效操作。 如果不允许连接尝试，则请求将不会到达 Azure Database for MariaDB 服务器。
 
 > [!IMPORTANT]
-> “允许访问 Azure 服务”选项将防火墙配置为允许来自 Azure 的所有连接，包括来自其他客户的订阅的连接。**** 选择该选项时，请确保登录名和用户权限将访问限制为仅允许授权用户访问。
+> “允许访问 Azure 服务”选项将防火墙配置为允许来自 Azure 的所有连接，包括来自其他客户的订阅的连接。 选择该选项时，请确保登录名和用户权限将访问限制为仅允许授权用户访问。
 > 
 
 ![在门户中配置“允许访问 Azure 服务”](./media/concepts-firewall-rules/allow-azure-services.png)
@@ -57,11 +57,11 @@ ms.locfileid: "88223044"
 ## <a name="troubleshooting-firewall-issues"></a>排查防火墙问题
 对 Azure Database for MariaDB 服务器服务的访问未按预期工作时，请考虑以下几点：
 
-* 对允许列表的更改尚未生效：**** 对 Azure Database for MariaDB 服务器防火墙配置所做的更改可能需要多达 5 分钟的延迟才可生效。
+* 对允许列表的更改尚未生效：对 Azure Database for MariaDB 服务器防火墙配置所做的更改可能需要多达 5 分钟的延迟才可生效。
 
-* 登录名未授权或使用了错误的密码：**** 如果某个登录名对 Azure Database for MariaDB 服务器没有权限或者使用的密码不正确，则与 Azure Database for MariaDB 服务器的连接会被拒绝。 创建防火墙设置仅向客户端提供尝试连接到服务器的机会；每个客户端必须提供必需的安全凭据。
+* 登录名未授权或使用了错误的密码：如果某个登录名对 Azure Database for MariaDB 服务器没有权限或者使用的密码不正确，则与 Azure Database for MariaDB 服务器的连接会被拒绝。 创建防火墙设置仅向客户端提供尝试连接到服务器的机会；每个客户端必须提供必需的安全凭据。
 
-* 动态 IP 地址：**** 如果 Internet 连接使用动态 IP 寻址，并且在通过防火墙时遇到问题，可尝试以下解决方法之一：
+* 动态 IP 地址：如果 Internet 连接使用动态 IP 寻址，并且在通过防火墙时遇到问题，可尝试以下解决方法之一：
 
    * 向 Internet 服务提供商 (ISP) 询问分配给客户端计算机、用于访问 Azure Database for MariaDB 服务器的 IP 地址范围，然后将该 IP 地址范围作为防火墙规则添加。
 
@@ -73,6 +73,7 @@ ms.locfileid: "88223044"
 
    例如，如果从启用了 Microsoft.Sql 的子网中的 Azure VM 进行连接，但没有相应的 VNet 规则，则可能会看到以下错误：`FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
+* **防火墙规则不适用于 IPv6 格式**：防火墙规则必须采用 IPv4 格式。 如果以 IPv6 格式指定防火墙规则，则将显示验证错误。
 
 ## <a name="next-steps"></a>后续步骤
 - [使用 Azure 门户创建和管理 Azure Database for MariaDB 防火墙规则](./howto-manage-firewall-portal.md)

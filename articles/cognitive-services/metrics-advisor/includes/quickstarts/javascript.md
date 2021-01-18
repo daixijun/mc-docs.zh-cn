@@ -7,20 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 11/27/2020
+ms.date: 01/04/2021
 ms.author: v-johya
-ms.openlocfilehash: 72fb0f1b3056317ae3a1bab4af41434a22cde524
-ms.sourcegitcommit: f1d0f81918b8c6fca25a125c17ddb80c3a7eda7e
+ms.openlocfilehash: fb7eb9cc2c5585cbc7e06520b592f65afeb4ca94
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96306537"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024267"
 ---
-[参考文档](https://docs.microsoft.com/javascript/api/overview/azure/ai-metrics-advisor-readme-pre?view=azure-node-preview&preserve-view=true) | [库源代码](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/README.md) | [包 (npm)](https://www.npmjs.com/package/@azure/ai-metrics-advisor) | [示例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples)
+[库源代码](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/README.md) | [包 (npm)](https://www.npmjs.com/package/@azure/ai-metrics-advisor) | [示例](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples)
 
+<!--404-->
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅 - [创建试用订阅](https://www.azure.cn/pricing/details/cognitive-services/)
+* Azure 订阅 - [创建试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 * 最新版本的 [Node.js](https://nodejs.org/)
 * 获得 Azure 订阅后，<a href="https://portal.azure.cn/#create/Microsoft.CognitiveServicesMetricsAdvisor"  title="“创建指标顾问”资源"  target="_blank">在 Azure 门户中创建“指标顾问”资源 <span class="docon docon-navigate-external x-hidden-focus"></span></a>，以部署“指标顾问”实例。  
 * 带有时序数据的 SQL 数据库。
@@ -67,7 +68,7 @@ npm install @azure/ai-metrics-advisor@1.0.0-beta.2
 > [!IMPORTANT]
 > 转到 Azure 门户。 如果在“先决条件”部分中创建的指标顾问资源已成功部署，请单击“后续步骤”下的“转到资源”按钮  。 在资源的“密钥和终结点”页的“资源管理”下可以找到订阅密钥和终结点 。 <br><br>若要检索 API 密钥，必须转到 [https://metricsadvisor.chinacloudsites.cn](https://metricsadvisor.chinacloudsites.cn)。 为资源选择相应的“目录”、“订阅”和“工作区”，然后选择“入门”   。 然后，你就能够从 [https://metricsadvisor.chinacloudsites.cn/api-key](https://metricsadvisor.chinacloudsites.cn/api-key) 检索 API 密钥。   
 >
-> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](/cognitive-services/cognitive-services-security)文章。
+> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](../../../cognitive-services-security.md)文章。
 
 ```javascript
 subscriptionKey = "<paste-your-metrics-advisor-key-here>";

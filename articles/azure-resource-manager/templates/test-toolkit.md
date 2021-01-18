@@ -1,24 +1,24 @@
 ---
 title: ARM 模板测试工具包
-description: 描述如何在模板上运行 ARM 模板测试工具包。 使用该工具包可以查看是否已实现了建议的做法。
+description: 介绍如何在模板上运行 Azure 资源管理器模板（ARM 模板）测试工具包。 使用该工具包可以查看是否已实现了建议的做法。
 ms.topic: conceptual
 origin.date: 09/02/2020
-ms.date: 09/21/2020
+ms.date: 01/11/2021
 ms.testscope: yes|no
 ms.testdate: 08/31/2020null
 ms.author: v-yeche
 author: rockboyfor
-ms.openlocfilehash: 9e2e0ad47c99855a3661c7a681115682019c3daa
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.openlocfilehash: bf438d9ccfdff0a3ce87b7431e69823d7d14d2c8
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146218"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022452"
 ---
 <!--Verified successfully-->
 # <a name="use-arm-template-test-toolkit"></a>使用 ARM 模板测试工具包
 
-[Azure 资源管理器 (ARM) 模板测试工具包](https://aka.ms/arm-ttk)检查模板是否使用建议的做法。 如果模板不符合建议的做法，它将返回包含建议的更改的警告列表。 通过使用测试工具包，可以了解如何避免模板开发中的常见问题。
+[Azure 资源管理器模板（ARM 模板）测试工具包](https://aka.ms/arm-ttk)检查模板是否使用建议的做法。 如果模板不符合建议的做法，它将返回包含建议的更改的警告列表。 通过使用测试工具包，可以了解如何避免模板开发中的常见问题。
 
 测试工具包提供[一组默认测试](test-cases.md)。 这些测试是建议，而不是要求。 你可以确定哪些测试与目标相关，并自定义要运行哪些测试。
 
@@ -50,9 +50,9 @@ ms.locfileid: "91146218"
 
 1. 若要运行测试，请使用以下命令：
 
-   ```powershell
-   Test-AzTemplate -TemplatePath \path\to\template
-   ```
+    ```powershell
+    Test-AzTemplate -TemplatePath \path\to\template
+    ```
 
 ## <a name="install-on-linux"></a>在 Linux 上安装
 
@@ -62,9 +62,9 @@ ms.locfileid: "91146218"
 
 1. 启动 PowerShell。
 
-   ```bash
-   pwsh
-   ```
+    ```bash
+    pwsh
+    ```
 
 1. 导航到在其中解压缩测试工具包的文件夹。 在该文件夹中，导航到 arm-ttk 文件夹。
 
@@ -286,6 +286,6 @@ param(
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解默认测试，请参阅[工具包的测试用例](test-cases.md)。
+- 若要了解默认测试，请参阅 [ARM 模板测试工具包的默认测试用例](test-cases.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -1,26 +1,26 @@
 ---
 title: 使用用户定义的架构
-description: 在 Synapse SQL 池中使用 T-SQL 用户定义的架构开发解决方案的技巧。
+description: 有关在 Azure Synapse Analytics 中使用 T-SQL 用户定义的架构为专用 SQL 池开发解决方案的技巧。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 origin.date: 04/17/2018
-ms.date: 05/11/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 3bc7b3d05afac2d26776ef3bfa796322c54dcfd5
-ms.sourcegitcommit: f8d6fa25642171d406a1a6ad6e72159810187933
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 89536057dbaa5b404581b814653e2194c9f04014
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82198413"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022987"
 ---
-# <a name="user-defined-schemas-in-synapse-sql-pool"></a>Synapse SQL 池中的用户定义的架构
-本文重点介绍了在 Synapse SQL 池中使用 T-SQL 用户定义的架构开发解决方案的几个技巧。
+# <a name="user-defined-schemas-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池的用户定义的架构
+本文重点介绍了在专用 SQL 池中使用 T-SQL 用户定义的架构开发解决方案的几个技巧。
 
 ## <a name="schemas-for-application-boundaries"></a>应用程序边界的架构
 
@@ -28,7 +28,7 @@ ms.locfileid: "82198413"
 
 例如，传统 SQL Server 数据仓库可能包含过渡数据库、数据仓库数据库和某些数据集市数据库。 在此拓扑中，每个数据库均作为体系结构中的工作负载和安全边界来运行。
 
-相比之下，SQL 池在一个数据库中运行整个数据仓库工作负载。 不允许跨数据库联接。 SQL 池预期仓库使用的所有表都存储在一个数据库中。
+相比之下，专用 SQL 池在一个数据库中运行整个数据仓库工作负载。 不允许跨数据库联接。 专用 SQL 池预期仓库使用的所有表都存储在一个数据库中。
 
 > [!NOTE]
 > SQL 池不支持任何种类的跨数据库查询。 因此，需要修改利用此模式的数据仓库实现。
@@ -38,11 +38,11 @@ ms.locfileid: "82198413"
 ## <a name="recommendations"></a>建议
 下面是针对使用用户定义的架构合并工作负载、安全性、域和功能边界的一些建议：
 
-- 使用一个 SQL 池数据库来运行整个数据仓库工作负载。
-- 合并现有的数据仓库环境，以使用一个 SQL 池数据库。
+- 使用专用 SQL 池中的一个数据库来运行整个数据仓库工作负载。
+- 合并现有的数据仓库环境，以使用一个专用 SQL 池数据库。
 - 利用 **用户定义的架构** 来提供以前使用数据库实现的边界。
 
-如果以前尚未使用用户定义的架构，就不会存在任何记录。 使用旧数据库名称作为 SQL 池数据库中用户定义的架构的基础。
+如果以前尚未使用用户定义的架构，就不会存在任何记录。 使用旧数据库名称作为专用 SQL 池数据库中用户定义的架构的基础。
 
 如果已使用架构，则可采用以下几个选项：
 
@@ -51,7 +51,7 @@ ms.locfileid: "82198413"
 - 在额外架构中的表上实现视图来重建旧架构结构，以保留旧架构名称。
 
 > [!NOTE]
-> 在首次检查时，选项 3 似乎像是最吸引人的选项。 但是，细节决定成败。 视图在 SQL 池中是只读的。 任何表修改或数据修改只能针对基础表执行。 选项 3 还在系统中引入了一个视图层。 如果已在体系结构中使用视图，可以再三考虑一下此选项。
+> 在首次检查时，选项 3 似乎像是最吸引人的选项。 但是，细节决定成败。 视图在专用 SQL 池中是只读的。 任何表修改或数据修改只能针对基础表执行。 选项 3 还在系统中引入了一个视图层。 如果已在体系结构中使用视图，可以再三考虑一下此选项。
 > 
 > 
 

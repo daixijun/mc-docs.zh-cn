@@ -3,25 +3,27 @@ title: 管理 Azure Analysis Services 中的服务器管理员 | Azure
 description: 本文介绍如何使用 Azure 门户、PowerShell 或 REST API 管理 Azure Analysis Services 服务器的服务器管理员。
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/07/2020
+origin.date: 11/30/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e5633eb4165dd2402e8abd56c7e2b9848e1a86d
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 7d16d7cec2dbf318bb0720cf8f1b5f23aaa3f8a4
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470104"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023038"
 ---
 # <a name="manage-server-administrators"></a>管理服务器管理员
 
 服务器管理员必须是 Azure Active Directory (Azure AD) 中服务器所在租户的有效用户、服务主体或安全组。 可以使用 **Analysis Services 管理员** 来管理 Azure 门户中的服务器，在 SSMS、PowerShell 或 REST API 中使用“服务器属性”来管理服务器管理员。 
 
 添加“安全组”时，请使用 `obj:groupid@tenantid`。 添加到服务器管理员角色的安全组不支持服务主体。
+
+如果已启用服务器防火墙，则必须在防火墙规则中包括服务器管理员客户端计算机的 IP 地址。 若要了解详细信息，请参阅[配置服务器防火墙](analysis-services-qs-firewall.md)。
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>使用 Azure 门户添加服务器管理员
 
@@ -37,7 +39,7 @@ ms.locfileid: "92470104"
 2. 在“Analysis Server 属性”中，单击“安全性”。
 3. 单击“添加”，然后输入 Azure AD 中用户或组的电子邮件地址。
 
-    :::image type="content" source="./media/analysis-services-server-admins/aas-manage-users-ssms.png" alt-text="Azure 门户中的服务器管理员":::
+    :::image type="content" source="./media/analysis-services-server-admins/aas-manage-users-ssms.png" alt-text="在 SSMS 中添加服务器管理员":::
 
 ## <a name="powershell"></a>PowerShell
 

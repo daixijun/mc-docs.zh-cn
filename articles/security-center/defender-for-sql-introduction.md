@@ -3,17 +3,17 @@ title: 适用于 SQL 的 Azure Defender - 优点和功能
 description: 了解适用于 SQL 的 Azure Defender 的优点和功能。
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/03/2020
+ms.date: 01/06/2021
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: ff2c273c7916f3b22a2f2d31b3424594f524aebc
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 3a395bc433b000a6aae863c439e551255836aede
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747157"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023014"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>适用于 SQL 的 Azure Defender 简介
 
@@ -23,22 +23,18 @@ ms.locfileid: "96747157"
 
 |方面|详细信息|
 |----|:----|
-|发布状态：|**适用于 Azure SQL 数据库服务器的 Azure Defender** - 正式发布 (GA)<br>**适用于计算机上的 SQL 服务器的 Azure Defender** - 预览|
+|发布状态：|**适用于 Azure SQL 数据库服务器的 Azure Defender** - 正式发布 (GA)<br>**适用于计算机上的 SQL Server 的 Azure Defender** - 正式发布 (GA) |
 |定价：|适用于 SQL 的 Azure Defender 包含的两个计划按[定价页](security-center-pricing.md)中的定价计费|
-|受保护的 SQL 版本：|Azure 虚拟机上的 SQL - [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) 和 [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md)<br>Azure SQL [单一数据库](../azure-sql/database/single-database-overview.md)和[弹性池](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL 托管实例](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics（以前称为 SQL DW）专用 SQL 池](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)|
-|云：|![是](./media/icons/yes-icon.png) 中国云|
+|受保护的 SQL 版本：|[Azure 虚拟机上的 SQL](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>Azure SQL [单一数据库](../azure-sql/database/single-database-overview.md)和[弹性池](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL 托管实例](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics（以前称为 SQL DW）专用 SQL 池](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
+|云：|![是](./media/icons/yes-icon.png) 中国云（部分：SQL Server 的警报和漏洞评估的子集。 行为威胁防护功能不可用。）|
 |||
 
 ## <a name="what-does-azure-defender-for-sql-protect"></a>适用于 SQL 的 Azure Defender 保护了哪些项目？
-
-适用于 SQL 的 Azure Defender 包含两个单独的 Azure Defender 计划：
-
+<!--Not available in MC: Azure Defender for SQL servers on machines-->
 - 适用于 Azure SQL 数据库服务器的 Azure Defender 保护：
-  - [Azure SQL 数据库](../azure-sql/database/sql-database-paas-overview.md)
-  - [Azure SQL 托管实例](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
-  - [Azure Synapse 中的专用 SQL 池](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)
-
-- 适用于计算机上的 SQL 服务器的 Azure Defender（预览版）会扩展对 Azure 原生 SQL Server 的保护以完全支持混合环境，并保护在 Azure、其他云环境甚至本地计算机上托管的 SQL server（所有受支持的版本）
+    - [Azure SQL 数据库](../azure-sql/database/sql-database-paas-overview.md)
+    - [Azure SQL 托管实例](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
+    - [Azure Synapse 中的专用 SQL 池](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-sql"></a>适用于 SQL 的 Azure Defender 有哪些优点？
@@ -52,21 +48,13 @@ ms.locfileid: "96747157"
 
 ## <a name="what-kind-of-alerts-does-azure-defender-for-sql-provide"></a>适用于 SQL 的 Azure Defender 提供哪种类型的警报？
 
-当存在以下情况时，会触发安全警报：
+存在以下情况时，会触发具有大量威胁情报的安全警报：
 
 - **潜在的 SQL 注入攻击** - 包括应用程序在数据库中生成错误的 SQL 语句时检测到的漏洞
 - **异常的数据库访问和查询模式** - 例如，使用不同的凭据尝试登陆，但登录失败的次数异常多（强制尝试）
-- **可疑的数据库活动** - 例如，SQL 导入和导出操作的导出存储目标发生了变化
+- **可疑的数据库活动** - 例如，合法用户从遭到入侵的计算机访问 SQL Server，而此计算机曾与加密挖掘 C&C 服务器通信
 
 警报包含触发警报的事件的详细信息，并提供有关如何调查和消除威胁的建议。
 
 
-
-## <a name="next-steps"></a>后续步骤
-
-本文介绍了适用于 SQL 的 Azure Defender。
-
-如需相关材料，请参阅以下文章： 
-
-- [如何启用适用于 SQL 数据库服务器的 Azure Defender](../azure-sql/database/azure-defender-for-sql.md)
 

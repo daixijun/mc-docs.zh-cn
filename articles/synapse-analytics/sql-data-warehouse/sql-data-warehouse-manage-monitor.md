@@ -1,6 +1,6 @@
 ---
-title: 使用 DMV 监视 SQL 池工作负载
-description: 了解如何使用 DMV 监视 Azure Synapse Analytics SQL 池工作负载和查询执行情况。
+title: 使用 DMV 监视专用 SQL 池工作负载
+description: 了解如何使用 DMV 监视 Azure Synapse Analytics 专用 SQL 池工作负载和查询执行情况。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,18 +8,18 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 03/24/2020
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 82a96eee0a0c5aa4992d4e4111f0b2388c69748e
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 33bc995cc8c9c72191b02308534c10a8d0189a60
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375695"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021922"
 ---
-# <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>使用 DMV 监视 Azure Synapse Analytics SQL 池工作负载
+# <a name="monitor-your-azure-synapse-analytics-dedicated-sql-pool-workload-using-dmvs"></a>使用 DMV 监视 Azure Synapse Analytics 专用 SQL 池工作负载
 
 本文介绍如何使用动态管理视图 (DMV) 监视工作负载，包括调查 SQL 池中的查询执行情况。
 

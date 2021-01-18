@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 01/06/2021
 ms.author: v-junlch
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: a7b8a4e4e4355893949f34df3a3be060c0c14ba0
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: 0a767ac4b3c2f2a8cd62bfcfef3faf875f65420e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647738"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021774"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>使用 MSAL.js 初始化客户端应用程序
 
@@ -108,7 +108,7 @@ msalInstance.handleRedirectPromise().then((tokenResponse) => {
 这个承诺有三种可能的结果：
 
 - `.then` 被调用且 `tokenResponse` 为 truthy：应用程序从成功的重定向操作返回。
-- `.then` 被调用且 `tokenResponse` 为 falsey (`null`)：应用程序未从重定向操作返回。
+- `.then` 被调用且 `tokenResponse` 为 falsy (`null`)：应用程序未从重定向操作返回。
 - `.catch` 被调用：应用程序从重定向操作返回，但出现错误。
 
 ## <a name="initialize-msaljs-1x-apps"></a>初始化 MSAL.js 1.x 应用

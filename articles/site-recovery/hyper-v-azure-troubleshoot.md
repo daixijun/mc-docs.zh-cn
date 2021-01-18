@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: article
 origin.date: 04/14/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
-ms.openlocfilehash: ca3f71b4170758fffbff9cdd411e1c3aa06bcd51
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 5599dbad42acc7c40cedb4bc7136c34f3d935fae
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327600"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023229"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>排查 Hyper-V 到 Azure 的复制和故障转移的问题
 
@@ -38,6 +38,20 @@ ms.locfileid: "94327600"
     - [检查](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)是否安装了最新版本。
     - [始终使用](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date)最新的 Integration Services。
 
+### <a name="cannot-enable-protection-as-the-virtual-machine-is-not-highly-available-error-code-70094"></a>无法启用保护，因为虚拟机不具有高度可用性（错误代码 70094）
+
+当你为计算机启用复制时，遇到一个错误，指出由于计算机不具有高度可用性，因此无法启用复制，如需解决此问题，请尝试以下步骤：
+
+- 重启 VMM 服务器上的 VMM 服务。
+- 从群集中删除虚拟机，然后再次添加它。
+
+### <a name="the-vss-writer-ntds-failed-with-status-11-and-writer-specific-failure-code-0x800423f4"></a>VSS 编写器 NTDS 失败，状态为 11，编写器特定故障代码为 0x800423F4
+
+尝试启用复制时，你可能会遇到错误，指示启用复制失败 ast NTDS 失败。 此问题的可能原因之一是虚拟机的操作系统在 Windows Server 2012 而不是 Windows Server 2012 R2 中。 如果要解决此问题，请尝试以下步骤：
+
+- 升级到已应用 4072650 的 Windows Server R2。
+- 确保 Hyper-V 主机也是 Windows 2016 或更高版本。
+
 ## <a name="replication-issues"></a>复制问题
 
 按如下步骤排查初始和持续复制的问题：
@@ -57,7 +71,7 @@ ms.locfileid: "94327600"
         - 在 Hyper-V 主机上，检查虚拟机管理服务、Microsoft Azure 恢复服务代理和 WMI 提供程序主机服务是否正在运行。
         - 在 VMM 服务器上，确保 System Center Virtual Machine Manager 服务正在运行。
 4. 检查 Hyper-V 服务器与 Azure 之间的连接。 若要检查连接，请在 Hyper-V 主机上打开任务管理器。 在“性能”选项卡上，单击“打开资源监视器”。   在“网络”选项卡上的“网络活动的进程”中，检查 cbengine.exe 是否正在主动发送大量 (Mb) 数据。  
-5. 检查 Hyper-V 主机是否能够连接到 Azure 存储 Blob URL。 若要检查主机是否可以连接，请选择并检查 **cbengine.exe** 。 查看“TCP 连接”，以验证主机到 Azure 存储 Blob 的连接。 
+5. 检查 Hyper-V 主机是否能够连接到 Azure 存储 Blob URL。 若要检查主机是否可以连接，请选择并检查 **cbengine.exe**。 查看“TCP 连接”，以验证主机到 Azure 存储 Blob 的连接。 
 6. 按如下所述检查性能问题。
 
 ### <a name="performance-issues"></a>性能问题
@@ -90,7 +104,7 @@ ms.locfileid: "94327600"
 
 ### <a name="vss-failing-inside-the-vm"></a>VSS 在 VM 中失败
 
-1. 检查是否已安装并运行最新版本的 Integration Services。  在 Hyper-V 主机上权限提升的 PowerShell 提示符下运行以下命令，检查是否有可用的更新： **get-vm  | select Name, State, IntegrationServicesState** 。
+1. 检查是否已安装并运行最新版本的 Integration Services。  在 Hyper-V 主机上权限提升的 PowerShell 提示符下运行以下命令，检查是否有可用的更新：**get-vm  | select Name, State, IntegrationServicesState**。
 2. 检查 VSS 服务是否正在运行且正常：
     - 若要检查服务，请登录到来宾 VM。 然后打开管理员命令提示符，运行以下命令检查所有 VSS 编写器是否正常。
         - **Vssadmin list writers**
@@ -156,10 +170,10 @@ ms.locfileid: "94327600"
 
 **事件日志** | **详细信息** |
 --- | ---
-**应用程序和服务日志/Microsoft/VirtualMachineManager/服务器/管理** （VMM 服务器） | 用于排查 VMM 问题的日志。
-**Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** （Hyper-V 主机） | 用于排查 Microsoft Azure 恢复服务代理问题的日志。 
-**Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** （Hyper-V 主机）| 用于排查 Azure Site Recovery 服务问题的日志。
-**Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** （Hyper-V 主机） | 用于排查 Hyper-V VM 管理问题的日志。
+**应用程序和服务日志/Microsoft/VirtualMachineManager/服务器/管理**（VMM 服务器） | 用于排查 VMM 问题的日志。
+**Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication**（Hyper-V 主机） | 用于排查 Microsoft Azure 恢复服务代理问题的日志。 
+**Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational**（Hyper-V 主机）| 用于排查 Azure Site Recovery 服务问题的日志。
+**Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin**（Hyper-V 主机） | 用于排查 Hyper-V VM 管理问题的日志。
 
 ### <a name="log-collection-for-advanced-troubleshooting"></a>用于高级故障排除的日志集合
 

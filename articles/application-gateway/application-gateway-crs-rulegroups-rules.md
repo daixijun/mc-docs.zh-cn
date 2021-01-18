@@ -5,19 +5,23 @@ description: 本页提供有关 Web 应用程序防火墙 CRS 规则组和规则
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/10/2020
+ms.date: 01/05/2021
 ms.author: v-junlch
 ms.topic: conceptual
-ms.openlocfilehash: 1288dc2e52ab43a7fb453f993b0bdfdd35fe240b
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 3a37b6af0a34de74a4d859b59522a044b49c5209
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553028"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023116"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Web 应用程序防火墙 CRS 规则组和规则
 
 出现常见的漏洞和攻击时，应用程序网关 Web 应用程序防火墙 (WAF) 可保护 Web 应用程序。 这种保护是由根据 OWASP 核心规则集 3.1、3.0 或 2.2.9 定义的规则实现的。 可以逐个禁用这些规则。 本文包含当前提供的规则和规则集。
+
+> [!NOTE]
+> 本文包含对术语“黑名单”的引用，Microsoft 不再使用该术语。 在从软件中删除该术语后，我们会将其从本文中删除。
+
 
 ## <a name="core-rule-sets"></a>核心规则集
 

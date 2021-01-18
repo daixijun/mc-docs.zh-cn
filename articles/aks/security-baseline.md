@@ -5,17 +5,17 @@ ms.service: container-service
 ms.topic: conceptual
 origin.date: 10/01/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 10/26/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7b4173284ce3a4b15f535599dbc49968d94c9e98
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 84d765806e0df89a436b353724be1ae1dbc37011
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004169"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023036"
 ---
 <!--Verified successfully-->
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>适用于 Azure Kubernetes 服务的 Azure 安全基线
@@ -391,7 +391,7 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 - [如何将 AKS 与 Azure AD 集成](./azure-ad-integration-cli.md)
 
-- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [如何使用 Azure 安全中心监视标识和访问](../security-center/security-center-identity-access.md)
 
@@ -454,7 +454,8 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6：对所有管理任务使用专用计算机（特权访问工作站）
 
 **指导**：使用配置了多重身份验证 (MFA) 的特权访问工作站 (PAW) 登录到指定的 Azure Kubernetes 服务 (AKS) 群集和相关资源。
-- [了解特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+
+<!--Not Avaialble on [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)-->
 
 - [如何在 Azure 中启用 MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -498,7 +499,7 @@ Azure 会管理服务标记包含的地址前缀，并会在地址发生更改�
 
 - [如何将 Azure AD 与 AKS 集成](./azure-ad-integration-cli.md) 
 
-<!--Not Available on [Integrate AKS-managed Azure AD](managed-aad.md)-->
+- [集成 AKS 管理的 Azure AD](managed-aad.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -932,9 +933,9 @@ Azure 管理底层平台，并将所有客户内容视为敏感数据，竭尽�
 
 - [如何将 AKS 与 Azure AD 集成](./azure-ad-integration-cli.md)
 
-- [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [如何使用 PowerShell 获取 Azure AD 中的目录角色](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [如何使用 PowerShell 获取 Azure AD 中目录角色的成员](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [如何使用 Azure 安全中心监视标识和访问](../security-center/security-center-identity-access.md)
 
@@ -1054,7 +1055,7 @@ AKS 代理节点主机 OS 的安全强化
 
 security-hardened-vm-host-image.md
 
-- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [如何在 Azure DevOps 中存储代码](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
 
 **Azure 安全中心监视**：不适用
 
@@ -1182,8 +1183,15 @@ security-hardened-vm-host-image.md
 
 **责任**：共享
 
-<!--Not Available on ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources-->
-<!--Not Available on  [Understand Azure Security Center's Threat detection for data services](../security-center/azure-defender.md)-->
+### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2：预先扫描要上传到非计算 Azure 资源的文件
+
+**指导**：预先扫描要上传到 AKS 资源的任何文件。 如果使用 Azure 存储帐户作为数据存储或跟踪 AKS 群集的 Terraform 状态，请使用安全中心的数据服务威胁检测来检测已上传到存储帐户的恶意软件。 
+
+- [了解 Azure 安全中心的数据服务威胁检测](../security-center/azure-defender.md)
+
+**Azure 安全中心监视**：是
+
+**责任**：客户
 
 ### <a name="83-ensure-antimalware-software-and-signatures-are-updated"></a>步骤 8.3：确保反恶意软件和签名已更新
 
@@ -1289,7 +1297,7 @@ Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedSto
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 - [如何在 Azure 安全中心配置工作流自动化](../security-center/security-center-planning-and-operations-guide.md)
 
@@ -1360,7 +1368,7 @@ Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedSto
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1：定期对 Azure 资源执行渗透测试，确保修正所有发现的关键安全问题
 
-指南：遵循 Microsoft Rules of Engagement 以确保渗透测试不违反 Microsoft 政策： https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+**指导**：遵循 Azure 互动规则，确保你的渗透测试不违反 Azure 政策： https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
 - [对于 Azure 红队演练策略和执行，以及针对 Azure 托管云基础结构、服务和应用程序的实时站点渗透测试，可在此处找到详细信息](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

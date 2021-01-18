@@ -1,6 +1,6 @@
 ---
-title: 身份验证
-description: 了解如何使用 Azure Active Directory (Azure AD) 或 SQL Server 身份验证向 Azure Synapse Analytics 进行身份验证。
+title: 专用 SQL 池（之前称为 SQL DW）的身份验证
+description: 了解如何使用 Azure Active Directory (Azure AD) 或 SQL Server 身份验证向 Azure Synapse Analytics 中的专用 SQL 池（之前称为 SQL DW）进行身份验证。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,29 +8,29 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 04/02/2019
-ms.date: 08/03/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: d508b7e72b8d004a62101c4f92c105e5312d9189
-ms.sourcegitcommit: 692b9bad6d8e4d3a8e81c73c49c8cf921e1955e7
+ms.openlocfilehash: 2a47a9f99543a3927375280139904019b94a584d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87426415"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021940"
 ---
-# <a name="authenticate-to-azure-synapse-analytics"></a>对 Azure Synapse Analytics 进行身份验证
+# <a name="authenticate-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>向 Azure Synapse Analytics 中的专用 SQL 池（之前称为 SQL DW）进行身份验证
 
-了解如何使用 Azure Active Directory (AAD) 或 SQL Server 身份验证对 Azure Synapse 中的 Synapse SQL 进行身份验证。
+了解如何使用 Azure Active Directory (Azure AD) 或 SQL Server 身份验证向 Azure Synapse 中的专用 SQL 池（之前称为 SQL DW）进行身份验证。
 
-若要连接到 SQL 池，必须传入安全凭据进行身份验证。 建立连接时，特定的连接设置已配置为建立查询会话的一部分。  
+若要连接到专用 SQL 池（之前称为 SQL DW），必须传入安全凭据进行身份验证。 建立连接时，特定的连接设置已配置为建立查询会话的一部分。  
 
-若要深入了解安全性以及如何启用与数据仓库的连接，请参阅[保护数据库文档](sql-data-warehouse-overview-manage-security.md)。
+若要详细了解安全性以及如何启用与专用 SQL 池（之前称为 SQL DW）的连接，请参阅[保护数据库文档](sql-data-warehouse-overview-manage-security.md)。
 
 ## <a name="sql-authentication"></a>SQL 身份验证
 
-若要连接到 SQL 池，必须提供以下信息：
+若要连接到专用 SQL 池（之前称为 SQL DW），必须提供以下信息：
 
 * 完全限定的服务器名称
 * 指定 SQL 身份验证
@@ -46,9 +46,9 @@ ms.locfileid: "87426415"
 > [!NOTE]
 > 不支持使用 Transact-SQL 语句 **USE MyDatabase;** 更改连接的数据库。 有关使用 SSDT 连接到 SQL 池的指南，请参阅[使用 Visual Studio 进行查询](sql-data-warehouse-query-visual-studio.md)一文。
 
-## <a name="azure-active-directory-aad-authentication"></a>Azure Active Directory (AAD) 身份验证
+## <a name="azure-active-directory-authentication"></a>Azure Active Directory 身份验证
 
-[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 身份验证是一种使用 Azure Active Directory (Azure AD) 中的标识连接到 SQL 池的机制。 通过 Azure Active Directory 身份验证，可以在一个中心位置中集中管理数据库用户和其他 Microsoft 服务的标识。 集中 ID 管理提供了一个单一位置来管理 Azure Synapse 用户，并简化权限管理。
+[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 身份验证是一种使用 Azure Active Directory (Azure AD) 中的标识连接到 SQL 池的机制。 通过 Azure Active Directory 身份验证，可以在一个中心位置中集中管理数据库用户和其他 Microsoft 服务的标识。 集中 ID 管理提供单一位置用于管理专用 SQL 池（之前称为 SQL DW）用户，并简化权限管理。
 
 ### <a name="benefits"></a>优点
 

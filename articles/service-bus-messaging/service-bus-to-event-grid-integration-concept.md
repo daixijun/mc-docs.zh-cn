@@ -1,21 +1,22 @@
 ---
-title: Azure 服务总线到事件网格的集成概述 | Azure
+title: Azure 服务总线到事件网格的集成概述 | Azure Docs
 description: 本文介绍 Azure 服务总线消息传送如何与 Azure 事件网格集成。
 documentationcenter: .net
 author: rockboyfor
+ms.service: service-bus-messaging
 ms.topic: conceptual
 origin.date: 06/23/2020
-ms.date: 08/24/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 49edc892c836aa46126a8a2844ccf0e5353751cb
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 8a708f7e843ce08075de7d9915bbe4f558139519
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946606"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023016"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure 服务总线到事件网格的集成概述
 
@@ -41,7 +42,9 @@ Azure 服务总线已推出与 Azure 事件网格集成的新功能。 此功能
 目前，Azure 服务总线会针对两种情况发送事件：
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* DeadletterMessagesAvailable
+* [DeadletterMessagesAvailable](#deadletter-messages-available-event)
+* [ActiveMessagesAvailablePeriodicNotifications](#active-messages-available-periodic-notifications)
+* [DeadletterMessagesAvailablePeriodicNotifications](#deadletter-messages-available-periodic-notifications)
 
 此外，服务总线使用标准的事件网格安全性和[身份验证机制](../event-grid/security-authentication.md)。
 
@@ -73,7 +76,7 @@ Azure 服务总线已推出与 Azure 事件网格集成的新功能。 此功能
 }
 ```
 
-#### <a name="dead-letter-messages-available-event"></a>死信消息可用事件
+#### <a name="deadletter-messages-available-event"></a>死信消息可用事件
 
 对于每个有消息但没有活动接收器的死信队列，你会至少收到一个事件。
 
@@ -84,6 +87,58 @@ Azure 服务总线已推出与 Azure 事件网格集成的新功能。 此功能
   "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
   "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
   "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.chinacloudapi.cn/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="active-messages-available-periodic-notifications"></a>活动消息可用定期通知
+
+如果在特定队列或订阅上具有活动消息，即使该特定队列或订阅上有活动侦听器，也会定期生成此事件。
+
+此事件的架构如下。
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.chinacloudapi.cn/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="deadletter-messages-available-periodic-notifications"></a>死信消息可用定期通知
+
+如果在特定队列或订阅上具有死信消息，即使该特定队列或订阅的死信实体上有活动侦听器，也会定期生成此事件。
+
+此事件的架构如下。
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications",
   "eventTime": "2018-02-14T05:12:53.4133526Z",
   "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
   "data": {
@@ -134,7 +189,7 @@ Azure 服务总线已推出与 Azure 事件网格集成的新功能。 此功能
 
 ## <a name="azure-cli-instructions"></a>Azure CLI 说明
 
-首先，请确保已安装 Azure CLI 2.0 或更高版本。 [下载安装程序](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 按 **Windows + X**，然后使用管理员权限打开新的 PowerShell 控制台。 或者，也可以在 Azure 门户中使用命令外壳。
+首先，请确保已安装 Azure CLI 2.0 或更高版本。 [下载安装程序](https://docs.azure.cn/cli/install-azure-cli)。 按 **Windows + X**，然后使用管理员权限打开新的 PowerShell 控制台。 或者，也可以在 Azure 门户中使用命令外壳。
 
 执行以下代码：
 

@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 03/15/2019
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 1bdeb8eb4bfb533935b5603b9d198daffe4b36fc
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 57fc8eca13232498e6c5adacea38c8d6e1727b32
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153096"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022554"
 ---
 # <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中使用专用 SQL 池设计表
 
@@ -112,7 +112,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 ## <a name="table-partitions"></a>表分区
 
-分区表存储根据数据范围存储表行并对其执行操作。 例如，可以按日、月或年将某个表分区。 可以通过分区消除来提高查询性能，否则查询扫描范围将限制为分区中的数据。 还可以通过分区切换来维护数据。 由于 Azure Synapse Analytics 中的数据已经是分布式的，过多的分区可能会降低查询性能。 有关详细信息，请参阅[分区指南](sql-data-warehouse-tables-partition.md)。  以分区切换的方式切换成不为空的表分区时，若要截断现有数据，可考虑在 [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 语句中使用 TRUNCATE_TARGET 选项。 以下代码将已转换的日常数据切换成 SalesFact，覆盖任何现有的数据。
+分区表存储根据数据范围存储表行并对其执行操作。 例如，可以按日、月或年将某个表分区。 可以通过分区消除来提高查询性能，否则查询扫描范围将限制为分区中的数据。 还可以通过分区切换来维护数据。 由于 SQL 池中的数据已经是分布式的，过多的分区可能会降低查询性能。 有关详细信息，请参阅[分区指南](sql-data-warehouse-tables-partition.md)。  以分区切换的方式切换成不为空的表分区时，若要截断现有数据，可考虑在 [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 语句中使用 TRUNCATE_TARGET 选项。 以下代码将已转换的日常数据切换成 SalesFact，覆盖任何现有的数据。
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  

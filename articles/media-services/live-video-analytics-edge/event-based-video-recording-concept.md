@@ -1,18 +1,15 @@
 ---
 title: 基于事件的视频录制 - Azure
 description: 基于事件的视频录制 (EVR) 是指由事件触发的视频录制过程。 相关事件可能源于视频信号本身的处理（例如动作检测），也可能来自独立源（例如开门）。  本文介绍了一些与基于事件的视频录制有关的用例。
-author: WenJason
-ms.author: v-jay
-ms.service: media-services
 ms.topic: conceptual
 origin.date: 05/27/2020
-ms.date: 09/28/2020
-ms.openlocfilehash: 53a5ef6deacf83a455e2d8e1dfac90f3872b6cef
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.date: 01/11/2021
+ms.openlocfilehash: d2a357fe991fd672b420da3262dadaa0668eb175
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91245561"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023212"
 ---
 # <a name="event-based-video-recording"></a>基于事件的视频录制  
  
@@ -63,11 +60,11 @@ ms.locfileid: "91245561"
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="基于外部推理模块的视频录制":::
 
-在该图中，RTSP 源节点捕获了来自相机的实时视频源，并将其传递到两个分支：一个具有[信号入口处理器](media-graph-concept.md#signal-gate-processor)节点，另一个使用 [HTTP 扩展](media-graph-concept.md)节点将数据发送到外部逻辑模块。 HTTP 扩展节点允许媒体图通过 REST 将图像帧（以 JPEG、BMP 或 PNG 格式）发送到外部推理服务。 此信号路径通常仅支持低帧速率（小于 5fps）。 可以使用[帧速率筛选器处理器](media-graph-concept.md#frame-rate-filter-processor)节点来降低发送到 HTTP 扩展节点的视频的帧速率。
+在该图中，RTSP 源节点捕获了来自相机的实时视频源，并将其传递到两个分支：一个具有[信号入口处理器](media-graph-concept.md#signal-gate-processor)节点，另一个使用 [HTTP 扩展](media-graph-concept.md)节点将数据发送到外部逻辑模块。 HTTP 扩展节点允许媒体图通过 REST 将图像帧（以 JPEG、BMP 或 PNG 格式）发送到外部推理服务。 此信号路径通常仅支持低帧速率（小于 5fps）。 可以使用 HTTP 扩展处理器节点来降低发送到外部推理模块的视频的帧速率。
 
 来自外部推理服务的结果由 HTTP 扩展节点检索，并通过 IoT 中心消息接收器节点中继到 IoT Edge 中心，外部逻辑模块可以在此处对这些结果进行进一步处理。 例如，如果推理服务能够检测车辆，则逻辑模块可以查找特定的车辆（例如公共汽车或卡车）。 当逻辑模块检测到相关对象时，它可以通过将事件通过 IoT Edge 中心发送到图形中的 IoT 中心消息源节点来触发信号入口处理器节点。 来自信号入口的输出显示为到达文件接收器节点或资产接收器节点。 如果是到达文件接收器节点，视频将录制到边缘设备的本地文件系统中。 如果是到达资产接收器节点，视频将录制到资产中。
 
-增强此示例的一种方法是，在抵达帧速率筛选器处理器节点之前使用动作检测器处理器。 这将减少推理服务的负担，例如夜间公路上可能会有很长一段时间没有车辆经过。 
+增强此示例的一种方法是，在抵达 HTTP 扩展处理器节点之前使用动作检测器处理器。 这将减少推理服务的负担，例如夜间公路上可能会有很长一段时间没有车辆经过。 
 
 ## <a name="next-steps"></a>后续步骤
 

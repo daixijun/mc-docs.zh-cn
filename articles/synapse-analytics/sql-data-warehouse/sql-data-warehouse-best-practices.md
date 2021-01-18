@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Analytics（以前称为 SQL DW）中 Synapse SQL 池的最佳做法
-description: 在 Azure Synapse Analytics（以前称为 SQL DW）中开发 SQL 池解决方案的建议和最佳做法。
+title: 专用 SQL 池（之前称为 SQL DW）的最佳做法
+description: 本文的建议和最佳做法适用于针对 Azure Synapse Analytics 中的专用 SQL 池（之前称为 SQL DW）开发解决方案。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,19 +8,19 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 11/04/2019
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: fad06454e595ef798d8036c39db64aea822e3884
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: e4686c2419d5292c1f4d4da525eb62990a96d9e6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375738"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021939"
 ---
-# <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics（以前称为 SQL DW）中 Synapse SQL 池的最佳做法
+# <a name="best-practices-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池（之前称为 SQL DW）的最佳做法
 
-本文包含一系列最佳做法，可帮助你从 [SQL 池](sql-data-warehouse-overview-what-is.md)部署中获得最佳性能。  本文的目的是提供一些基本指导，并侧重介绍重点关注的领域。  
+本文包含一系列最佳做法，可帮助你从[专用 SQL 池（之前称为 SQL DW）](sql-data-warehouse-overview-what-is.md)部署中获得最佳性能。  本文的目的是提供一些基本指导，并侧重介绍重点关注的领域。  
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>使用暂停和缩放来降低成本
 
@@ -28,7 +28,7 @@ ms.locfileid: "93375738"
 
 ## <a name="maintain-statistics"></a>维护统计信息
 
-可以将 SQL 池配置为自动检测列并为其创建统计信息。  优化器创建的查询计划的好坏取决于可用的统计信息。  
+可将专用 SQL 池（之前称为 SQL DW）配置为自动检测和创建有关列的统计信息。  优化器创建的查询计划的好坏取决于可用的统计信息。  
 
 建议为数据库启用 AUTO_CREATE_STATISTICS，并且每天或在每次加载后更新统计信息，以确保查询中使用的列的统计信息始终是最新的。
 
@@ -41,7 +41,7 @@ ms.locfileid: "93375738"
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>使用 DMV 来监视和优化查询
 
-SQL 池有多个可用于监视查询执行的 DMV。  《使用 DMV 监视工作负荷》一文逐步详细说明了如何查看正在执行的查询的详细信息。  
+专用 SQL 池（之前称为 SQL DW）有多个可用于监视查询执行情况的 DMV。  [使用 DMV 监视工作负载](sql-data-warehouse-manage-monitor.md)一文详述了如何查看正在执行的查询的详细信息。  
 
 若要在这些 DMV 中快速找到查询，可在查询中使用 LABEL 选项。
 
@@ -63,7 +63,7 @@ SQL 池有多个可用于监视查询执行的 DMV。  《使用 DMV 监视工�
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>使用 PolyBase 快速加载和导出数据
 
-SQL 池支持通过多种工具（包括 Azure 数据工厂、PolyBase 和 BCP）来加载和导出数据。  对于少量的数据，性能不是那么重要，任何工具都可以满足需求。  但是，当要加载或导出大量数据，或者需要快速的性能时，PolyBase 是最佳选择。  
+专用 SQL 池（之前称为 SQL DW）支持通过多种工具（包括 Azure 数据工厂、PolyBase 和 BCP）来加载和导出数据。  对于少量的数据，性能不是那么重要，任何工具都可以满足需求。  但是，当要加载或导出大量数据，或者需要快速的性能时，PolyBase 是最佳选择。  
 
 PolyBase 设计为利用系统的分布式特性，因此加载和导出巨量数据的速度快于其他任何工具。  可使用 CTAS 或 INSERT INTO 来运行 PolyBase 加载。   
 
@@ -75,13 +75,13 @@ Azure 数据工厂还支持 PolyBase 加载，并且可以实现与 CTAS 类似�
 > [!NOTE]
 > 若要在使用 gzip 文本文件时获得最大的吞吐量，请将文件拆分成至少 60 个文件，以便最大程度提高加载的并行度。  若要更快的总吞吐量，请考虑并行加载数据。
 
-另请参阅[加载数据](design-elt-data-loading.md)、[PolyBase 使用指南](guidance-for-loading-data.md)、[SQL 池加载模式和策略](https://blogs.msdn.microsoft.com/sqlcat/20../../)、[使用 Azure 数据工厂加载数据](../../data-factory/load-azure-sql-data-warehouse.md)、[CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 和 [Create table as select (CTAS)](sql-data-warehouse-develop-ctas.md)。
+另请参阅[加载数据](design-elt-data-loading.md)、[PolyBase 使用指南](guidance-for-loading-data.md)、[专用 SQL 池加载模式和策略](https://blogs.msdn.microsoft.com/sqlcat/20../../)、[使用 Azure 数据工厂加载数据](../../data-factory/load-azure-sql-data-warehouse.md)、[CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/synapse-analytics/sql-data-warehouse/toc.json&bc=/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 和 [Create table as select (CTAS)](sql-data-warehouse-develop-ctas.md)。
 
 ## <a name="load-then-query-external-tables"></a>加载并查询外部表
 
 虽然 Polybase（也称外部表）可以最快速地加载数据，但并不特别适合查询。 Polybase 表目前只支持 Azure blob 文件和 Azure Data Lake 存储。 这些文件并没有任何计算资源的支持。  
 
-因此，SQL 池无法卸载此工作，因此必须读取整个文件，方法是将其加载到 tempdb 来读取数据。  因此，如果有多个查询需要查询此数据，则最好是先加载一次此数据，然后让查询使用本地表。
+因此，专用 SQL 池无法卸载此工作，必须读取整个文件，方法是将其加载到 tempdb 来读取数据。  因此，如果有多个查询需要查询此数据，则最好是先加载一次此数据，然后让查询使用本地表。
 
 另请参阅 [PolyBase 使用指南](guidance-for-loading-data.md)。
 
@@ -102,9 +102,9 @@ Azure 数据工厂还支持 PolyBase 加载，并且可以实现与 CTAS 类似�
 
 ## <a name="do-not-over-partition"></a>不要过度分区
 
-尽管数据分区对于维护数据（通过分区切换）或优化扫描（通过分区排除）很有效，但分区过多会减慢查询速度。  通常，在 SQL Server 上运行良好的高粒度分区策略可能无法在 SQL 池中正常工作。  
+尽管数据分区对于维护数据（通过分区切换）或优化扫描（通过分区排除）很有效，但分区过多会减慢查询速度。  通常，在 SQL Server 上运行良好的高数据粒度分区策略可能无法在专用 SQL 池（之前称为 SQL DW）中正常使用。  
 
-如果每个分区的行数少于 1 百万，太多分区还会降低聚集列存储索引的效率。  请记住，SQL 池在后台将数据分区成 60 个数据库，因此如果创建包含 100 个分区的表，实际上会产生 6000 个分区。  
+如果每个分区的行数少于 1 百万，太多分区还会降低聚集列存储索引的效率。  请记住，专用 SQL 池在幕后将数据分区成 60 个数据库，因此如果创建包含 100 个分区的表，实际上会生成 6000 个分区。  
 
 每个工作负荷都不同，因此最佳建议是尝试不同的分区，找出最适合工作负荷的分区。  请考虑比 SQL Server 上运行良好的数据粒度更低的粒度。  例如，考虑使用每周或每月分区，而不是每日分区。
 
@@ -146,13 +146,13 @@ Azure 数据工厂还支持 PolyBase 加载，并且可以实现与 CTAS 类似�
 
 ## <a name="optimize-clustered-columnstore-tables"></a>优化聚集列存储表
 
-聚集列存储索引是将数据存储在 SQL 池中最有效率的方式之一。  默认情况下，SQL 池中的表创建为聚集列存储。  为了让列存储表的查询获得最佳性能，良好的分段质量很重要。  
+聚集列存储索引是将数据存储在专用 SQL 池中最有效率的方式之一。  默认情况下，专用 SQL 池中的表会创建为聚集列存储。  为了让列存储表的查询获得最佳性能，良好的分段质量很重要。  
 
 当行在内存不足的状态下写入列存储表时，列存储分段质量可能降低。  压缩行组中的行数可以测量分段质量。  有关检测和改善聚集列存储表分段质量的分步说明，请参阅[表索引](sql-data-warehouse-tables-index.md)一文中的[列存储索引质量不佳的原因](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality)。  
 
 由于高质量列存储段很重要，因此可以考虑使用中型或大型资源类中的用户 ID 来加载数据。 使用较低的[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)值意味着需要向加载用户分配较大的资源类。
 
-由于列存储表通常要等到每个表中的行数超过 100 万且每个 SQL 池表分区成 60 个表之后，才会数据推送到压缩的列存储段，根据经验法则，除非列存储表中的行数超过 6000 万，否则该表对于查询没有任何好处。  小于 6 千万列的表使用列存储索引似乎不太合理，  但也无伤大雅。  
+列存储表通常要等到每个表有超过 1 百万个行之后才会将数据推送到压缩的列存储区段，并且每个专用 SQL 池表会分区成 60 个表。因此，根据经验法则，列存储表对于查询没有好处，除非表有超过 6 千万行。  小于 6 千万列的表使用列存储索引似乎不太合理，  但也无伤大雅。  
 
 此外，如果将分区，则要考虑的是每个分区必须有 1 百万个行，使用聚集列存储索引才有益。  如果表有 100 个分区，则它至少必须有 60 亿行才能受益于聚集列存储（60 个分布区 100 个分区 100 万行）。  
 
@@ -165,7 +165,7 @@ Azure 数据工厂还支持 PolyBase 加载，并且可以实现与 CTAS 类似�
 
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>使用较大的资源类来改善查询性能
 
-SQL 池使用资源组作为将内存分配给查询的一种方式。  默认情况下，所有用户都分配有小型资源类，此类授予每个分布区 100 MB 内存。  因为永远将有 60 个分布区，每个分布区有至少 100 MB，整个系统的总内存分配为 6000 MB 或者刚好接近6 GB。  
+专用 SQL 池使用资源组作为将内存分配给查询的一种方式。  默认情况下，所有用户都分配有小型资源类，此类授予每个分布区 100 MB 内存。  因为永远将有 60 个分布区，每个分布区有至少 100 MB，整个系统的总内存分配为 6000 MB 或者刚好接近6 GB。  
 
 有些查询，例如大型联接或载入聚集列存储表，将受益于较大的内存分配。  某些查询，例如纯扫描，则不会获得任何好处。  但是，使用较大的资源类会降低并发性，因此，在将所有用户转移到大型资源类之前，需要考虑这种影响。
 

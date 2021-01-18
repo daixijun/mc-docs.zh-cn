@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.custom: contperfq1
 origin.date: 10/13/2020
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.author: v-jay
-ms.openlocfilehash: e4a832ad0d080890e4b8506a9def856fb611009b
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: dda93709f1a5b155bbf382235137a9b75dd9ec59
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105102"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023244"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>使用 Azure 负载均衡器配置出站规则
 
@@ -63,7 +63,7 @@ ms.locfileid: "97105102"
 
 你还可以直接在出站规则中使用[公共 IP 前缀](./load-balancer-outbound-connections.md#outboundrules)。 
 
-公共 IP 前缀增强了部署的缩放。 可以将前缀添加到源自 Azure 资源的流的允许列表中。 可以在负载均衡器中配置引用公共 IP 地址前缀所需的前端 IP 配置。  
+公共 IP 前缀增强了部署的缩放。 可以将前缀添加到源自 Azure 资源的流的允许列表中。 可以在负载均衡器中配置引用公共 IP 前缀所需的前端 IP 配置。  
 
 负载均衡器可控制公共 IP 前缀。 出站规则会自动使用公共 IP 前缀中包含的所有公共 IP 地址来建立出站连接。 
 

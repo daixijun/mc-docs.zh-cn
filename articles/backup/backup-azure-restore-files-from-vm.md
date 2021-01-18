@@ -4,15 +4,15 @@ description: 本文介绍如何从 Azure 虚拟机恢复点恢复文件和文件
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 03/01/2019
-ms.date: 12/10/2020
+ms.date: 01/07/2021
 ms.custom: references_regions
 ms.author: v-johya
-ms.openlocfilehash: 59cf6bb1e5b77f8795929f4dafb438acc3241f16
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 0e673befa65f6b71f1b221a58d61d9929984749b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104388"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023028"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>从 Azure 虚拟机备份恢复文件
 
@@ -154,7 +154,7 @@ Azure 备份提供从 Azure VM 备份（也称恢复点）还原 [Azure 虚拟�
 
    ![已附加恢复卷](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
-**对于包含大磁盘的备份 VM (Windows)**
+#### <a name="for-backed-up-vms-with-large-disks-windows"></a>对于包含大磁盘的备份 VM (Windows)
 
 如果文件恢复进程在运行文件还原脚本后挂起（例如，如果磁盘从未装载或装载后未显示卷），请执行以下步骤：
   
@@ -180,7 +180,7 @@ Azure 备份提供从 Azure VM 备份（也称恢复点）还原 [Azure 虚拟�
   ![Linux 文件恢复菜单](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
 
 
-**对于包含大磁盘的备份 VM (Linux)**
+#### <a name="for-backed-up-vms-with-large-disks-linux"></a>对于包含大磁盘的备份 VM (Linux)**
 
 如果文件恢复进程在运行文件还原脚本后挂起（例如，如果磁盘从未装载或装载后未显示卷），请执行以下步骤：
 

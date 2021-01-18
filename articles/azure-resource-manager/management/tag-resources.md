@@ -2,25 +2,25 @@
 title: 标记资源、资源组和订阅以便对其进行逻辑组织
 description: 演示如何应用标记来组织 Azure 资源进行计费和管理。
 ms.topic: conceptual
-origin.date: 11/20/2020
+origin.date: 12/03/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: yes
 ms.testdate: 07/13/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e624153af27ad756c7a9eb0d99b721d65b416802
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 4df6c9f1d164c89bbfb84cf402bed62ca9dccea0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004207"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021236"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>使用标记对 Azure 资源和管理层次结构进行组织
 
 可将标记应用到 Azure 资源、资源组和订阅，以便有条理地将它们组织成分类。 每个标记均由名称和值对组成。 例如，可以对生产中的所有资源应用名称“Environment”和值“Production”。
 
-<!--Not Available on [Resource naming and tagging decision guide](/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure-resource-manager/management/toc.json)-->
+<!--Not Available on [Resource naming and tagging decision guide](https://docs.azure.cn/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure-resource-manager/management/toc.json)-->
 
 > [!IMPORTANT]
 > 标记名称对于操作不区分大小写。 系统会更新或检索具有标记名称的标记，而不考虑大小写。 但是，资源提供程序可能会保留为标记名称提供的大小写。 你将在成本报表中看到该大小写。
@@ -31,9 +31,11 @@ ms.locfileid: "97004207"
 
 ## <a name="required-access"></a>所需访问权限
 
-若要将标记应用到资源，必须对 Microsoft.Resources/tags 资源类型拥有写入权限。 [标记参与者](../../role-based-access-control/built-in-roles.md#tag-contributor)角色可让你将标记应用到实体，无需访问该实体本身。 目前，标记参与者角色无法通过门户将标记应用到资源或资源组。 该角色可以通过门户将标记应用到订阅。 它支持通过 PowerShell 和 REST API 执行所有标记操作。  
+可以通过两种方式获取对标记资源的所需访问权限。
 
-[参与者](../../role-based-access-control/built-in-roles.md#contributor)角色还授予对任何实体应用标记所需的访问权限。 要将标记仅应用于一种资源类型，请使用该资源的参与者角色。 例如，要将标记应用到虚拟机，请使用[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)。
+- 你可以拥有对 Microsoft.Resources/tags 资源类型的写入权限。 此权限允许你标记任何资源，即使你无权访问资源本身。 [标记参与者](../../role-based-access-control/built-in-roles.md#tag-contributor)角色授予此访问权限。 目前，标记参与者角色无法通过门户将标记应用到资源或资源组。 该角色可以通过门户将标记应用到订阅。 它支持通过 PowerShell 和 REST API 执行所有标记操作。  
+
+- 你可以拥有对资源本身的写入权限。 [参与者](../../role-based-access-control/built-in-roles.md#contributor)角色授予对任何实体应用标记所需的访问权限。 要将标记仅应用于一种资源类型，请使用该资源的参与者角色。 例如，要将标记应用到虚拟机，请使用[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)。
 
 ## <a name="powershell"></a>PowerShell
 
@@ -282,7 +284,7 @@ az tag create --resource-id $resource --tags Team=Compliance Environment=Product
 },
 ```
 
-若要将标记添加到已经有标记的资源，请使用 az tag update。 将 --operation 参数设置为 Merge 。
+若要将标记添加到已经有标记的资源，请使用 `az tag update`。 将 `--operation` 参数设置为 `Merge`。
 
 ```azurecli
 az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
@@ -318,7 +320,7 @@ az tag update --resource-id $resource --operation Merge --tags Status=Green
 },
 ```
 
-将 --operation 参数设置为 Replace 时，会将现有标记替换为新的标记集 。
+将 `--operation` 参数设置为 `Replace` 时，现有标记会替换为新的标记集。
 
 ```azurecli
 az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
@@ -411,7 +413,7 @@ az group list --tag Dept=Finance
 
 ### <a name="remove-tags"></a>删除标记
 
-若要删除特定的标记，请使用 az tag update 并将 --operation 设置为 Delete  。 传入要删除的标记。
+若要删除特定标记，请使用 `az tag update`，并将 `--operation` 设置为 `Delete`。 传入要删除的标记。
 
 ```azurecli
 az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web

@@ -1,16 +1,16 @@
 ---
 title: Azure 备份服务器 V3 RTM 可备份的内容
 description: 本文提供保护矩阵，其中列出 Azure 备份服务器 V3 RTM 保护的所有工作负荷、数据类型和安装。
-ms.date: 09/28/2020
+ms.date: 01/07/2021
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.openlocfilehash: c57ecc3e7ad66ac6e06d5456b27a7623922d5b0b
-ms.sourcegitcommit: 80567f1c67f6bdbd8a20adeebf6e2569d7741923
+ms.openlocfilehash: d7c56bff0b3c07188f5c9f93dfebbeaaad11e591
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871449"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022249"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Azure 备份服务器 V3 RTM 保护矩阵
 
@@ -80,7 +80,7 @@ ms.locfileid: "91871449"
 |Hyper-V 主机 - Hyper-V 主机服务器、群集或 VM 上的 MABS 保护代理|Windows Server 2008 SP2|物理服务器<br /><br />本地 Hyper-V 虚拟机|不支持|保护：Hyper-V 计算机、群集共享卷 (CSV)<br /><br />恢复：虚拟机、文件和文件夹的项目级恢复、卷、虚拟硬盘驱动器|
 |VMware VM|VMware vCenter/vSphere ESX/ESXi 许可版本 5.5/6.0/6.5 |物理服务器、 <br/>本地 Hyper-V VM、 <br/> VMware 中的 Windows VM|V3、V2|群集共享卷 (CSV)、NFS 和 SAN 存储中的 VMware VM<br /> 文件和文件夹的项目级恢复仅适用于 Windows VM，不支持 VMware vApp。|
 |VMware VM|[VMware vSphere 许可版本 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |物理服务器、 <br/>本地 Hyper-V VM、 <br/> VMware 中的 Windows VM|V3|群集共享卷 (CSV)、NFS 和 SAN 存储中的 VMware VM<br /> 文件和文件夹的项目级恢复仅适用于 Windows VM，不支持 VMware vApp。|
-|Linux|以 Hyper-V 或 VMware 来宾身份运行的 Linux|物理服务器、 <br/>本地 Hyper-V VM、 <br/> VMware 中的 Windows VM|V3、V2|Hyper-V 必须在 Windows Server 2012 R2 或 Windows Server 2016 上运行。 保护：整个虚拟机<br /><br />恢复：整个虚拟机 <br/><br/> 仅支持文件一致性快照。 <br/><br/> 有关支持的 Linux 分发版和版本的完整列表，请参阅 [Azure 认可的分发中的 Linux](../virtual-machines/linux/endorsed-distros.md) 一文。|
+|Linux|以 [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) 或 [VMware](backup-azure-backup-server-vmware.md) 来宾身份运行的 Linux|物理服务器、 <br/>本地 Hyper-V VM、 <br/> VMware 中的 Windows VM|V3、V2|Hyper-V 必须在 Windows Server 2012 R2 或 Windows Server 2016 上运行。 保护：整个虚拟机<br /><br />恢复：整个虚拟机 <br/><br/> 仅支持文件一致性快照。 <br/><br/> 有关支持的 Linux 分发版和版本的完整列表，请参阅 [Azure 认可的分发中的 Linux](../virtual-machines/linux/endorsed-distros.md) 一文。|
 
 ## <a name="azure-expressroute-support"></a>Azure ExpressRoute 支持
 
@@ -90,7 +90,7 @@ ms.locfileid: "91871449"
 
 * `http://www.msftncsi.com/ncsi.txt`
 * `microsoft.com`
-* `.WindowsAzure.com`
+* `.WindowsAzure.cn`
 * `.partner.microsoftonline.cn`
 * `.chinacloudapi.cn`
 

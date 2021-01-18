@@ -1,19 +1,20 @@
 ---
-title: Azure 服务总线订阅规则 SQL 筛选器语法 | Azure
+title: Azure 服务总线订阅规则 SQL 筛选器语法 | Azure Docs
 description: 本文提供了有关 SQL 筛选器语法的详细信息。 SQL 筛选器支持 SQL-92 标准的子集。
+ms.service: service-bus-messaging
 ms.topic: article
 origin.date: 11/24/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b15f71b568093f0ec92ecaaff465bbc684dd0df0
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: f11cda77c6f6e99e25e14868ba9f536cf008cf3b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105244"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022994"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>订阅规则 SQL 筛选器语法
 

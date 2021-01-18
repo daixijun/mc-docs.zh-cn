@@ -6,15 +6,15 @@ keywords: Web 应用性能，缓慢应用，应用缓慢
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 origin.date: 08/03/2016
-ms.date: 10/19/2020
+ms.date: 12/21/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: fb2bca7fcdbbe122af5b9772a95caeafb7e002ea
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 3fee44e74353d091f3d16bb2c1ec335e0b9fa4aa
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170750"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022854"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中应用性能缓慢的问题
 本文帮助排查 [Azure 应用服务](./overview.md)中应用性能缓慢的问题。
@@ -74,6 +74,8 @@ ms.locfileid: "92170750"
 
 有关详细信息，请参阅[在 Azure 应用服务中监视应用](web-sites-monitor.md)
 
+<!--https://channel9.msdn.com-->
+
 #### <a name="application-performance-monitoring-using-extensions"></a>使用扩展的应用程序性能监视
 还可以使用站点扩展监视应用程序的性能。
 
@@ -82,6 +84,7 @@ ms.locfileid: "92170750"
 - 源代码编辑器，如 [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx)。 
 - 连接的资源（如连接到应用的 MySQL 数据库）的管理工具。
 
+<!--https://www.azure.cn/home/features/application-insights/-->
 
 <a name="collect"></a>
 
@@ -97,6 +100,20 @@ ms.locfileid: "92170750"
 
 #### <a name="enable-application-diagnostics"></a>启用应用程序诊断
 可通过多种选项收集应用服务中的应用程序性能数据、从 Visual Studio 中实时分析应用程序，或修改应用程序代码以记录更多信息和跟踪。 可以基于针对应用程序的访问权限和通过监视工具观察到的内容选择相关选项。
+
+##### <a name="use-application-insights-profiler"></a>使用 Application Insights Profiler
+可以启用 Application Insights Profiler 开始捕获详细的性能跟踪。 需要调查过去发生的问题时，可以访问最多五日天前捕获的跟踪。 只要有权访问 Azure 门户中应用的 Application Insights 资源，就可以选择此选项。
+
+Application Insights Profiler 提供每个 Web 调用响应时间的统计信息，以及指示哪一行代码导致响应缓慢的跟踪信息。 有时应用服务应用运行速度慢，因为某些代码不是以高性能方式编写的。 示例包括可并行运行的顺序代码和不需要的数据库锁争用。 删除代码中的这些瓶颈会提高应用性能，但是如果不设置详细的跟踪和日志，则很难检测到这些瓶颈。 Application Insights Profiler 收集的跟踪信息有助于识别减慢应用程序速度的代码行，还有助于为应用服务应用解决这一挑战。
+
+ 有关详细信息，请参阅[使用 Application Insights 分析 Azure 应用服务中的实时应用](../azure-monitor/app/profiler.md)。
+
+##### <a name="use-remote-profiling"></a>使用远程分析
+在 Azure 应用服务中，可以远程分析 Web 应用、API 应用、移动后端和 WebJobs。 如果有权访问应用资源并且知道如何再现问题，或者知道出现性能问题的确切时间间隔，请选择此选项。
+
+远程分析非常有用，如果进程的 CPU 使用率偏高并且进程运行速度比预期缓慢，或者 HTTP 请求的延迟高于平时，可以远程分析进程并获取 CPU 采样调用堆栈，以分析进程活动和代码繁忙的路径。
+
+有关详细信息，请参阅 [Azure 应用服务中的远程分析支持](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service)。
 
 ##### <a name="set-up-diagnostic-traces-manually"></a>手动设置诊断跟踪
 如果有权访问 Web 应用程序源代码，使用应用程序诊断可以捕获 Web 应用程序生成的信息。 ASP.NET 应用程序可使用 `System.Diagnostics.Trace` 类将信息记录到应用程序诊断日志。 但是需要更改代码并重新部署应用程序。 如果应用在测试环境中运行，则推荐使用此方法。
@@ -118,7 +135,7 @@ Kudu 提供的一些信息和功能包括：
 * 应用程序的环境设置
 * 日志流
 * 诊断转储
-* 调试控制台，可以在其中运行 Powershell cmdlet 和基本 DOS 命令。
+* 调试控制台，可以在其中运行 PowerShell cmdlet 和基本 DOS 命令。
 
 Kudu 的另一项有用功能是，如果应用程序引发第一次异常，可以使用 Kudu 和 SysInternals 工具 Procdump 创建内存转储。 这些内存转储是进程的快照，通常可帮助排查较复杂的应用问题。
 

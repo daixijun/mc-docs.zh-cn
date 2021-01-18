@@ -4,16 +4,16 @@ description: 介绍如何测试通过门户创建 Azure 托管应用程序的用
 ms.topic: conceptual
 origin.date: 08/06/2019
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 31814f194a569efc14b1ae6cee795563b30c316c
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: ff59545ab92cd4239cdc07c38e76aaf838154f47
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431627"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021239"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>测试 Azure 托管应用程序的门户接口
 
@@ -23,7 +23,7 @@ ms.locfileid: "96431627"
 
 * 一个 **createUiDefinition.json** 文件。 如果没有此文件，请复制[示例文件](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json)。
 
-* Azure 订阅。 如果没有 Azure 订阅，请在开始前[创建一个试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+* Azure 订阅。 如果没有 Azure 订阅，请在开始前[创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="use-sandbox"></a>使用沙盒
 
@@ -105,11 +105,8 @@ ms.locfileid: "96431627"
 
 确认门户界面按预期方式工作后，可以验证 createUiDefinition 文件是否能够正常地与 mainTemplate.json 文件相集成。 可以运行验证脚本测试来测试解决方案文件的内容，包括 createUiDefinition 文件。 该脚本会验证 JSON 语法，检查文本字段中的正则表达式，并确保门户界面的输出值与模板参数相匹配。 有关运行此脚本的信息，请参阅[对模板运行静态验证检查](https://github.com/Azure/azure-quickstart-templates/tree/master/test)。
 
-## <a name="next-steps"></a>后续步骤
+<!--Not Avaialble on ## Next steps-->
 
-<!--Not Available on [Create marketplace application](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)-->
-<!--CUSTOMIZE: KEEP THE ORIGINAL LINK-->
-
-验证门户界面之后，请了解如何[在市场中提供 Azure 托管应用程序](publish-marketplace-app.md)。
+<!--Not Available on [Azure managed application available in the Marketplace](../../marketplace/create-new-azure-apps-offer.md)-->
 
 <!-- Update_Description: update meta properties, wording update, update link -->

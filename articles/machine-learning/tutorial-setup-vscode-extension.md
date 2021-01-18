@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: v-yiso
 origin.date: 07/09/2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 36b7696958483029ba4345f46359499b6b50b6df
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: de1bf9253e050d7812ed65d7f5ff51d39e7ae61d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105259"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021111"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>设置 Azure 机器学习 Visual Studio Code 扩展
 
@@ -30,7 +30,7 @@ ms.locfileid: "97105259"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 如果没有订阅，注册之后即可试用 [Azure 机器学习免费版或付费版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+- Azure 订阅。 如果没有订阅，注册之后即可试用 [Azure 机器学习试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - Visual Studio Code。 如果尚未安装它，请[安装它](https://code.visualstudio.com/docs/setup/setup-overview)。
 - [Python 3](https://www.python.org/downloads/)
 

@@ -4,14 +4,14 @@ description: 提供有关在使用 Azure 备份服务备份 Azure VM 中的 SQL 
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/17/2020
+ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 0f817624acb4b11427e297ed429b4f345fe520df
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: b10befef49e78730bfddfbdf1e7f051c6610bca6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977594"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023106"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>适用于 Azure VM 中 SQL Server 备份的支持矩阵
 
@@ -41,7 +41,7 @@ ms.locfileid: "94977594"
 * SQL Server 备份可配置在 Azure 门户或 PowerShell 中。 不支持 CLI。
 * 此解决方案在 Azure 资源管理器 VM 和经典 VM 这两种[部署](../azure-resource-manager/management/deployment-models.md)上均受支持。
 * 支持所有备份类型（完整/差异/日志）和恢复模式（简单/完整/批量记录）。
-* 只读数据库支持完整备份和仅复制完整备份类型。
+* 对于只读数据库：只有完整和仅复制完整备份是受支持的备份类型。
 * 如果用户在备份策略中显式启用了 SQL 本机压缩，则支持该压缩。 Azure 备份会根据用户设置的此控件的值，用 COMPRESSION / NO_COMPRESSION 子句替代实例级别的默认值。
 * 支持启用了 TDE 的数据库备份。 若要将 TDE 加密的数据库还原到另一个 SQL Server，需先[将证书还原到目标服务器](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server)。 在 SQL Server 2016 及更高版本中，启用了 TDE 的数据库可以使用备份压缩功能，但传输大小较小（如[此处](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593)所述）。
 * 不支持对镜像数据库和数据库快照执行备份和还原操作。

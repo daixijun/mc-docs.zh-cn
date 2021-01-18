@@ -4,14 +4,14 @@ description: 汇总 Azure 备份服务的支持设置和限制。
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 02/17/2019
-ms.date: 11/17/2020
+ms.date: 01/07/2021
 ms.author: v-johya
-ms.openlocfilehash: 6d9ed5bf0bd9a98cd5769b8ca2b50e609bc17e98
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: a84f15d7ca0b3f215a1bf40a740ae87b44891d1e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977179"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023178"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure 备份的支持矩阵
 
@@ -66,7 +66,7 @@ Azure 备份使用恢复服务保管库来协调和管理以下工作负荷类�
 
 **计算机** | **备份的内容** | **位置** | **功能**
 --- | --- | --- | ---
-**使用 VM 扩展的 Azure VM 备份** | 整个 VM | 备份到保管库。 | 为 VM 启用备份时安装的扩展。<br/><br/> 一天备份一次。<br/><br/> 应用感知型备份适用于 Windows VM；文件一致性备份适用于 Linux VM。 可以使用自定义脚本配置 Linux 计算机的应用一致性。<br/><br/> 还原 VM 或磁盘。<br/><br/> 不能将 Azure VM 备份到本地位置。
+**使用 VM 扩展的 Azure VM 备份** | 整个 VM | 备份到保管库。 | 为 VM 启用备份时安装的扩展。<br/><br/> 一天备份一次。<br/><br/> 应用感知型备份适用于 Windows VM；文件一致性备份适用于 Linux VM。 可以使用自定义脚本配置 Linux 计算机的应用一致性。<br/><br/> 还原 VM 或磁盘。<br/><br/>支持 [Active Directory 域控制器的备份和还原](active-directory-backup-restore.md)。<br><br> 不能将 Azure VM 备份到本地位置。
 **使用 MARS 代理的 Azure VM 备份** | 文件、文件夹、系统状态 | 备份到保管库。 | 一天备份三次。<br/><br/> 如果想要备份特定文件或文件夹，而不是备份整个 VM，MARS 代理可以随 VM 扩展运行。
 **装有 DPM 的 Azure VM** | 文件、文件夹、卷、系统状态、应用数据 | 备份到运行 DPM 的 Azure VM 的本地存储。 DPM 然后备份到保管库。 | 应用感知型快照。<br/><br/> 备份和恢复的完整粒度。<br/><br/> 就 VM (Hyper-V/VMware) 来说，支持 Linux。<br/><br/> 不支持 Oracle。
 **装有 MABS 的 Azure VM** | 文件、文件夹、卷、系统状态、应用数据 | 备份到运行 MABS 的 Azure VM 的本地存储。 MABS 然后备份到保管库。 | 应用感知型快照。<br/><br/> 备份和恢复的完整粒度。<br/><br/> 就 VM (Hyper-V/VMware) 来说，支持 Linux。<br/><br/> 不支持 Oracle。

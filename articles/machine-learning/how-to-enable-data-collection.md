@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 38091a2b060a36ac0f77d90fce6211fe5a4f2dc5
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 78456e2553d048d8f1f42a7b501e7430419ffa5e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104584"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023226"
 ---
 # <a name="collect-data-from-models-in-production"></a>收集生产中模型的数据
 
@@ -28,7 +28,7 @@ ms.locfileid: "97104584"
 
 * 针对收集的生产数据[监视数据偏移](how-to-monitor-datasets.md)。
 
-* 使用 [Power BI](#powerbi) 分析收集的数据
+* 使用 [Power BI](#powerbi) 或 [Azure Databricks](#databricks) 分析收集的数据
 
 * 更好地决定何时重新训练或优化模型。
 
@@ -118,6 +118,12 @@ Blob 中输出数据的路径遵循以下语法：
 
 1. 若要创建新映像并部署机器学习模型，请参阅[部署方式和部署位置](how-to-deploy-and-where.md)。
 
+1. 将“Azure-Monitoring”pip 包添加到 Web 服务环境的 conda 依赖项：
+  ```Python
+    env = Environment('webserviceenv')
+    env.python.conda_dependencies = CondaDependencies.create(conda_packages=['numpy'],pip_packages=['azureml-defaults','azureml-monitoring','inference-schema[numpy-support]'])
+  ```
+
 
 ## <a name="disable-data-collection"></a>禁用数据收集
 
@@ -184,6 +190,31 @@ Blob 中输出数据的路径遵循以下语法：
 1. 如果添加了输入和预测，则表会自动按 **RequestId** 值排序。
 
 1. 开始基于模型数据生成自定义报表。
+
+### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a> 使用 Azure Databricks 分析模型数据
+
+1. 创建一个 [Azure Databricks 工作区](/databricks/scenarios/quickstart-create-databricks-workspace-portal)。
+
+1. 转到该 Databricks 工作区。
+
+1. 在 Databricks 工作区中，选择“上传数据”。
+
+    [![选择 Databricks“上传数据”选项](./media/how-to-enable-data-collection/dbupload.png)](././media/how-to-enable-data-collection/dbupload.png#lightbox)
+
+1. 选择“创建新表”，然后选择“其他数据源” > “Azure Blob 存储” > “在笔记本中创建表”。   
+
+    [![Databricks 表创建](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
+
+1. 更新数据的位置。 以下是示例：
+
+    ```
+    file_location = "wasbs://mycontainer@storageaccountname.blob.core.chinacloudapi.cn/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 
+    file_type = "csv"
+    ```
+
+    [![Databricks 设置](./media/how-to-enable-data-collection/dbsetup.png)](././media/how-to-enable-data-collection/dbsetup.png#lightbox)
+
+1. 遵循模板中的步骤查看和分析数据。
 
 ## <a name="next-steps"></a>后续步骤
 

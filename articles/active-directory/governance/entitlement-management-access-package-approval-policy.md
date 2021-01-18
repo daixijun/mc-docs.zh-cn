@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/29/2020
+ms.date: 01/08/2021
 ms.author: v-junlch
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 484ba2972f40109224ce62c4c45d58e3bb4342b9
-ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+ms.openlocfilehash: 87bc754f14c5c901e86cb71012ae2fb128c5605f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2020
-ms.locfileid: "91937616"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021552"
 ---
 # <a name="change-approval-and-requestor-information-preview-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>在 Azure AD 权利管理中更改访问包的审批和请求者信息（预览）设置。
 
@@ -39,14 +39,6 @@ ms.locfileid: "91937616"
 - 单阶段或两阶段审批不需要每个选定审批者的批准。
 - 审批决定以第一个评审请求的审批者为准。
 
-有关如何向请求策略添加审批者的演示，请观看以下视频：
-
->[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4cZfg]
-
-有关如何向请求策略添加多阶段审批的演示，请观看以下视频：
-
->[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4d1Jw]
-
 
 ## <a name="change-approval-settings-of-an-existing-access-package"></a>更改现有访问包的审批设置
 
@@ -56,7 +48,7 @@ ms.locfileid: "91937616"
 
 1. 在 Azure 门户中，依次单击“Azure Active Directory”、“标识监管”。  
 
-1. 在左侧菜单中单击“访问包”，然后打开访问包。****
+1. 在左侧菜单中单击“访问包”，然后打开访问包。
 
 1. 选择要编辑的策略，或向访问包添加新策略
     1. 若要创建新策略，请依次单击“策略”、“添加策略”。
@@ -64,7 +56,7 @@ ms.locfileid: "91937616"
 
 1. 转到“请求”选项卡。
 
-1. 若要要求对所选用户发起的请求进行审批，请将“需要审批”切换开关设置为“是”。******** 或者，若要自动审批请求，请将切换开关设置为“否”。
+1. 若要要求对所选用户发起的请求进行审批，请将“需要审批”切换开关设置为“是”。 或者，若要自动审批请求，请将切换开关设置为“否”。
 
 1. 如果需要用户提供对请求访问包的论证，请将“需要请求者论证”切换开关设置为“是”。 。
     
@@ -132,13 +124,15 @@ ms.locfileid: "91937616"
 
 1. 在“第一位审批者”和/或“第二位审批者”下，单击“显示高级请求设置”。
 
-    ![访问包 - 策略 - 显示高级请求设置](./media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png)
+    :::image type="content" source="media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png" alt-text="访问包 - 策略 - 显示高级请求设置":::
 
 1. 将“若没有采取任何行动，转发给后备审批者们？”切换开关设置为“是” 。
 
 1. 单击“添加后备审批者”，然后从列表中选择后备审批者。
 
     ![访问包 - 策略 - 添加后备审批者](./media/entitlement-management-access-package-approval-policy/alternate-approvers-add.png)
+
+    如果对于第一位审批者，选择“管理员”作为审批者，你将具有一个可在后备审批者字段中进行选择的额外选项“将二级管理员作为后备审批者”。 如果选择此选项，则需要添加后备审批者，以便在系统找不到二级管理员的情况下将请求转发给该审批者。
 
 1. 在“多少天后转发给后备审批者？”框中，输入审批者批准或拒绝请求的允许天数。 如果在请求持续期间没有审批者批准或拒绝请求，则请求将过期（超时），用户必须再提交一个访问包请求。 
 

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: na
 ms.topic: article
 origin.date: 10/21/2020
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-jay
-ms.openlocfilehash: ac4e3fc38873be641a9b9948cf03745159005e2e
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 230c6b09d41d489bce0377e228e9f017f7f5c045
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300748"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023017"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒体服务 v3 发行说明
 
@@ -39,11 +39,47 @@ ms.locfileid: "96300748"
 >
 > 有关详细信息，请参阅：[媒体服务 v3的 Azure 门户限制](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3)。
 
+## <a name="october-2020"></a>2020 年 10 月
+
+## <a name="live-events"></a>直播活动
+
+现在允许实时事件停止时对大多数属性进行更新。 此外，允许用户为实时事件的输入和预览 URL 指定静态主机名的前缀。 VanityUrl 现在称为 `useStaticHostName`，以更好地反映属性的意向。
+
+实时事件现在具有等待状态。  请参阅[媒体服务中的实时事件和实时输出](./live-events-outputs-concept.md)。
+
+实时事件支持接收各种输入纵横比。 通过拉伸模式，客户可以指定输出的拉伸行为。
+
+实时编码现在增加了在 0.5 到 20 秒之间输出固定关键帧间隔片段的功能。
+
+## <a name="accounts"></a>帐户
+
+> [!WARNING]
+> 如果使用 2020-05-01 API 版本创建媒体服务帐户，它将不适用于 RESTv2 
+
+## <a name="august-2020"></a>2020 年 8 月
+
+### <a name="dynamic-encryption"></a>动态加密
+动态打包程序中现在提供了对旧版 PlayReady 受保护互操作文件格式 (PIFF 1.1) 加密的支持。 这为 Samsung 和 LG 的传统智能电视机提供了支持，这些支持实现了 Microsoft 发布的通用加密标准 (CENC) 的早期草稿。  PIFF 1.1 格式也是 Silverlight 客户端库以前支持的加密格式。 如今，这种加密格式的唯一用例场景是针对传统的智能电视市场，对于该市场，在某些仅支持使用 PIFF 1.1 加密的平滑流式处理的区域，仍然存在数量不少的智能电视。 
+
+若要使用新的 PIFF 1.1 加密支持，请将加密值更改为流式处理定位符的 URL 路径中的“piff”。 有关详细信息，请参阅[内容保护概述](content-protection-overview.md)。
+例如 `https://amsv3account-cne21.streaming.media.chinacloudapi.cn/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
+
+> [!NOTE]
+> PIFF 1.1 支持作为智能电视（Samsung、LG）的后向兼容解决方案提供，实现了通用加密的早期“Silverlight”版本。 建议仅在需要时使用 PIFF 格式：用于支持在 2009-2015 年间发布的、可支持 PIFF 1.1 版本的 PlayReady 加密的旧版 Samsung 或 LG 智能电视。 
+
 ## <a name="july-2020"></a>2020 年 7 月
 
 ### <a name="high-availability"></a>高可用性
 
 我们发布了一个高可用性的媒体服务和视频点播 (VOD) [概述](./media-services-high-availability-encoding.md)和[示例](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming)。
+
+## <a name="june-2020"></a>2020 年 6 月
+
+### <a name="live-video-analytics-on-iot-edge-preview-release"></a>IoT Edge 预览版上的实时视频分析
+
+IoT Edge 上的实时视频分析预览版现已公开发行。 有关详细信息，请参阅[发行说明](../live-video-analytics-edge/release-notes.md)。
+
+IoT Edge 上的实时视频分析是媒体服务系列的扩展。 通过它，你能够在自己的边缘设备上使用所选择的 AI 模型分析实时视频，并可以选择捕获和录制该视频。 现在，你可以在边缘构建具有实时视频分析的应用，而不必担心构建和操作实时视频管道的复杂性。
 
 ## <a name="january-2020"></a>2020 年 1 月
 
@@ -122,6 +158,7 @@ ms.locfileid: "96300748"
 添加了包括媒体服务性能改进的更新。
 
 * 更新了支持处理的最大文件大小。 请参阅[配额和限制](limits-quotas-constraints.md)。
+* [编码速度改进](concept-media-reserved-units.md)。
 
 ## <a name="april-2019"></a>2019 年 4 月
 

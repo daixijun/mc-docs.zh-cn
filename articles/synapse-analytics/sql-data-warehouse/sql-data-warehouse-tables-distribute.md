@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 04/17/2018
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 897d6efe0461ef7924526be78d1cc459f42a539f
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: a7f2fe081c4b277d6a97a0e945ac704a6660afbc
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153013"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022558"
 ---
 # <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中使用专用 SQL 池设计分布式表的指南
 
@@ -45,7 +45,7 @@ ms.locfileid: "96153013"
 
 ![分布式表](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "分布式表")  
 
-由于相同的值始终哈希处理到相同的分布区，因此，数据仓库本身就具有行位置方面的信息。 可以在专用 SQL 池中根据此信息最大程度地减少查询期间的数据移动，提高查询性能。
+由于相同的值始终哈希处理到相同的分布区，因此，SQL Analytics 本身就具有行位置方面的信息。 可以在专用 SQL 池中根据此信息最大程度地减少查询期间的数据移动，提高查询性能。
 
 哈希分布表适用于星型架构中的大型事实数据表。 它们可以包含大量行，但仍实现高性能。 当然，用户应该了解一些设计注意事项，它们有助于获得分布式系统本应具有的性能。 本文所述的选择合适的分布列就是其中之一。
 

@@ -27,6 +27,10 @@
       href: concepts-built-in-policy.md
     - name: 角色定义项目
       href: concepts-custom-role-definition.md
+    - name: 安全性
+      items:
+        - name: 安全基线
+          href: security-baseline.md
 - name: 操作指南
   items:
     - name: 发布服务器
@@ -35,8 +39,6 @@
           href: create-uidefinition-overview.md
         - name: 测试门户界面
           href: test-createuidefinition.md
-        - name: 创建 Azure 应用程序产品/服务
-          href: publish-marketplace-app.md
         - name: 请求实时访问
           href: request-just-in-time-access.md
         - name: 使用现有虚拟网络
@@ -163,11 +165,11 @@
       href: ./policy-reference.md
 - name: 资源
   items:
-    - name: 定价
-      href: 'https://www.azure.cn/pricing/details/managed-applications/'
     - name: 定价计算器
       href: 'https://www.azure.cn/pricing/calculator/'
     - name: 资源管理器模板最佳做法
       href: 'https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md'
+    - name: Azure Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-managed-applications.html'
     - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-managedapps'
+      href: 'https://stackoverflow.com/questions/tagged/azure-managed-app'

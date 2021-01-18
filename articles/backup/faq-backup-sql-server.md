@@ -5,14 +5,14 @@ ms.reviewer: vijayts
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 11/17/2020
+ms.date: 01/07/2021
 ms.author: v-johya
-ms.openlocfilehash: c6f26f833f24daab0d939c5a0cbc8ab55b0fc345
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 558616b61e7e24675cc8cbaf27b3e74a187167a0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978315"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021682"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>有关备份 Azure VM 上运行的 SQL Server 数据库的常见问题解答
 
@@ -71,7 +71,7 @@ Azure 备份恢复服务保管库可以检测并保护保管库所在的同一�
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>成功的备份作业是否会创建警报？
 
-不是。 成功的备份作业不会生成警报。 仅针对失败的备份作业发送警报。 [此文](backup-azure-monitoring-built-in-monitor.md)介绍了门户警报的详细行为。 但是，如果希望在作业成功的情况下也收到警报，可以[使用 Azure Monitor 进行监视](backup-azure-monitoring-use-azuremonitor.md)。
+否。 成功的备份作业不会生成警报。 仅针对失败的备份作业发送警报。 [此文](backup-azure-monitoring-built-in-monitor.md)介绍了门户警报的详细行为。 但是，如果希望在作业成功的情况下也收到警报，可以[使用 Azure Monitor 进行监视](backup-azure-monitoring-use-azuremonitor.md)。
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>“备份作业”菜单中是否会显示计划的备份作业？
 
@@ -107,7 +107,12 @@ Azure 备份恢复服务保管库可以检测并保护保管库所在的同一�
   
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>我可否保护启用了 TDE（透明数据加密）的数据库，且数据库是否在整个备份过程中保持加密状态？
 
-可以，Azure 备份支持备份启用了 TDE 的 SQL Server 数据库或服务器。 Azure 备份支持由 Azure 托管密钥的或由客户托管密钥 (BYOK) 的 [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017)。  备份过程中不会执行任何 SQL 加密，因此数据库经过备份后将保持加密状态。
+可以，Azure 备份支持备份启用了 TDE 的 SQL Server 数据库或服务器。 Azure 备份支持由 Azure 托管密钥的或由客户托管密钥 (BYOK) 的 [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)。  备份过程中不会执行任何 SQL 加密，因此数据库经过备份后将保持加密状态。
+
+## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>Azure 备份是否对数据流执行校验和操作？
+
+我们的确对数据流执行校验和操作。 但这并不会与 [SQL 校验和](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server)混淆。
+Azure 工作负载备份对数据流计算校验和，并在备份操作过程中将其显式存储。 然后，在还原操作过程中，将此校验和流视为引用并与数据流的校验和进行交叉验证，以确保数据保持一致。
 
 ## <a name="next-steps"></a>后续步骤
 

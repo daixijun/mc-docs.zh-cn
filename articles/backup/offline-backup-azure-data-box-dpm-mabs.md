@@ -4,13 +4,13 @@ description: 可以使用 Azure Data Box 以脱机方式将初始备份数据从
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/17/2020
-ms.openlocfilehash: 4c2171aee6660d971d0e184d5167de681c9ea150
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.date: 01/07/2021
+ms.openlocfilehash: 5a0a8d11712a499c35d8584aa3ba05383d316b11
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977616"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021237"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>使用 Azure Data Box 进行 DPM 和 MABS 的脱机植入（预览版）
 
@@ -65,7 +65,7 @@ DPM/MABS 上运行的 MARS 代理应升级到[最新版本](https://aka.ms/azure
 
 ### <a name="order-and-receive-the-data-box-device"></a>订购并接收 Data Box 设备
 
-在触发脱机备份之前，请确保所需 Data Box 设备处于“已交货”状态。 若要订购最符合你要求的 SKU，请参阅[备份数据大小和支持的 Data Box SKU](#backup-data-size-and-supported-data-box-skus)。 执行[本文](https://docs.azure.cn/databox/data-box-disk-deploy-ordered)中的步骤，订购和接收 Data Box 设备。
+在触发脱机备份之前，请确保所需 Data Box 设备处于“已交货”状态。 若要订购最符合你要求的 SKU，请参阅[备份数据大小和支持的 Data Box SKU](#backup-data-size-and-supported-data-box-skus)。 执行[本文](../databox/data-box-disk-deploy-ordered.md)中的步骤，订购和接收 Data Box 设备。
 
 > [!IMPORTANT]
 > 请勿选择“BlobStorage”作为“帐户类型”。 DPM/MABS 服务器需要一个支持页 Blob 的帐户，而在选择 BlobStorage 的情况下，此需求无法满足。 为 Azure Data Box 作业创建目标存储帐户时，请选择“存储 V2 (常规用途 V2)”作为“帐户类型”。 
@@ -78,7 +78,7 @@ DPM/MABS 上运行的 MARS 代理应升级到[最新版本](https://aka.ms/azure
 
 ### <a name="setup-azure-data-box-disk"></a>设置 Azure Data Box Disk
 
-如果订购了一个或多个 Azure Data Box Disk（每个最大 8 TB），请执行[此处](https://docs.azure.cn/databox/data-box-disk-deploy-set-up)所述的步骤，打开包装、连接和解锁 Data Box Disk。
+如果订购了一个或多个 Azure Data Box Disk（每个最大 8 TB），请执行[此处](../databox/data-box-disk-deploy-set-up.md)所述的步骤，打开包装、连接和解锁 Data Box Disk。
 
 > [!NOTE]
 > DPM/MABS 服务器可能没有 USB 端口。 在这种情况下，可以将 Azure Data Box Disk 连接到另一台服务器/客户端，并将设备的根目录作为网络共享目录公开。
@@ -206,7 +206,7 @@ DPM 服务器上的 Azure 备份 (MAB) 代理会在租户中为你创建一个 A
 
 若要解决此问题，请执行以下步骤，然后重试策略配置。
 
-1. 使用在要创建导入/导出作业的订阅上具有管理员访问权限的另一个帐户，登录到 DPM/MABS 服务器 UI 上显示的 Azure 登录页。
+1. 使用在要创建 Data Box 作业的订阅上具有管理员访问权限的另一个帐户，登录到 DPM/MABS 服务器 UI 上显示的 Azure 登录页。
 2. 如果没有其他服务器配置了脱机种子设定并且没有其他服务器依赖于 `AzureOfflineBackup_<Azure User Id>` 应用程序，则从“Azure 门户”>“Azure Active Directory”>“应用程序注册”删除此应用程序。
 
    > [!NOTE]

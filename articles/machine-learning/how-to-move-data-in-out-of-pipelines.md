@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 3f1063d92c3301ff66826e4c0ec1cbc36290dacf
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: cd1cd646814a72af7564bb61c9e8367307017d17
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104831"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021793"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>将数据移入 ML 管道和在 ML 管道之间移动数据的步骤 (Python)
 
@@ -40,7 +40,7 @@ ms.locfileid: "97104831"
 
 需要：
 
-- Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 试用[免费版或付费版 Azure 机器学习](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+- Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 试用 [Azure 机器学习的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 - [适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)，或 [Azure 机器学习工作室](https://studio.ml.azure.cn/)的访问权限。
 
@@ -57,7 +57,7 @@ ms.locfileid: "97104831"
 
 - 某些预先存在的数据。 本文简要介绍了如何使用 [Azure blob 容器](../storage/blobs/storage-blobs-overview.md)。
 
-- 可选：现有机器学习管道，例如[使用 Azure 机器学习 SDK 创建和运行机器学习管道](how-to-create-your-first-pipeline.md)中所述的管道。
+- 可选：现有机器学习管道，例如[使用 Azure 机器学习 SDK 创建和运行机器学习管道](how-to-create-machine-learning-pipelines.md)中所述的管道。
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>将 `Dataset` 对象用于预先存在的数据 
 
@@ -267,4 +267,4 @@ step1_output_ds.register(name="processed_data", create_new_version=True)
 ## <a name="next-steps"></a>后续步骤
 
 * [创建 Azure 机器学习数据集](how-to-create-register-datasets.md)
-* [使用 Azure 机器学习 SDK 创建和运行机器学习管道](how-to-create-your-first-pipeline.md)
+* [使用 Azure 机器学习 SDK 创建和运行机器学习管道](how-to-create-machine-learning-pipelines.md)

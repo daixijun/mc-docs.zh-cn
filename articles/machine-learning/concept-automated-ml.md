@@ -1,7 +1,7 @@
 ---
-title: 什么是自动化 ML/AutoML
+title: 什么是自动化 ML？ 自动化 ML
 titleSuffix: Azure Machine Learning
-description: 了解 Azure 机器学习如何自动选取算法，以及如何通过它来生成模型，以便使用你提供的参数和条件为模型选择最佳算法，从而节省时间。
+description: 了解 Azure 机器学习如何使用你提供的参数和条件来自动生成模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,18 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
-ms.date: 04/22/2020
-ms.openlocfilehash: d883ed81c23133d15e598b91aa592dc6c1cf832c
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.date: 10/27/2020
+ms.custom: automl
+ms.openlocfilehash: 4e45175936805448c4859060e982484890621d3f
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978274"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023243"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>什么是自动化机器学习 (AutoML)？
 
-自动化机器学习也称为自动化 ML 或 AutoML，是将机器学习模型开发过程中耗时的反复性任务自动化的过程。 数据科学家、分析师和开发人员可以使用它来生成高度可缩放、高效且高产能的 ML 模型，同时保证模型的质量。 自动化 ML 基于 [Microsoft Research 部门](https://www.microsoft.com/research/project/automl/)的突破性技术。
+自动化机器学习也称为自动化 ML 或 AutoML，是将机器学习模型开发过程中耗时的反复性任务自动化的过程。 数据科学家、分析师和开发人员可以使用它来生成高度可缩放、高效且高产能的 ML 模型，同时保证模型的质量。 Azure 机器学习中的自动化 ML 基于 [Microsoft Research 部门](https://www.microsoft.com/research/project/automl/)的突破性技术。
 
 传统的机器学习模型开发是资源密集型的，需要具备丰富的领域知识，并需要花费大量的时间来生成和比较数十个模型。 使用自动化机器学习可以缩减生成生产就绪型 ML 模型所需的时间，同时使工作变得更轻松高效。
 
@@ -66,7 +67,7 @@ ms.locfileid: "94978274"
 
 参阅以下 Python 笔记本中用于预测的回归和自动化机器学习示例：[销售预测](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)、[需求预测](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)和[饮料生产预测](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)。
 
-## <a name="how-automl-works"></a>AutoML 的工作原理
+## <a name="how-automated-ml-works"></a>自动化 ML 的工作原理
 
 在训练期间，Azure 机器学习会创建多个尝试不同算法和参数的并行管道。 该服务将迭代与特征选择配对的 ML 算法，每次迭代都会生成带有训练评分的模型。 模型的评分越高，则认为它可以更好地“拟合”数据。  一旦达到试验中定义的退出条件，机器学习就会停止。 
 
@@ -172,7 +173,7 @@ ms.locfileid: "94978274"
 
  使用远程计算时，有更多的功能可用，如下表中所示。 
 
-| 功能                                                    | Remote | Local | 
+| Feature                                                    | Remote | Local | 
 |------------------------------------------------------------|--------|-------|
 | 数据流式处理（最高 100 GB 的大数据支持）          | ✓      |       | 
 | 基于 DNN-BERT 的文本特征化和训练             | ✓      |       |

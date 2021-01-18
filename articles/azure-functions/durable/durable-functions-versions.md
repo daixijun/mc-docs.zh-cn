@@ -3,14 +3,14 @@ title: Durable Functions 版本概述 - Azure Functions
 description: 了解 Durable Functions 版本。
 author: cgillum
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: cd9878a21c670c2f6756a6838806dea38e1ad94c
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 0807369d8d6b5770d6215d5ac82c0c14011e55d3
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413794"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023110"
 ---
 # <a name="durable-functions-versions-overview"></a>Durable Functions 版本概述
 
@@ -61,6 +61,9 @@ Durable Functions 2.x 在 [Azure Functions 扩展包](../functions-bindings-regi
     }
 }
 ```
+
+> [!NOTE]
+> 如果在更改扩展捆绑版本后，Visual Studio Code 未显示正确的模板，请通过运行 Developer:Reload Window 命令（在 Windows 和 Linux 上为<kbd>Ctrl + R</kbd>，在 macOS 上为 <kbd>Command + R</kbd>）来重新加载窗口。
 
 #### <a name="net"></a>.NET
 

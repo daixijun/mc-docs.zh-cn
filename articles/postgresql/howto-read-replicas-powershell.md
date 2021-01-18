@@ -6,14 +6,14 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: how-to
 origin.date: 06/08/2020
-ms.date: 10/29/2020
+ms.date: 01/11/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 38db5968ea608bf9dba4607807802787ff24c2f1
-ms.sourcegitcommit: 7b3c894d9c164d2311b99255f931ebc1803ca5a9
+ms.openlocfilehash: 18c738fd8d31a39a5266e42768aa139d45eede2b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470303"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022576"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>如何使用 PowerShell 在 Azure Database for PostgreSQL 中创建和管理只读副本
 
@@ -58,7 +58,7 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 ```azurepowershell
 Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
-  New-AzMariaDServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location chinanorth2
+  New-AzPostgreSQLServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location chinanorth2
 ```
 
 若要详细了解可以在哪些区域中创建副本，请访问[只读副本概念文章](concepts-read-replicas.md)。
@@ -73,15 +73,23 @@ Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 若要查看给定主服务器的所有副本，请运行以下命令：
 
 ```azurepowershell
-Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
+Get-AzPostgreSQLReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 ```
 
-`Get-AzMariaDReplica` 命令需要以下参数：
+`Get-AzPostgreSQLReplica` 命令需要以下参数：
 
 | 设置 | 示例值 | 说明  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  要在其中创建副本服务器的资源组。  |
 | ServerName | mydemoserver | 主服务器的名称或 ID。 |
+
+### <a name="stop-a-replica-server"></a>停止副本服务器
+
+停止只读副本服务器会将只读副本提升为独立服务器。 可以通过运行 `Update-AzPostgreSqlServer` cmdlet 并将 ReplicationRole 值设置为 `None` 来完成此操作。
+
+```azurepowershell
+Update-AzPostgreSqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -ReplicationRole None
+```
 
 ### <a name="delete-a-replica-server"></a>删除副本服务器
 

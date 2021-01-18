@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 01/08/2021
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 48d2924fec5d0ed6aea6d5d8a749241d87a465a4
-ms.sourcegitcommit: 753c74533aca0310dc7acb621cfff5b8993c1d20
+ms.openlocfilehash: 7ddaec0b62f3ab74ad122710aed7843be037ea79
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92211389"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021529"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect： 配置 AD DS 连接器帐户权限 
 
@@ -40,6 +40,7 @@ ms.locfileid: "92211389"
 | Exchange 混合部署 |针对用户、组和联系人的属性的读写权限，详见 [Exchange 混合写回](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)。 |
 | Exchange 邮件公用文件夹 |对 [Exchange 邮件公用文件夹](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)中所述的公用文件夹属性的读取权限。 | 
 | 密码写回 |针对用户属性的读写权限，详见[密码管理入门](../authentication/tutorial-enable-sspr-writeback.md)。 |
+| 设备写回 |针对设备对象和容器的读写权限，详见[设备写回](how-to-connect-device-writeback.md)。 |
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>使用 ADSyncConfig PowerShell 模块 
 ADSyncConfig 模块需要[适用于 AD DS 的远程服务器管理工具 (RSAT)](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools)，因为它依赖于 AD DS PowerShell 模块和工具。 若要安装适用于 AD DS 的 RSAT，请使用“以管理员身份运行”打开 Windows PowerShell 窗口并执行： 
@@ -293,16 +294,16 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 |类型 |名称 |访问 |应用于|
 |-----|-----|-----|-----| 
-|Allow |SYSTEM |完全控制 |此对象 
-|Allow |企业管理员 |完全控制 |此对象 
-|Allow |域管理员 |完全控制 |此对象 
-|Allow |管理员 |完全控制 |此对象 
-|Allow |企业域控制器 |列出内容 |此对象 
-|Allow |企业域控制器 |读取所有属性 |此对象 
-|Allow |企业域控制器 |读取权限 |此对象 
-|Allow |经过身份验证的用户 |列出内容 |此对象 
-|Allow |经过身份验证的用户 |读取所有属性 |此对象 
-|Allow |经过身份验证的用户 |读取权限 |此对象 
+|允许 |SYSTEM |完全控制 |此对象 
+|允许 |企业管理员 |完全控制 |此对象 
+|允许 |域管理员 |完全控制 |此对象 
+|允许 |管理员 |完全控制 |此对象 
+|允许 |企业域控制器 |列出内容 |此对象 
+|允许 |企业域控制器 |读取所有属性 |此对象 
+|允许 |企业域控制器 |读取权限 |此对象 
+|允许 |经过身份验证的用户 |列出内容 |此对象 
+|允许 |经过身份验证的用户 |读取所有属性 |此对象 
+|允许 |经过身份验证的用户 |读取权限 |此对象 
 
 ## <a name="next-steps"></a>后续步骤
 - [Azure AD Connect：帐户和权限](reference-connect-accounts-permissions.md)

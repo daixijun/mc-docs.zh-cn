@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 01/23/2020
-ms.date: 12/07/2020
-ms.openlocfilehash: 1efef4be1d10bb9b848580c05a8dd01075c7d321
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/06/2021
+ms.openlocfilehash: d2d55ec9bb718ae4fb77cb70161939ab978abac0
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104528"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023003"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 常见问题解答
 
@@ -103,7 +103,8 @@ Azure Monitor 收集的所有日志数据都存储在 Log Analytics 工作区中
 ## <a name="metrics"></a>指标
 
 ### <a name="why-are-metrics-from-the-guest-os-of-my-azure-virtual-machine-not-showing-up-in-metrics-explorer"></a>指标资源管理器中为什么没有显示 Azure 虚拟机的来宾操作系统中的指标？
-Azure 资源的[平台指标](insights/monitor-azure-resource.md#monitoring-data)是自动收集的。 但是，你必须执行某些配置才能从虚拟机的来宾操作系统收集指标。 对于 Windows VM，请按照[安装并配置 Azure 诊断扩展 (WAD)](platform/diagnostics-extension-windows-install.md)中所述，安装诊断扩展并配置 Azure Monitor 接收器。 
+Azure 资源的[平台指标](insights/monitor-azure-resource.md#monitoring-data)是自动收集的。 但是，你必须执行某些配置才能从虚拟机的来宾操作系统收集指标。 对于 Windows VM，请安装诊断扩展。 
+<!--Not available in MC: Azure monitor sink-->
 
 ## <a name="alerts"></a>警报
 

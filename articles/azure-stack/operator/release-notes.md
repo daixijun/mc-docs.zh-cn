@@ -3,17 +3,17 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: WenJason
 ms.topic: article
-origin.date: 11/20/2020
-ms.date: 12/07/2020
+origin.date: 12/23/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: d59276de9efe984bb3b6dc0d0fe293f921ffa946
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: f46a3d477622eab4d79476a1469eb5a6ae02bcc3
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508017"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894401"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -61,7 +61,7 @@ Azure Stack Hub 2008 更新内部版本类型为“完整”。
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack Hub 现在支持 VNET 对等互连，这样，你便可以在不使用网络虚拟设备 (NVA) 的情况下连接 VNET。 有关详细信息，请参阅[新 VNET 对等互连文档](../user/virtual-network-peering.md)。
 - Azure Stack Hub blob 存储现在允许用户使用不可变 blob。 通过在容器上设置不可变的策略，可将业务关键型数据对象以 WORM（写入一次，读取多次）状态进行存储。 在此版本中，不可变的策略只能通过 REST API 或客户端 SDK 来设置。 在此版本中，也不可能执行追加 blob 写入。 有关不可变 blob 的详细信息，请参阅[使用不可变存储来存储业务关键型 blob 数据](/storage/blobs/storage-blob-immutable-storage)。
-- Azure Stack Hub 存储现在支持 Azure 存储服务 API 版本 2019-07-07。 有关与新 REST API 版本兼容的 Azure 客户端库，请参阅 [Azure Stack Hub 存储开发工具](../user/azure-stack-storage-dev.md#azure-client-libraries)。
+- Azure Stack Hub 存储现在支持 Azure 存储服务 API 版本 2019-07-07。 有关与新 REST API 版本兼容的 Azure 客户端库，请参阅 [Azure Stack Hub 存储开发工具](../user/azure-stack-storage-dev.md#azure-client-libraries)。 对于 Azure 存储服务管理 API，已添加对 2018-02-01 的支持，其中包含全部可用功能的子集。
 - Azure Stack Hub 计算现在支持 Azure 计算 API 版本 2020-06-01，其中包含全部可用功能的子集。
 - Azure Stack Hub 托管磁盘现在支持 Azure 计算 API 版本 2019-03-01，其中包含可用功能的子集。
 - Windows Admin Center 的预览版现在可以连接到 Azure Stack Hub，以便在支持操作期间提供有关基础结构的深入见解（需要不受限）。
@@ -95,7 +95,7 @@ Azure Stack Hub 2008 更新内部版本类型为“完整”。
 
   请注意，这些更改是在 Azure Stack Hub 系统的主机级别添加的。 请与 OEM 联系，以便安排在架顶式 (ToR) 网络交换机上进行所需的更改。 此 ToR 更改可在更新到 2008 版本之前执行，也可在更新到 2008 版本后执行。 有关详细信息，请参阅[网络集成文档](azure-stack-network.md)。
 
-  - 在此内部版本中，支持 GPU 的 VM 大小 NCas_v4 (NVIDIA T4) 已替换为 VM 大小 NCasT4_v3，以便与 Azure 保持一致。 请注意，这些在门户中不可见，只能通过 Azure 资源管理器模板使用。
+- 在此内部版本中，支持 GPU 的 VM 大小 NCas_v4 (NVIDIA T4) 已替换为 VM 大小 NCasT4_v3，以便与 Azure 保持一致。 请注意，这些在门户中不可见，只能通过 Azure 资源管理器模板使用。
 
 ### <a name="fixes"></a>修复项
 
@@ -123,7 +123,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 必须在包含以下修补程序的版本 2005 上应用 Azure Stack Hub 版本 2008：
 
-- [Azure Stack Hub 修补程序 1.2005.23.88](https://support.microsoft.com/help/4595068)
+- [Azure Stack Hub 修补程序 1.2005.26.94](https://support.microsoft.com/help/4595076)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>成功应用 2008 更新之后
 
@@ -131,7 +131,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 安装 2008 之后，如果有任何 2008 修补程序被发布，应安装这些修补程序：
 
-- [Azure Stack Hub 修补程序 1.2008.15.92](https://support.microsoft.com/help/4595069)
+- [Azure Stack Hub 修补程序 1.2008.21.104](https://support.microsoft.com/help/4599984)
 
 ## <a name="2005-build-reference"></a>2005 内部版本参考
 
@@ -221,7 +221,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 必须在包含以下修补程序的版本 2002 中应用 Azure Stack Hub 版本 2005：
 
-- [Azure Stack Hub 修补程序 1.2002.61.163](https://support.microsoft.com/help/4592241)
+- [Azure Stack Hub 修补程序 1.2002.63.167](https://support.microsoft.com/help/4595072)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>成功应用 2005 更新之后
 
@@ -229,7 +229,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 安装 2005 之后，如果以后发布了任何 2005 修补程序，应安装这些修补程序：
 
-- [Azure Stack Hub 修补程序 1.2005.23.88](https://support.microsoft.com/help/4595068)
+- [Azure Stack Hub 修补程序 1.2005.26.94](https://support.microsoft.com/help/4595076)
 
 ## <a name="2002-build-reference"></a>2002 内部版本参考
 
@@ -356,4 +356,4 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 安装此更新之后，请安装所有适用的修补程序。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修补程序 1.2002.62.165](https://support.microsoft.com/help/4594758) 你可以访问 [TechNet 库中旧版本 Azure Stack Hub 的发行说明](https://aka.ms/azsarchivedrelnotes)。 提供这些已存档文档仅供参考，并不意味着支持这些版本。 有关 Azure Stack Hub 支持的信息，请参阅 [Azure Stack Hub 服务策略](azure-stack-servicing-policy.md)。 如需进一步的帮助，请联系 Azure 客户支持服务。
+- [Azure Stack Hub 修补程序 1.2002.63.167](https://support.microsoft.com/help/4595072) 你可以访问 [TechNet 库中旧版本 Azure Stack Hub 的发行说明](https://aka.ms/azsarchivedrelnotes)。 提供这些已存档文档仅供参考，并不意味着支持这些版本。 有关 Azure Stack Hub 支持的信息，请参阅 [Azure Stack Hub 服务策略](azure-stack-servicing-policy.md)。 如需进一步的帮助，请联系 Azure 客户支持服务。

@@ -1,16 +1,16 @@
 ---
 title: Durable Functions 中的性能和缩放 - Azure
-description: Azure Functions 的 Durable Functions 扩展简介。
+description: 了解 Azure Functions 的 Durable Functions 扩展的独特缩放特征。
 author: cgillum
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 01/04/2021
 ms.author: v-junlch
-ms.openlocfilehash: 23c33ca612e0b5369d0058e6ccd541583efae7ca
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: 743f53885a3a1b41e05b8dc73bb53bef7ff4824d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413966"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021242"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Durable Functions 中的性能和缩放 (Azure Functions)
 
@@ -20,13 +20,13 @@ ms.locfileid: "89413966"
 
 ## <a name="history-table"></a>历史记录表
 
-“历史记录”表是一个 Azure 存储表，包含任务中心内所有业务流程实例的历史记录事件。 此表的名称采用 *TaskHubName*History 格式。 当实例运行时，会在此表中添加新行。 此表的分区键派生自业务流程的实例 ID。 实例 ID 在大多数情况下是随机的，确保在 Azure 存储中以最佳方式分配内部分区。
+“历史记录”表是一个 Azure 存储表，包含任务中心内所有业务流程实例的历史记录事件。 此表的名称采用 *TaskHubName* History 格式。 当实例运行时，会在此表中添加新行。 此表的分区键派生自业务流程的实例 ID。 实例 ID 在大多数情况下是随机的，确保在 Azure 存储中以最佳方式分配内部分区。
 
 需要运行业务流程实例时，会将“历史记录”表的相应行载入内存。 然后，这些历史记录事件将重播到业务流程协调程序函数代码中，使其恢复到以前的检查点状态。 
 
 ## <a name="instances-table"></a>实例表
 
-“实例”表是另一个 Azure 存储表，包含任务中心内所有业务流程和实体实例的状态。 创建实例时，会在此表中添加新行。 此表的分区键是业务流程实例 ID 或实体键，行键是固定的常量。 每个业务流程或实体实例对应一行。
+“实例”表是另一个 Azure 存储表，包含任务中心内所有业务流程和实体实例的状态。 创建实例时，会在此表中添加新行。 此表的分区键是业务流程实例 ID 或实体键，行键是空字符串。 每个业务流程或实体实例对应一行。
 
 使用此表可以满足来自 `GetStatusAsync` (.NET) 和 `getStatus` (JavaScript) API 以及[状态查询 HTTP API](durable-functions-http-api.md#get-instance-status) 的实例查询请求。 它与前面所述的“历史记录”表内容保持最终一致。 
 
@@ -51,7 +51,7 @@ Durable Task 扩展实现了随机指数退让算法，以降低空闲队列轮�
 可以通过 [host.json 文件](../functions-host-json.md#durabletask)中的 `maxQueuePollingInterval` 属性配置最大轮询延迟。 将此属性设置为较高的值时，可能导致的消息处理延迟也越高。 只有在不活动的时间段过后，才会出现较高的延迟。 将此属性设置为较低的值时，可能导致的存储成本会较高，因为存储事务数增高。
 
 > [!NOTE]
-> 在 Azure Functions 消耗计划中运行时，[Azure Functions 缩放控制器](../functions-scale.md#how-the-consumption-plans-work)每隔 10 秒就会轮询每个控件和工作项队列一次。 若要确定何时激活函数应用实例并进行缩放决策，这种额外的轮询是必需的。 在撰写本文时，这种 10 秒的时间间隔为常量，不能进行配置。
+> 在 Azure Functions 消耗计划和高级计划中运行时，[Azure Functions 缩放控制器](../functions-scale.md#how-the-consumption-and-premium-plans-work)每隔 10 秒就会轮询每个控件和工作项队列一次。 若要确定何时激活函数应用实例并进行缩放决策，这种额外的轮询是必需的。 在撰写本文时，这种 10 秒的时间间隔为常量，不能进行配置。
 
 ### <a name="orchestration-start-delays"></a>业务流程启动延迟
 通过在某个任务中心的控制队列中放置 `ExecutionStarted` 消息来启动业务流程实例。 在某些情况下，你可能会观察到计划的业务流程运行时间与它实际开始运行的时间之间存在数秒延迟。 在此时间间隔内，业务流程实例仍处于 `Pending` 状态。 造成这种延迟的潜在原因有两个：
@@ -138,9 +138,12 @@ Durable Task 扩展实现了随机指数退让算法，以降低空闲队列轮�
 
 ## <a name="auto-scale"></a>自动缩放
 
-与消耗计划中运行的所有 Azure Functions 一样，Durable Functions 支持通过 [Azure Functions 缩放控制器](../functions-scale.md#runtime-scaling)自动缩放。 缩放控制器通过定期发出 _peek_ 命令来监视所有队列的延迟。 根据扫视消息的延迟，缩放控制器将决定是要添加还是删除 VM。
+与消耗计划和弹性高级计划中运行的所有 Azure Functions 一样，Durable Functions 支持通过 [Azure Functions 缩放控制器](../functions-scale.md#runtime-scaling)自动缩放。 缩放控制器通过定期发出 _peek_ 命令来监视所有队列的延迟。 根据扫视消息的延迟，缩放控制器将决定是要添加还是删除 VM。
 
 如果缩放控制器确定控制队列消息延迟过高，则会添加 VM 实例，直到消息延迟下降到可接受的级别，或者达到控制队列分区计数。 同样，如果工作项队列延迟偏高，缩放控制器会不断地添加 VM 实例，而不管分区计数如何。
+
+> [!NOTE]
+> 从 Durable Functions 2.0 开始，可以将函数应用配置为在 Elastic Premium 计划中受 VNET 保护的服务终结点中运行。 在此配置中，Durable Functions 触发器启动缩放请求而不是缩放控制器。
 
 ## <a name="thread-usage"></a>线程用量
 
@@ -251,10 +254,10 @@ Azure Functions 支持在单个应用实例中并发执行多个函数。 这种
 规划对生产应用程序使用 Durable Functions 时，必须在规划过程中提前考虑性能要求。 本部分介绍一些基本的使用方案和预期的最大吞吐量数字。
 
 * **顺序活动执行**：此方案描述的业务流程协调程序函数逐个运行一系列活动函数。 它与[函数链接](durable-functions-sequence.md)示例非常类似。
-* **并行活动执行**：此方案描述的业务流程协调程序函数使用[扇出扇入](durable-functions-cloud-backup.md)模式并行执行多个活动函数。
-* **并行响应处理**：此方案是[扇出扇入](durable-functions-cloud-backup.md)模式的后半部分。 它侧重于扇入性能。 必须注意，与扇出不同，扇入是由单个业务流程协调程序函数实例执行的，因此只能在单个 VM 上运行。
-* **外部事件处理**：此方案表示一次等待一个[外部事件](durable-functions-external-events.md)的单个业务流程协调程序函数实例。
-* **实体操作处理**：此方案测试单个[计数器实体](durable-functions-entities.md)处理恒定操作流的速度。
+* **并行活动执行**：此方案描述的业务流程协调程序函数使用 [扇出扇入](durable-functions-cloud-backup.md)模式并行执行多个活动函数。
+* **并行响应处理**：此方案是 [扇出扇入](durable-functions-cloud-backup.md)模式的后半部分。 它侧重于扇入性能。 必须注意，与扇出不同，扇入是由单个业务流程协调程序函数实例执行的，因此只能在单个 VM 上运行。
+* **外部事件处理**：此方案表示一次等待一个 [外部事件](durable-functions-external-events.md)的单个业务流程协调程序函数实例。
+* **实体操作处理**：此方案测试单个 [计数器实体](durable-functions-entities.md)处理恒定操作流的速度。
 
 > [!TIP]
 > 与扇出不同，扇入操作限制为单个 VM。 如果应用程序使用扇出扇入模式，并且你关注扇入性能，请考虑在多个[子业务流程](durable-functions-sub-orchestrations.md)之间分割活动函数扇出。

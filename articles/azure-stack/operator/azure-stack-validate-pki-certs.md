@@ -7,16 +7,16 @@ documentationcenter: ''
 author: WenJason
 ms.topic: how-to
 origin.date: 10/19/2020
-ms.date: 12/07/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 832d20ba051b50d134967f583e83c6cc486f478a
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: a76896124f35b5a113c8237bbc04f43bdcd2814e
+ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508033"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97894392"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>验证 Azure Stack Hub PKI 证书
 
@@ -239,6 +239,12 @@ ms.locfileid: "96508033"
     ```
 
 **解决方法**：遵循针对每个证书的每组测试下的详细信息部分中的工具指导。
+
+**症状**：尽管已将 HTTP CDP 写入 x509 扩展，HTTP CRL 检查仍失败。
+
+**原因：** 目前，AzsReadinessChecker 无法以某些语言检查 HTTP CDP。
+
+**解决方法**：将 OS 语言设置为 EN-US，然后运行验证。
 
 ## <a name="certificates"></a>证书
 

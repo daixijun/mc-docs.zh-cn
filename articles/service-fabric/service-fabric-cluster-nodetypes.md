@@ -4,21 +4,20 @@ description: 了解 Azure Service Fabric 节点类型如何与虚拟机规模集
 ms.topic: conceptual
 origin.date: 03/23/2018
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: sfrev
-ms.openlocfilehash: 70f391d7374e445f88959037f78c5ec5b46cb956
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 4eca37db6b29e86f821bb770ed93e81a08d8761a
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127707"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022902"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 节点类型与虚拟机规模集
 
-[虚拟机规模集](../virtual-machine-scale-sets/index.yml)是一种 Azure 计算资源。 可使用规模集以集的形式部署和管理虚拟机集合。 在 Azure Service Fabric 群集中定义的每个节点类型都只设置了一个规模集：多个节点类型不能由同一规模集提供支持，而一个节点类型（在大多数情况下）不应由多个规模集提供支持。 此情况的一个例外是[垂直缩放](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)节点类型这一罕见情况，即当副本从原始规模集迁移到已升级规模集时，临时有两个具有相同 `nodeTypeRef` 值的规模集。
+[虚拟机规模集](../virtual-machine-scale-sets/index.yml)是一种 Azure 计算资源。 可使用规模集以集的形式部署和管理虚拟机集合。 在 Azure Service Fabric 群集中定义的每个节点类型都只设置了一个规模集：多个节点类型不能由同一规模集提供支持，而一个节点类型不应由多个规模集提供支持。
 
 规模集中每个虚拟机上均通过 Microsoft.Azure.ServiceFabric 虚拟机扩展安装了 Service Fabric 运行时。 可独立增加或减少每个节点类型、更改每个群集节点上运行的 OS SKU、打开不同的端口集，并使用不同的容量指标。
 

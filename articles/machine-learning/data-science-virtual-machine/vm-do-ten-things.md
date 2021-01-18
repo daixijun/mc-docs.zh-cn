@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: b42d0824abb84e9cdb75c1c4c4044a868e8c302b
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 94fd39f43b1a9868d19d9bf934cd2b6196428189
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105336"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022633"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>使用 Windows Data Science Virtual Machine 的数据科学
 
@@ -252,8 +252,8 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 ![前 10 行数据的屏幕截图](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
 
-### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure Synapse Analytics（以前称为 SQL DW）和数据库
-Azure Synapse Analytics（以前称为 SQL DW）是一项弹性数据仓库即服务，具有企业级 SQL Server 体验。
+### <a name="azure-synapse-analytics-and-databases"></a>Azure Synapse Analytics 和数据库
+Azure Synapse Analytics 是一项弹性数据仓库即服务，具有企业级 SQL Server 体验。
 
 可以按照[本文](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)中的说明预配 Azure Synapse Analytics。 预配 Azure Synapse Analytics 后，可按照[此演练](../team-data-science-process/sqldw-walkthrough.md)，使用 Azure Synapse Analytics 中的数据执行数据上传、探索和建模。
 

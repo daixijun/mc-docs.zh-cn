@@ -11,19 +11,19 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: ff8d25dc5a2284fa5c645ef7a606e1aafc49be0c
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: e71527da02b885ae0e4cfb409d7f8975522e12b6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105331"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98021995"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>管理对 Azure 机器学习工作区的访问权限
 
 本文介绍了如何管理对 Azure 机器学习工作区的访问权限（授权）。 [Azure 基于角色的访问控制 (Azure RBAC)](../role-based-access-control/overview.md) 用于管理对 Azure 资源的访问权限，例如，创建新资源或使用现有资源的权限。 Azure Active Directory (Azure AD) 中的用户会获得特定角色，这些角色授予对资源的访问权限。 Azure 提供内置角色和创建自定义角色的功能。
 
 > [!TIP]
-> 虽然本文着重介绍的是 Azure 机器学习，但 Azure ML 依赖的单个服务也提供了它们自己的 RBAC 设置。 例如，使用本文中的信息，可以配置谁能向 Azure Kubernetes 服务上部署为 Web 服务的模型提交评分请求。 但是 Azure Kubernetes 服务提供了它自己的 Azure RBAC 角色集。 有关对于 Azure 机器学习可能有用的服务特定的 RBAC 信息，请参阅以下链接：
+> 虽然本文着重介绍的是 Azure 机器学习，但 Azure ML 依赖的单个服务也提供了它们自己的 RBAC 设置。 例如，使用本文中的信息，可以配置谁能向 Azure Kubernetes 服务上部署为 Web 服务的模型提交评分请求。 但 Azure Kubernetes 服务具有它自己的一组 Azure 角色。 有关对于 Azure 机器学习可能有用的服务特定的 RBAC 信息，请参阅以下链接：
 >
 > * [控制对 Azure Kubernetes 群集资源的访问权限](../aks/azure-ad-rbac.md)
 > * [使用 Azure RBAC 来管理对 blob 数据的访问权限](/storage/common/storage-auth-aad-rbac-portal.md)
@@ -174,7 +174,7 @@ az role definition update --role-definition update_def.json --subscription <sub-
 | 新建计算群集 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`/workspaces/computes/write` |
 | 新建计算实例 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`/workspaces/computes/write` |
 | 提交任何类型的运行 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| 发布管道终结点 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| 发布管道和终结点 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | 在 AKS/ACI 资源上部署已注册的模型 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | 针对已部署的 AKS 终结点进行评分 | 不是必需 | 不是必需 | 允许以下权限的“所有者”角色、“参与者”角色或自定义角色：`"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"`（未使用 Azure Active Directory 身份验证时）或 `"/workspaces/read"`（使用令牌身份验证时） |
 | 使用交互式笔记本访问存储 | 不是必需 | 不是必需 | 所有者、参与者或自定义角色允许：`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |

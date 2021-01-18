@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 9070e488a0a8272a1bf530e32a79a04971693b69
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 83fdbfb81cb581d4929ef81806228b04914a7a8d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104585"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023230"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>监视机器学习 Web 服务终结点以及从中收集数据
 
@@ -34,7 +34,7 @@ ms.locfileid: "97104585"
  
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用 [Azure 机器学习的免费版或付费版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
+* 如果没有 Azure 订阅，请在开始前创建一个试用帐户。 立即试用 [Azure 机器学习的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)
 
 * 已安装 Azure 机器学习工作区、一个包含脚本的本地目录以及用于 Python 的 Azure 机器学习 SDK。 若要了解详细信息，请参阅[如何配置开发环境](how-to-configure-environment.md)。
 
@@ -157,14 +157,24 @@ ms.locfileid: "97104585"
 
 ### <a name="query-logs-for-deployed-models"></a>查询部署的模型的日志
 
-可以使用 `get_logs()` 函数从以前部署的 Web 服务检索日志。 日志可以包含有关部署期间发生的任何错误的详细信息。
+实时终结点的日志是客户数据。 可以使用 `get_logs()` 函数从以前部署的 Web 服务检索日志。 日志可以包含有关部署期间发生的任何错误的详细信息。
 
 ```python
+from azureml.core import Workspace
 from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
 
 # load existing web service
 service = Webservice(name="service-name", workspace=ws)
 logs = service.get_logs()
+```
+
+如果有多个租户，则可能需要在 `ws = Workspace.from_config()` 之前添加以下身份验证代码
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ### <a name="view-logs-in-the-studio"></a>在工作室中查看日志
@@ -176,7 +186,7 @@ Azure Application Insights 将服务日志存储在与 Azure 机器学习工作�
 1. 选择已部署的服务。
 1. 选择“Application Insights url”链接。
 
-    [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+    [![定位 Application Insights URL](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
 1. 在 Application Insights 中，从“概述”选项卡或“监视”部分选择“日志” 。
 

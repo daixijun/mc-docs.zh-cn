@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 09/30/2020
-ms.openlocfilehash: 89585162ebb3ea171d2392844e11af8f882372e9
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 8b61267cff8c332bfa721ec09dcf72ee75e0e5ad
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977446"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023221"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>使用 VS Code 扩展（预览版）管理 Azure 机器学习资源
 
@@ -26,7 +26,7 @@ ms.locfileid: "94977446"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 如果没有订阅，注册之后即可试用 [Azure 机器学习免费版或付费版](https://aka.ms/AMLFree)。
+- Azure 订阅。 如果没有订阅，注册之后即可试用 [Azure 机器学习试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - Visual Studio Code。 如果尚未安装它，请[安装它](https://code.visualstudio.com/docs/setup/setup-overview)。
 - VS Code Azure 机器学习扩展。 请按照 [Azure 机器学习 VS Code 扩展安装指南](tutorial-setup-vscode-extension.md#install-the-extension)安装该扩展。
 

@@ -1,7 +1,7 @@
 ---
 title: 在虚拟网络中启用 Azure 机器学习工作室
 titleSuffix: Azure Machine Learning
-description: 使用 Azure 机器学习工作室来访问存储在虚拟网络内部的数据。
+description: 了解如何配置 Azure 机器学习工作室来访问存储在虚拟网络内部的数据。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,23 +9,24 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: e9cc735f84f4c38099d2dc02c890aa20d9fdd80a
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 10/21/2020
+ms.custom: contperf-fy20q4, tracking-python
+ms.openlocfilehash: fd9ff0ef45dbd12b29b05a33a5b67f957fc71ccf
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104572"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023223"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>在 Azure 虚拟网络中使用 Azure 机器学习工作室
 
-本文介绍如何在虚拟网络中使用 Azure 机器学习工作室。 学习如何：
+本文介绍如何在虚拟网络中使用 Azure 机器学习工作室。 工作室包括 AutoML、设计器和数据标签等功能。 若要在虚拟网络中使用这些功能，必须遵循本文中的步骤。
+
+在本文中，学习如何：
 
 > [!div class="checklist"]
-> - 从虚拟网络内部的资源访问工作室。
-> - 为存储帐户配置专用终结点。
 > - 授予工作室访问存储在虚拟网络内部的数据的权限。
+> - 从虚拟网络内部的资源访问工作室。
 > - 了解工作室如何影响存储安全性。
 
 本文是由 4 部分组成的系列文章的第五部分，指导你如何保护 Azure 机器学习工作流。 
@@ -48,21 +49,16 @@ ms.locfileid: "97104572"
 
 + 现有的[已添加虚拟网络的 Azure 存储帐户](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)。
 
-## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>从 VNet 内部的资源访问工作室
+## <a name="configure-data-access-in-the-studio"></a>在工作室中配置数据访问权限
 
-如果要从虚拟网络内的资源（例如，计算实例或虚拟机）访问工作室，则必须允许从虚拟网络到工作室的出站流量。 
+在虚拟网络中，默认情况下会禁用某些工作室功能。 若要重新启用这些功能，必须为计划在工作室中使用的存储帐户启用托管标识。 
 
-例如，如果使用网络安全组 (NSG) 来限制出站流量，请将一条规则添加到 __服务标记__ 目标 __AzureFrontDoor.Frontend__。
-
-## <a name="access-data-using-the-studio"></a>使用工作室访问数据
-
-将 Azure 存储帐户添加到具有[服务终结点](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)或[专用终结点](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)的虚拟网络后，必须配置存储帐户，以使用[托管标识](../active-directory/managed-identities-azure-resources/overview.md)授予工作室对数据的访问权限。
-
-如果未启用托管标识，则会收到以下错误 `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` 此外，将禁用以下操作：
+在虚拟网络中，默认情况下禁用以下操作：
 
 * 预览工作室中的数据。
 * 在设计器中将数据可视化。
-* 提交 AutoML 试验。
+* 在设计器中部署模型（[默认存储帐户](#enable-managed-identity-authentication-for-default-storage-accounts)）。
+* 提交 AutoML 试验（[默认存储帐户](#enable-managed-identity-authentication-for-default-storage-accounts)）。
 * 启动标记项目。
 
 工作室支持从虚拟网络中的以下数据存储类型读取数据：
@@ -72,34 +68,61 @@ ms.locfileid: "97104572"
 * Azure Data Lake Storage Gen2
 * Azure SQL 数据库
 
-### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>授予工作区托管标识对存储专用链接的 __读取者__ 访问权限
-
-仅当已将 Azure 存储帐户添加到具有[专用终结点](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)的虚拟网络时，才需要执行此步骤。 有关详细信息，请参阅[读取者](../role-based-access-control/built-in-roles.md#reader)内置角色。
-
 ### <a name="configure-datastores-to-use-workspace-managed-identity"></a>将数据存储配置为使用工作区托管标识
 
-Azure 机器学习使用[数据存储](concept-data.md#datastores)连接到存储帐户。 使用以下步骤，将数据存储配置为使用托管标识。 
+将 Azure 存储帐户添加到具有[服务终结点](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)或[专用终结点](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)的虚拟网络后，必须配置数据存储才能使用[托管标识](../active-directory/managed-identities-azure-resources/overview.md)身份验证。 这样，工作室就可以访问存储帐户中的数据。
+
+Azure 机器学习使用[数据存储](concept-data.md#datastores)连接到存储帐户。 使用以下步骤，将数据存储配置为使用托管标识：
 
 1. 在工作室中，选择“数据存储”。
 
-1. 若要创建新的数据存储，请选择“+ 新建数据存储”。
+1. 若要更新现有数据存储，请选择相应的数据存储并选择“更新凭据”。
 
-    若要更新现有数据存储，请选择相应的数据存储并选择“更新凭据”。
+    若要创建新的数据存储，请选择“+ 新建数据存储”。
 
-1. 在数据存储设置中，对于“允许 Azure 机器学习服务使用工作区托管标识来访问存储”，选择“是” 。
+1. 在数据存储设置中，对于“在 Azure 机器学习工作室中使用工作区托管标识进行数据预览和分析”，选择“是” 。
+
+    ![显示如何启用托管工作区标识的屏幕截图](./media/how-to-enable-studio-virtual-network/enable-managed-identity.png)
+
+这些步骤使用 Azure RBAC 将工作区托管标识作为“读取者”添加到存储服务。 “读取者”访问权限允许工作区检索防火墙设置，以确保数据不会离开虚拟网络。 这些更改可能需要长达 10 分钟才能生效。
+
+### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>对默认存储账户启用托管标识身份验证
+
+每个 Azure 机器学习工作区都有两个默认存储帐户：一个默认的 Blob 存储帐户和一个默认的文件存储帐户，这两个帐户都是在创建工作区时定义的。 还可以在“数据存储”管理页面中设置新的默认值。
+
+![显示可在何处查找默认数据存储的屏幕截图](./media/how-to-enable-studio-virtual-network/default-datastores.png)
+
+下表说明了必须为工作区默认存储帐户启用托管标识身份验证的原因。
+
+|存储帐户  | 说明  |
+|---------|---------|
+|工作区默认 Blob 存储| 存储设计器中的模型资源。 必须在此存储帐户上启用托管标识身份验证才能在设计器中部署模型。 <br> <br> 如果设计器管道使用已配置为使用托管标识的非默认数据存储，则可以可视化和运行该设计器管道。 但如果未在默认数据存储上启用托管标识就尝试部署定型模型，则无论是否正在使用任何其他数据存储，部署都会失败。|
+|工作区默认文件存储| 存储 AutoML 试验资产。 必须在此存储帐户上启用托管标识身份验证才能提交 AutoML 试验。 |
+
+> [!WARNING]
+> 但有一个已知问题，即默认文件存储不会自动创建 `azureml-filestore` 文件夹，而提交 AutoML 试验又需要此文件夹。 当用户在创建工作区的过程中将现有文件存储设置为默认文件存储时，就会发生这种情况。
+> 
+> 有两个选项可避免此问题：1) 使用在创建工作区的过程中系统自动为你创建的默认文件存储。 2) 若要使用自己的文件存储，请在创建工作区的过程中确保文件存储位于 VNet 外部。 创建工作区后，再将存储帐户添加到虚拟网络。
+>
+> 若要解决此问题，请从虚拟网络中删除文件存储帐户，然后将其重新添加到虚拟网络。
 
 
-这些步骤使用 Azure 基于角色的访问控制 (Azure RBAC) 将工作区托管标识作为“读取者”添加到存储服务。 “读取者”访问权限允许工作区检索防火墙设置，并确保数据不会离开虚拟网络。
+### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>授予工作区托管标识对存储专用链接的 __读取者__ 访问权限
 
-> [!NOTE]
-> 这些更改可能需要长达 10 分钟才能生效。
+如果 Azure 存储帐户使用专用终结点，则必须授予工作区托管标识对专用链接的“读取者”访问权限。 有关详细信息，请参阅[读取者](../role-based-access-control/built-in-roles.md#reader)内置角色。 
 
+如果你的存储帐户使用服务终结点，则可以跳过此步骤。
+
+## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>从 VNet 内部的资源访问工作室
+
+如果要从虚拟网络内的资源（例如，计算实例或虚拟机）访问工作室，则必须允许从虚拟网络到工作室的出站流量。 
+
+例如，如果使用网络安全组 (NSG) 来限制出站流量，请将一条规则添加到 __服务标记__ 目标 __AzureFrontDoor.Frontend__。
 ## <a name="technical-notes-for-managed-identity"></a>托管标识的技术说明
 
-使用托管标识访问存储服务会影响一些安全注意事项。 本部分介绍每种存储帐户类型的更改。
+使用托管标识访问存储服务会影响安全注意事项。 本部分介绍每种存储帐户类型的更改。 
 
-> [!IMPORTANT]
-> 这些注意事项是专门针对你要访问的存储帐户类型的。
+这些注意事项是专门针对你要访问的存储帐户类型的。
 
 ### <a name="azure-blob-storage"></a>Azure Blob 存储
 
@@ -118,25 +141,19 @@ Azure 机器学习使用[数据存储](concept-data.md#datastores)连接到存�
 
 若要使用托管标识访问存储在 Azure SQL 数据库中的数据，必须创建一个映射到托管标识的 SQL 包含用户。 若要详细了解如何从外部提供程序创建用户，请参阅[创建映射到 Azure AD 标识的包含用户](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)。
 
-创建 SQL 包含用户后，使用 [GRANT T-SQL 命令](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql)向该用户授予权限。
+创建 SQL 包含用户后，使用 [GRANT T-SQL 命令](/sql/t-sql/statements/grant-object-permissions-transact-sql)向该用户授予权限。
 
-### <a name="azure-machine-learning-designer-default-datastore"></a>Azure 机器学习设计器默认数据存储
+### <a name="azure-machine-learning-designer-intermediate-module-output"></a>Azure 机器学习设计器中间模块输出
 
-默认情况下，该设计器使用附加到工作区的存储帐户来存储输出。 不过，可以指定它将输出存储到你有权访问的任何数据存储。 如果环境使用虚拟网络，你可以使用这些控制确保数据保持安全且可访问。
-
-若要为管道设置新的默认存储，请执行以下操作：
-
-1. 在管道草稿中，选择管道标题附近的“设置”齿轮图标。
-1. 选择“选择默认数据存储”。
-1. 指定新的数据存储。
-
-还可以基于每个模块替代默认数据存储。 这使你可以控制每一单个模块的存储位置。
+可以在设计器中指定任何模块的输出位置。 使用此功能可将中间数据集存储在单独的位置，以用于安全性、日志记录或审核目的。 指定输出：
 
 1. 选择要指定其输出的模块。
-1. 展开“输出设置”部分。
-1. 选择“替代默认输出设置”。
-1. 选择“设置输出设置”。
-1. 指定新的数据存储。
+1. 在右侧出现的模块设置窗格中，选择“输出设置”。
+1. 指定要用于每个模块输出的数据存储。
+ 
+确保有权访问虚拟网络中的中间存储帐户。 否则，管道将会失败。
+
+还应该为中间存储帐户[启用托管标识身份验证](#configure-datastores-to-use-workspace-managed-identity)，以可视化输出数据。
 
 ## <a name="next-steps"></a>后续步骤
 

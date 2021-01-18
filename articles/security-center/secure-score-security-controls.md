@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/03/2020
+ms.date: 01/06/2021
 ms.author: v-johya
 origin.date: 03/10/2020
-ms.openlocfilehash: 9cd02fb924a3cfccd9c22e20056ec2ed218ea206
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: af1a5bef0adb0773792b333846d903c13fe4917e
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746935"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023309"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure 安全中心的安全评分
 
@@ -71,8 +71,6 @@ Azure 门户页面显示的安全功能分数为百分比值，但原值也一�
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="安全中心建议页面上的安全功能分数":::
 
-
-
 ### <a name="get-your-secure-score-from-the-rest-api"></a>从 REST API 获取安全功能分数
 
 可以通过安全功能分数 API（当前为预览版）访问分数。 通过 API 方法，可灵活地查询数据，久而久之构建自己的安全功能分数报告机制。 例如，你可以使用[安全功能分数 API](https://docs.microsoft.com/rest/api/securitycenter/securescores) 来获取特定订阅的分数。 此外，你可以使用 [ API](https://docs.microsoft.com/rest/api/securitycenter/securescorecontrols) 列出订阅的安全控件和当前分数。
@@ -81,11 +79,9 @@ Azure 门户页面显示的安全功能分数为百分比值，但原值也一�
 
 有关构建在安全功能分数 API 之上的工具示例，请参阅 [GitHub 社区的安全功能分数区域](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)。 
 
-
-
 ### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>从 Azure Resource Graph (ARG) 获取安全功能分数
 
-使用 Azure Resource Graph (ARG)，可以通过可靠的筛选、分组和排序功能，快速访问你的云环境中的资源信息。 这是以编程方式或从 Azure 门户中查询 Azure 订阅中的信息的一种快速且有效的方式。 [详细了解 Azure Resource Graph](/governance/resource-graph/)。
+使用 Azure Resource Graph (ARG)，可以通过可靠的筛选、分组和排序功能，快速访问你的云环境中的资源信息。 这是以编程方式或从 Azure 门户中查询 Azure 订阅中的信息的一种快速且有效的方式。 [详细了解 Azure Resource Graph](../governance/resource-graph/index.yml)。
 
 使用 ARG 访问多个订阅的安全功能分数：
 
@@ -115,13 +111,34 @@ Azure 门户页面显示的安全功能分数为百分比值，但原值也一�
 
 1. 选择“运行查询”。
 
+
+
+
+## <a name="tracking-your-secure-score-over-time"></a>跟踪一段时间内的安全评分
+
+如果你是具有 Pro 帐户的 Power BI 用户，则可以使用“一段时间内的安全评分”Power BI 面板跟踪一段时间内的安全评分，并调查任何更改。
+
+> [!TIP]
+> 可以在 GitHub 上 Azure 安全中心社区的专门区域中找到此面板，以及可以通过编程方式使用安全评分的其他工具： https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
+
+该面板包含以下两个报表，可帮助你分析安全状态：
+
+- **资源摘要** - 提供有关资源运行状况的摘要数据。
+- **安全评分摘要** - 提供有关评分进度的摘要数据。 使用“每个订阅一段时间内的安全评分”图表查看评分的变化。 如果发现评分发生了巨大变化，请检查“检测到的可能会影响你安全评分的更改”表，以查找可能引起变化的可能更改。 此表显示了已删除的资源、新部署的资源或其安全状态针对其中一项建议发生了更改的资源。
+
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="可选的一段时间内的安全评分 PowerBI 面板，用于跟踪一段时间内的安全评分并调查更改":::
+
+
+
+
+
 ## <a name="how-your-secure-score-is-calculated"></a>如何计算安全功能分数 
 
 建议页面上清楚地显示了每个安全控制对总体安全评分的贡献。
 
 [![安全评分增强版引入了安全控制](./media/secure-score-security-controls/security-controls.png)](./media/secure-score-security-controls/security-controls.png#lightbox)
 
-若要获得某个安全控制所有可能的分数，你的所有资源都必须符合该安全控制中的所有安全建议。 例如，安全中心针对如何保护管理端口提供了多条建议。 过去，你可以只修正其中一些相关且相互依赖的建议，不用管其他建议，就能提高安全评分。 从客观上来讲，若要改善安全性，理应修正所有建议。 而现在，你必须修正所有建议，才能改变安全评分。
+若要获得某个安全控制所有可能的分数，你的所有资源都必须符合该安全控制中的所有安全建议。 例如，安全中心针对如何保护管理端口提供了多条建议。 现在必须修正所有建议，才能改变安全评分。
 
 例如，名为“应用系统更新”的安全控制的最高分为 6 分，你可以在该控制可能增加的分数值上的工具提示中看到它：
 
@@ -138,9 +155,9 @@ Azure 门户页面显示的安全功能分数为百分比值，但原值也一�
 
 |指标|公式和示例|
 |-|-|
-|**安全控制的当前分数**|<br>![用于计算安全控制当前分数的公式](./media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>每一个安全控制都计入安全评分。 受控制中的建议影响的每个资源都计入控制的当前分数。 各个控制的当前分数是对该控制中资源状态的度量。<br>![工具提示显示了计算安全控制的当前分数时使用的值](./media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>在此示例中，最高分 6 将除以 78，因为这是正常运行的资源和运行不正常的资源的总和。<br>6/78 = 0.0769<br>将其乘以正常运行的资源数量 (4) 可得出当前分数：<br>0.0769 * 4 = 0.31<br><br>|
-|**安全评分**<br>一个订阅|<br>![用于计算当前安全评分的公式](./media/secure-score-security-controls/secure-score-equation.png)<br><br>![启用了所有控制的单个订阅的安全评分](./media/secure-score-security-controls/secure-score-example-single-sub.png)<br>在此示例中，单个订阅启用了所有安全控制（可能的最高分为 60 分）。 该分数显示了可能的最高分 60 分中的 28 分，其余 32 分反映在安全控制的“可能增加的分数”数字中。<br>![控制和可能增加的分数的列表](./media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
-|**安全评分**<br>多个订阅|<br>将所有订阅中所有资源的当前分数相加，之后的计算方式与单个订阅相同<br><br>查看多个订阅时，安全评分会计算所有已启用策略中的所有资源，并将其对每个安全控制的最高分的综合影响进行分组。<br>![启用了所有控制的多个订阅的安全评分](./media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>综合得分不是平均值，而是指所有订阅中所有资源状态的计算状况。<br>同样，在这里，如果转到建议页面并将可能得到的分数相加，你会发现结果是当前分数 (24) 与最高得分 (60) 之差。|
+|**安全控制的当前分数**|<br>![用于计算安全控件分数的公式](./media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>每一个安全控制都计入安全评分。 受控制中的建议影响的每个资源都计入控制的当前分数。 各个控制的当前分数是对该控制中资源状态的度量。<br>![工具提示显示了计算安全控制的当前分数时使用的值](./media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>在此示例中，最高分 6 将除以 78，因为这是正常运行的资源和运行不正常的资源的总和。<br>6/78 = 0.0769<br>将其乘以正常运行的资源数量 (4) 可得出当前分数：<br>0.0769 * 4 = 0.31<br><br>|
+|**安全评分**<br>一个订阅|<br>![用于计算订阅的安全评分的公式](./media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![启用了所有控制的单个订阅的安全评分](./media/secure-score-security-controls/secure-score-example-single-sub.png)<br>在此示例中，单个订阅启用了所有安全控制（可能的最高分为 60 分）。 该分数显示了可能的最高分 60 分中的 28 分，其余 32 分反映在安全控制的“可能增加的分数”数字中。<br>![控制和可能增加的分数的列表](./media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
+|**安全评分**<br>多个订阅|<br>![用于计算多个订阅的安全评分的公式](./media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>在计算多个订阅的综合得分时，安全中心将加入每个订阅的“权重”。 订阅的相对权重由安全中心基于资源数量等因素来决定。<br>每个订阅的当前分数的计算方式与单个订阅的计算方式相同，但会按公式所示应用权重。<br>查看多个订阅时，安全评分会计算所有已启用策略中的所有资源，并将其对每个安全控制的最高分的综合影响进行分组。<br>![启用了所有控制的多个订阅的安全评分](./media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>综合得分不是平均值，而是指所有订阅中所有资源状态的计算状况。<br>同样，在这里，如果转到建议页面并将可能得到的分数相加，你会发现结果是当前分数 (24) 与最高得分 (60) 之差。|
 ||||
 
 ### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>安全功能分数计算中包括哪些建议？
@@ -190,7 +207,7 @@ Azure 门户页面显示的安全功能分数为百分比值，但原值也一�
     <td class="tg-lboi"; width=55%>- 应通过实时网络访问控制来保护虚拟机的管理端口<br>- 虚拟机应与网络安全组关联<br>- 应关闭虚拟机上的管理端口</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">应用系统更新（最高 6 分）</p></strong>系统更新使组织能够保持运营效率、减少安全漏洞，并为最终用户提供更稳定的环境。 不应用更新会留下未修补的漏洞，使环境容易受到攻击。 这些漏洞可能会被人利用，导致数据丢失、数据泄露、勒索软件和资源滥用。 若要部署系统更新，可以使用<a href="https://docs.azure.cn/automation/automation-update-management">更新管理解决方案来管理虚拟机的修补程序和更新</a>。 更新管理是指控制软件版本的部署和维护的过程。</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">应用系统更新（最高 6 分）</p></strong>系统更新使组织能够保持运营效率、减少安全漏洞，并为最终用户提供更稳定的环境。 不应用更新会留下未修补的漏洞，使环境容易受到攻击。 这些漏洞可能会被人利用，导致数据丢失、数据泄露、勒索软件和资源滥用。 若要部署系统更新，可以使用<a href="/automation/update-management/overview">更新管理解决方案来管理虚拟机的修补程序和更新</a>。 更新管理是指控制软件版本的部署和维护的过程。</td>
     <td class="tg-lboi"; width=55%>- 应在计算机上解决监视代理运行状况问题<br>- 应在虚拟机规模集上安装监视代理<br>- 应在计算机上安装监视代理<br>- 应为云服务角色更新 OS 版本<br>- 应在虚拟机规模集上安装系统更新<br>- 应在计算机上安装系统更新<br>- 应重启计算机来应用系统更新<br>- Kubernetes 服务应升级到不易受攻击的 Kubernetes 版本<br>- 应在虚拟机上安装监视代理<br>- Log Analytics 代理应安装在基于 Windows 的 Azure Arc 计算机上(预览)<br>- Log Analytics 代理应安装在基于 Linux 的 Azure Arc 计算机上(预览)</td>
   </tr>
   <tr>
@@ -215,7 +232,7 @@ Azure 门户页面显示的安全功能分数为百分比值，但原值也一�
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">限制未经授权的网络访问（最高 4 分）</p></strong>组织内的终结点提供从虚拟网络到受支持的 Azure 服务的直接连接。 子网中的虚拟机可以与所有资源通信。 若要限制与子网内资源的通信，请创建一个网络安全组并将其关联到子网。 组织可以通过创建入站和出站规则来限制和防范未经授权的流量。</td>
-    <td class="tg-lboi"; width=55%>- 应禁用虚拟机上的 IP 转发<br>- 应在 Kubernetes 服务上定义已授权 IP 范围(预览版)<br>- (已弃用)应限制对应用服务的访问(预览版)<br>- (已弃用)应加强 IaaS NSG 上 Web 应用程序的规则<br>- 虚拟机应与网络安全组关联<br>- CORS 不应允许所有资源都能访问 API 应用<br>- CORS 不应允许所有资源都能访问函数应用<br>- CORS 不应允许所有资源都能访问 Web 应用程序<br>- 应为 API 应用禁用远程调试<br>- 应为函数应用禁用远程调试<br>- 应为 Web 应用程序禁用远程调试<br>- 应限制许可网络安全组(包含面向 Internet 的 VM)的访问<br>- 应强化面向 Internet 的虚拟机的网络安全组规则<br>- 应在群集上安装并启用适用于 Kubernetes 的 Azure Policy 加载项（预览）<br>- 容器应只侦听允许的端口（预览）<br>- 服务应只侦听允许的端口（预览）<br>- 应限制对主机网络和端口的使用（预览）<br>- 虚拟网络应受 Azure 防火墙保护（预览）<br>- 应为 MariaDB 服务器启用专用终结点<br>- 应为 MySQL 服务器启用专用终结点<br>- 应为 PostgreSQL 服务器启用专用终结点</td>
+    <td class="tg-lboi"; width=55%>- 应禁用虚拟机上的 IP 转发<br>- 应在 Kubernetes 服务上定义已授权 IP 范围(预览版)<br>- (已弃用)应限制对应用服务的访问(预览版)<br>- (已弃用)应加强 IaaS NSG 上 Web 应用程序的规则<br>- 虚拟机应与网络安全组关联<br>- CORS 不应允许所有资源都能访问 API 应用<br>- CORS 不应允许所有资源都能访问函数应用<br>- CORS 不应允许所有资源都能访问 Web 应用程序<br>- 应为 API 应用禁用远程调试<br>- 应为函数应用禁用远程调试<br>- 应为 Web 应用程序禁用远程调试<br>- 应限制许可网络安全组(包含面向 Internet 的 VM)的访问<br>- 应在面向 Internet 的虚拟机上应用自适应网络强化建议<br>- 应在群集上安装并启用适用于 Kubernetes 的 Azure Policy 加载项（预览）<br>- 容器应只侦听允许的端口（预览）<br>- 服务应只侦听允许的端口（预览）<br>- 应限制对主机网络和端口的使用（预览）<br>- 虚拟网络应受 Azure 防火墙保护（预览）<br>- 应为 MariaDB 服务器启用专用终结点<br>- 应为 MySQL 服务器启用专用终结点<br>- 应为 PostgreSQL 服务器启用专用终结点</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">应用自适应应用程序控制（最高 3 分）</p></strong>自适应应用程序控制 (AAC) 是一种智能的、自动化的端到端解决方案，可用于控制哪些应用程序可以在 Azure 计算机和非 Azure 计算机上运行。 它还有助于强化计算机免受恶意软件的侵害。<br>安全中心使用机器学习为一组计算机创建一个已知安全应用程序列表。<br>这种将已批准的应用程序列入列表的创新方法在不增加管理复杂性的情况下提供了安全优势。<br>AAC 尤其适用于需要运行一组特定应用程序的专用服务器。</td>
@@ -257,7 +274,7 @@ Azure 门户页面显示的安全功能分数为百分比值，但原值也一�
 ## <a name="secure-score-faq"></a>安全评分 FAQ
 
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>如果仅处理某个安全控制四分之三的建议，安全评分是否会变化？
-不是。 为单个资源修正所有建议后，安全评分才会变化。 若要获得某个控制的最高分，必须为所有资源修正所有建议。
+否。 为单个资源修正所有建议后，安全评分才会变化。 若要获得某个控制的最高分，必须为所有资源修正所有建议。
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>如果某个建议对我不适用，我在策略中禁用它，我能否达到安全控制的要求，我的安全评分是否会更新？
 是的。 如果建议不适用于你的环境，建议禁用它们。 有关如何禁用特定建议的说明，请参阅[禁用安全策略](./tutorial-security-policy.md#disable-security-policies-and-disable-recommendations)。
@@ -271,4 +288,5 @@ Azure 门户页面显示的安全功能分数为百分比值，但原值也一�
 
 - [了解建议的不同元素](security-center-recommendations.md)
 - [了解如何修正建议](security-center-remediate-recommendations.md)
+- [查看基于 GitHub 的工具以便以编程方式使用安全评分](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)
 

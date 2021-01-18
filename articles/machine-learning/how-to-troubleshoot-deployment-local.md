@@ -10,31 +10,29 @@ ms.author: gopalv
 ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
-ms.custom: devx-track-python, deploy, contperfq2
-ms.openlocfilehash: ecfb84dcc5d6c445ca12731b89b01e5672a96f81
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.custom: devx-track-python, deploy, contperf-fy21q2
+ms.openlocfilehash: 78d204c2b0301b7790cbc2235b96d6fdefda21c6
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105433"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023328"
 ---
-# <a name="troubleshoot-model-deployment-locally"></a>在本地排查模型部署问题
+# <a name="troubleshooting-with-a-local-model-deployment"></a>使用本地模型部署进行故障排除
 
-了解如何在本地排查和解决或规避常见的 Azure 机器学习 Docker Web 服务部署错误。
+尝试将本地模型部署用作对 Azure 容器实例 (ACI) 或 Azure Kubernetes 服务 (AKS) 部署进行故障排除的第一步。  使用本地 Web 服务可以更轻松地发现和修复常见的 Azure 机器学习 Docker Web 服务部署错误。
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 **Azure 订阅**。 试用[免费版或付费版 Azure 机器学习](https://aka.ms/AMLFree)。
+* 一个 **Azure 订阅**。 试用 [Azure 机器学习的试用版](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 * [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)。
 * [Azure CLI](/cli/install-azure-cli?preserve-view=true&view=azure-cli-latest)。
 * [用于 Azure 机器学习的 CLI 扩展](reference-azure-machine-learning-cli.md)。
-* 若要在本地调试，则必须在本地系统上安装一个有效的 Docker。
+* 若要在本地调试，可以将模型部署到 [Azure 机器学习计算实例](/machine-learning/how-to-deploy-local-container-notebook-vm)，或在本地系统上进行有效的 Docker 安装。
 
     若要验证 Docker 安装，请使用终端或命令提示符中的命令 `docker run hello-world`。 有关安装 Docker 或排除 Dcoker 错误的详细信息，请参阅 [Docker 文档](https://docs.docker.com/)。
 
 ## <a name="debug-locally"></a>本地调试
-
-如果将模型部署到 ACI 或 AKS 时遇到问题，请将其部署为本地 Web 服务。 使用本地 Web 服务可简化解决问题的过程。
 
 可以在 [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) 存储库中找到示例[本地部署笔记本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb)，以探索可运行的示例。
 

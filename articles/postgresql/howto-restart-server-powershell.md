@@ -4,15 +4,16 @@ description: 本文介绍了如何使用 PowerShell 重启 Azure Database for Po
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 origin.date: 06/08/2020
-ms.date: 07/06/2020
-ms.openlocfilehash: 4a8573263c3e5ce17c47fcfe1a7f88ba1b176c80
-ms.sourcegitcommit: 7ea2d04481512e185a60fa3b0f7b0761e3ed7b59
+ms.date: 01/11/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 092158f44005abb6beaf4846d835e7584f2b0113
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85845934"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022570"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-powershell"></a>使用 PowerShell 重启 Azure Database for PostgreSQL 服务器
 
@@ -20,7 +21,8 @@ ms.locfileid: "85845934"
 
 如果服务处于繁忙状态，则会阻止重启服务器。 例如，服务可能正在处理先前请求的操作（例如缩放 vCore）。
 
-完成重启所需的时间取决于 PostgreSQL 恢复过程。 若要减少重启时间，建议在重启之前尽量减少服务器上发生的活动量。
+> [!NOTE] 
+> 完成重启所需的时间取决于 PostgreSQL 恢复过程。 若要减少重启时间，建议在重启之前尽量减少服务器上发生的活动量。 你可能还需要增加检查点频率。 还可以调整与检查点相关的参数值，包括 `max_wal_size`。 还建议在重启服务器之前运行 `CHECKPOINT` 命令。
 
 ## <a name="prerequisites"></a>先决条件
 

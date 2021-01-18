@@ -7,17 +7,17 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 origin.date: 11/19/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
 tags: connectors
-ms.openlocfilehash: 4d4c6c168630352d6d2af5af848878be4741aad2
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 14c488e54b65beacf79586add54cf19c02a9b5eb
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004061"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022184"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>在 Azure 逻辑应用中接收和响应入站 HTTPS 请求
 
@@ -39,7 +39,7 @@ ms.locfileid: "97004061"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 帐户和订阅。 如果没有订阅，可以[注册试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+* Azure 帐户和订阅。 如果没有订阅，可以[注册试用版 Azure 订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 * 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知识。 如果不熟悉逻辑应用，请查看[什么是 Azure 逻辑应用？](../logic-apps/logic-apps-overview.md)
 
@@ -49,7 +49,7 @@ ms.locfileid: "97004061"
 
 此内置触发器创建可手动调用的终结点，该终结点只能处理 HTTPS 上的入站请求。 当调用方将请求发送到此终结点时，[请求触发器](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)会激发并运行逻辑应用。 有关如何调用此触发器的详细信息，请参阅[在 Azure 逻辑应用中使用 HTTPS 终结点调用、触发或嵌套工作流](../logic-apps/logic-apps-http-endpoint.md)。
 
-逻辑应用仅在[有限的时间](../logic-apps/logic-apps-limits-and-config.md#request-limits)内使入站请求保持打开状态。 假设逻辑应用包含[响应操作](#add-response)，如果逻辑应用在此时间之后未向调用方发回响应，则逻辑应用会将 `504 GATEWAY TIMEOUT` 状态返回给调用方。 如果逻辑应用不包含“响应”操作，则逻辑应用会立即向调用方返回 `202 ACCEPTED` 状态。
+逻辑应用仅在[有限的时间](../logic-apps/logic-apps-limits-and-config.md#http-limits)内使入站请求保持打开状态。 假设逻辑应用包含[响应操作](#add-response)，如果逻辑应用在此时间之后未向调用方发回响应，则逻辑应用会将 `504 GATEWAY TIMEOUT` 状态返回给调用方。 如果逻辑应用不包含“响应”操作，则逻辑应用会立即向调用方返回 `202 ACCEPTED` 状态。
 
 1. 登录 [Azure 门户](https://portal.azure.cn)。 创建空白逻辑应用。
 
@@ -186,7 +186,7 @@ ms.locfileid: "97004061"
 
     例如，可以通过[添加响应操作](#add-response)来响应请求，该响应操作可用于返回自定义响应，本主题后面部分将介绍此相关内容。
 
-    逻辑应用仅在[有限的时间](../logic-apps/logic-apps-limits-and-config.md#request-limits)内使传入请求保持打开状态。 假设逻辑应用工作流包含响应操作，如果该逻辑应用在此时间之后没有返回响应，则逻辑应用会将 `504 GATEWAY TIMEOUT` 返回给调用方。 否则，如果逻辑应用不包含响应操作，则逻辑应用会立即将 `202 ACCEPTED` 响应返回给调用方。
+    逻辑应用仅在[有限的时间](../logic-apps/logic-apps-limits-and-config.md#http-limits)内使传入请求保持打开状态。 假设逻辑应用工作流包含响应操作，如果该逻辑应用在此时间之后没有返回响应，则逻辑应用会将 `504 GATEWAY TIMEOUT` 返回给调用方。 否则，如果逻辑应用不包含响应操作，则逻辑应用会立即将 `202 ACCEPTED` 响应返回给调用方。
 
 1. 完成后，保存逻辑应用。 在设计器工具栏上选择“保存”。
 

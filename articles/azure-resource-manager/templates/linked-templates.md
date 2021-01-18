@@ -1,27 +1,27 @@
 ---
 title: 用于部署的链接模板
-description: 介绍如何使用 Azure Resource Manager 模板中的链接模板创建一个模块化的模板的解决方案。 演示如何传递参数值、指定参数文件和动态创建的 URL。
+description: 介绍如何使用 Azure 资源管理器模板（ARM 模板）中的链接模板创建一个模块化的模板解决方案。 演示如何传递参数值、指定参数文件和动态创建的 URL。
 ms.topic: conceptual
-origin.date: 11/06/2020
+origin.date: 12/07/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: e6d75fab135e4d682998d7df8dad9486237425df
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: deb33fd71013a2fe4efcf9a82f22e181521aa652
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024458"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023074"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
-若要部署复杂的解决方案，可以将模板分解为许多相关模板，然后通过主模板将它们一起部署。 相关模板可以是嵌入在主模板内的单独文件或模板语法。 本文使用术语“链接模板”来指代一个通过主模板中的链接进行引用的单独模板文件。 它使用术语 **嵌套模板** 指代主模板内嵌套的模板语法。
+若要部署复杂的解决方案，可以将 Azure 资源管理器模板（ARM 模板）分解为许多相关模板，然后通过主模板将它们一起部署。 相关模板可以是嵌入在主模板内的单独文件或模板语法。 本文使用术语“链接模板”来指代一个通过主模板中的链接进行引用的单独模板文件。 它使用术语 **嵌套模板** 指代主模板内嵌套的模板语法。
 
 对于中小型解决方案，单个模板更易于理解和维护。 可以查看单个文件中的所有资源和值。 对于高级方案，使用链接模板可将解决方案分解为目标组件。 可以轻松地将这些模板重复用于其他方案。
 
-如需教程，请参阅[教程：创建链接的 Azure 资源管理器模板](./deployment-tutorial-linked-template.md)。
+如需教程，请参阅[教程：部署链接模板](./deployment-tutorial-linked-template.md)。
 
 > [!NOTE]
 > 对于链接模板或嵌套模板，只能将部署模式设置为[增量](deployment-modes.md)。 但是，主模板可以在完整模式下进行部署。 如果在完整模式下部署主模板，并且链接模板或嵌套模板以相同的资源组为目标，则在链接模板或嵌套模板中部署的资源会包括在针对完整模式部署进行的评估中。 将在主模板和链接模板或嵌套模板中部署的资源的合并集合与资源组中的现有资源进行比较。 此合并集合中未包含的任何资源都会被删除。
@@ -31,7 +31,7 @@ ms.locfileid: "96024458"
 
 ## <a name="nested-template"></a>嵌套模板
 
-若要嵌套某个模板，请向主模板中添加一个[部署资源](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments)。 在 **template** 属性中，指定模板语法。
+若要嵌套某个模板，请向主模板中添加一个[部署资源](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments)。 在 `template` 属性中，指定模板语法。
 
 ```json
 {
@@ -289,7 +289,7 @@ ms.locfileid: "96024458"
 
 ## <a name="linked-template"></a>链接的模板
 
-若要链接某个模板，请向主模板中添加一个部署资源。 在 **templateLink** 属性中，指定要包括的模板的 URI。 以下示例链接到存储帐户中的模板。
+若要链接某个模板，请向主模板中添加一个部署资源。 在 `templateLink` 属性中，指定要包括的模板的 URI。 以下示例链接到存储帐户中的模板。
 
 <!--Not Available on [deployments resource](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments)-->
 
@@ -318,9 +318,9 @@ ms.locfileid: "96024458"
 }
 ```
 
-引用链接模板时，`uri` 的值不能是本地文件或只能在本地网络上使用的文件。 Azure 资源管理器必须能够访问该模板。 提供可下载的 http 或 https 形式的 URI 值 。 
+引用链接模板时，`uri` 的值不能是本地文件或只能在本地网络上使用的文件。 Azure 资源管理器必须能够访问该模板。 提供可下载的 HTTP 或 HTTPS 形式的 URI 值。
 
-可以使用包含 http 或 https 的参数来引用模板 。 例如，一种常见模式是使用 `_artifactsLocation` 参数。 可以使用如下所示的表达式来设置链接模板：
+可以使用包含 HTTP 或 HTTPS 的参数来引用模板。 例如，一种常见模式是使用 `_artifactsLocation` 参数。 可以使用如下所示的表达式来设置链接模板：
 
 ```json
 "uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
@@ -332,56 +332,106 @@ ms.locfileid: "96024458"
 
 ### <a name="parameters-for-linked-template"></a>链接模板的参数
 
-可以在外部文件中或以内联方式为链接模板提供参数。 提供外部参数文件时，请使用 **parametersLink** 属性：
+可以在外部文件中或以内联方式为链接模板提供参数。 提供外部参数文件时，请使用 `parametersLink` 属性：
 
 ```json
 "resources": [
   {
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
-  "name": "linkedTemplate",
-  "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri":"https://mystorageaccount.blob.core.chinacloudapi.cn/AzureTemplates/newStorageAccount.json",
-      "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
-      "uri":"https://mystorageaccount.blob.core.chinacloudapi.cn/AzureTemplates/newStorageAccount.parameters.json",
-      "contentVersion":"1.0.0.0"
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri": "https://mystorageaccount.blob.core.chinacloudapi.cn/AzureTemplates/newStorageAccount.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "parametersLink": {
+        "uri": "https://mystorageaccount.blob.core.chinacloudapi.cn/AzureTemplates/newStorageAccount.parameters.json",
+        "contentVersion": "1.0.0.0"
+      }
     }
-  }
   }
 ]
 ```
 
-若要以内联方式传递参数值，请使用 **parameters** 属性。
+若要以内联方式传递参数值，请使用 `parameters` 属性。
 
 ```json
 "resources": [
   {
-   "type": "Microsoft.Resources/deployments",
-   "apiVersion": "2019-10-01",
-   "name": "linkedTemplate",
-   "properties": {
-     "mode": "Incremental",
-     "templateLink": {
-      "uri":"https://mystorageaccount.blob.core.chinacloudapi.cn/AzureTemplates/newStorageAccount.json",
-      "contentVersion":"1.0.0.0"
-     },
-     "parameters": {
-      "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
-      "storageAccountName":{"value": "[parameters('storageAccountName')]"}
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri": "https://mystorageaccount.blob.core.chinacloudapi.cn/AzureTemplates/newStorageAccount.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "parameters": {
+        "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
+        "storageAccountName": {
+          "value": "[parameters('storageAccountName')]"
+        }
+      }
     }
-   }
   }
 ]
 ```
 
 不能同时使用内联参数和指向参数文件的链接。 同时指定 `parametersLink` 和 `parameters` 时，部署将失败，并出现错误。
 
-<!--Not Available on ## Template specs-->
-<!--REASON: PRIVATE PREVIEW TILL ON 09/22/2020-->
+## <a name="template-specs"></a>模板规格
+
+你可创建一个[模板规范](template-specs.md)，将主模板及其链接模板打包到可部署的单个实体中，而不是在可访问的终结点上维护链接模板。 模板规格是 Azure 订阅中的资源。 这使你可以轻松地与组织中的用户安全地共享模板。 可使用 Azure 基于角色的访问控制 (Azure RBAC) 来授予对模板规格的访问权限。此功能目前以预览版提供。
+
+有关详细信息，请参阅：
+
+- [教程：创建具有链接模板的模板规格](./template-specs-create-linked.md)。
+- [教程：将模板规格部署为链接模板](./template-specs-deploy-linked-template.md)。
+
+## <a name="dependencies"></a>依赖项
+
+与其他资源类型一样，你可以在链接模板之间设置依赖关系。 如果某个链接模板中的资源必须在第二个链接模板中的资源之前部署，请设置第二个模板依赖于第一个模板。
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "linkedTemplate1",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[uri(deployment().properties.templateLink.uri, 'firstresources.json')]",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "linkedTemplate2",
+      "dependsOn": [
+          "[resourceId('Microsoft.Resources/deployments', 'linkedTemplate1')]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[uri(deployment().properties.templateLink.uri, 'secondresources.json')]",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+    }
+  ]
+}
+```
 
 ## <a name="contentversion"></a>contentVersion
 
@@ -391,7 +441,7 @@ ms.locfileid: "96024458"
 
 前面的示例演示了用于模板链接的硬编码 URL 值。 这种方法可能适用于某个简单的模板，但不适用于一组大型模块化模板。 相反，可以创建一个存储主模板的基 URL 的静态变量，并从基 URL 动态创建用于链接模板的 URL。 这种方法的好处是可以轻松地移动或派生模板，因为只需在主模板中更改静态变量。 主模板会在整个分解后的模板中传递正确的 URI。
 
-以下示例演示如何使用基 URL 来创建两个用于链接模板的 URL（**sharedTemplateUrl** 和 **vmTemplate**）。
+以下示例演示如何使用基 URL 来创建两个用于链接模板的 URL（`sharedTemplateUrl` 和 `vmTemplateUrl`）。
 
 ```json
 "variables": {
@@ -401,7 +451,7 @@ ms.locfileid: "96024458"
 }
 ```
 
-还可以使用 [deployment()](template-functions-deployment.md#deployment) 获取当前模板的基 URL，并使用该 URL 来获取同一位置其他模板的 URL。 如果模板位置发生变化或者想要避免对模板文件中的 URL 进行硬编码，则此方法非常有用。 仅当链接到带有 URL 的远程模板时，才会返回 templateLink 属性。 如果使用的是本地模板，该属性不可用。
+还可以使用 [deployment()](template-functions-deployment.md#deployment) 获取当前模板的基 URL，并使用该 URL 来获取同一位置其他模板的 URL。 如果模板位置发生变化或者想要避免对模板文件中的 URL 进行硬编码，则此方法非常有用。 仅当链接到带有 URL 的远程模板时，才会返回 `templateLink` 属性。 如果使用的是本地模板，该属性不可用。
 
 ```json
 "variables": {
@@ -420,49 +470,49 @@ ms.locfileid: "96024458"
 
 ## <a name="using-copy"></a>使用副本
 
-若要使用嵌套的模板创建资源的多个实例，请在 **Microsoft.Resources/deployments** 资源的级别添加副本元素。 或者，如果作用域是 inner，则可以在嵌套模板中添加副本。
+若要使用嵌套的模板创建资源的多个实例，请在 `Microsoft.Resources/deployments` 资源的级别添加 `copy` 元素。 或者，如果范围为 `inner`，则可以在嵌套模板中添加副本。
 
-以下示例模板展示了如何将副本与嵌套的模板配合使用。
+以下示例模板展示了如何将 `copy` 与嵌套的模板配合使用。
 
 ```json
 "resources": [
   {
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
-  "name": "[concat('nestedTemplate', copyIndex())]",
-  // yes, copy works here
-  "copy":{
-    "name": "storagecopy",
-    "count": 2
-  },
-  "properties": {
-    "mode": "Incremental",
-    "expressionEvaluationOptions": {
-    "scope": "inner"
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "[concat('nestedTemplate', copyIndex())]",
+    // yes, copy works here
+    "copy": {
+      "name": "storagecopy",
+      "count": 2
     },
-    "template": {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-      {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(variables('storageName'), copyIndex())]",
-      "location": "China North",
-      "sku": {
-        "name": "Standard_LRS"
+    "properties": {
+      "mode": "Incremental",
+      "expressionEvaluationOptions": {
+        "scope": "inner"
       },
-      "kind": "StorageV2"
-      // Copy works here when scope is inner
-      // But, when scope is default or outer, you get an error
-      //"copy":{
-      //  "name": "storagecopy",
-      //  "count": 2
-      //}
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('storageName'), copyIndex())]",
+            "location": "China North",
+            "sku": {
+              "name": "Standard_LRS"
+            },
+            "kind": "StorageV2"
+            // Copy works here when scope is inner
+            // But, when scope is default or outer, you get an error
+            //"copy":{
+            //  "name": "storagecopy",
+            //  "count": 2
+            //}
+          }
+        ]
       }
-    ]
     }
-  }
   }
 ]
 ```
@@ -473,21 +523,21 @@ ms.locfileid: "96024458"
 
 从链接模板获取输出属性时，属性名称不能包含短划线。
 
-以下示例演示如何引用链接模板和检索输出值。 链接模板返回一条简单的消息。  首先，让我们看看链接模板：
+以下示例演示如何引用链接模板和检索输出值。 链接模板返回一条简单的消息。 首先，让我们看看链接模板：
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "greetingMessage": {
-      "value": "Hello World",
-      "type" : "string"
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "greetingMessage": {
+            "value": "Hello World",
+            "type" : "string"
+        }
     }
-  }
 }
 ```
 
@@ -495,67 +545,65 @@ ms.locfileid: "96024458"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
-      "name": "linkedTemplate",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[uri(deployment().properties.templateLink.uri, 'helloworld.json')]",
-          "contentVersion": "1.0.0.0"
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "linkedTemplate",
+            "properties": {
+                "mode": "incremental",
+                "templateLink": {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'helloworld.json')]",
+                    "contentVersion": "1.0.0.0"
+                }
+            }
         }
-      }
+    ],
+    "outputs": {
+        "messageFromLinkedTemplate": {
+            "type": "string",
+            "value": "[reference('linkedTemplate').outputs.greetingMessage.value]"
+        }
     }
-  ],
-  "outputs": {
-    "messageFromLinkedTemplate": {
-      "type": "string",
-      "value": "[reference('linkedTemplate').outputs.greetingMessage.value]"
-    }
-  }
 }
 ```
-
-链接模板与其他资源类型一样，你可以在它与其他资源之间设置依赖关系。 当其他资源需要链接模板的输出值时，请确保在部署这些资源之前部署链接模板。 或者，当链接模板依赖于其他资源时，请确保在部署链接模板之前部署其他资源。
 
 以下示例显示一个模板，该模板部署公共 IP 地址并返回该公共 IP 的 Azure 资源的资源 ID：
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "publicIPAddresses_name": {
-      "type": "string"
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "publicIPAddresses_name": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2018-11-01",
+            "name": "[parameters('publicIPAddresses_name')]",
+            "location": "chinaeast",
+            "properties": {
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4
+            },
+            "dependsOn": []
+        }
+    ],
+    "outputs": {
+        "resourceID": {
+            "type": "string",
+            "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+        }
     }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Network/publicIPAddresses",
-      "apiVersion": "2018-11-01",
-      "name": "[parameters('publicIPAddresses_name')]",
-      "location": "chinaeast",
-      "properties": {
-        "publicIPAddressVersion": "IPv4",
-        "publicIPAllocationMethod": "Dynamic",
-        "idleTimeoutInMinutes": 4
-      },
-      "dependsOn": []
-    }
-  ],
-  "outputs": {
-    "resourceID": {
-      "type": "string",
-      "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-    }
-  }
 }
 ```
 
@@ -563,66 +611,64 @@ ms.locfileid: "96024458"
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "loadBalancers_name": {
-      "defaultValue": "mylb",
-      "type": "string"
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "loadBalancers_name": {
+            "defaultValue": "mylb",
+            "type": "string"
+        },
+        "publicIPAddresses_name": {
+            "defaultValue": "myip",
+            "type": "string"
+        }
     },
-    "publicIPAddresses_name": {
-      "defaultValue": "myip",
-      "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Network/loadBalancers",
-      "apiVersion": "2018-11-01",
-      "name": "[parameters('loadBalancers_name')]",
-      "location": "chinaeast",
-      "properties": {
-        "frontendIPConfigurations": [
-          {
-            "name": "LoadBalancerFrontEnd",
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/loadBalancers",
+            "apiVersion": "2018-11-01",
+            "name": "[parameters('loadBalancers_name')]",
+            "location": "chinaeast",
             "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "publicIPAddress": {
-                // this is where the output value from linkedTemplate is used
-                "id": "[reference('linkedTemplate').outputs.resourceID.value]"
+                "frontendIPConfigurations": [
+                    {
+                        "name": "LoadBalancerFrontEnd",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[reference('linkedTemplate').outputs.resourceID.value]"
+                            }
+                        }
+                    }
+                ],
+                "backendAddressPools": [],
+                "loadBalancingRules": [],
+                "probes": [],
+                "inboundNatRules": [],
+                "outboundNatRules": [],
+                "inboundNatPools": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments', 'linkedTemplate')]"
+            ]
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "linkedTemplate",
+            "properties": {
+              "mode": "Incremental",
+              "templateLink": {
+                "uri": "[uri(deployment().properties.templateLink.uri, 'public-ip.json')]",
+                "contentVersion": "1.0.0.0"
+              },
+              "parameters":{
+                  "publicIPAddresses_name":{"value": "[parameters('publicIPAddresses_name')]"}
               }
             }
           }
-        ],
-        "backendAddressPools": [],
-        "loadBalancingRules": [],
-        "probes": [],
-        "inboundNatRules": [],
-        "outboundNatRules": [],
-        "inboundNatPools": []
-      },
-      // This is where the dependency is declared
-      "dependsOn": [
-        "linkedTemplate"
-      ]
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
-      "name": "linkedTemplate",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[uri(deployment().properties.templateLink.uri, 'publicip.json')]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters":{
-          "publicIPAddresses_name":{"value": "[parameters('publicIPAddresses_name')]"}
-        }
-      }
-    }
-  ]
+    ]
 }
 ```
 
@@ -737,7 +783,8 @@ done
 
 目前，无法链接到位于 [Azure 存储防火墙](../../storage/common/storage-network-security.md)后面的存储帐户中的模板。
 
-<!--Not Available on [template spec](template-specs.md)-->
+> [!IMPORTANT]
+> 请考虑创建[模板规格](template-specs.md)，而不是使用 SAS 令牌保护链接模板。模板规格将主模板及其链接模板作为资源安全地存储在 Azure 订阅中。 使用 Azure RBAC 向需要部署模板的用户授予访问权限。
 
 以下示例演示在链接到模板时如何传递 SAS 令牌：
 
@@ -746,28 +793,28 @@ done
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-  "containerSasToken": { "type": "securestring" }
+    "containerSasToken": { "type": "securestring" }
   },
   "resources": [
-  {
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2019-10-01",
-    "name": "linkedTemplate",
-    "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
-      "contentVersion": "1.0.0.0"
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "linkedTemplate",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+          "contentVersion": "1.0.0.0"
+        }
+      }
     }
-    }
-  }
   ],
   "outputs": {
   }
 }
 ```
 
-在 PowerShell 中，使用以下命令获取容器的令牌并部署模板。 注意，**containerSasToken** 参数是在模板中定义的。 它不是 **New-AzResourceGroupDeployment** 命令中的参数。
+在 PowerShell 中，使用以下命令获取容器的令牌并部署模板。 注意，`containerSasToken` 参数是在模板中定义的。 它不是 `New-AzResourceGroupDeployment` 命令中的参数。
 
 ```powershell
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -813,9 +860,9 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要浏览教程，请参阅[教程：创建链接的 Azure 资源管理器模板](./deployment-tutorial-linked-template.md)。
-* 若要了解如何为资源定义部署顺序，请参阅[在 Azure 资源管理器模板中定义依赖关系](define-resource-dependency.md)。
-* 若要了解如何定义一个资源而创建多个实例，请参阅[在 Azure 资源管理器中创建多个资源实例](copy-resources.md)。
-* 有关在存储帐户中设置模板和生成 SAS 令牌的步骤，请参阅[使用 Resource Manager 模板和 Azure PowerShell 部署资源](deploy-powershell.md)或[使用 Resource Manager 模板和 Azure CLI 部署资源](deploy-cli.md)。
+* 若要完成教程，请参阅[教程：部署链接模板](./deployment-tutorial-linked-template.md)。
+* 若要了解如何为资源定义部署顺序，请参阅[在 ARM 模板中定义资源的部署顺序](define-resource-dependency.md)。
+* 若要了解如何定义一个资源但要创建它的多个实例，请参阅 [ARM 模板中的资源迭代](copy-resources.md)。
+* 有关在存储帐户中设置模板和生成 SAS 令牌的步骤，请参阅[使用 ARM 模板和 Azure PowerShell 部署资源](deploy-powershell.md)或[使用 ARM 模板和 Azure CLI 部署资源](deploy-cli.md)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

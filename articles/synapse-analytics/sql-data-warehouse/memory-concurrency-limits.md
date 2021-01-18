@@ -1,6 +1,6 @@
 ---
 title: 内存和并发限制
-description: 查看分配给 Azure Synapse Analytics 中的各个性能级别和资源类的内存和并发限制。
+description: 查看分配给 Azure Synapse Analytics 中专用 SQL 池的各性能级别和资源类的内存和并发限制。
 services: synapse-analytics
 author: WenJason
 manager: digimobile
@@ -8,18 +8,18 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 02/04/2020
-ms.date: 11/09/2020
+ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 0c8f950139d99a55ff93b57f8777788308190aca
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 2d35c924af02fc5b2a55429fd7309d28e732a33b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375636"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98022897"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Azure Synapse Analytics 的内存和并发限制
+# <a name="memory-and-concurrency-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池的内存和并发限制
 
 查看分配给 Azure Synapse Analytics 中的各个性能级别和资源类的内存和并发限制。  
 

@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 39de89e36e3635833e27bf4f982a6ccee62e87cb
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 542445c46247beea3148f739d671e870bf02ba1b
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105281"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023227"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>创建数据标记项目并导出标签 
 
@@ -108,7 +108,7 @@ ms.locfileid: "97105281"
 
 若要将更多图像添加到项目中，请使用 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)上载到 blob 存储中的相应文件夹。 
 
-如果希望项目持续监视数据存储中的新数据，请选中“启用增量刷新”框。
+如果希望项目持续监视数据存储中的新数据，请选中“启用增量刷新”框。 启用后，此数据将每天一次提取到你的项目中。
 
 如果不希望数据存储中的新图像添加到项目，请取消选中此框。
 
@@ -158,7 +158,7 @@ ms.locfileid: "97105281"
 > [!NOTE]
 > ML 辅助数据标记不支持在虚拟网络后面受保护的默认存储帐户。 对于 ML 辅助数据标记，必须使用非默认存储帐户。 可在虚拟网络后面保护非默认存储帐户。 
 
-### <a name="clustering"></a>群集
+### <a name="clustering"></a>群集功能
 
 提交一定数量的标签后，用于图像分类的机器学习模型开始将类似的图像分组到一起。  这些类似的图像在同一个屏幕上向标记人员显示，以加速完成手动标记。 当标记人员查看包含 4、6 或 9 个图像的网格时，聚类将特别有用。 
 
@@ -254,6 +254,17 @@ ms.locfileid: "97105281"
 COCO 文件是在 Azure 机器学习工作区的默认 Blob 存储中创建的，该存储位于 *export/coco* 内的某个文件夹中。 可以在机器学习的“数据集”部分访问导出的 Azure 机器学习数据集。 数据集详细信息页还提供了演示如何从 Python 访问标签的示例代码。
 
 ![导出的数据集](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+## <a name="troubleshooting"></a>疑难解答
+
+如果你发现任何以下问题，请使用以下提示。
+
+|问题  |解决方法  |
+|---------|---------|
+|只能使用在 Blob 数据存储中创建的数据集。     |  这是当前版本的已知限制。       |
+|创建后，项目长时间显示“正在初始化”。     | 手动刷新页面。 初始化应该按每秒大约 20 个数据点的速率继续。 缺少 autorefresh 是一个已知问题。         |
+|查看映像时，最近添加标签的映像不显示。     |   若要加载所有带标签的映像，请选择“第一个”按钮。 按下“第一个”按钮会返回到列表的最前面，但会加载所有带标签的数据。      |
+|在为对象检测提供标记时按 Esc 键会在左上角创建大小为零的标签。 在此状态下提交标签会失败。     |   单击标签旁边的打叉标记来删除该标签。  |
 
 ## <a name="next-steps"></a>后续步骤
 

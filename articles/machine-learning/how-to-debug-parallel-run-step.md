@@ -1,7 +1,7 @@
 ---
-title: 对 ParallelRunStep 进行调试和故障排除
+title: 排查 ParallelRunStep 问题
 titleSuffix: Azure Machine Learning
-description: 在适用于 Python 的 Azure 机器学习 SDK 中的机器学习管道对 ParallelRunStep 进行调试和故障排除。 了解通过管道进行开发的常见缺陷，以及有助于在远程执行之前和期间调试脚本的提示。
+description: 有关在机器学习管道中使用 ParallelRunStep 出现错误时如何进行故障排除的提示。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,25 +11,134 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: d72707381f65821022f17c76c7e6e1bba4303ccc
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 7af71b073143b3d80d4065c5d7c2c551eeb0b55d
+ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978267"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98023095"
 ---
-# <a name="debug-and-troubleshoot-parallelrunstep"></a>对 ParallelRunStep 进行调试和故障排除
+# <a name="troubleshooting-the-parallelrunstep"></a>排查 ParallelRunStep 问题
 
 
-本文介绍如何在 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 中对 [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) 类进行调试和故障排除。
+本文介绍在 [Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 中使用 [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) 出现错误时如何进行故障排除。
+
+有关对管道进行故障排除的一般提示，请参阅[对机器学习管道进行故障排除](how-to-debug-pipelines.md)。
 
 ## <a name="testing-scripts-locally"></a>在本地测试脚本
 
-有关机器学习管道的信息，请参阅[在本地测试脚本部分](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines)。 ParallelRunStep 作为 ML 管道中的一个步骤运行，因此相同的答案对两种情况均适用。
+ ParallelRunStep 作为 ML 管道中的一个步骤运行。 第一步，需要[在本地测试脚本](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines)。
+
+##  <a name="script-requirements"></a>脚本要求
+
+`ParallelRunStep` 的脚本必须包含两个函数：
+- `init()`：此函数适用于后续推理的任何成本高昂或常见的准备工作。 例如，使用它将模型加载到全局对象。 此函数将在进程开始时调用一次。
+-  `run(mini_batch)`：将针对每个 `mini_batch` 实例运行此函数。
+    -  `mini_batch``ParallelRunStep` 将调用 run 方法，并将列表或 pandas `DataFrame` 作为参数传递给该方法。 如果输入是 `FileDataset`，则 mini_batch 中的每个条目都将是文件路径；如果输入是 `TabularDataset`，则是 pandas `DataFrame`。
+    -  `response`：run() 方法应返回 pandas `DataFrame` 或数组。 对于 append_row output_action，这些返回的元素将追加到公共输出文件中。 对于 summary_only，将忽略元素的内容。 对于所有的输出操作，每个返回的输出元素都指示输入微型批处理中输入元素的一次成功运行。 确保运行结果中包含足够的数据，以便将输入映射到运行输出结果。 运行输出将写入输出文件中，并且不保证按顺序写入，你应使用输出中的某个键将其映射到输入。
+
+```python
+%%writefile digit_identification.py
+# Snippets from a sample script.
+# Refer to the accompanying digit_identification.py
+# (https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run)
+# for the implementation script.
+
+import os
+import numpy as np
+import tensorflow as tf
+from PIL import Image
+from azureml.core import Model
+
+
+def init():
+    global g_tf_sess
+
+    # Pull down the model from the workspace
+    model_path = Model.get_model_path("mnist")
+
+    # Construct a graph to execute
+    tf.reset_default_graph()
+    saver = tf.train.import_meta_graph(os.path.join(model_path, 'mnist-tf.model.meta'))
+    g_tf_sess = tf.Session()
+    saver.restore(g_tf_sess, os.path.join(model_path, 'mnist-tf.model'))
+
+
+def run(mini_batch):
+    print(f'run method start: {__file__}, run({mini_batch})')
+    resultList = []
+    in_tensor = g_tf_sess.graph.get_tensor_by_name("network/X:0")
+    output = g_tf_sess.graph.get_tensor_by_name("network/output/MatMul:0")
+
+    for image in mini_batch:
+        # Prepare each image
+        data = Image.open(image)
+        np_im = np.array(data).reshape((1, 784))
+        # Perform inference
+        inference_result = output.eval(feed_dict={in_tensor: np_im}, session=g_tf_sess)
+        # Find the best probability, and add it to the result list
+        best_result = np.argmax(inference_result)
+        resultList.append("{}: {}".format(os.path.basename(image), best_result))
+
+    return resultList
+```
+
+如果推理脚本所在的同一目录中包含另一个文件或文件夹，可以通过查找当前工作目录来引用此文件或文件夹。
+
+```python
+script_dir = os.path.realpath(os.path.join(__file__, '..',))
+file_path = os.path.join(script_dir, "<file_name>")
+```
+
+### <a name="parameters-for-parallelrunconfig"></a>ParallelRunConfig 的参数
+
+`ParallelRunConfig` 是 `ParallelRunStep` 实例在 Azure 机器学习管道中的主要配置。 使用它来包装脚本并配置所需的参数，包括所有以下条目：
+- `entry_script`：作为将在多个节点上并行运行的本地文件路径的用户脚本。 如果 `source_directory` 存在，则使用相对路径。 否则，请使用计算机上可访问的任何路径。
+- `mini_batch_size`：传递给单个 `run()` 调用的微型批处理的大小。 （可选；默认值对于 `FileDataset` 是 `10` 个文件，对应 `TabularDataset` 是 `1MB`。）
+    - 对于 `FileDataset`，它是最小值为 `1` 的文件数。 可以将多个文件合并成一个微型批处理。
+    - 对于 `TabularDataset`，它是数据的大小。 示例值为 `1024`、`1024KB`、`10MB` 和 `1GB`。 建议值为 `1MB`。 `TabularDataset` 中的微批永远不会跨越文件边界。 例如，如果你有各种大小的 .csv 文件，最小的文件为 100 KB，最大的文件为 10 MB。 如果设置 `mini_batch_size = 1MB`，则大小小于 1 MB 的文件将被视为一个微型批处理。 大小大于 1 MB 的文件将被拆分为多个微型批处理。
+- `error_threshold`：在处理过程中应忽略的 `TabularDataset` 记录失败数和 `FileDataset` 文件失败数。 如果整个输入的错误计数超出此值，则作业将中止。 错误阈值适用于整个输入，而不适用于发送给 `run()` 方法的单个微型批处理。 范围为 `[-1, int.max]`。 `-1` 部分指示在处理过程中忽略所有失败。
+- `output_action`：以下值之一指示将如何组织输出：
+    - `summary_only`：用户脚本将存储输出。 `ParallelRunStep` 仅将输出用于错误阈值计算。
+    - `append_row`：对于所有输入，仅在输出文件夹中创建一个文件来追加所有按行分隔的输出。
+- `append_row_file_name`：用于自定义 append_row output_action 的输出文件名（可选；默认值为 `parallel_run_step.txt`）。
+- `source_directory`：文件夹的路径，这些文件夹包含要在计算目标上执行的所有文件（可选）。
+- `compute_target`：仅支持 `AmlCompute`。
+- `node_count`：用于运行用户脚本的计算节点数。
+- `process_count_per_node`：每个节点的进程数。 最佳做法是设置为一个节点具有的 GPU 或 CPU 数量（可选；默认值为 `1`）。
+- `environment`：Python 环境定义。 可以将其配置为使用现有的 Python 环境或设置临时环境。 定义还负责设置所需的应用程序依赖项（可选）。
+- `logging_level`：日志详细程度。 递增详细程度的值为：`WARNING`、`INFO` 和 `DEBUG`。 （可选；默认值为 `INFO`）
+- `run_invocation_timeout`：`run()` 方法调用超时（以秒为单位）。 （可选；默认值为 `60`）
+- `run_max_try`：微型批处理的 `run()` 的最大尝试次数。 如果引发异常，则 `run()` 失败；如果达到 `run_invocation_timeout`，则不返回任何内容（可选；默认值为 `3`）。 
+
+可以指定 `mini_batch_size`、`node_count`、`process_count_per_node`、`logging_level`、`run_invocation_timeout` 和 `run_max_try` 作为 `PipelineParameter` 以便在重新提交管道运行时，可以微调参数值。 在此示例中，对 `mini_batch_size` 和 `Process_count_per_node` 使用 `PipelineParameter`，并在稍后重新提交运行时更改这些值。 
+
+### <a name="parameters-for-creating-the-parallelrunstep"></a>用于创建 ParallelRunStep 的参数
+
+使用脚本、环境配置和参数创建 ParallelRunStep。 将已附加到工作区的计算目标指定为推理脚本的执行目标。 使用 `ParallelRunStep` 创建批处理推理管道步骤，该步骤采用以下所有参数：
+- `name`：步骤的名称，但具有以下命名限制：唯一、3-32 个字符和正则表达式 ^\[a-z\]([-a-z0-9]*[a-z0-9])?$。
+- `parallel_run_config`：`ParallelRunConfig` 对象，如前文所述。
+- `inputs`：要分区以进行并行处理的一个或多个单类型 Azure 机器学习数据集。
+- `side_inputs`：无需分区就可以用作辅助输入的一个或多个参考数据或数据集。
+- `output`：与输出目录相对应的 `PipelineData` 对象。
+- `arguments`：传递给用户脚本的参数列表。 使用 unknown_args 在入口脚本中检索它们（可选）。
+- `allow_reuse`：当使用相同的设置/输入运行时，该步骤是否应重用以前的结果。 如果此参数为 `False`，则在管道执行过程中将始终为此步骤生成新的运行。 （可选；默认值为 `True`。）
+
+```python
+from azureml.pipeline.steps import ParallelRunStep
+
+parallelrun_step = ParallelRunStep(
+    name="predict-digits-mnist",
+    parallel_run_config=parallel_run_config,
+    inputs=[input_mnist_ds_consumption],
+    output=output_dir,
+    allow_reuse=True
+)
+```
 
 ## <a name="debugging-scripts-from-remote-context"></a>从远程上下文调试脚本
 
-要实现从在本地调试评分脚本到在实际管道中调试评分脚本这一飞跃可能很困难。 有关如何在门户中查找日志的信息，请参阅[有关从远程上下文调试脚本的机器学习管道部分](how-to-debug-pipelines.md)。 该部分中的信息也适用于 ParallelRunStep。
+要实现从在本地调试评分脚本到在实际管道中调试评分脚本这一飞跃可能很困难。 若要了解如何在门户中查找日志，请参阅[有关从远程上下文调试脚本的机器学习管道部分](how-to-debug-pipelines.md)。 该部分中的信息也适用于 ParallelRunStep。
 
 例如，日志文件 `70_driver_log.txt` 包含来自启动 ParallelRunStep 代码的控制器的信息。
 
