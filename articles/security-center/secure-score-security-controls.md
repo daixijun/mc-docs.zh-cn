@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 01/06/2021
 ms.author: v-johya
 origin.date: 03/10/2020
-ms.openlocfilehash: af1a5bef0adb0773792b333846d903c13fe4917e
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: b000bc36881371a3748749f75360549f7985c565
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023309"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229843"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure 安全中心的安全评分
 
@@ -243,10 +243,6 @@ Azure 门户页面显示的安全功能分数为百分比值，但原值也一�
     <td class="tg-lboi"; width=55%>- 应对 SQL 数据库中的敏感数据进行分类(预览版)</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">保护应用程序免受 DDoS 攻击（最高 2 分）</p></strong>分布式拒绝服务 (DDoS) 攻击会使资源瘫痪，导致应用程序无法使用。 可使用 <a href="/virtual-network/ddos-protection-overview">Azure DDoS 防护标准</a>保护组织免受三种主要的 DDoS 攻击：<br>- <strong>容量耗尽攻击</strong>利用合法流量淹没网络。 DDoS 防护标准通过自动吸收或清理来缓解这些攻击。<br>- <strong>协议攻击</strong>通过利用第 3 层和第 4 层协议堆栈中的漏洞，使目标无法访问。 DDoS 防护标准通过阻止恶意流量来缓解这些攻击。<br>- <strong>资源（应用程序）层攻击</strong>以 Web 应用程序数据包为目标。 可使用 Web 应用程序防火墙和 DDoS 防护标准来防御此类攻击。</td>
-    <td class="tg-lboi"; width=55%>- 应启用 DDoS 防护标准<br>- 应强制执行容器 CPU 和内存限制（预览）<br>- 应在群集上安装并启用适用于 Kubernetes 的 Azure Policy 加载项（预览）</td>
-  </tr>
-  <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">启用 Endpoint Protection（最高 2 分）</p></strong>为确保终结点免受恶意软件的侵害，行为传感器会从终结点的操作系统收集数据并加以处理，然后将此数据发送到私有云进行分析。 安全分析利用大数据、机器学习和其他来源针对威胁提出响应建议。 例如，<a href="https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection">Microsoft Defender ATP</a> 使用威胁情报来识别攻击方法并生成安全警报。<br>安全中心支持以下终结点保护解决方案：Windows Defender、System Center Endpoint Protection、Trend Micro、Symantec v12.1.1.1100、适用于 Windows 的 McAfee v10、适用于 Linux 的 McAfee v10 和适用于 Linux 的 Sophos v9。 如果安全中心检测到以上任一解决方案，则不再显示安装 Endpoint Protection 的建议。</td>
     <td class="tg-lboi"; width=55%>- 应在虚拟机规模集上修正 Endpoint Protection 运行状况故障<br>- 应在计算机上解决 Endpoint Protection 运行状况问题<br>- 应在虚拟机规模集上安装 Endpoint Protection 解决方案<br>- 在虚拟机上安装 Endpoint Protection 解决方案<br>- 应在计算机上解决监视代理运行状况问题<br>- 应在虚拟机规模集上安装监视代理<br>- 应在计算机上安装监视代理<br>- 应在虚拟机上安装监视代理<br>- Log Analytics 代理应安装在基于 Windows 的 Azure Arc 计算机上(预览)<br>- Log Analytics 代理应安装在基于 Linux 的 Azure Arc 计算机上(预览)<br>- 在计算机上安装 Endpoint Protection 解决方案</td>
   </tr>
@@ -274,7 +270,7 @@ Azure 门户页面显示的安全功能分数为百分比值，但原值也一�
 ## <a name="secure-score-faq"></a>安全评分 FAQ
 
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>如果仅处理某个安全控制四分之三的建议，安全评分是否会变化？
-否。 为单个资源修正所有建议后，安全评分才会变化。 若要获得某个控制的最高分，必须为所有资源修正所有建议。
+不是。 为单个资源修正所有建议后，安全评分才会变化。 若要获得某个控制的最高分，必须为所有资源修正所有建议。
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>如果某个建议对我不适用，我在策略中禁用它，我能否达到安全控制的要求，我的安全评分是否会更新？
 是的。 如果建议不适用于你的环境，建议禁用它们。 有关如何禁用特定建议的说明，请参阅[禁用安全策略](./tutorial-security-policy.md#disable-security-policies-and-disable-recommendations)。

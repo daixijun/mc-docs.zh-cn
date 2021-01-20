@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
 origin.date: 10/12/2020
-ms.date: 11/27/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: 480426e714f53e252366731b2369efb0a545ecb9
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 579903e31dc9f139359d14a930b92a92a68a441d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300986"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230872"
 ---
 # <a name="certificate-access-control"></a>证书访问控制
 

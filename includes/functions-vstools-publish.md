@@ -5,15 +5,15 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/30/2020
+ms.date: 01/12/2021
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 2e55516f2a737a1d3e46b3b50fc30106860d725a
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 7551b08c1ee5fb9da883da0fc0206f2ba7155a19
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508568"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195317"
 ---
 1. **在“解决方案资源管理器”** 中，右键单击该项目并选择“发布”。
 
@@ -25,14 +25,14 @@ ms.locfileid: "96508568"
 
 1. 在“函数实例”中，选择“创建新的 Azure 函数…”，然后使用下表中指定的值 ：
 
-    | 设置      | “值”  | 描述                                |
+    | 设置      | 值  | 说明                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **名称** | 全局唯一名称 | 用于唯一标识新 Function App 的名称。 接受此名称或输入新名称。 有效的字符是 `a-z`、`0-9` 和 `-`。 |
     | **订阅** | 订阅 | 要使用的 Azure 订阅。 接受此订阅，或从下拉列表中选择一个新订阅。 |
     | **[资源组](../articles/azure-resource-manager/management/overview.md)** | 资源组的名称 |  要在其中创建函数应用的资源组。 从下拉列表中选择现有资源组，或者选择“新建”来创建新的资源组。|
-    | **[计划类型](../articles/azure-functions/functions-scale.md)** | 消耗 | 将项目发布到在[消耗计划](../articles/azure-functions/functions-scale.md#consumption-plan)中运行的函数应用时，只需为函数应用的执行付费。 其他托管计划会产生更高的成本。 |
+    | **[计划类型](../articles/azure-functions/functions-scale.md)** | 消耗 | 将项目发布到在[消耗计划](../articles/azure-functions/consumption-plan.md)中运行的函数应用时，只需为函数应用的执行付费。 其他托管计划会产生更高的成本。 |
     | **位置** | 应用服务的位置 | 在靠近你或者靠近函数访问的其他服务的 [区域](https://azure.microsoft.com/regions/)中选择一个 **位置**。 |
-    | **[Azure 存储](../articles/storage/common/storage-account-create.md)** | 常规用途存储帐户 | Functions 运行时需要 Azure 存储帐户。 选择“新建”即可配置常规用途存储帐户。 也可选择一个符合[存储帐户要求](../articles/azure-functions/functions-scale.md#storage-account-requirements)的现有帐户。  |
+    | **[Azure 存储](../articles/azure-functions/storage-considerations.md)** | 常规用途存储帐户 | Functions 运行时需要 Azure 存储帐户。 选择“新建”即可配置常规用途存储帐户。 也可选择一个符合[存储帐户要求](../articles/azure-functions/storage-considerations.md#storage-account-requirements)的现有帐户。  |
 
     ![“创建应用服务”对话框](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 

@@ -3,24 +3,24 @@ title: 使用 Azure 网络观察程序执行数据包检查 | Azure
 description: 本文介绍如何在 VM 中使用网络观察程序执行深度数据包检查
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/22/2017
-ms.date: 08/10/2020
+origin.date: 01/07/2021
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: b142442defb29e78ff8641d537e71415561dcb15
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: 278c2bd63cdeef45e730cdb4173bbf5a90c7fecf
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548030"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231101"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>使用 Azure 网络观察程序执行数据包检查
 
@@ -114,7 +114,7 @@ ms.locfileid: "87548030"
 <!--CORRECT ON Azure to replace azure, this particular virtual machine-->
 <!--Acrolinux scorecard issue-->
 
-如以下屏幕截图中所示，有的流量使用了 BitTorrent 协议来建立对等文件共享。 管理员不希望此特定虚拟机上出现 BitTorrent 流量。 现在我们发现了这种流量，可以删除此虚拟机上安装的对等软件，或者使用网络安全组或防火墙来阻止该流量。 此外，可以选择按计划运行数据包捕获，以便定期检查虚拟机上使用的协议。 有关如何在 Azure 中自动执行任务的示例，请参阅[使用 Azure 自动化监视网络资源](network-watcher-monitor-with-azure-automation.md)
+如以下屏幕截图中所示，有的流量使用了 BitTorrent 协议来建立对等文件共享。 管理员不希望此特定虚拟机上出现 BitTorrent 流量。 现在我们发现了这种流量，可以删除此虚拟机上安装的对等软件，或者使用网络安全组或防火墙来阻止该流量。 此外，可以选择按计划运行数据包捕获，以便定期检查虚拟机上使用的协议。 有关如何在 Azure 中自动执行任务的示例，请访问 [Monitor network resources with azure automation](network-watcher-monitor-with-azure-automation.md)（使用 Azure 自动化监视网络资源）
 
 <!--CORRECT ON Azure to replace azure, this particular virtual machine-->
 <!--Acrolinux scorecard issue-->

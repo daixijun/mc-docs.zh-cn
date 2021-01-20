@@ -9,18 +9,18 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2018
+origin.date: 01/07/2021
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6d5ead943896d49628a538e8f803212546db9387
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 9606bcc06cc943e2f427560a718b28bce8ece908
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327924"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229840"
 ---
 # <a name="azure-role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>使用网络观察程序功能所需的 Azure 基于角色的访问控制权限
 
@@ -93,6 +93,7 @@ ms.locfileid: "94327924"
 | 操作                                                              | 说明                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/topology/action                   | 获取拓扑                                                   |
+| Microsoft.Network/networkWatchers/topology/read                     | 同上                                                  |
 
 ## <a name="reachability-report"></a>可访问性报表
 
@@ -109,7 +110,7 @@ ms.locfileid: "94327924"
 | Microsoft.Authorization/\*/Read                                     | 用于提取 Azure 角色分配和策略定义          |
 | Microsoft.Resources/subscriptions/resourceGroups/Read               | 用于枚举订阅中的所有资源组    |
 | Microsoft.Storage/storageAccounts/Read                              | 用于获取指定存储帐户的属性   |
-| Microsoft.Storage/storageAccounts/listServiceSas/Action, <br /> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br /> Microsoft.Storage/storageAccounts/listKeys/Action| 用于获取共享访问签名 (SAS)，启用[对存储帐户的安全访问](https://docs.azure.cn/storage/common/storage-sas-overview)并写入存储帐户 |
+| Microsoft.Storage/storageAccounts/listServiceSas/Action, <br /> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br /> Microsoft.Storage/storageAccounts/listKeys/Action| 用于获取共享访问签名 (SAS)，启用[对存储帐户的安全访问](../storage/common/storage-sas-overview.md)并写入存储帐户 |
 | Microsoft.Compute/virtualMachines/Read, <br /> Microsoft.Compute/virtualMachines/Write| 用于登录到 VM、执行数据包捕获，并将其上传到存储帐户|
 | Microsoft.Compute/virtualMachines/extensions/Read <br /> Microsoft.Compute/virtualMachines/extensions/Write| 用于检查网络观察程序扩展是否存在，并在需要时进行安装 |
 | Microsoft.Compute/virtualMachineScaleSets/Read, <br /> Microsoft.Compute/virtualMachineScaleSets/Write| 用于访问虚拟机规模集、执行数据包捕获并将其上传到存储帐户|

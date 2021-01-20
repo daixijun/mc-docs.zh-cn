@@ -4,17 +4,17 @@ description: 了解如何在五分钟内创建并部署一个 Java Service Fabri
 ms.topic: conceptual
 origin.date: 06/18/2018
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 21d6bf414348dfbe3be553085cd63c0a3870dcbb
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 87dc351317d577f50644d152376b599a3f011064
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022723"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230044"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上创建第一个 Java Service Fabric Reliable Actors 应用程序
 > [!div class="op_single_selector"]

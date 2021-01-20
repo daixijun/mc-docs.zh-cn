@@ -4,17 +4,17 @@ description: 了解如何使用 Python 客户端库在 Azure Key Vault 中创建
 author: msmbaldwin
 ms.author: v-tawe
 origin.date: 09/03/2020
-ms.date: 11/27/2020
+ms.date: 01/14/2021
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: bfcccc75af08e9d8369f5b0d2ff694893f33ae11
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: a18a8a3ef1a1786f8d7902e8f67315152a077bfd
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104604"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229858"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>快速入门：适用于 Python 的 Azure Key Vault 证书客户端库
 
@@ -72,10 +72,10 @@ ms.locfileid: "97104604"
 
 ### <a name="grant-access-to-your-key-vault"></a>授予对 Key Vault 的访问权限
 
-针对 Key Vault 创建一个访问策略，以便为用户帐户授予密码权限
+针对密钥保管库创建一个访问策略，以便为用户帐户授予证书权限
 
 ```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create
 ```
 
 #### <a name="set-environment-variables"></a>设置环境变量
@@ -88,7 +88,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS 或 Linux
@@ -198,7 +198,7 @@ deleted_certificate = poller.result()
 
 `begin_delete_certificate` 方法是异步方法，将返回一个轮询器对象。 调用轮询器的 `result` 方法等待其完成。
 
-可以使用 Azure CLI 命令 [az keyvault certificate show](/cli/keyvault/certificate#az-keyvault-certificate-show) 来验证是否已删除证书。
+可以使用 Azure CLI 命令 [az keyvault certificate show](/cli/keyvault/certificate?#az-keyvault-certificate-show) 来验证是否已删除证书。
 
 证书删除后，会在一段时间内保持已删除但可恢复状态。 如果再次运行该代码，请使用其他证书名称。
 
@@ -217,5 +217,5 @@ az group delete --resource-group KeyVault-PythonQS-rg
 - [Azure 密钥保管库概述](../general/overview.md)
 - [保护对密钥保管库的访问](../general/secure-your-key-vault.md)
 - [Azure Key Vault 开发人员指南](../general/developers-guide.md)
-- [Azure Key Vault 最佳做法](../general/best-practices.md)
+- [Key Vault 安全性概述](../general/security-overview.md)
 - [使用 Key Vault 进行身份验证](../general/authentication.md)

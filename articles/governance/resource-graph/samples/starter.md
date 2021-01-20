@@ -3,14 +3,14 @@ title: 初学者查询示例
 description: 使用 Azure 资源图来运行一些初学者查询，包括计算资源数、对资源进行排序或按特定标记排序。
 ms.author: v-tawe
 origin.date: 10/14/2020
-ms.date: 11/06/2020
+ms.date: 01/14/2021
 ms.topic: sample
-ms.openlocfilehash: a328160c42d026e71c7e3a46849b2b0cf6d3c1f7
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 9b0394bfed05e61390b976a9cf0e9fca69ade308
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431082"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193263"
 ---
 # <a name="starter-resource-graph-query-samples"></a>初学者 Resource Graph 查询示例
 
@@ -29,8 +29,6 @@ ms.locfileid: "96431082"
 - [对具有由订阅配置的 IP 地址的资源进行计数](#count-resources-by-ip)
 - [列出具有特定标记值的资源](#list-tag)
 - [列出具有特定标记值的所有存储帐户](#list-specific-tag)
-- [显示虚拟机资源的别名](#show-aliases)
-- [显示特定别名的非重复值](#distinct-alias-values)
 - [显示未关联的网络安全组](#unassociated-nsgs)
 - [从 Azure 顾问获取成本节约摘要](#advisor-savings)
 - [统计来宾配置策略范围内的计算机](#count-gcmachines)
@@ -438,68 +436,6 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 > [!NOTE]
 > 此示例使用 `==` 进行匹配，而不是使用 `=~` 条件。 `==` 是区分大小写的匹配项。
-
-## <a name="show-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases"></a>显示虚拟机资源的别名
-
-Azure Policy 使用 [Azure Policy 别名](../../policy/concepts/definition-structure.md#aliases)管理资源符合性。 Azure Resource Graph 可以返回资源类型的别名。 创建自定义策略定义后，这些值可用于比较别名的当前值。 默认情况下，查询结果中不提供别名数组。 使用 `project aliases` 将其显式添加到结果中。
-
-```kusto
-Resources
-| where type =~ 'Microsoft.Compute/virtualMachines'
-| limit 1
-| project aliases
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli
-az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
-```
-
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases" | ConvertTo-Json
-```
-
-# <a name="portal"></a>[门户](#tab/azure-portal)
-
-:::image type="icon" source="../media/resource-graph-small.png"::: 在 Azure Resource Graph 资源管理器中尝试此查询：
-
-- Azure 中国世纪互联门户：<a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20limit%201%0D%0A%7C%20project%20aliases" target="_blank">portal.azure.cn <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-
----
-
-## <a name="show-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values"></a>显示特定别名的非重复值
-
-在单个资源上查看别名的值，这非常有用，但这不会显示使用 Azure Resource Graph 在订阅中进行查询的真实值。 本示例查看特定别名的所有值，并返回不同的值。
-
-```kusto
-Resources
-| where type=~'Microsoft.Compute/virtualMachines'
-| extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType']
-| distinct tostring(alias)
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli
-az graph query -q "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
-```
-
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
-```
-
-# <a name="portal"></a>[门户](#tab/azure-portal)
-
-:::image type="icon" source="../media/resource-graph-small.png"::: 在 Azure Resource Graph 资源管理器中尝试此查询：
-
-- Azure 中国世纪互联门户：<a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%3D~%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20extend%20alias%20%3D%20aliases%5B%27Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType%27%5D%0D%0A%7C%20distinct%20tostring%28alias%29" target="_blank">portal.azure.cn <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-
----
 
 ## <a name="show-unassociated-network-security-groups"></a><a name="unassociated-nsgs"></a>显示未关联的网络安全组
 

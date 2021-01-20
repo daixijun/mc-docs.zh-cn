@@ -3,7 +3,6 @@ title: Azure 流量分析架构更新 - 2020 年 3 月 | Azure
 description: 在流量分析架构中包含新字段的示例查询。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 manager: agummadi
 editor: ''
 ms.service: network-watcher
@@ -11,21 +10,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/06/2020
-ms.date: 08/10/2020
+origin.date: 01/07/2021
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: aaafaf450e5a4e3b9cfcf96155447e782c16ec5f
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: 71e5fc6ebb2ee80f0526332a098d9e6e78c9f2f6
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548057"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229831"
 ---
 # <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>流量分析架构中包含新字段的示例查询（2019 年 8 月版架构更新）
 
-[流量分析日志架构](/network-watcher/traffic-analytics-schema)包含以下新字段：SrcPublicIPs_s、DestPublicIPs_s、NSGRule_s  。 新字段提供有关源和目标 IP 的信息并且可以简化查询。
+[流量分析日志架构](./traffic-analytics-schema.md)包含以下新字段：SrcPublicIPs_s、DestPublicIPs_s、NSGRule_s  。 新字段提供有关源和目标 IP 的信息并且可以简化查询。
 
 在接下来的几个月内，以下较旧的字段将弃用：VMIP_s、Subscription_g、Region_s、NSGRules_s、Subnet_s、VM_s、NIC_s、PublicIPs_s、FlowCount_d        。
 

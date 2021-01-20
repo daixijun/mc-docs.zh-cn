@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/04/2019
-ms.date: 09/10/2020
-ms.openlocfilehash: ed9ec0429c05b5bca5f1f3c1f1efb9ab47f80fd7
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 01/18/2021
+ms.openlocfilehash: 4142a0fffa696ed3b04ea8123646b702dee58cd7
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021116"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194740"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>关键短语提取认知技能
 
@@ -38,7 +38,7 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 
 参数区分大小写。
 
-| 输入                | 说明 |
+| 输入 | 说明 |
 |---------------------|-------------|
 | `defaultLanguageCode` | （可选）要应用到未显式指定语言的文档的语言代码。  如果未指定默认语言代码，会将英语 (en) 用作默认语言代码。 <br/> 请参阅[支持的语言的完整列表](../cognitive-services/text-analytics/language-support.md)。 |
 | `maxKeyPhraseCount`   | （可选）要生成的关键短语的最大数量。 |

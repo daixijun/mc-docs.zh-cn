@@ -5,19 +5,19 @@ services: network-watcher
 Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
 ms.service: network-watcher
 ms.topic: quickstart
-origin.date: 07/22/2020
+origin.date: 01/07/2021
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.custom: subject-armqs
-ms.openlocfilehash: 9528d733df76a648bbc63bbe3bb7a5ad572ea4d9
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: f3fc7b1a1b4cb40d01d1b5b0a15be90f571216bc
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432564"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229837"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>快速入门：使用 ARM 模板配置网络安全组流日志
@@ -36,7 +36,7 @@ ms.locfileid: "96432564"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="review-the-template"></a>查看模板
 
@@ -215,6 +215,8 @@ ms.locfileid: "96432564"
 
 该模板中定义了以下资源：
 
+<!--Not Avaiablle on https://docs.microsoft.com/azure/templates/-->
+
 - Microsoft.Storage/storageAccounts
 - Microsoft.Resources/deployments
 
@@ -258,7 +260,7 @@ ms.locfileid: "96432564"
 如果你是第一次使用 ARM 模板，请参阅以下文章，了解有关 ARM 模板的详细信息：
 
 - [使用 ARM 模板和 Azure PowerShell 部署资源](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
-- 创建和部署你的第一个 ARM 模板[
+- [创建并部署第一个 ARM 模板](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 下面的示例是一个完整的模板。 它也是最简单的模板版本。 该示例包含设置 NSG 流日志所需传递的最少参数。 有关更多示例，请参阅概述文章[根据 Azure 资源管理器模板配置 NSG 流日志](network-watcher-nsg-flow-logging-azure-resource-manager.md)。
 

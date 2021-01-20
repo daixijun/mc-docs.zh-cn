@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
 origin.date: 09/04/2019
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: 85f662647eccc3e86031687204d5104de88c4e59
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 5152df914d97da654cd0526359a30dd46c1710e3
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104415"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230876"
 ---
 # <a name="about-azure-key-vault-certificates"></a>关于 Azure Key Vault 证书
 

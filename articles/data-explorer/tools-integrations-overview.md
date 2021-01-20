@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 07/08/2020
 ms.date: 09/30/2020
-ms.openlocfilehash: e7fad9ffaedb0cecf0be5b798943d675bf81dc37
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 13ebef6bab93641be6ec6bc81890035d2ca41caf
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105347"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193280"
 ---
 # <a name="azure-data-explorer-tools-and-integrations-overview"></a>Azure 数据资源管理器工具和集成概述
 
@@ -66,7 +66,8 @@ Azure 数据资源管理器中有几种工具可用于运行查询。
 
 ### <a name="query-integrations"></a>查询集成
 
-* [Azure Monitor](query-monitor-data.md)
+<!-- * [Azure Monitor](query-monitor-data.md) -->
+
 * [Azure 数据湖](data-lake-query-data.md)
 * Apache Spark
 * Azure Data Studio：[Kusto 扩展概述](https://docs.microsoft.com/sql/azure-data-studio/extensions/kusto-extension?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)、[使用 Kusto](https://docs.microsoft.com/sql/azure-data-studio/notebooks/notebooks-kusto-kernel?context=%252fazure%252fdata-explorer%252fcontext%252fcontext) 和[使用 Kqlmagic](https://docs.microsoft.com/sql/azure-data-studio/notebooks-kqlmagic?context=%252fazure%252fdata-explorer%252fcontext%252fcontext)

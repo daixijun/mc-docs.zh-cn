@@ -1,19 +1,19 @@
 ---
 title: Azure SignalR 的内置策略定义
 description: 列出 Azure SignalR 的 Azure Policy 内置策略定义。 这些内置的策略定义提供了管理 Azure 资源的常用方法。
-origin.date: 11/20/2020
-ms.date: 12/03/2020
+origin.date: 01/08/2021
+ms.date: 01/14/2021
 author: sffamily
 ms.author: v-tawe
 ms.service: signalr
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 33aaf34b468617459defe2cc9d09dd2adf71dc80
-ms.sourcegitcommit: c4ac22d1def90dd1e249bfce58b57ec4e86537db
+ms.openlocfilehash: ddf1b1d69c0f4d82e474b8e2d7d99a1345983fbc
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96544726"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193284"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-signalr"></a>Azure SignalR 的 Azure Policy 内置定义
 

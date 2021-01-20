@@ -3,7 +3,6 @@ title: 记录出入 VM 的网络流量 - 教程 - Azure 门户 | Azure
 description: 了解如何使用网络观察程序的 NSG 流日志功能记录出入 VM 的网络流量。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 tags: azure-resource-manager
 Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
@@ -13,17 +12,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/30/2018
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9972298b3dcde09a2d3e6b000cf361c255d557cc
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 5944179123bfd305740e73ddf0eac5071747b534
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432566"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230875"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教程：使用 Azure 门户记录出入虚拟机的网络流量
 
@@ -43,7 +43,7 @@ ms.locfileid: "96432566"
 > * 下载记录的数据
 > * 查看记录的数据
 
-如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 ## <a name="create-a-vm"></a>创建 VM
 
@@ -104,7 +104,7 @@ NSG 流日志记录要求使用 **Microsoft.Insights** 提供程序。 若要注
 4. 在门户左上角选择“所有服务”。 在“筛选器”框中，键入“网络观察程序”。 搜索结果中出现“网络观察程序”后，将其选中。
 5. 在“日志”下选择“NSG 流日志”，如下图所示 ：
 
-    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/nsgs.png" alt-text="NSG":::
+    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/nsgs.png" alt-text="显示网络观察程序 NSG 流日志的屏幕截图。":::
 
 6. 从 NSG 列表中选择名为 **myVm-nsg** 的 NSG。
 7. 在“流日志设置”下选择“启用”。 
@@ -114,7 +114,7 @@ NSG 流日志记录要求使用 **Microsoft.Insights** 提供程序。 若要注
 
 9. 选择在步骤 3 中创建的存储帐户。
     > [!NOTE]
-    > NSG 流日志不适用于已启用[分层命名空间](/storage/blobs/data-lake-storage-namespace)的存储帐户。
+    > NSG 流日志不适用于已启用[分层命名空间](../storage/blobs/data-lake-storage-namespace.md)的存储帐户。
 1. 在门户左上角选择“所有服务”。 在“筛选器”框中，键入“网络观察程序”。 搜索结果中出现“网络观察程序”后，将其选中。
 10. 将“保留期(天)”设置为 5，然后选择“保存”。 
 

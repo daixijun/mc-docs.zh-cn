@@ -6,17 +6,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 10/07/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: ef63561a20d0deb2e9bd7907f2bdd3a2896722cd
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: a90ce904bd56fc3038a0ef2bf0ac1021b853d5d8
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552875"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230816"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>SQL API 的 Azure Cosmos DB.NET V3 SDK (Microsoft.Azure.Cosmos) 示例
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -50,6 +50,9 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 - 可以[激活 Visual Studio 订阅者权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)：Visual Studio 订阅每月提供可用来试用付费版 Azure 服务的信用额度。
+
+    <!--CORRECT ON https://www.azure.cn/offers/ms-mc-arz-msdn/-->
+    
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 > [!NOTE]
@@ -96,7 +99,7 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 
 ## <a name="indexing-examples"></a>索引示例
 
-*IndexManagement* 项目示例的 [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L108-L122) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的索引，请参阅[索引策略](index-policy.md)、[索引类型](index-overview.md#index-kinds)和[索引路径](index-policy.md#include-exclude-paths)。 
+*IndexManagement* 项目示例的 [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L108-L122) 方法演示如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos DB 中的索引，请参阅[索引策略](index-policy.md)、[索引类型](index-overview.md#index-types)和[索引路径](index-policy.md#include-exclude-paths)。 
 
 | 任务 | API 参考 |
 | --- | --- |

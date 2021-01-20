@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 09/23/2020
-ms.date: 11/27/2020
-ms.openlocfilehash: b43d455f1e870e3f55b9850b1627efd1856766dc
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.date: 01/18/2021
+ms.openlocfilehash: 8bb61ce8c39dd3480c5885fc256a780fa30de60e
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300059"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194703"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>排查 Azure 认知搜索中的常见索引器错误和警告
 
@@ -353,4 +353,4 @@ ms.locfileid: "96300059"
 
 ## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>警告：文档包含非常长的字词（超过 64 个字符）。 这些字词可能会导致模型预测被截断和/或不可靠。
 
-此警告自文本分析服务发出。  在某些情况下，可以忽略此警告，例如文档包含较长的 URL（它很可能不是关键短语或驱动性情绪等）时。  请注意，字词超过 64 个字符时将被截断为 64 个字符，这会影响模型预测。  
+此警告自文本分析服务发出。  在某些情况下，可以忽略此警告，例如文档包含较长的 URL（它很可能不是关键短语或驱动性情绪等）时。  请注意，字词超过 64 个字符时将被截断为 64 个字符，这会影响模型预测。

@@ -12,19 +12,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/29/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 61e046256b033b6de5a195ba13e2c9ea856babf4
-ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
+ms.openlocfilehash: e14baccb815e243a754890f776fbffb65d26a0c3
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829459"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195275"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>使用 REST API 列出 Azure 角色分配
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] 本文介绍如何使用 REST API 列出角色分配。
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] 本文介绍如何使用 REST API 列出角色分配。
 
 ## <a name="list-role-assignments"></a>列出角色分配
 

@@ -3,13 +3,13 @@ title: 管理 Azure Functions 中的连接
 description: 了解如何通过使用静态连接客户端来避免 Azure Functions 中的性能问题。
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 01/04/2021
-ms.openlocfilehash: d194a661917ee5d5a5e20bb0077f70aebdf5a385
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.date: 01/13/2021
+ms.openlocfilehash: a74192c11a19ad645dc27ba53844246fbf63d49e
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021440"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195277"
 ---
 # <a name="manage-connections-in-azure-functions"></a>管理 Azure Functions 中的连接
 
@@ -19,7 +19,7 @@ ms.locfileid: "98021440"
 
 可用连接数量受到限制，部分原因是函数应用在[沙盒环境](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)中运行。 沙盒对代码施加的限制之一是对出站连接数量进行限制，目前每个实例的活动连接数上限为 600 个（总共 1,200 个连接）。 达到此限制时，函数运行时会将以下消息写入日志：`Host thresholds exceeded: Connections`。 有关详细信息，请参阅 [Functions 服务限制](functions-scale.md#service-limits)。
 
-此限制是按实例施加的。 [缩放控制器添加函数应用实例](functions-scale.md#how-the-consumption-and-premium-plans-work)以处理更多请求时，每个实例都有单独的连接限制。 这意味着没有全局连接限制，你可以跨所有活动实例建立比 600 个活动连接多得多的连接。
+此限制是按实例施加的。 [缩放控制器添加函数应用实例](event-driven-scaling.md)以处理更多请求时，每个实例都有单独的连接限制。 这意味着没有全局连接限制，你可以跨所有活动实例建立比 600 个活动连接多得多的连接。
 
 进行故障排除时，请确保已为函数应用启用 Application Insights。 借助 Application Insights，你可以查看函数应用的指标，如执行。 有关详细信息，请参阅[在 Application Insights 中查看遥测](analyze-telemetry-data.md#view-telemetry-in-application-insights)。  
 

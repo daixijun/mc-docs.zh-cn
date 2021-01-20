@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 origin.date: 07/20/2020
-ms.date: 11/27/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: 8677917838bd73e8fc9b10a73aa985214877ab8a
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: a35d6e9c3b5828828fcb5ff8481be025b03289bb
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300286"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229864"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>导入 Azure Key Vault 证书常见问题解答
 

@@ -39,6 +39,8 @@
       href: template-samples.md
 - name: 概念
   items:
+    - name: 概念和最佳做法
+      href: concepts-and-best-practices.md
     - name: 业务连续性
       href: virtual-network-disaster-recovery-guidance.md
     - name: 连接
@@ -69,12 +71,16 @@
           href: container-networking-overview.md
         - name: 对等互连
           href: virtual-network-peering-overview.md
-    - name: Azure 服务集成
+    - name: 集成 Azure 服务
       items:
-        - name: 服务终结点
-          href: virtual-network-service-endpoints-overview.md
+        - name: 概述
+          href: vnet-integration-for-azure-services.md
         - name: 部署专用服务
           href: virtual-network-for-azure-services.md
+        - name: 服务终结点
+          href: virtual-network-service-endpoints-overview.md
+        - name: 服务标记
+          href: service-tags-overview.md
     - name: IP 服务
       items:
         - name: 公共 IP
@@ -91,8 +97,12 @@
           href: public-ip-security-baseline.md
     - name: 安全性
       items:
-        - name: 安全基线
+        - name: 虚拟网络安全基线
           href: security-baseline.md
+        - name: 虚拟网络 NAT 安全基线
+          href: nat-security-baseline.md
+        - name: Azure 服务的网络隔离
+          href: vnet-integration-for-azure-services.md
         - name: 网络安全组
           items:
             - name: 概述
@@ -103,6 +113,8 @@
           href: application-security-groups.md
         - name: 服务标记
           href: service-tags-overview.md
+        - name: 服务终结点策略
+          href: virtual-network-service-endpoint-policies-overview.md
         - name: Kubernetes 网络策略
           href: kubernetes-network-policies.md
         - name: Azure Policy 的安全控件

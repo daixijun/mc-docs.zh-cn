@@ -8,14 +8,14 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: tutorial
 origin.date: 10/02/2020
-ms.date: 11/27/2020
+ms.date: 01/14/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1134e1d6f347cabe1afb0008a337094a0322bebf
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 159a89ed453f9e30790f801ef1c948476b60566a
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300207"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194735"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>教程：使用 .NET SDK 对搜索结果排序
 
@@ -40,7 +40,7 @@ ms.locfileid: "96300207"
 
 * [2b-add-infinite-scroll (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2b-add-infinite-scroll) 解决方案。 该项目可使用在上一教程中生成的版本，或 GitHub 中的副本。
 
-本教程已更新，以便使用 [Azure.Search.Documents（版本 11）](https://www.nuget.org/packages/Azure.Search.Documents/)包。 有关 .NET SDK 的早期版本，请参阅 [Microsoft.Azure.Search（版本 10）代码示例](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10)。
+本教程已更新为使用 [Azure.Search.Documents（版本 11）](https://www.nuget.org/packages/Azure.Search.Documents/)包。 有关 .NET SDK 的早期版本，请参阅 [Microsoft.Azure.Search（版本 10）代码示例](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10)。
 
 ## <a name="order-results-based-on-one-property"></a>根据一个属性对结果排序
 

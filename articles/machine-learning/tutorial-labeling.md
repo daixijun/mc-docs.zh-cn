@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 700906522d6b3bfad9f00406dc7530ad500867e0
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: eab1ee69d83d7d2027bc7a946ad69c093cc99b82
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105261"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230216"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>教程：创建用于多类图像分类的标记项目 
 
@@ -103,7 +103,8 @@ Azure 机器学习数据存储用于存储连接信息，例如订阅 ID 和令�
 1. 在“从数据存储创建数据集”窗体中使用以下输入：
 
     1. 在“基本信息”窗体中添加一个名称，此处我们使用 images-for-tutorial。  添加说明（如果需要）。  然后，选择“下一步”。
-    1. 在“选择数据存储”窗体中，使用下拉列表选择以前创建的数据存储，例如“tutorial_images (Azure Blob 存储)”
+    1. 在“数据存储选择”窗体上，选择“以前创建的数据存储”，然后单击数据存储名称并选中“选择数据存储”  。
+    1. 在下一页上，验证当前选定的数据存储是否正确。 如果不正确，请选择“以前创建的数据存储”并重复上一步。
     1. 接下来，仍在“选择数据存储”窗体中，依次选择“浏览”、“MultiClass - DogsCats”。  选择“保存”并使用“/MultiClass - DogsCats”作为路径。
     1. 选择“下一步”来确认详细信息，然后选择“创建”以创建数据集。
     1. 在列表中选择数据集名称（例如“images-for-tutorial”）旁边的圆圈。

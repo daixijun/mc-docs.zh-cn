@@ -2,18 +2,15 @@
 title: 检测运动并发出事件 - Azure
 description: 本快速入门介绍如何以编程方式调用直接方法，从而使用 IoT Edge 上的实时视频分析来检测运动和发出事件。
 ms.topic: quickstart
-author: WenJason
-ms.author: v-jay
-ms.service: media-services
 origin.date: 08/10/2020
-ms.date: 09/28/2020
+ms.date: 01/18/2021
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 21af7b1dbc990ef9f2020d364d7a204eb67dd7c4
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: dd833ddd4726bf17f755e6917ad037be9f472325
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244819"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229863"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>快速入门：检测运动并发出事件
 
@@ -35,6 +32,16 @@ ms.locfileid: "91244819"
 
 # <a name="python"></a><a name="programming-language-python"></a>[Python](#tab/programming-language-python)
 [!INCLUDE [prerequisites](includes/detect-motion-emit-events-quickstart/python/prerequisites.md)]
+---
+
+## <a name="review-the-sample-video"></a>观看示例视频
+
+# <a name="c"></a><a name="programming-language-csharp"></a>[C#](#tab/programming-language-csharp)
+[!INCLUDE [review-sample-video](includes/detect-motion-emit-events-quickstart/csharp/review-sample-video.md)]
+
+# <a name="python"></a><a name="programming-language-python"></a>[Python](#tab/programming-language-python)
+[!INCLUDE [review-sample-video](includes/detect-motion-emit-events-quickstart/python/review-sample-video.md)]
+
 ---
 
 ## <a name="set-up-azure-resources"></a>设置 Azure 资源

@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/17/2020
-ms.date: 12/10/2020
-ms.openlocfilehash: 1d37ac27d778ed415ea8298424b8758b09aaa496
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.date: 01/14/2021
+ms.openlocfilehash: 51a1ccb7b6adfb5d2359d99243fe1ba65de02992
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004280"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194716"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Azure 认知搜索的 .NET (C#) 代码示例
 
@@ -45,7 +45,7 @@ ms.locfileid: "97004280"
 
 ## <a name="documentation-samples"></a>文档示例
 
-在 [Azure 认知搜索文档](https://docs.azure.cn/search/)中有与以下示例相关联的文章。
+在 [Azure 认知搜索文档](./index.yml)中有与以下示例相关联的文章。
 
 | 示例 | 说明 |
 |---------|-------------|

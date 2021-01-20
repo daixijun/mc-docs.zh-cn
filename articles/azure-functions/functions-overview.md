@@ -4,19 +4,19 @@ description: 了解 Azure Functions 如何帮助构建可靠的无服务器应�
 author: craigshoemaker
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
-ms.date: 01/04/2021
+ms.date: 01/13/2021
 ms.author: v-junlch
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a572ebf83b2dd845293585cdea66fee6e54d7946
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 6a51a10a56d2788ba2dd717cf032e40192654489
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021442"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195279"
 ---
 # <a name="introduction-to-azure-functions"></a>Azure Functions 简介
 
-Azure Functions 是一种无服务器解决方案，可以使用户减少代码编写、减少需要维护的基础结构并节省成本。 无需担心部署和维护服务器，云基础结构提供保持应用程序运行所需的所有最新服务器。
+Azure Functions 是一种无服务器解决方案，可以使用户减少代码编写、减少需要维护的基础结构并节省成本。 无需担心部署和维护服务器，云基础结构提供保持应用程序运行所需的所有最新资源。
 
 你只需专注于对你最重要的代码，Azure Functions 处理其余代码。<br /><br />
 

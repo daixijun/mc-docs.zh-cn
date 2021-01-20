@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 05/06/2020
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 2c53c3adac89c19b07067963089b1b6c5f140baf
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 8d451fec460d769c2c156f75bfef08eceeb0a656
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850386"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163090"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>将 Azure Key Vault 中的客户管理的密钥用于导入/导出服务
 
@@ -38,8 +38,8 @@ Azure 导入/导出使用加密密钥保护用于锁定驱动器的 BitLocker �
 
     - 在现有 Key Vault 上设置了“软删除”和“不清除”。 默认情况下未启用这些属性。 若要启用这些属性，请参阅以下文章之一中标题为“启用软删除”和“启用清除保护”的部分： 
 
-        - [如何通过 PowerShell 使用软删除](../../key-vault/general/soft-delete-powershell.md)。
-        - [如何通过 CLI 使用软删除](../../key-vault/general/soft-delete-cli.md)。
+        - [如何通过 PowerShell 使用软删除](../../key-vault/general/key-vault-recovery.md)。
+        - [如何通过 CLI 使用软删除](../../key-vault/general/key-vault-recovery.md)。
     - 现有密钥保管库应当具有大小为 2048 或更大的 RSA 密钥。 有关密钥的详细信息，请参阅[关于密钥](../../key-vault/keys/about-keys.md)。
     - 密钥保管库必须与数据的存储帐户位于同一区域。  
     - 如果你没有现有的 Azure Key Vault，也可按照以下部分的描述以内联方式创建它。

@@ -1,16 +1,16 @@
 ---
 title: 排查常见错误
 description: 了解如何排查为 Kubernetes 创建策略定义、各种 SDK 和加载项时遇到的问题。
-origin.date: 10/30/2020
-ms.date: 01/05/2021
+origin.date: 12/01/2020
+ms.date: 01/14/2021
 ms.author: v-tawe
 ms.topic: troubleshooting
-ms.openlocfilehash: f9e7ea6ecc239a4a7470798285436f9545209cba
-ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
+ms.openlocfilehash: 55059fa7e3ad8dc2489edf2e34c0f653a0e6869a
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874835"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193286"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>排查使用 Azure Policy 时出现的错误
 

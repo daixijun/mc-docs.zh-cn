@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: application-insights
 ms.topic: landing-page
 origin.date: 01/15/2019
-ms.date: 6/4/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 6e27e6e579ed473794dea476da11c1a60b7edd71
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.date: 01/14/2021
+ms.author: v-johya
+ms.openlocfilehash: 62dc7018dc3ce211311e2cdc8d94ed27eec25c21
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75857995"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231024"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -193,7 +193,6 @@ ms.locfileid: "75857995"
                                                         <h3>实时监视，<br> 可视化，&amp; 分析</h3>
                                                         <p>
                                                             <a href="./app/overview-dashboard.md">概述仪表板 &amp; 应用程序仪表板</a><br>
-                                                            <a href="./app/monitor-web-app-availability.md">全局可用性监视</a><br>
                                                             <a href="./app/live-stream.md">实时指标流</a><br>
                                                             <a href="./app/app-map.md">分布式应用映射</a><br>
                                                             <a href="../monitoring-and-diagnostics/resource-group-insights.md">资源组级别监视</a><br>
@@ -206,7 +205,6 @@ ms.locfileid: "75857995"
                                                             <a href="/azure-monitor/platform/personal-data-mgmt">处理个人数据</a><br>
                                                             <a href="./app/data-retention-privacy.md">数据收集、保留和存储</a><br>
                                                             <a href="./app/resources-roles-access-control.md">基于角色的访问</a><br>
-                                                            <a href="./app/ip-addresses.md">IP 地址 &amp; 防火墙异常</a><br>
                                                             <a href="./platform/usage-estimated-costs.md">使用情况和预估成本</a>
                                                         </p>
                                                         <br><br>
@@ -215,7 +213,7 @@ ms.locfileid: "75857995"
                                                             <a href="./app/data-model.md">概述</a><br>
                                                             <a href="./app/data-model-request-telemetry.md">请求</a><br>
                                                             <a href="./app/data-model-dependency-telemetry.md">依赖项</a><br>
-                                                            <a href="./app/data-model-exception-telemetry.md">异常</a><br>
+                                                            <a href="./app/data-model-exception-telemetry.md">Exception</a><br>
                                                             <a href="./app/data-model-trace-telemetry.md">Trace</a><br>
                                                             <a href="./app/data-model-event-telemetry.md">事件</a><br>
                                                             <a href="./app/data-model-metric-telemetry.md">指标</a><br>

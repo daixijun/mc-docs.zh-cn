@@ -4,17 +4,17 @@ description: 在本教程中，使用 Site Recovery 服务将 Azure VM 的灾难
 ms.topic: tutorial
 origin.date: 11/03/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fa60093d08a21e102e515e24ff1d41cf935a504d
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 43229bef0bdf62d5c018db69ec105ce6aec28eda
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022903"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230373"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>教程：为 Azure VM 设置灾难恢复
 

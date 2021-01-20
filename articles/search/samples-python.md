@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/17/2020
 ms.date: 12/10/2020
-ms.openlocfilehash: 1eda15d575bcfc9a6575d2d62a66a3d5f59767ef
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 4a01a6209e8b480b9e1f3f7401fe17521a277185
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004277"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194701"
 ---
 # <a name="python-code-samples-for-azure-cognitive-search"></a>Azure 认知搜索的 Python 代码示例
 
@@ -26,7 +26,7 @@ ms.locfileid: "97004277"
 | [Azure-Samples/azure-search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples) | 操作方法文章附带的代码示例，包括[快速入门：使用 Python 创建搜索索引](search-get-started-python.md)。|
 
 > [!Tip]
-> 请尝试使用[示例浏览器](https://docs.microsoft.com/samples/browse/?languages=csharp&products=azure-cognitive-search)来搜索 Github 中的 Microsoft 代码示例，搜索时可按产品、服务和语言进行筛选。
+> 请尝试使用[示例浏览器](https://docs.microsoft.com/samples/browse/?languages=python&products=azure-cognitive-search)来搜索 Github 中的 Microsoft 代码示例，搜索时可按产品、服务和语言进行筛选。
 
 ## <a name="python-sdk-samples"></a>Python SDK 示例
 
@@ -46,7 +46,7 @@ ms.locfileid: "97004277"
 
 ## <a name="documentation-samples"></a>文档示例
 
-在 [Azure 认知搜索文档](https://docs.azure.cn/search/)中有与以下示例相关联的文章。
+在 [Azure 认知搜索文档](./index.yml)中有与以下示例相关联的文章。
 
 | 示例 | 说明 | 
 |---------|-------------|

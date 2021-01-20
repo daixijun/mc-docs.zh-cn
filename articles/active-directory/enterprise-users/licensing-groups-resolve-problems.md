@@ -7,19 +7,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97d0a17173ea253eb0e9d76c9e1a3f1bf4c722ba
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: e2d90c64acb1cd8d2bf87a5dbbdfe4483f7c60e2
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004147"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195107"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>识别和解决 Azure Active Directory 中组的许可证分配问题
 
@@ -67,7 +68,6 @@ Azure Active Directory (Azure AD) 中基于组的许可引入了处于许可错�
 
 请考虑以下示例。 为某个用户直接分配了 Office 365 企业版 *E1* 许可证并启用了所有计划。 该用户已添加到分配有 Office 365 企业版 *E3* 产品的组。 E3 产品包含的服务计划不能与 E1 中包含的计划重叠，因此，组许可证分配会失败并显示“冲突的服务计划”错误。 在此示例中，冲突的服务计划为：
 
-- SharePoint Online（计划 2）与 SharePoint Online（计划 1）冲突。
 - Exchange Online（计划 2）与 Exchange Online（计划 1）冲突。
 
 若要解决此冲突，需要禁用两个计划。 可以禁用直接分配给用户的 E1 许可证。 或者，需要修改整个组许可证分配并在 E3 许可证中禁用计划。 或者，你可能会决定删除用户的 E1 许可证（如果 E1 许可证在 E3 许可证的上下文中是多余的）。
@@ -180,5 +180,6 @@ Microsoft Workplace Analytics 是一个附加产品。 它包含同名单一服�
 * [将许可证分配到 Azure Active Directory 中的组](./licensing-groups-assign.md)
 * [如何将单个许可用户迁移到 Azure Active Directory 中基于组的许可](licensing-groups-migrate-users.md)
 * [如何在 Azure Active Directory 中使用基于组的许可在产品许可证之间迁移用户](licensing-groups-change-licenses.md)
+* [Azure Active Directory 基于组的许可的其他方案](./licensing-group-advanced.md)
 * [Azure Active Directory 中基于组的许可的 PowerShell 示例](licensing-ps-examples.md)
 

@@ -6,17 +6,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 11/02/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 9344c575fe48a4f3549c6df14f012e4149874464
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: bce8dc83fba11c3376d4f6d0e63fd288bcc38c34
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598393"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230881"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引策略
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,6 +30,7 @@ ms.locfileid: "96598393"
 
 下面是以 [JSON 格式](index-policy.md#include-exclude-paths)显示的一些索引策略示例，该格式是在 Azure 门户上公开索引策略的方式。 可以通过 Azure CLI 或任何 SDK 设置相同的参数。
 
+<a name="range-index"></a>
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>用以有选择地排除某些属性路径的选择退出策略
 
 ```json
@@ -149,6 +150,7 @@ ms.locfileid: "96598393"
 > [!NOTE]
 > 通常情况下，建议使用“选择退出”索引策略来让 Azure Cosmos DB 主动为可能会添加到数据模型的任何新属性编制索引。
 
+<a name="spatial-index"></a>
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>仅在特定属性路径上使用空间索引
 
 ```json
@@ -179,6 +181,7 @@ ms.locfileid: "96598393"
 }
 ```
 
+<a name="composite-index"></a>
 ## <a name="composite-indexing-policy-examples"></a>组合索引策略示例
 
 除了包含或排除各属性的路径，还可以指定一个组合索引。 如果要执行具有针对多个属性的 `ORDER BY` 子句的查询，需要使用这些属性上的[组合索引](index-policy.md#composite-indexes)。 此外，对于具有多个筛选器或同时具有筛选器和 ORDER BY 子句的查询，组合索引会有性能优势。

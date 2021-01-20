@@ -5,15 +5,15 @@ services: functions
 author: jeffhollan
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/25/2020
+ms.date: 01/12/2021
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: c866ded94a9f8a5917567f18c0ce4b7a361832ed
-ms.sourcegitcommit: b9dfda0e754bc5c591e10fc560fe457fba202778
+ms.openlocfilehash: a2b0d087b63541c645c28698da0e792c82b713e6
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91246975"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195289"
 ---
 1. 在 Azure 门户菜单或“主页”页中，选择“创建资源”   。
 
@@ -36,7 +36,7 @@ ms.locfileid: "91246975"
 
     | 设置      | 建议的值  | 说明 |
     | ------------ | ---------------- | ----------- |
-    | [存储帐户](../articles/storage/common/storage-account-create.md) |  全局唯一名称 |  创建函数应用使用的存储帐户。 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。 也可使用现有帐户，但该帐户必须符合[存储帐户要求](../articles/azure-functions/functions-scale.md#storage-account-requirements)。 |
+    | [存储帐户](../articles/storage/common/storage-account-create.md) |  全局唯一名称 |  创建函数应用使用的存储帐户。 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。 也可使用现有帐户，但该帐户必须符合[存储帐户要求](../articles/azure-functions/storage-considerations.md#storage-account-requirements)。 |
     |**操作系统**| 首选操作系统 | 系统会根据你的运行时堆栈选择为你预先选择一个操作系统，但你可以根据需要更改该设置。 Python 仅在 Linux 上受支持。 |
     | **[计划](../articles/azure-functions/functions-scale.md)** | Premium | 定义如何将资源分配给 Function App 的托管计划。 选择“高级”。 默认创建一个新的应用服务计划。 默认的“SKU 和大小”为 EP1，其中 EP 表示“弹性高级”(elastic premium) 。 要了解详细信息，请参阅[高级 SKU 的列表](../articles/azure-functions/functions-premium-plan.md#available-instance-skus)。<br/>在高级计划上运行 JavaScript 函数时，应选择 vCPU 数更少的实例。 有关详细信息，请参阅[选择单核心高级计划](../articles/azure-functions/functions-reference-node.md#considerations-for-javascript-functions)。  |
 

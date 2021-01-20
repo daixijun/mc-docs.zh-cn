@@ -7,16 +7,16 @@ ms.devlang: go
 ms.topic: quickstart
 origin.date: 04/24/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0cd19d456b8dc4b43527e87219e74d1f5b154f22
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 6049039f33b32c60a3e77018dd17149a1ef7f0bb
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507788"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229870"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：将 Go 应用程序连接到 Azure Cosmos DB 的 API for MongoDB
@@ -38,15 +38,14 @@ Azure Cosmos DB 是一种多模型数据库服务，可让你通过多区域分�
 示例应用程序是使用 Go 编写的基于命令行的 `todo` 管理工具。 Azure Cosmos DB 的 API for MongoDB [与 MongoDB Wire Protocol 兼容](./mongodb-introduction.md#wire-protocol-compatibility)，因而任何 MongoDB 客户端驱动程序都可以与其连接。 此应用程序使用[适用于 MongoDB 的 Go 驱动程序](https://github.com/mongodb/mongo-go-driver)，其使用方式使该应用程序完全知道数据存储在 Azure Cosmos DB 数据库中。
 
 ## <a name="prerequisites"></a>先决条件
-- 具有活动订阅的 Azure 帐户。 [免费创建一个](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 你还可以将 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)与连接字符串 `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` 配合使用。
+- 具有活动订阅的 Azure 帐户。 [创建试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 你还可以将 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)与连接字符串 `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` 配合使用。
     
     <!--Not Avaialble on [try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
     
 - 在计算机上安装 [Go](https://golang.org/)，并了解 Go 的实践知识。
 - [Git](https://git-scm.com/downloads)。
-- [Azure CLI 2.0+](https://docs.azure.cn/cli/install-azure-cli)。
 
-<!--Not Available on If you don't want to use Azure Cloud Shell,-->
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
     
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -471,6 +470,6 @@ Azure Cosmos DB 中存储的数据可用于在 Azure 门户中查看和查询。
 <!--CORRECT ON USING Azure CLI-->
 
 > [!div class="nextstepaction"]
-> [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json)
+> [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fcosmos-db%2ftoc.json%253ftoc%253d%2fcosmos-db%2ftoc.json)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

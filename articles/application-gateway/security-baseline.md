@@ -4,15 +4,15 @@ description: 适用于 Azure 应用程序网关的 Azure 安全基线
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9dab913c4d73043c5284eeb9bbdc99dbea3f9026
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 88ec69868d27a67edbed205b51f87b31b15b2cd0
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849444"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195093"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>适用于 Azure 应用程序网关的 Azure 安全基线
 
@@ -53,7 +53,7 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 
 * [了解 Azure 安全中心提供的网络安全](../security-center/security-center-network-recommendations.md)
 
-* [Azure 应用程序网关的诊断和日志记录常见问题解答](./application-gateway-faq.md#diagnostics-and-logging)
+* [Azure 应用程序网关的诊断和日志记录常见问题解答](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **Azure 安全中心监视**：是
 
@@ -96,7 +96,7 @@ Azure 应用程序网关的 Azure 安全基线包含可帮助你改善部署安�
 
 * [了解 Azure 安全中心提供的网络安全](../security-center/security-center-network-recommendations.md)
 
-* [Azure 应用程序网关的诊断和日志记录常见问题解答](./application-gateway-faq.md#diagnostics-and-logging)
+* [Azure 应用程序网关的诊断和日志记录常见问题解答](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **Azure 安全中心监视**：目前不可用
 
@@ -395,7 +395,6 @@ Azure 应用程序网关还提供与 Azure Application Insights 的内置集成�
 
 **指南**：将 PAW（特权访问工作站）与为登录和配置 Azure 资源而配置的 MFA 结合使用。
 
-* [了解特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
 * [如何在 Azure 中启用 MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -684,7 +683,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 **指导**：使用 Azure Policy 对可以在订阅中创建的资源类型施加限制。
 
-使用 Azure Resource Graph 查询/发现订阅中的资源。 确保环境中的所有 Azure 资源均已获得批准。
+使用 Azure Resource Graph 查询/发现订阅中的资源。 确保环境中存在的所有 Azure 资源已获得批准。
 
 * [如何配置和管理 Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -1001,7 +1000,7 @@ Microsoft 对基础平台进行了扫描和修补。 查看 Azure 应用程序�
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2：创建事件评分和优先级设定过程
 
-**指南**：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
+**指导**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
 
 此外，请明确标记订阅（例如 生产、非生产），并创建命名系统来对 Azure 资源进行明确标识和分类。
 

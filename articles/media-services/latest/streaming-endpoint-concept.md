@@ -9,25 +9,25 @@ manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/13/2020
-ms.date: 09/07/2020
+ms.date: 01/18/2021
 ms.author: v-jay
-ms.openlocfilehash: cbeb8f01bf5ba4275012bae5bf405b90e0ecaacd
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: dbd4e7785cba4b572f62072d0be21fc7912e3f99
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413986"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229852"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Azure 媒体服务中的流式处理终结点（来源）
 
 在 Azure 媒体服务中，[流式处理终结点](https://docs.microsoft.com/rest/api/media/streamingendpoints)表示动态（实时）打包和源服务，该服务可使用一个常见流式处理媒体协议（HLS 或 DASH）直接将实时和按需内容发送到客户端播放器应用。 此外，流式处理终结点  还为行业领先的 DRM 提供动态（实时）加密。
 
-用户创建媒体服务帐户时，将为用户创建一个处于“已停止”状态的默认  流式处理终结点。 无法删除**默认**流式处理终结点。 可以在帐户下创建更多的流式处理终结点（请参阅[配额和限制](limits-quotas-constraints.md)）。
+用户创建媒体服务帐户时，将为用户创建一个处于“已停止”状态的默认  流式处理终结点。 可以在帐户下创建更多的流式处理终结点（请参阅[配额和限制](limits-quotas-constraints.md)）。
 
 > [!NOTE]
-> 若要开始流式处理视频，需启动要从中流式处理视频的**流式处理终结点**。
+> 若要开始流式处理视频，需启动要从中流式处理视频的 **流式处理终结点**。
 >
 > 仅当流式处理终结点处于运行状态时才进行计费。
 
@@ -46,7 +46,7 @@ ms.locfileid: "89413986"
 
 ## <a name="types"></a>类型
 
-有两种类型的**流式处理终结点**：**标准**（预览版）和**高级**。 类型由用户为流式处理终结点分配的缩放单元（`scaleUnits`）数定义。
+有两种类型的 **流式处理终结点**：**标准**（预览版）和 **高级**。 类型由用户为流式处理终结点分配的缩放单元（`scaleUnits`）数定义。
 
 最大流单元限制通常为 10。
 

@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 278ff55debd9f4b12cb00334376b01ade38357ae
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 5577c0a6863e6dcc110e010cd97d0f8521bc049a
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977485"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230000"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>在标记项目中标记图像 
 
-项目管理员在 Azure 机器学习中[创建标记项目](./how-to-create-labeling-projects.md#create-a-labeling-project)后，你可以使用标记工具为机器学习项目快速准备数据。 本文介绍：
+项目管理员在 Azure 机器学习中[创建数据标签项目](./how-to-create-labeling-projects.md#create-a-data-labeling-project)后，你可以使用标签工具为机器学习项目快速准备数据。 本文介绍：
 
 > [!div class="checklist"]
 > * 如何访问标签项目

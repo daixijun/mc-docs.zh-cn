@@ -4,17 +4,17 @@ description: 了解如何配置 Azure 文件存储网络终结点。
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 08/17/2020
-ms.date: 12/14/2020
+origin.date: 12/04/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ec2b3e6bbf3ea347e926e0a2621d8f854d73082c
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: e451d4dd9bf3271ddf354bfc1cc8cc047da77421
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850365"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163093"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>配置 Azure 文件存储网络终结点
 
@@ -51,6 +51,17 @@ Azure 文件存储提供两种主要类型的终结点用于访问 Azure 文件�
 # <a name="portal"></a>[门户](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-private-portal](../../../includes/storage-files-networking-endpoints-private-portal.md)]
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+[!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+[!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
+---
+
+## <a name="verify-connectivity"></a>验证连接性
+
+# <a name="portal"></a>[门户](#tab/azure-portal)
+
 如果你在虚拟网络中有一个虚拟机，或者已按[配置 Azure 文件存储的 DNS 转发](storage-files-networking-dns.md)所述配置了 DNS 转发，则可以通过在 PowerShell、命令行或终端（适用于 Windows、Linux 或 macOS）中运行以下命令，来测试是否已正确设置专用终结点。 必须将 `<storage-account-name>` 替换为相应的存储帐户名称：
 
 ```
@@ -70,7 +81,6 @@ Aliases:  storageaccount.file.core.chinacloudapi.cn
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-[!INCLUDE [storage-files-networking-endpoints-private-powershell](../../../includes/storage-files-networking-endpoints-private-powershell.md)]
 
 如果你在虚拟网络中有一个虚拟机，或者已按[配置 Azure 文件存储的 DNS 转发](storage-files-networking-dns.md)所述配置了 DNS 转发，则可以使用以下命令测试是否已正确设置专用终结点：
 
@@ -97,7 +107,6 @@ IP4Address : 192.168.0.5
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-[!INCLUDE [storage-files-networking-endpoints-private-cli](../../../includes/storage-files-networking-endpoints-private-cli.md)]
 
 如果你在虚拟网络中有一个虚拟机，或者已按[配置 Azure 文件存储的 DNS 转发](storage-files-networking-dns.md)所述配置了 DNS 转发，则可以使用以下命令测试是否已正确设置专用终结点：
 
@@ -123,10 +132,9 @@ storageaccount.file.core.chinacloudapi.cn      canonical name = storageaccount.p
 Name:   storageaccount.privatelink.file.core.chinacloudapi.cn
 Address: 192.168.0.5
 ```
-
 ---
 
-### <a name="restrict-public-endpoint-access"></a>限制公共终结点访问
+## <a name="restrict-public-endpoint-access"></a>限制公共终结点访问
 
 若要限制公共终结点访问，首先需要禁用对公共终结点的一般访问。 禁用对公共终结点的访问不会影响专用终结点。 禁用公共终结点后，可选择可以继续访问它的特定网络或 IP 地址。 通常，大多数针对存储帐户的防火墙策略仅限一个或多个虚拟网络进行网络访问。
 

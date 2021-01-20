@@ -10,13 +10,13 @@ metadata:
   author: DCtheGeek
   ms.author: v-tawe
   origin.date: 06/29/2020
-  ms.date: 11/06/2020
-  ms.openlocfilehash: 8f966412faadbc8712b11b5a6fca4168f280e2c8
-  ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+  ms.date: 01/14/2021
+  ms.openlocfilehash: 2cd3bbd3eab438cbbed73d0b3b1d88f566f35eed
+  ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/06/2020
-  ms.locfileid: "94328792"
+  ms.lasthandoff: 01/14/2021
+  ms.locfileid: "98193264"
 landingContent:
 - title: 关于 Azure Resource Graph
   linkLists:

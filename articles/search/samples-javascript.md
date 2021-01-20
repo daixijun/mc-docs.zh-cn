@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/17/2020
-ms.date: 12/10/2020
-ms.openlocfilehash: 83b45f95844b1a32a56df0fa6c7438e0d72c6766
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.date: 01/14/2021
+ms.openlocfilehash: ab890096501e2688dc2186202ce60210478f8278
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004276"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194699"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Azure 认知搜索的 JavaScript 代码示例
 
@@ -26,7 +26,7 @@ ms.locfileid: "97004276"
 | [Azure-Samples/azure-search-javascript-samples](https://github.com/Azure-Samples/azure-search-javascript-samples) | 操作方法文章附带的代码示例，包括[快速入门：在 JavaScript 中创建搜索索引](search-get-started-javascript.md)。|
 
 > [!Tip]
-> 请尝试使用[示例浏览器](https://docs.microsoft.com/samples/browse/?languages=csharp&products=azure-cognitive-search)来搜索 Github 中的 Microsoft 代码示例，搜索时可按产品、服务和语言进行筛选。
+> 请尝试使用[示例浏览器](https://docs.microsoft.com/samples/browse/?languages=javascript&products=azure-cognitive-search)来搜索 Github 中的 Microsoft 代码示例，搜索时可按产品、服务和语言进行筛选。
 
 ## <a name="javascript-sdk-samples"></a>JavaScript SDK 示例
 
@@ -56,7 +56,7 @@ SDK 还提供 TypeScript 示例，为方便起见，这些示例在此处列出�
 
 ## <a name="documentation-samples"></a>文档示例
 
-在 [Azure 认知搜索文档](https://docs.azure.cn/search/)中有与以下示例相关联的文章。
+在 [Azure 认知搜索文档](./index.yml)中有与以下示例相关联的文章。
 
 | 示例 | 说明 | 
 |---------|-------------|

@@ -3,13 +3,13 @@ title: 将视频连续录制到云中并从云中播放教程 - Azure
 description: 在本教程中，你将了解如何使用 Azure IoT Edge 上的 Azure 实时视频分析将视频连续录制到云中并使用 Azure 媒体服务流式传输该视频的任何部分。
 ms.topic: tutorial
 origin.date: 05/27/2020
-ms.date: 01/11/2021
-ms.openlocfilehash: dee76a5c769f4e8594f47620c111dd3f2e72d809
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.date: 01/18/2021
+ms.openlocfilehash: 6c03aa8ec7a44754532acf3d2a8d35f76585c766
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021305"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230306"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>教程：将视频连续录制到云中并从云中播放
 
@@ -52,6 +52,9 @@ ms.locfileid: "98021305"
 * Azure 媒体服务帐户
 * Azure 中的 Linux VM，已安装 [IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge.md)
 
+> [!TIP]
+> 如果在创建 Azure 资源时遇到问题，请查看[故障排除指南](troubleshoot-how-to.md#common-error-resolutions)来解决一些常见问题。
+
 ## <a name="concepts"></a>概念
 
 如[媒体图概念](media-graph-concept.md)一文中所述，使用媒体图可以定义：
@@ -65,7 +68,9 @@ ms.locfileid: "98021305"
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="媒体图":::
 
-在本教程中，你将通过使用 [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) 生成的一个 Edge 模块来模拟 RTSP 相机。 在媒体图中，你将使用 [RTSP 源](media-graph-concept.md#rtsp-source)节点获取实时源，并将该视频发送到[资产接收器节点](media-graph-concept.md#asset-sink)，后者会将视频记录到资产中。
+在本教程中，你将通过使用 [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) 生成的一个 Edge 模块来模拟 RTSP 相机。 在媒体图中，你将使用 [RTSP 源](media-graph-concept.md#rtsp-source)节点获取实时源，并将该视频发送到[资产接收器节点](media-graph-concept.md#asset-sink)，后者会将视频记录到资产中。 本教程中将使用的视频是[公路交叉口示例视频](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv)。
+<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 
 ## <a name="set-up-your-development-environment"></a>设置开发环境
 
@@ -170,14 +175,14 @@ ms.locfileid: "98021305"
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="显示详细消息":::
-1. <!--In Visual Studio Code, go-->转到 src/cloud-to-device-console-app/operations.json。
+1. 转到 src/cloud-to-device-console-app/operations.json。
 1. 在 GraphTopologySet 节点下，编辑以下内容：
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
 1. 接下来，在 GraphInstanceSet 和 GraphTopologyDelete 节点下，确保 topologyName 的值与前面图形拓扑中的 name 属性的值匹配   ：
 
     `"topologyName" : "CVRToAMSAsset"`  
-1. 在浏览器中打开[拓扑](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json)，并查看 assetNamePattern。 为了确保资产具有唯一名称，可能需要在 operations.json 文件中更改图形实例的名称（默认值为 Sample-Graph-1）。
+1. 在浏览器中打开[拓扑](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/2.0/topology.json)，并查看 assetNamePattern。 为了确保资产具有唯一名称，可能需要在 operations.json 文件中更改图形实例的名称（默认值为 Sample-Graph-1）。
 
     `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
 1. 选择 F5 以启动调试会话。 在“终端”窗口中，你将看到一些输出的消息。
@@ -188,7 +193,7 @@ ms.locfileid: "98021305"
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -205,7 +210,7 @@ ms.locfileid: "98021305"
      
      ```
      {
-       "@apiVersion": "1.0",
+       "@apiVersion": "2.0",
        "name": "Sample-Graph-1",
        "properties": {
          "topologyName": "CVRToAMSAsset",

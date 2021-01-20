@@ -3,15 +3,15 @@ title: 处理大型数据集
 description: 了解如何在使用 Azure Resource Graph 的同时，在大型数据集中获取、格式化、分页和跳过记录。
 ms.author: v-tawe
 origin.date: 09/30/2020
-ms.date: 12/03/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2bd26c79a6983fcc4d84f414d31da9d8429c33d1
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ef83b87075c1eee7af3fc331ea1bc6fb9c9f6688
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541198"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193285"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>处理大型 Azure 资源数据集
 

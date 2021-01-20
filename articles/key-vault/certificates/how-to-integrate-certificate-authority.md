@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 origin.date: 06/02/2020
-ms.date: 11/27/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: b6a98d6f728a540cdac049673a7849fb1dc55cb2
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 0f4e24ba54b3e3cd0162fa96264481a3876711bc
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431070"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229865"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>将 Key Vault 与 DigiCert 证书颁发机构集成
 
@@ -32,9 +32,9 @@ Azure 密钥保管库用户可以直接从其 Key Vault 生成 DigiCert 证书�
 
 要完成本指南，必须备好以下资源。
 * 一个 Key Vault。 可以使用现有的 Key Vault，或者遵循以下快速入门之一中的步骤创建一个新的 Key Vault：
-   - [使用 Azure CLI 创建 Key Vault](../secrets/quick-create-cli.md)
-   - [使用 Azure PowerShell 创建 Key Vault](../secrets/quick-create-powershell.md)
-   - [使用 Azure 门户创建 Key Vault](../secrets/quick-create-portal.md)
+   - [使用 Azure CLI 创建 Key Vault](../general/quick-create-cli.md)
+   - [使用 Azure PowerShell 创建 Key Vault](../general/quick-create-powershell.md)
+   - [使用 Azure 门户创建 Key Vault](../general/quick-create-portal.md)
 *   需要激活 DigiCert CertCentral 帐户。 [注册](https://www.digicert.com/account/signup/) CertCentral 帐户。
 *   帐户中的管理员级别权限。
 
@@ -135,7 +135,7 @@ Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertifica
 
 - 能否通过 KeyVault 生成 digicert 通配符证书？ 
    是的。 这取决于你如何配置了 digicert 帐户。
-- 如何使用 DigiCert 创建 OV-SSL 或 EV-SSL 证书？ 
+- 如何使用 DigiCert 创建 OV-SSL 或 EV-SSL 证书？
    密钥保管库支持创建 OV 和 EV SSL 证书。 创建证书时，单击高级策略配置，然后指定证书类型。 支持的值包括：OV-SSL、EV-SSL
    
    如果 Digicert 帐户允许，可以在密钥保管库中创建这种类型的证书。 对于这种类型的证书，验证是通过 DigiCert 执行的，如果验证失败，则其支持团队能够为你提供最佳解决方案。 可以在创建证书时通过在 subjectName 中定义信息来添加其他信息。

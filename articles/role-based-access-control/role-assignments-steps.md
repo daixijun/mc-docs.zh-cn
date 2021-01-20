@@ -7,18 +7,18 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
-ms.openlocfilehash: 5ac99c86e5166735f615e0f7961e652d02c245f4
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: f1b6f1e92e908a37f477eaf9d5144ae3b7797e65
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507970"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195274"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>角色分配的添加步骤
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 本文介绍使用 [Azure 门户](role-assignments-portal.md)、[Azure PowerShell](role-assignments-powershell.md)、[Azure CLI](role-assignments-cli.md) 或 [REST API](role-assignments-rest.md) 添加角色分配的概略性步骤。
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] 本文介绍使用 [Azure 门户](role-assignments-portal.md)、[Azure PowerShell](role-assignments-powershell.md)、[Azure CLI](role-assignments-cli.md) 或 [REST API](role-assignments-rest.md) 添加角色分配的概略性步骤。
 
 ## <a name="step-1-determine-who-needs-access"></a>步骤 1：确定哪一用户需要访问权限
 

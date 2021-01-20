@@ -11,13 +11,13 @@ metadata:
   author: HeidiSteen
   ms.author: v-tawe
   origin.date: 02/25/2020
-  ms.date: 09/10/2020
-  ms.openlocfilehash: a5929a5454ffb9f58c00be6fb636ec0281215704
-  ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+  ms.date: 01/18/2021
+  ms.openlocfilehash: f4ddfed365eec427d725a5fa130c29971322976a
+  ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/11/2020
-  ms.locfileid: "90021088"
+  ms.lasthandoff: 01/14/2021
+  ms.locfileid: "98194734"
 landingContent:
 - title: 关于认知搜索
   linkLists:
@@ -104,7 +104,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 创建简单查询
-      url: search-query-simple-examples.md
+      url: search-query-create.md
     - text: 使用完整语法
       url: search-query-lucene-examples.md
   - linkListType: reference

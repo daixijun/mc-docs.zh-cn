@@ -6,17 +6,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f33d06b7527065d671640e200ffb6dbe1ca10027
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 900b95b2195d409fa26c82e69417611eb26adda4
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598494"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230817"
 ---
 <!--Verified successfully-->
 <!-- ONLY CHARACTOR CONTENT-->

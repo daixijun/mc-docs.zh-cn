@@ -3,14 +3,14 @@ title: 以编程方式创建策略
 description: 本文逐步讲解如何使用 Azure CLI、Azure PowerShell 和 REST API 以编程方式创建和管理适用于 Azure Policy 的策略。
 ms.author: v-tawe
 origin.date: 08/17/2020
-ms.date: 12/03/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 3b6b3e5f72131b46fad24aaf42e1a976d491ffa5
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.openlocfilehash: 06e0b23efc109f411df0d68e3bf8a2816563901d
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541158"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193268"
 ---
 # <a name="programmatically-create-policies"></a>以编程方式创建策略
 

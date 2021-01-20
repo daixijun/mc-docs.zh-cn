@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/01/2020
+origin.date: 01/07/2021
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: yes|no
 ms.testdate: 11/09/2020null
 ms.author: v-yeche
-ms.openlocfilehash: fee3bc24434b2fae2b93ad38e241045112b40551
-ms.sourcegitcommit: a9aa7d358cd2bef2e4e35b2b720487cb22b2c461
+ms.openlocfilehash: 0cf383f1e4a367b6356315f249afb81d29da7d25
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592795"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229847"
 ---
 <!--Verified successfully-->
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>快速入门：使用 Azure Policy 部署和管理 NSG 流日志 
@@ -29,8 +29,8 @@ ms.locfileid: "97592795"
 Azure Policy 可帮助实施组织标准并大规模评估合规性。 Azure Policy 的常见用例包括实施监管来满足资源一致性、法规遵从性、安全性、成本和管理方面的要求。 在本文中，我们将使用两个可用于 NSG 流日志的内置策略来管理流日志设置。 第一个策略对未启用流日志的所有 NSG 进行标记。 第二个策略为未启用流日志的 NSG 自动部署流日志。 
 
 如果是首次创建 Azure Policy，可仔细阅读： 
-- [Azure Policy 概述](https://docs.azure.cn/governance/policy/overview) 
-- [策略创建教程](https://docs.azure.cn/governance/policy/assign-policy-portal#create-a-policy-assignment)。
+- [Azure Policy 概述](../governance/policy/overview.md) 
+- [策略创建教程](../governance/policy/assign-policy-portal.md#create-a-policy-assignment)。
 
 ## <a name="locate-the-policies"></a>查找策略
 1. 转到 Azure 门户 - [portal.azure.cn](https://portal.azure.cn) 
@@ -135,8 +135,7 @@ Azure Policy 可帮助实施组织标准并大规模评估合规性。 Azure Pol
 
 ## <a name="next-steps"></a>后续步骤 
 
-- 使用此[教程](https://docs.azure.cn/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template)深入了解如何使用 ARM 模板部署流日志和流量分析。
-- 详细了解[网络观察程序](https://docs.azure.cn/network-watcher/)
+- 使用此[教程](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md)深入了解如何使用 ARM 模板部署流日志和流量分析。
+- 详细了解[网络观察程序](./index.yml)
 
-<!-- Update_Description: new article about nsg flow logs policy portal -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

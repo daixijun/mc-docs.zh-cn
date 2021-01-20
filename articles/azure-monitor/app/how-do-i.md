@@ -4,20 +4,15 @@ description: 有关 Application Insights 的常见问题解答。
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 04/04/2017
-ms.date: 11/10/2020
+ms.date: 01/14/2021
 ms.author: v-johya
-ms.openlocfilehash: 0be326d1a21f0f5f44ffc04c4241150b95a28fb9
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 57ddf3d8ba95391496b06415ab38294463fcd77b
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638095"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229939"
 ---
-# <a name="how-do-i--in-application-insights"></a>如何在 Application Insights 中执行...？
-## <a name="get-an-email-when-"></a>... 时收到电子邮件
-### <a name="email-if-my-site-goes-down"></a>站点关闭时发送电子邮件
-设置[可用性 Web 测试](./monitor-web-app-availability.md)。
-
 ### <a name="email-if-my-site-is-overloaded"></a>站点过载时发送电子邮件
 针对“服务器响应时间”设置[警报](../platform/alerts-log.md)。 介于 1 和 2 秒之间的阈值应可解决问题。
 

@@ -4,17 +4,17 @@ description: 本教程介绍如何将 Java Service Fabric 应用程序部署到 
 ms.topic: tutorial
 origin.date: 02/26/2018
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: dc682b786aaf424e5205fe1c817d17f3b7a08413
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 2a7c1bcb52f00254075f310bcce4364fdbc8a385
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507831"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229829"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>教程：将 Java 应用程序部署到 Azure 中的 Service Fabric 群集
 
@@ -120,10 +120,10 @@ ms.locfileid: "96507831"
 10. 使用以下命令创建事件中心资源。 按提示输入 namespaceName、eventHubName、consumerGroupName、sendAuthorizationRule 和 receiveAuthorizationRule 的详细信息。
 
     ```azurecli
-    az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
+    az deployment group create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
-    az group deployment create -g testeventhubsrg --template-file eventhubsdeploy.json
+    az deployment group create -g testeventhubsrg --template-file eventhubsdeploy.json
     Please provide string value for 'namespaceName' (? for help): testeventhubnamespace
     Please provide string value for 'eventHubName' (? for help): testeventhub
     Please provide string value for 'consumerGroupName' (? for help): testeventhubconsumergroup
@@ -234,6 +234,14 @@ ms.locfileid: "96507831"
     ```bash
     ./uninstall.sh
     ```
+
+## <a name="next-steps"></a>后续步骤
+
+在本教程中，你了解了如何执行以下操作：
+
+> [!div class="checklist"]
+> * 在 Azure 中创建安全的 Linux 群集
+> * 创建通过 ELK 进行监视所需的资源
 
 <!--Not Available on ## Next steps-->
 <!-- Not Available on [Set up Monitoring & Diagnostics](service-fabric-tutorial-java-elk.md)-->

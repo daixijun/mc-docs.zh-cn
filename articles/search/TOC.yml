@@ -233,9 +233,11 @@
       items:
         - name: 查询类型和组合
           href: search-query-overview.md
-        - name: 创建简单查询
+        - name: 创建基本查询
+          href: search-query-create.md
+        - name: 使用简单语法（示例）
           href: search-query-simple-examples.md
-        - name: 使用完整的 Lucene 语法
+        - name: 使用完整的 Lucene（示例）
           href: search-query-lucene-examples.md
         - name: 部分词和特殊字符
           href: search-query-partial-matching.md
@@ -281,10 +283,12 @@
       items:
         - name: 选择层
           href: search-sku-tier.md
-        - name: 服务限制
-          href: search-limits-quotas-capacity.md
+        - name: 估计容量和成本
+          href: search-sku-manage-costs.md
         - name: 调整容量
           href: search-capacity-planning.md
+        - name: 服务限制
+          href: search-limits-quotas-capacity.md
         - name: 性能规模
           href: search-performance-optimization.md
         - name: 多租户体系结构
@@ -335,7 +339,7 @@
               href: search-security-api-keys.md
             - name: 创建专用终结点
               href: service-create-private-endpoint.md
-        - name: 基于标识的访问
+        - name: 文档级安全性
           items:
             - name: 安全筛选器
               href: search-security-trimming-for-azure-search.md
@@ -406,7 +410,7 @@
         - name: 搜索 API
           href: 'https://docs.microsoft.com/python/api/overview/azure/search-documents-readme'
         - name: 管理 API
-          href: 'https://docs.microsoft.com/python/api/overview/azure/search'
+          href: 'https://docs.microsoft.com/python/api/overview/azure/search/management'
     - name: OData 语言参考
       items:
         - name: 概述

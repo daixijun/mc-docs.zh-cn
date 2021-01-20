@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/15/2017
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 652f619036b3a5ecd12fee6652da524efdc3b25b
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: b8459b2f551f2148a48a035edd6fb5b7086459a4
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327492"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230870"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>使用网络观察程序和 Grafana 管理和分析网络安全组流日志
 
@@ -107,11 +107,11 @@ NSG 流日志是使用网络观察程序启用的，并且存储在 Azure Blob �
           "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
           "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
           "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
-      "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
-      "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
-      "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
-      "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
-      "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
+          "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+          "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+          "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+          "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+          "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
         }
         add_field => {
           "time" => "%{[records][time]}"

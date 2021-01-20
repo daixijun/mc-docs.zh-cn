@@ -6,16 +6,17 @@ manager: philmea
 ms.author: v-tawe
 ms.reviewer: kevindaw
 origin.date: 04/09/2020
-ms.date: 11/13/2020
+ms.date: 01/18/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8f4621a9056d9562fe5e76638412fba1684a0f3f
-ms.sourcegitcommit: 9438c9db77338cecacf37d2fc178e757df9de83d
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: d1ebb94e80cb1b56b262b69d84d638e22046425f
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94595190"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194730"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>使用 X.509 证书创建和预配 IoT Edge 设备
 

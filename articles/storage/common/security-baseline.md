@@ -5,15 +5,15 @@ author: WenJason
 ms.service: security
 ms.topic: conceptual
 origin.date: 04/23/2020
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 50499d4fac7f21803935d1589e48ab50097fc936
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 008827c461696d5308a8949fa4f38fdb29eded37
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553035"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163123"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>适用于 Azure 存储的 Azure 安全基线
 
@@ -597,7 +597,7 @@ ms.locfileid: "94553035"
 
 ### <a name="68-use-only-approved-applications"></a>6.8：仅使用已批准的应用程序
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -620,7 +620,7 @@ ms.locfileid: "94553035"
 
 ### <a name="610-implement-approved-application-list"></a>6.10：实施已批准的应用程序列表
 
-**指导**：不适用；此建议适用于计算资源。
+**指南**：不适用；此建议适用于计算资源。
 
 **Azure 安全中心监视**：不适用
 
@@ -875,7 +875,7 @@ Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedSto
 
 **指导**：若要在存储帐户上启用客户管理的密钥，必须使用 Azure 密钥保管库来存储密钥。 必须同时启用密钥保管库上的“软删除”和“不清除”属性 。 Key Vault 的软删除功能允许恢复已删除的保管库和保管库对象，例如密钥、机密和证书。 如果将 Azure 存储帐户数据备份到 Azure 存储 blob，请启用软删除以在 blob 或 blob 快照被删除时保存和恢复数据。 你应将备份视为敏感数据，并应用相关的访问和数据保护控制作为此基线的一部分。 另外，为了加强保护，可以 WORM（一次写入，多次读取）状态存储业务关键型数据对象。
 
-- [如何使用 Azure Key Vault 软删除](../../key-vault/general/soft-delete-cli.md)
+- [如何使用 Azure Key Vault 软删除](../../key-vault/general/key-vault-recovery.md)
 
 - [Azure 存储 Blob 的软删除](../blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
@@ -907,7 +907,7 @@ Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedSto
 
 **指导**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。 
 
-此外，请明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。 你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
+此外，请用标记明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。 你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
 
 - [Azure 安全中心中的安全警报](../../security-center/security-center-alerts-overview.md)
 

@@ -6,17 +6,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 10/13/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: b97cc26955b9fa77101eebf9715619d0c4121df2
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: df80690a4526cc97f2f4af17af6531d7674ea47d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598425"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230095"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>适用于 Azure Cosmos DB 和 .NET SDK v2 的性能提示
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -149,7 +149,7 @@ Azure Cosmos DB SDK 正在不断改进以提供最佳性能。 请参阅 [Azure 
 
 **优化已分区集合的并行查询**
 
-SQL .NET SDK 1.9.0 及更高版本支持并行查询，使你能够并行查询分区的集合。 有关详细信息，请参阅与使用这些 SDK 相关的[代码示例](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)。 并行查询旨在提供更低的查询延迟，以及优于其对应的串行查询的吞吐量。 并行查询提供两个参数，你可以根据要求优化这些参数： 
+SQL .NET SDK 1.9.0 及更高版本支持并行查询，使你能够并行查询分区的集合。 有关详细信息，请参阅与使用这些 SDK 相关的[代码示例](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs)。 并行查询旨在提供更低的查询延迟，以及优于其对应的串行查询的吞吐量。 并行查询提供两个参数，你可以根据要求优化这些参数： 
 - `MaxDegreeOfParallelism` 控制可以并行查询的最大分区数。 
 - `MaxBufferedItemCount` 控制预提取的结果数。
 

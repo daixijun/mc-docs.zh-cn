@@ -28,7 +28,7 @@
       href: network-watcher-nsg-flow-logging-portal.md
 - name: 概念
   items:
-    - name: 连接监视器（预览版）
+    - name: 连接监视器
       href: connection-monitor-overview.md
     - name: 诊断 VM 网络流量筛选器问题
       href: network-watcher-ip-flow-verify-overview.md
@@ -58,7 +58,7 @@
   items:
     - name: 配置网络观察程序
       href: network-watcher-create.md
-    - name: 创建连接监视器（预览）
+    - name: 创建连接监视器
       items:
         - name: 使用 Azure 门户
           href: connection-monitor-create-using-portal.md
@@ -71,9 +71,9 @@
         - name: 安装 VM 扩展
           items:
             - name: Windows
-              href: ../virtual-machines/windows/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%2fnetwork-watcher%2ftoc.json
             - name: Linux
-              href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%2fnetwork-watcher%2ftoc.json
         - name: 诊断路由问题
           items:
             - name: Azure PowerShell
@@ -177,6 +177,8 @@
       href: view-network-topology.md
     - name: 确定位置和 Azure 区域之间的相对延迟
       href: view-relative-latencies.md
+    - name: 监视网络性能
+      href: ../azure-monitor/insights/network-performance-monitor.md?toc=%2fnetwork-watcher%2ftoc.json
     - name: 移动资源
       items:
         - name: 移动网络观察程序资源

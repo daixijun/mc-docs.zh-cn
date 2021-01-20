@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 origin.date: 10/16/2019
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 09/28/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 625a8fba4e2e1b6a8e5f0ace67b9eac04ce069bb
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 9f663a4c25933c8574e06445df379ca038ec7eec
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552816"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230314"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Azure Cosmos DB 的 API for MongoDB（3.2 版本）：支持的功能和语法
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -33,7 +33,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 Azure Cosmos DB 的 API for MongoDB 的所有新帐户都与 MongoDB 服务器版本 **3.6** 兼容。 本文介绍 MongoDB 版本 3.2。 支持的运算符以及限制或例外已列在下面。 任何理解这些协议的客户端驱动程序应该都能够连接到 Azure Cosmos DB 的 MongoDB API。 
 
-<!--Not Available on [MongoDB version upgrade guide](mongodb-version-upgrade.md)-->
+Azure Cosmos DB 的 API for MongoDB 还为符合资格的帐户提供了无缝升级体验。 有关详细信息，请参阅 [MongoDB 版本升级指南](mongodb-version-upgrade.md)。
 
 ## <a name="query-language-support"></a>查询语言支持
 
@@ -42,6 +42,9 @@ Azure Cosmos DB 的 MongoDB API 全面支持 MongoDB 查询语言构造。 可�
 ## <a name="database-commands"></a>数据库命令
 
 Azure Cosmos DB 的 MongoDB API 支持以下数据库命令：
+
+> [!NOTE]
+> 本文仅列出受支持的服务器命令，并排除客户端包装器函数。 客户端包装器函数（如 `deleteMany()` 和 `updateMany()`）在内部利用 `delete()` 和 `update()` 服务器命令。 利用受支持的服务器命令的函数与 Azure Cosmos DB API for MongoDB 兼容。
 
 ### <a name="query-and-write-operation-commands"></a>查询和写入操作命令
 
@@ -318,7 +321,7 @@ $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon",
 
 使用 `findOneAndUpdate` 操作时，支持基于单个字段的排序操作，但不支持基于多个字段的排序操作。
 
-## <a name="additional-operators"></a>其他运算符
+## <a name="other-operators"></a>其他运算符
 
 运算符 | 示例 | 说明
 --- | --- | --- |

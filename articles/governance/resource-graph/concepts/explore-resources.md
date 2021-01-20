@@ -3,14 +3,14 @@ title: 浏览 Azure 资源
 description: 了解如何使用 Resource Graph 查询语言浏览资源并发现资源的连接方式。
 ms.author: v-tawe
 origin.date: 10/14/2020
-ms.date: 11/06/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: e63e80466253ae3fb61d64de230ead1f1be47090
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: e925573f0f29443b12833f61e8d489cd6531f751
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328806"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193277"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>使用 Resource Graph 浏览 Azure 资源
 
@@ -176,9 +176,6 @@ Resources
 | where disk.storageAccountType == 'Premium_LRS'
 | project disk.id
 ```
-
-> [!NOTE]
-> 获得 SKU 的另一种方法是使用 aliases 属性 Microsoft.Compute/virtualMachines/sku.name。 请参阅[显示别名](../samples/starter.md#show-aliases)和[显示不同的别名值](../samples/starter.md#distinct-alias-values)示例。
 
 ```azurecli
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"

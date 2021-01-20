@@ -10,12 +10,12 @@ ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.topic: how-to
-ms.openlocfilehash: b41c651fa610355bcb7cda1a4f4b4bdbb153c51c
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: bd08d0587cd4b7ff971044f008a2e204a7a298ac
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023246"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230877"
 ---
 <!--Verify Successfully by changing some of the parameters to fit Azure China-->
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>使用 Azure PowerShell 部署和配置 Azure 防火墙
@@ -71,7 +71,7 @@ New-AzResourceGroup -Name Test-FW-RG -Location "China East"
 此虚拟网络有三个子网：
 
 > [!NOTE]
-> AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。
+> AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size)。
 
 ```azurepowershell
 $Bastionsub = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.0.0.0/27
