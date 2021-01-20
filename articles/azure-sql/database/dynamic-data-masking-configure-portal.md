@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 04/28/2020
-ms.date: 10/12/2020
-ms.openlocfilehash: a9b8b7886b313e6c33f6d1363c78b465e5ab95de
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.date: 01/25/2021
+ms.openlocfilehash: d48e016233916d33444748b70c73ae2eb794e708
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872410"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541893"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Azure 门户的 SQL 数据库动态数据掩码入门
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "91872410"
 本文介绍如何使用 Azure 门户实现[动态数据掩码](dynamic-data-masking-overview.md)。 还可以使用 [Azure SQL 数据库 cmdlet](https://docs.microsoft.com/powershell/module/az.sql/) 或 [REST API](https://docs.microsoft.com/rest/api/sql/) 实现动态数据掩码。
 
 > [!NOTE]
-> 不能使用 Azure Synapse 的门户（请使用 PowerShell 或 REST API）或 SQL 托管实例设置此功能。 有关详细信息，请参阅 [Dynamic Data Masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)。
+> 不能使用 SQL 托管实例的门户设置此功能（请使用 PowerShell 或 REST API）。 有关详细信息，请参阅 [Dynamic Data Masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)。
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>使用 Azure 门户为数据库设置动态数据掩码
 

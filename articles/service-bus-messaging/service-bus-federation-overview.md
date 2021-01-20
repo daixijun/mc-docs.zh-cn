@@ -4,16 +4,16 @@ description: 本文概述了使用 Azure 服务总线的事件复制和跨区域
 ms.service: service-bus-messaging
 ms.topic: article
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: yes|no
 ms.testdate: 01/11/2021null
 ms.author: v-yeche
-ms.openlocfilehash: b07cf38cd3462f32b4351ad506d9e8d12b94a9ae
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 70fcb6f882f8d6114cce4a7475895512a6276fdd
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023915"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230929"
 ---
 <!--Verified Successfully-->
 # <a name="message-replication-and-cross-region-federation"></a>消息复制和跨区域联合
@@ -30,9 +30,9 @@ ms.locfileid: "98023915"
 
 出于多种可能的动机，你可能想要在服务总线实体（如队列或主题）之间或服务总线与其他源和目标之间移动消息。 
 
-与[事件中心](../service-bus-messaging/service-bus-federation-overview.md)的类似模式相比，类似队列的实体的联合更复杂，因为消息队列承诺其使用者对任何单个消息具有独占所有权，且应在消息传递中保持到达顺序，并使代理在[竞争性使用者](/azure/architecture/patterns/competing-consumers)之间协调消息的公平分发。 
+与[事件中心](../service-bus-messaging/service-bus-federation-overview.md)的类似模式相比，类似队列的实体的联合更复杂，因为消息队列承诺其使用者对任何单个消息具有独占所有权，且应在消息传递中保持到达顺序，并使代理在[竞争性使用者](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers)之间协调消息的公平分发。 
 
-存在一些实际的障碍，包括 [CAP 定理]（ https://en.wikipedia.org ）（Azure 中国云不提供此网站）/wiki/CAP_theorem）的约束，因而很难提供在多个区域同时可用的队列的统一视图，并且允许区域分布式[竞争性使用者](/azure/architecture/patterns/competing-consumers)获得消息的独占所有权。 此类异地分布式队列不仅要求对消息进行完全一致的复制，而且要求对每个消息的传递状态进行完全一致的复制，然后才能将消息提供给使用者。 假设的区域分布式队列的完全一致性目标与所有 Azure 服务总线客户在考虑联合场景时的关键目标存在直接冲突：其解决方案的最大可用性和可靠性。 
+存在一些实际的障碍，包括 [CAP 定理]（ https://en.wikipedia.org ）（Azure 中国云不提供此网站）/wiki/CAP_theorem）的约束，因而很难提供在多个区域同时可用的队列的统一视图，并且允许区域分布式[竞争性使用者](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers)获得消息的独占所有权。 此类异地分布式队列不仅要求对消息进行完全一致的复制，而且要求对每个消息的传递状态进行完全一致的复制，然后才能将消息提供给使用者。 假设的区域分布式队列的完全一致性目标与所有 Azure 服务总线客户在考虑联合场景时的关键目标存在直接冲突：其解决方案的最大可用性和可靠性。 
 
 <!--Not Available on [Azure IoT Hub](../iot-fundamentals/iot-introduction.md)-->
  
@@ -126,7 +126,7 @@ az servicebus topic subscription rule create --resource-group myresourcegroup \
 
 ### <a name="stream-to-queue-replication"></a>流到队列复制
 
-Azure 事件中心是用于处理大量传入事件的理想解决方案。 但是事件中心和类似的引擎（如 Apache Kafka）都不提供服务托管的[竞争性使用者](/azure/architecture/patterns/competing-consumers)模型，在该模型中，多个使用者可以并发地处理来自同一源的消息，而不冒重复处理的风险，并在处理完这些消息后最终解决这些消息。 
+Azure 事件中心是用于处理大量传入事件的理想解决方案。 但是事件中心和类似的引擎（如 Apache Kafka）都不提供服务托管的[竞争性使用者](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers)模型，在该模型中，多个使用者可以并发地处理来自同一源的消息，而不冒重复处理的风险，并在处理完这些消息后最终解决这些消息。 
 
 ![集成](media/service-bus-federation-overview/hub-to-queue.jpg)
 
@@ -158,7 +158,7 @@ Azure Functions 可以在 [Azure 托管标识](../active-directory/managed-ident
 
 Azure Functions 还允许复制任务直接与 Azure 虚拟网络和所有 Azure 消息传送服务的[服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)集成，且 Azure Functions 已与 [Azure Monitor](../azure-monitor/overview.md) 集成。
 
-最重要的是，Azure Functions 为 [Azure 事件中心](../azure-functions/functions-bindings-service-bus.md)、[Azure IoT 中心](../azure-functions/functions-bindings-event-iot.md)、[Azure 服务总线](../azure-functions/functions-bindings-service-bus.md)、[Azure 事件网格](../azure-functions/functions-bindings-event-grid.md)和 [Azure 队列存储](/azure/azure-functions/functions-bindings-storage-queue)提供了预生成、可扩展的触发器和输出绑定，为 [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension) 和[Apache Kafka](https://github.com/azure/azure-functions-kafka-extension) 提供了自定义扩展。 大多数触发器将根据记录的指标通过纵向扩展和缩减并发执行实例的数量来动态适应吞吐量需求。 
+最重要的是，Azure Functions 为 [Azure 事件中心](../azure-functions/functions-bindings-service-bus.md)、[Azure IoT 中心](../azure-functions/functions-bindings-event-iot.md)、[Azure 服务总线](../azure-functions/functions-bindings-service-bus.md)、[Azure 事件网格](../azure-functions/functions-bindings-event-grid.md)和 [Azure 队列存储](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-queue)提供了预生成、可扩展的触发器和输出绑定，为 [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension) 和[Apache Kafka](https://github.com/azure/azure-functions-kafka-extension) 提供了自定义扩展。 大多数触发器将根据记录的指标通过纵向扩展和缩减并发执行实例的数量来动态适应吞吐量需求。 
 
 使用 Azure Functions 消耗计划，当没有消息可供复制时，预生成的触发器甚至可以纵向缩减至零，这意味着使配置处于纵向扩展准备状态不会产生任何费用。 使用消耗计划的主要缺点是，从此状态“唤醒”复制任务的延迟明显高于保持基础结构运行的托管计划的延迟。  
 

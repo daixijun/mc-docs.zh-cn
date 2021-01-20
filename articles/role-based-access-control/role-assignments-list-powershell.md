@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 93c5f448cbd551774be960737fc0b2b57f55c6f7
-ms.sourcegitcommit: 66563f2b68cce57b5816f59295b97f1647d7a3d6
+ms.openlocfilehash: 758fc041d50283f491e73fce56a123d327dc12a0
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87914286"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195062"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>使用 Azure PowerShell 列出 Azure 角色分配
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] 本文介绍如何使用 Azure PowerShell 列出角色分配。
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] 本文介绍如何使用 Azure PowerShell 列出角色分配。
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 

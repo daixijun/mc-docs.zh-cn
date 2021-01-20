@@ -7,17 +7,17 @@ ms.workload: infrastructure-services
 ms.topic: tutorial
 origin.date: 11/30/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 07/06/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: bcd9918760ac8048fb97efa9c3805ca7f2bb2cad
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 37a1125a39c9966a299cbbb364a95314a5ef87ec
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105737"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570593"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和部署高度可用的虚拟机
 
@@ -49,7 +49,7 @@ ms.locfileid: "93105737"
 
 同一位置的硬件分为多个更新域和容错域。 更新域是一组可同时重启的 VM 和基础物理硬件。 同一个容错域内的 VM 共享公用存储，以及公用电源和网络交换机。  
 
-可以使用 [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset) 创建可用性集。 在此示例中，更新域和容错域的数目为 *2* ，可用性集名为 *myAvailabilitySet* 。
+可以使用 [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset) 创建可用性集。 在此示例中，更新域和容错域的数目为 *2*，可用性集名为 *myAvailabilitySet*。
 
 创建资源组。
 
@@ -77,7 +77,7 @@ New-AzAvailabilitySet `
 
 通过 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM 时，请使用 `-AvailabilitySetName` 参数指定可用性集的名称。
 
-首先，使用 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1) 设置 VM 的管理员用户名和密码：
+首先，使用 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true) 设置 VM 的管理员用户名和密码：
 
 ```powershell
 $cred = Get-Credential

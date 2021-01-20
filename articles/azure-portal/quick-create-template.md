@@ -5,13 +5,13 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: v-tawe
 origin.date: 06/15/2020
-ms.date: 12/30/2020
-ms.openlocfilehash: c31c750508b79a0cbe1a3a9136ae38262534cf59
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.date: 01/13/2021
+ms.openlocfilehash: 6a46a5c814acca3a28f5dfb1efd99c2619a99627
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820355"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230828"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>快速入门：使用 ARM 模板在 Azure 门户中创建仪表板
 
@@ -32,7 +32,7 @@ Azure 门户中的仪表板可以集中且有组织地呈现你的云资源。 �
 
 在本快速入门的下一部分中创建的仪表板需要一台现有 VM。 按照以下步骤创建 VM。
 
-<!-- 1. In the Azure portal, select Cloud Shell.
+<!--1. In the Azure portal, select Cloud Shell.
 
     ![Select Cloud shell from the Azure portal ribbon](media/quick-create-template/cloud-shell.png) -->
 

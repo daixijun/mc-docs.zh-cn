@@ -6,14 +6,14 @@ author: WenJason
 ms.author: v-jay
 ms.topic: tutorial
 origin.date: 11/25/2020
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.custom: mvc
-ms.openlocfilehash: cf45bd78cfde93cae673bc495235fb7db7baa7ad
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: d216630dbc80bb1c41fd6f4f47954ffe7e147765
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024112"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230813"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>教程：使用 Azure Database for MySQL 灵活服务器在 AKS 上部署 WordPress 应用
 
@@ -64,7 +64,7 @@ az group create --name wordpress-project --location chinaeast2
 使用 [az aks create](/cli/aks?view=azure-cli-latest&preserve-view=true#az-aks-create) 命令创建 AKS 群集。 以下示例创建一个具有一个节点的名为 myAKSCluster 的群集。 此操作将需要几分钟才能完成。
 
 ```azurecli
-az aks create --resource-group wordpress-project --name wordpresscluster--node-count 1 --generate-ssh-keys
+az aks create --resource-group wordpress-project --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
 片刻之后，该命令将会完成，并返回有关群集的 JSON 格式信息。
@@ -83,7 +83,7 @@ az aks install-cli
 若要将 `kubectl` 配置为连接到 Kubernetes 群集，请使用 [az aks get-credentials](/cli/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials) 命令。 此命令将下载凭据，并将 Kubernetes CLI 配置为使用这些凭据。
 
 ```azurecli
-az aks get-credentials --resource-group wordpress-project --name wordpresscluster
+az aks get-credentials --resource-group wordpress-project --name myAKSCluster
 ```
 
 > [!NOTE]

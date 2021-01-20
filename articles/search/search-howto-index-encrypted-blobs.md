@@ -9,13 +9,13 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/02/2020
-ms.date: 11/27/2020
-ms.openlocfilehash: 6c6f3ab1727d69808edfb2d6a7a9c8d9cb145ae2
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/14/2021
+ms.openlocfilehash: 79659be11a53f754bdae3c166e9b21824d02f260
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96430884"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194786"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>如何在 Azure 认知搜索中使用 Blob 索引器和技能组为加密的 Blob 编制索引
 
@@ -129,24 +129,23 @@ AI 扩充和技能组执行由认知服务（包括用于自然语言和图像�
 
 ![Postman 应用变量选项卡](media/indexing-encrypted-blob-files/postman-variables-window.jpg "Postman 的变量窗口")
 
-
 | 变量    | 从何处获取 |
 |-------------|-----------------|
 | `admin-key` | 在 Azure 认知搜索服务的“密钥”页上。  |
-| `search-service-name` | Azure 认知搜索服务的名称。 该 URL 为 `https://{{search-service-name}}.search.azure.cn`。 | 
-| `storage-connection-string` | 在存储帐户中的“访问密钥”选项卡上，选择“密钥 1” > “连接字符串”。 | 
-| `storage-container-name` | 包含要编制索引的加密文件的 blob 容器的名称。 | 
-| `function-uri` |  在主页面上“概要”下的 Azure 函数中。 | 
-| `function-code` | 在 Azure 函数中，获取方法是：导航到“应用密钥”，单击以显示 **默认** 密钥，然后复制值。 | 
+| `search-service-name` | Azure 认知搜索服务的名称。 该 URL 为 `https://{{search-service-name}}.search.azure.cn`。 |
+| `storage-connection-string` | 在存储帐户中的“访问密钥”选项卡上，选择“密钥 1” > “连接字符串”。 |
+| `storage-container-name` | 包含要编制索引的加密文件的 blob 容器的名称。 |
+| `function-uri` |  在主页面上“概要”下的 Azure 函数中。 |
+| `function-code` | 在 Azure 函数中，获取方法是：导航到“应用密钥”，单击以显示 **默认** 密钥，然后复制值。 |
 | `api-version` | 保留为“2020-06-30”。 |
-| `datasource-name` | 保留为“encrypted-blobs-ds”。 | 
-| `index-name` | 保留为“encrypted-blobs-idx”。 | 
-| `skillset-name` | 保留为“encrypted-blobs-ss”。 | 
-| `indexer-name` | 保留为“encrypted-blobs-ixr”。 | 
+| `datasource-name` | 保留为“encrypted-blobs-ds”。 |
+| `index-name` | 保留为“encrypted-blobs-idx”。 |
+| `skillset-name` | 保留为“encrypted-blobs-ss”。 |
+| `indexer-name` | 保留为“encrypted-blobs-ixr”。 |
 
 ### <a name="review-the-request-collection-in-postman"></a>查看 Postman 中的请求集合
 
-运行本指南时，必须发出四个 HTTP 请求： 
+运行本指南时，必须发出四个 HTTP 请求：
 
 - **创建索引的 PUT 请求**：此索引保存 Azure 认知搜索使用和返回的数据。
 - **创建数据源的 POST 请求**：此数据源会将你的 Azure 认知搜索服务连接到你的存储帐户，进而连接到加密的 blob 文件。 

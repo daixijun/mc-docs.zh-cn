@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/30/2020
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: e5b6f9afd030e242af4d4bbf912c421b3ae6add5
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: e80851a5bb15e3ee90cc87f3c2ad4f8c2219b840
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021320"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231110"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建内部负载均衡器以对 VM 进行负载均衡
 

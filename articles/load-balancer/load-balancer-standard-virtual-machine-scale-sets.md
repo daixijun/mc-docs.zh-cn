@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/17/2020
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
-ms.openlocfilehash: 58d8a501c88a3e0f90c48634d2f68478a27e72ae
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: e9ff6b5975cd93f7acb4ed8e8a10520b92a43c65
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105287"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230994"
 ---
 # <a name="azure-load-balancer-with-azure-virtual-machine-scale-sets"></a>Azure 负载均衡器和 Azure 虚拟机规模集
 
@@ -31,21 +31,7 @@ ms.locfileid: "97105287"
 ## <a name="inbound-nat-pool"></a>入站 NAT 池：
   * 每个虚拟机规模集必须有至少一个入站 NAT 池。 
   * 入站 NAT 池是入站 NAT 规则的集合。 一个入站 NAT 池不能支持多个虚拟机规模集。
-  * 若要从现有虚拟机规模集中删除 NAT 池，需要先从规模集中删除 NAT 池。 下面显示了一个使用 CLI 的完整示例：
-```azurecli
-  az vmss update
-     --resource-group MyResourceGroup
-     --name MyVMSS
-     --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools
-  az vmss update-instances
-     --instance-ids *
-     --resource-group MyResourceGroup
-     --name MyVMSS
-  az network lb inbound-nat-pool delete
-     --resource-group MyResourceGroup
-     --lb-name MyLoadBalancer
-     --name MyNatPool
-```
+
 ## <a name="load-balancing-rules"></a>负载均衡规则：
   * 在负载均衡器的后端池中使用虚拟机规模集时，会自动创建默认的负载均衡规则。
 ## <a name="outbound-rules"></a>出站规则：
@@ -58,3 +44,4 @@ ms.locfileid: "97105287"
 * [使用 Azure 门户配置包含现有 Azure 负载均衡器的虚拟机规模集](./configure-vm-scale-set-portal.md)。
 * [使用 Azure PowerShell 配置包含现有 Azure 负载均衡器的虚拟机规模集](./configure-vm-scale-set-powershell.md)。
 * [使用 Azure CLI 配置包含现有 Azure 负载均衡器的虚拟机规模集](./configure-vm-scale-set-cli.md)。
+* [更新或删除虚拟机规模集使用的现有 Azure 负载均衡器](./update-load-balancer-with-vm-scale-set.md)

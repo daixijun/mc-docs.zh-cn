@@ -4,12 +4,12 @@ description: 本快速入门演示如何开始使用 IoT Edge 上的实时视频
 ms.topic: quickstart
 origin.date: 04/27/2020
 ms.date: 01/11/2021
-ms.openlocfilehash: 41c8db9652a6f6f489fbe61ab7179d97386d2a48
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: ea7236f357a2a428fee45d4e913052715e3d1916
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023324"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230288"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>快速入门：入门 - IoT Edge 上的实时视频分析
 
@@ -46,9 +46,12 @@ ms.locfileid: "98023324"
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-如果脚本成功完成，你应该可在订阅中看到所有所需资源。 在脚本输出中，资源表会列出 IoT 中心名称。 查找资源类型 `Microsoft.Devices/IotHubs`，并记下名称。 下一步骤需要用到此名称。 
+在脚本成功完成后，你应可在订阅中看到所有所需资源。 在脚本输出中，资源表会列出 IoT 中心名称。 查找资源类型 `Microsoft.Devices/IotHubs`，并记下名称。 下一步骤需要用到此名称。  
 
 该脚本也会生成一些配置文件。 稍后在快速入门中需要用到这些文件。
+
+> [!TIP]
+> 如果在创建 Azure 资源时遇到问题，请查看[故障排除指南](troubleshoot-how-to.md#common-error-resolutions)来解决一些常见问题。
 
 ## <a name="deploy-modules-on-your-edge-device"></a>在边缘设备上部署模块
 
@@ -408,8 +411,8 @@ RTSP 模拟器模块使用视频文件模拟实时视频流，该文件已在运
 请注意，此有效负载：
 
 * 指定需要为其创建实例的拓扑名称 (`MotionDetection`)。
-* 包含 `rtspUrl`（它在图形拓扑有效负载中没有默认值）的参数值。
-
+* 包含 `rtspUrl`（它在图形拓扑有效负载中没有默认值）的参数值。 此值是指向以下示例视频的链接：
+    > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 几秒钟内，“输出”窗口中显示以下响应：
 
 ```

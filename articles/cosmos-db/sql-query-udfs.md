@@ -6,17 +6,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 04/09/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: ae042b2aa87d00656f88d1ca292205825285a149
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: fd43085b4e569049d90d6fd2ecc593d081a9fa7a
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850461"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230956"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Azure Cosmos DB 中的用户定义函数 (UDF)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -147,6 +147,6 @@ UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
 
 - [Azure Cosmos DB 简介](introduction.md)
 - [系统函数](sql-query-system-functions.md)
-- [聚合](sql-query-aggregates.md)
+- [聚合](sql-query-aggregate-functions.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

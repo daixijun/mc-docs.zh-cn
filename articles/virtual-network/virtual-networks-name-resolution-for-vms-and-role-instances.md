@@ -6,22 +6,22 @@ services: virtual-network
 documentationcenter: na
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/02/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d011f507f5bdad1261de0c34a8ccc32556be2606
-ms.sourcegitcommit: 1f933e4790b799ceedc685a0cea80b1f1c595f3d
+ms.openlocfilehash: 21b7a17dbbfda0ce57d1b71f1c6758603c667823
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628228"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570670"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虚拟网络中资源的名称解析
 
@@ -115,7 +115,7 @@ Azure 提供的名称解析包括以下功能：
     * 使用 `sudo zypper install dnsmasq` 安装 dnsmasq 包。
     * 使用 `systemctl enable dnsmasq.service` 启用 dnsmasq 服务。 
     * 使用 `systemctl start dnsmasq.service` 启动 dnsmasq 服务。 
-    * 编辑 **/etc/sysconfig/network/config** 并将 *NETCONFIG_DNS_FORWARDER=""* 更改为 *dnsmasq* 。
+    * 编辑 **/etc/sysconfig/network/config** 并将 *NETCONFIG_DNS_FORWARDER=""* 更改为 *dnsmasq*。
     * 使用 `netconfig update` 更新 resolv.con，将缓存设置为本地 DNS 解析程序。
 * **CentOS（使用 NetworkManager）** ：
     * 使用 `sudo yum install dnsmasq` 安装 dnsmasq 包。
@@ -142,13 +142,13 @@ options timeout:1 attempts:5
 
 resolv.conf 文件通常是自动生成的，不应进行编辑。 添加 *options* 行的具体步骤因发行版而异：
 
-* **Ubuntu** （使用 resolvconf）：
+* **Ubuntu**（使用 resolvconf）：
     1. 将 options 行添加到 /etc/resolveconf/resolv.conf.d/tail。
     2. 运行 `resolvconf -u` 以进行更新。
-* **SUSE** （使用 netconf）：
+* **SUSE**（使用 netconf）：
     1. 将“timeout:1 attempts:5”添加到“/etc/sysconfig/network/config”中的 NETCONFIG_DNS_RESOLVER_OPTIONS="" 参数 。
     2. 运行 `netconfig update` 以进行更新。
-* **CentOS** （使用 NetworkManager）：
+* **CentOS**（使用 NetworkManager）：
     1. 将“echo "options timeout:1 attempts:5"”添加到“/etc/NetworkManager/dispatcher.d/11-dhclient”。
     2. 使用 `service network restart` 进行更新。
 
@@ -174,7 +174,7 @@ DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本�
 
 :::image type="content" source="./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png" alt-text="虚拟网络之间的 DNS 示意图":::
 
-使用 Azure 提供的名称解析时，Azure 动态主机配置协议 (DHCP) 会为每个 VM 提供内部 DNS 后缀 ( **.internal.chinacloudapp.cn** )。 此后缀可实现主机名解析，因为主机名记录位于 **internal.chinacloudapp.cn** 区域中。 使用自己的名称解析解决方案时，不会向 VM 提供此后缀，因为该后缀会干扰其他 DNS 体系结构（例如已加入域的方案）。 相反，Azure 会提供没有实际功能的占位符 (reddog.microsoft.com)。
+使用 Azure 提供的名称解析时，Azure 动态主机配置协议 (DHCP) 会为每个 VM 提供内部 DNS 后缀 ( **.internal.chinacloudapp.cn**)。 此后缀可实现主机名解析，因为主机名记录位于 **internal.chinacloudapp.cn** 区域中。 使用自己的名称解析解决方案时，不会向 VM 提供此后缀，因为该后缀会干扰其他 DNS 体系结构（例如已加入域的方案）。 相反，Azure 会提供没有实际功能的占位符 (reddog.microsoft.com)。
 
 如果需要，可以使用 PowerShell 或 API 确定内部 DNS 后缀：
 
@@ -196,7 +196,7 @@ DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本�
 1. 根据[将应用与虚拟网络集成](../app-service/web-sites-integrate-with-vnet.md?toc=%2fvirtual-network%2ftoc.json)中所述，为 Web 应用启用虚拟网络集成（如果尚未启用）。
 2. 在 Azure 门户中，对于托管 Web 应用的应用服务计划，选择“网络”>“虚拟网络集成”下的“同步网络”  。
 
-    :::image type="content" source="./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png" alt-text="虚拟网络之间的 DNS 示意图":::
+    :::image type="content" source="./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png" alt-text="虚拟网络名称解析的屏幕截图":::
 
 如需从使用应用服务构建的链接到虚拟网络的 Web 应用对不同虚拟网络中的 VM 执行名称解析，需要同时在两个虚拟网络中使用自定义 DNS 服务器，如下所示：
 

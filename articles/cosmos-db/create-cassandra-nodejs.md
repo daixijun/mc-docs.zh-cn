@@ -7,16 +7,17 @@ ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 05/18/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 766ef7366b33fce937a684fccb26952c112c7973
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.custom: devx-track-js
+ms.openlocfilehash: df264a90e8ba2cfa2da71debe00b2d9eabf09098
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328699"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230018"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>快速入门：使用 Node.js SDK 和 Azure Cosmos DB 构建 Cassandra 应用
@@ -51,7 +52,7 @@ ms.locfileid: "94328699"
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在从 GitHub 克隆 Cassandra API 应用，设置连接字符串，并运行应用。 会看到以编程方式处理数据是多么容易。 
+现在从 GitHub 克隆 Cassandra API 应用，设置连接字符串，并运行应用。 你会看到以编程方式处理数据是多么容易。 
 
 1. 打开命令提示符。 创建名为 `git-samples` 的新文件夹。 然后，关闭命令提示符。
 
@@ -65,7 +66,7 @@ ms.locfileid: "94328699"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-nodejs-getting-started.git
@@ -207,7 +208,7 @@ ms.locfileid: "94328699"
 
 1. 从 [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt) 在本地下载 Baltimore CyberTrust 根证书。 使用文件扩展名 `.cer` 重命名该文件。
 
-   证书的序列号为 `02:00:00:b9`，SHA1 指纹为 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`。
+    证书的序列号为 `02:00:00:b9`，SHA1 指纹为 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`。
 
 2. 打开 `uprofile.js` 并更改 `path\to\cert` 以指向新证书。
 

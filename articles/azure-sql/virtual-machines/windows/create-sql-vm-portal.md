@@ -15,12 +15,12 @@ ms.date: 07/06/2020
 ms.author: v-yeche
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b0a263ea4dee8c89deb08768e9ae9c41bdf86fd7
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: c04d29353516321d4d1bd963bf6417aa10bcae3a
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432235"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541866"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>如何使用 Azure 门户为 Windows 虚拟机预配 SQL Server
 
@@ -147,7 +147,7 @@ ms.locfileid: "96432235"
 * 在“存储”的“使用托管磁盘”下，选择“是”。  
 
     > [!NOTE]
-    > Azure 建议为 SQL Server 使用托管磁盘。 托管磁盘在后台处理存储。 此外，当使用托管磁盘的虚拟机位于同一可用性集中时，Azure 会分发存储资源以提供适当冗余。 有关详细信息，请参阅 [Azure 托管磁盘概述][../managed-disks-overview.md)。 有关可用性集中托管磁盘的具体信息，请参阅[为可用性集中的 VM 使用托管磁盘](../../../virtual-machines/windows/manage-availability.md)。
+    > Azure 建议为 SQL Server 使用托管磁盘。 托管磁盘在后台处理存储。 此外，当使用托管磁盘的虚拟机位于同一可用性集中时，Azure 会分发存储资源以提供适当冗余。 有关详细信息，请参阅 [Azure 托管磁盘概述](../../../virtual-machines/managed-disks-overview.md)。 有关可用性集中托管磁盘的具体信息，请参阅[为可用性集中的 VM 使用托管磁盘](../../../virtual-machines/manage-availability.md)。
 
 * 在“网络”下，选择“选择公共入站端口”列表中的任意入站端口。 例如，如果想要远程桌面连接到 VM，则选择“RDP (3389)”端口。
 

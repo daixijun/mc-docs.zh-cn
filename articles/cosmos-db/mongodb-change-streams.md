@@ -6,17 +6,17 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 origin.date: 06/04/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ad33bc2b08eaafe17b184146f0ad18b4ee67bdca
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: d985caa4f120d808f9e42d0c9ef14b18bf7f5533
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552821"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230327"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB's API for MongoDB 中的更改流
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -70,7 +70,7 @@ enumerator.Dispose();
 
 # <a name="java"></a>[Java](#tab/java)
 
-以下示例演示如何在 Java 中使用更改流功能，有关完整示例，请参阅此 [GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/master/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java)。 此示例还演示如何使用 `resumeAfter` 方法来查找上次读取中的所有更改。 
+以下示例演示如何在 Java 中使用更改流功能，有关完整示例，请参阅此 [GitHub 存储库](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/main/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java)。 此示例还演示如何使用 `resumeAfter` 方法来查找上次读取中的所有更改。 
 
 ```java
 Bson match = Aggregates.match(Filters.in("operationType", asList("update", "replace", "insert")));
@@ -121,8 +121,8 @@ cursor.close();
 ```javascript
 var cursor = db.coll.watch(
     [
-        {
-            $match: {
+        { 
+            $match: { 
                 $and: [
                     { "fullDocument.a": 1 }, 
                     { "operationType": { $in: ["insert", "update", "replace"] } }

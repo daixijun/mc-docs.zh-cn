@@ -4,15 +4,15 @@ description: 适用于 Azure Functions 的 Application Insights 支持功能
 ms.topic: reference
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/10/2020
+ms.date: 01/12/2021
 origin.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: b40b05ef7a6cbf794f26a7bbcd9f5196cab30323
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 4178a74ef3586d26026e879bb06dbd363d2f3777
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638215"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230832"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>适用于 Azure Functions 的 Application Insights 支持功能
 
@@ -24,37 +24,35 @@ Azure Functions 提供与 Application Insights 的[内置集成](../../azure-fun
 
 ## <a name="supported-features"></a>支持的功能
 
-| Azure Functions                       | V1                | V2 和 V3   | 
-|-----------------------------------    |---------------    |------------------ |
+| Azure Functions                   | V1            | V2 和 V3 | 
+|-----------------------------------|---------------|------------------|
 | | | | 
-| **自动集合**        |                 |                   |               
-| &bull; 请求                     | 是             | 是               | 
-| &bull; 异常                   | 是             | 是               | 
-| &bull; 性能计数器         | 是             | 是               |
-| &bull; 依赖项                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | 是               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | 是               | 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | 是               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | 是               | 
+| **自动集合**        |               |                  |
+| &bull; 请求                     | 是           | 是              |
+| &bull; 异常                   | 是           | 是              |
+| &bull; 性能计数器         | 是           | 是              |
+| &bull; 依赖项                 |               |                  |
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               | 是              |
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               | 是              |
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |               | 是              |
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |               | 是              |
 | | | | 
-| **受支持的功能**                |                   |                   |               
-| &bull; QuickPulse/LiveMetrics       | 是             | 是               | 
-| &nbsp;&nbsp;&nbsp;&mdash; 安全控制通道|                 | 是               | 
-| &bull; 采样                     | 是             | 是               | 
-| &bull; 检测信号                   |                 | 是               | 
+| **受支持的功能**              |               |                  |
+| &bull; QuickPulse/LiveMetrics       | 是           | 是              | 
+| &nbsp;&nbsp;&nbsp;&mdash; 安全控制通道 |               | 是 | 
+| &bull; 采样                     | 是           | 是              | 
+| &bull; 检测信号                   | | 是              | 
+| | | |
+| **相关性**                    |               |                  |
+| &bull; ServiceBus                  |               | 是              |
+| &bull; EventHub                    |               | 是              |
 | | | | 
-| **相关性**                       |                   |                   |               
-| &bull; ServiceBus                     |                   | 是               | 
-| &bull; EventHub                       |                   | 是               | 
-| | | | 
-| **可配置**                      |                   |                   |           
-| &bull; 完全可配置。<br/>请参阅 [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) 了解相应说明。<br/>请参阅 [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) 了解所有选项。               |                   | 是                   | 
-
+| **可配置**                  |               |                  |           
+| &bull; 完全可配置。<br/>请参阅 [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) 了解相应说明。<br/>请参阅 [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) 了解所有选项。           |               | 是                 | 
 
 ## <a name="performance-counters"></a>性能计数器
 
 性能计数器的自动收集仅适用于 Windows 计算器。
-
 
 ## <a name="live-metrics--secure-control-channel"></a>实时指标和安全控制通道
 

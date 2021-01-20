@@ -6,17 +6,17 @@ services: storage
 author: WenJason
 ms.service: storage
 origin.date: 09/15/2020
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.topic: conceptual
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 882bc556dae738fedcd22b7d680ccc1829f9afa0
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 8bc52fac073616f38cb1061a41ed3b3499eb30db
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553061"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163175"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>客户管理的密钥（用于 Azure 存储加密）
 
@@ -103,7 +103,7 @@ Azure 存储加密支持 2048、3072 和 4096 大小的 RSA 密钥。 有关密�
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Azure 托管磁盘的客户托管密钥
 
-客户托管密钥也可用于管理 Azure 托管磁盘的加密。 客户管理的密钥对托管磁盘的行为不同于对 Azure 存储资源的行为。 有关详细信息，请参阅适用于 Windows 的 [Azure 托管磁盘的服务器端加密](../../virtual-machines/windows/disk-encryption.md)或适用于 Linux 的 [Azure 托管磁盘的服务器端加密](../../virtual-machines/linux/disk-encryption.md)。
+客户托管密钥也可用于管理 Azure 托管磁盘的加密。 客户管理的密钥对托管磁盘的行为不同于对 Azure 存储资源的行为。 有关详细信息，请参阅适用于 Windows 的 [Azure 托管磁盘的服务器端加密](../../virtual-machines/disk-encryption.md)或适用于 Linux 的 [Azure 托管磁盘的服务器端加密](../../virtual-machines/disk-encryption.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

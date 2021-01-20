@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.topic: troubleshooting
 origin.date: 09/17/2020
 author: rockboyfor
-ms.date: 12/14/2020
-ms.testscope: yes|no
-ms.testdate: 10/19/2020null
+ms.date: 01/18/2021
+ms.testscope: yes
+ms.testdate: 10/19/2020
 ms.author: v-yeche
 ms.custom: contperfq1
-ms.openlocfilehash: ce918a76e36dd5a6a0f4013e8ad63d4e9f7081d5
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 577c6ef56f75d9aeb4edb0b28dd31f1027aa4406
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850797"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230242"
 ---
 <!--Verified successfully for troubleshoot-->
 # <a name="troubleshoot-issues-when-using-the-azure-cosmos-db-emulator"></a>排查使用 Azure Cosmos DB 模拟器时出现的问题

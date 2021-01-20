@@ -6,14 +6,14 @@ author: WenJason
 ms.service: load-balancer
 ms.topic: how-to
 origin.date: 08/07/2020
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
-ms.openlocfilehash: 92b151c8fb8aae76a48d7b966ca5106050676fb6
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 34eb2efe4882cc49a3789c297731c333d8b75c9e
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105069"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231108"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>升级 Azure 内部负载均衡器 - 不需出站连接
 [Azure 标准负载均衡器](load-balancer-overview.md)提供丰富的功能和高可用性。 有关负载均衡器 SKU 的详细信息，请参阅[比较表](./skus.md#skus)。
@@ -101,10 +101,6 @@ ms.locfileid: "97105069"
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Azure PowerShell 脚本是否还会将流量从基本负载均衡器切换到新建的标准负载均衡器？
 
 是的，它会迁移流量。 如果想要亲自迁移流量，请使用[此脚本](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0)（它不会为你移动虚拟机）。
-
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>使用此脚本时我遇到了一些问题。 如何求助？
-
-可以向 slbupgradesupport@microsoft.com 发送电子邮件、向 Azure 支持部门提交支持案例，或同时采取这两种措施。
 
 ## <a name="next-steps"></a>后续步骤
 

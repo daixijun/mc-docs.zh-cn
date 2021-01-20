@@ -6,17 +6,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 04/03/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 898296280b059e3df2e1927087f07b445a097392
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: b6bf30ed67b24289e95288a26e091f28ecd10f47
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850861"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230473"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的日期
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -97,7 +97,7 @@ SELECT * FROM root WHERE (root["ShipDate"] >= "2014-09-30T23:14:25.7251173Z")
 
 ## <a name="next-steps"></a>后续步骤
 
-* 下载并运行 [GitHub 上的代码示例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
+* 下载并运行 [GitHub 上的代码示例](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples)
 * 详细了解 [SQL 查询](sql-query-getting-started.md)
 * 详细了解 [Azure Cosmos DB 索引策略](index-policy.md)
 

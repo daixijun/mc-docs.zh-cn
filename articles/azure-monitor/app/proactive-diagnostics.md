@@ -4,14 +4,14 @@ description: Application Insights 执行应用遥测的自动深入分析，并�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 02/07/2019
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.author: v-johya
-ms.openlocfilehash: 9af88a38eca679b816bd988697fc10dc6fec3087
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: b1c7e022c25275994d1932e4ead6375215ee6331
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104751"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231041"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights 中的智能检测
  当 Web 应用程序中存在潜在性能问题和故障异常时，智能检测会自动向你发出警告。 它会对应用发送至 [Application Insights](./app-insights-overview.md) 的遥测数据执行主动分析。 如果失败率中存在骤升或者客户端或服务器性能中存在异常模式，将收到警报。 此功能不需要任何配置。 它会在应用程序发送足够的遥测时运行。
@@ -60,5 +60,4 @@ ms.locfileid: "97104751"
 智能检测是完全自动执行的。 但是或许你想要设置更多的警报？
 
 * [手动配置的指标警报](../platform/alerts-log.md)
-* [可用性 Web 测试](./monitor-web-app-availability.md)
 

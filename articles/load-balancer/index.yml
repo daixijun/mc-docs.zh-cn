@@ -11,13 +11,13 @@ metadata:
   author: WenJason
   ms.author: v-jay
   origin.date: 05/07/2020
-  ms.date: 12/14/2020
-  ms.openlocfilehash: ed1355868c4c29a6a654a6fcdd2396c59b861833
-  ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+  ms.date: 01/18/2021
+  ms.openlocfilehash: e174bcab2c6ece0d11ae791c732f6b6be73c4538
+  ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/11/2020
-  ms.locfileid: "97104697"
+  ms.lasthandoff: 01/15/2021
+  ms.locfileid: "98230997"
 landingContent:
 - title: 关于负载均衡器
   linkLists:
@@ -89,6 +89,10 @@ landingContent:
       url: load-balancer-common-deployment-errors.md
     - text: 解决常见的出站连接问题
       url: troubleshoot-outbound-connection.md
+    - text: 运行状况探测状态问题
+      url: load-balancer-troubleshoot-health-probe-status.md
+    - text: 后端池 (VM) 流量
+      url: load-balancer-troubleshoot-backend-traffic.md
 - title: 参考
   linkLists:
   - linkListType: reference

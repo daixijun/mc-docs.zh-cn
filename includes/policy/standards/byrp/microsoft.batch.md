@@ -2,18 +2,18 @@
 author: rockboyfor
 ms.service: azure-policy
 ms.topic: include
-origin.date: 07/22/2020
-ms.date: 08/24/2020
+origin.date: 01/08/2021
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/24/2020
 ms.author: v-yeche
 ms.custom: generated
-ms.openlocfilehash: a1e007ae3799857546dace8d3550865c0ec32ca8
-ms.sourcegitcommit: e633c458126612223fbf7a8853dbf19acc7f0fa5
+ms.openlocfilehash: 647d75b7a3f1a3b38215f703f69df8de011982b8
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "91146796"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231018"
 ---
 <!--Verified successfully-->
 ## <a name="azure-security-benchmark"></a>Azure 安全基准
@@ -22,9 +22,17 @@ ms.locfileid: "91146796"
 
 <!--Not Available on [Azure Policy Regulatory Compliance - Azure Security Benchmark](../../../../articles/governance/policy/samples/azure-security-benchmark.md)-->
 
-|域 |控制 ID |控制标题 |策略<br /><sub>（Azure 门户）</sub> |Policy 版本<br /><sub>(GitHub)</sub>  |
+|域 |控制 ID |控制标题 |策略<br /><sub>（Azure 门户）</sub> |策略版本<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |日志记录和监视 |2.3 |为 Azure 资源启用审核日志记录 |[应启用 Batch 帐户的诊断日志](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F428256e6-1fac-4f48-a757-df34c2b3336d) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_AuditDiagnosticLog_Audit.json) |
 
-<!-- Update_Description: new article about microsoft.batch -->
-<!--NEW.date: 08/24/2020-->
+## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
+
+<!--Pending on [Azure Policy Regulatory Compliance - HIPAA HITRUST 9.2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md)-->
+
+有关此合规性标准的详细信息，请参阅 [HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)。
+
+|域 |控制 ID |控制标题 |策略<br /><sub>（Azure 门户）</sub> |策略版本<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|审核日志 |1205.09aa2System.1 - 09.aa |保留发送和接收的消息的日志，包括消息的日期、时间、来源和目标，但不包括其内容。 |[应启用 Batch 帐户的诊断日志](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F428256e6-1fac-4f48-a757-df34c2b3336d) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_AuditDiagnosticLog_Audit.json) |
+

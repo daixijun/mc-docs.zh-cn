@@ -10,19 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/29/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 0a122f3ebc9e55b801d862151753cdea8bae3d8f
-ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
+ms.openlocfilehash: 77882c40f1aef5c14a751c865d6f184e0f17f542
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829388"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195194"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板添加 Azure 角色分配
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 除了使用 Azure PowerShell 或 Azure CLI 之外，还可以使用 [Azure 资源管理器模板](../azure-resource-manager/templates/template-syntax.md)分配角色。 如果需要一致且重复地部署资源，模板会很有用。 本文介绍如何使用模板分配角色。
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] 除了使用 Azure PowerShell 或 Azure CLI 之外，还可以使用 [Azure 资源管理器模板](../azure-resource-manager/templates/template-syntax.md)分配角色。 如果需要一致且重复地部署资源，模板会很有用。 本文介绍如何使用模板分配角色。
 
 ## <a name="get-object-ids"></a>获取对象 ID
 

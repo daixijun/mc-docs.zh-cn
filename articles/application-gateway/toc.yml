@@ -119,7 +119,7 @@
     - name: WebSocket 支持
       href: application-gateway-websocket.md
     - name: 常见问题解答
-      href: application-gateway-faq.md
+      href: application-gateway-faq.yml
 - name: 操作指南
   items:
     - name: 托管单一站点

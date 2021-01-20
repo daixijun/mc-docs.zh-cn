@@ -7,17 +7,17 @@ ms.devlang: java
 ms.topic: how-to
 origin.date: 05/11/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: 60457d9f4ec703b3fe3dd1c861975663a5ec09f9
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.custom: devx-track-java, contperf-fy21q2
+ms.openlocfilehash: e606479be1cb1ac5a3acc016712187e8abfaa96f
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598469"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230818"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>适用于 Azure Cosmos DB 异步 Java SDK v2 的性能提示
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "96598469"
 > * [.NET SDK v2](performance-tips.md)
 
 > [!IMPORTANT]  
-> 这不是最新的 Azure Cosmos DB Java SDK！ 应将项目升级到 [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)，然后阅读 Azure Cosmos DB Java SDK v4 [性能提示指南](performance-tips-java-sdk-v4-sql.md)。 请按照[迁移到 Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) 指南和 [Reactor 与 RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 指南中的说明进行升级。 
+> 这不是最新的 Azure Cosmos DB Java SDK！ 应将项目升级到 [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)，然后阅读 Azure Cosmos DB Java SDK v4 [性能提示指南](performance-tips-java-sdk-v4-sql.md)。 请按照[迁移到 Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) 指南和 [Reactor 与 RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) 指南中的说明进行升级。 
 > 
 > 本文中的性能提示仅适用于 Azure Cosmos DB Async Java SDK v2。 请查看 Azure Cosmos DB Async Java SDK v2 [发行说明](sql-api-sdk-async-java.md)、[Maven 存储库](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)、Azure Cosmos DB Async Java SDK v2 [故障排除指南](troubleshoot-java-async-sdk.md)了解详细信息。
 >
@@ -41,7 +41,8 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 ## <a name="networking"></a>网络
 
-* **连接模式：使用直接模式** <a name="direct-connection"></a>
+<a name="direct-connection"></a>
+* **连接模式：使用直接模式**
 
     客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在客户端延迟方面）。 ConnectionMode 是可用于配置客户端 ConnectionPolicy 的关键配置设置 。 对于 Azure Cosmos DB Async Java SDK v2，有两种可用的 ConnectionMode：  
 
@@ -67,7 +68,9 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
 ```
 
-* **将客户端并置在同一 Azure 区域内以提高性能** <a name="same-region"></a>
+<a name="same-region"></a>
+
+* **将客户端并置在同一 Azure 区域中以提高性能**
 
     如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos 数据库所在的相同区域中。  根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://azure.microsoft.com/regions/#services)（Azure 区域）。
 
@@ -162,6 +165,7 @@ _ **按 getRetryAfterInMilliseconds 间隔实现退避**
     使用基于名称的寻址，其中的链接格式为 `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`，而不是使用格式为 `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` 的 SelfLinks (\_self)（旨在避免检索用于构造链接的所有资源的 ResourceId）。 此外，由于会重新创建这些资源（名称可能相同），因此，缓存这些资源的用处不大。
 
     <a name="tune-page-size"></a>
+    
 * **调整查询/读取源的页面大小以获得更好的性能**
 
     使用读取源功能（例如 readDocuments）执行批量文档读取时，或发出 SQL 查询时，如果结果集太大，则以分段方式返回结果。 默认情况下，以包括 100 个项的块或 1 MB 大小的块返回结果（以先达到的限制为准）。
@@ -176,7 +180,9 @@ _ **按 getRetryAfterInMilliseconds 间隔实现退避**
 
     例如，以下代码针对事件循环 IO netty 线程执行 CPU 密集型工作：
 
-    <a name="asyncjava2-noscheduler"></a> **Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)**
+    <a name="asyncjava2-noscheduler"></a>
+    
+    **Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)**
 
     ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -194,7 +200,9 @@ _ **按 getRetryAfterInMilliseconds 间隔实现退避**
 
     收到结果后，如果想要针对结果执行 CPU 密集型工作，应避免针对事件循环 IO netty 线程执行。 可以提供自己的计划程序，以提供自己的线程来运行工作。
 
-    <a name="asyncjava2-scheduler"></a> **Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)**
+    <a name="asyncjava2-scheduler"></a>
+    
+    **Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)**
 
     ```java
     import rx.schedulers;
@@ -268,7 +276,7 @@ _ **按 getRetryAfterInMilliseconds 间隔实现退避**
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    有关详细信息，请参阅 [Azure Cosmos DB 索引策略](https://docs.azure.cn/cosmos-db/index-policy)。
+    有关详细信息，请参阅 [Azure Cosmos DB 索引策略](./index-policy.md)。
 
 <a name="measure-rus"></a>
 ## <a name="throughput"></a>吞吐量
@@ -292,9 +300,10 @@ _ **按 getRetryAfterInMilliseconds 间隔实现退避**
     response.getRequestCharge();
     ```
 
-在此标头中返回的请求费用是预配吞吐量的一小部分。 例如，如果预配了 2000 RU/s，上述查询返回 1000 个 1KB 文档，则操作成本为 1000。 因此在一秒内，服务器在对后续请求进行速率限制之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
+    在此标头中返回的请求费用是预配吞吐量的一小部分。 例如，如果预配了 2000 RU/s，上述查询返回 1000 个 1KB 文档，则操作成本为 1000。 因此在一秒内，服务器在对后续请求进行速率限制之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
 
 <a name="429"></a>
+
 * **处理速率限制/请求速率太大**
 
     客户端尝试超过帐户保留的吞吐量时，服务器的性能不会降低，并且不会使用超过保留级别的吞吐量容量。 服务器将抢先结束 RequestRateTooLarge（HTTP 状态代码 429）的请求并返回 [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 标头，该标头指示重新尝试请求前用户必须等待的时间量（以毫秒为单位）。

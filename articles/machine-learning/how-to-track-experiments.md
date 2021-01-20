@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 322ff4c82bac381d56c3f5eef9642bf215d75478
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 42f598a7b5d5ea1bfa3b8f5ffde76c79dc10d5c2
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022609"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229987"
 ---
 # <a name="enable-logging-in-ml-training-runs"></a>在 ML 训练运行中启用日志记录
 
@@ -149,7 +149,7 @@ Azure 机器学习还可以在训练期间记录其他来源的信息，例如�
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
 * [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
-[!INCLUDE aml-clone-in-azure-notebook](/includes/aml-clone-for-examples.md)
+[!INCLUDE aml-clone-in-azure-notebook](https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/includes/aml-clone-for-examples.md)
 
 ## <a name="next-steps"></a>后续步骤
 

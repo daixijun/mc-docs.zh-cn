@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 56e665e292f9e3bd17fec38cea106eac492b3765
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: cb6c8c53529b8b153812d547816d8622748d27d1
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003896"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194965"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>快速入门：向 Python Web 应用添加 Microsoft 登录功能
 
@@ -50,31 +50,25 @@ ms.locfileid: "97003896"
 >
 > 若要手动注册应用程序并将应用的注册信息添加到解决方案，请执行以下步骤：
 >
-> 1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn)。
-> 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-> 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
-> 1. 选择“新注册”。
-> 1. “注册应用程序”页出现后，请输入应用程序的注册信息：
->      - 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `python-webapp`。
->      - 在“支持的帐户类型”下，选择“任何组织目录中的帐户”。 
->      - 选择“注册”。
->      - 在应用的“概述”页上，记下“应用程序(客户端) ID”值，供稍后使用 。
-> 1. 从菜单中选择“身份验证”，然后添加以下信息：
->    - 添加 **Web** 平台配置。 添加 `http://localhost:5000/getAToken` 作为“重定向 URI”。
->    - 选择“保存” 。
-> 1. 在左侧菜单中选择“证书和机密”，然后在“客户端机密”部分单击“新建客户端机密”：  
->
->      - 键入（实例应用机密）的密钥说明。
->      - 选择密钥持续时间“1 年”。
->      - 单击“添加”时，将显示密钥值。
->      - 复制密钥的值。 稍后需要用到此值。
-> 1. 选择“API 权限”部分
->
->      - 单击“添加权限”按钮，然后
->      - 确保已选中“Microsoft API”选项卡
->      - 在“常用 Microsoft API”部分中，单击“Microsoft Graph”
->      - 在“委托的权限”部分中，确保已勾选正确的权限：**User.ReadBasic.All**。 如有必要，请使用搜索框。
->      - 选择“添加权限”按钮
+> 1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
+> 1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
+> 1. 在“管理”下，选择“应用注册” > “新建注册”  。
+> 1. 输入应用程序的名称（例如 `python-webapp`）。 应用的用户可能会看到此名称，你稍后可对其进行更改。
+> 1. 在“支持的帐户类型”下，选择“任何组织目录中的帐户”。 
+> 1. 选择“注册”  。
+> 1. 在应用的“概述”页上，记下“应用程序(客户端) ID”值，供稍后使用 。
+> 1. 在“管理”下，选择“身份验证”。 
+> 1. 选择“添加平台” > “Web” 。
+> 1. 添加 `http://localhost:5000/getAToken` 作为“重定向 URI”。
+> 1. 选择“配置” 。
+> 1. 在“管理”下，选择“证书和机密”，然后在“客户端机密”部分，选择“新建客户端机密”   。
+> 1. 键入密钥说明（例如应用机密），保留默认的到期日期，然后选择“添加”。
+> 1. 记下“客户端密码”的值以供稍后使用 。
+> 1. 在“管理”下，选择“API 权限” > “添加权限”  。
+>1.  确保已选择“Microsoft API”选项卡。
+> 1. 在“常用 Microsoft API”部分，选择“Microsoft Graph”。
+> 1. 在“委托的权限”部分中，确保已勾选正确的权限：**User.ReadBasic.All**。 如有必要，请使用搜索框。
+> 1. 选择“添加权限”按钮。
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >

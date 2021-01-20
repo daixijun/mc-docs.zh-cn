@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 28fdc617668ab5d15a90fc99d9d401f312034a0b
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: ddf67bdd93f7d5a5d3bde52d6f985c037d300abc
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003893"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194966"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>快速入门：从通用 Windows 平台 (UWP) 应用程序调用 Microsoft Graph API
 
@@ -40,20 +40,19 @@ ms.locfileid: "97003893"
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>选项 1：注册并自动配置应用，然后下载代码示例
 >
 > 1. 转到新的 [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs)窗格。
-> 1. 输入应用程序的名称，然后单击“注册”。
+> 1. 输入应用程序的名称并选择“注册”。
 > 1. 遵照说明下载内容，并一键式自动配置新应用程序。
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>选项 2：注册并手动配置应用程序和代码示例
 > [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>步骤 1：注册应用程序
 > 若要注册应用程序并将应用的注册信息添加到解决方案，请执行以下步骤：
-> 1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn)。
-> 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-> 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
-> 1. 选择“新注册”。
-> 1. 在“注册应用程序”页中，输入应用程序的注册信息：
->      - 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `UWP-App-calling-MsGraph`。
->      - 在“支持的帐户类型”部分，选择“任何组织目录中的帐户”。 
+> 1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
+> 1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
+> 1. 搜索并选择“Azure Active Directory”  。
+> 1. 在“管理”下，选择“应用注册” > “新建注册”  。
+> 1. 输入应用程序的名称（例如 `UWP-App-calling-MsGraph`）。 应用的用户可能会看到此名称，你稍后可对其进行更改。
+> 1. 在“支持的帐户类型”部分，选择“任何组织目录中的帐户”。 
 > 1. 选择“注册”创建应用程序，然后记录“应用程序(客户端) ID”，以供在后面的步骤中使用 。
 > 1. 在“管理”下，选择“身份验证”。 
 > 1. 选择“添加平台” > “移动和桌面应用程序” 。

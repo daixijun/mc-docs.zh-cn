@@ -2,13 +2,13 @@
 title: Azure Functions 的应用设置参考
 description: 有关 Azure Functions 应用设置或环境变量的参考文档。
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 18adb4071001b551c4399e7cb89e05a0563411b9
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.date: 01/12/2021
+ms.openlocfilehash: dc1f0b84ed88de838e81b0c45be378947f8d6a01
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849408"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195049"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的应用设置参考
 
@@ -46,7 +46,7 @@ Application Insights 的连接字符串。 在以下情况下使用 `APPLICATION
 
 默认情况下，[Functions 代理](functions-proxies.md)使用快捷方式从代理直接将 API 调用发送到同一函数应用中的函数。 使用此快捷方式取代创建新的 HTTP 请求。 此设置让你能够禁用该快捷方式行为。
 
-|键|“值”|说明|
+|键|值|说明|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|是|具有指向本地函数应用中函数的后端 URL 的调用不会直接发送到函数， 相反，请求会定向回函数应用的 HTTP 前端。|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|具有指向本地函数应用中函数的后端 URL 的调用会直接转发到函数。 这是默认值。 |
@@ -55,7 +55,7 @@ Application Insights 的连接字符串。 在以下情况下使用 `APPLICATION
 
 此设置控制字符 `%2F` 在路由参数插入后端 URL 时是否在路由参数中解码为斜杠。 
 
-|键|“值”|说明|
+|键|值|说明|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|是|包含编码斜杠的路由参数已解码。 |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|所有路由参数均原样传递，这是默认行为。 |
@@ -238,7 +238,7 @@ _此设置当前处于预览状态。_
 函数应用可以横向扩展到的最大实例数。 默认值为无限制。
 
 > [!IMPORTANT]
-> 此设置处于预览状态。  添加了一个[函数应用横向扩展上限属性](./functions-scale.md#limit-scale-out)，建议使用此方法限制横向扩展。
+> 此设置处于预览状态。  添加了一个[函数应用横向扩展上限属性](./event-driven-scaling.md#limit-scale-out)，建议使用此方法限制横向扩展。
 
 |键|示例值|
 |---|------------|

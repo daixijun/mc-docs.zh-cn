@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 origin.date: 03/29/2019
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4730fefdd597ecd8f3fe2fd8f768e7b07c8969c4
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 6c6fbc4a9381b23d7bf6031402cdf5defb7f5003
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152964"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230660"
 ---
 # <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics 中专用 SQL 池（以前称为 SQL DW）的 REST API
 
@@ -33,7 +33,7 @@ Content-Type: application/json; charset=UTF-8
 
 {
     "properties": {
-        "requestedServiceObjectiveName": DW1000
+        "requestedServiceObjectiveName": "DW1000c"
     }
 }
 ```
@@ -83,14 +83,14 @@ PUT https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resource
     "properties": {
         "timeRanges": [
                 {
-                                "dayOfWeek": Saturday,
-                                "startTime": 00:00,
-                                "duration": 08:00,
+                                "dayOfWeek": "Saturday",
+                                "startTime": "00:00",
+                                "duration": "08:00",
                 },
                 {
-                                "dayOfWeek": Wednesday
-                                "startTime": 00:00,
-                                "duration": 08:00,
+                                "dayOfWeek": "Wednesday",
+                                "startTime": "00:00",
+                                "duration": "08:00",
                 }
                 ]
     }

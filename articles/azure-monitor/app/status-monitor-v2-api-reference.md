@@ -4,13 +4,13 @@ description: Application Insights 代理 API 参考。 无需重新部署网站�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 10/29/2020
-ms.openlocfilehash: 005e235bd972d5e3397cfb1973ad74321e4dd171
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/14/2021
+ms.openlocfilehash: 59b58369bdf56659f109d4a29a8bf74fae05c4fa
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104229"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230915"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Azure Monitor Application Insights 代理 API 参考
 
@@ -643,7 +643,6 @@ Timeout Reached. Stopping...
 - [创建仪表板](./overview-dashboard.md)。
  
  添加更多遥测：
- - [创建 Web 测试](monitor-web-app-availability.md)，以确保站点保持活动状态。
 - [添加 Web 客户端遥测](./javascript.md)，以查看网页代码中的异常并启用跟踪调用。
 - [将 Application Insights SDK 添加到代码](./asp-net.md)，以便插入跟踪和日志调用。
  

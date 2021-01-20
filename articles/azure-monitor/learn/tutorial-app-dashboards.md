@@ -5,15 +5,15 @@ ms.subservice: application-insights
 ms.topic: tutorial
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 origin.date: 07/3/2019
-ms.custom: mvc, contperfq1
-ms.openlocfilehash: 8388106658787a3a5e37a544d7521e46682ad92d
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.custom: mvc, contperf-fy21q1
+ms.openlocfilehash: 12d0d4b602efb8b35aaa54c377a1e0ebd937d299
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104982"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230732"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>使用 Azure Application Insights 创建自定义 KPI 仪表板
 

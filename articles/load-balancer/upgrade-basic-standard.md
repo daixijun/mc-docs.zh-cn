@@ -6,17 +6,19 @@ author: WenJason
 ms.service: load-balancer
 ms.topic: how-to
 origin.date: 01/23/2020
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.author: v-jay
-ms.openlocfilehash: 0cb49add0be65f40712ed743a5532850ab6976f1
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: e1242f5eb87bfa1b93177a64062749dbf5422319
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023305"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230148"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>升级 Azure 公共负载均衡器
 [Azure 标准负载均衡器](load-balancer-overview.md)提供丰富的功能和高可用性。 有关负载均衡器 SKU 的详细信息，请参阅[比较表](./skus.md#skus)。
+
+<!--through zone redundancy-->
 
 升级分为两个阶段：
 
@@ -121,10 +123,6 @@ ms.locfileid: "98023305"
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Azure PowerShell 脚本是否还会将流量从基本负载均衡器切换到新建的标准负载均衡器？
 
 是的。 Azure PowerShell 脚本不仅升级公共 IP 地址，将配置从基本负载均衡器复制到标准负载均衡器，而且还将 VM 迁移到新建标准公共负载均衡器的后面。 
-
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>使用此脚本时我遇到了一些问题。 如何求助？
-
-可以向 slbupgradesupport@microsoft.com 发送电子邮件、向 Azure 支持部门提交支持案例，或同时采取这两种措施。
 
 ## <a name="next-steps"></a>后续步骤
 

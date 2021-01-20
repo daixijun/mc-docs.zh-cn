@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 08/05/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: af155c3c1b7d04102d0338e6064750b6e07e1795
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 3046ea362ca89a05179f2635be17689066c868a3
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552064"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231013"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>使用 Azure Key Vault 为 Azure Cosmos 帐户配置客户管理的密钥
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -49,8 +49,8 @@ ms.locfileid: "94552064"
 
 如果使用的是现有 Azure Key Vault 实例，则可以通过查看 Azure 门户中的“属性”部分来验证是否已启用这些属性。 如果未启用任一属性，请参阅以下文章中的“启用软删除”和“启用清除保护”部分：
 
-- [如何在 PowerShell 中使用软删除](../key-vault/general/soft-delete-powershell.md)
-- [如何在 Azure CLI 中使用软删除](../key-vault/general/soft-delete-cli.md)
+- [如何在 PowerShell 中使用软删除](../key-vault/general/key-vault-recovery.md)
+- [如何在 Azure CLI 中使用软删除](../key-vault/general/key-vault-recovery.md)
 
 ## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>将访问策略添加到 Azure Key Vault 实例
 
@@ -60,7 +60,7 @@ ms.locfileid: "94552064"
 
 1. 选择“+ 添加访问策略”。
 
-1. 在“密钥权限”下拉菜单中，选择“获取”、“解包密钥”和“包装密钥”权限：   
+1. 在“密钥权限”下拉菜单中，选择“获取”、“解包密钥”和“包装密钥”权限：
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="选择适当的权限":::
 

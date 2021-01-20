@@ -7,17 +7,17 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 09/16/2020
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b40edf5eddb22e3558358f081d0e2e7f23edc9cb
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 057fae8446e3a29cd33f293f7b8f88ad5ae30479
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850765"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163180"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>使用存储在 Azure Key Vault 中的客户管理的密钥配置加密
 
@@ -56,7 +56,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-若要了解如何使用 PowerShell 在现有密钥保管库上启用清除保护，请参阅[如何在 PowerShell 中使用软删除](../../key-vault/general/soft-delete-powershell.md)。
+若要了解如何使用 PowerShell 在现有密钥保管库上启用清除保护，请参阅[如何在 PowerShell 中使用软删除](../../key-vault/general/key-vault-recovery.md)。
 
 接下来，向存储帐户分配系统分配的托管标识。 将使用此托管标识授予存储帐户访问 Key Vault 的权限。 有关系统分配的托管标识的详细信息，请参阅[什么是 Azure 资源托管标识？](../../active-directory/managed-identities-azure-resources/overview.md)。
 
@@ -91,7 +91,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-若要了解如何使用 Azure CLI 在现有密钥保管库上启用清除保护，请参阅[如何在 Azure CLI 中使用软删除](../../key-vault/general/soft-delete-cli.md)。
+若要了解如何使用 Azure CLI 在现有密钥保管库上启用清除保护，请参阅[如何在 Azure CLI 中使用软删除](../../key-vault/general/key-vault-recovery.md)。
 
 接下来，向存储帐户分配系统分配的托管标识。 将使用此托管标识授予存储帐户访问 Key Vault 的权限。 有关系统分配的托管标识的详细信息，请参阅[什么是 Azure 资源托管标识？](../../active-directory/managed-identities-azure-resources/overview.md)。
 

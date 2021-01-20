@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/07/2020
-ms.openlocfilehash: d5f36f3b97b91885e29a4863471834b250e546a7
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/14/2021
+ms.openlocfilehash: 0ede0be9303e2fccd1bb981d2b5269c24dc21b66
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105152"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230908"
 ---
 # <a name="deploy-azure-monitor"></a>部署 Azure Monitor
 启用 Azure Monitor 来监视所有 Azure 资源时，既要配置 Azure Monitor 组件，也要配置 Azure 资源，这样才能生成供 Azure Monitor 收集的监视数据。 本文描述如何通过所需的不同步骤来完全实现使用常用配置的 Azure Monitor，以便监视 Azure 订阅中的所有资源。 本文为每个步骤提供了基本说明，其中包含介绍详细配置要求的其他文档的链接。
@@ -112,8 +112,6 @@ Azure Monitor 使用 [Application Insights](app/app-insights-overview.md) 来监
 ### <a name="configure-availability-testing"></a>配置可用性测试
 Application Insights 中的可用性测试是重复测试，可以在全球各地定期监视应用程序的可用性和响应能力。 可以免费创建一项简单的 ping 测试，也可以创建一个 Web 请求序列来模拟具有关联成本的用户交易。 
 
-请参阅[监视任意网站的可用性](app/monitor-web-app-availability.md)以获取不同类型测试的摘要，并详细了解如何创建它们。
-
 ### <a name="configure-profiler"></a>配置探查器
 Application Insights 中的探查器针对 .NET 应用程序提供性能跟踪。 它有助于识别在处理特定 Web 请求时花费时间最长的“热”代码路径。 配置探查器的过程因应用程序类型而异。 
 
@@ -155,8 +153,6 @@ Azure Monitor 中的警报会主动通知你在监视数据中发现的重要数
 - [活动日志规则](platform/activity-log-alerts.md)。 创建一个警报来响应与指定条件匹配的新活动日志事件。 这些警报不收费，因此应该是你的第一选择。 请参阅[使用 Azure Monitor 创建、查看和管理活动日志警报](platform/alerts-activity-log.md)，详细了解如何创建活动日志警报。
 - [指标警报规则](platform/alerts-metric-overview.md)。 创建一个警报来响应一个或多个超出阈值的指标值。 指标警报是有状态的，这意味着：当值低于阈值时警报会自动关闭，并且仅在状态更改时发出通知。 指标警报会产生成本，但该成本明显小于日志警报。 请参阅[使用 Azure Monitor 创建、查看和管理指标警报](platform/alerts-metric.md)，详细了解如何创建指标警报。
 - [日志警报规则](platform/alerts-unified-log.md)。 当计划查询的结果与指定的条件匹配时创建警报。 此类规则是开销最大的警报规则，但允许最复杂的条件。 请参阅[使用 Azure Monitor 创建、查看和管理日志警报](platform/alerts-log.md)，详细了解如何创建日志查询警报。
-- [应用程序警报](app/monitor-web-app-availability.md)允许对 Web 应用程序执行主动的性能和可用性测试。 你可以免费进行一次简单的 ping 测试，但更复杂的测试会收费。 请参阅[监视任意网站的可用性](app/monitor-web-app-availability.md)以获取不同测试的说明，并详细了解如何创建它们。
-
 
 ## <a name="next-steps"></a>后续步骤
 

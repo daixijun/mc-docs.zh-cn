@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
-ms.openlocfilehash: 64aac6545ab75d89d838a6f5fd89416a9774cebc
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 34545cf47e3f548101eab683bb4dfca4023d8622
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849412"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195188"
 ---
 # <a name="application-gateway-front-end-ip-address-configuration"></a>应用程序网关前端 IP 地址配置
 
@@ -25,7 +25,7 @@ ms.locfileid: "94849412"
 * 专用 IP 地址和公共 IP 地址
 * 仅限公共 IP 地址
 
-有关详细信息，请参阅[有关应用程序网关的常见问题解答](application-gateway-faq.md#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address)。
+有关详细信息，请参阅[有关应用程序网关的常见问题解答](application-gateway-faq.yml#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address)。
 
 
 不向 Internet 公开的内部终结点不需要公共 IP 地址。 该终结点称为内部负载均衡器 (ILB) 终结点或专用前端 IP。 应用程序网关 ILB 适合用于不向 Internet 公开的内部业务线应用程序。 对于位于不向 Internet 公开的安全边界内的多层级应用程序中的服务和层级，ILB 也很有用，但需要启用轮循机制负载分配、会话粘性或 TLS 终止。

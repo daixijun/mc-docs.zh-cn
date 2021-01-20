@@ -3,16 +3,16 @@ title: Azure Cosmos DB 中自动缩放预配吞吐量的常见问题解答
 description: 有关 Azure Cosmos DB 数据库和容器的自动缩放预置吞吐量的常见问题解答
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/10/2020
+origin.date: 12/11/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: 0f50a72d457ccf57bb924fbb49585abcaae13f54
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 83199d24d07ce8a1451816d328f112b75a1f8095
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328127"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230116"
 ---
 <!--Verified successfully-->
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB 中自动缩放预配吞吐量的常见问题解答

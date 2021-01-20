@@ -6,14 +6,14 @@ author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
 origin.date: 06/30/2020
-ms.date: 12/28/2020
+ms.date: 01/18/2021
 ms.author: victorh
-ms.openlocfilehash: 9dffc4ad589ff116064c6ac0dc1c4e9907f6ea99
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: d6bc1636ac49c1f62b3d9400bbb7230efa6ed06e
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021336"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231074"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>教程：使用 Azure 防火墙管理器保护中心虚拟网络
 
@@ -108,7 +108,7 @@ ms.locfileid: "98021336"
 ## <a name="create-the-firewall-hub-virtual-network"></a>创建防火墙中心虚拟网络
 
 > [!NOTE]
-> AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](../firewall/firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。
+> AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](../firewall/firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size)。
 
 1. 在 Azure 门户主页上，选择“创建资源”。
 2. 在“网络”下，选择“虚拟网络”。

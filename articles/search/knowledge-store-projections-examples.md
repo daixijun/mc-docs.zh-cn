@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 06/30/2020
-ms.date: 11/27/2020
-ms.openlocfilehash: e2f3b6898674bcc6255757a29adca8d81a5d4c37
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.date: 01/18/2021
+ms.openlocfilehash: f283ed132a96d2d5e6f2a9eb7036c8a491f052d6
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300446"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194733"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>如何整形和导出扩充内容
 
@@ -577,13 +577,12 @@ Power BI 依赖于这些生成的键来发现表中的关系。 如果需要以�
                     }
                 ],
                 "files": [
-                     {
+                    {
                         "storageContainer": "crossimages",
                         "generatedKeyName": "crossimages",
                         "source": "/document/crossProjection/images/*/image"
                     }
-                    ]
-                
+                ]
             }
         ]
     }

@@ -3,14 +3,14 @@ title: 持久业务流程 - Azure Functions
 description: Azure Durable Functions 的业务流程功能简介。
 author: cgillum
 ms.topic: overview
-ms.date: 09/03/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
-ms.openlocfilehash: 000068103c2c0e3c469728c6c4c6c9d36783c760
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.openlocfilehash: c1438e38045265e4492b216187ee846da63db59b
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413967"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195144"
 ---
 # <a name="durable-orchestrations"></a>持久业务流程
 
@@ -267,7 +267,7 @@ module.exports = df.orchestrator(function*(context) {
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-在 .NET 中，还可以使用 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 对象。 以下示例使用了 [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples) 添加的 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 的新功能：
+在 .NET 中，还可使用 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 对象。 以下示例使用了 [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples) 添加的 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 的新功能：
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -339,4 +339,3 @@ module.exports = async function (context, location) {
 > [!div class="nextstepaction"]
 > [业务流程协调程序代码约束](durable-functions-code-constraints.md)
 
-<!-- Update_Description: wording update -->

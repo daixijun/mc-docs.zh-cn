@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: v-junlch
-  ms.date: 09/29/2020
-  ms.openlocfilehash: 81bd3d951f74dc9d87dab2826ff79a9e9a9e60a9
-  ms.sourcegitcommit: 63b9abc3d062616b35af24ddf79679381043eec1
+  ms.date: 01/11/2021
+  ms.openlocfilehash: af6e5340f666dac3232a7a822d43c5e3d8d4e032
+  ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/10/2020
-  ms.locfileid: "91937430"
+  ms.lasthandoff: 01/14/2021
+  ms.locfileid: "98195257"
 landingContent:
 - title: 了解应用程序网关
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: 常见问题
-      url: application-gateway-faq.md
+      url: application-gateway-faq.yml
   - linkListType: whats-new
     links:
     - text: 新增功能

@@ -3,20 +3,20 @@ title: 更改 Azure 托管磁盘的性能 - CLI/PowerShell
 description: 了解如何使用 Azure PowerShell 模块或 Azure CLI 更改现有托管磁盘的性能层。
 ms.service: virtual-machines
 ms.topic: how-to
-origin.date: 11/19/2020
+origin.date: 01/05/2021
 author: rockboyfor
-ms.date: 01/04/2021
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 11/02/2020
 ms.author: v-yeche
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 81d696824614640366be7d0698f23d9a3a76393d
-ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
+ms.openlocfilehash: 47c4ab21c0c2ab6dcba1a07926413a11b31ad6f9
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97856733"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570660"
 ---
 <!--Verified Successfully-->
 # <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>使用 Azure PowerShell 模块或 Azure CLI 更改性能层

@@ -7,17 +7,17 @@ ms.devlang: java
 ms.topic: tutorial
 origin.date: 05/12/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 2f6c9869110f46713d5f3a486e27006368c13660
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: e614e4e73cc636c85e24993cfcb3c43aa320a4e1
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432392"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230963"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>教程：使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "96432392"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-本 Java Web 应用程序教程介绍了如何使用 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务通过 Azure 应用服务 Web 应用上托管的 Java 应用程序来存储和访问数据。 在本文中，将学习以下内容：
+本 Java Web 应用程序教程介绍了如何使用 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服务通过 Azure 应用服务 Web 应用上托管的 Java 应用程序来存储和访问数据。 在本文中，将学习以下内容：
 
 * 如何在 Eclipse 中构建基本 JavaServer Pages (JSP) 程序。
 * 如何使用 [Azure Cosmos DB Java SDK](https://github.com/Azure/azure-documentdb-java) 来处理 Azure Cosmos DB 服务。
@@ -48,7 +48,7 @@ ms.locfileid: "96432392"
 
 在开始本应用程序开发教程前，必须具有：
 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
+* 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -1140,7 +1140,7 @@ GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 
 
 1. 在“源 Git 存储库”屏幕上的“URI”框中，输入 https://github.com/Azure-Samples/documentdb-java-todo-app.git ，然后单击“下一步”  。
 
-1. 在“分支选择”屏幕上，确保已选择“master”，并单击“下一步”。  
+1. 在“分支选择”屏幕上，确保已选择“main”，然后单击“下一步”  。
 
 1. 在“本地目标”屏幕上，单击“浏览”选择要将存储库复制到的文件夹，然后单击“下一步”。  
 

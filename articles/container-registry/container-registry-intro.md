@@ -4,17 +4,17 @@ description: 介绍 Azure 容器注册表服务，该服务提供基于云的托
 ms.topic: overview
 origin.date: 02/10/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 04/06/2020
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5f6f6e35f7d753b744b4b5055fad20297da86b6d
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 185864f1c826b995f0f4fe4972d886e3bfe14711
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024607"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230185"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的专用 Docker 容器注册表简介
 

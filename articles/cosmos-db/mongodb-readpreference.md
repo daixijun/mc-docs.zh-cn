@@ -7,17 +7,17 @@ ms.devlang: nodejs
 ms.topic: how-to
 origin.date: 02/26/2019
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 36fbded8718d70b6deba8cff5d17ddbb77d3035c
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 373dabe46a3194f3b50924d2b2d1558e68510e16
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507530"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230301"
 ---
 # <a name="how-to-multiple-regionally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>如何使用 Azure Cosmos DB 的 API for MongoDB 在多个区域中分配读取操作
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "96507530"
 本文介绍如何通过 Azure Cosmos DB 的 API for MongoDB 使用 [MongoDB 读取首选项](https://docs.mongodb.com/manual/core/read-preference/)设置在多个区域中分配读取操作。
 
 ## <a name="prerequisites"></a>先决条件 
-如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 请参阅此[快速入门](tutorial-global-distribution-mongodb.md)文章，了解如何使用 Azure 门户设置进行多区域分发的 Cosmos 帐户，然后连接到它。
@@ -176,7 +176,7 @@ MongoClient.connect(url, function(err, client) {
 
 ## <a name="next-steps"></a>后续步骤
 
-* [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json)
+* [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fcosmos-db%2ftoc.json%253ftoc%253d%2fcosmos-db%2ftoc.json)
 * [使用 Azure Cosmos DB 的 API for MongoDB 设置多区域分布式数据库](tutorial-global-distribution-mongodb.md)
 * [使用 Azure Cosmos DB 模拟器在本地进行开发](local-emulator.md)
 

@@ -7,13 +7,13 @@ metadata:
   ms.topic: landing-page
   author: Johnnytechn
   ms.author: v-johya
-  ms.date: 12/07/2020
-  ms.openlocfilehash: aef3768e7a6605ec683265e6e7b7b3589c6f41d4
-  ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+  ms.date: 01/12/2021
+  ms.openlocfilehash: 0a12ab08c17e4ca0a9b2ec8ef4a3e52587526c04
+  ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/11/2020
-  ms.locfileid: "97104737"
+  ms.lasthandoff: 01/15/2021
+  ms.locfileid: "98230905"
 landingContent:
 - title: 关于 Azure Monitor
   linkLists:
@@ -56,9 +56,9 @@ landingContent:
   - linkListType: get-started
     links:
     - text: .NET
-      url: learn/quick-monitor-portal.md
+      url: app/asp-net.md
     - text: .NET Core
-      url: learn/dotnetcore-quick-start.md
+      url: app/asp-net-core.md
     - text: Node.js
       url: learn/nodejs-quick-start.md
     - text: 移动型

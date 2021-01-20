@@ -6,14 +6,14 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 origin.date: 11/25/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: 20a243b330c47616d178630d75d6fe7a17f585b5
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 01be6b1703b7ecd738b068cde80298f1b1ab42ea
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328168"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231016"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Azure Cosmos DB API for Cassandra 中的更改源
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]

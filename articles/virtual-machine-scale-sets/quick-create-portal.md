@@ -6,15 +6,15 @@ ms.author: v-junlch
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.subservice: ''
-ms.date: 08/06/2020
+ms.date: 01/11/2021
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 75e1154888b65cd75d0c7d0202d6ffb023d7b640
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: cf10073c70c87691cac781fe2f6aa4bfddb963e6
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508989"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195215"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建虚拟机规模集
 
@@ -35,7 +35,7 @@ Azure [负载均衡器](../load-balancer/load-balancer-overview.md)在运行正�
 1. 在搜索框中，键入“负载均衡器”。 在搜索结果中的“市场”下，选取“负载均衡器” 。
 1. 在“创建负载均衡器”页的“基本信息”选项卡中，输入或选择以下信息 ：
 
-    | 设置                 | “值”   |
+    | 设置                 | 值   |
     | ---| ---|
     | 订阅  | 选择订阅。    |    
     | 资源组 | 选择“新建”并在文本框中键入 myVMSSResourceGroup。|
@@ -59,13 +59,12 @@ Azure [负载均衡器](../load-balancer/load-balancer-overview.md)在运行正�
 1. 在“基本信息”选项卡中的“项目详细信息”下，确保选择了正确的订阅，然后选择 **新建** 资源组。 键入 myVMSSResourceGroup 作为名称，然后选择“确定”。 
 1. 键入 myScaleSet 作为规模集的名称。
 1. 在“区域”中，选择离你近的区域。
-1. 保留“业务流程模式”的规模集 VM 的默认值 。
 1. 选择市场映像作为“映像”。 在此示例中，我们选择了“Ubuntu 服务器 18.04 LTS”。
 1. 输入所需的用户名，并选择首选的身份验证类型。
    - 密码长度必须至少为 12 个字符，并且必须满足以下 4 个复杂性要求的其中 3 个：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 有关详细信息，请参阅[用户名和密码要求](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)。
    - 如果选择 Linux OS 磁盘映像，可选择 SSH 公钥。 仅提供公钥，如 *~/.ssh/id_rsa.pub*。 可以[创建和使用 SSH 密钥](../virtual-machines/linux/mac-create-ssh-keys.md)。
    
-    ![创建虚拟机规模集](./media/virtual-machine-scale-sets-create-portal/quick-create-scaleset.png)
+    :::image type="content" source="./media/virtual-machine-scale-sets-create-portal/quick-create-scale-set.png" alt-text="图像显示了 Azure 门户中规模集的创建选项。":::
 
 1. 选择“下一步”以移动其他页面。 
 1. 保留“实例”和“磁盘”页的默认值  。

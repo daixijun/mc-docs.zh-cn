@@ -10,13 +10,13 @@ metadata:
   author: rockboyfor
   ms.author: v-yeche
   origin.date: 08/30/2019
-  ms.date: 09/23/2019
-  ms.openlocfilehash: 22cf4dc647b5f0addcbb5a2ecbf5306a9aef2f37
-  ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+  ms.date: 01/18/2021
+  ms.openlocfilehash: 592034bb240dd23dad960376387566134dbe959e
+  ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "71155876"
+  ms.lasthandoff: 01/15/2021
+  ms.locfileid: "98230936"
 landingContent:
 - title: 了解 Azure 防火墙
   linkLists:
@@ -29,12 +29,12 @@ landingContent:
     - text: Azure 防火墙规则处理逻辑
       url: rule-processing.md
     - text: 常见问题
-      url: firewall-faq.md
+      url: firewall-faq.yml
 - title: 部署 Azure 防火墙
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 使用 Azure 门户部署
+    - text: 使用 Azure 门户进行部署
       url: tutorial-firewall-deploy-portal.md
     - text: 在混合网络中部署
       url: tutorial-hybrid-portal.md

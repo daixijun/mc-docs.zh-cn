@@ -4,14 +4,14 @@ description: 故障排除指南 - 使用 Application Insights 监视实时 Java 
 ms.topic: conceptual
 ms.author: v-johya
 origin.date: 03/14/2019
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: ffcd3b11acb1e1c6dd784668925fbf9ea0ba6175
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 78fa27467e81b7a5a055485a06a96c099b7f25f6
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104634"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230829"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>用于 Java SDK 的 Application Insights 的故障排除与问答
 
@@ -31,7 +31,7 @@ ms.locfileid: "97104634"
 * 请稍等片刻，并单击“刷新”。 图表会定期自行刷新，但你也可以手动刷新。 刷新间隔取决于图表的时间范围。
 * 检查是否已在 ApplicationInsights.xml 文件（位于项目的 resources 文件夹）中定义检测密钥或将检测密钥配置为环境变量。
 * 确认 xml 文件中没有 `<DisableTelemetry>true</DisableTelemetry>` 节点。
-* 在防火墙中，可能需要打开 TCP 端口 80 和 443 才能将传出流量发送到 dc.services.visualstudio.com。 请参阅 [full list of firewall exceptions](./ip-addresses.md)（防火墙例外的完整列表）
+* 在防火墙中，可能需要打开 TCP 端口 80 和 443 才能将传出流量发送到 dc.services.visualstudio.com。
 * 在 Azure 开始面板中查看服务状态映射。 如果看到警报指示，请等待它们恢复“正常”，关闭再重新打开 Application Insights 应用程序边栏选项卡。
 * 在 ApplicationInsights.xml 文件（位于项目的 resources 文件夹）中的根节点下添加 `<SDKLogger />` 元素，[打开记录功能](#debug-data-from-the-sdk)，并检查条目的前面是否带有 AI：INFO/WARN/ERROR 以发现任何可疑日志。 
 * 查看控制台输出消息中是否包含“已成功找到配置文件”语句，确保 Java SDK 成功加载正确的 ApplicationInsights.xml 文件。
@@ -63,7 +63,6 @@ ms.locfileid: "97104634"
 或者，如果客户端是[手机或其他设备][platforms]中的应用，可以从该处发送遥测数据。
 
 使用相同的检测密钥来设置客户端和服务器遥测。 数据将出现在相同的 Application Insights 资源中，可以将来自客户端和服务器的事件相关联。
-
 
 ## <a name="disabling-telemetry"></a>禁用遥测
 **如何禁用遥测数据收集？**
@@ -184,11 +183,9 @@ Application Insights 使用 `org.apache.http`。 这将在命名空间 `com.micr
 >[!NOTE]
 >如果为应用中的所有命名空间启用了调试级别日志记录，则所有执行中模块（包括重命名为 `com.microsoft.applicationinsights.core.dependencies.http` 的 `org.apache.http`）都将遵循它。 Application Insights 将无法为这些调用应用筛选，因为进行日志调用的是 Apache 库。 调试级别日志记录将生成大量日志数据，因此不建议在实时生产实例中使用。
 
-
 ## <a name="next-steps"></a>后续步骤
 **我为 Java 服务器应用设置了 Application Insights。接下来还可以做些什么？**
 
-* [监视网页的可用性][availability]
 * [监视网页的使用情况][usage]
 * [跟踪使用情况和诊断设备应用中的问题][platforms]
 * [编写代码来跟踪应用的使用情况][track]
@@ -200,7 +197,6 @@ Application Insights 使用 `org.apache.http`。 这将在命名空间 `com.micr
 
 <!--Link references-->
 
-[availability]: ./monitor-web-app-availability.md
 [data]: ./data-retention-privacy.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md

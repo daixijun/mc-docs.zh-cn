@@ -5,17 +5,17 @@ ms.service: service-fabric
 ms.topic: conceptual
 origin.date: 07/22/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/07/2020
 ms.author: v-yeche
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4b09ca6cf5e496acc560beb0c2edf38d62809161
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 62c98ad78dd0138c68ef73211e3220c8f8fad9ce
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022732"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230366"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Service Fabric 的 Azure 安全基线
 
@@ -563,9 +563,7 @@ Service Fabric 的 Azure 安全基线包含可帮助你改善部署安全状况�
 
 * [在 Service Fabric 群集中引入受控的混沌测试](./service-fabric-controlled-chaos.md)
 
-* [如何实现 Azure 安全中心漏洞评估建议](../security-center/security-center-vulnerability-assessment-recommendations.md)
-
-<!--Pending on  [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)-->
+<!--Not Avaialble on * [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)-->
 
 **Azure 安全中心监视**：目前不可用
 

@@ -4,14 +4,14 @@ description: 介绍在 JSON 中通过连续导出导出的、用作筛选器的�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 01/08/2019
-ms.date: 11/10/2020
+ms.date: 01/14/2021
 ms.author: v-johya
-ms.openlocfilehash: c6222ccd552840f9c306ffb4d57ce707ad24abc9
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 36ca03ca92f828e67542fbd7ff5aa3e8b4d4b8f3
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638202"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231052"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 导出数据模型
 此表列出了从 [Application Insights](./app-insights-overview.md) SDK 发送到门户的遥测属性。
@@ -274,7 +274,7 @@ ms.locfileid: "94638202"
 | view [0] urlData.host |string | |
 
 ## <a name="availability"></a>可用性
-报告[可用性 Web 测试](./monitor-web-app-availability.md)。
+报告可用性 Web 测试。
 
 | `Path` | 类型 | 注释 |
 | --- | --- | --- |

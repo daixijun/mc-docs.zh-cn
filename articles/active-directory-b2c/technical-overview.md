@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 637b4dcd2aedc9e7d27e41cc0c60b02c4e8f1169
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: e787a0b4acab0cdd6596267a9f37aeaab88a8f71
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507268"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570573"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C 的技术和功能概述
 
@@ -70,6 +70,8 @@ Azure AD B2C 定义多种类型的用户帐户。 Azure Active Directory、Azure
 ## <a name="external-identity-providers"></a>外部标识提供者
 
 可以配置 Azure AD B2C，以允许用户使用外部社交或企业标识提供者 (IdP) 提供的凭据登录到你的应用程序。 Azure AD B2C 支持外部标识提供者和任何支持 OAuth 1.0、OAuth 2.0、OpenID Connect 和 SAML 协议的标识提供者。
+
+![外部标识提供者](./media/technical-overview/external-idps.png)
 
 使用外部标识提供者联合，可让使用者通过其现有的社交帐户或企业帐户登录，而不必仅仅出于访问你的应用程序的目的创建一个新帐户。
 
@@ -128,7 +130,7 @@ Identity Experience Framework 可让你使用步骤的任意组合来构造用�
 
 ## <a name="protocols-and-tokens"></a>协议和令牌
 
-- 对于应用程序，Azure AD B2C 支持对用户旅程使用 [OAuth 2.0](protocols-overview.md)、[OpenID Connect](openid-connect.md) 和 SAML 协议。 应用程序通过向 Azure AD B2C 发出身份验证请求，来启动此用户旅程。 向 Azure AD B2C 发出请求后会获得一个安全令牌，例如 [ID 令牌、访问令牌](tokens-overview.md)或 SAML 令牌。 此安全令牌定义应用程序中用户的标识。
+- 对于应用程序，Azure AD B2C 支持对用户旅程使用 [OAuth 2.0](protocols-overview.md)、[OpenID Connect](openid-connect.md) 和 [SAML 协议](connect-with-saml-service-providers.md)。 应用程序通过向 Azure AD B2C 发出身份验证请求，来启动此用户旅程。 向 Azure AD B2C 发出请求后会获得一个安全令牌，例如 [ID 令牌、访问令牌](tokens-overview.md)或 SAML 令牌。 此安全令牌定义应用程序中用户的标识。
 
 - 对于外部标识，Azure AD B2C 支持与任何 OAuth 1.0、OAuth 2.0、OpenID Connect、SAML 标识提供者联合。
 
@@ -156,13 +158,15 @@ Identity Experience Framework 可让你使用步骤的任意组合来构造用�
 
 ![按品牌自定义的注册/登录页的屏幕截图](./media/technical-overview/seamless-ux.png)
 
-有关 UI 自定义的信息，请参阅[关于 Azure Active Directory B2C 中的用户界面自定义](customize-ui-overview.md)。
+有关 UI 自定义的信息，请参阅[关于 Azure Active Directory B2C 中的用户界面自定义](customize-ui-with-html.md)。
 
 ## <a name="localization"></a>本地化
 
 借助 Azure AD B2C 中的语言自定义可以适应不同的语言以满足客户需求。 Microsoft 提供 36 种语言的翻译，但你也可以为任何语言提供自己的翻译。 即使体验是针对一种语言提供的，也可以自定义页面上的任何文本。
 
-在 [Azure Active Directory B2C 中的语言自定义](user-flow-language-customization.md)中了解本地化的工作原理。
+![以不同语言显示 UI 文本的三个注册/登录页](./media/technical-overview/localization.png)
+
+在 [Azure Active Directory B2C 中的语言自定义](language-customization.md)中了解本地化的工作原理。
 
 ## <a name="add-your-own-business-logic"></a>添加自己的业务逻辑
 
@@ -227,7 +231,7 @@ Azure AD B2C 多重身份验证 (MFA) 有助于保护对数据和应用程序的
 
 在注册或密码重置期间，用户必须提供符合复杂性规则的密码。 默认情况下，Azure AD B2C 实施强密码策略。 Azure AD B2C 还提供相应的配置选项用于指定客户所用密码的复杂性要求。
 
-可以在[用户流](user-flow-password-complexity.md)和自定义策略中配置密码复杂性要求。
+可以在[用户流](password-complexity.md)和[自定义策略](password-complexity.md)中配置密码复杂性要求。
 
 ## <a name="auditing-and-logs"></a>审核和日志
 
@@ -248,6 +252,8 @@ Azure AD B2C 发出审核日志，其中包含有关其资源、颁发的令牌�
 ### <a name="usage-insights"></a>使用情况见解
 
 在 Azure AD B2C 中，可以发现用户何时注册或登录你的 Web 应用、用户所在的位置，以及他们使用的是哪种浏览器和操作系统。 通过使用自定义策略将 Azure Application Insights 集成到 Azure AD B2C，可以深入了解用户如何注册、登录、重置其密码或编辑其个人资料。 了解此类信息后，可以针对未来的开发周期做出数据驱动的决策。
+
+有关使用情况分析的详细信息，请参阅[使用 Application Insights 在 Azure Active Directory B2C 中跟踪用户行为](analytics-with-application-insights.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

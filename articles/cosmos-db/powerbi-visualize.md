@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 05/21/2019
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a6ba7ae8e205068c4e3e7851c808ee44c923104e
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 7cc20bb3b0f65db49fe24257439a71565f4deb37
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598657"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230106"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>使用 Power BI 连接器可视化 Azure Cosmos DB 数据
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "96598657"
 
 * [下载最新版本的 Power BI Desktop](https://powerbi.microsoft.com/desktop)。
 
-* 从 GitHub 下载[示例火山数据](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json)。
+* 从 GitHub 下载[示例火山数据](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/main/SampleData/VolcanoData.json)。
 
 * [创建一个 Azure Cosmos 数据库帐户](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account)并使用 [Azure Cosmos DB 数据迁移工具](import-data.md)导入火山数据。 导入数据时，请考虑数据迁移工具中源和目标的以下设置：
 

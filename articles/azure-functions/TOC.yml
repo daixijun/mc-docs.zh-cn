@@ -23,7 +23,7 @@
               href: create-first-function-vs-code-csharp.md
             - name: Java
               href: create-first-function-vs-code-java.md
-            - name: JavaScript
+            - name: Javascript
               href: create-first-function-vs-code-node.md
             - name: PowerShell
               href: create-first-function-vs-code-powershell.md
@@ -40,7 +40,7 @@
               href: create-first-function-cli-csharp.md
             - name: Java
               href: create-first-function-cli-java.md
-            - name: JavaScript
+            - name: Javascript
               href: create-first-function-cli-node.md
             - name: PowerShell
               href: create-first-function-cli-powershell.md
@@ -81,7 +81,7 @@
           href: 'https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=csharp'
         - name: Java
           href: 'https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=java'
-        - name: JavaScript
+        - name: Javascript
           href: 'https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=javascript'
         - name: PowerShell
           href: 'https://docs.microsoft.com/samples/browse/?products=azure-functions&languages=azurepowershell'
@@ -110,8 +110,16 @@
     - name: 比较运行时版本
       href: functions-versions.md
       displayName: 'migrate, migration, v3'
-    - name: 高级计划
-      href: functions-premium-plan.md
+    - name: 托管和缩放
+      items:
+        - name: 消耗计划
+          href: consumption-plan.md
+        - name: 高级计划
+          href: functions-premium-plan.md
+        - name: 专用计划
+          href: dedicated-plan.md
+        - name: 事件驱动的缩放
+          href: event-driven-scaling.md
     - name: 部署
       href: functions-deployment-technologies.md
     - name: 事件和消息传送
@@ -145,7 +153,7 @@
           href: functions-reference-csharp.md
         - name: F#
           href: functions-reference-fsharp.md
-        - name: JavaScript
+        - name: Javascript
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
@@ -216,6 +224,8 @@
                   href: functions-create-maven-eclipse.md
                 - name: 使用 IntelliJ IDEA 的 Java
                   href: functions-create-maven-intellij.md
+                - name: 高级计划
+                  href: create-premium-plan-function-app-portal.md
             - name: Azure Cosmos DB 触发器
               href: functions-create-cosmos-db-triggered-function.md
             - name: Blob 存储触发器

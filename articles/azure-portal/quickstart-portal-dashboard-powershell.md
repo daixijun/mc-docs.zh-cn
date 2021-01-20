@@ -5,13 +5,13 @@ ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.author: v-tawe
 origin.date: 07/24/2020
-ms.date: 12/30/2020
-ms.openlocfilehash: 820020c40d50b2fd4b42889988178155a1c1810b
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.date: 01/13/2021
+ms.openlocfilehash: 40498a05dd68cf60dc32a558e629b43f6ee6380b
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820351"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230823"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>快速入门：使用 PowerShell 创建 Azure 门户仪表板
 

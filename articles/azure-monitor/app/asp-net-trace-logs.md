@@ -4,15 +4,15 @@ description: 由 Trace、NLog 或 Log4Net 生成的搜索日志。
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 author: Johnnytechn
-ms.date: 11/10/2020
+ms.date: 01/12/2021
 ms.author: v-johya
 origin.date: 05/08/2019
-ms.openlocfilehash: 87899b47cc26c548295af081031e4de99235ebed
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 9619208cfbd5d1f424b0fa27375ec40a3ffa8f96
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638214"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230836"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>在 Application Insights 中浏览 .NET/.NET Core 和 Python 跟踪日志
 
@@ -142,7 +142,8 @@ System.Diagnostics.Trace.TraceWarning("Slow response - database01");
 例如：
 
 ```csharp
-var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+var telemetryClient = new TelemetryClient(configuration);
 telemetry.TrackTrace("Slow response - database01");
 ```
 
@@ -151,10 +152,11 @@ TrackTrace 的一个优势是可将相对较长的数据放置在消息中。 �
 还可向消息添加严重性级别。 并像其他遥测一样，可以添加属性值以帮助筛选或搜索不同跟踪集。 例如：
 
   ```csharp
-  var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-  telemetry.TrackTrace("Slow database response",
-                 SeverityLevel.Warning,
-                 new Dictionary<string,string> { {"database", db.ID} });
+  TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+  var telemetryClient = new TelemetryClient(configuration);
+  telemetryClient.TrackTrace("Slow database response",
+                              SeverityLevel.Warning,
+                              new Dictionary<string, string> { { "database", "db.ID" } });
   ```
 
 这样便可以在[搜索][diagnostic]中轻松筛选出与特定数据库相关的所有特定严重性级别的消息。
@@ -226,12 +228,10 @@ logger.warning('Hello, World!')
 
 * [ASP.NET 中的诊断故障和异常][exceptions]
 * [了解有关搜索的详细信息][diagnostic]
-* [设置可用性和响应能力测试][availability]
-* [故障排除][qna]
+* [疑难解答][qna]
 
 <!--Link references-->
 
-[availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.cn/

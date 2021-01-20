@@ -7,12 +7,12 @@ origin.date: 10/30/2018
 ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: af5b40da1cc0b789f0765214a898d88c4f8ce143
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 6308dcd7bc920b272656283da9284c6266fbf129
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170763"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230197"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure 应用服务上的操作系统功能
 本文介绍了可供在 [Azure 应用服务](./overview.md)上运行的所有 Windows 应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
@@ -20,9 +20,7 @@ ms.locfileid: "92170763"
 <!-- container -->
 <!-- 
 > [!NOTE] 
-> [Linux apps](overview.md#app-service-on-linux) in App Service run in their own containers. No access to the host operating system is allowed, you do have root access to the container. Likewise, for [apps running in Windows containers](quickstart-custom-container.md?pivots=container-windows), you have administrative access to the container but no access to the host operating system. 
->
--->
+> [Linux apps](overview.md#app-service-on-linux) in App Service run in their own containers. No access to the host operating system is allowed, you do have root access to the container. Likewise, for [apps running in Windows containers](quickstart-custom-container.md?pivots=container-windows)-->
 <a id="tiers"></a>
 
 ## <a name="app-service-plan-tiers"></a>应用服务计划层

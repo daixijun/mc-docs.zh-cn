@@ -13,12 +13,12 @@ metadata:
   ms.author: v-tawe
   origin.date: 06/23/2020
   ms.date: 09/14/2020
-  ms.openlocfilehash: 7e65cb1cb2ff162a75e5cad61feeacba4447bd08
-  ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+  ms.openlocfilehash: fa07e00990e187136fe623e6a29861628382c23e
+  ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/05/2020
-  ms.locfileid: "93375752"
+  ms.lasthandoff: 01/18/2021
+  ms.locfileid: "98541812"
 landingContent:
 - title: 关于事件中心
   linkLists:
@@ -30,6 +30,8 @@ landingContent:
       url: event-hubs-for-kafka-ecosystem-overview.md
     - text: 什么是事件中心捕获？
       url: event-hubs-capture-overview.md
+    - text: 什么是事件中心专用层？
+      url: event-hubs-dedicated-overview.md
 - title: 创建事件中心
   linkLists:
   - linkListType: quickstart
@@ -40,8 +42,18 @@ landingContent:
       url: event-hubs-quickstart-cli.md
     - text: Azure PowerShell
       url: event-hubs-quickstart-powershell.md
-    - text: Azure 资源管理器模板
+    - text: Azure Resource Manager 模板
       url: event-hubs-resource-manager-namespace-event-hub.md
+- title: 创建专用群集
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什么是事件中心专用层？
+      url: event-hubs-dedicated-overview.md
+  - linkListType: quickstart
+    links:
+    - text: 创建专用事件中心群集
+      url: event-hubs-dedicated-cluster-create-portal.md
 - title: 与 Apache Kafka 集成
   linkLists:
   - linkListType: overview

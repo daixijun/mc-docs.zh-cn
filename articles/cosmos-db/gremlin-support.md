@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 origin.date: 11/11/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6b6140e22da1c1cdbca520afe12eb840f83b3d60
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 25c62c7364a8bb34ca385a96abe5f99b041bf0a1
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598677"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230780"
 ---
 <!--Verify sucessfully-->
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Azure Cosmos DB Gremlin 图形支持并兼容 TinkerPop 功能

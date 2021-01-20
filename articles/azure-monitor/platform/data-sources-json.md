@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
+ms.date: 01/12/2021
 origin.date: 11/28/2018
-ms.openlocfilehash: a07faca24834e570df9e5c7ed10b5af00c92bee2
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 028b7495b226bd1810763964f9133c5ab192da59
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328682"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230893"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>在 Azure Monitor 中使用适用于 Linux 的 Log Analytics 代理收集自定义 JSON 数据源
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -97,8 +97,8 @@ Type=tomcat_CL
 ```json
 {
     "tag": [{
-        "a":"1",
-        "b":"2"
+      "a":"1",
+      "b":"2"
     }]
 }
 ```

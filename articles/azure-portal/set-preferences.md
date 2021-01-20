@@ -4,14 +4,14 @@ description: 你可以根据自己的偏好更改 Azure 门户的默认设置。
 keywords: 设置, 超时, 语言, 区域
 ms.author: v-tawe
 origin.date: 08/05/2020
-ms.date: 12/30/2020
+ms.date: 01/13/2021
 ms.topic: how-to
-ms.openlocfilehash: af7ed69a48be80219bcbba8841d0624e9afae2d4
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: bacc7794f6284a315bbfeae8bd87cbdf5a042640
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820353"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230826"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>管理 Azure 门户设置和首选项
 

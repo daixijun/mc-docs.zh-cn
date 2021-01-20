@@ -10,14 +10,14 @@ ms.date: 01/04/2021
 ms.testscope: no
 ms.testdate: 01/04/2021
 ms.author: v-yeche
-ms.openlocfilehash: 4243a257eeaadd4f4e4da259abf99e71c344e42c
-ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
+ms.openlocfilehash: 8b5147c1f54cd146ec42053aba339a7c8fbadb21
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857678"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229947"
 ---
-<!--Pending for release articles-->
+<!--Confirmed successfully from PG team-->
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>使用维护控制和 Azure 门户来控制更新
 
 维护控制允许你决定何时向独立 VM 和 Azure 专用主机应用更新。 本主题介绍了用于维护控制的 Azure 门户选项。 有关使用维护控制的好处、其限制和其他管理选项的详细信息，请参阅[使用维护控制管理平台更新](maintenance-control.md)。

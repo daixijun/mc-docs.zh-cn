@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
 origin.date: 01/07/2019
-ms.date: 04/20/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: dfbb4f867624b0bbaca028d9a14f9e5a2ac3b524
-ms.sourcegitcommit: 89ca2993f5978cd6dd67195db7c4bdd51a677371
+ms.openlocfilehash: e54fad8370bd80ba8cf09b0c3c3e4b4494149791
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82588892"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231068"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>监视和管理证书创建
 适用于：Azure
@@ -415,7 +415,7 @@ Location: “https://mykeyvault.vault.azure.cn/certificates/mycert1/pending?api-
 
 |元素名称|必须|类型|版本|说明|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|是|array|\<引入版本>|Base 64 字符串数组形式的 X509 证书链。|
+|x5c|是|array|\<introducing version>|Base 64 字符串数组形式的 X509 证书链。|
 
 ### <a name="response"></a>响应
 

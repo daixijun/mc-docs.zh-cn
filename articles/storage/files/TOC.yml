@@ -31,8 +31,6 @@
           href: storage-snapshots-files.md
         - name: 开发
           items:
-            - name: 管理并发
-              href: ../common/storage-concurrency.md?toc=%2fstorage%2ffiles%2ftoc.json
             - name: 共享密钥身份验证
               href: 'https://docs.microsoft.com/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services'
             - name: 共享访问签名 (SAS)
@@ -55,26 +53,26 @@
       items:
         - name: 可伸缩性和性能目标
           href: storage-files-scale-targets.md
+    - name: 了解计费
+      href: understanding-billing.md
     - name: 防止意外删除数据
       href: storage-files-prevent-file-share-deletion.md
     - name: 静态加密
       href: ../common/storage-service-encryption.md?toc=%2fstorage%2ffiles%2ftoc.json
     - name: 使用客户管理的密钥进行静态加密
-      href: ../common/encryption-customer-managed-keys.md?toc=%2fstorage%2ffiles%2ftoc.json
+      href: ../common/customer-managed-keys-overview.md?toc=%2fstorage%2ffiles%2ftoc.json
     - name: 常见问题解答
       href: storage-files-faq.md
 - name: 操作指南
   items:
-    - name: 创建
+    - name: 部署
       items:
         - name: 创建 SMB 文件共享
           href: storage-how-to-create-file-share.md
         - name: 创建高级文件共享
           href: storage-how-to-create-premium-fileshare.md
-    - name: 部署
-      items:
-        - name: 部署 Azure 文件
-          href: storage-files-deployment-guide.md
+        - name: 具有高级文件共享的 SQL Server FCI
+          href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fstorage%2ffiles%2ftoc.json
     - name: 装载
       items:
         - name: 将 SMB 文件共享装载到 Windows

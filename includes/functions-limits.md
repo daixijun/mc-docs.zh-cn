@@ -2,16 +2,16 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/30/2020
+ms.date: 01/12/2021
 ms.author: v-junlch
-ms.openlocfilehash: 2aa2697ea26740ff8664fe50ad96cd70af7f85f0
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: b40cdbd8e0e9c36ae3d094a2c4591594350ab44b
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507582"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195090"
 ---
-| 资源 |[消耗计划](../articles/azure-functions/functions-scale.md#consumption-plan)|[高级计划](../articles/azure-functions/functions-scale.md#premium-plan)|[专用计划](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
+| 资源 |[消耗计划](../articles/azure-functions/consumption-plan.md)|[高级计划](../articles/azure-functions/functions-premium-plan.md)|[专用计划](../articles/azure-functions/dedicated-plan.md)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
 |默认[超时持续时间](../articles/azure-functions/functions-scale.md#timeout)（分钟） |5 | 30 |30<sup>1</sup> | 30 | 30 |
 |最大[超时持续时间](../articles/azure-functions/functions-scale.md#timeout)（分钟） |10 | 无限制<sup>7</sup> | 无限制<sup>2</sup> | unbounded | unbounded |
@@ -28,11 +28,11 @@ ms.locfileid: "96507582"
 | 自定义域 [SSL 支持](../articles/app-service/configure-ssl-bindings.md) |包含无限制的 SNI SSL 连接 | 包含无限制的 SNI SSL 连接和 1 个 IP SSL 连接 |包含无限制的 SNI SSL 连接和 1 个 IP SSL 连接 | 包含无限制的 SNI SSL 连接和 1 个 IP SSL 连接 | 不适用 |
 
 <sup>1</sup> 默认情况下，应用服务计划中的 Functions 1.x 运行时的超时是无限制的。  
-<sup>2</sup> 需要将应用服务计划设置为 [Always On](../articles/azure-functions/functions-scale.md#always-on)。 按标准[费率](https://www.azure.cn/pricing/details/app-service/)付费。  
+<sup>2</sup> 需要将应用服务计划设置为 [Always On](../articles/azure-functions/dedicated-plan.md#always-on)。 按标准[费率](https://www.azure.cn/pricing/details/app-service/)付费。  
 <sup>3</sup> 这些限制[在主机中设置](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config)。  
 <sup>4</sup> 可以托管的函数应用的实际数目取决于应用的活动、计算机实例的大小和相应的资源利用率。  
 <sup>5</sup> 存储限制是同一应用服务计划中所有应用的临时存储中的总内容大小。 消耗计划使用 Azure 文件存储作为临时存储。  
-<sup>6</sup> 当函数应用托管在[消耗计划](../articles/azure-functions/functions-scale.md#consumption-plan)中时，仅支持 CNAME 选项。 对于[高级计划](../articles/azure-functions/functions-scale.md#premium-plan)或[应用服务计划](../articles/azure-functions/functions-scale.md#app-service-plan)中的函数应用，可以使用 CNAME 或 A 记录映射自定义域。  
+<sup>6</sup> 当函数应用托管在[消耗计划](../articles/azure-functions/consumption-plan.md)中时，仅支持 CNAME 选项。 对于[高级计划](../articles/azure-functions/functions-premium-plan.md)或[应用服务计划](../articles/azure-functions/dedicated-plan.md)中的函数应用，可以使用 CNAME 或 A 记录映射自定义域。  
 <sup>7</sup> 保证最长 60 分钟。  
 <sup>8</sup> 辅助角色是托管客户应用的角色。 辅助角色有 3 种固定大小：一个 vCPU/3.5 GB RAM；两个 vCPU/7 GB RAM；四个 vCPU/14 GB RAM。
 

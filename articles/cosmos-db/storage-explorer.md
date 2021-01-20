@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 10/23/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: b3a4697188e8c2f9a533f1299bbefbd0eaf530c4
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: bc6307d7408cb469d7eae52dff191bd39b44024e
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850772"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230619"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器管理 Azure Cosmos DB 资源
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

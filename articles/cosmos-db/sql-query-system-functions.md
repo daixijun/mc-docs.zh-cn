@@ -9,12 +9,12 @@ author: rockboyfor
 ms.date: 12/14/2020
 ms.author: v-yeche
 ms.custom: query-reference
-ms.openlocfilehash: 2eb9e4af67151fcacd4dd64218a80253e5d069cf
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: ed33832a490819fabbfc65a25ae66d406a4bdc47
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850489"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230958"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>系统函数 (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -48,6 +48,6 @@ Cosmos DB 函数与 ANSI SQL 函数之间的主要差别在于，Cosmos DB 函�
 - [字符串函数](sql-query-string-functions.md)
 - [类型检查函数](sql-query-type-checking-functions.md)
 - [用户定义的函数](sql-query-udfs.md)
-- [聚合](sql-query-aggregates.md)
+- [聚合](sql-query-aggregate-functions.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

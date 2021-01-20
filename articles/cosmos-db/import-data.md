@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 origin.date: 10/23/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: f52c760db82c2a2bc4150937967b7b4171e4abd7
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 117cf1ccfd112050342798f1aab6b8fa4f8852de
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598510"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231015"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>教程：使用数据迁移工具将数据迁移到 Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "96598510"
 
 * **[SQL API](./introduction.md)** - 可以使用数据迁移工具中提供的任何源选项来小规模导入数据。 [了解用于大规模导入数据的迁移选项](cosmosdb-migrationchoices.md)。
 * **[表 API](table-introduction.md)** - 可以使用数据迁移工具或 [AzCopy](table-import.md#migrate-data-by-using-azcopy) 导入数据。 有关详细信息，请参阅[导入要在 Azure Cosmos DB 表 API 中使用的数据](table-import.md)。
-* **[Azure Cosmos DB 的用于 MongoDB 的 API](mongodb-introduction.md)** - 数据迁移工具不支持将 Azure Cosmos DB 的用于 MongoDB 的 API 作为源或目标。 如果想要从 Azure Cosmos DB 的集合中迁入或迁出数据，请参阅[如何使用 Azure Cosmos DB 的用于 MongoDB 的 API 将 MongoDB 数据迁移到 Cosmos 数据库](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json)的相关说明。 仍可使用数据迁移工具将数据从 MongoDB 导出到 Azure Cosmos DB SQL API 集合中，以便使用 SQL API。
+* **[Azure Cosmos DB 的用于 MongoDB 的 API](mongodb-introduction.md)** - 数据迁移工具不支持将 Azure Cosmos DB 的用于 MongoDB 的 API 作为源或目标。 如果想要从 Azure Cosmos DB 的集合中迁入或迁出数据，请参阅[如何使用 Azure Cosmos DB 的用于 MongoDB 的 API 将 MongoDB 数据迁移到 Cosmos 数据库](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fcosmos-db%2ftoc.json%253ftoc%253d%2fcosmos-db%2ftoc.json)的相关说明。 仍可使用数据迁移工具将数据从 MongoDB 导出到 Azure Cosmos DB SQL API 集合中，以便使用 SQL API。
 * **[Cassandra API](graph-introduction.md)** - Cassandra API 帐户不支持将数据迁移工具用作导入工具。 [了解用于将数据导入 Cassandra API 的迁移选项](cosmosdb-migrationchoices.md#azure-cosmos-db-cassandra-api)
 * **[Gremlin API](graph-introduction.md)** - Gremlin API 帐户目前不支持将数据迁移工具用作导入工具。 [了解用于将数据导入 Gremlin API 的迁移选项](cosmosdb-migrationchoices.md#other-apis) 
 
@@ -138,7 +138,7 @@ dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t
 ## <a name="import-from-mongodb"></a>从 MongoDB 导入
 
 > [!IMPORTANT]
-> 如果要导入到 Cosmos 帐户（配置了 Azure Cosmos DB 的用于 MongoDB 的 API），请遵照这些[说明](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json)操作。
+> 如果要导入到 Cosmos 帐户（配置了 Azure Cosmos DB 的用于 MongoDB 的 API），请遵照这些[说明](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fcosmos-db%2ftoc.json%253ftoc%253d%2fcosmos-db%2ftoc.json)操作。
 
 借助 MongoDB 源导入程序选项，可从单个 MongoDB 集合中导入，并且选择使用查询筛选文档，以及使用投影来修改文档结构。  
 
@@ -167,7 +167,7 @@ dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<po
 ## <a name="import-mongodb-export-files"></a>导入 MongoDB 导出文件
 
 > [!IMPORTANT]
-> 如果要导入到支持 MongoDB 的 Azure Cosmos DB 帐户，请遵照这些[说明](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json)操作。
+> 如果要导入到支持 MongoDB 的 Azure Cosmos DB 帐户，请遵照这些[说明](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fcosmos-db%2ftoc.json%253ftoc%253d%2fcosmos-db%2ftoc.json)操作。
 
 借助 MongoDB 导出 JSON 文件源导入程序选项，可以导入一个或多个通过 mongoexport 实用工具生成的 JSON 文件。  
 

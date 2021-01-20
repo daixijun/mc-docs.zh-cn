@@ -6,13 +6,13 @@ ms.author: v-johya
 ms.subservice: metrics
 ms.topic: tutorial
 origin.date: 04/10/2019
-ms.date: 11/02/2020
-ms.openlocfilehash: c67c39be09f7771cc51369a3a3c5c6d810d2d3b5
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 01/12/2021
+ms.openlocfilehash: 24d2cbbd6efa72aef3a3af448b8d2c56a85ef0b7
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327840"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230724"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>教程：在 Azure Monitor 中创建指标图表
 指标资源管理器是 Azure 门户中 Azure Monitor 的一项功能，通过它可以根据指标值创建图表，直观地关联趋势，以及调查指标值中的高峰和凹陷。 使用指标资源管理器调查 Azure 资源的运行状况和利用率，或根据自定义指标绘制图表。 
@@ -37,7 +37,7 @@ ms.locfileid: "94327840"
 
 1. 从 Azure Monitor 菜单或从资源的菜单的“监视”部分选择“指标”    。
 
-1. 选择“范围”，即要查看其指标的资源  。 如果从资源的菜单中打开了指标资源管理器，则该范围已填充完毕。
+1. 选择“范围”，即要查看其指标的资源  。 如果从资源的菜单中打开了指标资源管理器，则该范围已填充完毕。 若要详细了解资源范围选取器的各项功能，请访问[本文](../platform/metrics-charts.md#resource-scope-picker)。
 
     ![选择范围](./media/tutorial-metrics-explorer/scope-picker.png)
 
@@ -82,6 +82,6 @@ ms.locfileid: "94327840"
 现在，你已了解如何在 Azure Monitor 中使用指标，接下来了解如何使用指标来发送主动警报。
 
 > [!div class="nextstepaction"]
-> [使用 Azure Monitor 创建、查看和管理指标警报](../platform/alerts-metric.md)
+> [使用 Azure Monitor 创建、查看和管理指标警报](../platform/metrics-charts.md#create-alert-rules)
 
 

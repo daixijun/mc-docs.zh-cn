@@ -6,18 +6,18 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 07/16/2020
-ms.date: 11/16/2020
+origin.date: 12/07/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bf6b94484f366c01b789e669320b37608dc8f10d
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: f76d2ee66fdd6855fc1fda8209d3534a1c3c00d0
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551757"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163196"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>使用 Azure CLI 分配一个可以访问 blob 和队列数据的 Azure 角色
 
@@ -58,6 +58,9 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 ## <a name="assign-an-azure-role-to-a-security-principal"></a>向安全主体分配 Azure 角色
 
 若要向安全主体分配 Azure 角色，请使用 [az role assignment create](/cli/role/assignment#az-role-assignment-create) 命令。 命令的格式因分配范围而异。 以下示例显示如何在各种范围内为用户分配角色，但可以使用相同的命令将角色分配给任何安全主体。
+
+> [!NOTE]
+> 创建 Azure 存储帐户时，系统不会自动向你分配通过 Azure AD 访问数据的权限。 你必须为自己显式分配一个用于 Azure 存储的 Azure 角色。 可以在订阅、资源组、存储帐户、容器或队列级别分配它。
 
 ### <a name="container-scope"></a>容器范围
 

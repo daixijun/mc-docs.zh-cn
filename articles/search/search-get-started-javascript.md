@@ -9,14 +9,14 @@ ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
 origin.date: 10/26/2020
-ms.date: 11/27/2020
+ms.date: 01/14/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 40507073e9bef39f3f9c23054fd140ebd205299f
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: b3475272664e5eb835184d963dd781ec00193843
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96430914"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194775"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>快速入门：使用 JavaScript SDK 创建 Azure 认知搜索索引
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "96430914"
 > * [门户](search-get-started-portal.md)
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 
 
 使用[适用于 Azure 认知搜索 的 Javascript/Typscript SDK](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest) 在 JavaScript 中创建一个 Node.js 应用程序用于创建、加载和查询搜索索引。
@@ -59,7 +59,7 @@ ms.locfileid: "96430914"
 
 2. 在“设置” > “密钥”中，获取管理员密钥以获得针对服务的完全权限，需要该密钥才可创建或删除对象 。 有两个可互换的主要密钥和辅助密钥。 可以使用其中任意一个。
 
-   ![获取 HTTP 终结点和访问密钥](media/search-get-started-postman/get-url-key.png "获取 HTTP 终结点和访问密钥")
+   ![获取 HTTP 终结点和访问密钥](media/search-get-started-rest/get-url-key.png "获取 HTTP 终结点和访问密钥")
 
 所有请求对发送到服务的每个请求都需要 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 
@@ -602,7 +602,7 @@ console.log(`HotelId: ${documentResult.HotelId}; HotelName: ${documentResult.Hot
 
 在自己的订阅中操作时，最好在项目结束时确定是否仍需要已创建的资源。 持续运行资源可能会产生费用。 可以逐个删除资源，也可以删除资源组以删除整个资源集。
 
-可以使用左侧导航窗格中的“所有资源”或“资源组”链接   ，在门户中查找和管理资源。
+可以使用左侧导航窗格中的“所有资源”或“资源组”链接 ，在门户中查找和管理资源。
 
 如果使用的是免费服务，请记住只能设置三个索引、索引器和数据源。 可以在门户中删除单个项目，以不超出此限制。 
 

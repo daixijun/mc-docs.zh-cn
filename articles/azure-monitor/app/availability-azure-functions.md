@@ -4,17 +4,17 @@ description: 本文档将介绍如何使用 TrackAvailability() 创建一个 Azu
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/10/2020
-ms.openlocfilehash: e853c8118b66275aa364cf2d95ef227e18ada5bc
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.date: 01/12/2021
+ms.openlocfilehash: 68c6688a1c35565568e58829746fd46312fc7392
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637876"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230838"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>使用 Azure Functions 创建和运行自定义可用性测试
 
-本文将介绍如何使用 TrackAvailability() 创建一个 Azure 函数，该函数会根据 TimerTrigger 函数中给定的配置和你自己的业务逻辑定期运行。 此测试的结果将发送到 Application Insights 资源，你可以在其中查询可用性结果数据并对其发出警报。 这样，你就可以创建自定义测试，类似于通过门户的[可用性监视](./monitor-web-app-availability.md)执行的测试。 使用自定义测试，你可以编写比使用门户 UI 更为复杂的可用性测试、监视 Azure VNET 内部的应用、更改终结点地址或创建可用性测试（即使该功能在你所在的区域中不可用）。
+本文将介绍如何使用 TrackAvailability() 创建一个 Azure 函数，该函数会根据 TimerTrigger 函数中给定的配置和你自己的业务逻辑定期运行。 此测试的结果将发送到 Application Insights 资源，你可以在其中查询可用性结果数据并对其发出警报。
 
 > [!NOTE]
 > 此示例只是为了向你展示TrackAvailability() API 调用在 Azure 函数中的工作机制， 而不是为了演示如何编写基础 HTTP 测试代码/业务逻辑，后者是将其转变为功能完全正常的可用性测试所需的。 默认情况下，如果你逐步完成此示例，你将创建一个始终会产生故障的可用性测试。

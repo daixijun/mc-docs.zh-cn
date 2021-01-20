@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
 origin.date: 01/07/2019
-ms.date: 11/27/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: a79054ead4627993dc762551fd3ffad85af6afca
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 0d7f092a7290421b8fff43b2f4ec86143129bf78
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300294"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231067"
 ---
 # <a name="certificate-creation-methods"></a>证书创建方法
 

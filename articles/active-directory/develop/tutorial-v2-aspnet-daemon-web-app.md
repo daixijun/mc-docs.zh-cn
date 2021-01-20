@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/06/2021
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: fb78c6966f904146cc173befaecfa28c38a86bf9
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 1daf4fb094a6212cb546a95d17b6f7915b314a55
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021622"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195054"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>教程：生成使用 Microsoft 标识平台的多租户守护程序
 
@@ -93,7 +93,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 ### <a name="choose-the-azure-ad-tenant"></a>选择 Azure AD 租户
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
 
 
@@ -203,7 +203,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>创建 dotnet-web-daemon-v2 并将其发布到 Azure 网站
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 在左上角，选择“创建资源”。
 1. 选择“Web” > “Web 应用”，然后为网站命名。  例如，将它命名为“dotnet-web-daemon-v2-contoso.chinacloudsites.cn”。
 1. 选择“订阅”、“资源组”和“应用服务计划和位置”的信息。   为“OS”选择“Windows”，为“发布”选择“代码”。   
@@ -224,7 +224,7 @@ Visual Studio 将发布项目，同时自动打开浏览器并加载该项目的
 
 ### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>更新 dotnet-web-daemon-v2 的 Azure AD 租户应用程序注册
 
-1. 返回到 [Azure 门户](https://portal.azure.cn)。
+1. 返回到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 在左侧窗格中选择“Azure Active Directory”服务，然后选择“应用注册”。 
 1. 选择 **dotnet-web-daemon-v2** 应用程序。
 1. 在应用程序的“身份验证”页上，使用服务地址更新“注销 URL”字段。  例如，使用 `https://dotnet-web-daemon-v2-contoso.chinacloudsites.cn`。

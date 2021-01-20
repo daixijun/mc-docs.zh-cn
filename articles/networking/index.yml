@@ -12,13 +12,13 @@ metadata:
   ms.author: v-tawe
   manager: mtillman
   origin.date: 09/28/2020
-  ms.date: 10/16/2020
-  ms.openlocfilehash: 2e4bc6de6836fceb9318a16457569449a645629f
-  ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+  ms.date: 01/18/2021
+  ms.openlocfilehash: 677a414bb660457a76300fbd1789d0ffc6c2bec8
+  ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/27/2020
-  ms.locfileid: "96300594"
+  ms.lasthandoff: 01/14/2021
+  ms.locfileid: "98194776"
 highlightedContent:
   items:
   - title: 什么是 Azure 网络？

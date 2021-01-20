@@ -3,15 +3,15 @@ title: 了解 Azure Monitor 中的自动缩放设置
 description: 自动缩放设置的详细步骤及其工作原理。 适用于虚拟机、云服务、Web 应用
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 08/20/2020
+ms.date: 01/12/2021
 ms.subservice: autoscale
 origin.date: 12/18/2017
-ms.openlocfilehash: 65821cbd47ebfaae93438ce28551a986442d0115
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 70326d1ad178ee534b97f6070c8ac8e3c4c16ba3
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457340"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230900"
 ---
 # <a name="understand-autoscale-settings"></a>了解自动缩放设置
 使用自动缩放设置有助于确保运行适当数量的资源来处理应用程序负载的波动。 可将自动缩放设置配置为基于指标（指示负载或性能）触发，或者在计划好的日期和时间触发。 本文将会深度剖析自动缩放设置。 本文首先介绍设置的架构和属性，然后逐步讲解可配置的不同配置文件类型。 最后讨论 Azure 中的自动缩放功能如何评估要在任意给定时间执行哪个配置文件。
@@ -62,7 +62,7 @@ ms.locfileid: "89457340"
               "cooldown": "PT5M"
             }
           },
-    {
+          {
             "metricTrigger": {
               "metricName": "Percentage CPU",
               "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1",
@@ -121,34 +121,41 @@ ms.locfileid: "89457340"
 
 - **固定日期配置文件：** 此配置文件适用于特殊场合。 假设你要在 2017 年 12 月 26 日（太平洋标准时间）举办一场重要活动。 你希望当天的最小和最大资源容量有所不同，但仍可根据相同的指标缩放。 在这种情况下，应在设置的配置文件列表中添加一个固定日期配置文件。 该配置文件配置为只在活动当天运行。 在其他任何日期，自动缩放将使用常规配置文件。
 
-    ``` JSON
-    "profiles": [{
-    "name": " regularProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    },
-    {
-    ...
-    }]
-    },
-    {
-    "name": "eventProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    }, {
-    ...
-    }],
-    "fixedDate": {
-        "timeZone": "Pacific Standard Time",
-               "start": "2017-12-26T00:00:00",
-               "end": "2017-12-26T23:59:00"
-    }}
+    ```json
+    "profiles": [
+        {
+            "name": " regularProfile",
+            "capacity": {
+                ...
+            },
+            "rules": [
+                {
+                ...
+                },
+                {
+                ...
+                }
+            ]
+        },
+        {
+            "name": "eventProfile",
+            "capacity": {
+            ...
+            },
+            "rules": [
+                {
+                ...
+                }, 
+                {
+                ...
+                }
+            ],
+            "fixedDate": {
+                "timeZone": "Pacific Standard Time",
+                "start": "2017-12-26T00:00:00",
+                "end": "2017-12-26T23:59:00"
+            }
+        }
     ]
     ```
     

@@ -3,14 +3,14 @@ title: 创建由 Azure Cosmos DB 触发的函数
 description: 使用 Azure Functions 创建当数据添加到 Azure Cosmos DB 调用的无服务器函数。
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 01/12/2021
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 253d682ac5724a3b740c550bee1c5bd85952654a
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: b4b1d84d9497f52e1ad43d9b3b52812e4881fa1a
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508984"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195227"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>创建由 Azure Cosmos DB 触发的函数
 
@@ -28,6 +28,7 @@ ms.locfileid: "96508984"
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
+
 使用 Azure 帐户登录到 [Azure 门户](https://portal.azure.cn/)。
 
 ## <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
@@ -36,7 +37,7 @@ ms.locfileid: "96508984"
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="create-an-azure-function-app"></a>创建 Azure Function App
+## <a name="create-a-function-app-in-azure"></a>在 Azure 中创建一个函数应用
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 

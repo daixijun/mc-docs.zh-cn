@@ -8,13 +8,13 @@ metadata:
   ms.service: application-insights
   ms.topic: hub-page
   manager: carmonm
-  ms.date: 12/07/2020
-  ms.openlocfilehash: 8b7154a8e0da4d72bce6b02c2c9fe72ddcefbafd
-  ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+  ms.date: 01/14/2021
+  ms.openlocfilehash: 07ac3f3b0730f814a66fe02551fc512ddce6a984
+  ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/11/2020
-  ms.locfileid: "97105301"
+  ms.lasthandoff: 01/15/2021
+  ms.locfileid: "98231023"
 highlightedContent:
   items:
   - title: 什么是 Application Insights？
@@ -85,12 +85,6 @@ conceptualContent:
       text: Azure VM 和 Azure 虚拟机规模集
   - title: 快速入门和教程
     links:
-    - url: ./learn/quick-monitor-portal.md
-      itemType: how-to-guide
-      text: ASP.NET
-    - url: ./learn/dotnetcore-quick-start.md
-      itemType: how-to-guide
-      text: ASP.NET Core
     - url: ./learn/nodejs-quick-start.md
       itemType: how-to-guide
       text: Node.js
@@ -140,9 +134,6 @@ conceptualContent:
       text: 队列和后台任务
   - title: 综合事务和可用性监视
     links:
-    - url: ./app/monitor-web-app-availability.md
-      itemType: how-to-guide
-      text: URL 测试
     - url: ./app/availability-multistep.md
       itemType: how-to-guide
       text: 多步骤 Web 测试
@@ -204,6 +195,9 @@ conceptualContent:
     - url: ./app/snapshot-debugger-vm.md
       itemType: how-to-guide
       text: 为其他环境启用 Snapshot Debugger
+    - url: ./app/snapshot-debugger-upgrade.md
+      itemType: how-to-guide
+      text: 升级 Snapshot Debugger
   - title: 智能检测
     links:
     - url: ./app/proactive-diagnostics.md
@@ -270,9 +264,6 @@ conceptualContent:
     - url: ./app/resources-roles-access-control.md
       itemType: how-to-guide
       text: 基于角色的访问控制
-    - url: ./app/ip-addresses.md
-      itemType: how-to-guide
-      text: IP 地址和防火墙异常
     - url: ./app/ip-collection.md
       itemType: how-to-guide
       text: 地理位置和 IP 地址处理

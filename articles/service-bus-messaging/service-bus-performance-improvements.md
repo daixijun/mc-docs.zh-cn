@@ -5,17 +5,17 @@ ms.service: service-bus-messaging
 ms.topic: article
 origin.date: 11/11/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d81afc7232c7d337e8ad974ce7c2a771c181cfb
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 5395311534c681244fa8fe46f375ebaf33baf057
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023272"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230135"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服务总线消息传递改进性能的最佳实践
 

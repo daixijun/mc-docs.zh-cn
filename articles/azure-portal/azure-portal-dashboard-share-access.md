@@ -4,14 +4,14 @@ description: 本文介绍如何使用 Azure 基于角色的访问控制在 Azure
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
 ms.topic: how-to
 origin.date: 03/23/2020
-ms.date: 12/30/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: bbe31963b97027717f568f3ee6a575eb8340d3bc
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: 1a8fdccbef0aea4e744e276caec68978c83f7b8d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820363"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230480"
 ---
 # <a name="share-azure-dashboards-by-using-azure-role-based-access-control"></a>使用 Azure 基于角色的访问控制共享 Azure 仪表板
 

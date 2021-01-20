@@ -6,17 +6,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 08/23/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: e4bae9645abe6ed228e223d4442d704f009d31d9
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 875868f696e387f5ae1b6a715f5897228e403b2a
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552874"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230073"
 ---
 # <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中数据的 Node.js 示例
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -91,7 +91,7 @@ ms.locfileid: "94552874"
 
 ## <a name="indexing-examples"></a>索引示例
 
-[IndexManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement.ts) 文件演示如何管理索引。 若要在运行以下示例之前了解 Azure Cosmos DB 中的索引，请参阅[索引策略](index-policy.md)、[索引类型](index-overview.md#index-kinds)和[索引路径](index-policy.md#include-exclude-paths)概念文章。 
+[IndexManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement.ts) 文件演示如何管理索引。 若要在运行以下示例之前了解 Azure Cosmos DB 中的索引，请参阅[索引策略](index-policy.md)、[索引类型](index-overview.md#index-types)和[索引路径](index-policy.md#include-exclude-paths)概念文章。 
 
 | 任务 | API 参考 |
 | --- | --- |

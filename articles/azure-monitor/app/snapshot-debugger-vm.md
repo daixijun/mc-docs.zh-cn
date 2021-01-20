@@ -4,22 +4,22 @@ description: 在 Azure Service Fabric、云服务和虚拟机中为 .NET 应用�
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 10/29/2020
+ms.date: 01/12/2021
 ms.reviewer: mbullwin
 origin.date: 03/07/2019
-ms.openlocfilehash: 204999664ea4991d06aabaf21479a6b0b9d105a6
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: a9bb9d8cadf096ca7efce8d0cbe0e888697c5719
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104231"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231026"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>在 Azure Service Fabric、云服务和虚拟机中为 .NET 应用启用快照调试器
 
 如果 ASP.NET 或 ASP.NET Core 应用程序 在 Azure 应用服务中运行，强烈建议[通过 Application Insights 门户页启用 Snapshot Debugger](snapshot-debugger-appservice.md?toc=/azure-monitor/toc.json)。 但是，如果应用程序需要自定义的 Snapshot Debugger 配置或 .NET core 预览版，则 ***除了***[通过 Application Insights 门户页启用](snapshot-debugger-appservice.md?toc=/azure-monitor/toc.json)的说明外，还应遵循此说明。
 
 如果应用程序在 Azure Service Fabric、云服务、虚拟机或本地计算机中运行，则应使用以下说明。 
-    
+
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>为 ASP.NET 应用程序配置快照集合
 
 1. 如果尚未启用，请[在 Web 应用中启用 Application Insights](./asp-net.md)。
@@ -92,19 +92,19 @@ ms.locfileid: "93104231"
        using Microsoft.ApplicationInsights.AspNetCore;
        using Microsoft.ApplicationInsights.Extensibility;
        ```
-    
+
        将以下 `SnapshotCollectorTelemetryProcessorFactory` 类添加到 `Startup` 类。
-    
+
        ```csharp
        class Startup
        {
            private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
            {
                private readonly IServiceProvider _serviceProvider;
-    
+
                public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
                    _serviceProvider = serviceProvider;
-    
+
                public ITelemetryProcessor Create(ITelemetryProcessor next)
                {
                    var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
@@ -114,17 +114,17 @@ ms.locfileid: "93104231"
            ...
         ```
         将 `SnapshotCollectorConfiguration` 和 `SnapshotCollectorTelemetryProcessorFactory` 服务添加到启动管道：
-    
+
         ```csharp
            // This method gets called by the runtime. Use this method to add services to the container.
            public void ConfigureServices(IServiceCollection services)
            {
                // Configure SnapshotCollector from application settings
                services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
-    
+
                // Add SnapshotCollector telemetry processor.
                services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
-    
+
                // TODO: Add other services your application needs here.
            }
        }

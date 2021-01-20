@@ -3,7 +3,6 @@ title: Azure 网络观察程序 | Azure
 description: 了解 Azure 网络观察程序针对虚拟网络中的资源提供的监视、诊断、指标和日志记录功能。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
@@ -11,18 +10,19 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/24/2018
-ms.date: 08/10/2020
+origin.date: 01/04/2021
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 909ec403750bea25d95c67a0add80429a9dcc270
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: e600fc38fb32353bb15a5d91aaab27a92f7e39e8
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87547989"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231095"
 ---
 # <a name="what-is-azure-network-watcher"></a>Azure 网络观察程序是什么？
 
@@ -35,7 +35,7 @@ Azure 网络观察程序提供所需的工具用于监视、诊断 Azure 虚拟�
 
 终结点可以是另一个虚拟机 (VM)、完全限定的域名 (FQDN)、统一资源标识符 (URI) 或 IPv4 地址。 连接监视器功能定期监视通信，并告知 VM 与终结点之间的可访问性、延迟和网络拓扑变化。  例如，你使用了一个 Web 服务器 VM 来与数据库服务器 VM 通信。 组织中你不认识的某个人可能对 Web 服务器、数据库服务器 VM 或子网应用了自定义的路由或网络安全规则。
 
-如果某个终结点不可访问，连接故障排除机制会告知原因。 原因可能在于 DNS 名称解析问题、CPU、内存、VM 操作系统中的防火墙、自定义路由的跃点类型、VM 的安全规则，或出站连接的子网。 详细了解 Azure 中的[安全规则](../virtual-network/security-overview.md?toc=%2fnetwork-watcher%2ftoc.json#security-rules)和[路由跃点类型](../virtual-network/virtual-networks-udr-overview.md?toc=%2fnetwork-watcher%2ftoc.json)。
+如果某个终结点不可访问，连接故障排除机制会告知原因。 原因可能在于 DNS 名称解析问题、CPU、内存、VM 操作系统中的防火墙、自定义路由的跃点类型、VM 的安全规则，或出站连接的子网。 详细了解 Azure 中的[安全规则](../virtual-network/network-security-groups-overview.md?toc=%2fnetwork-watcher%2ftoc.json#security-rules)和[路由跃点类型](../virtual-network/virtual-networks-udr-overview.md?toc=%2fnetwork-watcher%2ftoc.json)。
 
 连接监视器还提供在不同时间段观察到的最小、平均和最大延迟。 了解连接的延迟后，你可能会发现，将 Azure 资源移到不同的 Azure 区域能够降低延迟。 详细了解如何确定 [Azure 区域与 Internet 服务提供商之间的相对延迟](#determine-relative-latencies-between-azure-regions-and-internet-service-providers)，以及如何使用[连接监视器](connection-monitor.md)监视 VM 与终结点之间的通信。 若要测试某个时间点的连接，而不是监视各时间段的连接（像使用连接监视器所做的那样），请使用[连接故障排除](#connection-troubleshoot)功能。
 

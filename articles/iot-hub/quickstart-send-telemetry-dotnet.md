@@ -13,12 +13,12 @@ ms.workload: ns
 origin.date: 06/01/2020
 ms.date: 10/12/2020
 ms.author: v-yiso
-ms.openlocfilehash: 76071a0bf76512cd409d1736cc21b20f92c5959d
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: 179bb2b0a2c969048c924a8802dc6d458c72bc8c
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829679"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231075"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-service-application-net"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用服务应用程序 (.NET) 读取该数据
 
@@ -42,8 +42,8 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 dotnet --version
 ```
 
-    > [!NOTE]
-    > .NET Core SDK 3.1 or greater is recommended to compile the Event Hubs service code used to read telemetry in this quickstart.
+> [!NOTE]
+> 在此快速入门中，建议使用 .NET Core SDK 3.1 或更高版本来编译用于读取遥测的事件中心服务代码。
 
 
 * 从 [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) 下载 Azure IoT C# 示例，并提取 ZIP 存档。

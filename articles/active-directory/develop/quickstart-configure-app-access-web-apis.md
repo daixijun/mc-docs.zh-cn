@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: d8f3a39a417ee2bd594dc5c95b5a702f85966dc3
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: eb693d8036718a6c07ff78dd35475bf0e3f4ebb1
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508957"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195185"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>快速入门：配置客户端应用程序以访问 Web API
 
@@ -42,7 +42,7 @@ ms.locfileid: "96508957"
 
 注册客户端应用和 Web API，并通过创建范围公开 API 后，可按照以下步骤来配置客户端对 API 的权限：
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器 :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false":::，以选择包含客户端应用的注册的租户。
 1. 选择“Azure Active Directory” > “应用注册”，然后选择客户端应用程序（而不是 Web API） 。
 1. 选择“API 权限” > “添加权限” > “我的 API”。  
@@ -71,7 +71,7 @@ ms.locfileid: "96508957"
 
 配置 Microsoft Graph 的委派权限，使客户端应用程序可代表已登录用户执行操作，例如读取其电子邮件或修改其个人资料。 默认情况下，在客户端应用的用户登录时，会询问他们是否同意你为其配置的委派权限。
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器 :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false":::，以选择包含客户端应用的注册的租户。
 1. 选择“Azure Active Directory” > “应用注册”，然后选择客户端应用程序 。
 1. 选择“API 权限” > “添加权限” > “Microsoft Graph”  
@@ -96,7 +96,7 @@ ms.locfileid: "96508957"
 
 在以下步骤中，例如将授予 Microsoft Graph 的 Files.Read.All 权限。
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器 :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false":::，以选择包含客户端应用的注册的租户。
 1. 选择“Azure Active Directory” > “应用注册”，然后选择客户端应用程序 。
 1. 选择“API 权限” > “添加权限” > “Microsoft Graph” > “应用程序权限”   。

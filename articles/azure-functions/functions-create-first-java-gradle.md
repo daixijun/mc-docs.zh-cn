@@ -5,17 +5,17 @@ author: KarlErickson
 ms.custom: devx-track-java
 ms.author: v-junlch
 ms.topic: how-to
-ms.date: 11/18/2020
-ms.openlocfilehash: b07e289681e7bf54880dac6ecb6cca4979bff819
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.date: 01/12/2021
+ms.openlocfilehash: 784294eed398b961302eadb70b3475bbde0d3334
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509025"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194981"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>使用 Java 和 Gradle 创建函数并将其发布到 Azure
 
-本文介绍如何使用 Gradle 命令行工具生成 Java 函数项目并将其发布到 Azure Functions。 完成后，函数代码会在 Azure 的[无服务器托管计划](functions-scale.md#consumption-plan)中运行，并由 HTTP 请求触发。 
+本文介绍如何使用 Gradle 命令行工具生成 Java 函数项目并将其发布到 Azure Functions。 完成后，函数代码会在 Azure 的[无服务器托管计划](consumption-plan.md)中运行，并由 HTTP 请求触发。 
 
 > [!NOTE]
 > 如果 Gradle 不是你的首选开发工具，请查看面向使用 [Maven](./create-first-function-cli-java.md)、[IntelliJ IDEA](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/quickstart-functions) 和 [VS Code](./create-first-function-vs-code-java.md) 的 Java 开发人员的类似教程。

@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 11/04/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: dd7445ab2ae32b8b36513b054b8b9e816a753477
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 8c158c115396b2383c26d9836ed6281e8171dbd9
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850718"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231004"
 ---
 # <a name="getting-started-with-sql-queries"></a>SQL 查询入门
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,10 +39,10 @@ Azure Cosmos DB 上的大部分读取密集型工作负荷使用点读取和 SQL
 
 以下是一些如何使用各个 SDK 进行 SQL 查询的示例：
 
-- [.NET SDK](https://docs.azure.cn/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
-- [Java SDK](https://docs.azure.cn/cosmos-db/sql-api-java-sdk-samples#query-examples)
-- [Node.js SDK](https://docs.azure.cn/cosmos-db/sql-api-nodejs-samples#item-examples)
-- [Python SDK](https://docs.azure.cn/cosmos-db/sql-api-python-samples#item-examples)
+- [.NET SDK](./sql-api-dotnet-v3sdk-samples.md#query-examples)
+- [Java SDK](./sql-api-java-sdk-samples.md#query-examples)
+- [Node.js SDK](./sql-api-nodejs-samples.md#item-examples)
+- [Python SDK](./sql-api-python-samples.md#item-examples)
 
 本文档的其余部分说明如何开始在 Azure Cosmos DB 中编写 SQL 查询。 可以通过 SDK 或 Azure 门户运行 SQL 查询。
 

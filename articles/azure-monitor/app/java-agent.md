@@ -4,15 +4,15 @@ description: 使用 Application Insights 监视 Java 网站的扩展性能和使
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 01/10/2019
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.author: v-johya
 ms.custom: devx-track-java
-ms.openlocfilehash: 3efb5439c5b631db46b0e81bfb382e299795ee15
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 55ad8d6b82a2cfa97c59e3926231df67fa2e0e0e
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104458"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230567"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>监视 Java Web 应用中的依赖项、捕获的异常和方法执行时间
 
@@ -129,14 +129,12 @@ ms.locfileid: "97104458"
 [诊断依赖项问题 - 了解详细信息](./asp-net-dependencies.md#diagnosis)。
 
 ## <a name="questions-problems"></a>存在疑问？ 遇到问题？
-* 没有数据？ [设置防火墙异常](./ip-addresses.md)
 * [Java 故障排除](java-troubleshoot.md)
 
 <!--Link references-->
 
 [api]: ./api-custom-events-metrics.md
 [apiexceptions]: ./api-custom-events-metrics.md#track-exception
-[availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md

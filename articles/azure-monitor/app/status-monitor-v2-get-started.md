@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: Johnnytechn
 origin.date: 08/22/2019
 ms.author: v-johya
-ms.date: 12/01/2020
+ms.date: 01/14/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4eb817d3bfe6984f6a2ace525005577a9d0ccb33
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: e2a37506eaf3e62bdf0e8d241b3b031e38eae00b
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431725"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230913"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>本地服务器的 Azure Monitor Application Insights 代理入门
 
@@ -80,7 +80,6 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
  添加更多遥测：
 
-- [创建 Web 测试](monitor-web-app-availability.md)，以确保站点保持活动状态。
 - [添加 Web 客户端遥测](./javascript.md)，以查看网页代码中的异常并启用跟踪调用。
 - [将 Application Insights SDK 添加到代码](./asp-net.md)，以便插入跟踪和日志调用。
 

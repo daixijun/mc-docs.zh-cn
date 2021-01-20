@@ -3,14 +3,14 @@ title: 在防火墙或代理服务器上将 Azure 门户 URL 加入安全列表
 description: 将这些 URL 添加到代理服务器旁路，以便与 Azure 门户及其服务通信
 ms.author: v-tawe
 origin.date: 04/10/2020
-ms.date: 12/30/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 171478e237c8fcb54deaa2ccdfbffa3fc486fdb0
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: 04b8aa971c6d86da1b2874540e8fe106cd748c44
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820357"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230394"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>在防火墙或代理服务器上将 Azure 门户 URL 加入安全列表
 

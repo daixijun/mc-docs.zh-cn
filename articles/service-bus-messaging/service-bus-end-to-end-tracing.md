@@ -1,20 +1,21 @@
 ---
-title: Azure 服务总线端到端跟踪和诊断 | Azure
+title: Azure 服务总线端到端跟踪和诊断 | Azure Docs
 description: 服务总线客户端诊断和端到端跟踪概述（涉及处理的所有服务均经由的客户端）。
+ms.service: service-bus-messaging
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bcb5bc1bc0abd0e2bd414207245cf2f6b483052
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: c1118bdab281a6fa86c5805cbc6db2a26d80f424
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590878"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230926"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>通过服务总线消息传递进行分布式跟踪和关联
 
@@ -55,7 +56,7 @@ private readonly TelemetryClient telemetryClient;
 async Task ProcessAsync(Message message)
 {
     var activity = message.ExtractActivity();
-
+    
     // If you are using Microsoft.ApplicationInsights package version 2.6-beta or higher, you should call StartOperation<RequestTelemetry>(activity) instead
     using (var operation = telemetryClient.StartOperation<RequestTelemetry>("Process", activity.RootId, activity.ParentId))
     {
@@ -198,7 +199,7 @@ TaskStatus status = (TaskStatus)evnt.Value.GetProperty("Status");
 var tagsList = new StringBuilder();
 foreach (var tags in currentActivity.Tags)
 {
-    tagsList.Append($", "{tags.Key}={tags.Value}");
+    tagsList.Append($", {tags.Key}={tags.Value}");
 }
 
 serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, Duration={currentActivity.Duration}, Status={status}, Id={currentActivity.Id}, StartTime={currentActivity.StartTimeUtc}{tagsList}");

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/04/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 9f2e3b04db3785399384b05885b2423b00b0fefb
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: db7d379a2f7ff4a1580b7176c716da17f56359d8
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326467"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570530"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -223,14 +223,14 @@ Pattern  元素可以包含以下属性：
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
   <DefaultPartnerClaimTypes>
-    <Protocol Name="OpenIdConnect" PartnerClaimType="email" />
+  <Protocol Name="OpenIdConnect" PartnerClaimType="email" />
   </DefaultPartnerClaimTypes>
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
     <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
-    </Restriction>
- </ClaimType>
+  </Restriction>
+</ClaimType>
 ```
 
 标识体验框架呈现具有电子邮件格式输入验证的电子邮件地址声明：
@@ -239,7 +239,7 @@ Pattern  元素可以包含以下属性：
 
 ### <a name="userinputtype"></a>UserInputType
 
-Azure AD B2C 支持各种用户输入类型，例如在手动输入声明类型的声明数据时可以使用的文本框、密码和下拉列表。 使用 [自断言技术配置文件](self-asserted-technical-profile.md)和 [显示控件](display-controls.md)从用户收集信息时，必须指定 **UserInputType** 。
+Azure AD B2C 支持各种用户输入类型，例如在手动输入声明类型的声明数据时可以使用的文本框、密码和下拉列表。 使用 [自断言技术配置文件](self-asserted-technical-profile.md)和 [显示控件](display-controls.md)从用户收集信息时，必须指定 **UserInputType**。
 
 **UserInputType** 元素可用的用户输入类型：
 

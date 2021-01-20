@@ -3,14 +3,14 @@ title: 理解查询语言
 description: 介绍 Resource Graph 表以及可用于 Azure Resource Graph 的 Kusto 数据类型、运算符和函数。
 ms.author: v-tawe
 origin.date: 11/18/2020
-ms.date: 12/03/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3af32266939e16feb475ae11721f65d5884fa979
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.openlocfilehash: ce47e8f0f854f492da94ac409632d0c9f17b7106
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541196"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193232"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>了解 Azure Resource Graph 查询语言
 

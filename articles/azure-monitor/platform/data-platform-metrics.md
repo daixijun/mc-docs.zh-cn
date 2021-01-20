@@ -8,14 +8,14 @@ origin.date: 03/26/2019
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.author: v-johya
-ms.openlocfilehash: cf709b023753cb4b641b428c348d0cccb02a1792
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 6d2b2791c3868d06686dad51eafb34a6daf0ca37
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104328"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230897"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Azure Monitor 指标概述
 Azure Monitor 指标是 Azure Monitor 的一项功能，它将[受监视的资源](../monitor-reference.md)中的数值数据收集到时序数据库。 指标是定期收集的数值，用于描述系统在某一特定时间的某些情况。 Azure Monitor 中的指标是轻型数据，能够支持准实时方案，这让其在发出警报和快速检测问题方面特别有用。 您可以使用指标资源管理器以交互方式分析它们，在值超过阈值时主动收到通知警报，或者在工作簿或仪表板中将其可视化。
@@ -55,7 +55,7 @@ Azure Monitor 从三个基本源收集指标。 只要在 Azure Monitor 指标�
 ## <a name="metrics-explorer"></a>指标资源管理器
 使用[指标资源管理器](metrics-charts.md)以交互方式分析指标数据库中的数据，并绘制随时间变化的多个指标的值图表。 可以将图表固定到仪表板，以便使用其他可视化效果来查看它们。 还可以使用 [Azure 监视 REST API](rest-api-walkthrough.md) 检索指标。
 
-![指标资源管理器](./media/data-platform/metrics-explorer.png)
+![指标资源管理器](./media/data-platform-metrics/metrics-explorer.png)
 
 - 请参阅 [Azure Monitor 指标资源管理器入门](metrics-getting-started.md)以开始使用指标资源管理器。
 

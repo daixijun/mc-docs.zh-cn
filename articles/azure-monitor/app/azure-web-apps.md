@@ -4,15 +4,15 @@ description: Azure 应用服务的应用程序性能监视。 对加载和响应
 ms.topic: conceptual
 origin.date: 04/26/2019
 author: Johnnytechn
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.author: v-johya
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 339313054b9a596a948b211b167b5ae1bd1e10ba
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 3787d6fe65092707efbfd5957b4a74cceb441cfd
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104658"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231061"
 ---
 # <a name="monitor-azure-app-service-performance"></a>监视 Azure 应用服务性能
 
@@ -434,5 +434,4 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 * [监视服务运行状况指标](../platform/data-platform.md)以确保服务可用且做出快速响应。
 * [接收警报通知](../platform/alerts-overview.md) 。
 * 若要从访问网页的浏览器获取客户端遥测数据，请使用[适用于 JavaScript 应用和网页的 Application Insights](javascript.md)。
-* [设置可用性 Web 测试](monitor-web-app-availability.md)，以便在站点关闭时发出警报。
 

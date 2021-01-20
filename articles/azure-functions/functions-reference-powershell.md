@@ -4,13 +4,13 @@ description: 了解如何使用 PowerShell 开发函数。
 author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
-ms.date: 11/17/2020
-ms.openlocfilehash: ece1b328c5d12fc99e8a1aba0ad9aa534cef8b51
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.date: 01/13/2021
+ms.openlocfilehash: 8950b6419af36ad9c1ae26dcf4b28813b808f666
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849530"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195171"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 开发人员指南
 
@@ -74,7 +74,7 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| Property   | 描述                                     | 类型     |
+| Property   | 说明                                     | 类型     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | 函数的触发时间（采用 UTC 格式）        | DateTime |
 | MethodName | 已触发的函数的名称     | 字符串   |
@@ -295,7 +295,7 @@ HTTP 和 webhook 触发器以及 HTTP 输出绑定使用请求和响应对象来
 
 传递给脚本的请求对象是 `HttpRequestContext` 类型的，它具有以下属性：
 
-| Property  | 描述                                                    | 类型                      |
+| Property  | 说明                                                    | 类型                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | 一个包含请求正文的对象。 `Body` 基于数据序列化为最佳类型。 例如，如果数据是 JSON，则它将作为哈希表传入。 如果数据是字符串，则它将作为字符串传入。 | 对象 |
 | **`Headers`** | 一个包含请求头的字典。                | Dictionary<string,string><sup>*</sup> |
@@ -310,7 +310,7 @@ HTTP 和 webhook 触发器以及 HTTP 输出绑定使用请求和响应对象来
 
 应当发送回的响应对象的类型为 `HttpResponseContext`，该类型具有以下属性：
 
-| Property      | 描述                                                 | 类型                      |
+| Property      | 说明                                                 | 类型                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | 一个包含响应正文的对象。           | 对象                    |
 | **`ContentType`** | 一种速记形式，用于设置响应的内容类型。 | 字符串                    |
@@ -649,11 +649,11 @@ Export-ModuleMember -Function "Invoke-PSTestFunc"
 
 ### <a name="cold-start"></a>冷启动
 
-当在[无服务器托管模型](functions-scale.md#consumption-plan)中开发 Azure Functions 时，冷启动是存在的现实情况。 冷启动指的是函数应用开始运行以处理请求所经历的时间段。 在消耗计划中，冷启动的发生更频繁，因为函数应用在非活动期间会关闭。
+当在[无服务器托管模型](consumption-plan.md)中开发 Azure Functions 时，冷启动是存在的现实情况。 冷启动指的是函数应用开始运行以处理请求所经历的时间段。 在消耗计划中，冷启动的发生更频繁，因为函数应用在非活动期间会关闭。
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>绑定模块，而不是使用 `Install-Module`
 
-脚本在每次调用时运行。 避免在脚本中使用 `Install-Module`。 在发布前改用 `Save-Module`，以便你的函数无需浪费时间来下载模块。 如果冷启动会影响你的函数，请考虑将函数应用部署到设置为“始终可用”或设置为[高级计划](functions-scale.md#premium-plan)的[应用服务计划](functions-scale.md#app-service-plan)。
+脚本在每次调用时运行。 避免在脚本中使用 `Install-Module`。 在发布前改用 `Save-Module`，以便你的函数无需浪费时间来下载模块。 如果冷启动会影响你的函数，请考虑将函数应用部署到设置为“始终可用”或设置为[高级计划](functions-premium-plan.md)的[应用服务计划](dedicated-plan.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

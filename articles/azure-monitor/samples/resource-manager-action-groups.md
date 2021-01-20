@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/15/2020
-ms.openlocfilehash: a8ae647d77b0630327f799cd3545e23ae7bbf7e7
-ms.sourcegitcommit: 403db9004b6e9390f7fd1afddd9e164e5d9cce6a
+ms.date: 01/12/2021
+ms.openlocfilehash: 4b00bbff058d13699eee673b83c491fa7c2d90f1
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86440569"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230423"
 ---
 # <a name="resource-manager-template-samples-for-action-groups-in-azure-monitor"></a>用于 Azure Monitor 中的操作组的资源管理器模板示例
 本文包含用于在 Azure Monitor 中创建[操作组](../platform/action-groups.md)的 [Azure 资源管理器模板](../../azure-resource-manager/templates/template-syntax.md)示例。 每个示例都包含模板文件和参数文件，其中包含要提供给模板的示例值。
@@ -47,7 +47,7 @@ ms.locfileid: "86440569"
       "type": "Microsoft.Insights/actionGroups",
       "apiVersion": "2018-03-01",
       "name": "[parameters('actionGroupName')]",
-      "location": "chinaeast2",
+      "location": "Global",
       "properties": {
         "groupShortName": "[parameters('actionGroupShortName')]",
         "enabled": true,
@@ -66,21 +66,25 @@ ms.locfileid: "86440569"
         "emailReceivers": [
           {
             "name": "contosoEmail",
-            "emailAddress": "devops@contoso.com"
+            "emailAddress": "devops@contoso.com",
+            "useCommonAlertSchema": true
           },
           {
             "name": "contosoEmail2",
-            "emailAddress": "devops2@contoso.com"
+            "emailAddress": "devops2@contoso.com",
+            "useCommonAlertSchema": true
           }
         ],
         "webhookReceivers": [
           {
             "name": "contosoHook",
-            "serviceUri": "http://requestb.in/1bq62iu1"
+            "serviceUri": "http://requestb.in/1bq62iu1",
+            "useCommonAlertSchema": true
           },
           {
             "name": "contosoHook2",
-            "serviceUri": "http://requestb.in/1bq62iu2"
+            "serviceUri": "http://requestb.in/1bq62iu2",
+            "useCommonAlertSchema": true
           }
         ]
       }

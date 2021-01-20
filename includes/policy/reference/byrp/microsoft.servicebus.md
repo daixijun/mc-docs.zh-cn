@@ -1,22 +1,21 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-origin.date: 09/16/2020
+origin.date: 01/08/2021
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 01/18/2021
 ms.testscope: yes|no
 ms.testdate: 10/19/2020null
 ms.author: v-yeche
 ms.custom: generated
-ms.openlocfilehash: 3191c9224ff65f39c5d79de36834610cb999b283
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 8c372985c0c6e7a8cd94836c643a7a873dd5d7d4
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128742"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230856"
 ---
 <!--Verified successfully-->
-
 |名称<br /><sub>（Azure 门户）</sub> |说明 |效果 |版本<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[应从服务总线命名空间中删除 RootManageSharedAccessKey 以外的所有授权规则](https://portal.azure.cn/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1817ec0-a368-432a-8057-8371e17ac6ee) |服务总线客户端不应使用提供对命名空间中所有队列和主题的访问的命名空间级访问策略。 为了与最低权限安全模型保持一致，应在实体级别为队列和主题创建访问策略，以便仅提供对特定实体的访问权限 |Audit、Deny、Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditNamespaceAccessRules_Audit.json) |

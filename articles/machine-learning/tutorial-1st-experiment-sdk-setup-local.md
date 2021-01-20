@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ece9c33300ac3bd36f923e31cf031657d2404b65
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 7547985b4798231deec7b115c853fde6607c795e
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021133"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231058"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>教程：在你的开发环境中开始使用 Azure 机器学习（第 1 部分，共 4 部分）
 
@@ -66,8 +66,10 @@ tutorial
 - `.azureml`：用于存储 Azure 机器学习配置文件的隐藏子目录。
 
 > [!TIP]
-> 如果你使用的是 Mac，请在查找器窗口中使用 Command+Shift+. 来切换功能以查看和创建以点开头的目录。  或使用命令终端创建目录。
-
+> 可在终端窗口中创建隐藏的 .azureml 子目录。  或使用以下方式：
+> * 在 Mac 查找器窗口中使用 Command+Shift+. 来切换功能以查看和创建以点开头的目录。  
+> * 在 Windows 10 中，请参阅[如何查看隐藏的文件和文件夹](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5)。 
+> * 在 Linux 图形界面中，使用 Ctrl+h 或“查看”菜单，并选中“显示隐藏的文件”复选框。  
 
 > [!div class="nextstepaction"]
 > [我创建了目录](?success=create-dir#workspace) [我遇到了一个问题](https://www.research.net/r/7C8Z3DN?issue=create-dir)

@@ -1,0 +1,7 @@
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: 虚拟机
+      tocHref: /
+      topicHref: /virtual-machines/index

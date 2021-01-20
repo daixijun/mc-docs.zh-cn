@@ -2,14 +2,14 @@
 title: 使用连接的存储创建函数应用 - Azure CLI
 description: Azure CLI 脚本示例 - 创建用于连接到 Azure 存储的 Azure Function
 ms.topic: sample
-ms.date: 11/18/2020
+ms.date: 01/13/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 6b876aba0d0a257018d19f54792bd6b46ae382c6
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 7a984565e44dccdf72f6fbba69f45c56db7a85cd
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509041"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195252"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>创建具有命名存储帐户连接的函数应用 
 
@@ -73,7 +73,7 @@ az functionapp config appsettings set \
 |---|---|
 | [az group create](/cli/group#az-group-create) | 使用相关位置创建资源组。 |
 | [az storage account create](/cli/storage/account#az-storage-account-create) | 创建存储帐户。 |
-| [az functionapp create](/cli/functionapp#az-functionapp-create) | 在无服务器[消耗计划](../functions-scale.md#consumption-plan)中创建函数应用。 |
+| [az functionapp create](/cli/functionapp#az-functionapp-create) | 在无服务器[消耗计划](../consumption-plan.md)中创建函数应用。 |
 | [az storage account show-connection-string](/cli/storage/account#az-storage-account-show-connection-string) | 获取帐户的连接字符串。 |
 | [az functionapp config appsettings set](/cli/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | 将连接字符串设置为函数应用中的应用设置。 |
 

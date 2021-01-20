@@ -6,16 +6,16 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 origin.date: 08/20/2019
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3866bf26db64ad75505b3ae2171c4205796a7fe8
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: dc9fbfb9a8731a1ddd9279703159a47125a9849b
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432504"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163229"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>教程：实现数据湖捕获模式以更新 Databricks Delta 表
 
@@ -36,20 +36,20 @@ ms.locfileid: "96432504"
 
 * 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-* 创建一个采用分层命名空间的存储帐户 (Azure Data Lake Storage Gen2)。 本教程使用名为 `contosoorders` 的存储帐户。 请确保你的用户帐户分配有[存储 Blob 数据参与者角色](/storage/common/storage-auth-aad-rbac)。
+* 创建一个采用分层命名空间的存储帐户 (Azure Data Lake Storage Gen2)。 本教程使用名为 `contosoorders` 的存储帐户。 请确保你的用户帐户分配有[存储 Blob 数据参与者角色](../common/storage-auth-aad-rbac-portal.md)。
 
-  请参阅[创建 Azure Data Lake Storage Gen2 帐户](data-lake-storage-quickstart-create-account.md)。
+   请参阅[创建用于 Azure Data Lake Storage Gen2 的存储帐户](create-data-lake-storage-account.md)。
 
-* 创建服务主体。 请参阅[如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体](/active-directory/develop/howto-create-service-principal-portal)。
+* 创建服务主体。 请参阅[如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体](../../active-directory/develop/howto-create-service-principal-portal.md)。
 
   在执行该文中的步骤时，需要完成一些特定的事项。
 
-  :heavy_check_mark:执行该文中[将应用程序分配给角色](/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application)部分中的步骤时，请确保将“存储 Blob 数据参与者”  角色分配给服务主体。
+  :heavy_check_mark:执行该文中[将应用程序分配给角色](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)部分中的步骤时，请确保将“存储 Blob 数据参与者”  角色分配给服务主体。
 
   > [!IMPORTANT]
   > 请确保在 Data Lake Storage Gen2 存储帐户的范围内分配角色。 可以将角色分配给父资源组或订阅，但在这些角色分配传播到存储帐户之前，你将收到与权限相关的错误。
 
-  :heavy_check_mark:执行本文中[获取用于登录的值](/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)部分中的步骤时，请将租户 ID、应用 ID 和密码值粘贴到文本文件中。 稍后需要这些值。
+  :heavy_check_mark:执行本文中[获取用于登录的值](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)部分中的步骤时，请将租户 ID、应用 ID 和密码值粘贴到文本文件中。 稍后需要这些值。
 
 ## <a name="create-a-sales-order"></a>创建销售订单
 

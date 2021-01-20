@@ -7,17 +7,17 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 11/20/2020
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b3dee3766fddf71796fd57b4b0c15c39706f8f3d
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 93870567e96522114471f69ba62712e3cf5989ea
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850776"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163082"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob"></a>为容器或 blob 创建服务 SAS
 
@@ -34,34 +34,41 @@ ms.locfileid: "96850776"
 服务 SAS 将使用帐户访问密钥进行签名。 使用 [StorageSharedKeyCredential](https://docs.microsoft.com/dotnet/api/azure.storage.storagesharedkeycredential) 类创建用于为 SAS 签名的凭据。 接下来，新建 [BlobSasBuilder](https://docs.microsoft.com/dotnet/api/azure.storage.sas.blobsasbuilder) 对象，并调用 [ToSasQueryParameters](https://docs.microsoft.com/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) 以获取 SAS 令牌字符串。
 
 ```csharp
-private static string GetContainerSasUri(BlobContainerClient container, 
-    StorageSharedKeyCredential sharedKeyCredential, string storedPolicyName = null)
+private static Uri GetServiceSasUriForContainer(BlobContainerClient containerClient,
+                                          string storedPolicyName = null)
 {
-    // Create a SAS token that's valid for one hour.
-    BlobSasBuilder sasBuilder = new BlobSasBuilder()
+    // Check whether this BlobContainerClient object has been authorized with Shared Key.
+    if (containerClient.CanGenerateSasUri)
     {
-        BlobContainerName = container.Name,
-        Resource = "c",
-    };
+        // Create a SAS token that's valid for one hour.
+        BlobSasBuilder sasBuilder = new BlobSasBuilder()
+        {
+            BlobContainerName = containerClient.Name,
+            Resource = "c"
+        };
 
-    if (storedPolicyName == null)
-    {
-        sasBuilder.StartsOn = DateTimeOffset.UtcNow;
-        sasBuilder.ExpiresOn = DateTimeOffset.UtcNow.AddHours(1);
-        sasBuilder.SetPermissions(BlobContainerSasPermissions.Read);
+        if (storedPolicyName == null)
+        {
+            sasBuilder.ExpiresOn = DateTimeOffset.UtcNow.AddHours(1);
+            sasBuilder.SetPermissions(BlobContainerSasPermissions.Read);
+        }
+        else
+        {
+            sasBuilder.Identifier = storedPolicyName;
+        }
+
+        Uri sasUri = containerClient.GenerateSasUri(sasBuilder);
+        Console.WriteLine("SAS URI for blob container is: {0}", sasUri);
+        Console.WriteLine();
+
+        return sasUri;
     }
     else
     {
-        sasBuilder.Identifier = storedPolicyName;
+        Console.WriteLine(@"BlobContainerClient must be authorized with Shared Key 
+                          credentials to create a service SAS.");
+        return null;
     }
-
-    // Use the key to get the SAS token.
-    string sasToken = sasBuilder.ToSasQueryParameters(sharedKeyCredential).ToString();
-
-    Console.WriteLine("SAS token for blob container is: {0}", sasToken);
-    Console.WriteLine();
-
-    return $"{container.Uri}?{sasToken}";
 }
 ```
 
@@ -150,35 +157,43 @@ function getContainerSasUri(containerClient, sharedKeyCredential, storedPolicyNa
 服务 SAS 将使用帐户访问密钥进行签名。 使用 [StorageSharedKeyCredential](https://docs.microsoft.com/dotnet/api/azure.storage.storagesharedkeycredential) 类创建用于为 SAS 签名的凭据。 接下来，新建 [BlobSasBuilder](https://docs.microsoft.com/dotnet/api/azure.storage.sas.blobsasbuilder) 对象，并调用 [ToSasQueryParameters](https://docs.microsoft.com/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) 以获取 SAS 令牌字符串。
 
 ```csharp
-private static string GetBlobSasUri(BlobContainerClient container,
-    string blobName, StorageSharedKeyCredential key, string storedPolicyName = null)
+private static Uri GetServiceSasUriForBlob(BlobClient blobClient,
+    string storedPolicyName = null)
 {
-    // Create a SAS token that's valid for one hour.
-    BlobSasBuilder sasBuilder = new BlobSasBuilder()
+    // Check whether this BlobClient object has been authorized with Shared Key.
+    if (blobClient.CanGenerateSasUri)
     {
-        BlobContainerName = container.Name,
-        BlobName = blobName,
-        Resource = "b",
-    };
+        // Create a SAS token that's valid for one hour.
+        BlobSasBuilder sasBuilder = new BlobSasBuilder()
+        {
+            BlobContainerName = blobClient.GetParentBlobContainerClient().Name,
+            BlobName = blobClient.Name,
+            Resource = "b"
+        };
 
-    if (storedPolicyName == null)
-    {
-        sasBuilder.StartsOn = DateTimeOffset.UtcNow;
-        sasBuilder.ExpiresOn = DateTimeOffset.UtcNow.AddHours(1);
-        sasBuilder.SetPermissions(BlobContainerSasPermissions.Read);
+        if (storedPolicyName == null)
+        {
+            sasBuilder.ExpiresOn = DateTimeOffset.UtcNow.AddHours(1);
+            sasBuilder.SetPermissions(BlobSasPermissions.Read |
+                BlobSasPermissions.Write);
+        }
+        else
+        {
+            sasBuilder.Identifier = storedPolicyName;
+        }
+
+        Uri sasUri = blobClient.GenerateSasUri(sasBuilder);
+        Console.WriteLine("SAS URI for blob is: {0}", sasUri);
+        Console.WriteLine();
+
+        return sasUri;
     }
     else
     {
-        sasBuilder.Identifier = storedPolicyName;
+        Console.WriteLine(@"BlobClient must be authorized with Shared Key 
+                          credentials to create a service SAS.");
+        return null;
     }
-
-    // Use the key to get the SAS token.
-    string sasToken = sasBuilder.ToSasQueryParameters(key).ToString();
-
-    Console.WriteLine("SAS for blob is: {0}", sasToken);
-    Console.WriteLine();
-
-    return $"{container.GetBlockBlobClient(blobName).Uri}?{sasToken}";
 }
 ```
 

@@ -3,15 +3,15 @@ title: Durable Functions 概述 - Azure
 description: Azure Functions 的 Durable Functions 扩展简介。
 author: cgillum
 ms.topic: overview
-ms.date: 01/04/2021
+ms.date: 01/13/2021
 ms.author: v-junlch
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 1ffa897f30bce07c256f0aa41d13a0918e531548
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 125169d1fa09083c1706946505e2c5c4031e7f51
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021246"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195143"
 ---
 # <a name="what-are-durable-functions"></a>什么是 Durable Functions？
 
@@ -542,7 +542,7 @@ PowerShell 目前不支持持久性实体。
 
 ## <a name="billing"></a>计费
 
-Durable Functions 的计费与 Azure Functions 一样。 有关详细信息，请参阅 [Azure Functions 定价](https://www.azure.cn/pricing/details/azure-functions/)。 在 Azure Functions [消耗计划](../functions-scale.md#consumption-plan)中执行业务流程协调程序函数时，需要注意一些计费行为。 有关这些行为的详细信息，请参阅 [Durable Functions 计费](durable-functions-billing.md)一文。
+Durable Functions 的计费与 Azure Functions 一样。 有关详细信息，请参阅 [Azure Functions 定价](https://www.azure.cn/pricing/details/azure-functions/)。 在 Azure Functions [消耗计划](../consumption-plan.md)中执行业务流程协调程序函数时，需要注意一些计费行为。 有关这些行为的详细信息，请参阅 [Durable Functions 计费](durable-functions-billing.md)一文。
 
 ## <a name="jump-right-in"></a>立即投入
 

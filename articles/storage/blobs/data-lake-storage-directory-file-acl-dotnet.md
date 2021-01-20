@@ -4,18 +4,18 @@ description: 使用 Azure 存储客户端库在启用了分层命名空间 (HNS)
 author: WenJason
 ms.service: storage
 origin.date: 08/26/2020
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13193e02e3c361dcc78495a615a0d6d968b5984b
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 512fd48d59593869bc25a4fbf58aba659e17a6cd
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850814"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163226"
 ---
 # <a name="use-net-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 .NET 管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
@@ -38,11 +38,12 @@ ms.locfileid: "96850814"
 然后，将这些 using 语句添加到代码文件的顶部。
 
 ```csharp
+using Azure;
 using Azure.Storage.Files.DataLake;
 using Azure.Storage.Files.DataLake.Models;
 using Azure.Storage;
 using System.IO;
-using Azure;
+
 ```
 
 ## <a name="connect-to-the-account"></a>连接到帐户
@@ -53,10 +54,10 @@ using Azure;
 
 这是连接到帐户的最简单方法。 
 
-此示例使用帐户密钥创建 [DataLakeServiceClient 实例](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?)。
+此示例使用帐户密钥创建 [DataLakeServiceClient 实例](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient)。
 
-```cs
-public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
+```csharp
+public static void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
     string accountName, string accountKey)
 {
     StorageSharedKeyCredential sharedKeyCredential =
@@ -75,9 +76,9 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 
 此示例使用客户端 ID、客户端密码和租户 ID 创建 [DataLakeServiceClient 实例](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient)。  若要获取这些值，请参阅[从 Azure AD 获取用于请求客户端应用程序授权的令牌](../common/storage-auth-aad-app.md)。
 
-```cs
-public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient, 
-    string accountName, string clientID, string clientSecret, string tenantID)
+```csharp
+public static void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
+    String accountName, String clientID, string clientSecret, string tenantID)
 {
 
     TokenCredential credential = new ClientSecretCredential(
@@ -99,11 +100,11 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 
 此示例创建一个名为 `my-file-system` 的容器。 
 
-```cs
+```csharp
 public async Task<DataLakeFileSystemClient> CreateFileSystem
     (DataLakeServiceClient serviceClient)
 {
-        return await serviceClient.CreateFileSystemAsync("my-file-system");
+    return await serviceClient.CreateFileSystemAsync("my-file-system");
 }
 ```
 
@@ -113,7 +114,7 @@ public async Task<DataLakeFileSystemClient> CreateFileSystem
 
 此示例向容器添加名为 `my-directory` 的目录，然后添加名为 `my-subdirectory` 的子目录。 
 
-```cs
+```csharp
 public async Task<DataLakeDirectoryClient> CreateDirectory
     (DataLakeServiceClient serviceClient, string fileSystemName)
 {
@@ -133,8 +134,8 @@ public async Task<DataLakeDirectoryClient> CreateDirectory
 
 此示例将某个子目录重命名为名称 `my-subdirectory-renamed`。
 
-```cs
-public async Task<DataLakeDirectoryClient> 
+```csharp
+public async Task<DataLakeDirectoryClient>
     RenameDirectory(DataLakeFileSystemClient fileSystemClient)
 {
     DataLakeDirectoryClient directoryClient =
@@ -146,14 +147,14 @@ public async Task<DataLakeDirectoryClient>
 
 此示例将名为 `my-subdirectory-renamed` 的目录移到名为 `my-directory-2` 的目录的子目录中。 
 
-```cs
+```csharp
 public async Task<DataLakeDirectoryClient> MoveDirectory
     (DataLakeFileSystemClient fileSystemClient)
 {
     DataLakeDirectoryClient directoryClient =
-            fileSystemClient.GetDirectoryClient("my-directory/my-subdirectory-renamed");
+         fileSystemClient.GetDirectoryClient("my-directory/my-subdirectory-renamed");
 
-    return await directoryClient.RenameAsync("my-directory-2/my-subdirectory-renamed");                
+    return await directoryClient.RenameAsync("my-directory-2/my-subdirectory-renamed");
 }
 ```
 
@@ -163,7 +164,7 @@ public async Task<DataLakeDirectoryClient> MoveDirectory
 
 此示例删除名为 `my-directory` 的目录。  
 
-```cs
+```csharp
 public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient)
 {
     DataLakeDirectoryClient directoryClient =
@@ -177,9 +178,9 @@ public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient)
 
 首先，通过创建 [DataLakeFileClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient) 类的实例，在目标目录中创建文件引用。 通过调用 [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) 方法上传文件。 确保通过调用 [DataLakeFileClient.FlushAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.flushasync) 方法完成上传。
 
-此示例将文本文件上传到名为 `my-directory` 的目录。    
-
-```cs
+此示例将文本文件上传到名为 `my-directory` 的目录。 
+   
+```csharp
 public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
 {
     DataLakeDirectoryClient directoryClient =
@@ -187,8 +188,8 @@ public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
 
     DataLakeFileClient fileClient = await directoryClient.CreateFileAsync("uploaded-file.txt");
 
-    FileStream fileStream = 
-        File.OpenRead("C:\\file-to-upload.txt");
+    FileStream fileStream =
+        File.OpenRead("C:\\Users\\contoso\\Temp\\file-to-upload.txt");
 
     long fileSize = fileStream.Length;
 
@@ -208,7 +209,7 @@ public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
 
 使用 [DataLakeFileClient.UploadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync#Azure_Storage_Files_DataLake_DataLakeFileClient_UploadAsync_System_IO_Stream_) 方法上传大型文件，无需多次调用 [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) 方法。
 
-```cs
+```csharp
 public async Task UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
 {
     DataLakeDirectoryClient directoryClient =
@@ -217,7 +218,7 @@ public async Task UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
     DataLakeFileClient fileClient = directoryClient.GetFileClient("uploaded-file.txt");
 
     FileStream fileStream =
-        File.OpenRead("C:\\file-to-upload.txt");
+        File.OpenRead("C:\\Users\\contoso\\file-to-upload.txt");
 
     await fileClient.UploadAsync(fileStream);
 
@@ -231,21 +232,21 @@ public async Task UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
 
 此示例使用 [BinaryReader](https://docs.microsoft.com/dotnet/api/system.io.binaryreader) 和 [FileStream](https://docs.microsoft.com/dotnet/api/system.io.filestream) 将字节保存到文件。 
 
-```cs
+```csharp
 public async Task DownloadFile(DataLakeFileSystemClient fileSystemClient)
 {
     DataLakeDirectoryClient directoryClient =
         fileSystemClient.GetDirectoryClient("my-directory");
 
-    DataLakeFileClient fileClient = 
+    DataLakeFileClient fileClient =
         directoryClient.GetFileClient("my-image.png");
 
     Response<FileDownloadInfo> downloadResponse = await fileClient.ReadAsync();
 
     BinaryReader reader = new BinaryReader(downloadResponse.Value.Content);
 
-    FileStream fileStream = 
-        File.OpenWrite("C:\\my-image-downloaded.png");
+    FileStream fileStream =
+        File.OpenWrite("C:\\Users\\contoso\\my-image-downloaded.png");
 
     int bufferSize = 4096;
 
@@ -270,10 +271,10 @@ public async Task DownloadFile(DataLakeFileSystemClient fileSystemClient)
 
 此示例输出名为 `my-directory` 的目录中每个文件的路径。
 
-```cs
+```csharp
 public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient)
 {
-    IAsyncEnumerator<PathItem> enumerator = 
+    IAsyncEnumerator<PathItem> enumerator =
         fileSystemClient.GetPathsAsync("my-directory").GetAsyncEnumerator();
 
     await enumerator.MoveNextAsync();
@@ -288,7 +289,7 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
         {
             break;
         }
-                
+
         item = enumerator.Current;
     }
 
@@ -311,11 +312,11 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 
 此示例获取并设置名为 `my-directory` 的目录的 ACL。 字符串 `user::rwx,group::r-x,other::rw-` 为拥有用户提供读取、写入和执行权限，为拥有组授予读取和执行权限，并为所有其他用户提供读取和写入权限。
 
-```cs
+```csharp
 public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
 {
     DataLakeDirectoryClient directoryClient =
-        fileSystemClient.GetDirectoryClient("my-directory");
+      fileSystemClient.GetDirectoryClient("");
 
     PathAccessControl directoryAccessControl =
         await directoryClient.GetAccessControlAsync();
@@ -324,7 +325,6 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
     {
         Console.WriteLine(item.ToString());
     }
-
 
     IList<PathAccessControlItem> accessControlList
         = PathAccessControlExtensions.ParseAccessControlList
@@ -347,13 +347,13 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
 
 此示例获取并设置名为 `my-file.txt` 的文件的 ACL。 字符串 `user::rwx,group::r-x,other::rw-` 为拥有用户提供读取、写入和执行权限，为拥有组授予读取和执行权限，并为所有其他用户提供读取和写入权限。
 
-```cs
+```csharp
 public async Task ManageFileACLs(DataLakeFileSystemClient fileSystemClient)
 {
     DataLakeDirectoryClient directoryClient =
         fileSystemClient.GetDirectoryClient("my-directory");
 
-    DataLakeFileClient fileClient = 
+    DataLakeFileClient fileClient =
         directoryClient.GetFileClient("hello.txt");
 
     PathAccessControl FileAccessControl =

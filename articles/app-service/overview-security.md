@@ -7,12 +7,12 @@ origin.date: 08/24/2018
 ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: e18ce784cb5d671fab5599ca60e50044eff006f1
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: f002051099cd22ca6ba99a30ac44959d473ad810
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170559"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230946"
 ---
 # <a name="security-in-azure-app-service"></a>Azure 应用服务中的安全性
 
@@ -45,7 +45,7 @@ PCI DSS 等行业标准已不再将 TLS 1.0 视为安全协议。 应用服务�
 
 默认情况下，应用服务应用接受来自 Internet 的所有 IP 地址的请求，但你可以将该访问权限限定于一小部分 IP 地址。 通过 Windows 上的应用服务，可定义允许访问应用的 IP 地址的列表。 允许列表可包括单个 IP 地址或由子网掩码定义的 IP 地址范围。 有关详细信息，请参阅 [Azure 应用服务静态 IP 限制](app-service-ip-restrictions.md)。
 
-对于 Windows 上的应用服务，还可以通过配置 _web.config_ 来动态限制 IP 地址。有关详细信息，请参阅[动态 IP 安全性\<dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/)。
+对于 Windows 上的应用服务，还可以通过配置 _web.config_ 来动态限制 IP 地址。有关详细信息，请参阅 [动态 IP 安全性\<dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/)。
 
 ## <a name="client-authentication-and-authorization"></a>客户端身份验证和授权
 
@@ -74,7 +74,7 @@ Azure 应用服务提供用户或客户端应用的统包身份验证和授权�
 
 ### <a name="azure-resources"></a>Azure 资源
 
-当应用连接到 Azure 资源（例如 [SQL 数据库](/services/sql-database/)和 [Azure 存储](../storage/index.yml)）时，连接一直保持在 Azure 中，不会跨越任何网络边界。 但是，连接经过 Azure 中的共享网络，因此请务必确保连接已加密。 
+当应用连接到 Azure 资源（例如 [SQL 数据库](/sql-database/)和 [Azure 存储](../storage/index.yml)）时，连接一直保持在 Azure 中，不会跨越任何网络边界。 但是，连接经过 Azure 中的共享网络，因此请务必确保连接已加密。 
 
 <!-- service endpoint -->
 <!-- If your app is hosted in an [App Service environment](environment/intro.md), you should [connect to supported Azure services using Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). -->
@@ -101,7 +101,7 @@ Azure 应用服务提供用户或客户端应用的统包身份验证和授权�
 
 ## <a name="network-isolation"></a>网络隔离
 
-除了**独立**定价层，所有层都在应用服务的共享网络基础结构上运行应用。 例如，公共 IP 地址和前端负载均衡器与其他租户共享。 通过在专用的[应用服务环境](environment/intro.md)中运行应用，**独立**层可提供完整的网络隔离。 应用服务环境在你自己的 [Azure 虚拟网络](../virtual-network/index.yml)实例中运行。 它允许： 
+除了 **独立** 定价层，所有层都在应用服务的共享网络基础结构上运行应用。 例如，公共 IP 地址和前端负载均衡器与其他租户共享。 通过在专用的 [应用服务环境](environment/intro.md)中运行应用，**独立** 层可提供完整的网络隔离。 应用服务环境在你自己的 [Azure 虚拟网络](../virtual-network/index.yml)实例中运行。 它允许： 
 
 - 通过专用的公共终结点为应用提供专用前端。
 - 使用内部负载均衡器 (ILB) 为内部应用程序提供服务，该内部负载均衡器仅允许从 Azure 虚拟网络内部进行访问。 ILB 有一个来自专用子网的 IP 地址，它可以让应用与 Internet 完全隔离。

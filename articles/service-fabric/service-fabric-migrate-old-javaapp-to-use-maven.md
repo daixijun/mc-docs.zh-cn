@@ -4,17 +4,17 @@ description: 更新曾使用 Service Fabric Java SDK 的旧式 Java 应用程序
 ms.topic: conceptual
 origin.date: 08/23/2017
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.custom: devx-track-java
 ms.author: v-yeche
-ms.openlocfilehash: ce39b63a34beb2ffd2f6370d0e28d4c1394a62d9
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 7576118d24f8d4fad804c44345b7bb45ac9b507d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021972"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230040"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>更新旧式 Java Service Fabric 应用程序，以便从 Maven 提取 Java 库
 Service Fabric Java 二进制文件已从 Service Fabric Java SDK 移至 Maven 托管。 你可以使用 mavencentral 来提取最新的 Service Fabric Java 依赖项。 本指南将帮助你更新使用 Yeoman 模板或 Eclipse 为 Service Fabric Java SDK 创建的现有 Java 应用程序，使其与基于 Maven 的内部版本兼容。
@@ -387,7 +387,7 @@ task copyDeps<< {
 ```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
-      compile project(':MyactorInterface')
+    compile project(':MyactorInterface')
 }
 .
 .
@@ -400,7 +400,7 @@ jar
         "Class-Path": configurations.compile.collect { 'lib/' + it.getName() }.join(' '))
     }
     baseName "myactor-test"
-  destinationDir = file('out/lib')
+    destinationDir = file('out/lib')
 }
 .
 .

@@ -5,17 +5,17 @@ ms.service: batch
 ms.topic: conceptual
 origin.date: 12/29/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 06/29/2020
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: a8f300ed85b03dd50b98c952af4348c20b5736e2
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: c69e40908d814d5af78c6c49d2304cf58d50cdd5
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023173"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230891"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 

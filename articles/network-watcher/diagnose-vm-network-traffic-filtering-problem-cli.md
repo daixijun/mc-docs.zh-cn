@@ -16,17 +16,17 @@ ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 origin.date: 04/20/2018
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1658ee4d586ede034f533bf93858b5c72e718fe2
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: d8d1eaf297be02987c7151de973ccaeb66508c5f
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300451"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230442"
 ---
 <!--Verify Successfully-->
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>快速入门：诊断虚拟机网络流量筛选器问题 - Azure CLI
@@ -45,7 +45,6 @@ ms.locfileid: "96300451"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-
 ## <a name="create-a-vm"></a>创建 VM
 
 在创建 VM 之前，必须创建该 VM 所属的资源组。 使用 [az group create](https://docs.azure.cn/cli/group#az_group_create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
@@ -54,7 +53,7 @@ ms.locfileid: "96300451"
 az group create --name myResourceGroup --location chinaeast
 ```
 
-使用 [az vm create](https://docs.azure.cn/cli/vm#az_vm-_create) 创建 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。 以下示例创建名为 myVm 的 VM  ：
+使用 [az vm create](https://docs.azure.cn/cli/vm#az_vm_create) 创建 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。 以下示例创建名为 myVm 的 VM  ：
 
 ```azurecli
 az vm create \
@@ -147,39 +146,39 @@ az network nic list-effective-nsg \
 
 ```console
 {
- "access": "Allow",
- "additionalProperties": {},
- "destinationAddressPrefix": "Internet",
- "destinationAddressPrefixes": [
-  "Internet"
- ],
- "destinationPortRange": "0-65535",
- "destinationPortRanges": [
-  "0-65535"
- ],
- "direction": "Outbound",
- "expandedDestinationAddressPrefix": [
-  "1.0.0.0/8",
-  "2.0.0.0/7",
-  "4.0.0.0/6",
-  "8.0.0.0/7",
-  "11.0.0.0/8",
-  "12.0.0.0/6",
-  ...
- ],
- "expandedSourceAddressPrefix": null,
- "name": "defaultSecurityRules/AllowInternetOutBound",
- "priority": 65001,
- "protocol": "All",
- "sourceAddressPrefix": "0.0.0.0/0",
- "sourceAddressPrefixes": [
-  "0.0.0.0/0"
- ],
- "sourcePortRange": "0-65535",
- "sourcePortRanges": [
-  "0-65535"
- ]
-},
+    "access": "Allow",
+    "additionalProperties": {},
+    "destinationAddressPrefix": "Internet",
+    "destinationAddressPrefixes": [
+        "Internet"
+    ],
+    "destinationPortRange": "0-65535",
+    "destinationPortRanges": [
+        "0-65535"
+    ],
+    "direction": "Outbound",
+    "expandedDestinationAddressPrefix": [
+        "1.0.0.0/8",
+        "2.0.0.0/7",
+        "4.0.0.0/6",
+        "8.0.0.0/7",
+        "11.0.0.0/8",
+        "12.0.0.0/6",
+        ...
+    ],
+    "expandedSourceAddressPrefix": null,
+    "name": "defaultSecurityRules/AllowInternetOutBound",
+    "priority": 65001,
+    "protocol": "All",
+    "sourceAddressPrefix": "0.0.0.0/0",
+    "sourceAddressPrefixes": [
+        "0.0.0.0/0"
+    ],
+    "sourcePortRange": "0-65535",
+    "sourcePortRanges": [
+        "0-65535"
+    ]
+}
 ```
 
 可以在上述输出中看到 **destinationAddressPrefix** 为 **Internet**。 尚不清楚 13.107.21.200 与 **Internet** 的关系如何。 可以看到多个地址前缀列在 **expandedDestinationAddressPrefix** 下。 列表中的前缀之一为 **12.0.0.0/6**，它涵盖了 IP 地址范围 12.0.0.1-15.255.255.254。 由于 13.107.21.200 在该地址范围内，因此 **AllowInternetOutBound** 规则允许此出站流量。 另外，在上述输出中没有显示优先级更高（数字更小）的可以覆盖此规则的规则。 若要拒绝到某个 IP 地址的出站通信，可以添加一项优先级更高的安全规则，拒绝通过端口 80 向该 IP 地址发送出站流量。
@@ -188,30 +187,30 @@ az network nic list-effective-nsg \
 
 ```console
 {
- "access": "Deny",
- "additionalProperties": {},
- "destinationAddressPrefix": "0.0.0.0/0",
- "destinationAddressPrefixes": [
-  "0.0.0.0/0"
- ],
- "destinationPortRange": "0-65535",
- "destinationPortRanges": [
-  "0-65535"
- ],
- "direction": "Outbound",
- "expandedDestinationAddressPrefix": null,
- "expandedSourceAddressPrefix": null,
- "name": "defaultSecurityRules/DenyAllOutBound",
- "priority": 65500,
- "protocol": "All",
- "sourceAddressPrefix": "0.0.0.0/0",
- "sourceAddressPrefixes": [
-  "0.0.0.0/0"
- ],
- "sourcePortRange": "0-65535",
- "sourcePortRanges": [
-  "0-65535"
- ]
+    "access": "Deny",
+    "additionalProperties": {},
+    "destinationAddressPrefix": "0.0.0.0/0",
+    "destinationAddressPrefixes": [
+        "0.0.0.0/0"
+    ],
+    "destinationPortRange": "0-65535",
+    "destinationPortRanges": [
+        "0-65535"
+    ],
+    "direction": "Outbound",
+    "expandedDestinationAddressPrefix": null,
+    "expandedSourceAddressPrefix": null,
+    "name": "defaultSecurityRules/DenyAllOutBound",
+    "priority": 65500,
+    "protocol": "All",
+    "sourceAddressPrefix": "0.0.0.0/0",
+    "sourceAddressPrefixes": [
+        "0.0.0.0/0"
+    ],
+    "sourcePortRange": "0-65535",
+    "sourcePortRanges": [
+        "0-65535"
+    ]
 }
 ```
 
@@ -221,31 +220,31 @@ az network nic list-effective-nsg \
 
 ```console
 {
- "access": "Deny",
- "additionalProperties": {},
- "destinationAddressPrefix": "0.0.0.0/0",
- "destinationAddressPrefixes": [
-  "0.0.0.0/0"
- ],
- "destinationPortRange": "0-65535",
- "destinationPortRanges": [
-  "0-65535"
- ],
- "direction": "Inbound",
- "expandedDestinationAddressPrefix": null,
- "expandedSourceAddressPrefix": null,
- "name": "defaultSecurityRules/DenyAllInBound",
- "priority": 65500,
- "protocol": "All",
- "sourceAddressPrefix": "0.0.0.0/0",
- "sourceAddressPrefixes": [
-  "0.0.0.0/0"
- ],
- "sourcePortRange": "0-65535",
- "sourcePortRanges": [
-  "0-65535"
- ]
-},
+    "access": "Deny",
+    "additionalProperties": {},
+    "destinationAddressPrefix": "0.0.0.0/0",
+    "destinationAddressPrefixes": [
+        "0.0.0.0/0"
+    ],
+    "destinationPortRange": "0-65535",
+    "destinationPortRanges": [
+        "0-65535"
+    ],
+    "direction": "Inbound",
+    "expandedDestinationAddressPrefix": null,
+    "expandedSourceAddressPrefix": null,
+    "name": "defaultSecurityRules/DenyAllInBound",
+    "priority": 65500,
+    "protocol": "All",
+    "sourceAddressPrefix": "0.0.0.0/0",
+    "sourceAddressPrefixes": [
+        "0.0.0.0/0"
+    ],
+    "sourcePortRange": "0-65535",
+    "sourcePortRanges": [
+        "0-65535"
+    ]
+}
 ```
 
 **DenyAllInBound** 规则会应用，因为如 `az network nic list-effective-nsg` 命令的输出所示，没有任何其他允许端口 80 将入站流量从 172.131.0.100 发往 VM 的规则有更高的优先级。 若要允许入站通信，可以添加一项优先级更高的安全规则，允许通过端口 80 从 172.131.0.100 发送入站流量。
@@ -262,7 +261,7 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你已创建 VM 并对入站和出站网络流量筛选器进行诊断。 你已了解了如何通过网络安全组规则来允许或拒绝出入 VM 的流量。 请详细了解[安全规则](../virtual-network/security-overview.md?toc=%2fnetwork-watcher%2ftoc.json)以及如何[创建安全规则](../virtual-network/manage-network-security-group.md?toc=%2fnetwork-watcher%2ftoc.json#create-a-security-rule)。
+在本快速入门中，你已创建 VM 并对入站和出站网络流量筛选器进行诊断。 你已了解了如何通过网络安全组规则来允许或拒绝出入 VM 的流量。 请详细了解[安全规则](../virtual-network/network-security-groups-overview.md?toc=%2fnetwork-watcher%2ftoc.json)以及如何[创建安全规则](../virtual-network/manage-network-security-group.md?toc=%2fnetwork-watcher%2ftoc.json#create-a-security-rule)。
 
 即使相应的网络流量筛选器已就位，与 VM 的通信仍可能因路由配置问题而失败。 若要了解如何诊断 VM 网络路由问题，请参阅[诊断 VM 路由问题](diagnose-vm-network-routing-problem-cli.md)；若要使用某个工具诊断出站路由、延迟和流量筛选问题，请参阅[排查连接问题](network-watcher-connectivity-cli.md)。
 

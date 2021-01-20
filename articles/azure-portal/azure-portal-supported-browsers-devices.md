@@ -4,15 +4,15 @@ description: 可以在所有新式设备上通过最新的浏览器版本使用 
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
 ms.topic: conceptual
 origin.date: 11/18/2020
-ms.date: 12/30/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
 ms.custom: accessibility
-ms.openlocfilehash: c7803ef626364ff096ab3e856436e6522fc20dbf
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: 6ee1dc0aea25ed480d1256887ff5747281c3497b
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820356"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230392"
 ---
 # <a name="supported-devices"></a>支持的设备
 

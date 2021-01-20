@@ -2,13 +2,14 @@
 title: 在 Application Insights 中分析 Azure Functions 遥测数据
 description: 本文介绍了如何查看和查询由 Azure Application Insights 收集并存储在其中的 Azure Functions 遥测数据。
 ms.topic: how-to
-ms.date: 10/19/2020
-ms.openlocfilehash: ba7ad327e14ef0b862d001fdf12ec9b252ef3667
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 01/12/2021
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 7004fc38fb0e5d46fa3f56b9429f414aefe9d3d5
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92473061"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195269"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>在 Application Insights 中分析 Azure Functions 遥测数据 
 
@@ -107,7 +108,7 @@ traces
 
 ## <a name="consumption-plan-specific-metrics"></a>特定于消耗计划的指标
 
-在[消耗计划](functions-scale.md#consumption-plan)中运行时，单个函数执行的执行成本以“GB 秒”来度量 。 执行成本是通过将其内存用量与执行时间相结合计算得出的。 若要了解详细信息，请参阅[估算消耗计划成本](functions-consumption-costs.md)。
+在[消耗计划](consumption-plan.md)中运行时，单个函数执行的执行成本以“GB 秒”来度量 。 执行成本是通过将其内存用量与执行时间相结合计算得出的。 若要了解详细信息，请参阅[估算消耗计划成本](functions-consumption-costs.md)。
 
 以下遥测数据查询特定于对在消耗计划中运行函数的成本有影响的指标。
 

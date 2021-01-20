@@ -7,13 +7,13 @@ ms.author: v-johya
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: d7e4b5a8f86ce222efbeebdd0ca7176704a4a967
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/12/2021
+ms.openlocfilehash: f3b01feab08092a754320c2a8deefd6cf76ad477
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104636"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230830"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>适用于 Application Insights JavaScript SDK 的 React 插件
 
@@ -71,7 +71,10 @@ class MyComponent extends React.Component {
     ...
 }
 
-export default withAITracking(reactPlugin, appInsights, MyComponent);
+// withAITracking takes 4 parameters ( reactPlugin, Component, ComponentName, className) 
+// the first two are required and the other two are optional.
+
+export default withAITracking(reactPlugin, MyComponent);
 ```
 
 ## <a name="configuration"></a>配置

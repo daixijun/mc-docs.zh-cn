@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: tutorial
 origin.date: 09/25/2020
-ms.date: 12/10/2020
-ms.openlocfilehash: 75a576b5d35b613bf889fc845c78e8d3749c9b3a
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.date: 01/14/2021
+ms.openlocfilehash: ccd0d7ea56ebe67f83668c6c843a4aa621fc0029
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004125"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194752"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>教程：为电话号码创建自定义分析器
 
@@ -271,8 +271,8 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.azure.cn/indexes/tutorial-basic-i
   api-key: <YOUR-ADMIN-API-KEY>
 
   {
-      "text": "(425) 555-0100",
-      "analyzer": "standard.lucene"
+    "text": "(425) 555-0100",
+    "analyzer": "standard.lucene"
   }
 ```
 

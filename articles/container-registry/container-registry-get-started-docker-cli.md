@@ -6,15 +6,15 @@ ms.service: container-registry
 ms.topic: article
 origin.date: 01/23/2019
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.custom: seodec18, H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 1741667cb10ae6dd620915527382420a26d5b29f
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.custom: seodec18, H1Hack27Feb2017
+ms.openlocfilehash: a72e07bcc94836190b38802086c759d849e6815b
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024523"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230187"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 将第一个映像推送到专用 Docker 容器注册表
 

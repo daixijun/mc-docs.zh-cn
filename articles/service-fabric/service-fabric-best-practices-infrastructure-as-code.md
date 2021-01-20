@@ -4,16 +4,16 @@ description: 以基础结构即代码方式管理 Azure Service Fabric 的最佳
 ms.topic: conceptual
 origin.date: 01/23/2019
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: b1c6aa06c4f43d43c402f43252d0dd46675e68ac
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 09b1b509cecfde74c75595c68064403a26d57066
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023237"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230990"
 ---
 <!--Verify successfully-->
 # <a name="infrastructure-as-code"></a>基础结构即代码

@@ -5,14 +5,14 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 origin.date: 12/19/2019
-ms.openlocfilehash: 3113052b64b7321ec15e9351018e06103abad3f3
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 21efab5d1b553d952e0de43176b2e682f7bdfecd
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105203"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230984"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor 的监视数据源
 Azure Monitor 基于包含[日志](data-platform-logs.md)和[指标](data-platform-metrics.md)的[通用监视数据平台](data-platform.md)。 将数据收集到此平台后，可以使用 Azure Monitor 中的一组通用工具统一分析来自多个资源的数据。 还可以将监视数据发送到其他位置以支持特定的方案，某些资源可能会将数据写入到其他位置，然后可以在日志或指标中收集数据。
@@ -149,10 +149,10 @@ Azure Monitor 中的详细应用程序监视是通过 [Application Insights](/ap
 |:---|:---|:---|
 | Azure Monitor 日志 | 有关应用程序的运行数据，包括页面查看次数、应用程序请求数、异常数和跟踪数。 | [在 Azure Monitor 中分析日志数据](../log-query/log-query-overview.md) |
 |                    | 应用程序组件之间的依赖关系信息，用于支持应用程序映射和遥测关联。 | [Application Insights 中的遥测关联](../app/correlation.md) <br> [应用程序映射](../app/app-map.md) |
-|            | 可用性测试（从公共 Internet 上的不同位置测试应用程序的可用性和响应能力）的结果。 | [监视任何网站的可用性和响应能力](../app/monitor-web-app-availability.md) |
+|            | 可用性测试（从公共 Internet 上的不同位置测试应用程序的可用性和响应能力）的结果。 | 监视任何网站的可用性和响应能力 |
 | Azure Monitor 指标 | Application Insights 将描述应用程序的性能和运行情况的指标以及在应用程序中定义的自定义指标收集到 Azure Monitor 指标数据库中。 | [Application Insights 中基于日志的指标和预先聚合的指标](../app/pre-aggregated-metrics-log-metrics.md)<br>[用于处理自定义事件和指标的 Application Insights API](../app/api-custom-events-metrics.md) |
 | Azure 存储 | 将应用程序数据发送到 Azure 存储进行存档。 | [从 Application Insights 导出遥测数据](../app/export-telemetry.md) |
-|            | 可用性测试的详细信息存储在 Azure 存储中。 可使用 Azure 门户中 Application Insights 将其下载到本地进行分析。 可用性测试的结果存储在 Azure Monitor 日志中。 | [监视任何网站的可用性和响应能力](../app/monitor-web-app-availability.md) |
+|            | 可用性测试的详细信息存储在 Azure 存储中。 可使用 Azure 门户中 Application Insights 将其下载到本地进行分析。 可用性测试的结果存储在 Azure Monitor 日志中。 | 监视任何网站的可用性和响应能力 |
 |            | Profiler 跟踪数据存储在 Azure 存储中。 可使用 Azure 门户中 Application Insights 将其下载到本地进行分析。  | [使用 Application Insights 探查 Azure 中的生产应用程序](../app/profiler-overview.md) 
 |            | 针对一部分异常捕获的调试快照数据存储在 Azure 存储中。 可使用 Azure 门户中 Application Insights 将其下载到本地进行分析。  | [快照的工作原理](../app/snapshot-debugger.md#how-snapshots-work) |
 

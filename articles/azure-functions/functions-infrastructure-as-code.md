@@ -3,14 +3,14 @@ title: 自动将函数应用资源部署到 Azure
 description: 了解如何生成用于部署函数应用的 Azure 资源管理器模板。
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 01/13/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 253dcb8ab92bee2f411c786e63004d5380cca58f
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: a3ab76eea093591ea2eddc79ec9b2587860f96b2
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021455"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195237"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>为 Azure Functions 中的函数应用自动执行资源部署
 
@@ -140,7 +140,7 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
 | 设置名                 | 说明                                                                               | 示例值                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Functions 运行时用于内部排队的存储帐户的连接字符串 | 请参阅[存储帐户](#storage)       |
-| FUNCTIONS_EXTENSION_VERSION  | Azure Functions 运行时的版本                                                | `~2`                                  |
+| FUNCTIONS_EXTENSION_VERSION  | Azure Functions 运行时的版本                                                | `~3`                                  |
 | FUNCTIONS_WORKER_RUNTIME     | 要为此应用中的函数使用的语言堆栈                                   | `dotnet`、`node`、`java` 或 `powershell` |
 | WEBSITE_NODE_DEFAULT_VERSION | 只有当使用 `node` 语言堆栈时必需，指定要使用的版本              | `10.14.1`                             |
 
@@ -164,7 +164,7 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
             },
             {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~2"
+                "value": "~3"
             }
         ]
     }
@@ -175,7 +175,7 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
 
 ## <a name="deploy-on-consumption-plan"></a>在消耗计划上部署
 
-消耗计划会在代码运行时自动分配计算能力，根据需要增加分配以处理负载，然后在代码未运行时相应减少分配。 你不需要为空闲的 VM 付费，也不需要提前保留容量。 若要了解更多信息，请参阅 [Azure Functions 的缩放和托管](functions-scale.md#consumption-plan)。
+消耗计划会在代码运行时自动分配计算能力，根据需要增加分配以处理负载，然后在代码未运行时相应减少分配。 你不需要为空闲的 VM 付费，也不需要提前保留容量。 若要了解更多信息，请参阅 [Azure Functions 的缩放和托管](consumption-plan.md)。
 
 有关 Azure 资源管理器模板示例，请参阅[基于消耗计划的函数应用]。
 
@@ -251,7 +251,7 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -332,7 +332,7 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -401,7 +401,7 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
                 },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~2"
+                    "value": "~3"
                 }
             ]
         }
@@ -434,7 +434,7 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
         "appSettings": [
             {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~2"
+                "value": "~3"
             },
             {
                 "name": "Project",
@@ -456,7 +456,7 @@ Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内�
         "properties": {
           "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=core.chinacloudapi.cn;AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
           "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=core.chinacloudapi.cn;AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]",
-          "FUNCTIONS_EXTENSION_VERSION": "~2",
+          "FUNCTIONS_EXTENSION_VERSION": "~3",
           "FUNCTIONS_WORKER_RUNTIME": "dotnet",
           "Project": "src"
         }

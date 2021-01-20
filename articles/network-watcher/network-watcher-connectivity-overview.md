@@ -3,30 +3,30 @@ title: Azure 网络观察程序排查连接问题简介 | Azure
 description: 此页概述了网络观察程序排查连接问题功能
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/11/2017
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a6683e05619a899d31021c24766b8ef05b92b99a
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: 21f11a194936cf60cf99ebbd9f995ee5627418ac
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548033"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231104"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Azure 网络观察程序中排查连接问题功能的简介
 
 网络观察程序的排查连接问题功能可以检查虚拟机 (VM) 之间的直接 TCP 连接、完全限定的域名 (FQDN)、URI 或 IPv4 地址。 网络方案比较复杂，它们是使用网络安全组、防火墙、用户定义的路由和 Azure 提供的资源实现的。 复杂的配置给连接问题的排查带来了困难。 网络观察程序有助于减少查找和检测连接问题的时间。 通过返回的结果，可以分析连接问题是平台问题还是用户配置问题造成的。 可以使用 [PowerShell](network-watcher-connectivity-powershell.md)、[Azure CLI](network-watcher-connectivity-cli.md) 和 [REST API](network-watcher-connectivity-rest.md) 检查连接。
 
 > [!IMPORTANT]
-> 连接故障排除需要从中进行故障排除的 VM 安装了 `AzureNetworkWatcherExtension` VM 扩展。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)。 在目标终结点上不需要该扩展。
+> 连接故障排除需要从中进行故障排除的 VM 安装了 `AzureNetworkWatcherExtension` VM 扩展。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/extensions/network-watcher-windows.md?toc=%2fnetwork-watcher%2ftoc.json)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/extensions/network-watcher-linux.md?toc=%2fnetwork-watcher%2ftoc.json)。 在目标终结点上不需要该扩展。
 
 ## <a name="response"></a>响应
 

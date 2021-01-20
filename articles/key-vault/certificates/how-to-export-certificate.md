@@ -9,14 +9,14 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 origin.date: 08/11/2020
-ms.date: 11/27/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: e12ac479907218e14470914c9512f5c8d7e3df95
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: dd28982ce2b1dd1456822136379e612c31d181f6
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300291"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231066"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>从 Azure Key Vault 中导出证书
 
@@ -84,7 +84,7 @@ az keyvault secret download -–file {nameofcert.pfx}
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$secret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $cert.Name
+$secret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $cert.Name
 $secretValueText = '';
 $ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
 try {

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 10/31/2018
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: 24f0a803941788ad4c7f21bb31405ce8b98167f3
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: bddebfa559135e8c7f225992e3beee120c0c2263
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105333"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570534"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure 中 Windows VM 远程桌面连接问题的详细故障排除步骤
 本文提供详细的故障排除步骤，用于为基于 Windows 的 Azure 虚拟机诊断和修复复杂的远程桌面错误。
@@ -43,7 +43,7 @@ RDP 连接涉及以下组件：
 
 在继续之前，在脑海中回想一下自上次远程桌面成功连接到 VM 后更改的内容可能会有帮助。 例如：
 
-* VM 或包含 VM 的云服务的公共 IP 地址（也称为虚拟 IP 地址 (VIP)）已更改。 RDP 失败的原因可能是 DNS 客户端缓存仍然有针对该 DNS 名称注册的 *旧 IP 地址* 。 请刷新 DNS 客户端缓存，并重新尝试连接 VM。 或者尝试直接使用新 VIP 进行连接。
+* VM 或包含 VM 的云服务的公共 IP 地址（也称为虚拟 IP 地址 (VIP)）已更改。 RDP 失败的原因可能是 DNS 客户端缓存仍然有针对该 DNS 名称注册的 *旧 IP 地址*。 请刷新 DNS 客户端缓存，并重新尝试连接 VM。 或者尝试直接使用新 VIP 进行连接。
     
     <!--Not Available on [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)-->
     
@@ -140,7 +140,7 @@ RDP 连接涉及以下组件：
 
 接下来，安装 Azure PowerShell（如果尚未安装）。 请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/)。
 
-接下来，打开 Azure PowerShell 命令提示符，将当前文件夹更改为 **InstallWinRMCertAzureVM.ps1** 脚本文件所在的位置。 若要运行 Azure PowerShell 脚本，必须设置正确的执行策略。 运行 **Get-ExecutionPolicy** 命令，确定当前的策略级别。 有关设置相应级别的信息，请参阅 [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-5.1)。
+接下来，打开 Azure PowerShell 命令提示符，将当前文件夹更改为 **InstallWinRMCertAzureVM.ps1** 脚本文件所在的位置。 若要运行 Azure PowerShell 脚本，必须设置正确的执行策略。 运行 **Get-ExecutionPolicy** 命令，确定当前的策略级别。 有关设置相应级别的信息，请参阅 [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-5.1&preserve-view=true)。
 
 接下来，填写 Azure 订阅名称、云服务名称和虚拟机名称（删除 < 和 > 字符），并运行这些命令。
 
@@ -153,7 +153,7 @@ $vmName="<Name of the target virtual machine>"
 
 可以从 **Get-AzureSubscription** 命令显示的 *SubscriptionName* 属性获取正确的订阅名称。 可以从 **Get-AzureVM** 命令显示的 *ServiceName* 列中获取虚拟机的云服务名称。
 
-检查是否有新证书。 打开当前用户的“证书”管理单元，并在“受信任的根证书颁发机构\证书”文件夹中查找。  应会看到在“颁发给”列中具有你的云服务的 DNS 名称的证书（示例：cloudservice4testing.chinacloudapp.cn）。
+检查是否有新证书。 打开当前用户的“证书”管理单元，并在“受信任的根证书颁发机构\证书”文件夹中查找。 应会看到在“颁发给”列中具有你的云服务的 DNS 名称的证书（示例：cloudservice4testing.chinacloudapp.cn）。
 
 接下来，使用以下命令启动远程 Azure PowerShell 会话。
 

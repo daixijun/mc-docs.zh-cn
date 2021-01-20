@@ -4,16 +4,16 @@ description: 了解应用程序容器映像的基础映像，并了解基础映�
 ms.topic: article
 origin.date: 01/22/2019
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 04/06/2020
 ms.author: v-yeche
-ms.openlocfilehash: 6ee98ac6e9e6c89d248b5bed1646b6d4a8315acf
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: 2948ab6d383e2bcb1d1e0b275b1039319d80e3b6
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024521"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230178"
 ---
 <!--Verify sucessfully-->
 <!--Parts of released files-->

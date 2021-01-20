@@ -4,15 +4,15 @@ description: 了解 Azure 应用服务如何帮助用户开发和托管 Web 应�
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 origin.date: 07/06/2020
-ms.date: 12/21/2020
+ms.date: 01/18/2021
 ms.author: v-tawe
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 349a7a1f03a81f507a63d5485c436fb2f0df0994
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: f7f4eb9f83eec8896f861e8246c4739a79f26dda
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022959"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230626"
 ---
 # <a name="app-service-overview"></a>应用服务概述
 
@@ -30,13 +30,13 @@ Azure 应用服务是一项基于 HTTP 的服务，用于托管 Web 应用程序
 
 * **多个语言和框架** - 应用服务针对 ASP.NET、ASP.NET Core、Java、Ruby、Node.js、PHP 或 Python 提供一流支持。 我们还能以后台服务的形式运行 [PowerShell 和其他脚本或可执行文件](webjobs-create.md)。
 * **托管生产环境** - 应用服务会自动 [修补并维护 OS 和语言框架](overview-patch-os-runtime.md)。 将时间花在编写优秀应用上，让 Azure 来考虑平台问题。
-* **具有高可用性的全局缩放** - 以手动或自动方式进行 [增大](manage-scale-up.md)或 [扩大](../monitoring-and-diagnostics/insights-how-to-scale.md)。 在 Azure.cn 的全国数据中心基础结构中的任意位置托管应用，并且应用服务 [SLA](https://www.azure.cn/support/sla/app-service/) 承诺高可用性。
+* **具有高可用性的全局缩放** - 以手动或自动方式进行 [增大](manage-scale-up.md)或 [扩大](../azure-monitor/platform/autoscale-get-started.md)。 在 Azure.cn 的全国数据中心基础结构中的任意位置托管应用，并且应用服务 [SLA](https://www.azure.cn/support/legal/sla/app-service/) 承诺高可用性。
 * **与 SaaS 平台和本地数据建立连接** - 从适用于企业系统（例如 SAP）的 50 多个 [连接器](../connectors/apis-list.md)、SaaS 服务（例如 Salesforce）以及 Internet 服务（例如 Facebook）中进行选择。 使用[混合连接](app-service-hybrid-connections.md)和 [Azure 虚拟网络](web-sites-integrate-with-vnet.md)访问本地数据。
 * **安全性和合规性** - 应用服务符合 [ISO、SOC 和 PCI](https://www.microsoft.com/trustcenter)的要求。 使用 [Azure Active Directory](configure-authentication-provider-aad.md) 或 [Microsoft 帐户](configure-authentication-provider-microsoft.md)对用户进行身份验证。 创建 [IP 地址限制](app-service-ip-restrictions.md)和[管理服务标识](overview-managed-identity.md)。
 * **应用程序模板** - 从 [Azure 市场](https://market.azure.cn/)的大量应用程序模板列表中进行选择，例如 WordPress、Joomla 和 Drupal。
 * **Visual Studio 与 Visual Studio Code 集成** - Visual Studio 和 Visual Studio Code 中的专用工具可简化创建、部署和调试工作。
 * **API 和移动功能** - 应用服务针对 RESTful API 方案提供统包式 CORS 支持，通过启用身份验证、脱机数据同步、推送通知等功能简化移动应用方案。
-* **无服务器代码** - 按需运行代码片段或脚本，无需显式预配或管理基础结构，并且只需为代码实际使用的计算时间付费（请参阅 [Azure Functions](/azure-functions/)）。
+* **无服务器代码** - 按需运行代码片段或脚本，无需显式预配或管理基础结构，并且只需为代码实际使用的计算时间付费（请参阅 [Azure Functions](../azure-functions/index.yml)）。
 
 除了应用服务，Azure 还提供可用来托管网站和 Web 应用程序的其他服务。 大多数情况下，应用服务是最佳选择。  对于微服务体系结构，请考虑使用 [Azure Spring-Cloud Service](https://docs.microsoft.com/azure/spring-cloud/) 或 [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric)。  如果需要更好地控制运行代码的 VM，请考虑使用 [Azure 虚拟机](https://azure.microsoft.com/documentation/services/virtual-machines/)。 有关如何在这些 Azure 服务之间做出选择的详细信息，请参阅 [Azure 应用服务、虚拟机、Service Fabric 和云服务的比较](overview-compare.md)。
 
@@ -47,6 +47,12 @@ Azure 应用服务是一项基于 HTTP 的服务，用于托管 Web 应用程序
 ### <a name="built-in-languages-and-frameworks"></a>内置语言和框架
 
 Linux 上的应用服务支持许多特定于语言的内置映像。 只需部署代码。 支持的语言包括：Node.js、Java (JRE 8 & JRE 11)、PHP、Python、.NET Core 和 Ruby。 运行 [`az webapp list-runtimes --linux`](https://docs.azure.cn/cli/webapp#az_webapp_list_runtimes) 查看最新语言和支持的版本。 如果内置映像中不支持应用程序所需的运行时，则可以使用自定义容器部署运行时。
+
+过期运行时会定期从门户的“Web 应用创建和配置”边栏选项卡中删除。 当维护组织弃用这些运行时，或发现存在重大漏洞时，这些运行时将在门户中隐藏。 隐藏这些选项可指引客户使用最新的运行时，这样他们才最能成功。 
+
+在门户中隐藏过期运行时后，任何使用该版本的现有站点都将继续运行。 如果从应用服务平台完全删除了运行时，在删除前，Azure 订阅所有者将收到电子邮件通知。
+
+如果需要使用门户上不再显示的过期运行时版本创建另一款 Web 应用，请参阅语言配置指南，获取有关如何获取站点运行时版本的说明。 可以使用 Azure CLI 创建另一个具有相同运行时的站点。 此外，还可以使用门户中的“Web 应用”边栏选项卡上的“导出模板”按钮，导出站点的 ARM 模板。 可以重复使用此模板来部署具有相同运行时和配置的新站点。
 
 ### <a name="limitations"></a>限制
 
@@ -84,7 +90,4 @@ Linux 上的应用服务支持许多特定于语言的内置映像。 只需部�
 > [!div class="nextstepaction"]
 > [HTML（在 Windows 或 Linux 上）](quickstart-html.md)
 
-<!--
-> [!div class="nextstepaction"]
-> [Custom container (Windows or Linux)](tutorial-custom-container.md)
--->
+<!-- [Custom container (Windows or Linux)](tutorial-custom-container.md)-->

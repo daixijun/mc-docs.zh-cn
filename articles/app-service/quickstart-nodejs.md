@@ -9,12 +9,12 @@ ms.author: v-tawe
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: b88273ba64ce4f7e5fe68029b565a18c1e327420
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: a479ceab8e7d14c4ca14dd1ac3ef1312b2a4a854
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508069"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230744"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -28,7 +28,7 @@ ms.locfileid: "96508069"
 - <a href="https://git-scm.com/" target="_blank">安装 Git</a>
 - [Node.js 和 npm](https://nodejs.org)。 运行命令 `node --version` 验证是否已安装 Node.js。
 - [Visual Studio Code](https://code.visualstudio.com/)。
-- Visual Studio Code 的 [Azure 应用服务扩展](vscode:extension/ms-azuretools.vscode-azureappservice)。
+- Visual Studio Code 的 [Azure 应用服务扩展](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)。
 
 ## <a name="clone-and-run-a-local-nodejs-application"></a>克隆并运行本地 Node.js 应用程序
 

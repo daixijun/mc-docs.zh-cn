@@ -5,16 +5,16 @@ manager: rochakm
 ms.topic: how-to
 origin.date: 04/06/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 11e345aee1ac5e0c187fa71edb6556002e37d145
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 827025c44c004c94ba9e186b1154dc4f70842a1d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023201"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230921"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>排查 Azure 到 Azure VM 网络连接性问题
 

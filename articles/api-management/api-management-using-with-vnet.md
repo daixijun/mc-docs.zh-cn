@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/01/2020
+ms.date: 01/15/2021
 ms.author: v-johya
 ms.custom: references_regions
-ms.openlocfilehash: e2ca6c6c52f5b4cea1345e0ea9ce930ca86df6c8
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 5e65dea261b0d99f5178a161fdc4a0a6bff522c9
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432611"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230851"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何将 Azure API 管理与虚拟网络配合使用
 使用 Azure 虚拟网络 (VNET) 可将你的任何 Azure 资源置于可以控制其访问权限但无法通过 Internet 路由的网络中。 然后，可以使用各种 VPN 技术将这些网络连接到本地网络。 若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息：[Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
@@ -152,7 +152,7 @@ ms.locfileid: "96432611"
 
 + **Azure 负载均衡器**：`Developer` SKU 不要求允许来自服务标记 `AZURE_LOAD_BALANCER` 的入站请求，因为我们只在其后部署一个计算单元。 但当扩展到更高级的 SKU（如 `Premium`）时，来自 [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) 的入站请求变得至关重要，因为负载均衡器的运行状况探测失败将导致部署失败。
 
-+ **Application Insights**：如果在 API 管理上启用了 [Azure Application Insights](api-management-howto-app-insights.md) 监视，则需要允许从虚拟网络到 [遥测终结点](../azure-monitor/app/ip-addresses.md#outgoing-ports)的出站连接。 
++ **Application Insights**：如果在 API 管理上启用了 [Azure Application Insights](api-management-howto-app-insights.md) 监视，则需要允许从虚拟网络到遥测终结点的出站连接。 
 
 + **使用 Express Route 或网络虚拟设备强制隧道流量发往本地防火墙**：客户的常用配置是定义自己的默认路由 (0.0.0.0/0)，强制来自 API 管理所委托子网的所有流量流经本地防火墙或流向网络虚拟设备。 此流量流一定会中断与 Azure API 管理的连接，因为出站流量会在本地被阻止，或者通过“网络地址转换”功能发送到不再与各种 Azure 终结点一起工作的一组无法识别的地址。 此解决方案要求你执行多项操作：
 

@@ -4,21 +4,21 @@ titlesuffix: Azure Virtual Network
 description: 了解如何在 Azure 中添加或删除为服务委托的子网。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/06/2019
-ms.date: 04/13/2020
+author: rockboyfor
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: 6d5a877ac4065d71b0f953728b32950aeb7b7161
-ms.sourcegitcommit: 564739de7e63e19a172122856ebf1f2f7fb4bd2e
+ms.openlocfilehash: 5656b0588a9a1347d4dd1a9786790525b6bad2f1
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093317"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230951"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>添加或删除子网委托
 
@@ -43,14 +43,14 @@ ms.locfileid: "82093317"
 
 <!--CORRECT ON [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzResourceGroup)-->
 
-以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
+以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
 
 ```powershell
   New-AzResourceGroup -Name myResourceGroup -Location chinaeast
 ```
 ### <a name="create-virtual-network"></a>创建虚拟网络
 
-使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest) 在 **myResourceGroup** 中创建名为 **myVnet** 的虚拟网络，该虚拟网络包含使用 [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) 配置的名为 **mySubnet** 的子网。 虚拟网络的 IP 地址空间是 **10.0.0.0/16**。 虚拟网络中的子网是 **10.0.0.0/24**。  
+使用 **New-AzVirtualNetwork** 在 **myResourceGroup** 中创建名为 [myVnet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) 的虚拟网络，并使用 **New-AzVirtualNetworkSubnetConfig** 创建名为 [mySubnet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest) 的子网。 虚拟网络的 IP 地址空间是 **10.0.0.0/16**。 虚拟网络中的子网是 **10.0.0.0/24**。  
 
 ```powershell
   $subnet = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix "10.0.0.0/24"

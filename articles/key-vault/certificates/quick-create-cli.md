@@ -10,14 +10,14 @@ ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 origin.date: 09/03/2019
-ms.date: 11/27/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: 5a3dc57999c235459368fae33495d827d03d695f
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 1fb15b3bea334c451314c26b2dc129e64076e3ee
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300279"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230055"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>快速入门：使用 Azure CLI 在 Azure Key Vault 中设置和检索证书
 

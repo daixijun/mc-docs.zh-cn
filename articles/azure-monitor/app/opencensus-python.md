@@ -5,15 +5,15 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 10/11/2019
-ms.date: 12/01/2020
+ms.date: 01/12/2021
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: 8e30af90d33ba6ed12a462c0b53b9f7d4d564d01
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 961977610d92f4d15f0efd4039c8a07f52289eac
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432596"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231043"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>为 Python 应用程序设置 Azure Monitor
 
@@ -480,7 +480,6 @@ exporter = metrics_exporter.new_metrics_exporter(
 
 ### <a name="alerts"></a>警报
 
-* [可用性测试](./monitor-web-app-availability.md)：创建测试来确保站点在 Web 上可见。
 * [智能诊断](./proactive-diagnostics.md)：这些测试可自动运行，因此不需要进行任何设置。 它们会告诉你应用是否具有异常的失败请求速率。
 * [指标警报](../platform/alerts-log.md)：设置警报以在某个指标超过阈值时发出警告。 可以在编码到应用中的自定义指标中设置它们。
 

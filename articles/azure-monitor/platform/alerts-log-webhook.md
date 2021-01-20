@@ -6,14 +6,14 @@ ms.author: v-johya
 services: monitoring
 ms.topic: conceptual
 origin.date: 05/30/2019
-ms.date: 11/02/2020
+ms.date: 01/12/2021
 ms.subservice: alerts
-ms.openlocfilehash: d33d4ad8fcddf33af69d806c083d498adac6a9f8
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 12ca8c33326b1218ab177424fde367791ed58519
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327775"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230789"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>用于日志警报规则的 Webhook 操作
 
@@ -219,7 +219,7 @@ ms.locfileid: "94327775"
 ### <a name="log-alert-for-other-resources-logs-from-api-version-2020-05-01-preview"></a>其他资源日志的日志警报（来自 API 版本 `2020-05-01-preview`）
 
 > [!NOTE]
-> 当前不对 API 版本 `2020-05-01-preview` 和以资源为中心的日志警报收取额外费用。  预览版功能的定价将在以后公布，在开始计费之前将提供相关通知。 如果你选择在通知期后继续使用新 API 版本和以资源为中心的日志警报，则将按照适用的费率缴费。
+> 当前不对 API 版本 `2020-05-01-preview` 和以资源为中心的日志警报收取额外费用。  未来将公布预览版中的功能的定价以及开始计费之前提供的通知。 如果你选择在通知期后继续使用新 API 版本和以资源为中心的日志警报，则将按照适用的费率缴费。
 
 以下示例有效负载是在标准 Webhook 基于其他资源日志（除了工作区和 Application Insights）用于日志警报时使用的：
 
@@ -315,7 +315,6 @@ ms.locfileid: "94327775"
         }
     }
 ```
-
 
 ## <a name="next-steps"></a>后续步骤
 - 了解 [Azure 警报中的日志警报](alerts-unified-log.md)。

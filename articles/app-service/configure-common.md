@@ -5,15 +5,15 @@ keywords: azure 应用服务, web 应用, 应用设置, 环境变量
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 origin.date: 12/07/2020
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.author: v-tawe
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: e0a5c7a0bf0e590ba9867c9089e882ecbb0ffaa6
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 3a914d851404d96f47c2cd672419ad6e9861b719
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021501"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230581"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>在 Azure 门户中配置应用服务应用
 

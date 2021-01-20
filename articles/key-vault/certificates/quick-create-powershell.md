@@ -10,14 +10,14 @@ ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 origin.date: 09/03/2019
-ms.date: 11/27/2020
+ms.date: 01/14/2021
 ms.author: v-tawe
-ms.openlocfilehash: b7b1b46546e292dff209ed60ae527ff92f7beb60
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 6af92a69cb847df9e08b086d2cb7befc595ea5b3
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431197"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231064"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 在 Azure Key Vault 中设置和检索证书
 
@@ -99,4 +99,4 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 
 - 阅读 [Azure Key Vault 概述](../general/overview.md)
 - 请参阅 [Azure PowerShell Key Vault cmdlet](https://docs.microsoft.com/powershell/module/az.keyvault/) 参考
-- 查看 [Azure Key Vault 最佳做法](../general/best-practices.md)
+- 请参阅 [Key Vault 安全性概述](../general/security-overview.md)

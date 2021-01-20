@@ -4,16 +4,16 @@ description: 本文概述了使用 Azure Site Recovery 服务将本地物理服�
 ms.topic: conceptual
 origin.date: 02/11/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 9613c0584eacf2f89e846da97281e758f2edafd9
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: c7f48c66dd495d12075c609852eacebcfd619a15
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021285"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230774"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>物理服务器到 Azure 的灾难恢复体系结构
 

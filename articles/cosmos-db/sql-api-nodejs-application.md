@@ -7,17 +7,17 @@ ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 11/05/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: fa93cf66c8eb9585b31313ef5fba0a86c5982969
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 6f7c03feff42faeb94ce7d9155d7b6ade62d11d5
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432391"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230961"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>教程：使用 JavaScript SDK 生成 Node.js Web 应用，以便在 Azure Cosmos DB 中管理 SQL API 帐户 
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ ms.locfileid: "96432391"
 
 在按照本文中的说明操作之前，请确保具备以下资源：
 
-* 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
+* 如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -483,7 +483,7 @@ ms.locfileid: "96432391"
 3. 通过将应用程序推送到远程群集来部署应用程序。
 
     ```bash
-    git push azure master
+    git push azure main
     ```
 
 4. 几秒钟后，Web 应用程序就会发布完毕并在浏览器中启动。

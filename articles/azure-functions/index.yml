@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Azure Functions 文档
-summary: Azure Functions 是一种无服务器计算服务，使用它可以运行事件触发的代码，而无需显式预配或管理基础结构。 其“按需计算”可实现轻量级集成和一次性支持功能。 还可用它来提供 Web API、响应数据库更改、处理 IoT 数据流和管理消息队列。
+summary: Azure Functions 是一项按需提供的云服务，可提供运行应用程序所需的所有不断更新的基础结构和资源。 你只需专注于对你最重要的代码，Azure Functions 处理其余代码。 可使用 Azure Functions 来生成 Web API、响应数据库更改、处理 IoT 流和管理消息队列等。
 metadata:
   title: Azure Functions 文档
-  description: Azure Functions 是一种无服务器计算服务，使用它可以运行事件触发的代码，而无需显式预配或管理基础结构。 其“按需计算”可实现轻量级集成和一次性支持功能。 还可用它来提供 Web API、响应数据库更改、处理 IoT 数据流和管理消息队列。
+  description: Azure Functions 是一项按需提供的云服务，可提供运行应用程序所需的所有不断更新的基础结构和资源。 你只需专注于对你最重要的代码，Azure Functions 处理其余代码。 可使用 Azure Functions 来生成 Web API、响应数据库更改、处理 IoT 流和管理消息队列等。
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: v-junlch
-  ms.date: 01/04/2021
-  ms.openlocfilehash: 18956157268cc0b16e9b5613399d5c67e25f43c4
-  ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+  ms.date: 01/13/2021
+  ms.openlocfilehash: 537cc34a29984fa8e6e6679e0ad27b89864968c0
+  ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 01/08/2021
-  ms.locfileid: "98021441"
+  ms.lasthandoff: 01/14/2021
+  ms.locfileid: "98194979"
 landingContent:
 - title: 关于 Azure Functions
   linkLists:

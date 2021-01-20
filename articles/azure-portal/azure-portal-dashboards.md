@@ -4,14 +4,14 @@ description: 本文介绍如何在 Azure 门户中创建、自定义、发布和
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
 origin.date: 03/23/2020
-ms.date: 12/30/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: 154bb0308a7914b8eed27377ca1df5306020a10a
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: 648a5c3f7e53549d279fc97521b30a7af1fb90bf
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820366"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230417"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>在 Azure 门户中创建和共享仪表板
 

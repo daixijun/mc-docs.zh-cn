@@ -4,15 +4,15 @@ description: 使用 Application Insights 监视来自本地或 Azure Web 应用�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 06/25/2019
-ms.date: 11/10/2020
+ms.date: 01/12/2021
 ms.author: v-johya
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71500056e2f30f0d05885348eef6d9afb50bd5ff
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: f8d43828330f11431bd1e88dfde4b2a9a9448106
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637937"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230840"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>在 Azure Application Insights 中跟踪依赖项 
 
@@ -221,6 +221,5 @@ dependencies
 
 * [异常](./asp-net-exceptions.md)
 * [用户和页面数据](./javascript.md)
-* [可用性](./monitor-web-app-availability.md)
 
 

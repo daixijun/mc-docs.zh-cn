@@ -5,18 +5,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 02/11/2020
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 author: rockboyfor
 ms.custom: devx-track-java
-ms.openlocfilehash: 0ca710354a02c0603cbe7ea7bf93a54a09d9cea2
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: a25af1731cddc97c8ffbe0bd7ec79db01101ebef
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598586"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230006"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>从 CouchBase 迁移到 Azure Cosmos DB SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,12 +27,12 @@ Azure Cosmos DB 是可缩放的多区域分布式完全托管型数据库。 它
 
 下面是相比于 Couchbase，在 Azure Cosmos DB 中以不同方式工作的重要功能：
 
-|   Couchbase     |   Azure Cosmos DB   |
-| ---------------|-------------------|
-|Couchbase 服务器| 帐户       |
-|桶           | 数据库      |
-|桶           | 容器/集合 |
-|JSON 文档    | 项/文档 |
+| Couchbase | Azure Cosmos DB |
+|--|--|
+| Couchbase 服务器 | 帐户 |
+| 桶 | 数据库 |
+| 桶 | 容器/集合 |
+| JSON 文档 | 项/文档 |
 
 ## <a name="key-differences"></a>主要区别
 
@@ -184,7 +184,7 @@ Azure Cosmos DB 提供以下 SDK 来支持不同的 Java 框架：
 * ```_repo.findByIdAndName(objDoc.getId(),objDoc.getName());```
 * ```_repo.findAllByStatus(objDoc.getStatus());```
 
-就是这样，现在可以将你的应用程序与 Azure Cosmos DB 配合使用了。 本文档中所述示例的完整代码示例已在 [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/SpringCosmos) GitHub 存储库中提供。
+就是这样，现在可以将你的应用程序与 Azure Cosmos DB 配合使用了。 本文档中所述示例的完整代码示例已在 [CouchbaseToCosmosDB-SpringCosmos](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/SpringCosmos) GitHub 存储库中提供。
 
 ## <a name="couchbase-as-a-document-repository--using-n1ql-queries"></a>用作文档存储库的 Couchbase，使用 N1QL 查询
 
@@ -226,12 +226,12 @@ Azure Cosmos DB 提供以下 SDK 来支持不同的 Java 框架：
     cp.connectionMode(ConnectionMode.DIRECT);
 
     if(client==null)
-       client= CosmosClient.builder()
-           .endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
-           .connectionPolicy(cp)
-           .key(MasterKey)
-           .consistencyLevel(ConsistencyLevel.EVENTUAL)
-           .build();    
+      client= CosmosClient.builder()
+         .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
+          .connectionPolicy(cp)
+          .key(PrimaryKey)
+          .consistencyLevel(ConsistencyLevel.EVENTUAL)
+          .build();
 
     container = client.getDatabase(_dbName).getContainer(_collName);
     ```
@@ -247,22 +247,22 @@ Azure Cosmos DB 提供以下 SDK 来支持不同的 Java 框架：
 ```java
 for(SqlQuerySpec query:queries)
 {
-    objFlux= container.queryItems(query, fo);
-    objFlux .publishOn(Schedulers.elastic())
-            .subscribe(feedResponse->
-                {
-                    if(feedResponse.results().size()>0)
-                    {
-                        _docs.addAll(feedResponse.results());
-                    }
+   objFlux= container.queryItems(query, fo);
+   objFlux .publishOn(Schedulers.elastic())
+         .subscribe(feedResponse->
+            {
+               if(feedResponse.results().size()>0)
+               {
+                  _docs.addAll(feedResponse.results());
+               }
 
-                },
-                Throwable::printStackTrace,latch::countDown);
-    lstFlux.add(objFlux);
+            },
+            Throwable::printStackTrace,latch::countDown);
+   lstFlux.add(objFlux);
 }
 
-        Flux.merge(lstFlux);
-        latch.await();
+      Flux.merge(lstFlux);
+      latch.await();
 }
 ```
 
@@ -272,7 +272,7 @@ for(SqlQuerySpec query:queries)
 
 若要插入文档，请运行以下代码：
 
-```java 
+```java
 Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```
 
@@ -283,13 +283,13 @@ CountDownLatch latch=new CountDownLatch(1);
 objMono .subscribeOn(Schedulers.elastic())
         .subscribe(resourceResponse->
         {
-            if(resourceResponse.statusCode()!=successStatus)
-                {
-                    throw new RuntimeException(resourceResponse.toString());
-                }
-            },
+           if(resourceResponse.statusCode()!=successStatus)
+              {
+                 throw new RuntimeException(resourceResponse.toString());
+              }
+           },
         Throwable::printStackTrace,latch::countDown);
-latch.await();              
+latch.await();
 ```
 
 ### <a name="upsert-operation"></a>更新插入操作
@@ -305,12 +305,12 @@ Mono<CosmosItemResponse> obs= container.upsertItem(doc, ro);
 
 以下代码片段执行删除操作：
 
-```java     
+```java
 CosmosItem objItem= container.getItem(doc.Id, doc.Tenant);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-然后订阅 Mono。请参考“插入操作”中的 Mono 订阅代码片段。 [CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncInSpring) GitHub 存储库中提供了完整的代码示例。
+然后订阅 Mono。请参考“插入操作”中的 Mono 订阅代码片段。 [CouchbaseToCosmosDB-AsyncInSpring](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncInSpring) GitHub 存储库中提供了完整的代码示例。
 
 ## <a name="couchbase-as-a-keyvalue-pair"></a>用作键/值对的 Couchbase
 
@@ -322,18 +322,18 @@ Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 
     ```json
     {
-        "indexingMode": "consistent",
-        "automatic": true,
-        "includedPaths": [
-            {
-                "path": "/*"
-            }
-        ],
-        "excludedPaths": [
-            {
-                "path": "/\"_etag\"/?"
-            }
-        ]
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/\"_etag\"/?"
+        }
+    ]
     }
     ````
 
@@ -341,10 +341,10 @@ Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 
     ```json
     {
-        "indexingMode": "none",
-        "automatic": false,
-        "includedPaths": [],
-        "excludedPaths": []
+    "indexingMode": "none",
+    "automatic": false,
+    "includedPaths": [],
+    "excludedPaths": []
     }
     ```
 
@@ -353,15 +353,15 @@ Mono<CosmosItemResponse> objMono = objItem.delete(ro);
     ```java
     ConnectionPolicy cp=new ConnectionPolicy();
     cp.connectionMode(ConnectionMode.DIRECT);
-    
+
     if(client==null)
-       client= CosmosClient.builder()
-           .endpoint(Host)//(Host, MasterKey, dbName, collName).Builder()
-           .connectionPolicy(cp)
-           .key(MasterKey)
-           .consistencyLevel(ConsistencyLevel.EVENTUAL)
-           .build();
-    
+      client= CosmosClient.builder()
+         .endpoint(Host)//(Host, PrimaryKey, dbName, collName).Builder()
+          .connectionPolicy(cp)
+          .key(PrimaryKey)
+          .consistencyLevel(ConsistencyLevel.EVENTUAL)
+          .build();
+
     container = client.getDatabase(_dbName).getContainer(_collName);
     ```
 
@@ -381,10 +381,10 @@ Mono<CosmosItemResponse> objMono = objCosmosItem.read(ro);
 objMono .subscribeOn(Schedulers.elastic())
         .subscribe(resourceResponse->
         {
-            if(resourceResponse.item()!=null)
-            {
-                doc= resourceResponse.properties().toObject(UserModel.class);
-            }
+           if(resourceResponse.item()!=null)
+           {
+              doc= resourceResponse.properties().toObject(UserModel.class);
+           }
         },
         Throwable::printStackTrace,latch::countDown);
 latch.await();
@@ -394,7 +394,7 @@ latch.await();
 
 若要插入项，可执行以下代码：
 
-```java 
+```java
 Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```
 
@@ -403,14 +403,14 @@ Mono<CosmosItemResponse> objMono= container.createItem(doc,ro);
 ```java
 CountDownLatch latch=new CountDownLatch(1);
 objMono.subscribeOn(Schedulers.elastic())
-        .subscribe(resourceResponse->
-        {
-            if(resourceResponse.statusCode()!=successStatus)
-                {
-                    throw new RuntimeException(resourceResponse.toString());
-                }
-            },
-        Throwable::printStackTrace,latch::countDown);
+      .subscribe(resourceResponse->
+      {
+         if(resourceResponse.statusCode()!=successStatus)
+            {
+               throw new RuntimeException(resourceResponse.toString());
+            }
+         },
+      Throwable::printStackTrace,latch::countDown);
 latch.await();
 ```
 
@@ -427,12 +427,12 @@ Mono<CosmosItemResponse> obs= container.upsertItem(doc, ro);
 
 使用以下代码片段执行删除操作：
 
-```java     
+```java
 CosmosItem objItem= container.getItem(id, id);
 Mono<CosmosItemResponse> objMono = objItem.delete(ro);
 ```
 
-然后订阅 Mono。请参考“插入操作”中的 Mono 订阅代码片段。 [CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/master/AsyncKeyValue) GitHub 存储库中提供了完整的代码示例。
+然后订阅 Mono。请参考“插入操作”中的 Mono 订阅代码片段。 [CouchbaseToCosmosDB-AsyncKeyValue](https://github.com/Azure-Samples/couchbaseTocosmosdb/tree/main/AsyncKeyValue) GitHub 存储库中提供了完整的代码示例。
 
 ## <a name="data-migration"></a>数据迁移
 

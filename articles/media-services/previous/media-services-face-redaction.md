@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 11/17/2020
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e955e1e368da4a488199615fcafebfe4b74ce3a5
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 2eac4adf3891af1f35bfb09f3baf5f8d19de9a21
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003733"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230551"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒体分析进行面部修订
 
@@ -382,4 +382,4 @@ namespace FaceRedaction
 
 [Azure 媒体服务分析概述](./legacy-components.md)
 
-[Azure 媒体分析演示](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 媒体分析演示](http://amslabs.azurewebsites.net/demos/Analytics.html)

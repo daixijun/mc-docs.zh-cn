@@ -256,9 +256,26 @@
                 - name: 用户定义的函数
                   displayName: 'functions, udf'
                   href: sql-query-udfs.md
-                - name: 聚合
+            - name: 聚合函数
+              items:
+                - name: 聚合函数
                   displayName: 'functions, aggregate, count, sum, min, minimum, max, maximum, avg, average'
-                  href: sql-query-aggregates.md
+                  href: sql-query-aggregate-functions.md
+                - name: 平均值
+                  displayName: 'functions, aggregate, avg, average'
+                  href: sql-query-aggregate-avg.md
+                - name: 计数
+                  displayName: 'functions, aggregate, count'
+                  href: sql-query-aggregate-count.md
+                - name: Max
+                  displayName: 'functions, aggregate, max, maximum'
+                  href: sql-query-aggregate-max.md
+                - name: Min
+                  displayName: 'functions, aggregate, min, minimum'
+                  href: sql-query-aggregate-min.md
+                - name: Sum
+                  displayName: 'functions, aggregate, sum'
+                  href: sql-query-aggregate-sum.md
                 - name: 系统函数
                   items:
                     - name: 系统函数
@@ -813,7 +830,7 @@
             - name: Azure 事件中心和 Azure 存储
               href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
             - name: 使用 Spring Boot Starter
-              href: 'https://docs.azure.cn/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%252fazure%252fcosmos-db%252fcontext%252fcontext'
+              href: 'https://docs.azure.cn/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%2fcosmos-db%2fcontext%2fcontext'
             - name: ODBC 驱动程序
               href: odbc-driver.md
     - name: 参考
@@ -924,6 +941,8 @@
         - name: 查找请求单位费用
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge-cassandra.md
+        - name: 排查常见问题
+          href: cassandra-troubleshoot.md
         - name: Cassandra 和 Spark
           items:
             - name: 简介

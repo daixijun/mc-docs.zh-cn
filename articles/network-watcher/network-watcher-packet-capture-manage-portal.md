@@ -4,23 +4,23 @@ titleSuffix: Azure Network Watcher
 description: 了解如何使用 Azure 门户管理网络观察程序的数据包捕获功能。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/10/2018
-ms.date: 08/10/2020
+origin.date: 01/07/2021
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6d7b1ccd2b3dfeccd42d6f88609437d3b2ea03a0
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: 83bcfaa990fd1264bcfaf3a8381678e8e03899f4
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548042"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230867"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>在门户中使用 Azure 网络观察程序管理数据包捕获
 
@@ -76,7 +76,7 @@ ms.locfileid: "87548042"
 > [!NOTE]
 > 门户会自动执行以下操作：
 >  * 在你选择的虚拟机所在的区域中创建一个网络观察程序（如果该区域尚没有网络观察程序）。
->  * 向虚拟机中添加 *AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) 或 [Windows](../virtual-machines/windows/extensions-nwa.md) 虚拟机扩展（如果尚未安装）。
+>  * 向虚拟机中添加 *AzureNetworkWatcherExtension* [Linux](../virtual-machines/extensions/network-watcher-linux.md) 或 [Windows](../virtual-machines/extensions/network-watcher-windows.md) 虚拟机扩展（如果尚未安装）。
 
 ## <a name="delete-a-packet-capture"></a>删除数据包捕获
 

@@ -4,14 +4,14 @@ description: 了解如何使用资源管理器模板创建日志警报
 author: Johnnytechn
 ms.author: v-johya
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 01/12/2021
 ms.subservice: alerts
-ms.openlocfilehash: a1dcaafdcc0b1391a78b0208a7c0e23c45dab53c
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 6620332e14d44f464ca345638ccb0e88d0fa41b7
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104443"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230790"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>使用资源管理器模板创建日志警报
 
@@ -268,14 +268,12 @@ ms.locfileid: "97104443"
         },
         "metricMeasureColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the measure column used in the alert evaluation."
             }
         },
         "resourceIdColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the resource ID column used in the alert targeting the alerts."
             }

@@ -4,24 +4,23 @@ titleSuffix: Azure Network Watcher
 description: 了解如何通过 Azure CLI 使用 Azure 网络观察程序的排查连接问题功能。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
-editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+author: rockboyfor
 origin.date: 07/11/2017
-ms.date: 08/10/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 0f1e251df3b9fcb260c65f83b0ebc7708070e30b
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: b9a6b87b4660c59d93c8df7a593af8b442db55b4
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548034"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231105"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>通过 Azure CLI 使用 Azure 网络观察程序排查连接问题
 
@@ -40,7 +39,7 @@ ms.locfileid: "87548034"
 * 用以排查连接问题的虚拟机。
 
 > [!IMPORTANT]
-> 连接故障排除需要从中进行故障排除的 VM 安装了 `AzureNetworkWatcherExtension` VM 扩展。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)。 在目标终结点上不需要该扩展。
+> 连接故障排除需要从中进行故障排除的 VM 安装了 `AzureNetworkWatcherExtension` VM 扩展。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/extensions/network-watcher-windows.md?toc=%2fnetwork-watcher%2ftoc.json)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/extensions/network-watcher-linux.md?toc=%2fnetwork-watcher%2ftoc.json)。 在目标终结点上不需要该扩展。
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>检查与虚拟机的连接
 

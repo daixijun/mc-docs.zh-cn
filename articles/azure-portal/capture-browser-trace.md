@@ -3,14 +3,14 @@ title: 捕获浏览器跟踪以进行故障排除
 description: 捕获浏览器跟踪中的网络信息，以帮助排查 Azure 门户的问题。
 ms.author: v-tawe
 origin.date: 05/11/2020
-ms.date: 12/30/2020
+ms.date: 01/13/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 9ea1ad24559879b6f2357a77948321c2256c1c0a
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: 5bca782aa6bdd757529471f51126ebd3038c6f85
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820365"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230974"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>捕获浏览器跟踪以进行故障排除
 
@@ -66,7 +66,7 @@ Google Chrome 和 (Chromium)都基于 [Chromium 开放源代码项目](https://w
 
 以下步骤说明如何在 Microsoft Edge (EdgeHTML) 中使用开发人员工具。 有关详细信息，请参阅 [Microsoft Edge (EdgeHTML) 开发人员工具](/microsoft-edge/devtools-guide)。
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。 必须在开始跟踪之前登录，以免跟踪包含登录相关的敏感信息。 
+1. 登录到 [Azure 门户](https://portal.azure.cn)。 必须在开始跟踪之前登录，以免跟踪包含登录相关的敏感信息。 
 
 1. 使用[步骤录制器](https://support.microsoft.com/help/22878/windows-10-record-steps)开始录制在门户中执行的步骤。
 
@@ -122,7 +122,7 @@ Google Chrome 和 (Chromium)都基于 [Chromium 开放源代码项目](https://w
 
         ![Safari 高级首选项的屏幕截图](media/capture-browser-trace/safari-show-develop-menu.png)
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。 必须在开始跟踪之前登录，以免跟踪包含登录相关的敏感信息。 
+1. 登录到 [Azure 门户](https://portal.azure.cn)。 必须在开始跟踪之前登录，以免跟踪包含登录相关的敏感信息。 
 
 1. 开始记录在门户中执行的步骤。 有关详细信息，请参阅[如何在 Mac 上录制屏幕](https://support.apple.com/HT208721)。
 

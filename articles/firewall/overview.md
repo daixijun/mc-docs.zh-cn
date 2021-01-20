@@ -4,20 +4,20 @@ description: Azure 防火墙是托管的基于云的网络安全服务，可保�
 ms.service: firewall
 services: firewall
 ms.topic: overview
-ms.custom: mvc, contperfq1
+ms.custom: mvc, contperf-fy21q1
 origin.date: 12/03/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 81379cff1ad02c368dd0257d9cf5b2ffb278540c
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 88cb2831a574b411c9c0bb28329400620647ae11
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021160"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230295"
 ---
 # <a name="what-is-azure-firewall"></a>什么是 Azure 防火墙？
 
@@ -47,7 +47,7 @@ Azure 防火墙是托管的基于云的网络安全服务，可保护 Azure 虚�
 
 Azure 防火墙存在以下已知问题：
 
-|问题  |说明  |缓解措施  |
+|问题  |说明  |缓解操作  |
 |---------|---------|---------|
 针对非 TCP/UDP 协议（例如 ICMP）的网络筛选规则不适用于 Internet 绑定的流量|针对非 TCP/UDP 协议的网络筛选规则不支持公共 IP 地址的 SNAT。 在分支子网与 VNet 之间支持非 TCP/UDP 协议。|Azure 防火墙使用[目前不支持 IP 协议 SNAT](../load-balancer/load-balancer-overview.md) 的标准负载均衡器。 我们正在探索如何在将来的版本中推出支持此方案的选项。|
 |缺少对 ICMP 的 PowerShell 和 CLI 支持|Azure PowerShell 和 CLI 不支持使用 ICMP 作为网络规则中的有效协议。|仍然可以通过门户和 REST API 使用 ICMP 作为协议。 我们正在致力于在不久之后在 PowerShell 和 CLI 中添加 ICMP。|

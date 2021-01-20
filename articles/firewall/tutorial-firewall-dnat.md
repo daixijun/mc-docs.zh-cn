@@ -6,17 +6,17 @@ ms.service: firewall
 ms.topic: tutorial
 origin.date: 08/28/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3adf6f6c81100038382d6e699c5aec92362fd900
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 4f2610fb3abfda17892a8679766516a231bff7ef
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746622"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230934"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>教程：在 Azure 门户中通过 Azure 防火墙 DNAT 筛选入站 Internet 流量
 
@@ -66,9 +66,8 @@ ms.locfileid: "96746622"
 9. 在“子网”下，为“名称”键入 **AzureFirewallSubnet**。 
 
      防火墙将位于此子网中，子网名称 **必须** 是 AzureFirewallSubnet。
-     
      > [!NOTE]
-     > AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。
+     > AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size)。
 
 10. 对于“地址范围”，请键入 **10.0.1.0/26**。 
 11. 使用其他默认设置，然后选择“创建”。 
@@ -86,7 +85,6 @@ ms.locfileid: "96746622"
 9. 在“子网”下，为“名称”键入 **SN-Workload**。  
 
     服务器会在此子网中。
-    
 10. 对于“地址范围”，请键入 **192.168.1.0/24**。 
 11. 使用其他默认设置，然后选择“创建”。 
 
@@ -189,7 +187,6 @@ ms.locfileid: "96746622"
 17. 对于“下一跃点类型”，请选择“虚拟设备”。  
 
     Azure 防火墙实际上是一个托管服务，但虚拟设备可在此场合下正常工作。
-    
 18. 对于“下一跃点地址”，请键入前面记下的防火墙专用 IP 地址。 
 19. 选择“确定”  。
 

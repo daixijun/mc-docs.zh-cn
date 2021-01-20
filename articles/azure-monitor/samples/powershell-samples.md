@@ -5,14 +5,14 @@ ms.subservice: ''
 ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
+ms.date: 01/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6e695d6b192c9f3678e75a8af69effcb2af33809
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 30e0e6630446d45b03de895111ef23308278292d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638043"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230424"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Azure Monitor PowerShell 示例
 本文说明可帮助访问 Azure Monitor 功能的示例 PowerShell 命令。
@@ -94,7 +94,7 @@ Get-AzLog -Caller 'myname@company.com'
 以下命令从活动日志中检索最后 1000 个事件：
 
 ```powershell
-Get-AzLog -MaxRecord 10
+Get-AzLog -MaxRecord 1000
 ```
 
 `Get-AzLog` 支持许多其他参数。 有关详细信息，请参阅 `Get-AzLog` 参考文档。
@@ -149,14 +149,14 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 
 下表描述了用于使用指标创建警报的参数和值。
 
-| 参数 (parameter) | value |
+| 参数 (parameter) | 值 |
 | --- | --- |
 | 名称 |simpletestdiskwrite |
 | 此警报规则的位置 |chinaeast2 |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| 创建的警报的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec。See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
-| 运算符后的表达式 |GreaterThan |
+| 创建的警报的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec。有关如何检索精确指标名称的信息，请参阅 `Get-MetricDefinitions` cmdlet |
+| operator |GreaterThan |
 | 阈值（此指标的计数/秒） |1 |
 | WindowSize（hh:mm:ss 格式） |00:05:00 |
 | 聚合（在这种情况下使用平均计数的指标的统计信息） |平均值 |

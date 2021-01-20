@@ -5,16 +5,16 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 07/27/2020
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 770f6f93bfa92edbd39dc346e3beed95c0661df1
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 0b3cc88daacbcc026afda9032b2e191d37d66e50
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552261"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163158"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>对 AzCopy 进行配置、优化和故障排除
 
@@ -29,13 +29,13 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 
 ## <a name="configure-proxy-settings"></a>配置代理设置
 
-若要为 AzCopy 配置代理设置，请设置 `https_proxy` 环境变量。 如果在 Windows 中运行 AzCopy，AzCopy 会自动检测代理设置，因此你无需在 Windows 中使用此设置。 如果在 Windows 中选择使用此设置，此设置会替代自动检测。
+若要为 AzCopy 配置代理设置，请设置 `HTTPS_PROXY` 环境变量。 如果在 Windows 中运行 AzCopy，AzCopy 会自动检测代理设置，因此你无需在 Windows 中使用此设置。 如果在 Windows 中选择使用此设置，此设置会替代自动检测。
 
 | 操作系统 | 命令  |
 |--------|-----------|
-| **Windows** | 在命令提示符处使用 `set https_proxy=<proxy IP>:<proxy port>`<br> 在 PowerShell 中使用 `$env:https_proxy="<proxy IP>:<proxy port>"`|
-| **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
-| **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **Windows** | 在命令提示符处使用 `set HTTPS_PROXY=<proxy IP>:<proxy port>`<br> 在 PowerShell 中使用 `$env:HTTPS_PROXY="<proxy IP>:<proxy port>"`|
+| **Linux** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
+| **macOS** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
 
 AzCopy 目前不支持要求通过 NTLM 或 Kerberos 进行身份验证的代理。
 

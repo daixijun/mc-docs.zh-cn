@@ -5,15 +5,15 @@ author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 origin.date: 06/08/2020
-ms.date: 10/19/2020
+ms.date: 01/18/2021
 ms.author: v-tawe
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 2f5731157de6798e9c61a929ed73a0010401d1fa
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 690086e93087142b889d5f196ba207ba8b7721b0
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106116"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230583"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure 应用服务混合连接
 

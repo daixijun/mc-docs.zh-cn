@@ -6,13 +6,13 @@ ms.topic: conceptual
 origin.date: 12/20/2019
 ms.author: v-tawe
 ms.custom: accessibility
-ms.date: 12/30/2020
-ms.openlocfilehash: 0656e9a7c37e851f7d10e6e6a79510bcccbabb00
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.date: 01/13/2021
+ms.openlocfilehash: f915d77ccbdeb01f4767538e3c21e8763df4ab4d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820359"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230783"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure 门户中的键盘快捷方式
 

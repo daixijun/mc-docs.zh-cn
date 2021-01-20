@@ -4,14 +4,14 @@ description: Application Insights 代理的概述。 无需重新部署网站即
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 origin.date: 09/16/2019
-ms.openlocfilehash: 95ae606c7a0f25012dafefc541eab440df287741
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: c79c69f573a1d102cbabb6de6a5d79be556a8892
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104402"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230911"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>为本地服务器部署 Azure Monitor Application Insights 代理
 
@@ -84,7 +84,6 @@ Application Insights 代理位于此处： https://www.powershellgallery.com/pac
 
 添加更多遥测：
 
-* [创建 Web 测试](monitor-web-app-availability.md)，以确保站点保持活动状态。
 * [添加 Web 客户端遥测](./javascript.md)，以查看网页代码中的异常并启用跟踪调用。
 * [将 Application Insights SDK 添加到代码](./asp-net.md)，以便插入跟踪和日志调用。
 

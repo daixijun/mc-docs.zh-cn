@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.author: v-johya
 ms.topic: conceptual
 origin.date: 09/17/2018
-ms.date: 12/08/2020
+ms.date: 01/12/2021
 ms.subservice: alerts
-ms.openlocfilehash: 635ebb1f349fba436bc7da9b5e7b372bf0e2ac8a
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 9f465e432d24374ef8cf06496c97345c95d9f2fc
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104527"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230985"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>在 Azure Monitor 中创建日志的指标警报
 
@@ -366,7 +366,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 或使用 Azure CLI 部署资源模板：
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
+az deployment group create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
 ```
 
 ### <a name="metric-alerts-for-logs-with-dynamic-thresholds"></a>带有动态阈值的日志的指标警报
@@ -682,7 +682,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 或使用 Azure CLI 部署资源模板：
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
+az deployment group create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
 ```
 
 ## <a name="next-steps"></a>后续步骤

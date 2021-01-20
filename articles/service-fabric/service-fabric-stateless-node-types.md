@@ -4,16 +4,16 @@ description: 了解如何在 Azure Service Fabric 群集中创建和部署无状
 ms.topic: conceptual
 author: rockboyfor
 origin.date: 09/25/2020
-ms.date: 01/11/2021
-ms.testscope: yes|no
-ms.testdate: 01/11/2021null
+ms.date: 01/18/2021
+ms.testscope: no
+ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: fe11a6413dea59449b0a5b4f2cd0bd71a10f296d
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 306504c7f0aafeee4032fa73efa5fa1ee341f409
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023996"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230919"
 ---
 <!--Verified Successfuly Character Only-->
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>使用纯无状态节点类型部署 Azure Service Fabric 群集（预览版）

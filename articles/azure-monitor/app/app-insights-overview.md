@@ -2,17 +2,17 @@
 title: 什么是 Azure Application Insights？ | Azure Docs
 description: 应用程序性能管理和实时 Web 应用程序的使用情况跟踪。  检测、会审和诊断问题，了解用户使用应用的方式。
 ms.topic: overview
-ms.date: 11/10/2020
+ms.date: 01/12/2021
 author: Johnnytechn
 ms.custom: mvc
 origin.date: 06/03/2019
 ms.author: v-johya
-ms.openlocfilehash: af1a8e49be4788e1025f05860d5f480ebff2f8fd
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 5db6efbaa7fff92d71ae0624757472ba2aa7665a
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637942"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230847"
 ---
 # <a name="what-is-application-insights"></a>什么是 Application Insights？
 Application Insights 是 [Azure Monitor](../overview.md) 的一项功能，是面向开发人员和 DevOps 专业人员的可扩展应用程序性能管理 (APM) 服务。 使用它可以监视实时应用程序。 它将自动检测性能异常，并且包含了强大的分析工具来帮助诊断问题，了解用户在应用中实际执行了哪些操作。  它旨在帮助持续提高性能与可用性。 它适用于本地云、混合云或任何公有云中托管的各种平台（包括 .NET、Node.js、Java 和 Python）上的应用。 它与 DevOps 进程集成，并且具有与不同开发工具的连接点。 可以通过与 Visual Studio App Center 集成来监视和分析移动应用的遥测数据。
@@ -70,7 +70,7 @@ Application Insights 主要面向开发团队，旨在帮助用户了解应用�
 ## <a name="how-do-i-use-application-insights"></a>如何使用 Application Insights？
 
 ### <a name="monitor"></a>监视
-在应用中安装 Application Insights，设置[可用性 Web 测试](./monitor-web-app-availability.md)，然后：
+在应用中安装 Application Insights，设置可用性 Web 测试，然后：
 
 * 为团队聊天室签出默认[应用程序仪表板](./overview-dashboard.md)，以便监视负载、响应能力和依赖项性能、页面加载和 AJAX 调用。
 * 发现最慢和多数情况下失败的请求。
@@ -109,7 +109,6 @@ Application Insights 是 Azure 中托管的众多服务之一，遥测会发送�
   * [其他平台](./platforms.md)
 * 针对页面视图、AJAX 和其他客户端遥测 **[检测网页](./javascript.md)** 。
 * 通过与 Visual Studio App Center 集成 **[分析移动应用使用情况](../learn/mobile-center-quickstart.md)** 。
-* **[可用性测试](./monitor-web-app-availability.md)** - 从我们的服务器定期对网站执行 ping 操作。
 
 ## <a name="next-steps"></a>后续步骤
 在运行时开始使用：

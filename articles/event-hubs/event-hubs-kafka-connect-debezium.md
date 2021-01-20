@@ -4,14 +4,14 @@ description: 本文介绍如何将 Debezium 与适用于 Kafka 的 Azure 事件�
 ms.topic: how-to
 author: abhirockzz
 ms.author: v-tawe
-origin.date: 08/11/2020
-ms.date: 01/05/2021
-ms.openlocfilehash: 8e95b6e1f7175a11e726e45acf48cd0d68f27210
-ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
+origin.date: 01/06/2021
+ms.date: 01/14/2021
+ms.openlocfilehash: fc6982ee275b43fdc67f7ee3ac94e6752f3f59a0
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874833"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193250"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>将 Azure 事件中心（预览版）上的 Apache Kafka Connect 支持与 Debezium 集成进行变更数据捕获
 

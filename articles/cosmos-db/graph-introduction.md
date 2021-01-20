@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 origin.date: 11/25/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 1d2db7e63dcdefd9606f6831767d138f0b6e2b72
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 1c854a270ed8576c8c5c038ac7b668a34409f222
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598687"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230937"
 ---
 <!--Verify sucessfully-->
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 Gremlin API 简介
@@ -64,7 +64,7 @@ Azure Cosmos DB 是一个完全托管的图形数据库，提供多区域分发�
 
 * **自动编制索引**
 
-    默认情况下，Azure Cosmos DB 自动为图形中的节点（也称为顶点）和边缘包含的所有属性编制索引，无需任何架构或创建二级索引。 深入了解 [Azure Cosmos DB 中的索引](https://docs.azure.cn/cosmos-db/index-overview)。
+    默认情况下，Azure Cosmos DB 自动为图形中的节点（也称为顶点）和边缘包含的所有属性编制索引，无需任何架构或创建二级索引。 深入了解 [Azure Cosmos DB 中的索引](./index-overview.md)。
 
 * **与 Apache TinkerPop 兼容**
 

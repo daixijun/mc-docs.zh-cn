@@ -6,17 +6,17 @@ ms.service: service-bus-messaging
 ms.topic: quickstart
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 12/14/2020
 ms.author: v-yeche
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 7d673580ca84c06da2a7271aec1eb43d8769c7c3
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 341b6b2df32b1891f1e7af27dc0d3cde3be378c7
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022996"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230050"
 ---
 <!--Verified Successfully-->
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>快速入门：通过 Java 使用服务总线主题和订阅

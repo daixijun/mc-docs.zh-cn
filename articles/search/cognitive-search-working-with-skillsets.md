@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 06/15/2020
-ms.date: 07/17/2020
-ms.openlocfilehash: bc45847ccf92a61891c4921ec898f7e2e0362f42
-ms.sourcegitcommit: fe9ccd3bffde0dd2b528b98a24c6b3a8cbe370bc
+ms.date: 01/18/2021
+ms.openlocfilehash: d1c6c924342c4e0faafec3d9a82f532903565e71
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86471855"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194747"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Azure 认知搜索中的技能组概念
 
@@ -223,8 +223,6 @@ ms.locfileid: "86471855"
 为了延伸该示例，可以选择删除内联整形，并使用整形程序技能为关键短语创建新节点。 若要创建投影到三个表（即 `hotelReviewsDocument`、`hotelReviewsPages` 和 `hotelReviewsKeyPhrases`）的形状，请使用后续部分所述的两个选项。
 
 #### <a name="shaper-skill-and-projection"></a>整形程序技能和投影
-
-此 
 
 > [!Note]
 > 为简洁起见，本示例中已删除了文档表中的某些列。

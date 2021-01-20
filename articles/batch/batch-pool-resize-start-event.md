@@ -1,16 +1,17 @@
 ---
 title: Azure Batch 池调整大小开始事件
 description: 批处理池调整大小开始事件参考。 示例显示了池调整大小开始事件（即通过手动调整大小将池的大小从 0 调整为 2 个节点）的正文。
-ms.topic: article
-origin.date: 04/20/2017
-ms.date: 11/16/2020
+ms.service: batch
+ms.topic: reference
+origin.date: 12/28/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: 2c90c5a4274fa4a3e09b0d1072e090f860c8fcd2
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 9fe5ecfd958a4669391c84348f4d58767e860d69
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551810"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230888"
 ---
 # <a name="pool-resize-start-event"></a>池调整大小开始事件
 
@@ -20,14 +21,14 @@ ms.locfileid: "94551810"
 
 ```
 {
-    "id": "myPool1",
-    "nodeDeallocationOption": "Invalid",
-    "currentDedicatedNodes": 0,
-    "targetDedicatedNodes": 2,
-    "currentLowPriorityNodes": 0,
-    "targetLowPriorityNodes": 2,
-    "enableAutoScale": false,
-    "isAutoPool": false
+   "id": "myPool1",
+   "nodeDeallocationOption": "Invalid",
+   "currentDedicatedNodes": 0,
+   "targetDedicatedNodes": 2,
+   "currentLowPriorityNodes": 0,
+   "targetLowPriorityNodes": 2,
+   "enableAutoScale": false,
+   "isAutoPool": false
 }
 ```
 

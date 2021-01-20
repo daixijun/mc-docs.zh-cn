@@ -6,14 +6,14 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 origin.date: 04/28/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: cc26e82861cf88b416321b7d0d509bafa22b1b5e
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 5923d4f9597a4e46b121799662cb91355cd599f1
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598699"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230886"
 ---
 <!--Verified successfully, ONLY CHARACTERS CONTENT-->
 # <a name="frequently-asked-questions-about-the-gremlin-api-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中 Gremlin API 的常见问题解答
@@ -111,7 +111,7 @@ Azure Cosmos DB Gremlin API 利用开源驱动程序作为服务的主要连接�
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>如何使用 Gremlin 驱动程序防范注入式攻击？
 
-大多数本机 Apache Tinkerpop Gremlin 驱动程序允许用户选择为执行查询提供参数字典。 这里提供了有关如何执行此操作的示例（分别以 [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 和 [Gremlin Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js) 编写）。
+大多数本机 Apache Tinkerpop Gremlin 驱动程序允许用户选择为执行查询提供参数字典。 这里提供了有关如何执行此操作的示例（分别以 [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 和 [Gremlin Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/main/app.js) 编写）。
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>为什么我收到“Gremlin 查询编译错误:找不到任何方法”错误？
 

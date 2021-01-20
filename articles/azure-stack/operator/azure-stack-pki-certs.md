@@ -4,16 +4,16 @@ description: 了解 Azure Stack Hub 集成系统的 Azure Stack Hub PKI 证书�
 author: WenJason
 ms.topic: conceptual
 origin.date: 08/19/2020
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 3031e7fa23399c27e3487dd2d1629ddad6281c15
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: aa62fcadc348cc708eaf2737b7db6c7112c0b19c
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330613"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541856"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack Hub 公钥基础结构 (PKI) 证书要求
 
@@ -35,7 +35,6 @@ Azure Stack Hub 有一个公共基础结构网络，该网络使用分配给少�
 - 轮换内部版本 1903 及更高版本的证书时，证书可以由任何企业或公共证书颁发机构来颁发。
 - 不支持使用自签名证书。
 - 对于部署和轮换，可以使用单一证书覆盖证书的“使用者名称”和“使用者可选名称(SAN)”字段中的所有命名空间，也可以为下面你计划使用的 Azure Stack Hub 服务所需的每个命名空间使用单独的证书。 这两种方法都需要将通配符用于需要它们的终结点，例如 **KeyVault** 和 **KeyVaultInternal**。
-- 证书的 PFX 加密应当为 3DES。
 - 证书签名算法不能为 SHA1。
 - 证书格式必须是 PFX，因为安装 Azure Stack Hub 时需要公钥和私钥。 私钥必须设置本地计算机密钥属性。
 - PFX 加密必须是 3DES（从 Windows 10 客户端或 Windows Server 2016 证书存储进行导出时，此加密是默认设置）。
@@ -106,8 +105,8 @@ Azure Stack Hub 有一个公共基础结构网络，该网络使用分配给少�
 |应用服务|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |应用服务|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |应用服务|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|事件中心|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>* | eventhub.&lt;region>.&lt;fqdn> |
-|IoT 中心|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>* | mgmtiothub. *&lt;region>.&lt;fqdn>* |
+|事件中心|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>*<br>（通配符 SSL 证书）|eventhub.&lt;region>.&lt;fqdn> |
+|IoT 中心|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>*<br>（通配符 SSL 证书）|mgmtiothub. *&lt;region>.&lt;fqdn>* |
 |SQL、MySQL|SQL 和 MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>（通配符 SSL 证书）|dbadapter. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> 需要一个包含多个通配符使用者可选名称的证书。 并非所有公共证书颁发机构都支持在单个证书中包含多个通配符 SAN。

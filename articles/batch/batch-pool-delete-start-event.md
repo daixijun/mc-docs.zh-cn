@@ -1,16 +1,17 @@
 ---
 title: Azure Batch 池删除开始事件
 description: 批处理池删除开始事件参考。 当池删除操作开始时，会发出此事件。
+ms.service: batch
 ms.topic: article
-origin.date: 04/20/2017
-ms.date: 06/20/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 2e994c3bbdf8dbe7fe11290b860d749bc1bda6fa
-ms.sourcegitcommit: cbaa1aef101f67bd094f6ad0b4be274bbc2d2537
+origin.date: 12/28/2020
+ms.date: 01/18/2021
+ms.author: v-harrishe
+ms.openlocfilehash: 71f4f994cec10f1a8212ac97bc30346a7148323f
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84126572"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231020"
 ---
 # <a name="pool-delete-start-event"></a>池删除开始事件
 
@@ -20,7 +21,7 @@ ms.locfileid: "84126572"
 
 ```
 {
-    "id": "myPool1"
+   "id": "myPool1"
 }
 ```
 

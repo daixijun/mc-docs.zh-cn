@@ -6,14 +6,14 @@ ms.author: v-johya
 services: azure-monitor
 ms.topic: conceptual
 origin.date: 2/24/2020
-ms.date: 11/02/2020
+ms.date: 01/12/2021
 ms.subservice: alerts
-ms.openlocfilehash: 5456f9e57fcc266493dbdf74fe5ba65e0b6ebf83
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: aa150f23bab3fac905310cbd5ca3d424420330f0
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328462"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230986"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 模板创建指标警报
 
@@ -272,7 +272,7 @@ az login
 
 az deployment group create \
     --name AlertDeployment \
-    --resource-group ResourceGroupofTargetResource \
+    --resource-group ResourceGroupOfTargetResource \
     --template-file simplestaticmetricalert.json \
     --parameters @simplestaticmetricalert.parameters.json
 ```
@@ -379,7 +379,7 @@ az deployment group create \
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -520,7 +520,7 @@ az deployment group create \
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -572,7 +572,6 @@ az deployment group create \
 - 不能使用“\*”作为维度值。
 - 如果在不同标准中配置的度量值支持同一维度，则必须以相同方式为所有这些指标（在相关标准中）显式设置配置的维度值。
     - 在下面的示例中，因为 **Transactions** 和 **SuccessE2ELatency** 指标都有 **ApiName** 维度，因此 *criterion1* 为 **ApiName** 维度指定 *"GetBlob"* 值，然后 *criterion2* 还必须为 **ApiName** 维度指定 *"GetBlob"* 值。
-
 
 为进行本次演练，请将下面的 json 保存为 advancedstaticmetricalert.json。
 
@@ -979,7 +978,7 @@ az deployment group create \
                             "values": ["*"]
                         },
                         {
-                "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }
@@ -3210,7 +3209,7 @@ az deployment group create \
 
 ## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>可用性测试以及指标警报的模板
 
-[Application Insights 可用性测试](../app/monitor-web-app-availability.md)可帮助你从全球各地监视网站/应用程序的可用性。 当可用性测试在一定数量的位置失败时，可用性测试警报会通知你。
+Application Insights 可用性测试可帮助你从全球各地监视网站/应用程序的可用性。 当可用性测试在一定数量的位置失败时，可用性测试警报会通知你。
 与指标警报 (Microsoft.Insights/metricAlerts) 的资源类型相同的可用性测试警报。 以下示例 Azure 资源管理器模板可用于设置简单的可用性测试和关联警报。
 
 为进行本次演练，请将下面的 json 保存为 availabilityalert.json。

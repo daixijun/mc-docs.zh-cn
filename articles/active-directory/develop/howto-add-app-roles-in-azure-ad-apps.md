@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 01/13/2021
 ms.author: v-junlch
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7860c0db6299405a9579202df0337859f2d7029d
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 6e33cb30378197a00486bbbedc35a24020944a34
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022057"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195000"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>如何：在应用程序中添加应用角色并在令牌中接收它们
 
@@ -49,7 +49,7 @@ ms.locfileid: "98022057"
 
 若要使用 Azure 门户的用户界面创建应用角色，请执行以下操作：
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 在顶部菜单中选择“目录 + 订阅”筛选器，然后选择包含要向其添加应用角色的应用注册的 Azure Active Directory 租户。
 1. 搜索并选择“Azure Active Directory”  。
 1. 在“管理”下，选择“应用注册”，然后选择要在其中定义应用角色的应用程序 。
@@ -74,7 +74,7 @@ ms.locfileid: "98022057"
 
 如需通过直接编辑清单来添加角色，请执行以下操作：
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 在顶部菜单中选择“目录 + 订阅”筛选器，然后选择包含要向其添加应用角色的应用注册的 Azure Active Directory 租户。
 1. 搜索并选择“Azure Active Directory”  。
 1. 在“管理”下，选择“应用注册”，然后选择要在其中定义应用角色的应用程序 。
@@ -136,7 +136,7 @@ ms.locfileid: "98022057"
 
 若要使用 Azure 门户将用户和组分配给角色，请执行以下操作：
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 在 Azure Active Directory 的左侧导航菜单中选择“企业应用程序” 。
 1. 选择“所有应用程序”，查看所有应用程序的列表。 如果应用程序未显示在列表中，请使用“所有应用程序”列表顶部的筛选器来限制此列表，或者在列表中向下滚动寻找你的应用程序。
 1. 选择一个应用程序，以便在其中为角色分配用户或安全组。
@@ -158,7 +158,7 @@ ms.locfileid: "98022057"
 
 若要使用 Azure 门户将应用角色分配给应用程序，请执行以下操作：
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 在 Azure Active Directory 的左侧导航菜单中，选择“应用注册” 。
 1. 选择“所有应用程序”，查看所有应用程序的列表。 如果应用程序未显示在列表中，请使用“所有应用程序”列表顶部的筛选器来限制此列表，或者在列表中向下滚动寻找你的应用程序。
 1. 选择要向其分配应用角色的应用程序。

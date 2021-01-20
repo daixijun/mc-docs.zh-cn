@@ -5,17 +5,17 @@ services: storage
 author: WenJason
 ms.service: storage
 origin.date: 09/22/2020
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.topic: conceptual
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 430b292a4abc51264cda2eef7c30184a9f687dae
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: eab7c36f9ca16ede91209aadcbdbff2bc57e15c7
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552976"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163136"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Blob 存储的加密范围（预览）
 
@@ -53,8 +53,8 @@ ms.locfileid: "94552976"
 
 如果你的加密范围受客户管理的密钥保护，则还可以删除密钥保管库中的关联密钥来禁用加密范围。 请记住，客户管理的密钥受到密钥保管库中的软删除和清除保护功能的保护，删除的密钥受到为这些属性定义的行为的约束。 有关详细信息，请参阅 Azure Key Vault 文档中的以下主题之一：
 
-- [如何在 PowerShell 中使用软删除](../../key-vault/general/soft-delete-powershell.md)
-- [如何在 CLI 中使用软删除](../../key-vault/general/soft-delete-cli.md)
+- [如何在 PowerShell 中使用软删除](../../key-vault/general/key-vault-recovery.md)
+- [如何在 CLI 中使用软删除](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > 不能删除加密范围。

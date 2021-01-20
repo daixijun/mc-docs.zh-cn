@@ -44,7 +44,7 @@
         - name: Key Vault 身份验证基础知识
           href: authentication-fundamentals.md
         - name: Azure Key Vault 安全性
-          href: overview-security.md
+          href: security-overview.md
         - name: 有关使用 Key Vault 的最佳做法 - Azure Key Vault
           href: best-practices.md
         - name: 网络安全

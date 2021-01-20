@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: Johnnytechn
 origin.date: 04/23/2019
 ms.author: v-johya
-ms.date: 10/29/2020
-ms.openlocfilehash: 32e2fc6997c7b8c071f1c9be7e56eda2ef6270ed
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/14/2021
+ms.openlocfilehash: 62f8e3c5b84241652227baaa2cac9ba7acf80fa2
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104423"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230914"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights 代理（以前称为状态监视器 v2）：详细说明
 
@@ -239,7 +239,6 @@ Application Insights SDK 需要将应用的遥测数据发送给 Microsoft。 �
 
  添加更多遥测：
 
-- [创建 Web 测试](monitor-web-app-availability.md)，以确保站点保持活动状态。
 - [添加 Web 客户端遥测](./javascript.md)，以查看网页代码中的异常并启用跟踪调用。
 - [将 Application Insights SDK 添加到代码](./asp-net.md)，以便插入跟踪和日志调用。
 

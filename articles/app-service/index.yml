@@ -7,14 +7,14 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   origin.date: 08/06/2020
-  ms.date: 01/11/2021
+  ms.date: 01/18/2021
   ms.author: v-tawe
-  ms.openlocfilehash: a8f5cbec8a990db8d594e2f16b2acc63614040de
-  ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+  ms.openlocfilehash: 4e0418266f10bf042bc29c22d416b08c1aee30ae
+  ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 01/08/2021
-  ms.locfileid: "98022451"
+  ms.lasthandoff: 01/15/2021
+  ms.locfileid: "98230843"
 landingContent:
 - title: 关于应用服务
   linkLists:
@@ -132,5 +132,5 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.websites/#app_service
     - text: REST API
       url: https://docs.microsoft.com/rest/api/appservice/
-    - text: 资源管理器
+    - text: Resource Manager
       url: https://docs.microsoft.com/azure/templates/microsoft.web/allversions

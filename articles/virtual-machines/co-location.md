@@ -5,17 +5,17 @@ ms.service: virtual-machines
 ms.topic: conceptual
 origin.date: 12/07/2020
 author: rockboyfor
-ms.date: 01/04/2021
-ms.testscope: yes|no
-ms.testdate: 01/04/2021null
+ms.date: 01/18/2021
+ms.testscope: yes
+ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: zivr
-ms.openlocfilehash: df61314297f82d5bde546e27fdedabc8b264625c
-ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
+ms.openlocfilehash: 765664e23f879011b94596571b568963c851c5e7
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857671"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231087"
 ---
 <!--Verified successfully from renamed articles-->
 # <a name="co-locate-resources-for-improved-latency"></a>并置资源以改善延迟
@@ -27,6 +27,8 @@ ms.locfileid: "97857671"
 ## <a name="proximity-placement-groups"></a>邻近放置组
 
 将 VM 置于单个区域可以减少实例之间的物理距离。
+
+<!--Not Available on single availability zone-->
 
 若要让 VM 尽可能靠近，将延迟尽可能降至最低，应将 VM 部署到一个邻近放置组中。
 

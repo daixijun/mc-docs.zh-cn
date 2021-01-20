@@ -10,14 +10,14 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 04/16/2020
-ms.date: 11/27/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: 4719182b767da1a68e35ba3af6054b59983d3fdc
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 8cfc26970c0d83c44e9180c492efde6eddcceec7
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96430863"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231065"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>教程：配置 Key Vault 中的证书自动轮换
 
@@ -42,7 +42,7 @@ ms.locfileid: "96430863"
 
 ## <a name="create-a-vault"></a>创建保管库
 
-创建密钥保管库或选择现有保管库以执行操作（请参阅[创建密钥保管库的步骤](../secrets/quick-create-portal.md)）。 在以下示例中，密钥保管库名称为 Example-Vault。
+使用 [Azure 门户](../general/quick-create-portal.md)、[Azure CLI](../general/quick-create-cli.md) 或 [Azure PowerShell](../general/quick-create-powershell.md) 创建 Azure Key Vault。 在以下示例中，密钥保管库名称为 Example-Vault。
 
 ![密钥保管库创建完成后的输出](../media/certificates/tutorial-import-cert/vault-properties.png)
 

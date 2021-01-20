@@ -10,12 +10,12 @@ origin.date: 11/01/2018
 ms.date: 10/19/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: e27d4be7de8abb74f8936bedf95bb4012bd1c35c
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: f79370c07502d3420f495b90246b07d810a9c59f
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170748"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230845"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的部署常见问题解答
 
@@ -57,7 +57,7 @@ ms.locfileid: "92170748"
 
 <!-- ## How do I set up continuous deployment for my App Service web app? -->
 
-<!-- You can set up continuous deployment from several resources, including Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox, and other Git repositories. These options are available in the portal. [Continuous deployment to App Service](deploy-continuous-deployment.md) is a helpful tutorial that explains how to set up continuous deployment. -->
+<!-- You can set up continuous deployment from several resources, including Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox, and other Git repositories. These options are available in the portal. [Continuous deployment to App Service](deploy-continuous-deployment.md)-->
 
 <!-- ## How do I troubleshoot issues with continuous deployment from GitHub and Bitbucket? -->
 

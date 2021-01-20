@@ -6,17 +6,17 @@ author: rockboyfor
 ms.service: service-bus-messaging
 ms.topic: conceptual
 origin.date: 06/23/2020
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8a708f7e843ce08075de7d9915bbe4f558139519
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 94e6e7316fc7e55681d90c6a984b5765b803f06d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023016"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230853"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure 服务总线到事件网格的集成概述
 
@@ -117,7 +117,7 @@ Azure 服务总线已推出与 Azure 事件网格集成的新功能。 此功能
   "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
   "data": {
     "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.chinacloudapi.cn/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.chinacloudapi.cn/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/messages/head",
     "entityType": "subscriber",
     "queueName": "QUEUE NAME IF QUEUE",
     "topicName": "TOPIC NAME IF TOPIC",

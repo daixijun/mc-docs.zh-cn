@@ -3,19 +3,22 @@ title: 快速入门：创建 Python 应用
 description: 将第一个 Python 应用部署到 Azure 应用服务中的 Linux 容器即可开始使用 Azure 应用服务。
 ms.topic: quickstart
 origin.date: 11/10/2020
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.author: v-tawe
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: f7d83e3fefbee91bdd342825d9800a1e20874fc5
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-python-1
+ms.openlocfilehash: 9504e7f22859d46c69a54f0619b6773bdf6e7553
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022955"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230739"
 ---
-# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>快速入门：在 Linux 上的 Azure 应用服务中创建 Python 应用
+# <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>快速入门：在 Linux 上的 Azure 应用服务中创建 Python 应用
 
 在本快速入门中，需将 Python Web 应用部署到 [Linux 上的应用服务](overview.md#app-service-on-linux)，该版本提供了一项高度可缩放、自我修补的 Azure Web 托管服务。 在 Mac、Linux 或 Windows 计算机上，可使用本地 [Azure 命令行界面 (CLI)](/cli/install-azure-cli) 通过 Flask 或 Django 框架来部署示例。 配置的 Web 应用使用免费的应用服务层，因此本文中的操作不会产生任何费用。
 
@@ -295,5 +298,5 @@ az group delete --no-wait
 
 > [!div class="nextstepaction"]
 
-<!-- > [!div class="nextstepaction"]
-> [Tutorial: Run Python app in custom container](tutorial-custom-container.md) -->
+<!-- [Tutorial: Run Python app in custom container](tutorial-custom-container.md) -->
+

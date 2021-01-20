@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/06/2021
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 9c90ed4a692893cac703b8ec80762c999cb59241
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: a5b6cd9dc31ac8bd466064bf24589fb1453cfdec
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021277"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195259"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>用于登录用户的 Web 应用：应用注册
 
@@ -41,7 +41,7 @@ ms.locfileid: "98021277"
 > 要使用的门户根据应用程序是在 Azure 公有云中运行还是在国家云或主权云中运行而异。 有关详细信息，请参阅[国家云](./authentication-national-cloud.md#app-registration-endpoints)。
 
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。 
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。 
 1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
 1. 搜索并选择“Azure Active Directory”  。
 1. 在“管理”下，选择“应用注册” > “新建注册”  。

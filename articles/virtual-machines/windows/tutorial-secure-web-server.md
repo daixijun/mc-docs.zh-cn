@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.workload: infrastructure
 origin.date: 02/09/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: dbb392534af16ef3593d2cb5aeab34d3a3af31e6
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 933bfc79bdce334f5edc910608b0f8b6f5e22ac5
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105401"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570489"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>教程：在 Azure 中使用 Key Vault 中存储的 TLS/SSL 证书保护 Windows 虚拟机上的 Web 服务器
 
@@ -82,13 +82,13 @@ Add-AzKeyVaultCertificate `
 ```
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
-使用 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1) 设置 VM 的管理员用户名和密码：
+使用 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true) 设置 VM 的管理员用户名和密码：
 
 ```powershell
 $cred = Get-Credential
 ```
 
-现在，可使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例在“ChinaEast”位置创建一个名为 myVM 的 VM。 如果支持的网络资源不存在，则会创建这些资源。 此 cmdlet 还打开端口 *443* ，目的是允许安全的 Web 流量。
+现在，可使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例在“ChinaEast”位置创建一个名为 myVM 的 VM。 如果支持的网络资源不存在，则会创建这些资源。 此 cmdlet 还打开端口 *443*，目的是允许安全的 Web 流量。
 
 ```powershell
 # Create a VM
@@ -163,7 +163,7 @@ Get-AzPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress
 
 随即显示受保护的 IIS 网站，如下例所示：
 
-:::image type="content" source="./media/tutorial-secure-web-server/secured-iis.png" alt-text="接受 Web 浏览器安全警告":::
+:::image type="content" source="./media/tutorial-secure-web-server/secured-iis.png" alt-text="查看运行中的安全 IIS 站点":::
 
 ## <a name="next-steps"></a>后续步骤
 本教程已介绍如何使用 Azure Key Vault 中存储的 TLS/SSL 证书保护 IIS Web 服务器。 你已了解如何执行以下操作：

@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
 origin.date: 07/20/2020
-ms.date: 11/27/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: 19526f7d27e9405f235b8051847324b88b3c9767
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 118266ca28fd9001fc87972b79a6d485459d8ad2
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300282"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230051"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>续订 Azure Key Vault 证书
 

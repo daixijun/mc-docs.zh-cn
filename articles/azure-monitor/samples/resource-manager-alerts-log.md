@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: 188f87fc970fa0c9fd618bcbdac58258e16a6512
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.date: 01/12/2021
+ms.openlocfilehash: 3dc1b29eb0dd4a300113642bbf4ec69013794b51
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638011"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230415"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>用于 Azure Monitor 日志警报规则的资源管理器模板示例
 本文包含用于在 Azure Monitor 中创建和配置日志查询警报的 [Azure 资源管理器模板](../../azure-resource-manager/templates/template-syntax.md)示例。 每个示例都包含模板文件和参数文件，其中包含要提供给模板的示例值。
@@ -271,14 +271,12 @@ ms.locfileid: "94638011"
         },
         "metricMeasureColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the measure column used in the alert evaluation."
             }
         },
         "resourceIdColumn": {
             "type": "string",
-            "minLength": 1,
             "metadata": {
                 "description": "Name of the resource ID column used in the alert targeting the alerts."
             }

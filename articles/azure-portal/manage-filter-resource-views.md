@@ -4,13 +4,13 @@ description: 筛选信息并使用不同的视图来更好地了解你的 Azure 
 ms.topic: how-to
 ms.author: v-tawe
 origin.date: 09/11/2020
-ms.date: 12/30/2020
-ms.openlocfilehash: d350bc815fa0834c8cd1db66a0f802186dcf55e3
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.date: 01/13/2021
+ms.openlocfilehash: 36647a104b42aa92de04e7ee764a929deee1e1da
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820358"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230970"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>查看和筛选 Azure 资源信息
 

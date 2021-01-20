@@ -3,8 +3,8 @@ title: 教程：使用 Postgre 部署 Python Django 应用
 description: 创建使用 PostgreSQL 数据库的 Python Web 应用并将其部署到 Azure。 本教程使用 Django 框架，应用托管在 Linux 上的 Azure 应用服务上。
 ms.devlang: python
 ms.topic: tutorial
-origin.date: 11/02/2020
-ms.date: 12/21/2020
+origin.date: 01/04/2021
+ms.date: 01/18/2021
 ms.author: v-tawe
 ms.custom:
 - mvc
@@ -13,12 +13,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 7206b83c54757c0fff311d896541dd31cab0d04a
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 8e2cc92c4b6e7562caf2d5ce8f645655e02e9404
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023122"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230791"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>教程：在 Azure 应用服务中部署使用 PostgreSQL 的 Django Web 应用
 
@@ -157,9 +157,10 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location chinaeast2
 
 可以使用其他 `az postgres` 和 `psql` 命令单独执行每个步骤，但 `az postgres up` 可以完成所有这些操作。
 
-当该命令完成时，它会输出一个 JSON 对象，其中包含数据库的不同连接字符串以及服务器 URL、生成的用户名（例如“joyfulKoala@msdocs-djangodb-12345”）和 GUID 密码。 将短用户名（@ 之前的内容）和密码复制到临时文本文件中，你需要在本教程稍后的内容中使用它们。
+当该命令完成时，它会输出一个 JSON 对象，其中包含数据库的不同连接字符串以及服务器 URL、生成的用户名（例如“joyfulKoala@msdocs-djangodb-12345”）和 GUID 密码。 将用户名和密码复制到临时文本文件，你需要在本教程稍后的内容中使用它们。
 
 <!-- not all locations support az postgres up -->
+
 > [!TIP]
 > `-l <location-name>` 可以设置为任一个 [Azure 区域](https://azure.microsoft.com/global-infrastructure/regions/)。 可以使用 [`az account list-locations`](/cli/account#az_account_list_locations) 命令获取可供你的订阅使用的区域。 对于生产应用，请将数据库和应用放置在同一位置。
 
@@ -169,7 +170,7 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location chinaeast2
 
 在本部分中，你将在应用服务应用中创建应用主机，将此应用连接到 Postgres 数据库，然后将代码部署到该主机。
 
-### <a name="create-the-app-service-app"></a>创建应用服务应用
+### <a name="41-create-the-app-service-app"></a>4.1 创建应用服务应用
 
 在终端中，请确保位于包含应用代码的“djangoapp”存储库文件夹中。
 
@@ -224,7 +225,7 @@ az webapp config appsettings set --settings DBHOST="<postgres-server-name>" DBNA
 
 Django 数据库迁移会确保 Azure 数据库上的 PostgreSQL 中的架构与代码中描述的架构相匹配。
 
-1. 通过在浏览器中导航至以下 URL 并使用 Azure 帐户凭据（而不是数据库服务器凭据）登录来建立 SSH 会话。
+1. 通过导航至以下 URL 并使用 Azure 帐户凭据（而不是数据库服务器凭据）登录来在浏览器中建立 SSH 会话。
 
     ```
     https://<app-name>.scm.chinacloudsites.cn/webssh/host
@@ -239,14 +240,11 @@ Django 数据库迁移会确保 Azure 数据库上的 PostgreSQL 中的架构与
 1. 在 SSH 会话中运行以下命令（可以使用 Ctrl+Shift+V 粘贴命令）  ：
 
     ```bash
-    # Change to the folder where the app code is deployed
-    cd site/wwwroot
+    # Change to the app folder
+    cd $APP_PATH
     
-    # Activate default virtual environment in App Service container
+    # Activate the venv (requirements.txt is installed automatically)
     source /antenv/bin/activate
-
-    # Install packages
-    pip install -r requirements.txt
 
     # Run database migrations
     python manage.py migrate
@@ -254,6 +252,8 @@ Django 数据库迁移会确保 Azure 数据库上的 PostgreSQL 中的架构与
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```
+
+    如果遇到与连接到数据库相关的任何错误，请检查在上一部分创建的应用程序设置的值。
 
 1. `createsuperuser` 命令会提示输入超级用户凭据。 针对本教程，请使用默认的用户名 `root`，对于电子邮件地址，按 Enter 以留空，并输入 `Pollsdb1` 作为密码。
 
@@ -263,13 +263,13 @@ Django 数据库迁移会确保 Azure 数据库上的 PostgreSQL 中的架构与
     
 ### <a name="44-create-a-poll-question-in-the-app"></a>4.4 在应用中创建投票问题
 
-1. 在浏览器中打开 URL `http://<app-name>.chinacloudsites.cn`。 应用应显示消息“无可用投票”，因为数据库中尚没有特定的投票。
+1. 在浏览器中打开 URL `http://<app-name>.chinacloudsites.cn`。 应用应显示“投票应用”和“无可用投票”消息，这是因为数据库中尚无特定投票。
 
     如果看到“应用程序错误”，可能是由于你没有在上一步（[配置环境变量以连接数据库](#42-configure-environment-variables-to-connect-the-database)）中创建所需的设置，或者这些值包含错误。 运行命令 `az webapp config appsettings list` 以检查设置。 还可以[检查诊断日志](#6-stream-diagnostic-logs)以查看应用启动过程中的特定错误。 例如，如果你未创建设置，则日志将显示错误 `KeyError: 'DBNAME'`。
 
     更新设置以更正所有错误后，请等待应用重启，然后刷新浏览器。
 
-1. 浏览到 `http://<app-name>.chinacloudsites.cn/admin`。 使用上一节中的超级用户凭据登录（`root` 和 `Pollsdb1`）。 在“投票”下，选择“问题”旁边的“添加”，创建一个包含一些选项的投票问题  。
+1. 浏览到 `http://<app-name>.chinacloudsites.cn/admin`。 使用上一部分中的 Django 超级用户凭据登录（`root` 和 `Pollsdb1`）。 在“投票”下，选择“问题”旁边的“添加”，创建一个包含一些选项的投票问题  。
 
 1. 再次浏览到 `http://<app-name>.chinacloudsites.cn`，确认现在是否向用户显示了问题。 回答你希望如何在数据库中生成某些数据。
 
@@ -295,7 +295,7 @@ Django 数据库迁移会确保 Azure 数据库上的 PostgreSQL 中的架构与
 python3 -m venv venv
 source venv/bin/activate
 
-# Install packages
+# Install dependencies
 pip install -r requirements.txt
 # Run Django migrations
 python manage.py migrate
@@ -313,7 +313,7 @@ py -3 -m venv venv
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
 venv\scripts\activate
 
-# Install packages
+# Install dependencies
 pip install -r requirements.txt
 # Run Django migrations
 python manage.py migrate
@@ -330,7 +330,7 @@ python manage.py runserver
 py -3 -m venv venv
 venv\scripts\activate
 
-:: Install packages
+:: Install dependencies
 pip install -r requirements.txt
 :: Run Django migrations
 python manage.py migrate
@@ -370,8 +370,7 @@ choice_text = models.CharField(max_length=100)
 
 因为你更改了数据模型，所以请创建新的 Django 迁移并迁移数据库：
 
-```
-python manage.py makemigrations
+```python manage.py makemigrations
 python manage.py migrate
 ```
 
@@ -400,11 +399,8 @@ az webapp up
 通过在浏览器中导航到 `https://<app-name>.scm.chinacloudsites.cn/webssh/host` 再次建立 SSH 会话。 然后运行以下命令：
 
 ```
-cd site/wwwroot
-
-# Activate default virtual environment in App Service container
+cd $APP_PATH
 source /antenv/bin/activate
-# Run database migrations
 python manage.py migrate
 ```
 

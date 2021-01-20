@@ -4,19 +4,19 @@ description: 使用 Application Insights 分析 Windows 桌面应用的使用情
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 10/29/2019
-ms.date: 10/29/2020
+ms.date: 01/15/2021
 ms.custom: fasttrack-edit
 ms.author: v-johya
-ms.openlocfilehash: 3b51a3e86e4b7df8fae9b194b9fea516a47b6eb5
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: a176b7fe6786d9d9c786751a956584f8c3264fa8
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106204"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231025"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>监视经典 Windows 桌面应用中的使用情况和性能
 
-在 Azure 和其他云中本地托管的应用程序都可以利用 Application Insights。 唯一限制是需要[允许与 Application Insights 服务通信](./ip-addresses.md)。 若要监视通用 Windows 平台 (UWP) 应用程序，我们建议使用 [Visual Studio App Center](../learn/mobile-center-quickstart.md)。
+在 Azure 和其他云中本地托管的应用程序都可以利用 Application Insights。 唯一限制是需要允许与 Application Insights 服务通信。 若要监视通用 Windows 平台 (UWP) 应用程序，我们建议使用 [Visual Studio App Center](../learn/mobile-center-quickstart.md)。
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>将遥测从经典 Windows 应用程序发送到 Application Insights
 1. 在 [Azure 门户](https://portal.azure.cn)中，[创建 Application Insights 资源](./create-new-resource.md)。 

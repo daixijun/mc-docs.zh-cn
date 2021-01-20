@@ -6,16 +6,16 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 origin.date: 11/19/2019
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: 7061196228e470f8c8ec9807a9066c6ae06baee8
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 264ba774473ae05e853c451ca845be404baa6782
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432012"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163144"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>教程：Azure Data Lake Storage Gen2、Azure Databricks & Spark
 
@@ -34,22 +34,22 @@ ms.locfileid: "96432012"
 
 * 创建 Azure Data Lake Storage Gen2 帐户。
 
-  请参阅[创建 Azure Data Lake Storage Gen2 帐户](data-lake-storage-quickstart-create-account.md)。
+  请参阅[创建用于 Azure Data Lake Storage Gen2 的存储帐户](create-data-lake-storage-account.md)。
 
-* 请确保你的用户帐户分配有[存储 Blob 数据参与者角色](/storage/common/storage-auth-aad-rbac)。
+* 请确保你的用户帐户分配有[存储 Blob 数据参与者角色](../common/storage-auth-aad-rbac-portal.md)。
 
-* 安装 AzCopy v10。 请参阅[使用 AzCopy v10 传输数据](/storage/common/storage-use-azcopy-v10?toc=%2fstorage%2fblobs%2ftoc.json)。
+* 安装 AzCopy v10。 请参阅[使用 AzCopy v10 传输数据](../common/storage-use-azcopy-v10.md?toc=%2fstorage%2fblobs%2ftoc.json)。
 
-* 创建服务主体。 请参阅[如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体](/active-directory/develop/howto-create-service-principal-portal)。
+* 创建服务主体。 请参阅[如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体](../../active-directory/develop/howto-create-service-principal-portal.md)。
 
   在执行该文中的步骤时，需要完成一些特定的事项。
 
-  :heavy_check_mark:执行该文中[将应用程序分配给角色](/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application)部分中的步骤时，请确保将“存储 Blob 数据参与者”  角色分配给服务主体。
+  :heavy_check_mark:执行该文中[将应用程序分配给角色](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)部分中的步骤时，请确保将“存储 Blob 数据参与者”  角色分配给服务主体。
 
   > [!IMPORTANT]
   > 请确保在 Data Lake Storage Gen2 存储帐户的范围内分配角色。 可以将角色分配给父资源组或订阅，但在这些角色分配传播到存储帐户之前，你将收到与权限相关的错误。
 
-  :heavy_check_mark:执行本文的[获取用于登录的值](/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)部分中的步骤时，请将租户 ID、应用 ID 和客户端机密值粘贴到文本文件中。 很快就会需要这些值。
+  :heavy_check_mark:执行本文的[获取用于登录的值](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)部分中的步骤时，请将租户 ID、应用 ID 和客户端机密值粘贴到文本文件中。 很快就会需要这些值。
 
 ### <a name="download-the-flight-data"></a>下载航班数据
 

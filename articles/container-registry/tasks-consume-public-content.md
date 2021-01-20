@@ -4,17 +4,17 @@ description: 创建自动化 Azure 容器注册表任务工作流，用于在专
 ms.topic: article
 origin.date: 10/29/2020
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/18/2021
 ms.testscope: yes|no
 ms.testdate: 11/23/2020null
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: c860bdff405a5a051c9ce27811f8f628f2f213fb
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: e3092e8a4579ff366484176fd39a63b38d23b7ca
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024416"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230125"
 ---
 <!--Pending for PM review-->
 # <a name="how-to-consume-and-maintain-public-content-with-azure-container-registry-tasks"></a>如何使用 Azure 容器注册表任务消耗并维护公共内容
@@ -60,11 +60,11 @@ ms.locfileid: "96024416"
 1. 一个用来保护所有机密的 **Azure 密钥保管库**
 1. 一个承载 `hello-world` 生成应用程序的 **Azure 容器实例**
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 以下步骤配置在演练中创建和使用的资源的值。
 
-### <a name="set-environment-variables"></a>设置环境变量。
+### <a name="set-environment-variables"></a>设置环境变量
 
 配置你的环境特有的变量。 我们会遵循最佳做法，将具有持久性内容的资源置于其自己的资源组中，以最大程度地减少意外删除情况。 不过，你可以根据需要将其放在单个资源组中。
 
@@ -756,11 +756,11 @@ az group delete -n $ACI_RG --no-wait -y
 
 [install-cli]:                  https://docs.azure.cn/cli/install-azure-cli
 [acr]:                          https://aka.ms/acr
-[acr-repo-permissions]:         https://aka.ms/acr/repo-permissions
-[acr-task]:                     https://aka.ms/acr/tasks
+[acr-repo-permissions]:         ./container-registry-repository-scoped-permissions.md
+[acr-task]:                     ./container-registry-tasks-overview.md
 [acr-task-triggers]:            container-registry-tasks-overview.md#task-scenarios
 [acr-task-credentials]:       container-registry-tasks-authentication-managed-identity.md#4-optional-add-credentials-to-the-task
-[acr-tokens]:                   https://aka.ms/acr/tokens
+[acr-tokens]:                   ./container-registry-repository-scoped-permissions.md
 [aci]:                          https://aka.ms/aci
 [alpine-public-image]:          https://hub.docker.com/_/alpine
 [docker-hub]:                   https://hub.docker.com
@@ -771,7 +771,7 @@ az group delete -n $ACI_RG --no-wait -y
 [helm-charts]:                  https://helm.sh
 [mcr]:                          https://aka.ms/mcr
 [nginx-public-image]:           https://hub.docker.com/_/nginx
-[oci-artifacts]:                https://aka.ms/acr/artifacts
+[oci-artifacts]:                ./container-registry-oci-artifacts.md
 [oci-consuming-public-content]: https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/
 [opa]:                          https://www.openpolicyagent.org/
 [quay]:                         https://quay.azk8s.cn

@@ -12,19 +12,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/29/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 00de7b01376ff750e35cc117f391a27f9983dfd6
-ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
+ms.openlocfilehash: cd7bed6c98ca973c347476c35bcfa69211ce889a
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829387"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195193"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>使用 REST API 添加或删除 Azure 角色分配
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 本文介绍如何使用 REST API 分配角色。
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] 本文介绍如何使用 REST API 分配角色。
 
 ## <a name="prerequisites"></a>先决条件
 

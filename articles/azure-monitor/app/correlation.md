@@ -5,15 +5,15 @@ ms.topic: conceptual
 author: Johnnytechn
 origin.date: 06/07/2019
 ms.author: v-johya
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: b5238fc71e38cbf7c27139732ea857ae85b6417b
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 5929c37092466ca885b8eee5bdf7a1dd279c4be2
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104892"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229929"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遥测关联
 
@@ -80,7 +80,6 @@ Application Insights 还为关联 HTTP 协议定义了[扩展](https://github.co
 | `Operation_Id`                         | [trace-id](https://w3c.github.io/trace-context/#trace-id)                                           |
 | `Operation_ParentId`                   | 此范围的父范围的 [parent-id](https://w3c.github.io/trace-context/#parent-id)。 如果这是根范围，此字段必须为空。     |
 
-
 有关详细信息，请参阅 [Application Insights 遥测数据模型](../../azure-monitor/app/data-model.md)。
 
 ### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>启用对 .NET 应用的 W3C 分布式跟踪支持
@@ -104,7 +103,7 @@ Application Insights 还为关联 HTTP 协议定义了[扩展](https://github.co
        <Param name ="enableW3CBackCompat" value = "true" />
     </Add>
     ```
-    
+
   - 对于 Spring Boot 应用，请添加以下属性：
 
     - `azure.application-insights.web.enable-W3C=true`
@@ -140,7 +139,7 @@ Application Insights 还为关联 HTTP 协议定义了[扩展](https://github.co
   ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
   ```
-  
+
 - **[基于代码片段的设置](./javascript.md#snippet-based-setup)**
 
 添加以下配置：
@@ -261,10 +260,8 @@ Application Insights .NET SDK 使用 `DiagnosticSource` 和 `Activity` 收集和
 
     ```json
     {
-      "instrumentationSettings": {
-        "preview": {
-          "roleName": "my cloud role name"
-        }
+      "role": {
+        "name": "my cloud role name"
       }
     }
     ```

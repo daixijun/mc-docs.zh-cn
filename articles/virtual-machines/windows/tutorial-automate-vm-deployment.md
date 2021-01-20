@@ -6,17 +6,17 @@ ms.topic: tutorial
 ms.workload: infrastructure
 origin.date: 11/29/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 20f03dae0f1e3da7b70916f7c64ac91640af23e2
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 9df9ac29bd9474320c268488403f9ccc7aa748ed
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105742"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570594"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>教程 - 使用自定义脚本扩展将应用程序部署到 Azure 中的 Windows 虚拟机
 
@@ -41,7 +41,7 @@ ms.locfileid: "93105742"
 自定义脚本扩展适用于 Windows 和 Linux VM。
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
-使用 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1) 设置 VM 的管理员用户名和密码：
+使用 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true) 设置 VM 的管理员用户名和密码：
 
 <!--Correct on China East 2-->
 
@@ -50,7 +50,7 @@ Connect-AzAccount -Environment AzureChinaCloud
 $cred = Get-Credential
 ```
 
-现在，可使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例在“ChinaEast”位置创建一个名为 myVM 的 VM。 如果资源组 *myResourceGroupAutomate* 和支持的网络资源不存在，则会创建它们。 此 cmdlet 还打开端口 *80* ，目的是允许 Web 流量。
+现在，可使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例在“ChinaEast”位置创建一个名为 myVM 的 VM。 如果资源组 *myResourceGroupAutomate* 和支持的网络资源不存在，则会创建它们。 此 cmdlet 还打开端口 *80*，目的是允许 Web 流量。
 
 ```powershell
 New-AzVm `

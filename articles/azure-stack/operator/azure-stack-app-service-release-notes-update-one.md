@@ -5,16 +5,16 @@ author: WenJason
 manager: digimobile
 ms.topic: article
 origin.date: 03/25/2019
-ms.date: 08/31/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 0d2e09cdf37e38ad9d575b89497c7f8c955af119
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: a6e6b4d531ccf2843de0be95f88b7a7a9e4f9762
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88868014"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541832"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>Azure Stack Hub 上的应用服务 Update 1 发行说明
 
@@ -42,9 +42,9 @@ Azure Stack Hub 上的 Azure 应用服务 Update 1 包含以下改进和修复�
 
 - **在现有的虚拟网络中进行部署** - 客户现在可以在现有的虚拟网络中部署基于 Azure Stack Hub 的应用服务。 在现有的虚拟网络中进行部署以后，客户就可以通过专用端口连接到 Azure 应用服务所需的 SQL Server 和文件服务器。 在部署过程中，客户可以选择在现有的虚拟网络中进行部署，但在部署之前[必须创建供应用服务使用的子网](azure-stack-app-service-before-you-get-started.md#virtual-network)。
 
-- 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack Hub 门户 SDK 版本一致。
+- 针对 **应用服务租户、管理员、函数门户和 Kudu 工具** 的更新。 与 Azure Stack Hub 门户 SDK 版本一致。
 
-- 将 **Azure Functions 运行时**更新到 **v1.0.11388**。
+- 将 **Azure Functions 运行时** 更新到 **v1.0.11388**。
 
 - **针对以下应用程序框架和工具的更新**：
     - 增加了 **.NET Core 2.0** 支持。
@@ -71,7 +71,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 1 包含以下改进和修复�
         - 5.6.32
         - 7.0.26（x86 和 x64）
         - 7.1.12（x86 和 x64）
-    - 已将**适用于 Windows 的 Git** 更新到 v2.14.1
+    - 已将 **适用于 Windows 的 Git** 更新到 v2.14.1
     - 已将 **Mercurial** 更新到 v4.5.0
 
   - 增加了对“仅限 HTTPS”功能的支持，该功能位于应用服务用户门户的“自定义域”功能中。
@@ -86,7 +86,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 1 包含以下改进和修复�
 
 - 防止客户使用在安装过程中保留的管理员名称。
 
-- 允许通过**已加入域**的文件服务器进行应用服务部署。
+- 允许通过 **已加入域** 的文件服务器进行应用服务部署。
 
 - 改进了在脚本中检索 Azure Stack Hub 根证书的功能，并添加了在应用服务安装程序中验证该根证书的功能。
 
@@ -204,7 +204,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 1 包含以下改进和修复�
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>云管理员在操作基于 Azure Stack Hub 的 Azure 应用服务时的已知问题
 
-请参阅 [Azure Stack Hub 1802 发行说明](./release-notes.md?view=azs-2002)中的文档
+请参阅 [Azure Stack Hub 1802 发行说明](./release-notes.md?view=azs-1802&preserve-view=true)中的文档
 
 ## <a name="next-steps"></a>后续步骤
 

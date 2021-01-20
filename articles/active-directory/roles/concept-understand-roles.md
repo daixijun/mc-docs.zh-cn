@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 01/05/2021
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 082d60cc3b1a944eefd95f02f8712d95fe2006bc
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 4fcfe8d69881eecc698654d68cf94a31cb5b728d
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023621"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195267"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>了解 Azure Active Directory 中的角色
 
@@ -44,7 +44,7 @@ Teams、SharePoint 和托管桌面等其他服务没有单独的基于角色的�
 
 ## <a name="why-some-azure-ad-roles-are-for-other-services"></a>为什么某些 Azure AD 角色适用于其他服务
 
-Microsoft 365 具有许多基于角色的访问控制系统，它们是在一段时间内是独立开发的，每个系统都有自己的服务门户。 为了方便你在 Azure AD 门户中管理适用于整个 Microsoft 365 的标识，我们添加了一些特定于服务的内置角色，其中每个角色都授予对 Microsoft 365 服务的管理访问权限。 添加的角色的一个示例是 Azure AD 中的 Exchange 管理员角色。 此角色与 Exchange 基于角色的访问控制系统中的[“组织管理”角色组](https://docs.microsoft.com/exchange/organization-management-exchange-2013-help)相同，可以管理 Exchange 的所有方面。 同样，我们添加了 Intune 管理员角色、Teams 管理员、SharePoint 管理员等。 特定于服务器的角色是以下部分介绍的一类 Azure AD 内置角色。
+Microsoft 365 具有许多基于角色的访问控制系统，它们是在一段时间内是独立开发的，每个系统都有自己的服务门户。 为了方便你在 Azure AD 门户中管理适用于整个 Microsoft 365 的标识，我们添加了一些特定于服务的内置角色，其中每个角色都授予对 Microsoft 365 服务的管理访问权限。 添加的角色的一个示例是 Azure AD 中的 Exchange 管理员角色。 此角色与 Exchange 基于角色的访问控制系统中的[“组织管理”角色组](https://docs.microsoft.com/exchange/organization-management-exchange-2013-help)相同，可以管理 Exchange 的所有方面。 同样，我们添加了 Intune 管理员角色、Teams 管理员、SharePoint 管理员等。 特定于服务的角色是以下部分介绍的一类 Azure AD 内置角色。
 
 ## <a name="categories-of-azure-ad-roles"></a>Azure AD 角色的类别
 

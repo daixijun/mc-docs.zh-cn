@@ -4,24 +4,24 @@ titleSuffix: Azure Network Watcher
 description: 本文介绍如何使用 Azure 网络观察程序和开源工具执行网络入侵检测
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/22/2017
-ms.date: 08/10/2020
+origin.date: 01/07/2021
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 43d16e7b3f3f9fa4ae246e149755d9279d90aa38
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: f00c36184da71c4d126069f203d3d5bd7424346f
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87547984"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230542"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>使用网络观察程序和开源工具执行网络入侵检测
 
@@ -83,7 +83,7 @@ tail -f /var/log/suricata/fast.log
 
 #### <a name="install-elasticsearch"></a>安装 Elasticsearch
 
-1. Elastic Stack 5.0 及更高版本需要 Java 8。 运行命令 `java -version` 可以检查版本。 如果尚未安装 java，请参阅 [Azure 支持的 JDK](https://docs.azure.cn/java/java-supported-jdk-runtime?view=azure-java-stable) 上的文档。
+1. Elastic Stack 5.0 及更高版本需要 Java 8。 运行命令 `java -version` 可以检查版本。 如果尚未安装 java，请参阅 [Azure 支持的 JDK](https://docs.azure.cn/java/java-supported-jdk-runtime) 上的文档。
 
 1. 下载适用于系统的正确二进制程序包：
 
@@ -239,7 +239,7 @@ tail -f /var/log/suricata/fast.log
 1. 若要查看 Kibana Web 界面，请导航到 `http://localhost:5601`
 1. 对于本方案，用于 Suricata 日志的索引模式为“logstash-*”
 
-1. 如果想要远程查看 Kibana 仪表板，请创建允许访问**端口 5601** 的入站 NSG 规则。
+1. 如果想要远程查看 Kibana 仪表板，请创建允许访问 **端口 5601** 的入站 NSG 规则。
 
 ### <a name="create-a-kibana-dashboard"></a>创建 Kibana 仪表板
 
@@ -249,7 +249,7 @@ tail -f /var/log/suricata/fast.log
 
 1. 在 Kibana 的“Management”（管理）选项卡下，导航到“Saved Objects”（已保存的对象）并导入所有三个文件。  然后，可从“仪表板”选项卡打开并加载示例仪表板。
 
-还可以创建自己的可视化效果，以及根据感兴趣的指标定制的仪表板。 阅读 Kibana 的[正式文档](https://www.elastic.co/guide/en/kibana/current/visualize.html)，详细了解如何创建 Kibana 可视化效果。
+还可以创建自己的可视化效果，以及根据感兴趣的指标定制的仪表板。 阅读 Kibana 的[正式文档](https://www.tutorialspoint.com/kibana/kibana_create_visualization.htm)，详细了解如何创建 Kibana 可视化效果。
 
 ![Kibana 仪表板][2]
 

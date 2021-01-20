@@ -4,14 +4,14 @@ description: 使用 Azure Application Insights 设置多步骤 Web 测试，以�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 10/23/2019
-ms.date: 07/17/2020
+ms.date: 01/14/2021
 ms.author: v-johya
-ms.openlocfilehash: 48351c117eb7dfc39a62b4b03cea7ab7d6550924
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: c204fad25083dcf16c080135382515727242cfe4
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244459"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230834"
 ---
 # <a name="multi-step-web-tests"></a>多步骤 Web 测试
 
@@ -147,5 +147,4 @@ Web 测试日期时间插件提供了处理参数化时间的方法。
 ## <a name="next-steps"></a>后续步骤
 
 * [可用性警报](availability-alerts.md)
-* [URI ping Web 测试](monitor-web-app-availability.md)
 

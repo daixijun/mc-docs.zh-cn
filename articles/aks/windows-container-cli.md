@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 07/16/2020
 author: rockboyfor
-ms.date: 10/26/2020
+ms.date: 12/14/2020
 ms.testscope: no
 ms.testdate: 06/15/2020
 ms.author: v-yeche
-ms.openlocfilehash: 0fc583c2ab1766c2bad6295f2004c7c1cc2d5eea
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 26233b4ee50b3404e6cf403b2fcb03de123b2482
+ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432422"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "98230972"
 ---
 <!--Verified successfully-->
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>使用 Azure CLI 在 Azure Kubernetes 服务 (AKS) 群集上创建 Windows Server 容器
@@ -25,7 +25,9 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
 
 本文假定你对 Kubernetes 概念有基本的了解。 有关详细信息，请参阅 [Azure Kubernetes 服务 (AKS) 的 Kubernetes 核心概念][kubernetes-concepts]。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -282,7 +284,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-create]: https://docs.azure.cn/cli/aks#az_aks_create
 [az-aks-get-credentials]: https://docs.azure.cn/cli/aks#az_aks_get_credentials
 [az-aks-install-cli]: https://docs.azure.cn/cli/aks#az_aks_install_cli
-[az-extension-add]: https://docs.microsoft.com/cli/azure/extension#az_extension_add
+[az-extension-add]: https://docs.azure.cn/cli/extension#az_extension_add
 [az-feature-list]: https://docs.azure.cn/cli/feature#az_feature_list
 [az-feature-register]: https://docs.azure.cn/cli/feature#az_feature_register
 [az-group-create]: https://docs.azure.cn/cli/group#az_group_create

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/28/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 817d27a734640f9bf4c24fe18d0c1e1c6891e6fd
-ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
+ms.openlocfilehash: 994cb481069b1def7c2fed7a08f3c34b5ea22ae3
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829348"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195017"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>什么是 Azure Active Directory 域服务？
 

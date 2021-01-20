@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 8068827a6ed35094c5ac42bf8d0fa241d40adea9
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 7637117e2ef093bea6e16181cc92d8dc16fb1f4c
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021660"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230144"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>教程：通过 CLI 训练和部署模型
 
@@ -306,10 +306,10 @@ runconfig 文件还包含用于配置训练运行所使用的环境的信息。 
 若要在 `cpu-cluster` 计算目标上开始训练运行，请使用以下命令：
 
 ```azurecli
-az ml run submit-script -c mnist -e myexperiment --source-directory scripts -t runoutput.json
+az ml run submit-script -c mnist -e tutorial-cli --source-directory scripts -t runoutput.json
 ```
 
-此命令会指定试验的名称 (`myexperiment`)。 实验将此运行的相关信息存储在工作区中。
+此命令会指定试验的名称 (`tutorial-cli`)。 实验将此运行的相关信息存储在工作区中。
 
 `-c mnist` 参数指定 `.azureml/mnist.runconfig` 文件。
 
@@ -326,7 +326,7 @@ Accuracy is 0.9185
 
 如果检查训练脚本，你会注意到它在将训练模型存储到 `outputs/sklearn_mnist_model.pkl` 时也使用 Alpha 值。
 
-模型已保存到计算目标上训练它的 `./outputs` 目录中， 在本例中为 Azure 云中的 Azure 机器学习计算实例。 训练过程会将 `./outputs` 目录的内容从进行训练的计算目标自动上传到 Azure 机器学习工作区。 它存储为试验的一部分（在本例中为 `myexperiment`）。
+模型已保存到计算目标上训练它的 `./outputs` 目录中， 在本例中为 Azure 云中的 Azure 机器学习计算实例。 训练过程会将 `./outputs` 目录的内容从进行训练的计算目标自动上传到 Azure 机器学习工作区。 它存储为试验的一部分（在本例中为 `tutorial-cli`）。
 
 ## <a name="register-the-model"></a>注册模型
 
@@ -344,13 +344,13 @@ az ml model register -n mymodel -f runoutput.json --asset-path "outputs/sklearn_
 {
   "createdTime": "2019-09-19T15:25:32.411572+00:00",
   "description": "",
-  "experimentName": "myexperiment",
+  "experimentName": "tutorial-cli",
   "framework": "Custom",
   "frameworkVersion": null,
   "id": "mymodel:1",
   "name": "mymodel",
   "properties": "",
-  "runId": "myexperiment_1568906070_5874522d",
+  "runId": "tutorial-cli_1568906070_5874522d",
   "tags": "",
   "version": 1
 }

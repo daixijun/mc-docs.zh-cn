@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: v-johya
-ms.date: 12/08/2020
+ms.date: 01/12/2021
 origin.date: 03/04/2019
-ms.openlocfilehash: 057e8738342e3070a06f308ceb944b40a03358dd
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 290d945f8aff31651507a2d520eb99bfa3b18fc7
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104326"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230892"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 数据安全
 本文档旨在提供特定于 Azure Log Analytics 的信息（Azure Monitor 的功能），用于补充有关 [Azure 信任中心](https://www.microsoft.com/en-us/trust-center?rtc=1)的信息。  
@@ -123,7 +123,7 @@ Azure Log Analytics 满足以下要求：
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * PCI 安全标准委员会制定的[支付卡行业（PCI 标准）数据安全标准 (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI)。
 * [服务组织控制 (SOC) 1 类型 1 和 SOC 2 类型 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) 标准
-* [HIPAA 和 HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa)（对于具有 HIPAA 业务合作协议的公司）
+* [HIPAA 和 HITECH](https://docs.microsoft.com/compliance/regulatory/offering-hipaa-hitech)（对于具有 HIPAA 业务合作协议的公司）
 * Windows 通用工程标准
 * Microsoft 可信计算
 * 作为一项 Azure 服务，Log Analytics 使用的组件满足 Azure 符合性要求。 可以通过阅读 [Microsoft 信任中心合规性](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx)了解详细信息。

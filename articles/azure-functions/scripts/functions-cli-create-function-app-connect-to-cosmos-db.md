@@ -2,14 +2,14 @@
 title: 创建连接到 Azure Cosmos DB 的函数应用 - Azure CLI
 description: Azure CLI 脚本示例 - 创建用于连接到 Azure Cosmos DB 的 Azure Function
 ms.topic: sample
-ms.date: 11/18/2020
+ms.date: 01/13/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7e94fef2645c923e6be92f9912d40f146672d86a
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: ab1b902703591451a01a94e365c006d3b611110e
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509067"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195253"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>创建用于连接到 Azure Cosmos DB 的 Azure Function
 
@@ -88,7 +88,7 @@ az functionapp config appsettings set \
 |---|---|
 | [az group create](/cli/group#az-group-create) | 使用相关位置创建资源组 |
 | [az storage accounts create](/cli/storage/account#az-storage-account-create) | 创建存储帐户 |
-| [az functionapp create](/cli/functionapp#az-functionapp-create) | 在无服务器[消耗计划](../functions-scale.md#consumption-plan)中创建函数应用。 |
+| [az functionapp create](/cli/functionapp#az-functionapp-create) | 在无服务器[消耗计划](../consumption-plan.md)中创建函数应用。 |
 | [az cosmosdb create](/cli/cosmosdb#az-cosmosdb-create) | 创建 Azure Cosmos DB 数据库。 |
 | [az cosmosdb show](/cli/cosmosdb#az-cosmosdb-show)| 获取数据库帐户连接。 |
 | [az cosmosdb list-keys](/cli/cosmosdb#az-cosmosdb-list-keys)| 获取数据库密钥。 |

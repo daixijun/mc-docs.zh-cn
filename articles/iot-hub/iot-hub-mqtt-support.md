@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 10/12/2018
 ms.date: 08/31/2020
 ms.author: v-yiso
-ms.openlocfilehash: f5466c749f6dd7de60aa40fff1f2eae91f70186c
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: b84b29f9d042d81a6b31d17b5f4f6a94b747bf78
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830275"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231070"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 协议与 IoT 中心通信
 
@@ -164,7 +164,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
    `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
 
-     此令牌中要用作“**密码**”字段以便使用 MQTT 进行连接的部分是：`SharedAccessSignature sr={your hub name}.azure-devices.cn%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`。
+此令牌中要用作“**密码**”字段以便使用 MQTT 进行连接的部分是：`SharedAccessSignature sr={your hub name}.azure-devices.cn%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`。
 
 对于 MQTT 连接和断开连接数据包，IoT 中心会在 **操作监视** 通道上发出事件。 此事件包含的其他信息有助于排查连接问题。
 

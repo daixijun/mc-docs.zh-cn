@@ -7,17 +7,17 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: Java
 ms.topic: quickstart
 origin.date: 08/01/2020
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.author: v-tawe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: b8b69f1fc7270cf90ab216b4c6ab976ee7a2d5dc
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: e622d0f0bc5bd653ab5e209e6f9d2ea0fd119e31
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022956"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230740"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>快速入门：在 Azure 应用服务中创建 Java 应用
 
@@ -219,7 +219,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 `<subscriptionId>` | false | 指定订阅 ID。 | 0.1.0+
 `<resourceGroup>` | 是 | 用于 Web 应用的 Azure 资源组。 | 0.1.0+
 `<appName>` | 是 | Web 应用的名称。 | 0.1.0+
-`<region>` | 是 | 指定要托管 Web 应用的区域；默认值为“chinanorth2”。 [支持的区域](https://docs.azure.cn/java/api/overview/maven/azure-webapp-maven-plugin/readme)部分中列出了所有有效区域。 | 0.1.0+
+`<region>` | 是 | 指定要托管 Web 应用的区域；默认值为“chinanorth2”。 [支持的区域](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)部分中列出了所有有效区域。 | 0.1.0+
 `<pricingTier>` | false | Web 应用的定价层。 生产工作负载的默认值为 P1V2，而 B2 是建议用于 Java 开发/测试的最低值 。 [了解详细信息](https://www.azure.cn/pricing/details/app-service/linux/)| 0.1.0+
 `<runtime>` | 是 | 运行时环境配置，可以在[此处](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)查看详细信息。 | 0.1.0+
 `<deployment>` | 是 | 部署配置，可以在[此处](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)查看详细信息。 | 0.1.0+

@@ -5,17 +5,17 @@ ms.service: service-bus-messaging
 ms.topic: article
 origin.date: 06/23/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 07/20/2020
 ms.author: v-yeche
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0029b6dcf1959130daf684b75635c85faec21705
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: a4103c53022726d0267d208cb0ce1437baeefcee
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022557"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230140"
 ---
 # <a name="partitioned-queues-and-topics"></a>分区队列和主题
 

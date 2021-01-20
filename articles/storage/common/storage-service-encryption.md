@@ -5,17 +5,17 @@ services: storage
 author: WenJason
 ms.service: storage
 origin.date: 09/17/2020
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.topic: conceptual
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 68af7de9154c58da3faaae2d99c5be6c71d0148e
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 846c6ad7a2136dd9fb7f79f817caaa1633944c6d
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552333"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163210"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>静态数据的 Azure 存储加密
 
@@ -33,7 +33,7 @@ Azure 存储中的数据将使用 256 位 [AES 加密法](https://en.wikipedia.o
 
 有关 Azure 存储加密的底层加密模块的详细信息，请参见[加密 API：下一代](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)。
 
-有关 Azure 托管磁盘的加密和密钥管理的信息，请参阅适用于 Windows VM 的 [Azure 托管磁盘的服务器端加密](../../virtual-machines/windows/disk-encryption.md)或适用于 Linux VM 的 [Azure 托管磁盘的服务器端加密](../../virtual-machines/linux/disk-encryption.md)。
+有关 Azure 托管磁盘的加密和密钥管理的信息，请参阅适用于 Windows VM 的 [Azure 托管磁盘的服务器端加密](../../virtual-machines/disk-encryption.md)或适用于 Linux VM 的 [Azure 托管磁盘的服务器端加密](../../virtual-machines/disk-encryption.md)。
 
 ## <a name="about-encryption-key-management"></a>关于加密密钥管理
 
@@ -89,8 +89,8 @@ Azure 存储中的数据将使用 256 位 [AES 加密法](https://en.wikipedia.o
 
 如果你的加密范围受 Azure Key Vault 的客户管理的密钥保护，则还可以删除密钥保管库中的关联密钥来禁用加密范围。 请记住，Azure Key Vault 中的客户管理的密钥受到软删除和清除保护的保护，删除的密钥受这些属性定义的行为的约束。 有关详细信息，请参阅 Azure Key Vault 文档中的以下主题之一：
 
-- [如何在 PowerShell 中使用软删除](../../key-vault/general/soft-delete-powershell.md)
-- [如何在 CLI 中使用软删除](../../key-vault/general/soft-delete-cli.md)
+- [如何在 PowerShell 中使用软删除](../../key-vault/general/key-vault-recovery.md)
+- [如何在 CLI 中使用软删除](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > 不能删除加密范围。

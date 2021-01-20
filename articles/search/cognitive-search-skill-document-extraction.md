@@ -7,14 +7,14 @@ author: careyjmac
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 06/17/2020
-ms.date: 07/17/2020
+ms.date: 01/18/2021
 ms.author: v-tawe
-ms.openlocfilehash: 244f45b947708f38d3c939097d22f989e746480e
-ms.sourcegitcommit: 6f66215d61c6c4ee3f2713a796e074f69934ba98
+ms.openlocfilehash: 601d086c023b956cdbb9059d12373966a194a640
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127886"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194743"
 ---
 # <a name="document-extraction-cognitive-skill"></a>文档提取认知技能
 
@@ -27,6 +27,7 @@ ms.locfileid: "92127886"
 > 通过增大处理频率、添加更多文档或添加更多 AI 算法来扩大范围时，需要[附加可计费的认知服务资源](cognitive-search-attach-cognitive-services.md)。 在调用认知服务中的 API 时，以及在索引编制中的文档破解阶段提取图像时，会产生费用。 提取文档中的文本不会产生费用。
 >
 > 当你行使内置技能时，我们会按现有的[认知服务预付费价格](https://www.azure.cn/pricing/details/cognitive-services/)收费。 图像提取定价如[定价页](https://www.azure.cn/pricing/details/search)所述。
+
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.DocumentExtractionSkill
 
@@ -34,7 +35,7 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 
 参数区分大小写。
 
-| 输入            | 允许的值 | 说明 |
+| 输入 | 允许的值 | 说明 |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | 对于从非纯文本或 json 文件进行的文档提取，请设置为 `default`。 若要提高针对纯文本文件的性能，请设置为 `text`。 若要从 json 文件中提取结构化内容，请设置为 `json`。 如果未显式定义 `parsingMode`，则它将设置为 `default`。 |
 | `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | 若要提取每个文件的所有元数据和文本内容，请设置为 `contentAndMetadata`。 若要仅提取[特定于内容类型的元数据](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata)（例如，仅 .png 文件独有的元数据），请设置为 `allMetadata`。 如果未显式定义 `dataToExtract`，则它将设置为 `contentAndMetadata`。 |
@@ -48,7 +49,6 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 
 > [!NOTE]
 > 将规范化图像的最大宽度和高度默认设置为 2000 像素是考虑到[图像分析技术](cognitive-search-skill-image-analysis.md)所能够支持的最大大小。
-
 ## <a name="skill-inputs"></a>技能输入
 
 | 输入名称     | 说明 |
@@ -101,11 +101,11 @@ Microsoft.Skills.Util.DocumentExtractionSkill
     "outputs": [
       {
         "name": "content",
-        "targetName": "content"
+        "targetName": "extracted_content"
       },
       {
         "name": "normalized_images",
-        "targetName": "normalized_images"
+        "targetName": "extracted_normalized_images"
       }
     ]
   }

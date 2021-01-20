@@ -4,15 +4,15 @@ description: Azure Monitor 安全基线为实现 Azure 安全基准中指定的�
 author: Johnnytechn
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.author: v-johya
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dcded11286f77ca83ca407bb90c3af28e36224f9
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 99b2378f2f827f94255fe918ee9d2c6df4ab4793
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105147"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230402"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>适用于 Azure Monitor 的 Azure 安全基线
 
@@ -79,8 +79,6 @@ Azure Monitor 属于 Azure 核心服务，并且 Azure Monitor 服务不能单�
 - [在 Azure Monitor 中使用 Log Analytics 网关连接无法访问 Internet 的计算机](platform/gateway.md) 
 
 - [请参阅 Application Insights 入门](./app/app-insights-overview.md#get-started)
-
-- [如何设置可用性 Web 测试](app/monitor-web-app-availability.md)
 
 **Azure 安全中心监视**：不适用
 
@@ -329,7 +327,7 @@ Application Insights 和 Log Analytics 仍将允许引入 TLS 1.1 和 TLS 1.0 �
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5：使用有效的发现工具识别敏感数据
 
 **指导**：数据标识、分类和丢失防护功能尚不适用于 Azure Monitor。 如果需要出于合规性目的使用这些功能，请实施第三方解决方案。
-对于 Microsoft 管理的底层平台，Microsoft 会将所有客户内容视为敏感数据，并会全方位地防范客户数据丢失和遭到透露。 为了确保 Azure 中的客户数据保持安全，Microsoft 已实施并维护一套可靠的数据保护控制机制和功能。
+对于 Microsoft 管理的底层平台，Microsoft 会将所有客户内容视为敏感数据，并会全方位地防范客户数据丢失和遭到透露。 为了确保 Azure 中的客户数据保持安全，Microsoft 实施并维护了一套可靠的数据保护控制措施和功能。
 
 - [了解 Azure 中的客户数据保护](../security/fundamentals/protection-customer-data.md)
 
@@ -683,7 +681,7 @@ Application Insights 和 Log Analytics 仍将允许引入 TLS 1.1 和 TLS 1.0 �
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 - [关于建立自己的安全事件响应流程的指南](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 

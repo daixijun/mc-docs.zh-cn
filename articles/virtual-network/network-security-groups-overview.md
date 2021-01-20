@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/08/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: kumud
-ms.custom: contperfq1
-ms.openlocfilehash: d74798870cbdccc9b37e1981fa1e288e155241bb
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 60125d09d87bc878283ad758a750f4509981101f
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91571574"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230863"
 ---
 <!--Verified Successfully-->
 <!--Network security groups Available on MC-->
@@ -60,19 +60,19 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
 
 ##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|优先级|Source|源端口|目标|目标端口|协议|访问|
+|优先级|源|源端口|目标|目标端口|协议|访问|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|任意|允许|
 
 ##### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|优先级|Source|源端口|目标|目标端口|协议|访问|
+|优先级|源|源端口|目标|目标端口|协议|访问|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|任意|允许|
 
 ##### <a name="denyallinbound"></a>DenyAllInbound
 
-|优先级|Source|源端口|目标|目标端口|协议|访问|
+|优先级|源|源端口|目标|目标端口|协议|访问|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|任意|拒绝|
 
@@ -80,23 +80,23 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
 
 ##### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|优先级|Source|源端口| 目标 | 目标端口 | 协议 | 访问 |
+|优先级|源|源端口| 目标 | 目标端口 | 协议 | 访问 |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | 任意 | 允许 |
 
 ##### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|优先级|Source|源端口| 目标 | 目标端口 | 协议 | 访问 |
+|优先级|源|源端口| 目标 | 目标端口 | 协议 | 访问 |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | 任意 | 允许 |
 
 ##### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|优先级|Source|源端口| 目标 | 目标端口 | 协议 | 访问 |
+|优先级|源|源端口| 目标 | 目标端口 | 协议 | 访问 |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | 任意 | 拒绝 |
 
-在“源”和“目标”列表中，“VirtualNetwork”、“AzureLoadBalancer”和“Internet”是[服务标记](service-tags-overview.md)，而不是 IP 地址。**** ****** ** ** 在“协议”列中，**Any** 包含 TCP、UDP 和 ICMP。 创建规则时，可以指定 TCP、UDP、ICMP 或 Any。 “源”和“目标”列中的“0.0.0.0/0”表示所有地址。****** **** Azure 门户、Azure CLI 或 PowerShell 等客户端可以使用“*”或任何字符来表示此表达式。
+在“源”和“目标”列表中，“VirtualNetwork”、“AzureLoadBalancer”和“Internet”是[服务标记](service-tags-overview.md)，而不是 IP 地址。    在“协议”列中，**Any** 包含 TCP、UDP 和 ICMP。 创建规则时，可以指定 TCP、UDP、ICMP 或 Any。 “源”和“目标”列中的“0.0.0.0/0”表示所有地址。  Azure 门户、Azure CLI 或 PowerShell 等客户端可以使用“*”或任何字符来表示此表达式。
 
 不能删除默认规则，但可以通过创建更高优先级的规则来替代默认规则。
 
@@ -125,7 +125,7 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
     如果是在 2017 年 11 月 15 日之前创建的 Azure 订阅，则除了能够使用 SMTP 中继服务，还可以直接通过 TCP 端口 25 发送电子邮件。 如果是在 2017 年 11 月 15 日之后创建的订阅，则可能无法直接通过端口 25 发送电子邮件。 经端口 25 的出站通信行为取决于订阅类型，如下所示：
 
     - **企业协议**：允许端口 25 的出站通信。 可以将出站电子邮件直接从虚拟机发送到外部电子邮件提供商，不受 Azure 平台的限制。 
-    - **标准预付费套餐：** 阻止所有资源通过端口 25 进行出站通信。 如需将电子邮件从虚拟机直接发送到外部电子邮件提供商（不使用经身份验证的 SMTP 中继），可以请求去除该限制。 Azure 会自行审核和批准此类请求，并且只在进行防欺诈检查后授予相关权限。 若要提交请求，请建立一个问题类型为“技术”、“虚拟网络连接”、“无法发送电子邮件（SMTP/端口 25）”的支持案例。** ** ** 在支持案例中，请详细说明为何你的订阅需要将电子邮件直接发送到邮件提供商，而不经过经身份验证的 SMTP 中继。 如果订阅得到豁免，则只有在豁免日期之后创建的虚拟机能够经端口 25 进行出站通信。
+    - **标准预付费套餐：** 阻止所有资源通过端口 25 进行出站通信。 如需将电子邮件从虚拟机直接发送到外部电子邮件提供商（不使用经身份验证的 SMTP 中继），可以请求去除该限制。 Azure 会自行审核和批准此类请求，并且只在进行防欺诈检查后授予相关权限。 若要提交请求，请建立一个问题类型为“技术”、“虚拟网络连接”、“无法发送电子邮件（SMTP/端口 25）”的支持案例。   在支持案例中，请详细说明为何你的订阅需要将电子邮件直接发送到邮件提供商，而不经过经身份验证的 SMTP 中继。 如果订阅得到豁免，则只有在豁免日期之后创建的虚拟机能够经端口 25 进行出站通信。
     - **MSDN、Azure Pass、Azure 开放许可、教育、BizSpark 和免费试用版**：阻止所有资源经端口 25 进行出站通信。 不能请求去除该限制，因为不会针对请求授予相关权限。 若需从虚拟机发送电子邮件，则需使用 SMTP 中继服务。
     - **云服务提供商**：如果无法使用安全的 SMTP 中继，通过云服务提供商消耗 Azure 资源的客户可以通过其云服务提供商创建支持案例，并请求提供商代表他们创建取消阻止案例。
 
@@ -142,5 +142,4 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
 * 如果有通信问题，需要对网络安全组进行故障排除，请参阅[诊断虚拟机网络流量筛选器问题](diagnose-network-traffic-filter-problem.md)。 
 * 了解如何通过[网络安全组流日志](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fvirtual-network%2ftoc.json)来分析出入具有关联网络安全组的资源的网络流量。
 
-<!-- Update_Description: new article about network security groups overview -->
-<!--NEW.date: 10/05/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

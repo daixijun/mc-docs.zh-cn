@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ef497c4fc47664cd40454ca4cb8d0b69c1648c3
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 4df33f1e216676a839c28025a87e00e718931086
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501732"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195008"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>条件访问：要求对管理员执行 MFA
 
@@ -31,6 +31,7 @@ Microsoft 建议你至少要求对以下角色进行 MFA：
 * 全局管理员
 * 支持管理员
 * 密码管理员
+* 特权角色管理员
 * 安全管理员
 * SharePoint 管理员
 * 用户管理员
@@ -71,7 +72,7 @@ Microsoft 建议你至少要求对以下角色进行 MFA：
       > 条件访问策略不支持为用户分配[范围为管理单元](../roles/admin-units-assign-roles.md)的目录角色或范围直接为对象的目录角色（例如通过[自定义角色](../roles/custom-create.md)）。
 
    1. 在“排除”下选择“用户和组”，然后选择组织的紧急访问帐户或不受限帐户。 
-   1. 选择“完成”  。
+   1. 选择“完成”。
 1. 在“云应用或操作” > “包含”下方，选择“所有云应用” ，然后选择“完成”。
 1. 在“条件” > “客户端应用”下，切换“配置”为”是”，在“选择将应用此策略的客户端应用”下，选中所有默认值，然后选择“完成”     。
 1. 在“访问控制” > “授予”下，依次选择“授予访问权限”、“需要多重身份验证”、“选择”。  

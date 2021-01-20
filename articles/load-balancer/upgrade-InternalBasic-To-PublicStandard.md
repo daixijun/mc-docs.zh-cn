@@ -6,17 +6,19 @@ author: WenJason
 ms.service: load-balancer
 ms.topic: how-to
 origin.date: 01/23/2020
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
-ms.openlocfilehash: 702edb9f58deddd9272e76e7ff53ec75673b78c8
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 8eec3f90eebac4d41f1bb8e2bb423fc0993fe30d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105072"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230152"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>升级 Azure 内部负载均衡器 - 需要出站连接
 [Azure 标准负载均衡器](load-balancer-overview.md)提供丰富的功能和高可用性。 有关负载均衡器 SKU 的详细信息，请参阅[比较表](/load-balancer/skus#skus)。 由于标准内部负载均衡器不提供出站连接，因此我们提供了一个解决方案，改为创建标准公共负载均衡器。
+
+<!--through zone redundancy-->
 
 升级分为四个阶段：
 
@@ -130,10 +132,6 @@ ms.locfileid: "97105072"
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Azure PowerShell 脚本是否还会将流量从基本负载均衡器切换到新建的标准负载均衡器？
 
 否。 该 Azure PowerShell 脚本只会迁移配置。 实际的流量迁移由你负责和控制。
-
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>使用此脚本时我遇到了一些问题。 如何求助？
-
-可以向 slbupgradesupport@microsoft.com 发送电子邮件、向 Azure 支持部门提交支持案例，或同时采取这两种措施。
 
 ## <a name="next-steps"></a>后续步骤
 

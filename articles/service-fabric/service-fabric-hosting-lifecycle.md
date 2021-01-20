@@ -4,16 +4,16 @@ description: 了解节点上的应用程序和 ServicePackage 的生命周期。
 ms.topic: conceptual
 origin.date: 05/01/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7a32380d27aa7b38b62649e6ef1c83c60beab04a
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 3e3c86049a63dc80716a097f64a50dc37a944f21
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021982"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230988"
 ---
 <!--Verified successfully-->
 # <a name="azure-service-fabric-hosting-life-cycle"></a>Azure Service Fabric 宿主生命周期

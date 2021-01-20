@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.author: v-junlch
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 11/30/2020
-ms.openlocfilehash: c1cfe53940248e9e2f6220c3317d946aa17f172c
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.date: 01/12/2021
+ms.openlocfilehash: dc23c4010250ce7e750ff326dc03b2cb21642175
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508971"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195232"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>教程：建立 Azure Functions 专用站点访问
 
@@ -130,7 +130,7 @@ ms.locfileid: "96508971"
 
 ## <a name="create-an-azure-functions-app"></a>创建 Azure Functions 应用
 
-下一步是使用[消耗计划](functions-scale.md#consumption-plan)在 Azure 中创建函数应用。 稍后在本教程中，会将函数代码部署到此资源。
+下一步是使用[消耗计划](consumption-plan.md)在 Azure 中创建函数应用。 稍后在本教程中，会将函数代码部署到此资源。
 
 1. 在门户中，选择资源组视图顶部的“添加”。
 1. 选择“计算”>“函数应用”
@@ -149,7 +149,7 @@ ms.locfileid: "96508971"
 
     | 设置      | 建议的值  | 说明      |
     | ------------ | ---------------- | ---------------- |
-    | _存储帐户_ | 全局唯一名称 | 创建函数应用使用的存储帐户。 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。 也可使用现有帐户，但该帐户必须符合[存储帐户要求](./functions-scale.md#storage-account-requirements)。 |
+    | _存储帐户_ | 全局唯一名称 | 创建函数应用使用的存储帐户。 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。 也可使用现有帐户，但该帐户必须符合[存储帐户要求](storage-considerations.md#storage-account-requirements)。 |
     | _操作系统_ | 首选操作系统 | 系统会根据你的运行时堆栈选择为你预先选择一个操作系统，但你可以根据需要更改该设置。 |
     | _规划_ | 消耗 | [托管计划](./functions-scale.md)指示如何缩放函数应用，以及可供每个实例使用的资源。 |
 1. 选择“查看 + 创建”，以便查看应用配置选择。

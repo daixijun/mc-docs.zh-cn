@@ -4,15 +4,15 @@ description: 保留和隐私政策声明
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/29/2019
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 ms.author: v-johya
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 309e1ac88d9d95ecb150494e2d774b8b798b2d8a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 55f18cb330edeb6b36d1944b9a521fc381070e06
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105662"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231055"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的数据收集、保留和存储
 
@@ -47,7 +47,6 @@ Application Insights SDK 可用于多种应用程序类型：托管在自己的 
   * 每个 SDK 有许多[模块](./configuration-with-applicationinsights-config.md)，这些模块使用不同的技术收集不同类型的遥测数据。
   * 如果在开发环境中安装 SDK，则除了使用标准模块发送自己的遥测数据以外，还可以使用 SDK 的 API 发送这些数据。 这些自定义遥测数据可以包含所要发送的任何数据。
 * 在某些 Web 服务器中，还装有与应用一起运行并发送有关 CPU、内存和网络占用量的遥测数据的代理。 例如，Azure VM、Docker 主机和 [Java EE 服务器](../../azure-monitor/app/java-agent.md)都可能拥有此类代理。
-* [可用性测试](../../azure-monitor/app/monitor-web-app-availability.md)是 Azure 运行的过程，可定期将请求发送到 Web 应用。 结果将发送到 Application Insights 服务。
 
 ### <a name="what-kinds-of-data-are-collected"></a>收集哪些类型的数据？
 主要类别如下：
@@ -56,10 +55,9 @@ Application Insights SDK 可用于多种应用程序类型：托管在自己的 
 * [网页](./javascript.md) - 页面、用户和会话计数。 页面加载时间。 异常。 Ajax 调用。
 * 性能计数器 - 内存、CPU、IO、网络占用量。
 * 客户端和服务器上下文 - OS、区域性、设备类型、浏览器和屏幕分辨率。
-* [异常](./asp-net-exceptions.md)和崩溃 - **堆栈转储** 、`build id`、CPU 类型。 
+* [异常](./asp-net-exceptions.md)和崩溃 - **堆栈转储**、`build id`、CPU 类型。 
 * [依赖项](./asp-net-dependencies.md) - 对外部服务的调用，例如 REST、SQL、AJAX。 URI 或连接字符串、持续时间、成功结果、命令。
-* [可用性测试](./monitor-web-app-availability.md) - 测试持续时间、步骤、响应。
-* [跟踪日志](./asp-net-trace-logs.md)和 [自定义遥测](./api-custom-events-metrics.md) - **在日志或遥测中编写的任何内容** 。
+* [跟踪日志](./asp-net-trace-logs.md)和 [自定义遥测](./api-custom-events-metrics.md) - **在日志或遥测中编写的任何内容**。
 
 [更多详细信息](#data-sent-by-application-insights)。
 
@@ -205,7 +203,7 @@ AzureLogHandler(
 
 ## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>如何使用 TLS 1.2 将数据发送到 Application Insights？
 
-为了确保传输到 Application Insights 终结点的数据的安全性，我们强烈建议客户将其应用程序配置为至少使用传输层安全性 (TLS) 1.2。 我们发现旧版 TLS/安全套接字层 (SSL) 容易受到攻击，尽管出于向后兼容，这些协议仍可正常工作，但我们 **不建议使用** ，并且行业即将放弃对这些旧协议的支持。 
+为了确保传输到 Application Insights 终结点的数据的安全性，我们强烈建议客户将其应用程序配置为至少使用传输层安全性 (TLS) 1.2。 我们发现旧版 TLS/安全套接字层 (SSL) 容易受到攻击，尽管出于向后兼容，这些协议仍可正常工作，但我们 **不建议使用**，并且行业即将放弃对这些旧协议的支持。 
 
 [PCI 安全标准委员会](https://www.pcisecuritystandards.org/)规定 [2018 年 6 月 30 日](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf)是停用旧版 TLS/SSL 并升级到更安全协议的截止时间。 在 Azure 放弃旧版支持后，如果应用程序/客户端无法通过最低版本 TLS 1.2 进行通信，则你无法将数据发送到 Application Insights。 测试和验证应用程序对 TLS 的支持的方法根据操作系统/平台以及应用程序使用的语言/框架而异。
 
@@ -289,7 +287,7 @@ SDK 根据平台的不同而异，可以安装多个组件。 （请参阅 [Appl
 | Ajax |从网页到服务器的 HTTP 调用 |
 | 请求 |URL、持续时间、响应代码 |
 | 依赖项 |类型（SQL、HTTP...）、连接字符串或 URI、同步/异步、持续时间、成功结果、SQL 语句（包含状态监视器） |
-| **异常** |类型、 **消息** 、调用堆栈、源文件、行号、`thread id` |
+| **异常** |类型、**消息**、调用堆栈、源文件、行号、`thread id` |
 | 崩溃 |`Process id`、`parent process id`、`crash thread id`、应用程序修补程序、`id`、版本；异常类型、地址、原因；模糊符号和寄存器、二进制开始和结束地址、二进制文件名和路径、CPU 类型 |
 | 跟踪 |**消息** 和严重级别 |
 | 性能计数器 |处理器时间、可用内存、请求速率、异常率、进程专用字节、IO 速率、请求持续期间、请求队列长度 |

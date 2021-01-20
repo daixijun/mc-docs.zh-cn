@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9c883b13bd6b97a3ac762a2b107c743519f95047
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: c981da80de49d4d05f9bbdbe83843047414e1a4d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104565"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229978"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>使用自定义 Docker 映像训练模型
 
@@ -158,7 +158,7 @@ src = ScriptRunConfig(source_directory='fastai-example',
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'fastai-custom-image').submit(src)
+run = Experiment(ws,'Tutorial-fastai').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 

@@ -11,13 +11,13 @@ metadata:
   author: msmbaldwin
   ms.author: v-tawe
   origin.date: 04/07/2020
-  ms.date: 09/15/2020
-  ms.openlocfilehash: 05621235592fe95ac5cf03aeb0e9b3a0136d857c
-  ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+  ms.date: 01/13/2021
+  ms.openlocfilehash: 26b37bffeb7184fddaf81ad5dea0e9e89d14c5ed
+  ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/27/2020
-  ms.locfileid: "96300284"
+  ms.lasthandoff: 01/15/2021
+  ms.locfileid: "98230056"
 landingContent:
 - title: 证书
   linkLists:
@@ -70,7 +70,7 @@ landingContent:
     - text: 软删除概述
       url: ../general/soft-delete-overview.md
     - text: 安全概述
-      url: ../general/overview-security.md
+      url: ../general/security-overview.md
 - title: Microsoft Learn
   linkLists:
   - linkListType: learn

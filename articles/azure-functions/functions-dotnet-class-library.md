@@ -3,13 +3,13 @@ title: Azure Functions C# developer reference（Azure Functions C# 开发人员�
 description: '了解如何开发使用 C # 的 Azure 功能。'
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 01/04/2021
-ms.openlocfilehash: 88560bdab96401f00526abaee1a28418f2d430e9
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.date: 01/13/2021
+ms.openlocfilehash: e63b697ba3cf07d5b256a94219a377f4f5bee786
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021463"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195239"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 
@@ -138,7 +138,7 @@ public static class BindingExpressionsExample
 
 生成过程会在生成文件中的一个函数文件夹中创建一个 *function.json* 文件。 如前所述，此文件不应直接编辑。 无法通过编辑此文件来更改绑定配置或禁用函数。 
 
-此文件的用途是向缩放控制器提供用于[对消耗计划做出缩放决策](functions-scale.md#how-the-consumption-and-premium-plans-work)的信息。 因此，此文件仅包含触发器信息，不包含输入或输出绑定。
+此文件的用途是向缩放控制器提供用于[对消耗计划做出缩放决策](event-driven-scaling.md)的信息。 因此，此文件仅包含触发器信息，不包含输入或输出绑定。
 
 生成的 *function.json* 文件包括一个 `configurationSource` 属性，该属性告诉运行时使用 .NET 属性进行绑定，而不是使用 *function.json* 配置。 下面是一个示例：
 
@@ -208,7 +208,7 @@ Visual Studio 使用 [Azure Functions Core Tools](functions-run-local.md#install
 
 ## <a name="readytorun"></a>ReadyToRun
 
-可以将函数应用编译为 [ReadyToRun 二进制文件](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images)。 ReadyToRun 是一种预先编译形式，可以提高启动性能，帮助降低在[消耗计划](functions-scale.md#consumption-plan)中运行时的[冷启动](functions-scale.md#cold-start)的影响。
+可以将函数应用编译为 [ReadyToRun 二进制文件](https://docs.microsoft.com/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images)。 ReadyToRun 是一种预先编译形式，可以提高启动性能，帮助降低在[消耗计划](consumption-plan.md)中运行时的[冷启动](event-driven-scaling.md#cold-start)的影响。
 
 ReadyToRun 在 .NET 3.0 中提供，并且需要 [Azure Functions 运行时版本 3.0](functions-versions.md)。
 
@@ -264,7 +264,7 @@ public static class ICollectorExample
 
 ## <a name="async"></a>异步
 
-要使函数[异步](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/)，请使用 `async` 关键字并返回 `Task` 对象。
+要使函数[异步](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)，请使用 `async` 关键字并返回 `Task` 对象。
 
 ```csharp
 public static class AsyncExample

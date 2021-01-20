@@ -5,17 +5,17 @@ ms.service: batch
 ms.topic: tutorial
 origin.date: 12/30/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 04/29/2020
 ms.author: v-yeche
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 498a96370fd22c58d4fc81385f97059ae08abcf8
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 194d460a453fac49065594f9b738a8ac7d20cdc5
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022824"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231019"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教程：使用 Azure Batch 渲染场景
 

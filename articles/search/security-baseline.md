@@ -5,15 +5,15 @@ author: msmbaldwin
 ms.service: search
 ms.topic: conceptual
 origin.date: 09/25/2020
-ms.date: 12/10/2020
+ms.date: 01/14/2021
 ms.author: v-tawe
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f8f0d872f1caa07676aaaceda5dde0f2b74e3a18
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 5fd74dd68f571819ac87b1e9966630c1e0286a24
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004275"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194749"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Azure 认知搜索的 Azure 安全基线
 
@@ -65,7 +65,7 @@ ms.locfileid: "97004275"
 
 **Guidance**: Cognitive Search does not provide a specific feature to combat a distributed denial-of-service attack, but you can enable DDoS Protection Standard on the virtual networks associated with your Cognitive Search service for general protection.
 
-- [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+- [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -224,7 +224,7 @@ ms.locfileid: "97004275"
 
 <!-- - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) -->
 
-- [了解 Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- [了解 Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [如何在 Azure Monitor 中执行自定义查询](../azure-monitor/log-query/get-started-queries.md)
 

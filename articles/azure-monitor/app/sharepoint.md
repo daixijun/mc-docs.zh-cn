@@ -3,14 +3,14 @@ title: 使用 Application Insights 监视 SharePoint site 站点
 description: 开始使用新检测密钥监视新应用程序
 ms.topic: conceptual
 ms.author: v-johya
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 origin.date: 07/11/2018
-ms.openlocfilehash: 07a5c260a97c3dd9ddba26936d8cc6d0fe6afa9b
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: b16da8ad3eb56c44c792e4b9f8c71954584b3ea2
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104243"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231034"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>使用 Application Insights 监视 SharePoint site 站点
 
@@ -139,7 +139,6 @@ function onRequestFail(sender, args) {
 
 
 ## <a name="next-steps"></a>后续步骤
-* 用于监视站点可用性的 [Web 测试](./monitor-web-app-availability.md)。
 * 适用于其他应用类型的 [Application Insights](./app-insights-overview.md)。
 
 <!--Link references-->

@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 10/30/2020
-ms.date: 12/14/2020
-ms.openlocfilehash: e6241d276dcf15ff3443024571bd385bfa20846f
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.date: 01/25/2021
+ms.openlocfilehash: 08d84f0382731aa1aa6c215e4f941f8f92830f35
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830164"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541896"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>复制 Azure SQL 数据库中数据库的事务一致性副本
 
@@ -80,7 +80,7 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
 
 使用服务器管理员登录名或创建了要复制的数据库的登录名登录到 master 数据库。 若要成功复制数据库，非服务器管理员的登录名必须是 `dbmanager` 角色的成员。 有关登录名和链接到服务器的详细信息，请参阅[管理登录名](logins-create-manage.md)。
 
-使用 [CREATE DATABASE ...AS COPY OF](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#copy-a-database) 语句开始复制源数据库。 T-SQL 语句将继续运行，直到数据库复制操作完成。
+使用 [CREATE DATABASE ...AS COPY OF](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) 语句开始复制源数据库。 T-SQL 语句将继续运行，直到数据库复制操作完成。
 
 > [!NOTE]
 > 终止 T-SQL 语句不会终止数据库复制操作。 若要终止该操作，请删除目标数据库。
@@ -129,6 +129,46 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 ### <a name="copy-to-a-different-subscription"></a>复制到其他订阅
 
 可以按[将 SQL 数据库复制到其他服务器](#copy-to-a-different-server)部分中的步骤操作，使用 T-SQL 将数据库复制到其他订阅中的服务器。 确保所用登录名的名称和密码与源数据库的数据库所有者的名称和密码相同。 此外，登录名在源服务器和目标服务器上都必须是 `dbmanager` 角色的成员或者是服务器管理员。
+
+```sql
+Step# 1
+Create login and user in the master database of the source server.
+
+CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx'
+GO
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+GO
+
+Step# 2
+Create the user in the source database and grant dbowner permission to the database.
+
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+GO
+exec sp_addrolemember 'db_owner','loginname'
+GO
+
+Step# 3
+Capture the SID of the user "loginname" from master database
+
+SELECT [sid] FROM sysusers WHERE [name] = 'loginname'
+
+Step# 4
+Connect to Destination server.
+Create login and user in the master database, same as of the source server.
+
+CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx', SID = [SID of loginname login on source server]
+GO
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+GO
+exec sp_addrolemember 'dbmanager','loginname'
+GO
+
+Step# 5
+Execute the copy of database script from the destination server using the credentials created
+
+CREATE DATABASE new_database_name
+AS COPY OF source_server_name.source_database_name
+```
 
 > [!NOTE]
 > [Azure 门户](https://portal.azure.cn)、PowerShell 和 Azure CLI 不支持将数据库复制到其他订阅。

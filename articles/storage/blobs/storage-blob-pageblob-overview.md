@@ -6,17 +6,17 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/15/2020
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 45ace592e53b6954a3f1573d83ac59bad14738cf
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 2fbc1aa59b6bd0f0c04d45770419911d89ff936f
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850770"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163221"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 页 Blob 概述
 
@@ -58,7 +58,7 @@ Azure 页 Blob 的重要功能包括 REST 接口、基础存储持久性，以�
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-首先，获取对容器的引用。 若要创建页 blob，请调用 [GetPageBlobClient](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getpageblobclient) 方法，然后调用 [PageBlobClient.Create](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) 方法。 传入要创建的 blob 的最大大小。 该大小必须是 512 字节的倍数。
+首先，获取对容器的引用。 若要创建页 blob，请调用 GetPageBlobClient 方法，然后调用 [PageBlobClient.Create](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) 方法。 传入要创建的 blob 的最大大小。 该大小必须是 512 字节的倍数。
 
 ```csharp
 long OneGigabyteAsBytes = 1024 * 1024 * 1024;

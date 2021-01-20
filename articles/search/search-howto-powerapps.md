@@ -10,12 +10,12 @@ ms.devlang: rest-api
 ms.topic: tutorial
 origin.date: 08/21/2020
 ms.date: 11/27/2020
-ms.openlocfilehash: 7bb0b1c608bd5d4e42a10ffd53820c2624c007a9
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 5a54dde58f6028a976b18fae025ead9a080abc17
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96430894"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194780"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>教程：从 Power Apps 查询认知搜索索引
 
@@ -58,7 +58,7 @@ Power Apps 中的连接器是一个数据源连接。 在此步骤中，你将�
 
    * 图标背景色（例如 #007ee5）
    * 说明（例如“用于连接 Azure 认知搜索的连接器”）
-   * 在“主机”中，需要输入搜索服务 URL（例如 `<yourservicename>.search.chinacloudapi.cn`）
+   * 在“主机”中，需要输入搜索服务 URL（例如 `<yourservicename>.search.azure.cn`）
    * 对于“基 URL”，只需输入“/”
 
     :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="“常规信息”对话框" border="true":::

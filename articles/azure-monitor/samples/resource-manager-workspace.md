@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: b7991fc7846e74b5f86349fe14c5dc9085d42ff4
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.date: 01/12/2021
+ms.openlocfilehash: ef0b5e3cc18fa9448a817de5454e67cb2c32de83
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637999"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230407"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>用于 Azure Monitor 中的 Log Analytics 工作区的资源管理器模板示例
 本文包含用于在 Azure Monitor 中创建和配置 Log Analytics 工作区的 [Azure 资源管理器模板](../../azure-resource-manager/templates/template-syntax.md)示例。 每个示例都包含模板文件和参数文件，其中包含要提供给模板的示例值。
@@ -672,7 +672,6 @@ ms.locfileid: "94637999"
           "properties": {
               "customLogName": "armlog_newline",
               "description": "this is a description",
-              "extractions": [],
               "inputs": [
                 {
                     "location": {

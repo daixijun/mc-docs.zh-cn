@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 10/14/2020
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: af8d98da3658b8c9f270aacf4de0584cefca7f11
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: ecdfa5322f5fb8ada24d527c5d820491ac6d18e7
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552057"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163072"
 ---
 # <a name="list-blob-containers-with-net"></a>使用 .NET 列出 Blob 容器
 
@@ -62,39 +62,26 @@ ms.locfileid: "94552057"
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 ```csharp
-//-------------------------------------------------
-// List containers
-//-------------------------------------------------
 async static Task ListContainers(BlobServiceClient blobServiceClient, 
                                 string prefix, 
                                 int? segmentSize)
 {
-    string continuationToken = string.Empty;
-
     try
     {
-        do
+        // Call the listing operation and enumerate the result segment.
+        var resultSegment = 
+            blobServiceClient.GetBlobContainersAsync(BlobContainerTraits.Metadata, prefix, default)
+            .AsPages(default, segmentSize);
+
+        await foreach (Azure.Page<BlobContainerItem> containerPage in resultSegment)
         {
-            // Call the listing operation and enumerate the result segment.
-            // When the continuation token is empty, the last segment has been returned
-            // and execution can exit the loop.
-            var resultSegment = 
-                blobServiceClient.GetBlobContainersAsync(BlobContainerTraits.Metadata, prefix, default)
-                .AsPages(continuationToken, segmentSize);
-            await foreach (Azure.Page<BlobContainerItem> containerPage in resultSegment)
+            foreach (BlobContainerItem containerItem in containerPage.Values)
             {
-                foreach (BlobContainerItem containerItem in containerPage.Values)
-                {
-                    Console.WriteLine("Container name: {0}", containerItem.Name);
-                }
-
-                // Get the continuation token and loop until it is empty.
-                continuationToken = containerPage.ContinuationToken;
-
-                Console.WriteLine();
+                Console.WriteLine("Container name: {0}", containerItem.Name);
             }
 
-        } while (continuationToken != string.Empty);
+            Console.WriteLine();
+        }
     }
     catch (RequestFailedException e)
     {

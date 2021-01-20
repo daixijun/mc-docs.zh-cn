@@ -5,19 +5,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
-origin.date: 07/23/2020
-ms.date: 11/16/2020
+origin.date: 12/10/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 58e89daeb08dff48776c777dfe169353f2b5586d
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 65e4b51e6d999f4195d56fcc5f312f8d00826cef
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552683"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231077"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>如何通过 Java 使用 Azure 表存储或 Azure Cosmos DB 表 API
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "94552683"
 
 <!--MOONCAKE: CORRECT ON Azure Storage SDK for java/android-->
 
-本文介绍如何创建表、存储数据以及对数据执行 CRUD 操作。 选择 Azure 表服务或 Azure Cosmos DB 表 API。 这些示例用 Java 编写并使用[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java]。 涉及的方案包括 **创建**、**列出** 和 **删除** 表，以及 **插入**、**查询**、**修改** 和 **删除** 表中的实体。 有关表的详细信息，请参阅[后续步骤](#next-steps)部分。
+本文介绍如何创建表、存储数据以及对数据执行 CRUD 操作。 选择 Azure 表服务或 Azure Cosmos DB 表 API。 这些示例用 Java 编写并使用[用于 Java 的 Azure 存储 SDK v8][Azure Storage SDK for Java]。 涉及的方案包括 **创建**、**列出** 和 **删除** 表，以及 **插入**、**查询**、**修改** 和 **删除** 表中的实体。 有关表的详细信息，请参阅[后续步骤](#next-steps)部分。
 
 > [!NOTE]
 > SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅[用于 Android 的 Azure 存储 SDK][Azure Storage SDK for Android]。
@@ -629,7 +629,7 @@ catch (Exception e)
 ## <a name="next-steps"></a><a name="next-steps"></a>后续步骤
 
 * [Java 中 Azure 表服务入门](https://github.com/Azure-Samples/storage-table-java-getting-started)
-* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
+* [Microsoft Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
     
     <!--CORRECT ON MICROSOFT -->
     <!--MOONCAKE: CORRECT ON Azure Storage SDK for java/android-->
@@ -642,7 +642,7 @@ catch (Exception e)
 有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.azure.cn/java/)。
 
 [Azure SDK for Java]: https://docs.azure.cn/develop/java/
-[Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
+[Azure Storage SDK for Java]: https://github.com/Azure/azure-storage-java/tree/v8.6.5
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 
 <!--MOONCAKE: CORRECT ON Azure Storage SDK for java/android-->

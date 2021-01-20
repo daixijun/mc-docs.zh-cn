@@ -7,14 +7,15 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 07/01/2019
-ms.date: 08/24/2020
+ms.date: 01/18/2021
 ms.author: v-jay
-ms.openlocfilehash: 6f5e4bc3d570db68c577d2f50c65da86ace0452b
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0b6c0ca60c743b99258ec3dabe74f96d55b140ad
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753457"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163067"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>使用 .NET 管理容器属性和元数据
 
@@ -40,22 +41,19 @@ ms.locfileid: "88753457"
 以下代码示例提取容器的系统属性并将一些属性值写入到控制台窗口：
 
 ```csharp
-private static async Task ReadContainerPropertiesAsync
-    (BlobContainerClient container)
+private static async Task ReadContainerPropertiesAsync(BlobContainerClient container)
 {
     try
     {
         // Fetch some container properties and write out their values.
         var properties = await container.GetPropertiesAsync();
-        Console.WriteLine("Properties for container {0}", container.Uri);
-        Console.WriteLine("Public access level: {0}", properties.Value.PublicAccess);
-        Console.WriteLine("Last modified time in UTC: {0}", properties.Value.LastModified);
+        Console.WriteLine($"Properties for container {container.Uri}");
+        Console.WriteLine($"Public access level: {properties.Value.PublicAccess}");
+        Console.WriteLine($"Last modified time in UTC: {properties.Value.LastModified}");
     }
     catch (RequestFailedException e)
     {
-        Console.WriteLine("HTTP error code {0}: {1}",
-                            e.Status,
-                            e.ErrorCode);
+        Console.WriteLine($"HTTP error code {e.Status}: {e.ErrorCode}");
         Console.WriteLine(e.Message);
         Console.ReadLine();
     }
@@ -114,8 +112,7 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 以下代码示例在容器上设置元数据。
 
 ```csharp
-public static async Task AddContainerMetadataAsync
-    (BlobContainerClient container)
+public static async Task AddContainerMetadataAsync(BlobContainerClient container)
 {
     try
     {
@@ -131,9 +128,7 @@ public static async Task AddContainerMetadataAsync
     }
     catch (RequestFailedException e)
     {
-        Console.WriteLine("HTTP error code {0}: {1}",
-                            e.Status,
-                            e.ErrorCode);
+        Console.WriteLine($"HTTP error code {e.Status}: {e.ErrorCode}");
         Console.WriteLine(e.Message);
         Console.ReadLine();
     }
@@ -148,8 +143,7 @@ public static async Task AddContainerMetadataAsync
 然后读取值，如下面的示例所示。
 
 ```csharp
-public static async Task ReadContainerMetadataAsync
-    (BlobContainerClient container)
+public static async Task ReadContainerMetadataAsync(BlobContainerClient container)
 {
     try
     {
@@ -159,15 +153,13 @@ public static async Task ReadContainerMetadataAsync
         Console.WriteLine("Container metadata:");
         foreach (var metadataItem in properties.Value.Metadata)
         {
-            Console.WriteLine("\tKey: {0}", metadataItem.Key);
-            Console.WriteLine("\tValue: {0}", metadataItem.Value);
+            Console.WriteLine($"\tKey: {metadataItem.Key}");
+            Console.WriteLine($"\tValue: {metadataItem.Value}");
         }
     }
     catch (RequestFailedException e)
     {
-        Console.WriteLine("HTTP error code {0}: {1}",
-                            e.Status,
-                            e.ErrorCode);
+        Console.WriteLine($"HTTP error code {e.Status}: {e.ErrorCode}");
         Console.WriteLine(e.Message);
         Console.ReadLine();
     }

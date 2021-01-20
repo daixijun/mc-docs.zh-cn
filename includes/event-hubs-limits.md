@@ -9,12 +9,12 @@ origin.date: 09/10/2020
 ms.date: 12/02/2020
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: 76a60b5f5e46a765ff65a5e910b80f187abba611
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 0707a2a6a52b7f33867b587c6b7f2b1aaabc9cf4
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509199"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98557142"
 ---
 下表提供了特定于 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)的配额和限制。 有关事件中心定价的信息，请参阅[事件中心定价](https://www.azure.cn/pricing/details/event-hubs/)。
 
@@ -48,7 +48,7 @@ ms.locfileid: "96509199"
 ### <a name="dedicated-tier-vs-standard-tier"></a>专用层和标准层
 事件中心专用层产品/服务按固定的每月价格计费，最少用量为 4 小时。 专用层提供标准计划的所有功能，但具有企业规模容量和限制，以满足客户的工作负荷需求。 
 
-<!-- Refer to this [document](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md) on how to create dedicated Event Hubs cluster using Azure portal. -->
+请参阅本[文档](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md)，了解如何使用 Azure 门户创建专用“事件中心”群集。
 
 | Feature | 标准 | 专用 |
 | --- |:---|:---|

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 03dcf3c717c9e31a5b59b05426128e12aae5733d
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 554a17b8f4bed1f7e7ddad2aca2173735fdb05ba
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003914"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194993"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>快速入门：从 iOS 或 macOS 应用将用户登录并调用 Microsoft Graph API
 
@@ -55,16 +55,17 @@ ms.locfileid: "97003914"
 > #### <a name="step-1-register-your-application"></a>步骤 1：注册应用程序
 > 若要手动注册应用程序并将应用的注册信息添加到解决方案，请执行以下步骤：
 >
-> 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
-> 1. 选择“新注册”。
-> 1. “注册应用程序”页出现后，请输入应用程序的注册信息： 
->      - 在“名称”部分输入一个当应用用户登录应用或进行应用许可时会显示给应用用户的有意义的应用程序名称。
->      - 跳过此页上的其他配置。
->      - 选择 `Register`。
-> 1. 在“管理”部分选择 `Authentication` > `Add Platform` > `iOS`。
->      - 输入应用程序的“捆绑标识符”。 捆绑标识符只是一个用于唯一标识应用程序的唯一字符串，例如 `com.<yourname>.identitysample.MSALMacOS`。 记下所用的值。
->      - 请注意，iOS 配置也适用于 macOS 应用程序。
-> 1. 选择 `Configure` 并保存“MSAL 配置”详细信息，供稍后在本快速入门中使用。
+> 1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
+> 1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
+> 1. 搜索并选择“Azure Active Directory”  。    
+> 1. 在“管理”下，选择“应用注册” > “新建注册”  。
+> 1. 输入应用程序的 **名称**。 应用的用户可能会看到此名称，你稍后可对其进行更改。
+> 1. 选择“注册”  。
+> 1. 在“管理”下，选择“身份验证” > “添加平台” > “iOS”   。
+> 1. 输入应用程序的捆绑包标识符。 捆绑标识符是用于唯一标识应用程序的唯一字符串，例如 `com.<yourname>.identitysample.MSALMacOS`。 记下所用的值。 请注意，iOS 配置也适用于 macOS 应用程序。
+> 1. 选择“配置”并保存“MSAL 配置”详细信息，供稍后在本快速入门中使用 。
+> 1. 选择“完成”。
+
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>步骤 1：配置应用程序
@@ -101,7 +102,7 @@ ms.locfileid: "97003914"
 >#### <a name="step-4-configure-your-project"></a>步骤 4：配置项目
 > 如果选择了上面的“选项 1”，则可跳过这些步骤。
 > 1. 解压缩 zip 文件并在 XCode 中打开该项目。
-> 1. 编辑“ViewController.swift”并将以“let kClientID”开头的行替换为以下代码片段。 记住将 `kClientID` 的值更新为客户端 ID，该 ID 是你在本快速入门的前面部分通过门户注册应用时保存的：
+> 1. 编辑 **ViewController.swift** 并将以“let kClientID”开头的行替换为以下代码片段。 记住将 `kClientID` 的值更新为客户端 ID，该 ID 是你在本快速入门的前面部分通过门户注册应用时保存的：
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```

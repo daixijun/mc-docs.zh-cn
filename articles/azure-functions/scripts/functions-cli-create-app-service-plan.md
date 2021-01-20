@@ -3,14 +3,14 @@ title: 在应用服务计划中创建 Function App - Azure CLI
 description: Azure CLI 脚本示例 - 在应用服务计划中创建 Function App
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
-ms.date: 11/18/2020
+ms.date: 01/13/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 69d4a050ee2635e1f36dd49377f72fa18f8cee1b
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 89f776d0a752360a281c268924d68d1d231a8ebb
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508726"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195254"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>在应用服务计划中创建 Function App
 
@@ -24,7 +24,7 @@ ms.locfileid: "96508726"
 
 ## <a name="sample-script"></a>示例脚本
 
-此脚本使用专用[应用服务计划](../functions-scale.md#app-service-plan)创建 Azure Function App。
+此脚本使用专用[应用服务计划](../dedicated-plan.md)创建 Azure Function App。
 
 ```azurecli
 #!/bin/bash

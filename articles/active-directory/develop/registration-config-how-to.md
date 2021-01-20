@@ -10,20 +10,20 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
-ms.openlocfilehash: 6a07714e976b59ac3157ec771af4c5968932dc45
-ms.sourcegitcommit: 0130a709d934d89db5cccb3b4997b9237b357803
+ms.openlocfilehash: 97335ba45049e6ef99ce2ac58da6955d92db4246
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186871"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195081"
 ---
 # <a name="how-to-discover-endpoints"></a>如何发现终结点
 
 可以在 [Azure 门户](https://portal.azure.cn)中找到应用程序的身份验证终结点。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 选择“Azure Active Directory” 。
 1. 在“管理”下，选择“应用注册”，然后在顶部菜单中选择“终结点”。
 

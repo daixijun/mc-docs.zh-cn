@@ -6,17 +6,17 @@ ms.topic: tutorial
 ms.workload: infrastructure
 origin.date: 12/05/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 979304b458add650523b77295e47ddc6576b0e9e
-ms.sourcegitcommit: a9aa7d358cd2bef2e4e35b2b720487cb22b2c461
+ms.openlocfilehash: 1225ee0225bdb77eb11f35e229dec7a82f882bcc
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592792"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570590"
 ---
 <!--Verified successfully-->
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>教程：监视更改和更新 Azure 中的 Windows 虚拟机

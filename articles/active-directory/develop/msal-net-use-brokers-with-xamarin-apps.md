@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/07/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 31d92975a4e008fe0d7fce91c658d04d2dc45959
-ms.sourcegitcommit: 25d542cf9c8c7bee51ec75a25e5077e867a9eb8b
+ms.openlocfilehash: 56ab7bb40e81434262ff646eb52be91ad26087cc
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89593646"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195186"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>在 Xamarin 应用程序中使用 Microsoft Authenticator 或 Intune 公司门户
 
@@ -165,7 +165,7 @@ MSAL 使用 `-canOpenURL:` 来检查是否在设备上安装了中介。 在 iOS
 
 ### <a name="step-7-add-a-redirect-uri-to-your-app-registration"></a>步骤 7：向应用注册中添加重定向 URI
 
-使用中介时，需要满足重定向 URI 的额外要求。 重定向 URI __ 必须采用以下格式：
+使用中介时，需要满足重定向 URI 的额外要求。 重定向 URI 必须采用以下格式：
 
 ```csharp
 $"msauth.{BundleId}://auth"
@@ -183,7 +183,7 @@ public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";
 
 **若要生成重定向 URI，请执行以下操作：**
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 选择“Azure Active Directory” > “应用注册”> 你的已注册应用
 1. 选择  “身份验证” > “添加平台” > “iOS/macOS”
 1. 输入你的捆绑 ID，然后选择“配置”。
@@ -237,7 +237,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 ### <a name="step-4-add-a-redirect-uri-to-your-app-registration"></a>步骤 4：向应用注册中添加重定向 URI
 
-MSAL 使用 URL 调用中介，然后返回到你的应用。 若要完成该往返过程，需要使用 [Azure 门户](https://portal.azure.cn)为应用注册一个**重定向 URI**。
+MSAL 使用 URL 调用中介，然后返回到你的应用。 若要完成该往返过程，需要使用 [Azure 门户](https://portal.azure.cn)为应用注册一个 **重定向 URI**。
 
 应用程序的重定向 URI 的格式依赖于用于对 APK 进行签名的证书。 例如：
 
@@ -315,7 +315,7 @@ URI 的最后一部分 `hgbUYHVBYUTvuvT&Y6tr554365466=` 是签署 APK 时使用�
 
 例如，如果你的重定向 URI 为 `msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=`，则清单应当类似于以下 XML 代码片段。
 
-`android:path` 值中签名前面的正斜杠 (`/`) 是**必需的**。
+`android:path` 值中签名前面的正斜杠 (`/`) 是 **必需的**。
 
 ```xml
 <!-- NOTE the SLASH (required) that prefixes the signature value in the path attribute.
@@ -365,4 +365,3 @@ URI 的最后一部分 `hgbUYHVBYUTvuvT&Y6tr554365466=` 是签署 APK 时使用�
 
 了解[将通用 Windows 平台与 MSAL.NET 配合使用时的注意事项](msal-net-uwp-considerations.md)。
 
-<!-- Update_Description: wording update -->

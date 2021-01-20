@@ -15,17 +15,17 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 origin.date: 03/14/2018
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ae8315e83816f715a93ca7999bebbbff511861e7
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 4e89add9dd0c94ab23a5c64396ac9598df5af955
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508096"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570678"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>使用 Azure CLI 通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 
@@ -38,11 +38,13 @@ ms.locfileid: "96508096"
 * 确认从某个子网对资源的访问
 * 确认已拒绝从某个子网和 Internet 来访问资源
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- 本文需要 Azure CLI 2.0.28 或更高版本。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
-如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。 
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
@@ -329,7 +331,7 @@ sudo mount --types cifs //storage-account-name>.file.core.chinacloudapi.cn/my-fi
 
 退出与 *myVmPublic* VM 建立的 SSH 会话。
 
-从计算机中，尝试使用 [az storage share list](https://docs.azure.cn/cli/storage/share#az-storage-share-list) 查看存储帐户中的共享。 将 `<account-name>` 和 `<account-key>` 替换为在[创建存储帐户](#create-a-storage-account)中获得的存储帐户名称和密钥：
+从计算机中，尝试使用 [az storage share list](https://docs.azure.cn/cli/storage/share#az_storage_share_list) 查看存储帐户中的共享。 将 `<account-name>` 和 `<account-key>` 替换为在[创建存储帐户](#create-a-storage-account)中获得的存储帐户名称和密钥：
 
 ```azurecli
 az storage share list \
@@ -341,7 +343,7 @@ az storage share list \
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/cli/index#az-group-delete) 将其删除。
+如果不再需要资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/cli/group#az_group_delete) 将其删除。
 
 ```azurecli 
 az group delete --name myResourceGroup --yes

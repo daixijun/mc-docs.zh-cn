@@ -4,16 +4,16 @@ description: 在 Azure 应用服务中创建免费的证书、导入应用服务
 tags: buy-ssl-certificates
 ms.topic: tutorial
 origin.date: 10/25/2019
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.author: v-tawe
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: df1bc5a2f8fb51f42963ad88d4ed923eb299a3ef
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: ac4680262c48cfa95b6ac0d8a8694c714be1d9b7
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023009"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230582"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>在 Azure 应用服务中添加 TLS/SSL 证书
 
@@ -193,31 +193,8 @@ Select **App Service Verification**. Since you already mapped the domain to your
 > 若要使用此证书保护自定义域，仍需要创建证书绑定。 按照[创建绑定](configure-ssl-bindings.md#create-binding)中的步骤操作。
 >
 
-## <a name="import-a-certificate-from-key-vault"></a>导入来自 Key Vault 的证书
+<!--Not Available on ## Import a certificate from Key Vault-->
 
-如果使用 Azure Key Vault 管理证书，则可以将 PKCS12 证书从 Key Vault 导入到应用服务中，前提是该证书[满足要求](#private-certificate-requirements)。
-
-在 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>的左侧菜单中，选择“应用程序服务” > “\<app-name>” 。
-
-在应用的左侧导航窗格中，选择“TLS/SSL 设置” > “私钥证书(.pfx)” > “导入 Key Vault 证书”  。
-
-![将 Key Vault 证书导入到应用服务中](./media/configure-ssl-certificate/import-key-vault-cert.png)
-
-使用下表来帮助选择证书。
-
-| 设置 | 说明 |
-|-|-|
-| 订阅 | Key Vault 所属的订阅。 |
-| Key Vault | 包含要导入的证书的保管库。 |
-| 证书 | 从保管库中的 PKCS12 证书列表中进行选择。 保管库中的所有 PKCS12 证书都已通过其指纹列出，但在应用服务中并非支持所有证书。 |
-
-操作完成后，会在“私钥证书”列表中看到该证书。 如果导入失败并出现错误，则证书不满足[应用服务的要求](#private-certificate-requirements)。
-
-![导入 Key Vault 证书已完成](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
-
-> [!IMPORTANT] 
-> 若要使用此证书保护自定义域，仍需要创建证书绑定。 按照[创建绑定](configure-ssl-bindings.md#create-binding)中的步骤操作。
->
 
 ## <a name="upload-a-private-certificate"></a>上传私有证书
 
@@ -392,4 +369,4 @@ New-AzWebAppSSLBinding -WebAppName $webappname -ResourceGroupName $webappname -N
 * [实施 HTTPS](configure-ssl-bindings.md#enforce-https)
 * [实施 TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
 * [在 Azure 应用服务中通过代码使用 TLS/SSL 证书](configure-ssl-certificate-in-code.md)
-* [常见问题解答：应用服务证书](https://docs.azure.cn/app-service/faq-configuration-and-management/)
+* [常见问题解答：应用服务证书](./faq-configuration-and-management.md)

@@ -4,17 +4,17 @@ description: 快速了解如何通过 Azure 门户创建专用 Azure 容器注�
 ms.topic: quickstart
 origin.date: 08/04/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 04/06/2020
 ms.author: v-yeche
-ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: abd16df0d48ab7b22ffdd870f7a64a26b5f95e2d
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 770359e518929b2a4321bbb24a747ce3cb6b3b6c
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004118"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230822"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>快速入门：通过 Azure 门户创建 Azure 容器注册表
 
@@ -30,7 +30,7 @@ Azure 容器注册表是 Azure 中的专用 Docker 注册表，你可在其中�
 
 ## <a name="create-a-container-registry"></a>创建容器注册表
 
-<!--MOONCAKE:  Customized to match MC-->
+<!--MOONCAKE:  Customized to match MC till on 01/12/2021-->
 
 选择“创建资源”，在“新建”页的搜索筛选器中键入“容器注册表”，然后按回车键。
 
@@ -44,7 +44,7 @@ Azure 容器注册表是 Azure 中的专用 Docker 注册表，你可在其中�
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-chenye-click-create.png" alt-text="在 Azure 门户中创建容器注册表":::
 
-<!--MOONCAKE:  Customized to match MC-->
+<!--MOONCAKE:  Customized to match MC till on 01/12/2021-->
 
 在“基本信息”选项卡中，输入“资源组”和“注册表名称”的值 。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 对于本快速入门，在 `China North` 位置创建名为 `myResourceGroup` 的新资源组，对于 **SKU**，选择“基本”。
 

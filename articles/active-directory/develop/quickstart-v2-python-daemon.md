@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: b47493762fab09723ef20d74b9f415754189069c
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 5b331454d81d2353ab67cebf64a10a549fe8f4fa
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003902"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195235"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>快速入门：使用应用的标识获取令牌并从 Python 控制台应用中调用 Microsoft Graph API
 
@@ -52,17 +52,17 @@ ms.locfileid: "97003902"
 > #### <a name="step-1-register-your-application"></a>步骤 1：注册应用程序
 > 若要手动注册应用程序并将应用的注册信息添加到解决方案，请执行以下步骤：
 >
-> 1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn)。
-> 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-> 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
-> 1. 选择“新注册”。
-> 1. 出现“注册应用程序”页后，请输入应用程序的注册信息。
-> 1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `Daemon-console`，然后选择“注册”以创建应用程序。
-> 1. 注册以后，选择“证书和机密”菜单。
-> 1. 在“客户端机密”下，选择“+ 新建客户端机密”。  为它提供一个名称，然后选择“添加”。 将机密复制到安全位置。 稍后需要在代码中使用它。
-> 1. 现在请依次选择“API 权限”菜单、“+ 添加权限”按钮、“Microsoft Graph”。  
+> 1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
+> 1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
+> 1. 搜索并选择“Azure Active Directory”  。
+> 1. 在“管理”下，选择“应用注册” > “新建注册”  。
+> 1. 输入应用程序的名称（例如 `Daemon-console`）。 应用的用户可能会看到此名称，你稍后可对其进行更改。
+> 1. 选择“注册”  。
+> 1. 在“管理”下，选择“证书和机密”。  
+> 1. 在“客户端机密”下，选择“新建客户端机密”，输入名称，然后选择“添加”  。 将机密值记录在安全的位置，以供在后面的步骤中使用。
+> 1. 在“管理”下，选择“API 权限” > “添加权限”  。 选择“Microsoft Graph”。
 > 1. 选择“应用程序权限”。
-> 1. 在“用户”节点下选择“User.Read.All”，然后选择“添加权限”。  
+> 1. 在“用户”节点下选择“User.Read.All”，然后选择“添加权限”  。
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>下载并配置快速入门应用

@@ -5,13 +5,13 @@ ms.subservice: application-insights
 ms.topic: sample
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/10/2020
-ms.openlocfilehash: 92c82f0ecb712bb07d532ac9dd1c8cecfc20dc86
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/12/2021
+ms.openlocfilehash: 94b7749c5a836df53b708d84ef19d41edad20881
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105578"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230413"
 ---
 # <a name="resource-manager-template-samples-for-creating-application-insights-resources"></a>用于创建 Application Insights 资源的资源管理器模板示例
 

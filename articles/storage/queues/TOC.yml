@@ -35,7 +35,7 @@
       href: ../common/storage-samples-java.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: Python
       href: ../common/storage-samples-python.md?toc=%2fstorage%2fqueues%2ftoc.json
-    - name: JavaScript
+    - name: Javascript
       href: ../common/storage-samples-javascript.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 其他语言
       href: ../common/storage-samples.md?toc=%2fstorage%2fqueues%2ftoc.json
@@ -92,8 +92,6 @@
               href: ../common/scalability-targets-resource-provider.md?toc=%2fstorage%2fqueues%2ftoc.json
         - name: 性能和可伸缩性清单
           href: storage-performance-checklist.md
-    - name: 并发
-      href: ../common/storage-concurrency.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 监视和故障排除
       items:
         - name: 从经典指标转换
@@ -211,6 +209,10 @@
           href: storage-powershell-how-to-use-queues.md
         - name: 将 PowerShell 用于中国云、政府云和德国云
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fstorage%2fqueues%2ftoc.json
+        - name: 监视（经典）
+          items:
+            - name: 在 Azure 门户中进行监视（经典）
+              href: ../common/storage-monitor-storage-account.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 疑难解答
       items:
         - name: 延迟问题
@@ -243,17 +245,17 @@
     - name: NuGet 包 (.NET)
       items:
         - name: Microsoft.Azure.Storage.Common（版本 11.x）
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
+          href: 'https://www.nuget.org/packages/microsoft.azure.storage.common/'
         - name: Azure.Storage.Common（版本 12.x）
           href: 'https://www.nuget.org/packages/Azure.Storage.Common/'
         - name: Microsoft.Azure.Storage.Queue（版本 11.x）
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/'
+          href: 'https://www.nuget.org/packages/microsoft.azure.storage.queue/'
         - name: Azure.Storage.Queue（版本 12.x）
-          href: 'https://www.nuget.org/packages/Azure.Storage.Queues/'
+          href: 'https://www.nuget.org/packages/azure.storage.queues/'
         - name: Azure 配置管理器
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
+          href: 'https://www.nuget.org/packages/microsoft.azure.configurationmanager/'
         - name: 存储资源提供程序库
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/'
+          href: 'https://www.nuget.org/packages/microsoft.azure.management.storage/'
     - name: 源代码
       items:
         - name: .NET

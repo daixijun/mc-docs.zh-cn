@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 12/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e8066cc57bdefc621794f10c55c15578cadaef0d
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 463009ae6d9931ea16a4b2d7b8c7bda0d8a00e12
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021798"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229980"
 ---
 # <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>通过适用于 Python 的 Azure 机器学习 SDK 来触发机器学习管道
 
@@ -153,9 +153,7 @@ published_pipeline.endpoint
 
 ## <a name="create-a-logic-app"></a>创建逻辑应用
 
-现在创建一个 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)实例。 如果需要，[使用集成服务环境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 并[设置客户管理的密钥](../logic-apps/customer-managed-keys-integration-service-environment.md)供逻辑应用使用。
-
-预配逻辑应用后，使用以下步骤为管道配置触发器：
+现在创建一个 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)实例。 预配逻辑应用后，使用以下步骤为管道配置触发器：
 
 1. [创建系统分配的托管标识](../logic-apps/create-managed-service-identity.md)以授予应用对你的 Azure 机器学习工作区的访问权限。
 
@@ -190,16 +188,19 @@ published_pipeline.endpoint
 1. 设置你的计划以设置你可能具有的任何 [DataPath PipelineParameters](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-datapath-and-pipelineparameter.ipynb) 的值：
 
     ```json
-    "DataPathAssignments": { 
-         "input_datapath": { 
-                            "DataStoreName": "<datastore-name>", 
-                            "RelativePath": "@triggerBody()?['Name']" 
-    } 
-    }, 
-    "ExperimentName": "MyRestPipeline", 
-    "ParameterAssignments": { 
-    "input_string": "sample_string3" 
-    },
+    {
+      "DataPathAssignments": {
+        "input_datapath": {
+          "DataStoreName": "<datastore-name>",
+          "RelativePath": "@{triggerBody()?['Name']}" 
+        }
+      },
+      "ExperimentName": "MyRestPipeline",
+      "ParameterAssignments": {
+        "input_string": "sample_string3"
+      },
+      "RunSource": "SDK"
+    }
     ```
 
     将已添加到工作区的 `DataStoreName` 用作[先决条件](#prerequisites)。

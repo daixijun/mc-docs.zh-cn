@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/01/2020
+ms.date: 01/18/2021
 ms.custom: project-no-code
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 8bcaa5fafb34a96bf1054b71073ca6f69583879c
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: c0a704c9cf5e4f6c4a7d5ada25f192dedabce221
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507137"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570550"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>有关 Azure Active Directory B2C 中的自定义策略的开发人员说明
 
@@ -46,7 +46,7 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 - 执行有序的方案测试。
 - 在至少一个开发和测试环境以及一个生产环境中遵循软件开发与过渡最佳做法。
 - 随时了解与之集成的标识提供程序和服务的新进展。 例如，跟踪机密的更改情况以及对服务的计划内和计划外更改。
-- 设置主动监控，监控生产环境的响应能力。 
+- 设置主动监控，监控生产环境的响应能力。 有关与 Application Insights 集成的详细信息，请参阅 [Azure Active Directory B2C：收集日志](analytics-with-application-insights.md)。
 - 在 Azure 订阅中保留最新的联系电子邮件地址，并快速回复 Microsoft 活动站点团队的电子邮件。
 - 根据 Microsoft 活动站点团队的通知及时采取措施。
 
@@ -63,20 +63,20 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="protocols-and-authorization-flows"></a>协议和授权流
 
-| 功能 | 开发 | 预览 | GA | 注释 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OAuth2 授权代码](authorization-code-flow.md) |  |  | X |  |
 | 具有 PKCE 的 OAuth2 授权代码 |  |  | X | [公共客户端和单页应用程序](authorization-code-flow.md)  |
 | [OAuth2 隐式流](implicit-flow-single-page-application.md) |  |  | X |  |
-| OAuth2 资源所有者密码凭据 |  | X |  |  |
+| [OAuth2 资源所有者密码凭据](ropc-custom.md) |  | X |  |  |
 | [OIDC 连接](openid-connect.md) |  |  | X |  |
-| SAML2 |  |  |X  | POST 和重定向绑定。 |
+| [SAML2](connect-with-saml-service-providers.md)  |  |  |X  | POST 和重定向绑定。 |
 | OAuth1 |  |  |  | 不支持。 |
 | WSFED | X |  |  |  |
 
 ### <a name="identify-providers-federation"></a>标识提供者联合 
 
-| 功能 | 开发 | 预览 | GA | 注释 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X |  |
 | OAuth2 |  |  | X | |
@@ -87,15 +87,15 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="rest-api-integration"></a>REST API 集成
 
-| 功能 | 开发 | 预览 | GA | 注释 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 |-------- | :-----------: | :-------: | :--: | ----- |
-| 使用基本身份验证的 REST API |  |  | X |  |
-| 使用客户端证书身份验证的 REST API |  |  | X |  |
-| 使用 OAuth2 持有者身份验证的 REST API |  | X |  |  |
+| [具有基本身份验证的 REST API](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
+| [具有客户端证书身份验证的 REST API](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
+| [具有 OAuth2 持有者身份验证的 REST API](secure-rest-api.md#oauth2-bearer-authentication) |  | X |  |  |
 
 ### <a name="component-support"></a>组件支持
 
-| 功能 | 开发 | 预览 | GA | 注释 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [电话因素身份验证](phone-factor-technical-profile.md) |  |  | X |  |
 | [Azure AD MFA 身份验证](multi-factor-auth-technical-profile.md) |  | X |  |  |
@@ -110,27 +110,28 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="app-ief-integration"></a>App-IEF 集成
 
-| 功能 | 开发 | 预览 | GA | 注释 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | 查询字符串参数 `domain_hint` |  |  | X | 作为声明提供时，可以传递给 IDP。 |
 | 查询字符串参数 `login_hint` |  |  | X | 作为声明提供时，可以传递给 IDP。 |
 | 通过 `client_assertion` 将 JSON 插入用户历程 | X |  |  | 即将弃用。 |
 | 将 JSON 作为 `id_token_hint` 插入用户历程 |  | X |  | 用于传递 JSON 的前向方法。 |
-| [向应用程序传递标识提供者令牌](idp-pass-through-custom.md) |  | X |  |  |
+| [向应用程序传递标识提供者令牌](idp-pass-through-user-flow.md) |  | X |  |  |
+
 
 ### <a name="session-management"></a>会话管理
 
-| Feature | 开发 | 预览 | GA | 说明 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [默认 SSO 会话提供程序](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [外部登录会话提供程序](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [SAML SSO 会话提供程序](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
 | [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
-| [单一登录](session-overview.md#sign-out)  |  | X |  |  |
+| [单一登录](session-behavior.md#sign-out)  |  | X |  |  |
 
 ### <a name="security"></a>安全性
 
-| 功能 | 开发 | 预览 | GA | 注释 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | 策略密钥 - 生成、手动、上传 |  |  | X |  |
 | 策略密钥 - RSA/证书、机密 |  |  | X |  |
@@ -138,11 +139,11 @@ Azure Active Directory B2C 中的自定义策略配置现已正式发布。 此�
 
 ### <a name="developer-interface"></a>开发人员接口
 
-| Feature | 开发 | 预览 | GA | 说明 |
+| 功能 | 开发 | 预览 | GA | 说明 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure 门户-IEF UX |  |  | X |  |
 | 策略上传 |  |  | X |  |
-| Application Insights 用户历程日志 |  | X |  | 用于在开发过程中进行故障排除。  |
+| [Application Insights 用户旅程日志](troubleshoot-with-application-insights.md) |  | X |  | 用于在开发过程中进行故障排除。  |
 | [Application Insights 事件日志](application-insights-technical-profile.md) |  | X |  | 用于监视生产中的用户流。 |
 
 

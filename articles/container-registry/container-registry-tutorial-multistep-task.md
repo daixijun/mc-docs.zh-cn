@@ -4,15 +4,15 @@ description: 本教程介绍如何配置一个 Azure 容器注册表任务，以
 ms.topic: tutorial
 origin.date: 11/24/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 5784c85b62de05a6983bc74e4db8a0dae86bbf01
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: dc8817c912df0ec4d149297e2cedcf7ed87018ac
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004036"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231076"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>教程：提交源代码时在云中运行多步骤容器工作流
 
@@ -132,7 +132,7 @@ az acr task create \
       {
         "name": "defaultSourceTriggerName",
         "sourceRepository": {
-          "branch": "master",
+          "branch": "main",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node.git",
           "sourceControlAuthProperties": null,
           "sourceControlType": "Github"
@@ -226,7 +226,7 @@ cd acr-build-helloworld-node
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"
-git push origin master
+git push origin main
 ```
 
 执行 `git push` 命令时可能需要提供 GitHub 凭据。 提供 GitHub 用户名并输入之前为密码创建的个人访问令牌 (PAT)。

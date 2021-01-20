@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 11/11/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2f189734b2862deeca0353e06da504700829395d
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 0a8447cdf31b41339c6fc7c4c2aa9c0edd83e8f5
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850703"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230979"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ 到 SQL 转换
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,7 +39,7 @@ Azure Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询�
     family.children[n].grade; //n is an int variable
     ```
 
-- 算术表达式，包括针对数值和布尔值运行的常见算术表达式。 有关完整列表，请参阅 [Azure Cosmos DB SQL 规范](sql-query-system-functions.md)。
+- 算术表达式，包括针对数值和布尔值运行的常见算术表达式。 有关完整列表，请参阅 [Azure Cosmos DB SQL 规范](sql-query-aggregate-functions.md)。
 
     ```
     2 * family.children[0].grade;
@@ -91,7 +91,7 @@ SQL .NET SDK 随附的 LINQ 提供程序支持以下运算符：
 - **Where**：筛选器转换为 [WHERE](sql-query-where.md)，并且支持 `&&`、`||` 和 `!` 到 SQL 运算符的转换
 - **SelectMany**：允许将数组展开到 [JOIN](sql-query-join.md) 子句。 用于将表达式链接或嵌套到对数组元素应用的筛选器。
 - **OrderBy** 和 **OrderByDescending**：使用 ASC 或 DESC 转换为 [ORDER BY](sql-query-order-by.md)。
--           用于[聚合](sql-query-aggregates.md)的 Count、Sum、Min、Max 和 Average 运算符及其异步等效项 CountAsync、SumAsync、MinAsync、MaxAsync 和 AverageAsync。
+-           用于[聚合](sql-query-aggregate-functions.md)的 Count、Sum、Min、Max 和 Average 运算符及其异步等效项 CountAsync、SumAsync、MinAsync、MaxAsync 和 AverageAsync。
 - **CompareTo**：转换为范围比较。 通常用于字符串，因为它们在 .NET 中不可进行比较。
 - **Skip** 和 **Take**：转换为 [OFFSET 和 LIMIT](sql-query-offset-limit.md)，用于限制查询的结果和进行分页。
 - **数学函数**：支持从 .NET `Abs`、`Acos`、`Asin`、`Atan`、`Ceiling`、`Cos`、`Exp`、`Floor`、`Log`、`Log10`、`Pow`、`Round`、`Sign`、`Sin`、`Sqrt`、`Tan` 和 `Truncate` 转换为等效的 [内置数学函数](sql-query-mathematical-functions.md)。

@@ -4,7 +4,6 @@ titleSuffix: Azure Network Watcher
 description: 本教程介绍如何使用网络观察程序的 VPN 诊断功能，诊断通过 Azure 虚拟网关连接到本地虚拟网络或其他虚拟网络的 Azure 虚拟网络之间的通信问题。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network.
 ms.service: network-watcher
 ms.devlang: na
@@ -12,17 +11,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/27/2018
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a1ab5a3e3f5164b14e8d13072880f8804281a128
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: e8cc449c4af601c70cd24317af0f764ef5cf890e
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432591"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230458"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>教程：使用 Azure 门户诊断网络之间的通信问题
 
@@ -33,7 +33,7 @@ ms.locfileid: "96432591"
 > * 诊断网关连接问题
 > * 解决网关问题
 
-如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+如果没有 Azure 订阅，请在开始前创建一个[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -76,12 +76,12 @@ ms.locfileid: "96432591"
 8. 当测试正在运行时，“故障排除状态”列中会显示“正在运行”，而在上图中，该列显示“未启动”。   测试可能需要数分钟的运行时间。
 9. 查看已完成测试的状态。 下图显示已完成的诊断测试的状态结果：
 
-    :::image type="content" source="./media/diagnose-communication-problem-between-networks/status.png" alt-text="状态":::
+    :::image type="content" source="./media/diagnose-communication-problem-between-networks/status.png" alt-text="屏幕截图显示在此示例中运行不正常的诊断测试的状态结果，包括摘要和详细信息。":::
 
     可以看到“故障排除状态”为“不正常”，还可以在“状态”选项卡上看到问题的“摘要”和“详细信息”。    
 10. 选择“操作”选项卡时，VPN 诊断会提供其他信息。 在下图所示的示例中，VPN 诊断指示应检查每个连接的运行状况：
 
-    :::image type="content" source="./media/diagnose-communication-problem-between-networks/action.png" alt-text="操作":::
+    :::image type="content" source="./media/diagnose-communication-problem-between-networks/action.png" alt-text="屏幕截图显示提供了其他信息的“操作”选项卡。":::
 
 ## <a name="diagnose-a-gateway-connection"></a>诊断网关连接
 
@@ -89,7 +89,7 @@ ms.locfileid: "96432591"
 
 1. 再次完成[诊断网关](#diagnose-a-gateway)的步骤 7，这次选择一个连接。 在以下示例中，对名为 **VNet1toSite1** 的连接进行了测试：
 
-    :::image type="content" source="./media/diagnose-communication-problem-between-networks/connection.png" alt-text="Connection":::
+    :::image type="content" source="./media/diagnose-communication-problem-between-networks/connection.png" alt-text="屏幕截图显示如何开始对选定连接进行故障排除。":::
 
     测试运行时间为数分钟。
 2. 完成对连接的测试以后，收到的结果类似于下图中显示在“状态”和“操作”选项卡上的结果： 

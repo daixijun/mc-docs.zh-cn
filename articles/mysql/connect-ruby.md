@@ -8,13 +8,13 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 origin.date: 5/26/2020
-ms.date: 11/23/2020
-ms.openlocfilehash: 641b0dc0f50f460815054d937e5e928762a9bab2
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.date: 01/18/2021
+ms.openlocfilehash: 9ba7ded4e082a710c79cf0803b1a18c1bf93af32
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977139"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230928"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>快速入门：使用 Ruby 连接到 Azure Database for MySQL 并查询其中的数据
 
@@ -76,7 +76,7 @@ ms.locfileid: "94977139"
 ## <a name="connect-and-create-a-table"></a>进行连接并创建表
 使用以下代码进行连接，使用 CREATE TABLE SQL 语句创建表，然后使用 INSERT INTO SQL 语句将行添加到表中。
 
-该代码使用 [mysql2::client](https://www.rubydoc.info/gems/mysql2) 类连接到 MySQL 服务器。 然后调用 ```query()``` 方法，以便运行 DROP、CREATE TABLE 和 INSERT INTO 命令。 最后，调用 ```close()``` 以在终止之前关闭连接。
+该代码使用 mysql2::client 类连接到 MySQL 服务器。 然后调用 ```query()``` 方法，以便运行 DROP、CREATE TABLE 和 INSERT INTO 命令。 最后，调用 ```close()``` 以在终止之前关闭连接。
 
 将 `host`、`database`、`username` 和 `password` 字符串替换为你自己的值。
 ```ruby
@@ -121,7 +121,7 @@ end
 ## <a name="read-data"></a>读取数据
 使用以下代码进行连接，并使用 SELECT SQL 语句读取数据。
 
-该代码使用 [mysql2::client](https://www.rubydoc.info/gems/mysql2) 类通过 ```new()``` 方法连接到 Azure Database for MySQL。 然后，该代码调用 ```query()``` 方法来运行 SELECT 命令。 然后，它会调用方法 ```close()```，在终止之前关闭连接。
+该代码使用 mysql2::client 类通过 ```new()``` 方法连接到 Azure Database for MySQL。 然后，该代码调用 ```query()``` 方法来运行 SELECT 命令。 然后，它会调用方法 ```close()```，在终止之前关闭连接。
 
 将 `host`、`database`、`username` 和 `password` 字符串替换为你自己的值。
 
@@ -160,7 +160,7 @@ end
 ## <a name="update-data"></a>更新数据
 使用以下代码进行连接，并使用 UPDATE SQL 语句更新数据。
 
-该代码使用 [mysql2::client](https://www.rubydoc.info/gems/mysql2) 类的 .new() 方法连接到适用于 MySQL 的 Azure 数据库。 然后，该代码调用 ```query()``` 方法来运行 UPDATE 命令。 然后，它会调用方法 ```close()```，在终止之前关闭连接。
+该代码使用 [mysql2::client](https://rubygems.org/gems/mysql2-client-general_log) 类的 .new() 方法连接到适用于 MySQL 的 Azure 数据库。 然后，该代码调用 ```query()``` 方法来运行 UPDATE 命令。 然后，它会调用方法 ```close()```，在终止之前关闭连接。
 
 将 `host`、`database`、`username` 和 `password` 字符串替换为你自己的值。
 
@@ -245,5 +245,5 @@ az group delete \
 > [使用导出和导入功能迁移数据库](./concepts-migrate-import-export.md) <br/>
 
 > [!div class="nextstepaction"]
-> [详细了解 MySQL2 客户端](https://www.rubydoc.info/gems/mysql2) <br/>
+> [详细了解 MySQL2 客户端](https://rubygems.org/gems/mysql2-client-general_log) <br/>
 

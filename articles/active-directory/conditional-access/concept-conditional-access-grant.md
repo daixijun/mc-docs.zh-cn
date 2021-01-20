@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 01/14/2021
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55bcc43867a1a3ea9ec110aa81d5241310430619
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: f4e7eba8a71178f9dff68cefc7f0b5bfc8e9fea0
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022065"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195016"
 ---
 # <a name="conditional-access-grant"></a>条件访问：授予
 
@@ -101,6 +101,7 @@ ms.locfileid: "98022065"
 - Microsoft Word
 - Microsoft Yammer
 - Microsoft Whiteboard
+- Microsoft 365 管理员
 
 **备注**
 

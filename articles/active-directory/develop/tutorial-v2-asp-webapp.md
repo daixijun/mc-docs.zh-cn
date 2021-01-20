@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: e735a1f207c17f3b2163f780fddd8879c135305b
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 3424f2575955dd95f423e136be91f52b7cb92c89
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004183"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195134"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>教程：向 ASP.NET Web 应用添加 Microsoft 登录功能
 
@@ -187,7 +187,7 @@ OpenIDConnectAuthenticationOptions 中提供的参数充当应用程序与 Micro
 
 1.  右键单击“控制器”文件夹，并选择“添加” > “控制器”。  
 2.  选择“MVC (.NET 版本)控制器 - 空”。
-3.  选择“添加”   。
+3.  选择“添加”  。
 4.  将其命名为 **HomeController**，然后选择“添加”。
 5.  向该类添加 OWIN 引用：
 
@@ -279,7 +279,7 @@ OpenIDConnectAuthenticationOptions 中提供的参数充当应用程序与 Micro
 
 1.  右键单击“控制器”文件夹，并选择“添加” > “控制器”。  
 2.  选择“MVC {version} 控制器 - 空”。
-3.  选择“添加”   。
+3.  选择“添加”  。
 4.  将其命名为“ClaimsController”。
 5.  将控制器类的代码替换为以下代码。 这会将 `[Authorize]` 属性添加到该类：
 
@@ -374,14 +374,16 @@ OpenIDConnectAuthenticationOptions 中提供的参数充当应用程序与 Micro
    1. 将“已启用 SSL”更改为 `True`。
    1. 在 Visual Studio 中右键单击该项目，然后选择“属性”和“Web”选项卡 。在“服务器”部分，将“项目 URL”设置更改为“SSL URL”  。
    1. 复制 SSL URL。 需在下一步将此 URL 添加到注册门户的重定向 URL 列表。<br/><br/>![项目属性](./media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn)。
-1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-1. 转到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
-1. 选择“新注册”。
-1. “注册应用程序”页出现后，请输入应用程序的注册信息： 
-   1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称，例如 **ASPNET-Tutorial**。
-   1. 将在步骤 1 中从 Visual Studio 复制的 SSL URL（例如 `https://localhost:44368/`）添加到“回复 URL”中，然后选择“注册”。
-1. 选择“身份验证”菜单，在“隐式授权”下选择“ID 令牌”，然后选择“保存”。
+   
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
+1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
+1. 搜索并选择“Azure Active Directory”  。
+1. 在“管理”下，选择“应用注册” > “新建注册”  。
+1. 输入应用程序的名称（例如 `ASPNET-Tutorial`）。 应用的用户可能会看到此名称，你稍后可对其进行更改。
+1. 将在步骤 1 中从 Visual Studio 复制的 SSL URL（例如 `https://localhost:44368/`）添加到“重定向 URI”。
+1. 选择“注册”  。
+1. 在“管理”下，选择“身份验证”。 
+1. 在“隐式授权”部分中，选择“ID 令牌”，然后选择“保存”  。
 1. 在根文件夹中的 web.config 文件内的 `configuration\appSettings` 节下添加以下内容：
 
     ```xml

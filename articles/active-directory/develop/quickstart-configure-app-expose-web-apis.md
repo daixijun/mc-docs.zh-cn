@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 43ca0f2ee9568f478d8439fb2d3572157febc6e8
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 0702fa19aee95a6bb834c01ba94adc43001fd425
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508832"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195214"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>快速入门：配置应用程序以公开 Web API
 
@@ -45,7 +45,7 @@ ms.locfileid: "96508832"
 
 首先，请按照以下步骤创建一个名为 `Employees.Read.All` 的示例范围：
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器 :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false":::，以选择包含客户端应用的注册的租户。
 1. 选择“Azure Active Directory” > “应用注册”，然后选择 API 的应用注册 。
 1. 依次选择“公开 API” > “添加范围” 。

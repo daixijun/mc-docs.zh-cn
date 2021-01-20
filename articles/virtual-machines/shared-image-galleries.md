@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.workload: infrastructure
 origin.date: 10/14/2020
 author: rockboyfor
-ms.date: 01/04/2021
-ms.testscope: yes|no
-ms.testdate: 01/04/2021null
+ms.date: 01/18/2021
+ms.testscope: yes
+ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: cynthn
-ms.openlocfilehash: 68032fb4dbf788bf4b45488eb94091c863ae0437
-ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
+ms.openlocfilehash: d9002eea5b368a17cd64346aab3239cfcb7fa71a
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857666"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230973"
 ---
 <!--Verified successfully from redirect articles-->
 # <a name="shared-image-galleries-overview"></a>共享映像库概述

@@ -4,17 +4,17 @@ description: 使用 Azure 容器注册表命令可以在 Azure 云中按需快�
 ms.topic: quickstart
 origin.date: 09/25/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 04/06/2020
 ms.author: v-yeche
-ms.custom: contperfq1
-ms.openlocfilehash: 320c32a1d91022ee11cdc8e74d566eca87fb281e
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: c356a14cde8c8c2982602c60416339ba1c263065
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507300"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230257"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>快速入门：使用 Azure 容器注册表任务生成和运行容器映像
@@ -32,7 +32,6 @@ ms.locfileid: "96507300"
 <!--Not Available on If using Azure local Shell, the latest version is already installed.-->
     
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

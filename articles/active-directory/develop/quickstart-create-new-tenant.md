@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 10/26/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ed4a7eefc66db3e3d282760d64d66c1e9cd2e13e
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 9280f33ffa5562952a0e7d67290c890ce7460131
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508823"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195229"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>快速入门：设置租户
 
@@ -47,7 +47,7 @@ Microsoft 标识平台可让开发人员生成面向各种自定义 Microsoft 36
 
 许多开发人员已通过绑定到 Azure AD 租户的服务或订阅（例如 Microsoft 365 或 Azure 订阅）获得了租户。
 
-1. 要检查租户，请使用要用于管理应用程序的帐户登录 [Azure 门户](https://portal.azure.cn)。
+1. 若要检查租户，请使用要用于管理应用程序的帐户登录 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 查看右上角。 如果你有一个租户，则会自动登录到该租户，并且帐户名的正下方会显示租户名称。
    * 将鼠标指针悬停在 Azure 门户右上角的帐户名上，可以查看你的姓名、电子邮件、目录/租户 ID (GUID) 以及域。
    * 如果帐户与多个租户相关联，则可以选择帐户名打开一个菜单，并在其中切换租户。 每个租户都有自己的唯一租户 ID。
@@ -55,7 +55,7 @@ Microsoft 标识平台可让开发人员生成面向各种自定义 Microsoft 36
 > [!TIP]
 > 如果需要查找租户 ID，可执行以下操作：
 > * 将鼠标指针悬停在帐户名上以获取目录/租户 ID，或
-> * 在 Azure 门户中选择“Azure Active Directory”>“属性”>“目录 ID”
+> * 在 Azure 门户中搜索并选择“Azure Active Directory”>“属性”>“租户 ID”
 
 如果没有任何与帐户关联的现有租户，则帐户名下面会显示一个 GUID；另外，除非按照下一节的步骤操作，否则无法执行注册应用等操作。
 

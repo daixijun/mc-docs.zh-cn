@@ -2,13 +2,13 @@
 title: 使用 Visual Studio Code 创建 PowerShell 函数 - Azure Functions
 description: 了解如何创建 PowerShell 函数，然后使用 Visual Studio Code 中的 Azure Functions 扩展将本地项目发布到 Azure Functions 中的无服务器托管。
 ms.topic: quickstart
-ms.date: 11/17/2020
-ms.openlocfilehash: 526fb3633f452eb7510e0710549227833d05bc95
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.date: 01/12/2021
+ms.openlocfilehash: 346f197d784f5f119116f4abfd991506a216255b
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508991"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195084"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>快速入门：在 Azure 中使用 Visual Studio Code 创建 PowerShell 函数
 
@@ -26,8 +26,7 @@ ms.locfileid: "96508991"
 
 + 具有活动订阅的 Azure 帐户。 [创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-+ [Node.js](https://nodejs.org/)，在 Windows 上使用 npm 时所必需的。 仅限[活动 LTS 和维护 LTS 版本](https://nodejs.org/about/releases/)。 可以使用 `node --version` 命令检查你的版本。
-    对于 macOS 和 Linux 上的本地开发而言，这不是必需的。
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) 版本 3.x。
 
 + [PowerShell 7](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)
 

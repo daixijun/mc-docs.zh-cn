@@ -3,14 +3,14 @@ title: 监视 Azure Functions
 description: 了解如何将 Azure Application Insights 和 Azure Functions 结合使用来监视函数执行。
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.custom: devx-track-csharp, fasttrack-edit
-ms.openlocfilehash: 5c7a8e36ac79e47d7ba7fab6cb4236f3a86e0c31
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.date: 01/13/2021
+ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
+ms.openlocfilehash: 19e6ef3f8d7950bdcb55c4b10bd96ae47b8165d7
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472052"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195213"
 ---
 # <a name="monitor-azure-functions"></a>监视 Azure Functions
 
@@ -67,7 +67,7 @@ Application Insights 可收集日志、性能和错误数据。 通过自动检�
 
 还将捕获使用 `SqlClient` 的 HTTP 请求和数据库调用。 有关 Application Insights 支持的依赖项的完整列表，请参阅[自动跟踪的依赖项](../azure-monitor/app/asp-net-dependencies.md#automatically-tracked-dependencies)。
 
-Application Insights 生成收集的依赖项数据的 _应用程序映射_ 。 下面是包含队列存储输出绑定的 HTTP 触发器函数的应用程序映射示例。  
+Application Insights 生成收集的依赖项数据的 _应用程序映射_。 下面是包含队列存储输出绑定的 HTTP 触发器函数的应用程序映射示例。  
 
 ![具有依赖项的应用程序映射](./media/functions-monitoring/app-map.png)
 
@@ -86,6 +86,7 @@ Application Insights 生成收集的依赖项数据的 _应用程序映射_ 。 
 + [C#（.NET 类库）](functions-dotnet-class-library.md#logging)
 + [Java](functions-reference-java.md#logger)
 + [JavaScript](functions-reference-node.md#write-trace-output-to-logs) 
++ [PowerShell](functions-reference-powershell.md#logging)
 
 ## <a name="streaming-logs"></a>流式处理日志
 
@@ -93,9 +94,9 @@ Application Insights 生成收集的依赖项数据的 _应用程序映射_ 。 
 
 可以通过两种方式查看通过执行函数生成的日志数据的流。
 
-* **内置日志流式处理** ：借助应用服务平台即可查看应用程序日志文件流。 此流等同于在[本地开发](functions-develop-local.md)期间调试函数时以及在门户中使用“测试”选项卡时看到的输出。 此时将显示所有基于日志的信息。 有关详细信息，请参阅[流式处理日志](../app-service/troubleshoot-diagnostic-logs.md#stream-logs)。 这种流式处理方法仅支持单个实例，不能用于在消耗计划中的 Linux 上运行的应用。
+* **内置日志流式处理**：借助应用服务平台即可查看应用程序日志文件流。 此流等同于在[本地开发](functions-develop-local.md)期间调试函数时以及在门户中使用“测试”选项卡时看到的输出。 此时将显示所有基于日志的信息。 有关详细信息，请参阅[流式处理日志](../app-service/troubleshoot-diagnostic-logs.md#stream-logs)。 这种流式处理方法仅支持单个实例，不能用于在消耗计划中的 Linux 上运行的应用。
 
-* **实时指标流** ：当函数应用[连接到 Application Insights](configure-monitoring.md#enable-application-insights-integration) 时，你可以在 Azure 门户中使用[实时指标流](../azure-monitor/app/live-stream.md)近乎实时地查看日志数据和其他指标。 当监视在多个实例或消耗计划中的 Linux 上运行的函数时，请使用此方法。 此方法使用[抽样数据](configure-monitoring.md#configure-sampling)。
+* **实时指标流**：当函数应用 [连接到 Application Insights](configure-monitoring.md#enable-application-insights-integration) 时，你可以在 Azure 门户中使用 [实时指标流](../azure-monitor/app/live-stream.md)近乎实时地查看日志数据和其他指标。 当监视在多个实例或消耗计划中的 Linux 上运行的函数时，请使用此方法。 此方法使用[抽样数据](configure-monitoring.md#configure-sampling)。
 
 可以在门户和大多数本地开发环境中查看日志流。 若要了解如何启用日志流，请参阅[在 Azure Functions 中启用流式处理执行日志](streaming-logs.md)。
 
@@ -111,7 +112,7 @@ Application Insights 允许你将遥测数据导出到长期存储或其他分�
 
 _此功能为预览版。_ 
 
-[Azure Functions 缩放控制器](./functions-scale.md#runtime-scaling)监视运行应用的 Azure Functions 主机的实例。 此控制器根据当前性能决定何时添加或删除实例。 可以让缩放控制器将日志发出到 Application Insights，以便更好地了解缩放控制器为函数应用做出的决策。 你还可以将生成的日志存储在 Blob 存储中，供其他服务分析。 
+[Azure Functions 缩放控制器](./event-driven-scaling.md#runtime-scaling)监视运行应用的 Azure Functions 主机的实例。 此控制器根据当前性能决定何时添加或删除实例。 可以让缩放控制器将日志发出到 Application Insights，以便更好地了解缩放控制器为函数应用做出的决策。 你还可以将生成的日志存储在 Blob 存储中，供其他服务分析。 
 
 若要启用此功能，请将名为 `SCALE_CONTROLLER_LOGGING_ENABLED` 的应用程序设置添加到函数应用设置中。 若要了解详细方法，请参阅[配置缩放控制器日志](configure-monitoring.md#configure-scale-controller-logs)。
 

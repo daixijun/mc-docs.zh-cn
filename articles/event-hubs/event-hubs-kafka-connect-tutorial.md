@@ -2,15 +2,15 @@
 title: 与 Apache Kafka Connect 集成 - Azure 事件中心 | Microsoft Docs
 description: 本文介绍如何将 Kafka Connect 与适用于 Kafka 的 Azure 事件中心配合使用。
 ms.topic: how-to
-origin.date: 06/23/2020
-ms.date: 11/05/2020
+origin.date: 01/06/2021
+ms.date: 01/14/2021
 ms.author: v-tawe
-ms.openlocfilehash: 732e362122385a97c6f1247184285254c481f634
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: f919a044bc86395d2ef3c6fda9c45a7776d4b3d7
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431150"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193245"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>在 Azure 事件中心集成 Apache Kafka Connect 支持（预览版）
 随着业务需求的引入增加，对各种外部源和接收器的引入需求也增加。 [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) 提供的框架可以通过 Kafka 群集连接到任何外部系统（例如 MySQL、HDFS）和文件系统并与之进行数据的导入/导出。 本教程详细介绍如何将 Kafka Connect 框架与事件中心配合使用。

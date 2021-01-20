@@ -4,17 +4,17 @@ description: 本快速入门介绍如何使用适用于 Java 的 Azure Blob 存�
 author: WenJason
 ms.custom: devx-track-java
 ms.author: v-jay
-origin.date: 09/10/2020
-ms.date: 11/16/2020
+origin.date: 12/01/2020
+ms.date: 01/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 956a3b2bd9625fcb3d42ad0d541227eca415cedd
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 540ca1129c000d1e295c5581b38f90d521c394a5
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432614"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163127"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>快速入门：使用 Java v12 SDK 管理 blob
 
@@ -25,7 +25,7 @@ ms.locfileid: "96432614"
 * [API 参考文档](https://docs.microsoft.com/java/api/overview/azure/storage-blob-readme)
 * [库源代码](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
 * [包 (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
-* [示例](/storage/common/storage-samples-java?toc=%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [示例](../common/storage-samples-java.md?toc=%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -46,13 +46,29 @@ ms.locfileid: "96432614"
 
 1. 在控制台窗口（例如 cmd、PowerShell 或 Bash）中，使用 Maven 创建名为 blob-quickstart-v12 的新控制台应用。 键入以下“mvn”命令，创建“Hello World!” Java 项目。
 
-   ```console
-   mvn archetype:generate -DgroupId=com.blobs.quickstart \
-                          -DartifactId=blob-quickstart-v12 \
-                          -DarchetypeArtifactId=maven-archetype-quickstart \
-                          -DarchetypeVersion=1.4 \
-                          -DinteractiveMode=false
-   ```
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    mvn archetype:generate `
+        --define interactiveMode=n `
+        --define groupId=com.blobs.quickstart `
+        --define artifactId=blob-quickstart-v12 `
+        --define archetypeArtifactId=maven-archetype-quickstart `
+        --define archetypeVersion=1.4
+    ```
+
+    # <a name="bash"></a>[Bash](#tab/bash)
+
+    ```bash
+    mvn archetype:generate \
+        --define interactiveMode=n \
+        --define groupId=com.blobs.quickstart \
+        --define artifactId=blob-quickstart-v12 \
+        --define archetypeArtifactId=maven-archetype-quickstart \
+        --define archetypeVersion=1.4
+    ```
+
+    ---
 
 1. 生成项目的输出应如下所示：
 

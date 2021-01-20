@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/17/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes|no
 ms.testdate: 10/19/2020null
 ms.author: v-yeche
-ms.custom: contperfq1
-ms.openlocfilehash: 0aa1f71c50b4ab6d9d8ad9e9a4042e87489c3fca
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 7d9a1229e0898c68ac13963e7955ffde64e254ca
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598545"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231007"
 ---
 <!--Verified successfully on only charactors only-->
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Azure Cosmos DB 模拟器的命令行和 PowerShell 参考

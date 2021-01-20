@@ -11,12 +11,12 @@ ms.testdate: 01/11/2021
 ms.author: v-yeche
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 1fb5d7a51e9adbb7fe03c2045d4bf40fc520fea6
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: fd9b001bdeb757575ce8f95e320169fb24495360
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023837"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230568"
 ---
 <!--Verified Successfully-->
 <!--Pending for confirm-->
@@ -39,7 +39,7 @@ ms.locfileid: "98023837"
 - 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/)
 - 一个 GitHub 帐户。 如果没有该帐户，请注册[免费版](https://github.com/join)。 你需要在 GitHub 存储库中具有代码才能部署到 Azure 应用服务。 
 - 一个有效的容器注册表和用于容器的 Azure 应用服务应用。 本示例使用 Azure 容器注册表。 请确保完成对用于容器的 Azure 应用服务的完整部署。 与常规 Web 应用不同，用于容器的 Web 应用没有默认登录页。 发布容器以获得一个可正常工作的示例。
-    - [了解如何使用 Docker 创建容器化的 Node.js 应用程序，将容器映像推送到注册表，然后将该映像部署到 Azure 应用服务](/azure/developer/javascript/tutorial-vscode-docker-node-01)
+    - [了解如何使用 Docker 创建容器化的 Node.js 应用程序，将容器映像推送到注册表，然后将该映像部署到 Azure 应用服务](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01)
         
 ## <a name="generate-deployment-credentials"></a>生成部署凭据
 
@@ -56,7 +56,7 @@ ms.locfileid: "98023837"
 1. 在“概述”页上，选择“获取发布配置文件” 。
 
     > [!NOTE]
-    > 从 2020 年 10 月起，Linux Web 应用在下载文件之前，需要将应用设置 `WEBSITE_WEBDEPLOY_USE_SCM` 设置为 `true`。 未来将删除此要求。 请参阅[在 Azure 门户中配置应用服务应用](/azure/app-service/configure-common)，了解如何配置常用 Web 应用设置。  
+    > 从 2020 年 10 月起，Linux Web 应用在下载文件之前，需要将应用设置 `WEBSITE_WEBDEPLOY_USE_SCM` 设置为 `true`。 未来将删除此要求。 请参阅[在 Azure 门户中配置应用服务应用](https://docs.microsoft.com/azure/app-service/configure-common)，了解如何配置常用 Web 应用设置。  
 
 1. 保存下载的文件。 你将使用该文件的内容来创建 GitHub 机密。
 

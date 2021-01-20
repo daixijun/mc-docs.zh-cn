@@ -4,16 +4,16 @@ titleSuffix: Azure App Configuration
 description: 了解如何使用 Azure 资源管理器模板（ARM 模板）创建 Azure 应用程序配置存储。
 author: ZhijunZhao
 ms.author: zhijzhao
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 81f980bb4216f241f105f35f46a9e8717d74a899
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 8be01a275a6611c4e0d0613b2850949fcbdd3aa7
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104910"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230259"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>快速入门：使用 ARM 模板创建 Azure 应用程序配置存储
 
@@ -135,10 +135,10 @@ ms.locfileid: "97104910"
 
 该模板中定义了两个 Azure 资源：
 
-- [Microsoft.AppConfiguration/configurationStores](https://docs.microsoft.com/azure/templates/microsoft.appconfiguration/2020-06-01/configurationstores)：创建应用程序配置存储。
-- Microsoft.AppConfiguration/configurationStores/keyValues：在应用程序配置存储中创建一个键值。
+- [Microsoft.AppConfiguration/configurationStores](https://docs.microsoft.com/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores)：创建应用程序配置存储。
+- [Microsoft.AppConfiguration/configurationStores/keyValues](https://docs.microsoft.com/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues)：在应用程序配置存储中创建一个键值。
 
-> [!NOTE]
+> [!TIP]
 > `keyValues` 资源的名称是键和标签的组合。 键和标签由 `$` 分隔符联接。 标签是可选的。 在上面的示例中，名称为 `myKey` 的 `keyValues` 资源创建了一个不带标签的键值。
 >
 > 使用百分号编码（也称为 URL 编码），就能在键或标签中包含 ARM 模板资源名称中不允许使用的字符。 `%` 也不是允许使用的字符，因此在其位置使用了 `~`。 若要正确对名称编码，请按照以下步骤操作：
@@ -148,6 +148,13 @@ ms.locfileid: "97104910"
 > 3. 将 `%` 替换为 `~`
 >
 > 例如，若要创建键名为 `AppName:DbEndpoint` 且标签名为 `Test` 的键值对，资源名应为 `AppName~3ADbEndpoint$Test`。
+
+> [!NOTE]
+> 借助应用程序配置，可通过虚拟网络上的[专用链接](concept-private-endpoint.md)访问键值数据。 默认情况下，启用此功能后，通过公用网络对你的应用程序配置数据的所有请求都会被拒绝。 ARM 模板在你的虚拟网络外部运行，因此不允许从 ARM 模板访问数据。 若要在使用专用链接时允许从 ARM 模板访问数据，可使用以下 Azure CLI 命令启用公共网络访问。 在这种情况下，请务必考虑启用公用网络访问的安全隐患。
+>
+> ```azurecli
+> az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
+> ```
 
 ## <a name="deploy-the-template"></a>部署模板
 

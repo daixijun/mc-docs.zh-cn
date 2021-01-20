@@ -6,14 +6,14 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
-ms.openlocfilehash: ab57a54ab2693f912009b1c7ed44e921db69f337
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 308abaf93445bdc850acc5922c4386bd6dbdc1d3
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849403"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195077"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>使用应用程序网关配置应用服务
 

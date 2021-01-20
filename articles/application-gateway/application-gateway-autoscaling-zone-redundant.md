@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 5f0dd8051131eb1fbb0a53e0d8ee39e0468bfa8a
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: f02015a34d864bbd39cce1d60a8b5853afd5dd1b
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472679"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195240"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>自动缩放和区域冗余应用程序网关 v2 
 
@@ -21,15 +21,15 @@ ms.locfileid: "92472679"
 
 新的 v2 SKU 包括以下增强：
 
-- **自动缩放** ：凭借自动缩放 SKU，应用程序网关或 WAF 部署可根据不断变化的流量负载模式横向扩展或缩减。 自动缩放还无需在预配期间要求选择部署大小或实例计数。 此 SKU 提供真正的弹性。 在 Standard_v2 和 WAF_v2 SKU 中，应用程序网关可同时在固定容量（自动缩放已禁用）和已启用自动缩放的模式下运行。 固定容量模式对具有一致性和可预测工作负荷的方案非常有用。 应用程序流量会出现差异的应用程序可以受益于自动缩放模式。
-- **区域冗余** ：应用程序网关或 WAF 部署可跨多个可用性区域，因此不需要使用流量管理器在每个区域中单独预配应用程序网关实例。 可以选择一个或多个区域来部署应用程序网关实例，以便更灵活地应对区域故障。 应用程序的后端池可以通过类似方式分布在多个可用性区域中。
+- **自动缩放**：凭借自动缩放 SKU，应用程序网关或 WAF 部署可根据不断变化的流量负载模式横向扩展或缩减。 自动缩放还无需在预配期间要求选择部署大小或实例计数。 此 SKU 提供真正的弹性。 在 Standard_v2 和 WAF_v2 SKU 中，应用程序网关可同时在固定容量（自动缩放已禁用）和已启用自动缩放的模式下运行。 固定容量模式对具有一致性和可预测工作负荷的方案非常有用。 应用程序流量会出现差异的应用程序可以受益于自动缩放模式。
+- **区域冗余**：应用程序网关或 WAF 部署可跨多个可用性区域，因此不需要使用流量管理器在每个区域中单独预配应用程序网关实例。 可以选择一个或多个区域来部署应用程序网关实例，以便更灵活地应对区域故障。 应用程序的后端池可以通过类似方式分布在多个可用性区域中。
 
   仅当 Azure 区域可用时，区域冗余才可用。 在其他区域中，支持所有其他功能。 
-- **静态 VIP** ：目前只有应用程序网关 v2 SKU 支持静态 VIP 类型。 这可以确保与应用程序网关关联的 VIP 在部署的整个生命周期内不会更改，即使发生重启。  v1 中没有静态 VIP，因此必须使用应用程序网关 URL（而不是 IP 地址）通过应用程序网关将域名路由到应用服务。
-- **标头重写** ：应用程序网关允许使用 v2 SKU 添加、删除或更新 HTTP 请求和响应标头。 有关详细信息，请参阅[使用应用程序网关重写 HTTP 标头](rewrite-http-headers.md)
-- **Key Vault 集成** ：应用程序网关 v2 支持与密钥保管库集成，以获取附加到支持 HTTPS 的侦听器的服务器证书。 有关详细信息，请参阅[使用 Key Vault 证书实现 TLS 终止](key-vault-certs.md)。
+- **静态 VIP**：目前只有应用程序网关 v2 SKU 支持静态 VIP 类型。 这可以确保与应用程序网关关联的 VIP 在部署的整个生命周期内不会更改，即使发生重启。  v1 中没有静态 VIP，因此必须使用应用程序网关 URL（而不是 IP 地址）通过应用程序网关将域名路由到应用服务。
+- **标头重写**：应用程序网关允许使用 v2 SKU 添加、删除或更新 HTTP 请求和响应标头。 有关详细信息，请参阅[使用应用程序网关重写 HTTP 标头](rewrite-http-headers.md)
+- **Key Vault 集成**：应用程序网关 v2 支持与密钥保管库集成，以获取附加到支持 HTTPS 的侦听器的服务器证书。 有关详细信息，请参阅[使用 Key Vault 证书实现 TLS 终止](key-vault-certs.md)。
 - Azure Kubernetes 服务入口控制器：应用程序网关 v2 入口控制器允许将 Azure 应用程序网关用作 Azure Kubernetes 服务 (AKS) 的入口（称为 AKS 群集）。 有关详细信息，请参阅[什么是应用程序网关入口控制器？](ingress-controller-overview.md)。
-- **性能增强** ：v2 SKU 提供的 TLS 卸载性能比 Standard/WAF SKU 高达 5 倍。
+- **性能增强**：v2 SKU 提供的 TLS 卸载性能比 Standard/WAF SKU 高达 5 倍。
 - 缩短部署和更新时间：与标准/WAF SKU 相比，v2 SKU 缩短了部署和更新时间。 这还包括了 WAF 配置更改。
 
 ![自动缩放区域的示意图。](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
@@ -97,7 +97,7 @@ Azure 应用程序网关始终以高度可用的方式部署。 服务由多个�
 |身份验证证书|不支持。<br>有关详细信息，请参阅[应用程序网关的端到端 TLS 概述](ssl-overview.md#end-to-end-tls-with-the-v2-sku)。|
 |在同一子网上混合使用 Standard_v2 和标准应用程序网关|不支持|
 |应用程序网关子网上的用户定义路由 (UDR)|支持（特定方案）。 处于预览状态。<br> 有关支持的方案的详细信息，请参阅[应用程序网关配置概述](configuration-infrastructure.md#supported-user-defined-routes)。|
-|入站端口范围的 NSG| 对于 Standard_v2 SKU，为 - 65200 到 65535<br>对于标准 SKU，为 - 65503 到 65534<br>有关详细信息，请参阅[常见问题解答](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)。|
+|入站端口范围的 NSG| 对于 Standard_v2 SKU，为 - 65200 到 65535<br>对于标准 SKU，为 - 65503 到 65534<br>有关详细信息，请参阅[常见问题解答](application-gateway-faq.yml#are-network-security-groups-supported-on-the-application-gateway-subnet)。|
 |Azure 诊断中的性能日志|不支持。<br>应当使用 Azure 指标。|
 |计费|我们已安排在 2019 年 7 月 1 日开始计费。|
 |FIPS 模式|目前不支持。|

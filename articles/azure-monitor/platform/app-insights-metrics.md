@@ -5,15 +5,15 @@ author: Johnnytechn
 services: azure-monitor
 origin.date: 07/03/2019
 ms.topic: reference
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.author: v-johya
 ms.subservice: application-insights
-ms.openlocfilehash: 195dae84d891d79236189b27cb87e68db0ed4b00
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: e728dcd6123731d7b588a575b036cf83b892ff85
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105251"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230901"
 ---
 # <a name="application-insights-log-based-metrics"></a>基于 Application Insights 日志的指标
 
@@ -43,7 +43,7 @@ ms.locfileid: "97105251"
 
 ## <a name="availability-metrics"></a>可用性指标
 
-参考“可用性”类别中的指标可以了解在世界各地预测到的 Web 应用程序运行状况。 [配置可用性测试](../app/monitor-web-app-availability.md)，以开始使用此类别中的任何指标。
+参考“可用性”类别中的指标可以了解在世界各地预测到的 Web 应用程序运行状况。 配置可用性测试，以开始使用此类别中的任何指标。
 
 ### <a name="availability-availabilityresultsavailabilitypercentage"></a>可用性 (availabilityResults/availabilityPercentage)
 “可用性”指标显示未检测到任何问题的 Web 测试运行的百分比。  可能的最小值为 0，表示所有 Web 测试运行均失败。 值 100 表示所有 Web 测试运行都符合验证条件。

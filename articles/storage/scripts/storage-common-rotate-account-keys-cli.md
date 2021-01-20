@@ -2,26 +2,21 @@
 title: Azure CLI 脚本示例 - 轮换存储帐户访问密钥 | Microsoft Docs
 description: 创建 Azure 存储帐户，然后检索并轮换其帐户访问密钥。
 services: storage
-documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+ms.subservice: blobs
+ms.devlang: cli
 ms.topic: sample
-origin.date: 06/22/2017
-ms.date: 02/25/2019
+origin.date: 10/20/2020
+ms.date: 01/18/2021
 ms.author: v-jay
-ms.openlocfilehash: c189519258fa7ce43de20cf325302978328e61e2
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 4eda414587e13ba190d90fc81bfd2cda132a752d
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "63823271"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163066"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>创建存储帐户并轮换其帐户访问密钥
 
@@ -45,7 +40,7 @@ az storage account create \
     --resource-group myResourceGroup \
     --location chinaeast \
     --sku Standard_RAGRS \
-    --encryption blob
+    --encryption-services blob
 
 # List the storage account access keys
 az storage account keys list \
@@ -65,7 +60,7 @@ az storage account keys renew \
     --key secondary
 ```
 
-## <a name="clean-up-deployment"></a>清理部署 
+## <a name="clean-up-deployment"></a>清理部署
 
 运行以下命令来删除资源组、存储帐户和所有相关资源。
 

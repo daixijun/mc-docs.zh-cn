@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 06/30/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 13cf87f7dc3e2db395cdce1cf26e0be9b26bae11
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 01/14/2021
+ms.openlocfilehash: 8f015c83ca09d6dbfed342848eccb1096abf06cb
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021463"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194773"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>收集和分析 Azure 认知搜索的日志数据
 
@@ -26,7 +26,7 @@ ms.locfileid: "90021463"
 
 | 资源 | 用途 |
 |----------|----------|
-| [发送到 Log Analytics 工作区](../azure-monitor/learn/tutorial-resource-logs.md) | 事件和指标将发送到 Log Analytics 工作区，可在门户中查询该工作区以返回详细信息。 有关介绍，请参阅 [Azure Monitor 日志入门](../azure-monitor/log-query/get-started-portal.md) |
+| [发送到 Log Analytics 工作区](../azure-monitor/learn/tutorial-resource-logs.md) | 事件和指标将发送到 Log Analytics 工作区，可在门户中查询该工作区以返回详细信息。 有关介绍，请参阅 [Azure Monitor 日志入门](../azure-monitor/log-query/log-analytics-tutorial.md) |
 | [使用 Blob 存储进行存档](../storage/blobs/storage-blobs-overview.md) | 事件和指标将存档到 Blob 容器，并存储在 JSON 文件中。 日志可以精确到小时/分钟，对于调查特定的事件非常有用，但不适合用于无目标性的调查。 使用 JSON 编辑器查看原始日志文件，或使用 Power BI 来聚合与可视化日志数据。|
 | [流式传输到事件中心](../event-hubs/index.yml) | 事件和指标将流式传输到 Azure 事件中心服务。 对于很大的日志，请选择此项作为备用数据收集服务。 |
 

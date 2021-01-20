@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   ms.author: v-tawe
   origin.date: 08/05/2020
-  ms.date: 12/30/2020
-  ms.openlocfilehash: cf1f66820a481f5b53a371a2a23f7bb71045aebe
-  ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+  ms.date: 01/13/2021
+  ms.openlocfilehash: a715074dcfb3956286c05a6dfec0e083334dce75
+  ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/30/2020
-  ms.locfileid: "97820354"
+  ms.lasthandoff: 01/15/2021
+  ms.locfileid: "98230969"
 landingContent:
 - title: 关于 Azure 门户
   linkLists:

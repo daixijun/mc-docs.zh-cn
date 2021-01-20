@@ -3,14 +3,14 @@ title: Durable Functions 中的性能和缩放 - Azure
 description: 了解 Azure Functions 的 Durable Functions 扩展的独特缩放特征。
 author: cgillum
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 01/13/2021
 ms.author: v-junlch
-ms.openlocfilehash: 743f53885a3a1b41e05b8dc73bb53bef7ff4824d
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 29955db59f66ec853f8cb9dcd3ddb9fbca6a5c46
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021242"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195138"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Durable Functions 中的性能和缩放 (Azure Functions)
 
@@ -51,7 +51,7 @@ Durable Task 扩展实现了随机指数退让算法，以降低空闲队列轮�
 可以通过 [host.json 文件](../functions-host-json.md#durabletask)中的 `maxQueuePollingInterval` 属性配置最大轮询延迟。 将此属性设置为较高的值时，可能导致的消息处理延迟也越高。 只有在不活动的时间段过后，才会出现较高的延迟。 将此属性设置为较低的值时，可能导致的存储成本会较高，因为存储事务数增高。
 
 > [!NOTE]
-> 在 Azure Functions 消耗计划和高级计划中运行时，[Azure Functions 缩放控制器](../functions-scale.md#how-the-consumption-and-premium-plans-work)每隔 10 秒就会轮询每个控件和工作项队列一次。 若要确定何时激活函数应用实例并进行缩放决策，这种额外的轮询是必需的。 在撰写本文时，这种 10 秒的时间间隔为常量，不能进行配置。
+> 在 Azure Functions 消耗计划和高级计划中运行时，[Azure Functions 缩放控制器](../event-driven-scaling.md)每隔 10 秒就会轮询每个控件和工作项队列一次。 若要确定何时激活函数应用实例并进行缩放决策，这种额外的轮询是必需的。 在撰写本文时，这种 10 秒的时间间隔为常量，不能进行配置。
 
 ### <a name="orchestration-start-delays"></a>业务流程启动延迟
 通过在某个任务中心的控制队列中放置 `ExecutionStarted` 消息来启动业务流程实例。 在某些情况下，你可能会观察到计划的业务流程运行时间与它实际开始运行的时间之间存在数秒延迟。 在此时间间隔内，业务流程实例仍处于 `Pending` 状态。 造成这种延迟的潜在原因有两个：
@@ -138,7 +138,7 @@ Durable Task 扩展实现了随机指数退让算法，以降低空闲队列轮�
 
 ## <a name="auto-scale"></a>自动缩放
 
-与消耗计划和弹性高级计划中运行的所有 Azure Functions 一样，Durable Functions 支持通过 [Azure Functions 缩放控制器](../functions-scale.md#runtime-scaling)自动缩放。 缩放控制器通过定期发出 _peek_ 命令来监视所有队列的延迟。 根据扫视消息的延迟，缩放控制器将决定是要添加还是删除 VM。
+与消耗计划和弹性高级计划中运行的所有 Azure Functions 一样，Durable Functions 支持通过 [Azure Functions 缩放控制器](../event-driven-scaling.md#runtime-scaling)自动缩放。 缩放控制器通过定期发出 _peek_ 命令来监视所有队列的延迟。 根据扫视消息的延迟，缩放控制器将决定是要添加还是删除 VM。
 
 如果缩放控制器确定控制队列消息延迟过高，则会添加 VM 实例，直到消息延迟下降到可接受的级别，或者达到控制队列分区计数。 同样，如果工作项队列延迟偏高，缩放控制器会不断地添加 VM 实例，而不管分区计数如何。
 

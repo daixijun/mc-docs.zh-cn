@@ -6,17 +6,17 @@ ms.devlang: dotnet
 ms.topic: how-to
 origin.date: 05/23/2019
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: da5d69d895ff63d7c1c29c22b89da471c259d37b
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: b11d7a311d35552a0f4d575465fb81ab936dd272
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598558"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230127"
 ---
 <!--Verify Successfully-->
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>使用 Azure Key Vault 保护 Azure Cosmos 密钥 
@@ -64,7 +64,7 @@ ms.locfileid: "96598558"
 
 ## <a name="create-an-azure-web-application"></a>创建 Azure Web 应用程序
 
-1. 创建 Azure Web 应用程序，或者从 [GitHub 存储库](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo)下载应用。 它是一个简单的 MVC 应用程序。  
+1. 创建 Azure Web 应用程序，或者从 [GitHub 存储库](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo)下载应用。 它是一个简单的 MVC 应用程序。  
 
 2. 解压缩已下载的应用程序，并打开 **HomeController.cs** 文件。 更新以下行中的机密 ID：
 

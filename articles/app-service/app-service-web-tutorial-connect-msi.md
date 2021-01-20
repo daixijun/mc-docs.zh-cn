@@ -4,15 +4,15 @@ description: 了解如何使用托管标识让数据库连接更安全，以及�
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 04/27/2020
-ms.date: 12/21/2020
+ms.date: 01/18/2021
 ms.author: v-tawe
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: f7507c738fc5392b3a5d5642869552f50499df58
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 1f5c0e10084286c2b77552de473061fca06b5cc1
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021506"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230865"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教程：使用托管标识确保从应用服务进行的 Azure SQL 数据库连接安全
 
@@ -49,7 +49,9 @@ ms.locfileid: "98021506"
 
 若要使用 SQL 数据库作为后端调试应用程序，请确保已经允许从计算机连接客户端。 否则，请遵循[使用 Azure 门户管理服务器级 IP 防火墙规则](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)中的步骤添加客户端 IP。
 
-<!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
+为 Azure CLI 准备环境。
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="grant-database-access-to-azure-ad-user"></a>向 Azure AD 用户授予数据库访问权限
 
@@ -252,7 +254,7 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 当新网页显示待办事项列表时，表明应用使用了托管标识连接到数据库。

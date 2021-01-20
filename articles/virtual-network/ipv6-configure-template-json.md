@@ -4,21 +4,21 @@ titlesuffix: Azure Virtual Network
 description: 本文介绍如何使用 Azure 资源管理器 VM 模板在 Azure 虚拟网络中部署 IPv6 双堆栈应用程序。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 origin.date: 03/31/2020
-ms.date: 06/15/2020
+author: rockboyfor
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: 4e934467c01fff9590ab29d695cfeefb7bbe4988
-ms.sourcegitcommit: ff67734e01c004be575782b4812cfe857e435f4d
+ms.openlocfilehash: 9689da0da381b5c24dec17d5995cb2c0b30d4d1d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84487028"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230766"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template"></a>在 Azure 中部署使用基本负载均衡器的 IPv6 双堆栈应用程序 - 模板
 
@@ -81,8 +81,8 @@ ms.locfileid: "84487028"
       "protocol": "Tcp",
       "sourcePortRange": "33819-33829",
       "destinationPortRange": "5000-6000",
-      "sourceAddressPrefix": "ace:cab:deca:deed::/64",
-      "destinationAddressPrefix": "cab:ace:deca:deed::/64",
+      "sourceAddressPrefix": "fd00:db8:deca:deed::/64",
+      "destinationAddressPrefix": "fd00:db8:deca:deed::/64",
       "access": "Allow",
       "priority": 1003,
       "direction": "Inbound"
@@ -104,9 +104,9 @@ ms.locfileid: "84487028"
       {
         "name": "v6route",
         "properties": {
-          "addressPrefix": "ace:cab:deca:deed::/64",
+          "addressPrefix": "fd00:db8:deca:deed::/64",
           "nextHopType": "VirtualAppliance",
-          "nextHopIpAddress": "deca:cab:ace:f00d::1"
+          "nextHopIpAddress": "fd00:db8:ace:f00d::1"
         }
 ```
 

@@ -5,21 +5,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 04/08/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.custom: seodec18
-ms.openlocfilehash: cfdacf5d4f04af77a73dd2bb7288e2c166d572d6
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.custom: seodec18, seo-nov-2020
+ms.openlocfilehash: 5729b12486438fff0cc4c9ed4d9fe60e2f947415
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598668"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231010"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB 中的更改源
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
 
 Azure Cosmos DB 中的更改源是一种持久记录，按发生顺序记录对容器所做的更改。 Azure Cosmos DB 中更改源支持的工作原理是侦听 Azure Cosmos 容器中发生的任何更改。 然后，它会按照所更改文档的修改顺序输出这些文档的排序列表。 持久保存的更改能够以异步和增量方式进行处理，而且输出可以分发到一个或多个使用者进行并行处理。
 

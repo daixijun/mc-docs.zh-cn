@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/15/2020
 author: rockboyfor
-ms.date: 10/19/2020
-ms.testscope: yes|no
-ms.testdate: 10/19/2020null
+ms.date: 01/18/2021
+ms.testscope: yes
+ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 35f0447dcd5339006aa7379b43be5bb78fedced9
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: d659ba0ba2fbf69e22c9a9637a5217d20770772f
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118922"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231092"
 ---
 <!--Verified successfully on charactors only-->
 # <a name="introduction-to-network-configuration-diagnostics-in-azure-network-watcher"></a>Azure 网络观察程序中的网络配置诊断简介
@@ -27,7 +27,7 @@ ms.locfileid: "92118922"
 网络配置诊断工具有助于客户了解 Azure 虚拟网络中允许或拒绝哪些流量流，以及供调试用的详细信息。 你可以通过此工具了解 NSG 规则是否配置正确。 
 
 ## <a name="pre-requisites"></a>先决条件
-要使用网络配置诊断，必须在订阅中启用网络观察程序。 请参阅[创建 Azure 网络观察程序实例](/network-watcher/network-watcher-create)来启用。
+要使用网络配置诊断，必须在订阅中启用网络观察程序。 请参阅[创建 Azure 网络观察程序实例](./network-watcher-create.md)来启用。
 
 ## <a name="background"></a>背景
 
@@ -47,5 +47,4 @@ ms.locfileid: "92118922"
  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic?view=azps-4.6.1)
  - [Azure CLI](https://docs.azure.cn/cli/network/watcher#az_network_watcher_run_configuration_diagnostic)
 
-<!-- Update_Description: new article about network watcher network configuration diagnostics overview -->
-<!--NEW.date: 10/19/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

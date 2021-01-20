@@ -8,19 +8,19 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/25/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: c9b4a617bf2ea797da45187308fbdfa18970a46b
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: e1870197af1d6f310d76e39bd4a77a9efdb8cb30
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508664"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570613"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>教程：在 Azure Active Directory B2C 中自定义用户界面体验
 
-对于更常见的用户体验，例如注册、登录和配置文件编辑，可在 Azure Active Directory B2C (Azure AD B2C) 中使用[用户流](user-flow-overview.md)。 本教程中的信息有助于了解如何使用自己的 HTML 和 CSS 文件[自定义用户界面 (UI)](customize-ui-overview.md)。
+对于更常见的用户体验，例如注册、登录和配置文件编辑，可在 Azure Active Directory B2C (Azure AD B2C) 中使用[用户流](user-flow-overview.md)。 本教程中的信息有助于了解如何使用自己的 HTML 和 CSS 文件[自定义用户界面 (UI)](customize-ui-with-html.md)。
 
 在本文中，学习如何：
 
@@ -166,5 +166,5 @@ ms.locfileid: "96508664"
 > * 测试自定义 UI
 
 > [!div class="nextstepaction"]
-> [在 Azure Active Directory B2C 中自定义 UI](customize-ui-overview.md)
+> [在 Azure Active Directory B2C 中自定义 UI](customize-ui-with-html.md)
 

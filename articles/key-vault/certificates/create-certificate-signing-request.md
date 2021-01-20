@@ -9,24 +9,24 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 origin.date: 06/17/2020
-ms.date: 11/27/2020
+ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: a12ac4a093eb6eb5f6a0eabbc44451f0164bc918
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 155d1796bde09abb5fb4ac7da120357d6caf1657
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431208"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231069"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>在 Key Vault 中创建和合并 CSR
 
-Azure Key Vault 支持将你选择的任何证书颁发机构颁发的数字证书存储在密钥保管库中。 它支持使用私钥/公钥对创建证书签名请求，可由所选的任何证书颁发机构签名。 选择的证书颁发机构可以是内部企业 CA，也可以是外部公共 CA。 证书签名请求（也称为 CSR 或证书请求）是用户向证书颁发机构 (CA) 发送的一条消息，用于请求颁发数字证书。
+Azure Key Vault 支持存储任何证书颁发机构 (CA) 颁发的数字证书。 它支持使用私钥/公钥对创建证书签名请求 (CSR)。 CSR 可以由任何 CA（内部企业 CA 或外部公共 CA）签名。 CSR 是你发送给 CA 以请求数字证书的消息。
 
 若要详细了解证书的常规信息，请参阅 [Azure Key Vault 证书](./about-certificates.md)。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-## <a name="adding-certificate-in-key-vault-issued-by-a-non-trusted-ca"></a>在 Key Vault 中添加不受信任的 CA 颁发的证书
+## <a name="add-certificates-in-key-vault-issued-by-non-partnered-cas"></a>在 Key Vault 中添加非合作 CA 颁发的证书
 
 以下步骤将帮助你从没有与 Key Vault 合作的证书颁发机构（例如，GoDaddy 不是受信任的密钥保管库 CA）创建证书 
 

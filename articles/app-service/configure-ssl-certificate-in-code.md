@@ -7,12 +7,12 @@ ms.date: 10/19/2020
 ms.author: v-tawe
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: b7532ec36f94a02e7ea4b59da9339a0dc95c5c81
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 1e4dff18d6a5e20bb90bdd6bed35d6aa7cdb904e
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170666"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230573"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>在 Azure 应用服务中通过代码使用 TLS/SSL 证书
 
@@ -155,7 +155,7 @@ var cert = new X509Certificate2(bytes);
 > 应用服务将证书路径作为以下环境变量 `WEBSITE_PRIVATE_CERTS_PATH`、`WEBSITE_INTERMEDIATE_CERTS_PATH`、`WEBSITE_PUBLIC_CERTS_PATH` 和 `WEBSITE_ROOT_CERTS_PATH` 注入到 Windows 容器中。 最好使用环境变量引用证书路径，而不是对证书路径进行硬编码，以防将来证书路径发生更改。
 >
 
-<!-- In addition, [Windows Server Core containers](configure-custom-container.md#supported-parent-images) load the certificates into the certificate store automatically, in **LocalMachine\My**. To load the certificates, follow the same pattern as [Load certificate in Windows apps](#load-certificate-in-windows-apps). For Windows Nano based containers, use the file paths provided above to [Load the certificate directly from file](#load-certificate-from-file). -->
+<!-- In addition, [Windows Server Core containers](configure-custom-container.md#supported-parent-images)-->
 
 以下 C# 代码演示了如何在 Linux 应用中加载公共证书。
 

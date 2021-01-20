@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.topic: conceptual
 ms.subservice: alerts
 origin.date: 03/14/2019
-ms.date: 11/02/2020
+ms.date: 01/12/2021
 ms.author: v-johya
-ms.openlocfilehash: 7176e7d2f94653f8a571c994d853ea3b4876af22
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 56b9caf5539c55160b0931e28046eb9d5dbea9e3
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328795"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230193"
 ---
 # <a name="common-alert-schema-definitions"></a>常见警报架构定义
 
@@ -158,74 +158,74 @@ ms.locfileid: "94328795"
 **示例值**
 ```json
 {
-    "alertContext": {
-        "SearchQuery": "Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
-        "SearchIntervalStartTimeUtc": "3/22/2019 1:36:31 PM",
-        "SearchIntervalEndtimeUtc": "3/22/2019 1:51:31 PM",
-        "ResultCount": 2,
-        "LinkToSearchResults": "https://portal.azure.cn/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-        "LinkToFilteredSearchResultsUI": "https://portal.azure.cn/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-        "LinkToSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
-        "LinkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
-        "SeverityDescription": "Warning",
-        "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
-        "SearchIntervalDurationMin": "15",
-        "AffectedConfigurationItems": [
-            "INC-Gen2Alert"
-        ],
-        "SearchIntervalInMinutes": "15",
-        "Threshold": 10000,
-        "Operator": "Less Than",
-        "Dimensions": [
+  "alertContext": {
+    "SearchQuery": "Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
+    "SearchIntervalStartTimeUtc": "3/22/2019 1:36:31 PM",
+    "SearchIntervalEndtimeUtc": "3/22/2019 1:51:31 PM",
+    "ResultCount": 2,
+    "LinkToSearchResults": "https://portal.azure.cn/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "LinkToFilteredSearchResultsUI": "https://portal.azure.cn/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "LinkToSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+    "LinkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/workspaces/workspaceID/query?query=Heartbeat&timespan=2020-05-07T18%3a11%3a51.0000000Z%2f2020-05-07T18%3a16%3a51.0000000Z",
+    "SeverityDescription": "Warning",
+    "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
+    "SearchIntervalDurationMin": "15",
+    "AffectedConfigurationItems": [
+      "INC-Gen2Alert"
+    ],
+    "SearchIntervalInMinutes": "15",
+    "Threshold": 10000,
+    "Operator": "Less Than",
+    "Dimensions": [
+      {
+        "name": "Computer",
+        "value": "INC-Gen2Alert"
+      }
+    ],
+    "SearchResults": {
+      "tables": [
+        {
+          "name": "PrimaryResult",
+          "columns": [
             {
-                "name": "Computer",
-                "value": "INC-Gen2Alert"
+              "name": "$table",
+              "type": "string"
+            },
+            {
+              "name": "Computer",
+              "type": "string"
+            },
+            {
+              "name": "TimeGenerated",
+              "type": "datetime"
             }
-        ],
-        "SearchResults": {
-            "tables": [
-                {
-                    "name": "PrimaryResult",
-                    "columns": [
-                        {
-                            "name": "$table",
-                            "type": "string"
-                        },
-                        {
-                            "name": "Computer",
-                            "type": "string"
-                        },
-                        {
-                            "name": "TimeGenerated",
-                            "type": "datetime"
-                        }
-                    ],
-                    "rows": [
-                        [
-                            "Fabrikam",
-                            "33446677a",
-                            "2018-02-02T15:03:12.18Z"
-                        ],
-                        [
-                            "Contoso",
-                            "33445566b",
-                            "2018-02-02T15:16:53.932Z"
-                        ]
-                    ]
-                }
+          ],
+          "rows": [
+            [
+              "Fabrikam",
+              "33446677a",
+              "2018-02-02T15:03:12.18Z"
+            ],
+            [
+              "Contoso",
+              "33445566b",
+              "2018-02-02T15:16:53.932Z"
             ]
-        },
-        "dataSources": [
-            {
-                "resourceId": "/subscriptions/a5ea55e2-7482-49ba-90b3-60e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
-                "tables": [
-                    "Heartbeat"
-                ]
-            }
-        ],
-    "IncludeSearchResults": "True",
-    "AlertType": "Metric measurement"
-    }
+          ]
+        }
+      ]
+    },
+    "dataSources": [
+      {
+        "resourceId": "/subscriptions/a5ea55e2-7482-49ba-90b3-60e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
+        "tables": [
+          "Heartbeat"
+        ]
+      }
+    ],
+  "IncludeSearchResults": "True",
+  "AlertType": "Metric measurement"
+  }
 }
 ```
 
@@ -234,70 +234,70 @@ ms.locfileid: "94328795"
 **示例值**
 ```json
 {
-    "alertContext": {
-        "SearchQuery": "requests | where resultCode == \"500\" | summarize AggregatedValue = Count by bin(Timestamp, 5m), IP",
-        "SearchIntervalStartTimeUtc": "3/22/2019 1:36:33 PM",
-        "SearchIntervalEndtimeUtc": "3/22/2019 1:51:33 PM",
-        "ResultCount": 2,
-        "LinkToSearchResults": "https://portal.azure.cn/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-        "LinkToFilteredSearchResultsUI": "https://portal.azure.cn/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-        "LinkToSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
-        "LinkToFilteredSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
-        "SearchIntervalDurationMin": "15",
-        "SearchIntervalInMinutes": "15",
-        "Threshold": 10000,
-        "Operator": "Less Than",
-        "ApplicationId": "8e20151d-75b2-4d66-b965-153fb69d65a6",
-        "Dimensions": [
+  "alertContext": {
+    "SearchQuery": "requests | where resultCode == \"500\" | summarize AggregatedValue = Count by bin(Timestamp, 5m), IP",
+    "SearchIntervalStartTimeUtc": "3/22/2019 1:36:33 PM",
+    "SearchIntervalEndtimeUtc": "3/22/2019 1:51:33 PM",
+    "ResultCount": 2,
+    "LinkToSearchResults": "https://portal.azure.cn/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "LinkToFilteredSearchResultsUI": "https://portal.azure.cn/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "LinkToSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+    "LinkToFilteredSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
+    "SearchIntervalDurationMin": "15",
+    "SearchIntervalInMinutes": "15",
+    "Threshold": 10000,
+    "Operator": "Less Than",
+    "ApplicationId": "8e20151d-75b2-4d66-b965-153fb69d65a6",
+    "Dimensions": [
+      {
+        "name": "IP",
+        "value": "1.1.1.1"
+      }
+    ],
+    "SearchResults": {
+      "tables": [
+        {
+          "name": "PrimaryResult",
+          "columns": [
             {
-                "name": "IP",
-                "value": "1.1.1.1"
+              "name": "$table",
+              "type": "string"
+            },
+            {
+              "name": "Id",
+              "type": "string"
+            },
+            {
+              "name": "Timestamp",
+              "type": "datetime"
             }
-        ],
-        "SearchResults": {
-            "tables": [
-                {
-                    "name": "PrimaryResult",
-                    "columns": [
-                        {
-                            "name": "$table",
-                            "type": "string"
-                        },
-                        {
-                            "name": "Id",
-                            "type": "string"
-                        },
-                        {
-                            "name": "Timestamp",
-                            "type": "datetime"
-                        }
-                    ],
-                    "rows": [
-                        [
-                            "Fabrikam",
-                            "33446677a",
-                            "2018-02-02T15:03:12.18Z"
-                        ],
-                        [
-                            "Contoso",
-                            "33445566b",
-                            "2018-02-02T15:16:53.932Z"
-                        ]
-                    ]
-                }
+          ],
+          "rows": [
+            [
+              "Fabrikam",
+              "33446677a",
+              "2018-02-02T15:03:12.18Z"
             ],
-            "dataSources": [
-                {
-                    "resourceId": "/subscriptions/a5ea27e2-7482-49ba-90b3-52e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
-                    "tables": [
-                        "Heartbeat"
-                    ]
-                }
+            [
+              "Contoso",
+              "33445566b",
+              "2018-02-02T15:16:53.932Z"
             ]
-        },
-        "IncludeSearchResults": "True",
-        "AlertType": "Metric measurement"
-    }
+          ]
+        }
+      ],
+      "dataSources": [
+        {
+          "resourceId": "/subscriptions/a5ea27e2-7482-49ba-90b3-52e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
+          "tables": [
+            "Heartbeat"
+          ]
+        }
+      ]
+    },
+    "IncludeSearchResults": "True",
+    "AlertType": "Metric measurement"
+  }
 }
 ```
 
@@ -544,4 +544,5 @@ ms.locfileid: "94328795"
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解[常见警报架构](./alerts-common-schema.md)。
+- 了解[如何创建使用常见警报架构处理所有警报的逻辑应用](./alerts-common-schema-integrations.md)。
 

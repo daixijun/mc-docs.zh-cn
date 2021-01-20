@@ -15,17 +15,17 @@ ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 origin.date: 04/20/2018
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 06f10ed3b01b301f3a2f8c8b738286db9da2498d
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 6277344d0d30be3f5c0f93ed97d3ad86644c9ff3
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300450"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230452"
 ---
 <!--Verify Successfully-->
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>诊断虚拟机网络路由问题 - Azure CLI
@@ -38,7 +38,7 @@ ms.locfileid: "96300450"
 
 - 本文需要 Azure CLI 版本 2.0 或更高版本。
 
-    <!--Not Available on  If using Azure China Shell, the latest version is already installed.-->
+    <!--Not Available on  If using Azure Cloud Shell, the latest version is already installed.-->
 
 - 本文中的 Azure CLI 命令已格式化，适合在 Bash Shell 中运行。
 

@@ -6,15 +6,15 @@ author: mrbullwinkle
 ms.service: application-insights
 ms.topic: include
 origin.date: 08/06/2019
-ms.date: 11/05/2019
-ms.author: mbullwin
+ms.date: 01/15/2021
+ms.author: v-johya
 ms.custom: include file
-ms.openlocfilehash: 1c5180a8e370a1da6ccfac4ac652b5556148e620
-ms.sourcegitcommit: be0a8e909fbce6b1b09699a721268f2fc7eb89de
+ms.openlocfilehash: f5de289969a93e49272f6cc0a3b5b846489de422
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84199649"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230842"
 ---
 每个应用程序（即每个检测密钥）的指标和事件数都有一些限制。 限制取决于选择的[定价计划](https://www.azure.cn/zh-cn/pricing/details/monitor/)。
 
@@ -29,6 +29,6 @@ ms.locfileid: "84199649"
 | 属性和指标名称长度 | 150 | 请参阅[类型架构](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond)。
 | 属性值字符串长度 | 8,192  | 请参阅[类型架构](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond)。
 | 跟踪和异常消息长度 | 32,768  | 请参阅[类型架构](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond)。
-| 每个应用的[可用性测试](../articles/azure-monitor/app/monitor-web-app-availability.md)计数 | 100 |
+| 每个应用的可用性测试计数 | 100 |
 
 有关详细信息，请参阅[关于 Application Insights 中的定价和配额](../articles/azure-monitor/app/pricing.md)。

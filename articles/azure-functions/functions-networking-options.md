@@ -3,14 +3,14 @@ title: Azure Functions 网络选项
 description: 在 Azure Functions 中可用的所有网络选项的概述。
 author: jeffhollan
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
-ms.openlocfilehash: e86a731cec47948b49b446de6606345146eea923
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: e8b35e24891bbe509f3efbefe6697fe8f49d67de
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "95970758"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195118"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 网络选项
 
@@ -21,9 +21,9 @@ ms.locfileid: "95970758"
 可以通过多种方式托管函数应用：
 
 * 可以从在多租户基础结构上运行的计划选项中进行选择，其中包含不同级别的虚拟网络连接和缩放选项：
-    * [消耗计划](functions-scale.md#consumption-plan)会动态缩放以响应负载，并提供最少的网络隔离选项。
-    * [高级计划](functions-scale.md#premium-plan)也可以动态缩放，并提供更全面的网络隔离。
-    * Azure [应用服务计划](functions-scale.md#app-service-plan)按固定规模运行，提供类似于高级计划的网络隔离。
+    * [消耗计划](consumption-plan.md)会动态缩放以响应负载，并提供最少的网络隔离选项。
+    * [高级计划](functions-premium-plan.md)也可以动态缩放，并提供更全面的网络隔离。
+    * Azure [应用服务计划](dedicated-plan.md)按固定规模运行，提供类似于高级计划的网络隔离。
 * 可以在[应用服务环境](../app-service/environment/intro.md)中运行函数。 此方法可以将函数部署到虚拟网络中，并且可以进行完全的网络控制和隔离。
 
 ## <a name="matrix-of-networking-features"></a>网络功能矩阵
@@ -34,7 +34,7 @@ ms.locfileid: "95970758"
 
 可以使用访问限制来定义被允许或拒绝访问应用的 IP 地址的优先级排序列表。 此列表可以包含 IPv4 和 IPv6 地址，或使用[服务终结点](#use-service-endpoints)的特定虚拟网络子网。 如果存在一个或多个条目，则列表末尾会存在一个隐式的“拒绝所有”。 IP 限制适用于所有函数托管选项。
 
-访问限制在[高级](functions-premium-plan.md)、[消耗](functions-scale.md#consumption-plan)和[应用服务](functions-scale.md#app-service-plan)中提供。
+访问限制在[高级](functions-premium-plan.md)、[消耗](consumption-plan.md)和[应用服务](dedicated-plan.md)中提供。
 
 > [!NOTE]
 > 如果进行了网络限制，则只能从虚拟网络内部进行部署，或者在已将用于访问 Azure 门户的计算机的 IP 地址加入安全收件人列表之后进行部署。 不过，你仍然可以使用门户管理该函数。

@@ -121,6 +121,8 @@
           href: howto-firewall.md
         - name: 配置专用链接连接
           href: howto-private-link.md
+        - name: 管理对资源的访问 - Spoke VNet P2S
+          href: manage-secure-access-resources-spoke-p2s.md
     - name: 监视
       items:
         - name: 日志和指标

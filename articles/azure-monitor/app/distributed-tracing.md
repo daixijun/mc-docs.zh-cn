@@ -4,15 +4,15 @@ description: 介绍 Azure 如何在 OpenCensus 项目中通过合作伙伴关系
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/10/2020
+ms.date: 01/12/2021
 origin.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: a8e728e66c336ea5569e33c59aa4f34ac29a8a19
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 108f99a60646f737c1621d4c472e595e47485b09
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638203"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231053"
 ---
 # <a name="what-is-distributed-tracing"></a>什么是分布式跟踪？
 
@@ -34,8 +34,8 @@ Azure Monitor 还提供[应用程序映射](./app-map.md)视图，该视图聚�
 
 适用于 .NET、.NET Core、Java、Node.js 和 JavaScript 的 Application Insights 代理和/或 SDK 都以原生方式支持分布式跟踪。 每个 Application Insights SDK 的安装和配置说明见下：
 
-* [.NET](../learn/quick-monitor-portal.md)
-* [.NET Core](../learn/dotnetcore-quick-start.md)
+* [.NET](asp-net.md)
+* [.NET Core](asp-net-core.md)
 * [Java](./java-in-process-agent.md)
 * [Node.js](../learn/nodejs-quick-start.md)
 * [JavaScript](./javascript.md)

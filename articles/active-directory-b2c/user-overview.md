@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 74055749807a60a88dc2081c2dcf92eb682820c3
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: ac41317cbdfc1b29d7ce8d863e081129b94d0e24
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507217"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570557"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的用户帐户概述
 
@@ -50,21 +50,21 @@ ms.locfileid: "96507217"
 可以使用以下信息创建新的工作帐户：
 
 - [Azure 门户](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users)
 
 ### <a name="update-a-user-profile"></a>更新用户配置文件
 
 可以使用以下信息来更新用户的配置文件：
 
 - [Azure 门户](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update)
 
 ### <a name="reset-a-password-for-a-user"></a>重置用户密码
 
 可以使用以下信息来重置用户密码：
 
 - [Azure 门户](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update)
 
 ## <a name="guest-user"></a>来宾用户
 

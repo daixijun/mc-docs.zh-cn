@@ -9,7 +9,7 @@
         - name: 具有多个网络路径的非对称路由
           href: ../expressroute/expressroute-asymmetric-routing.md?toc=%2fnetworking%2ftoc.json
         - name: 网络安全最佳实践
-          href: ../security/azure-security-network-security-best-practices.md?toc=%2fnetworking%2ftoc.json
+          href: ../security/fundamentals/network-best-practices.md?toc=%2fnetworking%2ftoc.json
         - name: 结合使用负载均衡方法
           href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fnetworking%2ftoc.json
         - name: 使用 Azure DNS 和流量管理器进行灾难恢复

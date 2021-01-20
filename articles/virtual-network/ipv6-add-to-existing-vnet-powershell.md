@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/31/2020
 author: rockboyfor
-ms.date: 10/05/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: e7b292bb9af19f32ca79fc06ba310db024ef2b8b
-ms.sourcegitcommit: 29a49e95f72f97790431104e837b114912c318b4
+ms.openlocfilehash: 0d809a393fc165aaa093fb2b365dedfc02bd2898
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564458"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230772"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell"></a>在 Azure 虚拟网络中将 IPv4 应用程序升级到 IPv6 - PowerShell
 
@@ -31,7 +31,7 @@ ms.locfileid: "91564458"
 - 包含采用 IPv4 + IPv6 配置的 NIC 的 VM
 - IPv6 公共 IP，使负载均衡器能够建立面向 Internet 的 IPv6 连接
 
-[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
+<!--Not Available on Azure CLI-->
 
 本文需要 Azure PowerShell 模块 6.9.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 
@@ -39,9 +39,7 @@ ms.locfileid: "91564458"
 
 ## <a name="prerequisites"></a>先决条件
 
-本文假设已根据以下文章所述部署了一个标准负载均衡器：[快速入门：创建标准负载均衡器 - Azure PowerShell](../load-balancer/quickstart-create-standard-load-balancer-powershell.md)。
-
-<!--Pending on [Quickstart: Create a Standard Load Balancer - Azure PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md)-->
+本文假设已根据以下文章所述部署了一个标准负载均衡器：[快速入门：创建标准负载均衡器 - Azure PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md)。
 
 ## <a name="retrieve-the-resource-group"></a>检索资源组
 
@@ -123,7 +121,7 @@ $lb | Set-AzLoadBalancer
 $vnet = Get-AzVirtualNetwork  -ResourceGroupName $rg.ResourceGroupName -Name "myVnet" 
 
 #Add IPv6 prefix to the VNET
-$vnet.addressspace.addressprefixes.add("ace:cab:deca::/48")
+$vnet.addressspace.addressprefixes.add("fd00:db8:deca::/48")
 
 #Update the running VNET
 $vnet |  Set-AzVirtualNetwork
@@ -132,7 +130,7 @@ $vnet |  Set-AzVirtualNetwork
 $subnet= $vnet.subnets[0]
 
 #Add IPv6 prefix to the Subnet (subnet of the VNET prefix, of course)
-$subnet.addressprefix.add("ace:cab:deca::/64")
+$subnet.addressprefix.add("fd00:db8:deca::/64")
 
 #Update the running VNET with the new subnet configuration
 $vnet |  Set-AzVirtualNetwork
@@ -149,15 +147,15 @@ $NIC_2 = Get-AzNetworkInterface -Name "myNic2" -ResourceGroupName $rg.ResourceGr
 $NIC_3 = Get-AzNetworkInterface -Name "myNic3" -ResourceGroupName $rg.ResourceGroupName
 
 #Add an IPv6 IPconfig to NIC_1 and update the NIC on the running VM
-$NIC_1 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
+$NIC_1 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
 $NIC_1 | Set-AzNetworkInterface
 
 #Add an IPv6 IPconfig to NIC_2 and update the NIC on the running VM
-$NIC_2 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
+$NIC_2 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
 $NIC_2 | Set-AzNetworkInterface
 
 #Add an IPv6 IPconfig to NIC_3 and update the NIC on the running VM
-$NIC_3 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
+$NIC_3 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
 $NIC_3 | Set-AzNetworkInterface
 ```
 
@@ -165,7 +163,7 @@ $NIC_3 | Set-AzNetworkInterface
 
 可以在 Azure 门户中查看 IPv6 双堆栈虚拟网络，如下所示：
 1. 在门户的搜索栏中输入 *myVnet*。
-2. 当“myVnet”出现在搜索结果中时，将其选中。**** 此时会启动名为 *myVNet* 的双堆栈虚拟网络的“概述”页。**** 该双堆栈虚拟网络显示了位于 *mySubnet* 双堆栈子网中的三个 NIC，这些 NIC 采用 IPv4 和 IPv6 配置。
+2. 当“myVnet”出现在搜索结果中时，将其选中。 此时会启动名为 *myVNet* 的双堆栈虚拟网络的“概述”页。 该双堆栈虚拟网络显示了位于 *mySubnet* 双堆栈子网中的三个 NIC，这些 NIC 采用 IPv4 和 IPv6 配置。
 
     :::image type="content" source="./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png" alt-text="Azure 中的 IPv6 双堆栈虚拟网络":::
 

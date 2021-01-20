@@ -5,14 +5,14 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 11/16/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
-ms.openlocfilehash: fa73d33944e5ea8324792819ed60d1ee0488c5a2
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 4f71d4d5178c70bc924a7b3d190df886bed24df6
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849335"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194963"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>排查应用程序网关中的后端运行状况问题
 ==================================================
@@ -21,6 +21,9 @@ ms.locfileid: "94849335"
 --------
 
 默认情况下，Azure 应用程序网关会探测后端服务器，以检查其运行状态，以及它们是否已准备好为请求提供服务。 用户还可以创建自定义探测，并指定主机名、要探测的路径，以及表示正常的状态代码。 在每种情况下，如果后端服务器未成功响应，则应用程序网关会将该服务器标记为“不正常”，并停止向其转发请求。 服务器成功开始响应后，应用程序网关将继续转发请求。
+
+> [!NOTE]
+> 本文包含对术语“白名单”的引用，Microsoft 不再使用该术语。 在从软件中删除该术语后，我们会将其从本文中删除。
 
 ### <a name="how-to-check-backend-health"></a>如何检查后端运行状况
 

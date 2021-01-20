@@ -6,15 +6,15 @@ ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 12/21/2020
+ms.date: 01/18/2021
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 2860c50420c53d9e781490e5aec1208b7ce0aa71
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 1b4e25922854ab4ff73893f2a3999b6f3ea386b1
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021505"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230754"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure 应用服务 Windows 版上节点应用程序的最佳做法和故障排除指南
 
@@ -246,9 +246,8 @@ node.exe 随机关闭的原因有多种：
 应用程序启动时间过长的最常见原因是 node\_modules 中有大量文件。 应用程序在启动时会尝试加载其中的大多数文件。 默认情况下，由于文件存储在 Azure 应用服务的网络共享上，因此加载过多的文件可能需要一段时间。
 加速此过程的某些解决方法包括：
 
-1. 使用 npm3 来安装模块，确保采用平面依赖关系结构，并且没有重复的依赖项。
-2. 尝试延迟加载 node\_modules，而不要在应用程序启动时加载所有模块。 若要延迟加载模块，应在首次执行模块代码之前，在函数中真正需要该模块时调用 require('module')。
-3. Azure 应用服务提供一项称为本地缓存的功能。 此功能会将内容从网络共享复制到 VM 上的本地磁盘。 由于文件位于本地，因此，node\_modules 的加载时间快很多。
+1. 尝试延迟加载 node\_modules，而不要在应用程序启动时加载所有模块。 若要延迟加载模块，应在首次执行模块代码之前，在函数中真正需要该模块时调用 require('module')。
+2. Azure 应用服务提供一项称为本地缓存的功能。 此功能会将内容从网络共享复制到 VM 上的本地磁盘。 由于文件位于本地，因此，node\_modules 的加载时间快很多。
 
 ## <a name="iisnode-http-status-and-substatus"></a>IISNODE http 状态和子状态
 

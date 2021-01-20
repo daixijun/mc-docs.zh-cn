@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
-ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: 56562ab8faca339fd582822bae9a0541e3703c90
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: 5733e5bed28e4832c96531715ed3c38c11d41cbc
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507971"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195203"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>使用 Azure CLI 添加或删除 Azure 角色分配
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 本文介绍如何使用 Azure CLI 分配角色。
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] 本文介绍如何使用 Azure CLI 分配角色。
 
 ## <a name="prerequisites"></a>先决条件
 

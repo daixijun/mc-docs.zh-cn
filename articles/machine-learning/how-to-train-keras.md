@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: c7d067fe4fb69f1e5545568bddf6d6bad324f36c
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 5cdc07aef17e7722bb049ed4b62a5327beaf4b65
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022605"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229986"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>使用 Azure 机器学习大规模训练 Keras 模型
 
@@ -199,7 +199,7 @@ src = ScriptRunConfig(source_directory=script_folder,
 [运行对象](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)在作业运行时和运行后提供运行历史记录的接口。
 
 ```Python
-run = Experiment(workspace=ws, name='keras-mnist').submit(src)
+run = Experiment(workspace=ws, name='Tutorial-Keras-Minst').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 

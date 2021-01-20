@@ -6,18 +6,18 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 03/20/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c578bb3c7343a0564c5b7d0bc3c426d89d31481b
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: e0722118b4b3aeca48a2143707ff502a928b3053
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598404"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231006"
 ---
 <!--Verified successfully on Portal section-->
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>使用系统分配的托管标识访问 Azure Cosmos DB 数据
@@ -219,7 +219,7 @@ namespace Monitor
 }
 ```
 
-现在，你已准备好[部署函数应用](../azure-functions/functions-create-first-function-vs-code.md)。
+现在，你已准备好[部署函数应用](../azure-functions/create-first-function-vs-code-csharp.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

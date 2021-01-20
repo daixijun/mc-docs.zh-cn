@@ -1,17 +1,17 @@
 ---
 title: 内置策略定义列表
 description: 列出 Azure Policy 的内置策略定义。 类别包括“标记”、“合规性”、“Key Vault”、“Kubernetes”、“来宾配置”等。
-origin.date: 10/20/2020
-ms.date: 12/03/2020
+origin.date: 01/08/2021
+ms.date: 01/14/2021
 ms.author: v-tawe
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 9173e056db047f6d76cab0f2a823cf6e098c8a7d
-ms.sourcegitcommit: 60e70acb6f9604aeef69d2027f7f96a1d7d5b248
+ms.openlocfilehash: 84e4c5fff5483c8472fba9a057c23b10b9584820
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96541200"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193273"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy 内置策略定义
 

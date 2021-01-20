@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/07/2020
-ms.openlocfilehash: c51398e2de1908b30260477d56419a34ac735620
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/12/2021
+ms.openlocfilehash: db7462abb6c564d9137276faad74fe0fa8fd11fc
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105013"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229927"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor 监视哪些内容？
 本文介绍了由 Azure Monitor 监视的不同应用程序和服务。 
@@ -35,10 +35,7 @@ ms.locfileid: "97105013"
 | [适用于 Azure Cache for Redis 的 Azure Monitor（预览版）](insights/redis-cache-insights-overview.md) |  提供有关整体性能、故障、容量和运行状况的统一交互式视图。 |
 
 
-### <a name="core-solutions"></a>核心解决方案
-
-解决方案基于为特定应用程序或服务自定义的日志查询和视图。 它们只收集和分析日志，并随着时间推移而不再被使用，取而代之的是见解。
-
+<!--Not available in MC: ### Core solutions-->
 
 
 ## <a name="azure-services"></a>Azure 服务
@@ -52,8 +49,8 @@ ms.locfileid: "97105013"
 |:---|:---|:---|:---|:---|
 |Active Directory | 否 | 是 | [是](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | 否 | 否 | 否 |  |
-|Active Directory 域服务 | No | 是 | 否 |  |
-|活动日志 | No | 是 | 否 | |
+|Active Directory 域服务 | 否 | 是 | 否 |  |
+|活动日志 | 否 | 是 | 否 | |
 |高级威胁防护 | 否 | 否 | 否 |  |
 |顾问 | 否 | 否 | 否 |  |
 |AI Builder | 否 | 否 | 否 |  |
@@ -69,10 +66,6 @@ ms.locfileid: "97105013"
 |备份 | 否 | 是 | 否 |  |
 |Bastion | 否 | 否 | 否 |  |
 |Batch | 是 | 是 | 否 |  |
-|Batch AI | 否 | 否 | 否 |  |
-|区块链服务 | 否 | 是 | 否 |  |
-|蓝图 | 否 | 否 | 否 |  |
-|Bot 服务 | 否 | 否 | 否 |  |
 |云服务 | 是 | 是 | 否 | 监视来宾操作系统和工作流时所需的代理。  |
 |认知服务 | 是 | 是 | 否 |  |
 |容器实例 | 是 | 否 | 否 |  |
@@ -91,8 +84,6 @@ ms.locfileid: "97105013"
 |Database for PostgreSQL | 是 | 是 | 否 |  |
 |数据库迁移服务 | 否 | 否 | 否 |  |
 |Databricks | 否 | 是 | 否 |  |
-|DDoS 保护 | 是 | 是 | 否 |  |
-|DevOps | 否 | 否 | 否 |  |
 |DNS | 是 | 否 | 否 |  |
 |域名 | 否 | 否 | 否 |  |
 |DPS | 否 | 否 | 否 |  |
@@ -204,5 +195,4 @@ Azure Monitor 可以使用下表中列出的方法从 Azure 以外的资源收�
 - 完成[编写日志查询以分析 Azure Monitor 日志中的数据的相关教程](learn/tutorial-resource-logs.md)。
 - 完成[创建指标图表以分析 Azure Monitor 指标中的数据的相关教程](learn/tutorial-metrics-explorer.md)。
 
- 
 

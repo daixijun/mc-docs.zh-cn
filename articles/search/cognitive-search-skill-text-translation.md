@@ -8,17 +8,17 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/04/2019
-ms.date: 09/10/2020
-ms.openlocfilehash: 792eb1a30f42696644b5077bd4f59e8e7a2550ee
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 01/18/2021
+ms.openlocfilehash: d15da92eaa40588104623224995e740904938469
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021107"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194739"
 ---
 #   <a name="text-translation-cognitive-skill"></a>文本翻译认知技能
 
-**文本翻译**技能对文本进行评估，并针对每个记录返回已翻译为指定目标语言的文本。 此技能使用认知服务中提供的[文本翻译 API v3.0](../cognitive-services/translator/reference/v3-0-translate.md)。
+**文本翻译** 技能对文本进行评估，并针对每个记录返回已翻译为指定目标语言的文本。 此技能使用认知服务中提供的[文本翻译 API v3.0](../cognitive-services/translator/reference/v3-0-translate.md)。
 
 此功能适用于你预期自己的文档可能不会全部采用一种语言的情况，在这种情况下，你可能会在编制索引以方便搜索之前通过翻译将文本标准化为单一语言。  这也适用于本地化用例，即，你可能需要将同一文本的副本以多种语言发布。
 
@@ -39,7 +39,7 @@ Microsoft.Skills.Text.TranslationSkill
 
 参数区分大小写。
 
-| 输入                | 说明 |
+| 输入 | 说明 |
 |---------------------|-------------|
 | defaultToLanguageCode | （必需）将文档翻译为未显式指定语言的文档时所需的语言代码。 <br/> 请参阅[支持的语言的完整列表](../cognitive-services/translator/language-support.md)。 |
 | defaultFromLanguageCode | （可选）将文档从未显式指定语言的文档进行翻译时所需的语言代码。  如果未指定 defaultFromLanguageCode，则会使用文本翻译 API 提供的自动语言检测功能来确定源语言。 <br/> 请参阅[支持的语言的完整列表](../cognitive-services/translator/language-support.md)。 |

@@ -7,16 +7,16 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 origin.date: 09/24/2018
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: bee9c2aee76b89d333df9b116985f2534c6d44eb
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 6de4f1fecefb9bc96fc64dc1eb3170707ba594df
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328700"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231014"
 ---
 <!--Verify sucessfully-->
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>使用 HDInsight 从 YARN 上的 Spark 访问 Azure Cosmos DB Cassandra API
@@ -125,7 +125,7 @@ HDInsight Spark 附带有 Zeppelin 和 Jupyter Notebook 服务。 二者均为�
 
 以下 Jupyter Notebook 可以上传到 HDInsight Spark 群集，并提供使用 Azure Cosmos DB Cassandra API 的现成示例。 请务必查看第一个笔记本 `1.0-ReadMe.ipynb`，以查看用于连接到 Azure Cosmos DB Cassandra API 的 Spark 服务配置。
 
-将 [azure-cosmos-db-cassandra-api-spark-notebooks-jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/master/scala/) 下的 Notebook 下载到计算机。
+将 [azure-cosmos-db-cassandra-api-spark-notebooks-jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/main/scala/) 下的 Notebook 下载到计算机。
 
 ### <a name="how-to-upload"></a>如何上传：
 启动 Jupyter 时，导航到 Scala。 先创建一个目录，然后将笔记本上传到该目录。 上传按钮位于顶部右侧。  
@@ -141,7 +141,7 @@ HDInsight Spark 附带有 Zeppelin 和 Jupyter Notebook 服务。 二者均为�
 
 * [如何在 IDE 中生成 Spark Scala 程序并通过 Livy 将其提交 HDInsight Spark 群集以供执行](../hdinsight/spark/apache-spark-create-standalone-application.md)
 
-* [如何从 Spark Scala 程序连接到 Azure Cosmos DB Cassandra API](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/master/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
+* [如何从 Spark Scala 程序连接到 Azure Cosmos DB Cassandra API](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
 
 * [使用 Cassandra API 的代码示例完整列表](cassandra-spark-generic.md)
 

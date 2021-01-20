@@ -4,14 +4,14 @@ description: Azure 门户是一个图形用户界面，可用于管理 Azure 服
 keywords: 门户
 ms.author: v-tawe
 origin.date: 12/20/2019
-ms.date: 12/30/2020
+ms.date: 01/13/2021
 ms.topic: overview
-ms.openlocfilehash: 6cfcec2dbd48bcbd65b6740d84be1ac94f41d55e
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: 2ffa83f3b9a8f9411dd233a29d1bf576a863495b
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820360"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230785"
 ---
 # <a name="azure-portal-overview"></a>Azure 门户概述
 

@@ -3,13 +3,13 @@ title: Azure Functions 中的部署技术
 description: 了解将代码部署到 Azure Functions 的不同方式。
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: 7daaa2602985ffc61f179ffce7601a0385624641
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.date: 01/13/2021
+ms.openlocfilehash: 63f0fe9b6396efef4dfd1e449c5f926914b01d2f
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507954"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195033"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions 中的部署技术
 
@@ -32,9 +32,9 @@ ms.locfileid: "96507954"
 
 Azure Functions 支持跨平台的本地开发以及使用 Windows 和 Linux 作为托管位置。 目前，可以使用三种托管计划：
 
-+ [消耗](functions-scale.md#consumption-plan)
-+ [高级](functions-scale.md#premium-plan)
-+ [专用（应用服务）](functions-scale.md#app-service-plan)
++ [消耗](consumption-plan.md)
++ [高级](functions-premium-plan.md)
++ [专用（应用服务）](dedicated-plan.md)
 
 每种计划有不同的行为。 并非所有部署技术都适用于每种风格的 Azure Functions。 以下图表显示了哪些部署技术适用于操作系统和托管计划的每种组合：
 
@@ -95,7 +95,7 @@ Azure Functions 可以自动在它在压缩部署后接收的代码上执行生�
 
 ##### <a name="dedicated-and-premium-plans"></a>专用和高级计划
 
-在[专用（应用服务）计划](functions-scale.md#app-service-plan)和[高级计划](functions-scale.md#premium-plan)中的 Linux 上运行的函数应用也具有受限的 SCM/Kudu 站点。
+在[专用（应用服务）计划](dedicated-plan.md)和[高级计划](functions-premium-plan.md)中的 Linux 上运行的函数应用也具有受限的 SCM/Kudu 站点。
 
 ## <a name="deployment-technology-details"></a>部署技术详细信息
 

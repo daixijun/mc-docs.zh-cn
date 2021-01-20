@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: c7da0d3f8bd788df7874dcaf0f3d9ffad166a434
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: 21167010195ba4c10a9c280870ac3c7474486908
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849258"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570502"
 ---
 # <a name="display-controls"></a>显示控件
 
@@ -53,9 +53,9 @@ ms.locfileid: "94849258"
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** 用于预填充要从用户那里收集的声明的值。 有关详细信息，请参阅 [InputClaims](technicalprofiles.md#inputclaims) 元素。 |
+| InputClaims | 0:1 | **InputClaims** 用于预填充要从用户那里收集的声明的值。 有关详细信息，请参阅 [InputClaims](technicalprofiles.md#input-claims) 元素。 |
 | DisplayClaims | 0:1 | **DisplayClaims** 用于表示要从用户那里收集的声明。 有关详细信息，请参阅 [DisplayClaim](technicalprofiles.md#displayclaim) 元素。|
-| OutputClaims | 0:1 | **OutputClaims** 用于表示要暂时为此 **DisplayControl** 保存的声明。 有关详细信息，请参阅 [OutputClaims](technicalprofiles.md#outputclaims) 元素。|
+| OutputClaims | 0:1 | **OutputClaims** 用于表示要暂时为此 **DisplayControl** 保存的声明。 有关详细信息，请参阅 [OutputClaims](technicalprofiles.md#output-claims) 元素。|
 | 操作 | 0:1 | **Actions** 用于列出要针对在前端发生的用户操作调用的验证技术配置文件。 |
 
 ### <a name="input-claims"></a>输入声明
@@ -108,7 +108,7 @@ Actions 元素包含以下元素：
 
 Action 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | ID | 是 | 操作的类型。 可能的值：`SendCode` 或 `VerifyCode`。 `SendCode` 值向用户发送代码。 此操作可能包含两个验证技术配置文件：一个用于生成代码，另一个用于发送代码。 `VerifyCode` 值验证用户在输入文本框中键入的代码。 |
 
@@ -128,7 +128,7 @@ ValidationClaimsExchange 元素包含以下元素：
 
 ValidationTechnicalProfile 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | ReferenceId | 是 | 已在策略或父策略中定义的技术配置文件的标识符。 |
 |ContinueOnError|否| 指示在此验证技术配置文件引发错误时，任何后续验证技术配置文件是否应继续进行验证。 可能的值：`true` 或 `false`（默认值，进一步验证配置文件的处理会停止，并且返回错误）。 |
@@ -142,7 +142,7 @@ ValidationTechnicalProfile 元素包含以下元素：
 
 Precondition 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | `Type` | 是 | 要对前置条件执行的检查或查询的类型。 可能的值：`ClaimsExist` 或 `ClaimEquals`。 如果指定的声明存在于用户的当前声明集中，则 `ClaimsExist` 指定应执行的操作。 如果指定的声明存在并且其值等于指定的值，则 `ClaimEquals` 指定应执行的操作。 |
 | `ExecuteActionsIf` | 是 | 指示在测试为 true 或 false 时是否应执行前置条件中的操作。 |

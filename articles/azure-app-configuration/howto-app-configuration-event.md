@@ -8,15 +8,15 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: how-to
 origin.date: 03/04/2020
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fd7200fd35158cbd3f799aa7e7ec1cbe331b195b
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 497313ddd13080fd6d902aa0ebcdb2cbd4f7c8ae
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023081"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231085"
 ---
 # <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>使用 Azure CLI 将 Azure 应用程序配置事件路由到 Web 终结点
 

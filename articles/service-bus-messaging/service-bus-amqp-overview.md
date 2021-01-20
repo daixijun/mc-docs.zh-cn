@@ -5,16 +5,16 @@ ms.service: service-bus-messaging
 ms.topic: article
 origin.date: 11/20/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 2124ff37f92f718effd2b6f7cd99e51005a0dde5
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: c98872b683e15e0694e956b8b6ed6605d163b086
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021657"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230858"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>服务总线的 AMQP 1.0 支持
 Azure 服务总线云服务使用[高级消息队列协议 (AMQP) 1.0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) 作为其主要通信方式。 在过去的十年中，Azure 与行业内的合作伙伴（相互竞争的消息传递代理的客户和供应商）开展合作，开发和发展 AMQP，并在 [OASIS AMQP 技术委员会](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp)中开发了新的扩展。 AMQP 1.0 是 ISO 和 IEC 标准 ([ISO 19464:20149](https://www.iso.org/standard/64955.html))。 
@@ -70,7 +70,7 @@ Azure 服务总线中对 AMQP 1.0 的支持意味着可以通过一系列使用�
 
 通过 Azure SDK 提供的所有受支持的服务总线客户端库均使用 AMQP 1.0。
 
-- [适用于 .NET 的 Azure 服务总线](https://docs.azure.cn/dotnet/api/overview/service-bus?preserve-view=true)
+- [适用于 .NET 的 Azure 服务总线](https://docs.azure.cn/dotnet/api/overview/service-bus?preserve-view=true&view=azure-dotnet)
 - [适用于 Java 的 Azure 服务总线库](https://docs.azure.cn/java/api/overview/servicebus?view=azure-java-stable&preserve-view=true)
 - [适用于 Java JMS 2.0 的 Azure 服务总线提供程序](how-to-use-java-message-service-20.md)
 - [适用于 JavaScript 和 TypeScript 的 Azure 服务总线模块](https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest&preserve-view=true)

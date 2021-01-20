@@ -5,15 +5,15 @@ author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 origin.date: 05/10/2020
-ms.date: 10/19/2020
+ms.date: 01/18/2021
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: c10a83ed6fd0ac9268497d7d01f306acd0d6a2ac
-ms.sourcegitcommit: 378b6bcde11c19efb9c72f6d77b171d907e812c2
+ms.openlocfilehash: c4009102a8ebad3a18a71fd0efd1fadbfdd950e4
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550775"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230506"
 ---
 # <a name="use-an-app-service-environment"></a>使用应用服务环境
 
@@ -305,5 +305,7 @@ For more specific examples, use: az find "az appservice ase"
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/ag-overview.md
 [logalerts]: ../../azure-monitor/platform/alerts-log.md
+
+<!--Not Available on [AppGW]: ../../web-application-firewall/ag/ag-overview.md-->
+

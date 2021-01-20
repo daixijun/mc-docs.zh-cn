@@ -1,38 +1,48 @@
 ---
-title: Azure Cosmos 模拟器下载和发行说明
-description: 获取不同版本的 Azure Cosmos 模拟器发行说明并下载信息。
+title: Azure Cosmos DB 模拟器下载和发行说明
+description: 获取不同版本的 Azure Cosmos DB 模拟器发行说明并下载信息。
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/21/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: dcb80ad3b45f37146333e62b9d01108f00f9cfdd
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 81d8fcaec53f191ed160b47d4192e97bd10745c4
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598709"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230378"
 ---
-# <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos 模拟器 - 发行说明和下载信息
+# <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Azure Cosmos DB 模拟器 - 发行说明和下载信息
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-本文显示了 Azure Cosmos 模拟器发行说明，其中包含每个版本中所做的功能更新列表。 它还列出了要下载和使用的模拟器的最新版本。
+本文显示了 Azure Cosmos DB 模拟器发行说明，其中包含每个版本中所做的功能更新列表。 它还列出了要下载和使用的模拟器的最新版本。
 
 ## <a name="download"></a>下载
 
 | | |
 |---------|---------|
 |**MSI 下载**|[下载中心](https://aka.ms/cosmosdb-emulator)|
-|**入门**|[使用 Azure Cosmos 模拟器在本地开发](local-emulator.md)|
+|**入门**|[使用 Azure Cosmos DB 模拟器在本地开发](local-emulator.md)|
 
 ## <a name="release-notes"></a>发行说明
 
+### <a name="21110-5-january-2021"></a>2.11.10（2021 年 1 月 5 日）
+
+- 此版本将本地数据资源管理器内容更新为最新的 Azure 门户版本，并增加了一个新的公共选项“/ExportPemCert”，该选项允许仿真器用户直接将公共仿真器的证书导出为 .PEM 文件。
+
+### <a name="2119-3-december-2020"></a>2.11.9（2020 年 12 月 3 日）
+
+- 除了反映 Azure Cosmos DB 中的最新功能和改进的常规内容更新，此版本还会处理 Azure Cosmos DB 模拟器功能的几个问题：
+    * 解决在使用直接模式和 Java 客户端应用程序时大型文档有效负载请求会失败的问题。
+    * 解决在由基于 .NET 的应用程序面向时 MongoDB 终结点版本 3.6 出现的连接性问题。
+
 ### <a name="2118-6-november-2020"></a>2.11.8（2020 年 11 月 6 日）
 
- - 此版本包含 Cosmos 仿真器数据资源管理器的更新，并修复了 TLS 1.3 客户端尝试打开数据资源管理器的问题。
+- 此版本包含 Cosmos 仿真器数据资源管理器的更新，并修复了 TLS 1.3 客户端尝试打开数据资源管理器的问题。
 
 ### <a name="2116-6-october-2020"></a>2.11.6（2020 年 10 月 6 日）
 
@@ -80,7 +90,7 @@ ms.locfileid: "96598709"
 
 ### <a name="246"></a>2.4.6
 
-- 除了[使用 Azure Cosmos 模拟器在本地开发](local-emulator.md)中所述的例外情况，此版本提供了到 2019 年 7 月为止的 Azure Cosmos 服务中的同等功能。 它还修复了与通过命令行调用时模拟器关闭相关的几个 bug，以及使用直接模式连接的 SDK 客户端的内部 IP 地址覆盖。
+- 除了[使用 Azure Cosmos DB 模拟器在本地开发](local-emulator.md)中所述的例外情况，此版本提供了到 2019 年 7 月为止的 Azure Cosmos 服务中的同等功能。 它还修复了与通过命令行调用时模拟器关闭相关的几个 bug，以及使用直接模式连接的 SDK 客户端的内部 IP 地址覆盖。
 
 ### <a name="243"></a>2.4.3
 

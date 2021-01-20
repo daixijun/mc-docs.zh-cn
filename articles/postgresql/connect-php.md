@@ -8,13 +8,13 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 origin.date: 2/28/2018
-ms.date: 12/14/2020
-ms.openlocfilehash: 0a9bb287bad833127569f7841c1d871656f321b4
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.date: 01/18/2021
+ms.openlocfilehash: 750b9c38b6cb28ba3d5f587c90aeb55a2cfa410c
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850828"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230672"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>快速入门：使用 PHP 连接到 Azure Database for PostgreSQL 并查询其中的数据 - 单一服务器
 
@@ -88,7 +88,7 @@ ms.locfileid: "96850828"
     // Insert some data into table.
     $name = '\'banana\'';
     $quantity = 150;
-    $query = "INSERT INTO inventory (name, quantity) VALUES ($1, $2);";
+    $query = "INSERT INTO inventory (name, quantity) VALUES ($name, $quantity);";
     pg_query($connection, $query) 
         or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
 

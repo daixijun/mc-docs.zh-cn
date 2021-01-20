@@ -3,15 +3,15 @@ title: 智能检测 - 性能异常 | Azure Docs
 description: Application Insights 执行应用遥测的智能分析，并在有潜在问题时发出警告。 此功能不需要任何设置。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.reviewer: antonfr
 ms.author: v-johya
-ms.openlocfilehash: 02f3892d15bc5af05526445535c633cad37fc78e
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 476938ec313b26577a9df8dcc376b8a74027ed55
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104750"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231039"
 ---
 # <a name="smart-detection---performance-anomalies"></a>智能检测 - 性能异常
 
@@ -94,16 +94,16 @@ Application Insights 已根据以下依据之一检测到应用程序出现性�
 
 使用影响声明（受影响的用户或流量百分比）作为一般原则，但请注意这并非全部。 收集其他证据以确认。
 
-考虑问题的参数。 如果它是地理位置相关的，请设置包括该区域在内的[可用性测试](./monitor-web-app-availability.md)：可能仅该区域存在网络问题。
+考虑问题的参数。 如果它是地理位置相关的，请设置包括该区域在内的可用性测试：可能仅该区域存在网络问题。
 
 ### <a name="diagnose-slow-page-loads"></a>诊断缓慢页面加载
 问题在哪儿？ 是服务器响应缓慢，页面过长，还是浏览器需要执行大量工作才能显示它？
 
 打开“浏览器”指标边栏选项卡。 浏览器页面加载时间的分段显示会显示时间的进展如何。 
 
-* 如果 **发送请求时间** 过高，则服务器响应速度缓慢，或者请求是包含大量数据的 post 请求。 查看[性能指标](./web-monitor-performance.md#metrics)以调查响应时间。
+* 如果 **发送请求时间** 过高，则服务器响应速度缓慢，或者请求是包含大量数据的 post 请求。 查看[性能指标](./performance-counters.md)以调查响应时间。
 * 设置[依赖项跟踪](./asp-net-dependencies.md)以查看缓慢是否由于外部服务或数据库引起的。
-* 如果 **接收响应** 占主导地位，则页面及其依赖部分（JavaScript、CSS、图像等（但并非异步加载的数据））较长。 设置[可用性测试](./monitor-web-app-availability.md)，并确保设置用于加载依赖部分的选项。 当获得一些结果时，打开某一结果的详细信息，展开它以查看不同文件的加载时间。
+* 如果 **接收响应** 占主导地位，则页面及其依赖部分（JavaScript、CSS、图像等（但并非异步加载的数据））较长。 设置可用性测试，并确保设置用于加载依赖部分的选项。 当获得一些结果时，打开某一结果的详细信息，展开它以查看不同文件的加载时间。
 * 高 **客户端处理时间** 表明脚本运行缓慢。 如果原因并不明显，请考虑添加一些计时代码并发送 trackMetric 调用中的时间。
 
 ### <a name="improve-slow-pages"></a>改进缓慢的页面
@@ -183,5 +183,4 @@ Application Insights 可以找到只会影响一部分用户，或者只会在�
 智能检测是完全自动执行的。 但是或许你想要设置更多的警报？
 
 * [手动配置的指标警报](../platform/alerts-log.md)
-* [可用性 Web 测试](./monitor-web-app-availability.md)
 

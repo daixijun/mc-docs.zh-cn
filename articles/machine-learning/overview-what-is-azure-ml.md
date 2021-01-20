@@ -1,6 +1,6 @@
 ---
 title: 什么是 Azure 机器学习？
-description: Azure 机器学习概述 - 这是一个集成式端到端数据科学解决方案，能够让专业数据科学家以云规模开发、试验和部署高级分析应用程序。
+description: Azure 机器学习是一种集成数据科学解决方案，让数据科学家和 MLops 可以对 ML 应用程序进行云级建模和部署。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 origin.date: 11/04/2019
 ms.date: 03/16/2020
-ms.openlocfilehash: d074a7acd9bf37597e1fe37766631061020687df
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: b72622ba96dcdc2bd642b80ae446a8da7772a7c3
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023241"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229976"
 ---
 # <a name="what-is-azure-machine-learning"></a>什么是 Azure 机器学习？
 
@@ -49,7 +49,7 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 
 + + [多模型解决方案加速器](https://aka.ms/many-models)（预览版）在 Azure 机器学习的基础上构建，使你能够训练、操作和管理数百甚至数千个机器学习模型。
 
-+ [Visual Studio Code 扩展](tutorial-setup-vscode-extension.md)
++ [面向 Visual Studio Code 用户的机器学习扩展](tutorial-setup-vscode-extension.md)
 
 + [机器学习 CLI](reference-azure-machine-learning-cli.md)
 
@@ -69,7 +69,7 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 
 ## <a name="build-ml-models-in-the-studio"></a>在工作室中生成 ML 模型
 
-[Azure 机器学习工作室](https://www.studio.ml.azure.cn)是 Azure 机器学习中的 Web 门户，提供用于模型训练、部署和资产管理的低代码和无代码选项。 工作室与 Azure 机器学习 SDK 集成，以实现无缝体验。 有关详细信息，请参阅[什么是 Azure 机器学习工作室](overview-what-is-machine-learning-studio.md)。
+[Azure 机器学习工作室](https://studio.ml.azure.cn)是 Azure 机器学习中的 Web 门户，提供用于模型训练、部署和资产管理的低代码和无代码选项。 工作室与 Azure 机器学习 SDK 集成，以实现无缝体验。 有关详细信息，请参阅[什么是 Azure 机器学习工作室](overview-what-is-machine-learning-studio.md)。
 
 + **Azure 机器学习设计器**
 
@@ -86,7 +86,7 @@ Azure 机器学习为其机器学习工作流提供了开发人员和数据科�
 
 + **更多...**
 
-  在 [studio.ml.azure.cn](https://www.studio.ml.azure.cn) 访问 Azure 机器学习工作室。 
+  在 [studio.ml.azure.cn](https://studio.ml.azure.cn) 访问 Azure 机器学习工作室。 
 
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps：部署和生命周期管理
@@ -118,7 +118,7 @@ Azure 机器学习可与 Azure 平台上的其他服务配合使用，还能与�
 .
 + __Azure Pipelines__。 有关详细信息，请参阅[定型和部署机器学习模型](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning)。
 + __Git 存储库日志__。 有关详细信息，请参阅 [Git 集成](concept-train-model-git-integration.md)。
-+ __MLFlow__。 有关详细信息，请参阅[使用 MLflow 跟踪指标并部署模型](how-to-use-mlflow.md) 
++ __MLFlow__。 有关详细信息，请参阅[通过 MLflow 跟踪指标](how-to-use-mlflow.md)和[将 Mlflow 模型部署为 Web 服务](how-to-deploy-mlflow-models.md) 
 + __Kubeflow__。 有关详细信息，请参阅[构建端到端工作流管道](https://www.kubeflow.org/docs/azure/)。
 
 ### <a name="secure-communications"></a>安全通信

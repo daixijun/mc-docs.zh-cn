@@ -4,15 +4,15 @@ description: 本教程介绍在更新同一注册表中的基础映像时，如�
 ms.topic: tutorial
 origin.date: 11/24/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
 ms.custom: seodec18, mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2723c2a0aac9d82e827fc23681d29d51b6872b8f
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 218c4dad9f093a424e7b1f2b5f7c8bc1ccd5b5fe
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004038"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230968"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>教程：在 Azure 容器注册表中更新基础映像时自动化容器映像生成 
@@ -38,10 +38,10 @@ ms.locfileid: "97004038"
 
 本教程假定你已配置环境并完成本系列前两个教程中的步骤，其中包括：
 
-* 创建 Azure 容器注册表
-* 创建示例存储库分支
-* 克隆示例存储库
-* 创建 GitHub 个人访问令牌
+- 创建 Azure 容器注册表
+- 创建示例存储库分支
+- 克隆示例存储库
+- 创建 GitHub 个人访问令牌
 
 在继续之前，请先完成以下教程（如果尚未完成）：
 
@@ -50,6 +50,12 @@ ms.locfileid: "97004038"
 [使用 Azure 容器注册表任务自动化容器映像生成](container-registry-tutorial-build-task.md)
 
 ### <a name="configure-the-environment"></a>配置环境
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 本文需要 Azure CLI 版本 2.0.46 或更高版本。
+
+    <!--Not Avaiable on  If using Azure Cloud Shell, the latest version is already installed.-->
 
 使用适用于环境的值填充这些 shell 环境变量。 此步骤并非必须执行的步骤，但它能让在此教程中执行多个 Azure CLI 命令更容易。 如果未填充这些环境变量，则每当示例命令中出现每个值，都必须手动替换该值。
 
@@ -164,7 +170,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 如果已完成之前的教程（并且没有删除注册表），应看到如下所示的输出。 记下任务运行的数目以及最新的运行 ID，以便在后续部分中更新基础映像后对比输出。
 
 ```output
-RUN ID    TASK            PLATFORM    STATUS     TRIGGER     STARTED               DURATION
+RUN ID    TASK            PLATFORM    STATUS     TRIGGER    STARTED               DURATION
 --------  --------------  ----------  ---------  ----------  --------------------  ----------
 cax       baseexample1    linux       Succeeded  Manual     2020-11-20T23:33:12Z  00:00:30
 caw       taskhelloworld  linux       Succeeded  Commit     2020-11-20T23:16:07Z  00:00:29

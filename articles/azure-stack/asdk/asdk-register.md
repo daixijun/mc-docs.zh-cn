@@ -4,16 +4,16 @@ description: 了解如何将 Azure Stack 开发工具包 (ASDK) 注册到 Azure�
 author: WenJason
 ms.topic: article
 origin.date: 11/14/2020
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 11/14/2020
-ms.openlocfilehash: 38aef2c9a57c34caffce8b1feeb03a54b24e991e
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: ce5b354746503d30b09e6ba24f56610d526fd5a9
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507949"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541838"
 ---
 # <a name="register-the-asdk-with-azure"></a>将 ASDK 注册到 Azure
 
@@ -92,7 +92,7 @@ $ExecutionContext.SessionState.LanguageMode
     Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
     
     # Import the registration module that was downloaded with the GitHub tools
-    Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
+    Import-Module C:\AzureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
     
     # If you have multiple subscriptions, run the following command to select the one you want to use:
     # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription

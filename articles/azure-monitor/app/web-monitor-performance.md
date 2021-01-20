@@ -3,16 +3,16 @@ title: 使用 Application Insights 监视应用的运行状况和使用情况
 description: Application Insights 入门。 分析本地或 Azure 应用程序的使用情况、可用性和性能。
 ms.topic: conceptual
 author: Johnnytechn
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 origin.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: v-johya
-ms.openlocfilehash: e201a6a2f6ce0d0ab9b3f531803ee1d9a1c346ed
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 0ea6e98b34f8131a6c9544c5e93926a309fca294
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105563"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231031"
 ---
 # <a name="monitor-performance-in-web-applications"></a>在 Web 应用程序中监视性能
 
@@ -105,7 +105,7 @@ HTTP 请求包括对页面、数据和图像的所有 GET 或 POST 请求。
 ## <a name="diagnosing-issues"></a>诊断问题
 下面是查找和诊断性能问题的一些提示：
 
-* 设置 [Web 测试][availability]，以便在网站出现故障或响应错误或缓慢时得到警报。 
+* 设置 Web 测试，以便在网站出现故障或响应错误或缓慢时得到警报。 
 * 将请求计数与其他指标比较，查看故障或响应缓慢是否与负载有关。
 * 在代码中[插入和搜索跟踪语句][diagnostic]以帮助查明问题。
 * 使用[实时指标流][livestream]监视正在运行的 Web 应用。
@@ -138,7 +138,6 @@ HTTP 请求包括对页面、数据和图像的所有 GET 或 POST 请求。
 
 <a name="next"></a>
 ## <a name="next-steps"></a>后续步骤
-[Web 测试][availability] - 使 Web 请求按固定间隔从世界各地发送到应用程序。
 
 [捕获和搜索诊断跟踪][diagnostic] - 插入跟踪调用并筛选结果以查明问题。
 
@@ -150,7 +149,6 @@ HTTP 请求包括对页面、数据和图像的所有 GET 或 POST 请求。
 
 <!--Link references-->
 
-[availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [greenbrown]: ./asp-net.md
 [qna]: ../faq.md

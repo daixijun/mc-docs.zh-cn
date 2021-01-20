@@ -5,13 +5,13 @@ author: WenJason
 ms.topic: how-to
 ms.author: v-jay
 origin.date: 12/14/2020
-ms.date: 01/11/2021
-ms.openlocfilehash: 9c81751f5c63e1816a4e59e40f944e4b8454ca57
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.date: 01/18/2021
+ms.openlocfilehash: e7034e58f80e72e757559339eeb1d70dc0d136f6
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024138"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231059"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>将 IoT Edge 上的实时视频分析从 1.0 升级为 2.0
 
@@ -170,7 +170,7 @@ ms.locfileid: "98024138"
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/telemetry-schema/telegraf.png" alt-text="事件的分类":::
 
-使用 docker 可以轻松生成带自定义配置的 Telegraf 映像。 有关详细信息，请访问[监视和日志记录](monitoring-logging.md#azure-monitor-collection-using-telegraf)页。
+使用 docker 可以轻松生成带自定义配置的 Telegraf 映像。 有关详细信息，请访问[监视和日志记录](monitoring-logging.md#azure-monitor-collection-via-telegraf)页。
 
 ## <a name="next-steps"></a>后续步骤
 

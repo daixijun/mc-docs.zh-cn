@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.workload: infrastructure
 origin.date: 09/27/2018
 author: rockboyfor
-ms.date: 09/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 82d50f9f942b717817901c98dc80099d57ffdad1
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: acb297ced7cf322ad99f5f63c2d09b993815d909
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105782"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570492"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>教程：监视 Azure 中的 Windows 虚拟机
 
@@ -43,7 +43,7 @@ Azure 监视使用代理从 Azure VM 收集启动和性能数据，将此数据�
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-若要在本教程中配置 Azure 监视和更新管理，需要 Azure 中的 Windows VM。 首先，使用 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1) 设置 VM 的管理员用户名和密码：
+若要在本教程中配置 Azure 监视和更新管理，需要 Azure 中的 Windows VM。 首先，使用 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true) 设置 VM 的管理员用户名和密码：
 
 ```powershell
 $cred = Get-Credential
@@ -97,7 +97,7 @@ Windows VM 在 Azure 中有一个与它交互的专用主机 VM。 系统会自�
 
 2. 在 VM 边栏选项卡上单击“警报规则”，然后单击警报边栏选项卡顶部的“添加指标警报”。
 
-3. 为警报提供 **名称** ，例如 *myAlertRule*
+3. 为警报提供 **名称**，例如 *myAlertRule*
 
 4. 若要在 CPU 百分比持续 5 分钟超过 1.0 时触发警报，请选中其他所有默认值。
 

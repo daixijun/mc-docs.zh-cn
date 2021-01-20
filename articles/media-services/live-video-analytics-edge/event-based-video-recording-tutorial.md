@@ -3,13 +3,13 @@ title: 将基于事件的视频录制到云中并从云播放教程 - Azure
 description: 在本教程中，你将了解如何使用 Azure IoT Edge 上的 Azure 实时视频分析将基于事件的视频录制到云中并从云中播放。
 ms.topic: tutorial
 origin.date: 05/27/2020
-ms.date: 01/11/2021
-ms.openlocfilehash: 8323bc86fc3618f8793dd3db142f05a5e1e659f5
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.date: 01/18/2021
+ms.openlocfilehash: ac3a6e4887045ed10e81e6d5aaa7f65fffb4ee7f
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023278"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230302"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>教程：将基于事件的视频录制到云中并从云中播放
 
@@ -54,6 +54,9 @@ ms.locfileid: "98023278"
 * Azure 存储帐户
 * Azure 媒体服务帐户
 * Azure 中的 Linux VM，已安装 [IoT Edge 运行时](../../iot-edge/how-to-install-iot-edge.md)
+
+> [!TIP]
+> 如果在创建 Azure 资源时遇到问题，请查看[故障排除指南](troubleshoot-how-to.md#common-error-resolutions)来解决一些常见问题。
 
 ## <a name="concepts"></a>概念
 
@@ -231,7 +234,7 @@ ms.locfileid: "98023278"
      
         ```
         {
-          "@apiVersion": "1.0",
+          "@apiVersion": "2.0",
           "name": "Sample-Graph-1",
           "properties": {
             "topologyName": "EVRtoAssetsOnObjDetect",

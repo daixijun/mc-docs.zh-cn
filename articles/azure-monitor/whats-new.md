@@ -6,13 +6,13 @@ ms.topic: overview
 origin.date: 03/05/2020
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/17/2020
-ms.openlocfilehash: 443c4d697fe8bbdb8f6142fe8043c410c8f969d1
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.date: 01/15/2021
+ms.openlocfilehash: ac7703e971a9bc346480ddf100591173227cca65
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023109"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230490"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 文档中有哪些新增内容？
 
@@ -48,7 +48,6 @@ ms.locfileid: "98023109"
 
 - [使用 Application Insights 监视 Azure Functions 上运行的应用程序 - Azure Monitor](app/monitor-functions.md) - 新文章。
 - [使用 Azure Application Insights 监视 Node.js 服务](app/nodejs.md) - 常规更新，包括有关从以前版本迁移的新部分。
-- [Application Insights 和 Log Analytics 使用的 IP 地址](app/ip-addresses.md) - 添加了 Webhook 和美国政府的 IP 地址。
 - [使用 Application Insights 监视 Azure Kubernetes 服务 (AKS) 上的应用程序 - Azure Monitor](app/kubernetes-codeless.md) - 新文章。
 - [排除无数据问题 - 用于 .NET 的 Application Insights](app/asp-net-troubleshoot-no-data.md) - 添加了有关使用 dotnet-trace 收集日志的部分。
 
@@ -126,7 +125,6 @@ ms.locfileid: "98023109"
 
 
 ### <a name="application-insights"></a>Application Insights
-- [Application Insights 和 Log Analytics 使用的 IP 地址](app/ip-addresses.md) - 更新了“可用性测试”部分，介绍如何使用 Azure 网络安全组添加入站端口规则以允许流量。
 - [Azure Application Insights 中的遥测采样](app/sampling.md) - 根据客户的反馈更新并重新组织了该文章，以提高可读性。
 
 ### <a name="insights-and-solutions"></a>见解和解决方案
@@ -168,7 +166,6 @@ ms.locfileid: "98023109"
 - [创建新的 Azure Application Insights 资源](app/create-new-resource.md) - 添加了全局唯一名称的说明。
 - [使用实时指标流进行诊断 - Azure Application Insights](app/live-stream.md) - 更新了 ASP.NET Core SDK 版本要求。
 - [在 Azure Application Insights 中浏览 Java 跟踪日志](app/java-trace-logs.md) - 添加了 Java 代理日志记录阈值的配置。
-- [Application Insights 和 Log Analytics 使用的 IP 地址](app/ip-addresses.md) - 更新了实时指标流的 IP 地址。
 - [监视 Azure 应用服务性能](app/azure-web-apps.md) - 添加了对 ASP.NET Core 3.0 的支持。 
 - [使用 Azure Monitor（预览版）监视 Python 应用程序](app/opencensus-python.md) - 添加了有关将 OpenCensus Python 架构映射到 Azure Monitor 架构的阐释。
 - [Azure Application Insights 发行说明](app/release-notes.md) - 添加了有关旧版本的说明。

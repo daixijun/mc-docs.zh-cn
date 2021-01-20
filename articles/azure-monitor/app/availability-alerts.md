@@ -4,14 +4,15 @@ description: 了解如何在 Application Insights 中设置 Web 测试。 当网
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
+ms.date: 01/12/2021
 origin.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: aeee2adf2cc476dd4c8d2103a5c59b2c7afa37f2
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: b941fb9a781515ded7f27a378c8951a4de9d7283
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637863"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230835"
 ---
 # <a name="availability-alerts"></a>可用性警报
 
@@ -74,6 +75,5 @@ ms.locfileid: "94637863"
 ## <a name="next-steps"></a>后续步骤
 
 * [多步骤 Web 测试](availability-multistep.md)
-* [URL ping Web 测试](monitor-web-app-availability.md)
 
 

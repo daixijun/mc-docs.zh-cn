@@ -6,15 +6,15 @@ author: cephalin
 ms.service: app-service
 ms.topic: include
 origin.date: 03/27/2019
-ms.date: 08/13/2020
+ms.date: 01/18/2021
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: 8ee00740efcab0cbcdf88603da97e037b7c39757
-ms.sourcegitcommit: 9d9795f8a5b50cd5ccc19d3a2773817836446912
+ms.openlocfilehash: 8de4c771abd5daf6d9144190be18d0b6cc9a32eb
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "89503349"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231200"
 ---
 若要访问应用服务中的应用程序代码内生成的控制台日志，请在 Azure CLI 中运行以下命令以打开诊断日志记录：
 

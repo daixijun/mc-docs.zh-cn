@@ -5,7 +5,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=2 
+ms.custom: sqldbrb=2
 ms.devlang: go
 ms.topic: quickstart
 author: WenJason
@@ -13,12 +13,12 @@ ms.author: v-jay
 ms.reviewer: MightyPen
 origin.date: 02/12/2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 0c97dad34c4c0eecd0fa77913a6032dd9f6192ef
-ms.sourcegitcommit: 1810e40ba56bed24868e573180ae62b9b1e66305
+ms.openlocfilehash: 462ad812328ebabd5a59a308fc1172bbc50d9ce5
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872339"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541858"
 ---
 # <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>快速入门：使用 Golang 查询 Azure SQL 数据库中的数据库或 Azure SQL 托管实例
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "91872339"
 
 若要完成本快速入门，你需要：
 
-- 具有活动订阅的 Azure 帐户。 [免费创建帐户](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+- 具有活动订阅的 Azure 帐户。 [创建试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - Azure SQL 数据库或 Azure SQL 托管实例中的数据库。 可以使用以下快速入门之一来创建数据库：
 
   || SQL 数据库 | SQL 托管实例 | Azure VM 上的 SQL Server |

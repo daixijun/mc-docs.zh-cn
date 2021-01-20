@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 466d6a0cecdd361b587bb5b256e1a02aea1870b6
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 25dceb8ea417158481f009590b613fa91a8806d0
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003769"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195128"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>教程：让用户登录并从 JavaScript 单页应用程序 (SPA) 调用 Microsoft 图形 API
 
@@ -265,16 +265,17 @@ ms.locfileid: "97003769"
 
 在继续进行身份验证之前，请在 **Azure Active Directory** 中注册你的应用程序。
 
-1. 登录 [Azure 门户](https://portal.azure.cn/)。
-1. 如果帐户提供访问多个租户的权限，请在右上方选择该帐户，然后将门户会话设置为要使用的 Azure AD 租户。
-1. 转到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
-1. “注册应用程序”页显示后，请输入应用程序的名称。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
+1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
+1. 搜索并选择“Azure Active Directory”  。
+1. 在“管理”下，选择“应用注册” > “新建注册”  。
+1. 输入应用程序的 **名称**。 应用的用户可能会看到此名称，你稍后可对其进行更改。
 1. 在“支持的帐户类型”下，选择“任何组织目录中的帐户”。 
 1. 在“重定向 URI”部分的下拉列表中选择“Web”平台，然后将值设置为基于 Web 服务器的应用程序 URL。 
-1. 选择“注册”。
+1. 选择“注册”  。
 1. 在应用的“概述”页上，记下“应用程序(客户端) ID”值，供稍后使用 。
-1. 本快速入门要求启用[隐式授权流](v2-oauth2-implicit-grant-flow.md)。 在已注册的应用程序的左窗格中，选择“身份验证”。
-1. 在“高级设置”部分的“隐式授权”下，选中“ID 令牌”和“访问令牌”复选框   。 由于此应用必须将用户登录并调用 API，因此需要 ID 令牌和访问令牌。
+1. 在“管理”下，选择“身份验证”。 
+1. 在“隐式授权”部分中，选择“ID 令牌”，然后选择“访问令牌”  。 由于此应用必须将用户登录并调用 API，因此需要 ID 令牌和访问令牌。
 1. 选择“保存”。
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>设置 Node.js 的重定向 URL

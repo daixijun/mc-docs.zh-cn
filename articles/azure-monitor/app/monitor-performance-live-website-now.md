@@ -4,15 +4,15 @@ description: 在不重新部署网站的情况下监视网站性能。 使用托
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 08/26/2019
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.custom: devx-track-dotnet
 ms.author: v-johya
-ms.openlocfilehash: 7dcca167d8af8c0ee89e83588d10035ed33ba7e0
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 54923c8750a250d553d60db69d4f1156f453cae7
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104763"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231050"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>在运行时使用 Application Insights 无代码附加检测 Web 应用
 
@@ -62,7 +62,7 @@ ms.locfileid: "97104763"
 2. 如果尚未安装 Application Insights 状态监视器，请[下载并运行安装程序](#download)
 3. 在状态监视器中，选择已安装的 Web 应用程序或者要监视的网站。 使用 Azure 凭据登录。
 
-    配置资源，以便在其中通过 Application Insights 门户查看结果。 （通常情况下，最好是创建新的资源。 如果已针对此应用进行了 [Web 测试][availability]或[客户端监视][client]，请选择现有资源。） 
+    配置资源，以便在其中通过 Application Insights 门户查看结果。 （通常情况下，最好是创建新的资源。 如果已针对此应用进行了 Web 测试或[客户端监视][client]，请选择现有资源。） 
 
     ![选择应用和资源。](./media/monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
@@ -107,11 +107,6 @@ ms.locfileid: "97104763"
   ```console
   handle.exe /p w3wp.exe
   ```
-
-
-### <a name="cant-connect-no-telemetry"></a>无法连接？ 没有遥测数据？
-
-* 在服务器防火墙中打开[必需的传出端口](./ip-addresses.md#outgoing-ports)，以便让状态监视器正常工作。
 
 ### <a name="unable-to-login"></a>无法登录
 
@@ -329,14 +324,12 @@ Application Insights SDK 版本 2.4 是[支持 .NET 4.0 的最新版本](https:/
 
 添加更多遥测：
 
-* [创建 Web 测试][availability]，以确保站点保持活动状态。
 * [添加 Web 客户端遥测][usage]，以查看网页代码中的异常并将其插入跟踪调用。
 * [将 Application Insights SDK 添加到代码][greenbrown]，以便插入跟踪和日志调用
 
 <!--Link references-->
 
 [api]: ./api-custom-events-metrics.md
-[availability]: monitor-web-app-availability.md
 [client]: ./javascript.md
 [diagnostic]: ./diagnostic-search.md
 [greenbrown]: ./asp-net.md

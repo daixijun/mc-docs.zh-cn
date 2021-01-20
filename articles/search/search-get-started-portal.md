@@ -7,20 +7,20 @@ author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: quickstart
-origin.date: 09/16/2020
-ms.date: 11/27/2020
-ms.openlocfilehash: beb6c146217d38d27210815c9d36316f0eba7ae8
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+origin.date: 12/12/2020
+ms.date: 01/14/2021
+ms.openlocfilehash: bf2696d0cd4bfd64519299be3759defd5a7106c5
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96430905"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194778"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Azure 认知搜索索引
 
-“导入数据”向导是一种 Azure 门户工具，可指导你完成搜索索引的创建过程，以便你可以在几分钟内编写感兴趣的查询。 
+使用“导入数据”向导和由虚拟酒店数据构成的内置示例数据源创建首个索引。 该向导指导你完成搜索索引 (hotels-sample-index) 的创建过程，以便你可以在几分钟内编写有趣查询。 
 
-该向导还具有 AI 扩充页面，以便你可以从图像文件和非结构化文本中提取文本和结构。 AI 内容处理包括光学字符识别 (OCR)、关键短语和实体提取以及图像分析。
+尽管本快速入门中不会使用这些选项，但该向导包含用于 AI 扩充的页面，以便你从图像文件和非结构化文本中提取文本和结构。 有关包括 AI 扩充的类似演练，请参阅[快速入门：创建认知技能组](cognitive-search-quickstart-blob.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -84,7 +84,7 @@ ms.locfileid: "96430905"
 
 默认情况下，向导会在数据源中扫描用作键字段基础的唯一标识符。 字符串经过属性化，**可检索** 且 **可搜索**。 整数经过属性化，**可检索**、**可筛选**、**可排序** 且 **可分面**。
 
-1. 接受默认值。 
+1. 接受默认值。
 
    如果使用现有的 hotels 数据源再次重新运行向导，则不会使用默认属性配置索引。 以后导入时，你必须手动选择属性。 
 
@@ -258,7 +258,7 @@ _ **facet** 返回可传递给 UI 控件的导航结构。 它将返回类别和
 
 在自己的订阅中操作时，最好在项目结束时确定是否仍需要已创建的资源。 持续运行资源可能会产生费用。 可以逐个删除资源，也可以删除资源组以删除整个资源集。
 
-可以使用左侧导航窗格中的“所有资源”或“资源组”链接   ，在门户中查找和管理资源。
+可以使用左侧导航窗格中的“所有资源”或“资源组”链接 ，在门户中查找和管理资源。
 
 如果使用的是免费服务，请记住只能设置三个索引、索引器和数据源。 可以在门户中删除单个项目，以不超出此限制。 
 

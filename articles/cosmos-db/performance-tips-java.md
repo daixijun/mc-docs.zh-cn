@@ -7,17 +7,17 @@ ms.devlang: java
 ms.topic: how-to
 origin.date: 05/11/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 82d03368fabdd20421680467bce9325272170f8c
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 5de25d74f19b036950bd4e5d1bcb6d65b572b19e
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598426"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230096"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>适用于 Azure Cosmos DB Sync Java SDK v2 的性能提示
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "96598426"
 > 
 
 > [!IMPORTANT]  
-> 这不是最新的 Azure Cosmos DB Java SDK！ 应将项目升级到 [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)，然后阅读 Azure Cosmos DB Java SDK v4 [性能提示指南](performance-tips-java-sdk-v4-sql.md)。 请按照[迁移到 Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) 指南和 [Reactor 与 RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 指南中的说明进行升级。 
+> 这不是最新的 Azure Cosmos DB Java SDK！ 应将项目升级到 [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)，然后阅读 Azure Cosmos DB Java SDK v4 [性能提示指南](performance-tips-java-sdk-v4-sql.md)。 请按照[迁移到 Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) 指南和 [Reactor 与 RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) 指南中的说明进行升级。 
 > 
 > 这些性能提示仅适用于 Azure Cosmos DB Sync Java SDK v2。 有关详细信息，请查看 Azure Cosmos DB Sync Java SDK v2 的[发行说明](sql-api-sdk-java.md)和 [Maven 存储库](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)。
 >
@@ -89,6 +89,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     每个 [DocumentClient](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclient) 实例都是线程安全的，在直接模式下运行时可执行高效的连接管理和地址缓存。 若要通过 DocumentClient 获得高效的连接管理和更好的性能，建议在应用程序生存期内对每个 AppDomain 使用单个 DocumentClient 实例。
 
     <a name="max-connection"></a>
+    
 3. **使用网关模式时，增加每个主机的 MaxPoolSize**
 
     使用“网关”模式时，Azure Cosmos DB 请求是通过 HTTPS/REST 发出的，并且受制于每个主机名或 IP 地址的默认连接限制。 可能需要将 MaxPoolSize 设置为较大的值 (200-1000)，以便客户端库能够同时利用多个连接来访问 Azure Cosmos DB。 在 Azure Cosmos DB Sync Java SDK v2 中，[ConnectionPolicy.getMaxPoolSize](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) 的默认值为 100。 使用 [setMaxPoolSize]( https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) 可更改该值。
@@ -145,7 +146,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](https://docs.azure.cn/cosmos-db/index-policy)。
+    有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](./index-policy.md)。
 
 ## <a name="throughput"></a>吞吐量
 <a name="measure-rus"></a>

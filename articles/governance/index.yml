@@ -11,13 +11,13 @@ metadata:
   author: DCtheGeek
   ms.author: v-tawe
   origin.date: 10/20/2020
-  ms.date: 11/06/2020
-  ms.openlocfilehash: 759387e191779d8d6f6f990719026a88826ee4ce
-  ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+  ms.date: 01/14/2021
+  ms.openlocfilehash: c37504ace1185be639f5a0064111d778d7f86a7c
+  ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/06/2020
-  ms.locfileid: "94328763"
+  ms.lasthandoff: 01/14/2021
+  ms.locfileid: "98193242"
 highlightedContent:
   items:
   - title: 治理概述

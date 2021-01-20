@@ -4,23 +4,23 @@ titleSuffix: Azure Network Watcher
 description: 此页说明如何在 Azure 网络观察程序中使用 Azure CLI 管理网络安全组流日志
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/22/2017
-ms.date: 08/10/2020
+origin.date: 01/07/2021
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 583be7f877d990569cf32f53b5d09b3bb26041b8
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: e73eee812358fc041bc7c88f310647b6fb00aa2d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548053"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230534"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>使用 Azure CLI 配置网络安全组流日志
 
@@ -32,7 +32,7 @@ ms.locfileid: "87548053"
 
 网络安全组流日志是网络观察程序的一项功能，用于查看通过网络安全组的入口和出口 IP 流量的信息。 这些流日志以 json 格式编写，并根据规则显示出站和入站流、流所适用的 NIC、有关流的 5 元组信息（源/目标 IP、源/目标端口、协议），以及是允许还是拒绝流量。
 
-若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (CLI)](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (CLI)](https://docs.azure.cn/cli/install-azure-cli)。
 
 ## <a name="register-insights-provider"></a>注册 Insights 提供程序
 
@@ -47,9 +47,9 @@ az provider register --namespace Microsoft.Insights
 以下示例显示了用于启用流日志的命令：
 
 ```azurecli
-az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
+az network watcher flow-log create --resource-group <resourceGroupName> --name <flowlogName> --enabled true --nsg <nsgName> --storage-account <storageAccountName> --location chinaeast2
 # Configure 
-az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName  --format JSON --log-version 2
+az network watcher flow-log create --resource-group <resourceGroupName> --name <flowlogName> --enabled true --nsg <nsgName> --storage-account <storageAccountName> --location chinaeast2  --format JSON --log-version 2
 ```
 
 指定的存储帐户不能配置有仅限 Azure 服务或特定虚拟网络进行网络访问的网络规则。 存储帐户可以与启用流日志的 NSG 使用相同或不同的 Azure 订阅。 如果使用不同的订阅，它们必须都与同一 Azure Active Directory 租户相关联。 用于每个订阅的帐户必须有[必要的权限](required-rbac-permissions.md)。 

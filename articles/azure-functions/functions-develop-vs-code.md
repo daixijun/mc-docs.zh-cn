@@ -3,13 +3,13 @@ title: 使用 Visual Studio 开发 Azure Functions
 description: 了解如何使用 Visual Studio Code 的 Azure Functions 扩展开发和测试 Azure Functions。
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 11/30/2020
-ms.openlocfilehash: cc2533d68449dce4882dab18077410ccf99cd5a6
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.date: 01/13/2021
+ms.openlocfilehash: b01932b361fadbe209d4e78f78494cf0dc2b5558
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508585"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195051"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>使用 Visual Studio 开发 Azure Functions
 
@@ -242,7 +242,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
     | ------ | ----- | ----------- |
     | 选择 Azure 中的函数应用 | 在 Azure 中创建新的函数应用 | 在下一个提示中，键入用于标识新函数应用的全局唯一名称，然后按 Enter。 函数应用名称的有效字符包括 `a-z`、`0-9` 和 `-`。 |
     | 选择 OS | Windows | 函数应用在 Windows 上运行。 |
-    | 选择托管计划 | 消耗计划 | 使用无服务器[消耗计划托管](functions-scale.md#consumption-plan)。 |
+    | 选择托管计划 | 消耗计划 | 使用无服务器[消耗计划托管](consumption-plan.md)。 |
     | 选择新应用的运行时 | 项目语言 | 该运行时必须与要发布的项目相匹配。 |
     | 选择新资源的资源组 | 创建新的资源组 | 在下一个提示中，键入资源组名称（例如 `myResourceGroup`），然后按 Enter。 也可以选择现有的资源组。 |
     | 选择存储帐户 | 新建存储帐户 | 在下一个提示中，键入函数应用使用的新存储帐户的全局唯一名称，然后按 Enter。 存储帐户名称长度必须为 3 到 24 个字符，只能包含数字和小写字母。 也可以选择现有的帐户。 |
