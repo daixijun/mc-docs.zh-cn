@@ -7,21 +7,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 08/05/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: 8b67bbd9622a8270f8e886b6d75441bc3edc3899
-ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
+ms.date: 01/19/2021
+ms.openlocfilehash: 48d817d036b21ab1e0828de660a5cb3dcaa77e8d
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874889"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611662"
 ---
 # <a name="query-data-using-the-azure-data-explorer-python-library"></a>使用 Azure 数据资源管理器 Python 库查询数据
 
 本文介绍如何使用 Azure 数据资源管理器查询数据。 Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。
 
 Azure 数据资源管理器提供[适用于 Python 的数据客户端库](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data)。 该库允许通过代码查询数据。 连接到我们为帮助学习而设置的帮助群集上的表  。 可以查询该群集上的表，并返回结果。
-
-本文同时也以 [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb) 的形式提供。
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -31,7 +29,7 @@ Azure 数据资源管理器提供[适用于 Python 的数据客户端库](https:
 
 ## <a name="install-the-data-library"></a>安装数据的库
 
-安装 azure-kusto-data  。
+安装 azure-kusto-data。
 
 ```
 pip install azure-kusto-data

@@ -8,22 +8,22 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 594d151a09e08a5f243680e2577675a8594dfd1c
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 156986ca10fa58032e51c3c013c119e177b69e35
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106012"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611331"
 ---
 # <a name="diagnostic-information"></a>诊断信息
 
 这些命令可用于显示系统诊断信息。
 
-* [.show cluster](#show-cluster)
-* [.show diagnostics](#show-diagnostics)
-* [.show capacity](#show-capacity)
-* [.show operations](#show-operations)
+* [`.show cluster`](#show-cluster)
+* [`.show diagnostics`](#show-diagnostics)
+* [`.show capacity`](#show-capacity)
+* [`.show operations`](#show-operations)
 
 ## <a name="show-cluster"></a>.show cluster
 
