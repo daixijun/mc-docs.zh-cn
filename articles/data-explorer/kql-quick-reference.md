@@ -7,13 +7,14 @@ ms.reviewer: ''
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 01/19/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: 5ce52ca6abd91f374e283c085a051282651546ac
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/19/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 999eecde17d651c32e15e78e3bb2332e296c0e1f
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105068"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611689"
 ---
 # <a name="kql-quick-reference"></a>KQL 快速参考
 
@@ -25,7 +26,7 @@ ms.locfileid: "93105068"
 | [where](kusto/query/whereoperator.md)                      | 基于特定的谓词进行筛选           | `T | where Predicate`                         |
 | [where contains/has](kusto/query/whereoperator.md)        | `Contains`：查找任何子字符串匹配项 <br> `Has`：查找特定字词（性能更好）  | `T | where col1 contains/has "[search term]"`|
 | [search](kusto/query/searchoperator.md)                    | 在表的所有列中搜索值 | `[TabularSource |] search [kind=CaseSensitivity] [in (TableSources)] SearchPredicate` |
-| [take](kusto/query/takeoperator.md)                        | 返回指定数量的记录。 用来测试查询<br>**_注意_** ：`_take`_ 和 `_limit`_ 是同义词。 | `T | take NumberOfRows` |
+| [take](kusto/query/takeoperator.md)                        | 返回指定数量的记录。 用来测试查询<br>**_注意_**：`_take`_ 和 `_limit`_ 是同义词。 | `T | take NumberOfRows` |
 | [case](kusto/query/casefunction.md)                        | 添加一个条件语句，类似于其他系统中的 if/then/elseif。 | `case(predicate_1, then_1, predicate_2, then_2, predicate_3, then_3, else)` |
 | [distinct](kusto/query/distinctoperator.md)                | 生成一个表，其中包含输入表中所提供列的不同组合 | `distinct [ColumnName], [ColumnName]` |
 | **日期/时间**                                   |**_使用日期和时间函数的操作_**               |                          |

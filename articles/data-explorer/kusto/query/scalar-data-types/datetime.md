@@ -8,13 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 10/29/2020
-ms.openlocfilehash: 9c98734452b84ef27bda3302a9c8a77519e94f00
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 9cde061d69a41bdcd5b698475a3735ba394c41fe
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104568"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611426"
 ---
 # <a name="the-datetime-data-type"></a>datetime 数据类型
 

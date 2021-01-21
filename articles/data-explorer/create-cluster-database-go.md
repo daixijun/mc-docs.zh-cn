@@ -7,13 +7,13 @@ ms.reviewer: abhishgu
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 10/28/2020
-ms.date: 10/30/2020
-ms.openlocfilehash: 0b8cbd05aca4f10c1616d27ea1a01228da6b4911
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/22/2021
+ms.openlocfilehash: 989788ad2fd9a612f6e261dc3b8c8a60b8026b2d
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431211"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611668"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-using-go"></a>使用 Go 创建 Azure 数据资源管理器群集和数据库
 
@@ -196,9 +196,9 @@ func deleteCluster(sub, clusterName, rgName string) {
     cd azure-data-explorer-go-cluster-management
     ```
 
-2. 程序使用客户端凭据进行身份验证。 使用 Azure CLI [az ad sp create-for-rbac](/cli/ad/sp#az-ad-sp-create-for-rbac) 命令创建服务主体。 保存客户端 ID、客户端密码和租户 ID 信息，以便在下一步中使用。
+1. 程序使用客户端凭据进行身份验证。 使用 Azure CLI [az ad sp create-for-rbac](/cli/ad/sp#az-ad-sp-create-for-rbac) 命令创建服务主体。 保存客户端 ID、客户端密码和租户 ID 信息，以便在下一步中使用。
 
-3. 导出所需的环境变量，包括服务主体信息。 输入要在其中创建群集的订阅 ID、资源组和区域。
+1. 导出所需的环境变量，包括服务主体信息。 输入要在其中创建群集的订阅 ID、资源组和区域。
 
     ```console
     export AZURE_CLIENT_ID="<enter service principal client ID>"
@@ -217,7 +217,7 @@ func deleteCluster(sub, clusterName, rgName string) {
     > 在生产方案中，你可能会使用环境变量向应用程序提供凭据。 如[查看代码](#review-the-code)中所述，对于本地开发，如果你为身份验证安装并配置了 Azure CLI，请使用 [auth.NewAuthorizerFromCLIWithResource](https://pkg.go.dev/github.com/Azure/go-autorest/autorest/azure/auth?tab=doc#NewAuthorizerFromCLIWithResource)。 在这种情况下，不需要创建服务主体。
 
 
-4. 运行该程序：
+1. 运行该程序：
 
     ```console
     go run main.go
@@ -229,11 +229,11 @@ func deleteCluster(sub, clusterName, rgName string) {
     waiting for cluster creation to complete - fooADXTestCluster
     created cluster fooADXTestCluster
     listing clusters in resource group <your resource group>
-    +-------------------+---------+----------------+-----------+-------------------------------------------------------------+
-    |       NAME        |  STATE  |    LOCATION    | INSTANCES |                            URI                              |
-    +-------------------+---------+----------------+-----------+-------------------------------------------------------------+
+    +-------------------+---------+----------------+-----------+-----------------------------------------------------------+
+    |       NAME        |  STATE  |    LOCATION    | INSTANCES |                            URI                           |
+    +-------------------+---------+----------------+-----------+-----------------------------------------------------------+
     | fooADXTestCluster | Running | China East 2   |         1 | https://fooADXTestCluster.chinaeast2.kusto.chinacloudapi.cn |
-    +-------------------+---------+----------------+-----------+-------------------------------------------------------------+
+    +-------------------+---------+----------------+-----------+-----------------------------------------------------------+
     
     waiting for database creation to complete - barADXTestDB
     created DB fooADXTestCluster/barADXTestDB with ID /subscriptions/<your subscription ID>/resourceGroups/<your resource group>/providers/Microsoft.Kusto/Clusters/fooADXTestCluster/Databases/barADXTestDB and type Microsoft.Kusto/Clusters/Databases

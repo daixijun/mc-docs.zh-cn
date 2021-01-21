@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/09/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: d85f7198cb62bb521a138aa619769ac6685011e0
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 3ce4147ac86faed1948db3754ae051f95542f46c
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515874"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611621"
 ---
 # <a name="let-statement"></a>Let 语句
 
@@ -52,21 +53,21 @@ Let 语句绑定的表达式可以是：
 
  或者：
 
- [*TabularArgName* `:` `(` `*` `)`]
+ [TabularArgName `:` `(` `*` `)`] - 指示包含变量列和未知列的表格表达式。
 
 `ScalarArguments` - [*ArgName* `:` *ArgType*] [`,` ... ]
 
 
 |字段  |定义  |示例  |
 |---------|---------|---------|
-| **view** | 仅可出现在无自变量的无参数 lambda 中。 它表示当“所有表”都是查询时将包含绑定名称。 | 例如，当使用 `union *` 时。|
-| ***TabularArguments*** | 形式表格表达式自变量的列表。 
+| **view** | 只能出现在没有实参的无参数 let 语句中。 使用“view”关键字时，let 语句将包含在使用 `union` 运算符的查询中，并通过通配符选择表/视图。 |  |
+| **_TabularArguments_* _ | 形式表格表达式自变量的列表。 
 | 每个表格自变量都有：||
-|<ul><li> *TabularArgName*</li></ul> | 形式表格自变量的名称。 该名称可以出现在 FunctionBody 中，并在调用 lambda 时绑定到特定值。 ||
+|<ul><li> TabularArgName</li></ul> | 形式表格自变量的名称。 该名称可以出现在 FunctionBody 中，并在调用 lambda 时绑定到特定值。 ||
 |<ul><li>表架构定义 </li></ul> | 属性及其类型的列表| AtrName：AtrType|
-| ***ScalarArguments*** | 形式标量自变量的列表。 
+| ScalarArguments*_ | 形式标量自变量的列表。 
 |每个标量自变量都有：||
-|<ul><li>*ArgName*</li></ul> | 形式标量自变量的名称。 该名称可以出现在 FunctionBody 中，并在调用 lambda 时绑定到特定值。  |
+|<ul><li>ArgName</li></ul> | 形式标量自变量的名称。 该名称可以出现在 FunctionBody 中，并在调用 lambda 时绑定到特定值。  |
 | <ul><li>*ArgType* </li></ul>| 形式标量自变量的类型。 | 目前仅支持使用以下类型作为 lambda 参数类型：`bool`、`string`、`long`、`datetime`、`timespan`、`real` 和 `dynamic`（以及这些类型的别名）。
 
 > [!NOTE]

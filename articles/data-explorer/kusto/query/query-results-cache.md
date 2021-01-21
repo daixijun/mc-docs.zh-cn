@@ -8,13 +8,13 @@ ms.reviewer: amitof
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/16/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 2d02717f63eff91a214d1f3019242b9fbff90152
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 848dc1817eedafa77004690b51b60cf5318211b9
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104022"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611679"
 ---
 # <a name="query-results-cache"></a>查询结果缓存
 
@@ -42,9 +42,9 @@ GithubEvent
 * 两个查询具有相同的表示形式（表示为 UTF-8 字符串）。
 * 两个查询是针对同一数据库发出的。
 * 两个查询具有相同的[客户端请求属性](../api/netfx/request-properties.md)。 对于缓存用途，将忽略下列属性：
-   * [ClientRequestId](../api/netfx/request-properties.md#the-clientrequestid-x-ms-client-request-id-named-property)
-   * [应用程序](../api/netfx/request-properties.md#the-application-x-ms-app-named-property)
-   * [用户](../api/netfx/request-properties.md#the-user-x-ms-user-named-property)
+   * [ClientRequestId](../api/netfx/request-properties.md#clientrequestid-x-ms-client-request-id)
+   * [应用程序](../api/netfx/request-properties.md#application-x-ms-app)
+   * [用户](../api/netfx/request-properties.md#user-x-ms-user)
 
 ### <a name="incompatible-queries"></a>不兼容的查询
 
@@ -73,7 +73,7 @@ GithubEvent
 缓存的查询结果会为该表追加一个额外的行：
 * 该行的 `Key` 列将包含字符串 `ServerCache`
 * 该行的 `Value` 列将包含具有两个字段的属性包：
-   * `OriginalClientRequestId` - 指定原始请求的 [ClientRequestId](../api/netfx/request-properties.md#the-clientrequestid-x-ms-client-request-id-named-property)。
+   * `OriginalClientRequestId` - 指定原始请求的 [ClientRequestId](../api/netfx/request-properties.md#clientrequestid-x-ms-client-request-id)。
    * `OriginalStartedOn` - 指定原始请求的执行开始时间。
 
 ## <a name="distribution"></a>分布

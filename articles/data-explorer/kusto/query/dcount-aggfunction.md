@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 7ad9ed53ebcc10a70e2df043bcdb07161ecf967e
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 6759ca457768af26ec623bab13fb61aa70427ee9
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104281"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611499"
 ---
 # <a name="dcount-aggregation-function"></a>dcount()（聚合函数）
 
@@ -25,12 +26,12 @@ ms.locfileid: "93104281"
 
 ## <a name="syntax"></a>语法
 
-... `|` `summarize` `dcount` `(`*`Expr`* [, *`Accuracy`* ]`)` ...
+... `|` `summarize` `dcount` `(`*`Expr`*[, *`Accuracy`*]`)` ...
 
 ## <a name="arguments"></a>参数
 
 * Expr：要对其非重复值进行计数的标量表达式。
-* *准确度* ：一个可选的 `int` 文本，用于定义请求的估计准确度。 有关支持的值，请参阅下文。 如果未指定，则使用默认值 `1`。
+* *准确度*：一个可选的 `int` 文本，用于定义请求的估计准确度。 有关支持的值，请参阅下文。 如果未指定，则使用默认值 `1`。
 
 ## <a name="returns"></a>返回
 
@@ -81,4 +82,4 @@ T | summarize dcount(B) by G | count
 
 下图显示所有受支持的准确度设置的相对估计误差的概率分布函数，以百分比为单位：
 
-:::image type="content" border="false" source="images/dcount-aggfunction/hll-error-distribution.png" alt-text="D 计数":::
+:::image type="content" border="false" source="images/dcount-aggfunction/hll-error-distribution.png" alt-text="HLL 错误分布":::

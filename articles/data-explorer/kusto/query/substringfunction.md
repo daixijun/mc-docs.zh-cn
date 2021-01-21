@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: aa10c8a0327442f9a63034f9244faefe80e383c4
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 7311e13d7813156818056addba32c165ce067630
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103700"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611641"
 ---
 # <a name="substring"></a>substring()
 
@@ -28,13 +29,13 @@ substring("abcdefg", 1, 2) == "bc"
 
 ## <a name="syntax"></a>语法
 
-`substring(`*source*`,` *startingIndex* [`,` *length* ]`)`
+`substring(`*source*`,` *startingIndex* [`,` *length*]`)`
 
 ## <a name="arguments"></a>参数
 
-* *source* ：将要从中提取子字符串的源字符串。
+* *source*：将要从中提取子字符串的源字符串。
 * startingIndex：所请求子字符串的从零开始的起始字符位置。
-* *length* :一个可选参数，可用于在子字符串中指定所请求的字符数。 
+* *length*:一个可选参数，可用于在子字符串中指定所请求的字符数。 
 
 **备注**
 

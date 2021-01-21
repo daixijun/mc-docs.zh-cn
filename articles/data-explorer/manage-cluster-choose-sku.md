@@ -6,14 +6,14 @@ ms.author: v-tawe
 ms.reviewer: avnera
 ms.service: data-explorer
 ms.topic: how-to
-origin.date: 07/14/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: 52de8297dc0985416fe39a704bffdd3ca22a0389
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+origin.date: 10/13/2020
+ms.date: 01/19/2021
+ms.openlocfilehash: 43cc7e993046e4ceded9a818c9171da7f17c92df
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300126"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611673"
 ---
 # <a name="select-the-correct-compute-sku-for-your-azure-data-explorer-cluster"></a>为 Azure 数据资源管理器群集选择正确的计算 SKU 
 

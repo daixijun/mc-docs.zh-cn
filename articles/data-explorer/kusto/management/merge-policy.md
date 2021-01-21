@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 5ceab6c8a0c553d0e7ec372a29550036ff3e3793
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.openlocfilehash: 388dba19e9d827da526ff3ec911b016c019aeb36
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515650"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611311"
 ---
 # <a name="merge-policy-command"></a>合并策略命令
 
@@ -47,17 +47,17 @@ ms.locfileid: "88515650"
 
 ```kusto
 .alter table [table_name] policy merge 
-@'{'
-    '"ExtentSizeTargetInMb": 1024,'
-    '"OriginalSizeInMbUpperBoundForRebuild": 2048,'
-    '"OriginalSizeInMbUpperBoundForMerge": 4096,'
-    '"RowCountUpperBoundForRebuild": 750000,'
-    '"RowCountUpperBoundForMerge": 0,'
-    '"MaxExtentsToMerge": 100,'
-    '"LoopPeriod": "01:00:00",'
-    '"MaxRangeInHours": 8,'
-    '"AllowRebuild": true,'
-    '"AllowMerge": true '
+'{'
+'  "RowCountUpperBoundForMerge": 16000000,'
+'  "OriginalSizeMBUpperBoundForMerge": 0,'
+'  "MaxExtentsToMerge": 100,'
+'  "LoopPeriod": "01:00:00",'
+'  "MaxRangeInHours": 24,'
+'  "AllowRebuild": true,'
+'  "AllowMerge": true,'
+'  "Lookback": {'
+'    "Kind": "Default"'
+'  }'
 '}'
 ```
 
@@ -65,21 +65,20 @@ ms.locfileid: "88515650"
 
 ```kusto
 .alter database [database_name] policy merge 
-@'{'
-    '"ExtentSizeTargetInMb": 1024,'
-    '"OriginalSizeInMbUpperBoundForRebuild": 2048,'
-    '"OriginalSizeInMbUpperBoundForMerge": 4096,'
-    '"RowCountUpperBoundForRebuild": 750000,'
-    '"RowCountUpperBoundForMerge": 0,'
-    '"MaxExtentsToMerge": 100,'
-    '"LoopPeriod": "01:00:00",'
-    '"MaxRangeInHours": 8,'
-    '"AllowRebuild": true,'
-    '"AllowMerge": true'
-'}'
-```
+'{'
+'  "RowCountUpperBoundForMerge": 16000000,'
+'  "OriginalSizeMBUpperBoundForMerge": 0,'
+'  "MaxExtentsToMerge": 100,'
+'  "LoopPeriod": "01:00:00",'
+'  "MaxRangeInHours": 24,'
+'  "AllowRebuild": true,'
+'  "AllowMerge": true,'
+'  "Lookback": {'
+'    "Kind": "Default"'
+'  }'
+'}'```
 
-#### <a name="3-setting-the-default-merge-policy-at-database-level"></a>3.在数据库级别设置默认合并策略：
+#### 3. Setting the *default* merge policy at database level:
 
 ```kusto
 .alter database [database_name] policy merge '{}'
@@ -89,8 +88,8 @@ ms.locfileid: "88515650"
 
 ```kusto
 .alter-merge database [database_name] policy merge
-@'{'
-    '"ExtentSizeTargetInMb": 1024'
+'{'
+    '"MaxRangeInHours": 24'
 '}'
 ```
 
@@ -98,8 +97,8 @@ ms.locfileid: "88515650"
 
 ```kusto
 .alter-merge table [table_name] policy merge
-@'{'
-    '"RowCountUpperBoundForRebuild": 750000'
+'{'
+    '"MaxRangeInHours": 24'
 '}'
 ```
 

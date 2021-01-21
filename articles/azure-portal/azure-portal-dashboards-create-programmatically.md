@@ -5,12 +5,12 @@ ms.topic: how-to
 origin.date: 12/04/2020
 ms.date: 01/13/2021
 ms.author: v-tawe
-ms.openlocfilehash: 7a7a533a21818047c81329615cdd26b54c0474e9
-ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
+ms.openlocfilehash: cf939630e417262b7c1240d54ea616e14daa3ca3
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98230787"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611663"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>以编程方式创建 Azure 仪表板
 
@@ -664,14 +664,14 @@ id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/v
 
 ```azurecli
 az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
-   --input-path portal-dashboard-template-testvm.json --location centralus
+   --input-path portal-dashboard-template-testvm.json --location chinaeast2
 ```
 
 可以使用 [az portal dashboard update](/cli/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) 命令更新仪表板：
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
---input-path portal-dashboard-template-testvm.json --location centralus
+--input-path portal-dashboard-template-testvm.json --location chinaeast2
 ```
 
 通过运行 [az portal dashboard show](/cli/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) 命令查看仪表板的详细信息：

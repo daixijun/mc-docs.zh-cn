@@ -8,12 +8,12 @@ ms.custom: subject-armqs
 ms.author: v-tawe
 origin.date: 10/02/2020
 ms.date: 11/20/2020
-ms.openlocfilehash: eeed659259b9a73b86b04e6818c4bc9a1e982efc
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: c12d23d475c3255aef4130eb2068db366474c1a1
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431180"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611353"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>快速入门：使用 ARM 模板部署 Azure SignalR 服务
 
@@ -249,7 +249,7 @@ ms.locfileid: "96431180"
 $serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR Service"
 $serviceLocation = Read-Host -Prompt "Enter an Azure region (for example, chinanorth2) for the service"
 $resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group to contain the service"
-$resourceGroupRegion = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
+$resourceGroupRegion = Read-Host -Prompt "Enter an Azure region (for example, chinaeast2) for the resource group"
 
 $priceTier = Read-Host -Prompt "Enter the pricing tier (Free_F1 or Standard_S1)"
 $unitCapacity = Read-Host -Prompt "Enter the number of SignalR units (1, 2, 5, 10, 20, 50, or 100)"
@@ -294,7 +294,7 @@ Read-Host "Press [ENTER] to continue"
 read -p "Enter a name for the new Azure SignalR Service: " serviceName &&
 read -p "Enter an Azure region (for example, chinanorth2) for the service: " serviceLocation &&
 read -p "Enter a name for the new resource group to contain the service: " resourceGroupName &&
-read -p "Enter an Azure region (for example, centralus) for the resource group: " resourceGroupRegion &&
+read -p "Enter an Azure region (for example, chinaeast2) for the resource group: " resourceGroupRegion &&
 read -p "Enter the pricing tier (Free_F1 or Standard_S1): " priceTier &&
 read -p "Enter the number of SignalR units (1, 2, 5, 10, 20, 50, or 100): " unitCapacity &&
 read -p "Enter the service mode (Default, Serverless, or Classic): " servicingMode &&

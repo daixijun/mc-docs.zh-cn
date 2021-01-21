@@ -6,12 +6,12 @@ ms.topic: include
 origin.date: 02/20/2020
 ms.date: 11/20/2020
 ms.author: v-tawe
-ms.openlocfilehash: e8ffa4f3914e5e6b4ef247ac04647b6a22d6f47c
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 6037afd9f35e2b9a0a462ad078b77121c01993d6
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96476507"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98612910"
 ---
 本快速入门介绍如何使用适用于 Android 的语音设备 SDK 来生成支持语音的产品。
 
@@ -118,7 +118,7 @@ ms.locfileid: "96476507"
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
-    private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
+    private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "chinaeast2" or "eastasia"
    ```
 -->
 

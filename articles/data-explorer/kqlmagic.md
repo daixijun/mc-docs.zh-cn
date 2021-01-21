@@ -6,14 +6,14 @@ ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: how-to
-origin.date: 07/10/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: ce654a6b92dfa060df326961ca84e46747063255
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+origin.date: 10/20/2020
+ms.date: 01/19/2021
+ms.openlocfilehash: 734f3bba756157612ecd458e41739ac383368e83
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104133"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611688"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>使用 Jupyter Notebook 和 kqlmagic 扩展来分析 Azure 数据资源管理器中的数据
 
@@ -51,7 +51,7 @@ Jupyter Notebook 是一种开源 Web 应用程序，可用于创建和共享包�
 
 > [!Note]
 > 如果使用自己的 ADX 群集，则必须在连接字符串中包含区域，如下所示：   
-   ```%kql azuredataexplorer://tenant="youecompany.com";code;cluster='mycluster.westus';database='mykustodb'```
+   ```%kql azuredataexplorer://tenant="youecompany.com";code;cluster='mycluster.chinaeast2';database='mykustodb'```
 
 ## <a name="query-and-visualize"></a>查询和可视化
 

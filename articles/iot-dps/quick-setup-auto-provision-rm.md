@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 54a6af9bb7cea9dc26cd3304291f06fcffc8ac5e
-ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
+ms.openlocfilehash: 161fca2f8e10fd95eb51e6cb0ea025a16d85f6f9
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874878"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611620"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>快速入门：使用 ARM 模板设置 IoT 中心设备预配服务 (DPS)
 
@@ -140,7 +140,7 @@ ms.locfileid: "97874878"
     | :---- | :---------- |
     | **订阅** | 选择 Azure 订阅。 |
     | **资源组** | 单击“新建”，输入资源组的唯一名称，然后单击“确定” 。 |
-    | **区域** | 选择资源的区域。 例如“美国东部”。 |
+    | **区域** | 选择资源的区域。 例如，“中国东部 2”。 |
     | **IoT 中心名称** | 输入 IoT 中心的名称，该名称在 .azure-devices.net 命名空间内必须是全局唯一的。 在下一部分验证部署时，需要中心名称。 |
     | **预配服务名称** | 输入新设备预配服务 (DPS) 资源的名称。 该名称在 .azure-devices-provisioning.net 命名空间内必须是全局唯一的。 在下一部分验证部署时，需要 DPS 名称。 |
     
@@ -188,7 +188,7 @@ ms.locfileid: "97874878"
     
     ```azurecli-interactive
     read -p "Enter a project name that is used for generating resource names:" projectName &&
-    read -p "Enter the location (i.e. centralus):" location &&
+    read -p "Enter the location (i.e. chinaeast2):" location &&
     templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-iothub-device-provisioning/azuredeploy.json" &&
     resourceGroupName="${projectName}rg" &&
     az group create --name $resourceGroupName --location "$location" &&

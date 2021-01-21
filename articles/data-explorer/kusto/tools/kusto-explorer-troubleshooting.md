@@ -7,13 +7,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 04/13/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: ab3f8ceb81263594452a00e8cd73e95bbee3d6dc
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 7545fa6240189e040b5b6840be8aa17d6cd3be36
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104517"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611675"
 ---
 # <a name="troubleshooting"></a>故障排除
 

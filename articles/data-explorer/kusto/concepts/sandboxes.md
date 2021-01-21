@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/30/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 8a4fe0a344be7737b5254b4ebab457dafd114e27
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.date: 01/22/2021
+ms.openlocfilehash: 14714c27e50b5cba3b14f5c58fcb405c56c75ecd
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003655"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611587"
 ---
 # <a name="sandboxes"></a>沙盒
 
@@ -70,4 +70,4 @@ Kusto 的数据引擎服务可为需要安全隔离的特定流运行沙盒。
 |--------------------------|---------------------------|---------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
 |E_SB_QUERY_THROTTLED_ERROR|TooManyRequests (429)      |由于限制，沙盒查询被中止。 在进行某些回退后重试可能会成功   |目标节点上没有可用的沙盒。 新沙盒应在几秒钟内变得可用         |
 |E_SB_QUERY_THROTTLED_ERROR|TooManyRequests (429)      |“{kind}”类型的沙盒尚未初始化                                            |沙盒策略最近发生了更改。 遵守新策略的新沙盒将在几秒钟内变得可用|
-|                          |InternalServiceError (520) |由于初始化沙盒时出错，沙盒查询已中止                         |意外的基础结构故障。 如果问题仍然存在，请创建支持请求                         |
+|                          |InternalServiceError (520) |由于初始化沙盒时出错，沙盒查询已中止                         |意外的基础结构故障。                         |

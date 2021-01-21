@@ -8,15 +8,15 @@ ms.reviewer: miwalia
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/11/2020
-ms.date: 10/30/2020
+ms.date: 01/22/2021
 zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 6e37d640296ff42ba93ef6bc11a5dfebd3006a40
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 030cf5fa2132d425437949036e3f7208fb044091
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300309"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611513"
 ---
 # <a name="cosmosdb_sql_request-plugin"></a>cosmosdb_sql_request 插件
 
@@ -51,12 +51,12 @@ ms.locfileid: "96300309"
 [
   {
     "CalloutType": "CosmosDB",
-    "CalloutUriRegex": "my_endpoint1.documents.azure.com",
+    "CalloutUriRegex": "my_endpoint1\\.documents\\.azure\\.com",
     "CanCall": true
   },
   {
     "CalloutType": "CosmosDB",
-    "CalloutUriRegex": "my_endpoint2.documents.azure.com",
+    "CalloutUriRegex": "my_endpoint2\\.documents\\.azure\\.com",
     "CanCall": true
   }
 ]

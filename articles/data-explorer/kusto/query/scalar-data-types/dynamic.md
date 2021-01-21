@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 07/09/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: fa4dce9c1667628361de7d985b38e578420e358e
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 4f6b8a33fe7314618cd0cf239703a5eb83ffa12f
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516002"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611427"
 ---
 # <a name="the-dynamic-data-type"></a>dynamic 数据类型
 
@@ -163,6 +164,8 @@ print d=dynamic({"a": datetime(1970-05-11)})
 * [make_set_if()](../makesetif-aggfunction.md) 返回一个保存所有唯一值的数组（带谓词）。
 
 ## <a name="operators-and-functions-over-dynamic-types"></a>基于 dynamic 类型的运算符和函数
+
+有关标量动态/数组函数的完整列表，请参阅[动态/数组函数](../scalarfunctions.md#dynamicarray-functions)。
 
 |运算符或函数|dynamic 数据类型的用法|
 |---|---|

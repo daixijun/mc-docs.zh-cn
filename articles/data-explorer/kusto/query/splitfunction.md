@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: cf0a6c6b4dea9bafc24183115e621e1ac4c7bc57
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: a50b0704279bdb27dd20575a21a269923e4b83c9
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103834"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611678"
 ---
 # <a name="split"></a>split()
 
@@ -28,13 +29,13 @@ split("aaa_bbb_ccc", "_") == ["aaa","bbb","ccc"]
 
 ## <a name="syntax"></a>语法
 
-`split(`*source*`,` *delimiter* [`,` *requestedIndex* ]`)`
+`split(`*source*`,` *delimiter* [`,` *requestedIndex*]`)`
 
 ## <a name="arguments"></a>参数
 
-* *source* ：将根据给定分隔符拆分的源字符串。
-* *delimiter* ：用于拆分源字符串的分隔符。
-* *requestedIndex* ：可选的从零开始的索引 `int`。 （如果支持）返回的字符串数组将包含请求的子字符串（如果存在）。 
+* *source*：将根据给定分隔符拆分的源字符串。
+* *delimiter*：用于拆分源字符串的分隔符。
+* *requestedIndex*：可选的从零开始的索引 `int`。 （如果支持）返回的字符串数组将包含请求的子字符串（如果存在）。 
 
 ## <a name="returns"></a>返回
 

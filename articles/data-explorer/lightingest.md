@@ -7,13 +7,13 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/28/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: cb91ba676f4eef31a4ddffcf067e1ab908c7676a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/19/2021
+ms.openlocfilehash: 5a7ecf3fa7caf9abc17adffb32a8f730debfba89
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105274"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611674"
 ---
 # <a name="use-lightingest-to-ingest-data-to-azure-data-explorer"></a>使用 LightIngest 将数据引入 Azure 数据资源管理器
  
@@ -105,40 +105,6 @@ LightIngest 是用于将即席数据引入 Azure 数据资源管理器的命令�
 
 ## <a name="usage-examples"></a>用法示例
 
-<!-- Waiting for Tzvia or Vladik to rewrite the instructions for this example before publishing it
-
-### Ingesting a specific number of blobs in JSON format
-
-* Ingest two blobs under a specified storage account {Account}, in `JSON` format matching the pattern `.json`
-* Destination is the database {Database}, the table `SampleData`
-* Indicate that your data is compressed with the approximate ratio of 10.0
-* LightIngest won't wait for the ingestion to be completed
-
-To use the LightIngest command below:
-1. Create a table command and enter the table name into the LightIngest command, replacing `SampleData`.
-1. Create a mapping command and enter the IngestionMappingRef command, replacing `SampleData_mapping`.
-1. Copy your cluster name and enter it into the LightIngest command, replacing `{ClusterandRegion}`.
-1. Enter the database name into the LightIngest command, replacing `{Database name}`.
-1. Replace `{Account}` with your account name and replace `{ROOT_CONTAINER}?{SAS token}` with the appropriate information.
-
-    ```
-    LightIngest.exe "https://ingest-{ClusterAndRegion}.kusto.chinacloudapi.cn;Fed=True"  
-        -db:{Database name} 
-        -table:SampleData 
-        -source:"https://{Account}.blob.core.chinacloudapi.cn/{ROOT_CONTAINER}?{SAS token}" 
-        -IngestionMappingRef:SampleData_mapping 
-        -pattern:"*.json" 
-        -format:JSON 
-        -limit:2 
-        -cr:10.0 
-        -dontWait:true
-    ```
-     
-1. In Azure Data Explorer, open query count.
-
-    ![Ingestion result in Azure Data Explorer](media/lightingest/lightingest-show-failure-count.png)
--->
-
 ### <a name="how-to-ingest-data-using-creationtime"></a>如何使用 CreationTime 引入数据
 
 将历史数据从现有系统加载到 Azure 数据资源管理器时，所有记录接收相同的引入日期。 若要启用按创建时间而不是引入时间对数据进行分区，可以使用 `-creationTimePattern` 参数。 `-creationTimePattern` 参数从文件或 Blob 路径中提取 `CreationTime` 属性。 此模式不需要反映整个项路径，只需反映包含要使用的时间戳的部分。
@@ -156,7 +122,7 @@ To use the LightIngest command below:
 
     ```kusto
     ingest-{Cluster name and region}.kusto.chinacloudapi.cn;AAD Federated Security=True -db:{Database} -table:Trips -source:"https://{Account}.blob.core.chinacloudapi.cn/{ROOT_CONTAINER};{StorageAccountKey}" -creationTimePattern:"'historicalvalues'yyyyMMdd'.parquet'"
-     -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
+     -pattern:"*.parquet" -format:parquet -limit:2 -cr:10.0 -dontWait:true
     ```
 
 * 一个引用分层文件夹结构的 Blob URI（如 `https://storageaccount/container/folder/2002/12/01/blobname.extension`） 

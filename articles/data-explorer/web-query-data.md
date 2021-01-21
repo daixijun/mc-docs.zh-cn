@@ -6,24 +6,25 @@ ms.author: v-tawe
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-origin.date: 06/15/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: a674ee7267bb751dfbea83cafe1b753a133fc7bf
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+origin.date: 11/22/2020
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 6453bad65105db1bfd5239b159b31df2cc10e55c
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431212"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611563"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>快速入门：在 Azure 数据资源管理器 Web UI 中查询数据
 
-Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 Azure 数据资源管理器提供了可用于运行和共享查询的 Web 应用程序。 该应用程序可在 Azure 门户中使用，也可作为独立的 Web 应用程序使用。 在本文中，将使用独立版本，该版本允许连接到多个群集并共享指向查询的深层链接。
-
-如果没有 Azure 订阅，请在开始前创建一个[试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+Azure 数据资源管理器是一项快速、完全托管的数据分析服务，用于对大量数据进行实时分析。 Azure 数据资源管理器提供了一种 Web 体验，使你能够连接到 Azure 数据资源管理器群集并编写、运行和共享 Kusto 查询语言命令和查询。 该 Web 体验可在 Azure 门户中使用，也可作为独立的 Web 应用程序（即 [Azure 数据资源管理器 Web UI](https://dataexplorer.azure.cn)）使用。 Azure 数据资源管理器 Web UI 还可以由 HTML iframe 中的其他 Web 门户托管。 有关如何托管 Web UI 和所用 Monaco 编辑器的详细信息，请参阅 [Monaco IDE 集成](kusto/api/monaco/monaco-kusto.md)。
+本快速入门将在独立的 Azure 数据资源管理器 Web UI 中进行操作。
 
 ## <a name="prerequisites"></a>先决条件
 
-除 Azure 订阅外，还需[测试群集和数据库](create-cluster-database-portal.md)才能完成此快速入门。
+* Azure 订阅。 如果没有订阅，请在开始之前创建一个[免费 Azure 帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn#azurefreeform)。
+* 包含数据的群集和数据库。 [创建自己的群集](create-cluster-database-portal.md)或使用 Azure 数据资源管理器 help 群集。
 
 ## <a name="sign-in-to-the-application"></a>登录应用程序
 
@@ -31,80 +32,81 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 ## <a name="add-clusters"></a>添加群集
 
-首次打开应用程序时，未进行任何连接。
+首次打开应用程序时，不存在任何群集连接。
 
 ![添加群集](media/web-query-data/add-cluster.png)
 
-开始运行查询前，必须先将连接添加到至少一个群集中。 在本部分中，将连接添加到我们为帮助学习而设置的 Azure 数据资源管理器 help 群集，以及在之前的快速入门中创建的测试群集中。
+开始运行查询前，必须先将连接添加到群集中。 本部分会将连接添加到 Azure 数据资源管理器 help 群集以及在[先决条件](#prerequisites)中创建的测试群集中（可选）。
+
+### <a name="add-help-cluster"></a>添加 help 群集
 
 1. 在应用程序的左上角，选择“添加群集”。
 
-1. 在“添加群集”对话框中，输入 URI，然后选择“添加” 。
+1. 在“添加群集”对话框中，输入 URI https://help.kusto.chinacloudapi.cn ，然后选择“添加” 。
+   
+1. 在左侧窗格中，现在应看到 help 群集。 展开“示例”数据库并打开“Tables”文件夹，查看有权访问的示例表 。
 
-   可使用 help 群集 URI `https://help.kusto.chinacloudapi.cn`。 如果你有自己的群集，请提供自己的群集 URI。 例如，`https://mydataexplorercluster.chinanorth2.kusto.chinacloudapi.cn`，如下图所示：
+    :::image type="content" source="media/web-query-data/help-cluster.png" alt-text="在 help 群集中查找表":::
 
-    ![门户中的服务器 URI](media/web-query-data/server-uri.png)
+我们在本快速入门后面部分以及其他 Azure 数据资源管理器文章中使用 StormEvents 表。 
 
-1. 在左侧窗格中，现在应看到 help 群集。 展开“示例”数据库，以便可查看有权访问的示例表。
-
-    ![示例数据库](media/web-query-data/sample-databases.png)
-
-    我们在本快速入门后面部分以及其他 Azure 数据资源管理器文章中使用 StormEvents 表。
+### <a name="add-your-cluster"></a>添加群集
 
 现在添加创建的测试群集。
 
 1. 选择“添加群集”。
 
-1. 在“添加群集”对话框中，以 `https://<ClusterName>.<Region>.kusto.chinacloudapi.cn/` 格式输入测试群集 URL，然后选择“添加” 。
+1. 在“添加群集”对话框中，以 `https://<ClusterName>.<Region>.kusto.chinacloudapi.cn/` 格式输入测试群集 URL，然后选择“添加” 。 例如，`https://mydataexplorercluster.chinaeast2.kusto.chinacloudapi.cn`，如下图所示：
 
-    在以下示例中，会看到 help 群集和一个新群集 docscluster.chinaeast2（完整 URL 为 `https://docscluster.chinanorth2.kusto.chinacloudapi.cn/`）   。
+    :::image type="content" source="media/web-query-data/server-uri.png" alt-text="输入测试群集 URL":::
+    
+    在以下示例中，会看到 help 群集和一个新群集 docscluster.chinaeast2（完整 URL 为 `https://docscluster.chinaeast2.kusto.chinacloudapi.cn/`）   。
 
     ![测试群集](media/web-query-data/test-cluster.png)
 
 ## <a name="run-queries"></a>运行查询
 
-现在可针对连接到的任一群集运行查询（假设测试群集中有数据）。 我们将重点介绍 help 群集。
+你现在可以在两个群集上运行查询（假定测试群集中包含数据）。 考虑到本文的目的，我们将重点介绍 help 群集。
 
 1. 在左窗格中的 help 群集下，选择示例数据库 。
 
 1. 将以下查询复制并粘贴到查询窗口中。 在窗口顶部，选择“运行”。
 
-    ```Kusto
+    ```kusto
     StormEvents
     | sort by StartTime desc
     | take 10
     ```
-    此查询返回 StormEvents 表中的十条最新记录。 结果的左侧应如下表所示。
+    
+    此查询返回 StormEvents 表中的 10 条最新记录。 结果应如下表所示。
 
-    :::image type="content" source="media/web-query-data/result-set-01.png" alt-text="表的屏幕截图，其中列出了 10 个风暴事件的开始时间、结束时间、事件叙述、事件 ID、状态和事件类型。" border="false":::
+    :::image type="content" source="media/web-query-data/result-set-take-10.png" alt-text="表的屏幕截图，其中列出了 10 个风暴事件的数据。" border="false":::
 
-    下图显示了应用程序现在应处的状态，添加了群集以及带有结果的查询。
+    下图显示了应用程序的状态，其中添加了群集以及带有结果的查询。
 
-    ![完整应用程序](media/web-query-data/full-application.png)
+    :::image type="content" source="media/web-query-data/webui-take10.png" alt-text="全屏":::
 
-1. 将以下查询复制并粘贴到第一个查询下方的查询窗口中。 请注意，它与首个查询在单独行上格式化的方式有何不同。
+1. 将以下查询复制并粘贴到第一个查询下方的查询窗口中。 请注意，它没有像第一个查询那样在单独行上进行格式化。
 
-    ```Kusto
-    StormEvents | sort by StartTime desc | project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative | take 10
+    ```kusto
+    StormEvents | sort by StartTime desc 
+    | project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative | take 10
     ```
 
-1. 单击窗口中的新建查询，该窗口将选择该查询。 按 Shift+Alt+F 设置查询格式，如下所示。
+1. 选择新查询。 按 Shift+Alt+F 设置查询格式，如以下查询所示。
 
     ![已格式化查询](media/web-query-data/formatted-query.png)
 
-1. 按 Shift+Enter，这是运行查询的快捷方式。
+1. 选择“运行”或按 Shift + Enter 以运行查询。 此查询返回与第一条记录相同的记录，但仅包括 `project` 语句中指定的列。 结果应如下表所示。
 
-   此查询返回与第一条记录相同的记录，但仅包括 `project` 语句中指定的列。 结果应如下表所示。
+    :::image type="content" source="media/web-query-data/result-set-project.png" alt-text="表的屏幕截图，其中列出了 10 个风暴事件的开始时间、结束时间、州、事件类型、损伤特性和事件叙述。" border="false":::
 
-    :::image type="content" source="media/web-query-data/result-set-02.png" alt-text="表的屏幕截图，其中列出了 10 个风暴事件的开始时间、结束时间、状态、事件类型、损伤特性和事件叙述。" border="false":::
-
-1. 在查询窗口顶部，选择“撤回”。
-
-    查询窗口现在显示第一个查询的结果集，而无需重新运行该查询。 通常在分析期间，会运行多个查询，通过“撤回”可以重新访问先前查询的结果。
+    > [!TIP]
+    > 选择查询窗口顶部的“撤回”以显示第一个查询的结果集，而无需重新运行该查询。 通常在分析期间，会运行多个查询，通过“撤回”，你可以检索先前查询的结果。
 
 1. 让我们再运行一个查询来查看不同类型的输出。
 
-    ```Kusto
+    ```kusto
     StormEvents
     | summarize event_count=count(), mid = avg(BeginLat) by State
     | sort by mid
@@ -112,39 +114,35 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
     | project State, event_count
     | render columnchart
     ```
+
     结果应如下图所示。
 
     ![柱形图](media/web-query-data/column-chart.png)
 
-> [!NOTE]
-> 查询表达式中的空白行可能影响执行查询的那一部分。
->
-> 如果未选定文本，则假定以空行分隔查询或命令。
-> 如果选定了文本，则运行选定的文本。
+    > [!NOTE]
+    > 查询表达式中的空白行可能影响执行查询的那一部分。
+    > * 如果未选定文本，则假定以空行分隔查询或命令。
+    > * 如果选定了文本，则运行选定的文本。
 
 ## <a name="work-with-the-table-grid"></a>使用网格型
 
-现在你已了解了基本查询的工作原理，让我们看看如何使用网格型来自定义结果并进行进一步分析。
+现在你已了解了基本查询的工作原理，接下来我们来看看如何使用表网格来自定义结果并进行进一步分析。
 
 1. 重新运行第一个查询。 将鼠标悬停在“州”列上，选择菜单，然后选择“按州分组” 。
 
     ![按州分组](media/web-query-data/group-by.png)
 
-1. 在网格中，展开加利福尼亚州，以查看该州的记录。
+1. 在网格中，双击“加利福尼亚州”，展开并查看该州的记录。 进行探索性分析时，此类型的分组可能会有所帮助。
 
-    :::image type="content" source="media/web-query-data/result-set-03.png" alt-text="查询结果网格的屏幕截图。加利福尼亚州组已展开，可以看见 3 行数据，内容为加利福尼亚州的事件。" border="false":::
+    :::image type="content" source="media/web-query-data/group-expanded.png" alt-text="查询结果网格的屏幕截图，其中已展开“加利福尼亚州”组" border="false":::
 
-    进行探索性分析时，此类型的分组可能会有所帮助。
-
-1. 将鼠标悬停在“组”列上，然后选择“重置列” 。
+1. 将鼠标悬停在“组”列上，然后选择“重置列” 。 此设置将网格返回到其原始状态。
 
     ![重置列](media/web-query-data/reset-columns.png)
 
-    此操作将网格返回到其原始状态。
-
 1. 运行以下查询。
 
-    ```Kusto
+    ```kusto
     StormEvents
     | sort by StartTime desc
     | where DamageProperty > 5000
@@ -152,11 +150,13 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
     | take 10
     ```
 
-1. 在网格的右侧，选择“列”以查看工具面板。
+1. 在结果网格中，选择一些数值单元格。 使用表网格，你可以选择多个行、列和单元格，并计算它们的聚合。 Web UI 当前支持以下数值函数：Average、Count、Min、Max 和 Sum    。
 
-    ![工具面板](media/web-query-data/tool-panel.png)
+    :::image type="content" source="media/web-query-data/select-stats.png" alt-text="选择函数"::: 
 
-    此面板的功能类似于 Excel 中的数据透视表字段列表，可在网格中执行更多分析。
+1. 在网格的右侧，选择“列”以查看表工具面板。 此面板的功能类似于 Excel 中的数据透视表字段列表，可在网格中执行更多分析。
+
+    ![表工具面板](media/web-query-data/tool-panel.png)
 
 1. 选择“透视模式”，然后按以下方式拖动列：将“状态”拖动到“行组”；将“DamageProperty”拖动到“值”，并将“EventType”拖动到“列标签”     。  
 
@@ -166,7 +166,27 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
     ![数据透视表](media/web-query-data/pivot-table.png)
 
-    请注意佛蒙特州和阿拉巴马州各有两个属于同一类别的事件，而德克萨斯州有两个不同类别的事件。 通过数据透视表可以快速发现这样的情况，它们是快速分析的绝佳工具。
+    请注意佛蒙特州和阿拉巴马州各有两个属于同一类别的事件，而德克萨斯州有两个不同类别的事件。 数据透视表是一种很好的快速分析工具，因为该表使你可以快速发现这些差异。
+
+## <a name="search-in-the-results-table"></a>在结果表中搜索
+
+你可以在结果表中查找特定表达式。
+
+1.  运行以下查询：
+
+    ```Kusto
+    StormEvents
+    | where DamageProperty > 5000
+    | take 1000
+    ```
+
+1. 单击右侧的“搜索”按钮，然后键入“Wabash”
+
+    :::image type="content" source="media/web-query-data/search.png" alt-text="在表中搜索":::
+
+1. 所有提到的搜索表达式现在都在表中突出显示。 可以通过单击 Enter 向前移动或按 Shift + Enter 向后移动来在它们之间导航，也可以使用搜索框旁边的向上和向下按钮进行导航   。
+
+    :::image type="content" source="media/web-query-data/search-results.png" alt-text="在搜索结果中导航":::
 
 ## <a name="share-queries"></a>共享查询
 
@@ -193,7 +213,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 1. 将链接和查询复制到文本文件。
 
-1. 将链接粘贴到新的浏览器窗口中。 运行查询后，结果应如下所示。
+1. 将链接粘贴到新的浏览器窗口中。 结果应如下所示
 
     :::image type="content" source="media/web-query-data/shared-query.png" alt-text="共享查询深层链接":::
 
@@ -213,7 +233,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
     1. 选择“固定”
 
     :::image type="content" source="media/web-query-data/pin-to-dashboard.png" alt-text="“固定到仪表板”窗格":::
-    
+
 > [!NOTE]
 > “固定到仪表单”选项仅固定所选的查询。 要创建仪表板数据源并将显示命令转换为仪表板中的视觉对象，必须在数据库列表中选择相关数据库。
 
@@ -223,15 +243,69 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 :::image type="content" source="media/web-query-data/export-results.png" alt-text="将结果导出到 CSV 文件":::
 
+## <a name="settings"></a>设置
+
+在“设置”选项卡中，你可以：
+
+* [导出环境设置](#export-environment-settings)
+* [导入环境设置](#import-environment-settings)
+* [突出显示错误级别](#highlight-error-levels)
+* [清除本地状态](#clean-up-resources)
+
+选择右上方的设置图标 :::image type="icon" source="media/web-query-data/settings-icon.png" border="false":::，打开“设置”窗口。
+
+:::image type="content" source="media/web-query-data/settings.png" alt-text="“设置”窗口":::
+
+### <a name="export-and-import-environment-settings"></a>导出和导入环境设置
+
+导出和导入操作有助于保护工作环境，并将其重新定位到其他浏览器和设备。 导出操作可将所有设置、群集连接和查询选项卡导出到 JSON 文件，该文件可导入到其他浏览器或设备。
+
+#### <a name="export-environment-settings"></a>导出环境设置
+
+1. 在“设置” > “常规”窗口中，选择“导出”  。
+1. 此操作会将 adx-export.json 文件下载到本地存储中。
+1. 选择“清除本地状态”，将环境还原到其原始状态。 此设置将删除所有群集连接并关闭打开的选项卡。
+
+> [!NOTE]
+> “导出”选项仅导出查询相关数据。 不会在 adx-export.json 文件中导出任何仪表板数据。
+
+#### <a name="import-environment-settings"></a>导入环境设置
+
+1. 在“设置” > “常规”窗口中，选择“导入”  。 然后在“警告”弹出窗口中，选择“导入” 。
+
+    :::image type="content" source="media/web-query-data/import.png" alt-text="导入警告":::
+
+1. 从本地存储中找到 adx-export.json 文件，然后将其打开。
+1. 以前的群集连接和打开的选项卡现在可用。
+
+> [!NOTE]
+> “导入”选项将替代任何现有的环境设置和数据。
+
+### <a name="highlight-error-levels"></a>突出显示错误级别
+
+Kusto 会尝试解释结果面板中每行的严重性或详细级别，并对其进行相应的着色。 它通过将每列的非重复值与一组已知模式（“警告”、“错误”等）进行匹配来实现此目的。 
+
+若要启用错误级别突出显示，请执行以下操作：
+
+1. 选择用户名旁边的“设置”图标。
+1. 选择“外观”选项卡，然后将“启用错误级别突出显示”选项切换到右侧。  
+
+:::image type="content" source="media/web-query-data/enable-error-highlighting.gif" alt-text="动画 GIF 显示了如何在设置中启用错误级别突出显示":::
+
+浅色模式下的错误级别配色方案 | 深色模式下的错误级别配色方案
+|---|---|
+:::image type="content" source="media/web-query-data/light-mode.png" alt-text="浅色模式下颜色图例的屏幕截图"::: | :::image type="content" source="media/web-query-data/dark-mode.png" alt-text="深色模式下颜色图例的屏幕截图":::
+
 ## <a name="provide-feedback"></a>提供反馈
 
-1. 在应用程序的右上角，选择反馈图标 ![反馈图标](media/web-query-data/icon-feedback.png).
+1. 在应用程序的右上角，选择反馈图标 :::image type="icon" source="media/web-query-data/icon-feedback.png" border="false":::。
 
 1. 输入反馈，然后选择“提交”。
 
 ## <a name="clean-up-resources"></a>清理资源
 
 未在此快速入门中创建任何资源，但如果要从应用程序中删除一个或两个群集，请右键单击群集并选择“删除连接”。
+另一种选择是从“设置” > “常规”选项卡中选择“清除本地状态”  。此操作将删除所有群集连接并关闭所有打开的查询选项卡。
 
 ## <a name="next-steps"></a>后续步骤
 

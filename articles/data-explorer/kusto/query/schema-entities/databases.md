@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/30/2019
-ms.date: 07/31/2020
-ms.openlocfilehash: aebae97ef21992524f2ac3b5530a2b6032660eeb
-ms.sourcegitcommit: 4e1bc2e9b2a12dbcc05c52db5dbd1ae290aeb18d
+ms.date: 01/22/2021
+ms.openlocfilehash: dd7667dfa403272a4da5c86f59c5d8abe76293b5
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87509238"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611636"
 ---
 # <a name="databases"></a>数据库
 
@@ -25,6 +25,5 @@ Kusto 群集可以托管多个数据库，其中每个数据库将托管其自�
 
 **说明**  
 
-* 数据库名称不区分大小写。
 * 数据库名称必须遵循[实体名称](./entity-names.md)的规则。
 * 每个群集的数据库数量最大限制为 10,000。

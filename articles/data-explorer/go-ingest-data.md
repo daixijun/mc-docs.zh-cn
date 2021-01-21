@@ -7,13 +7,13 @@ ms.reviewer: abhishgu
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 08/10/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: 1d0c84ce9decfbdbac992b95a32adf961f9aec8d
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/19/2021
+ms.openlocfilehash: 93e9b4571a0bfc5849ec8da015db0d46113114f8
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431195"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611541"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-go-sdk"></a>使用 Azure 数据资源管理器 Go SDK 引入数据 
 

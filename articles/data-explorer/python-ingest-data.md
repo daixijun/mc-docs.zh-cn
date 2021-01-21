@@ -7,13 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/03/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: fa29d1b8d7a01be8194f3dbd35dee330340b5933
-ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
+ms.date: 01/19/2021
+ms.openlocfilehash: 48a37fd69f5526204ed6a7cd5628add9606563e9
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874891"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611293"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>使用 Azure 数据资源管理器 Python 库引入数据
 
@@ -28,9 +28,8 @@ ms.locfileid: "97874891"
 
 首先，在群集中创建一个表和数据映射。 然后将引入排列到群集并验证结果。
 
-本文同时也以 [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb) 的形式提供。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 * 具有活动订阅的 Azure 帐户。 [试用订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 

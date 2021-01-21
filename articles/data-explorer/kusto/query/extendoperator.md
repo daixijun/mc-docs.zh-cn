@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 29cec5a2e600a32932e3a3567ad555424cdb2dc7
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: c413006346946bb91ccabaa2812e9f904f8ec730
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105513"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611670"
 ---
 # <a name="extend-operator"></a>extend 运算符
 
@@ -26,11 +27,11 @@ T | extend duration = endTime - startTime
 
 ## <a name="syntax"></a>语法
 
-*T* `| extend` [ *ColumnName* | `(`*ColumnName* [`,` ...]`)` `=`] *Expression* [`,` ...]
+*T* `| extend` [*ColumnName* | `(`*ColumnName*[`,` ...]`)` `=`] *Expression* [`,` ...]
 
 ## <a name="arguments"></a>参数
 
-* *T* ：输入表格结果集。
+* *T*：输入表格结果集。
 * ColumnName：可选。 要添加或更新的列的名称。 如果省略，则会生成名称。 如果 Expression 返回多个列，则可在括号中指定列名列表。 在这种情况下，会将指定的名称赋予 Expression 的输出列，并会删除其余的输出列（如果有）。 如果未指定列名列表，则 Expression 的所有具有所生成名称的输出列都将添加到输出中。
 * *表达式：* 对输入的列进行计算。
 

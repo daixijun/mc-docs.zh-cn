@@ -7,13 +7,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 05/19/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 3ac98dc2933ae1f3251c0b173ebfa0420a4e0119
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 4fb707d5f23a2fc7a00c6aeda908528bd856c440
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106092"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611681"
 ---
 # <a name="kustoexplorer-installation-and-user-interface"></a>Kusto.Explorer 安装和用户界面
 
@@ -66,7 +67,7 @@ Kusto.Explorer 菜单面板包含以下选项卡：
 
 ### <a name="home-tab"></a>“主文件夹”选项卡
 
-:::image type="content" source="images/kusto-explorer/home-tab.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/home-tab.png" alt-text="Kusto Explorer“主页”选项卡":::
 
 “主页”选项卡显示最近使用过的功能，分为以下几个部分：
 
@@ -78,7 +79,7 @@ Kusto.Explorer 菜单面板包含以下选项卡：
 
 ### <a name="query-section"></a>“查询”部分
 
-:::image type="content" source="images/kusto-explorer/home-query-menu.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/home-query-menu.png" alt-text="Kusto Explorer“查询”部分":::
 
 |菜单|    行为|
 |----|----------|
@@ -87,7 +88,7 @@ Kusto.Explorer 菜单面板包含以下选项卡：
 
 ### <a name="share-section"></a>“共享”部分
 
-:::image type="content" source="images/kusto-explorer/home-share-menu.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/home-share-menu.png" alt-text="Kusto Explorer 共享菜单":::
 
 |菜单|    行为|
 |----|----------|
@@ -97,7 +98,7 @@ Kusto.Explorer 菜单面板包含以下选项卡：
 
 ### <a name="visualizations-section"></a>“可视化效果”部分
 
-:::image type="content" source="images/kusto-explorer/home-visualizations-menu.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/home-visualizations-menu.png" alt-text="Kusto Explorer 菜单可视化效果":::
 
 |菜单         | 行为|
 |-------------|---------|
@@ -121,7 +122,7 @@ Kusto.Explorer 菜单面板包含以下选项卡：
 
 ### <a name="view-section"></a>“视图”部分
 
-:::image type="content" source="images/kusto-explorer/home-view-menu.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/home-view-menu.png" alt-text="Kusto Explorer“视图”菜单":::
 
 |菜单           | 行为|
 |---------------|---------|
@@ -139,7 +140,7 @@ Kusto.Explorer 菜单面板包含以下选项卡：
 
 ## <a name="file-tab"></a>“文件”选项卡
 
-:::image type="content" source="images/kusto-explorer/file-tab.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/file-tab.png" alt-text="Kusto Explorer“文件”选项卡":::
 
 |菜单| 行为|
 |---------------|---------|
@@ -167,7 +168,7 @@ Kusto.Explorer 菜单面板包含以下选项卡：
 
 ## <a name="connections-tab"></a>“连接”选项卡
 
-:::image type="content" source="images/kusto-explorer/connections-tab.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/connections-tab.png" alt-text="Kusto Explorer“连接”选项卡":::
 
 |菜单|行为|
 |----|----------|
@@ -192,7 +193,7 @@ Kusto.Explorer 菜单面板包含以下选项卡：
 
 ## <a name="view-tab"></a>“视图”选项卡
 
-:::image type="content" source="images/kusto-explorer/view-tab.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/view-tab.png" alt-text="Kusto Explorer“视图”选项卡":::
 
 |菜单|行为|
 |----|----------|
@@ -221,7 +222,7 @@ Kusto.Explorer 菜单面板包含以下选项卡：
 
 ## <a name="tools-tab"></a>“工具”选项卡
 
-:::image type="content" source="images/kusto-explorer/tools-tab.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/tools-tab.png" alt-text="Kusto Explorer“工具”选项卡":::
 
 |菜单|行为|
 |----|----------|
@@ -241,7 +242,7 @@ Kusto.Explorer 菜单面板包含以下选项卡：
 
 ## <a name="monitoring-tab"></a>“监视”选项卡
 
-:::image type="content" source="images/kusto-explorer/monitoring-tab.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/monitoring-tab.png" alt-text="Kusto Explorer“监视”选项卡":::
 
 |菜单             | 行为|
 |-----------------|---------| 
@@ -252,7 +253,7 @@ Kusto.Explorer 菜单面板包含以下选项卡：
 
 ## <a name="management-tab"></a>“管理”选项卡
 
-:::image type="content" source="images/kusto-explorer/management-tab.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/management-tab.png" alt-text="Kusto Explorer“管理”选项卡":::
 
 |菜单             | 行为|
 |-----------------|---------|
@@ -264,7 +265,7 @@ Kusto.Explorer 菜单面板包含以下选项卡：
 
 ## <a name="help-tab"></a>“帮助”选项卡
 
-:::image type="content" source="images/kusto-explorer/help-tab.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/help-tab.png" alt-text="Kusto Explorer“帮助”选项卡":::
 
 |菜单             | 行为|
 |-----------------|---------|
@@ -277,7 +278,7 @@ Kusto.Explorer 菜单面板包含以下选项卡：
 
 ## <a name="connections-panel"></a>“连接”面板
 
-:::image type="content" source="images/kusto-explorer/connections-panel.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/connections-panel.png" alt-text="Kusto Explorer“连接”面板":::
 
 “连接”窗格显示所有已配置的群集连接。 对于每个群集，将显示它们存储的数据库、表和属性（列）。 选择项（在主面板中为搜索/查询设置隐式上下文），或双击项可将名称复制到“搜索/查询”面板。
 
@@ -312,7 +313,7 @@ Data Source=https://CLUSTER_NAME.kusto.chinacloudapi.cn;Initial Catalog=DATABASE
 >[!NOTE]
 > 用户的域名不一定与托管群集的租户的域名相同。
 
-:::image type="content" source="images/kusto-explorer/advanced-connection-string.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/advanced-connection-string.png" alt-text="Kusto Explorer 高级连接字符串":::
 
 ## <a name="keyboard-shortcuts"></a>键盘快捷方式
 
@@ -324,7 +325,12 @@ Kusto.Explorer 尝试在结果面板中解释每行的严重性或详细级别�
 
 若要修改输出配色方案或禁用此行为，请从“工具”菜单中，选择“选项” > “结果查看器” > “详细配色方案”   。
 
-:::image type="content" source="images/kusto-explorer/ke-color-scheme.png" alt-text="Kusto Explorer 开始页面":::
+:::image type="content" source="images/kusto-explorer/ke-color-scheme.png" alt-text="Kusto Explorer 配色方案修改":::
+
+
+Excel 配色方案图例| 鲜艳配色方案图例
+|---|---
+| :::image type="content" source="images/kusto-explorer/excel-color-scheme.png" alt-text="Kusto 资源管理器中 Excel 配色方案图例的屏幕截图" border="false"::: |:::image type="content" source="images/kusto-explorer/vivid-color-scheme.png" alt-text="Kusto 资源管理器中鲜艳配色方案图例的屏幕截图" border="false":::
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -8,15 +8,16 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/30/2020
-ms.date: 10/29/2020
+ms.date: 01/22/2021
+ms.localizationpriority: high
 zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: b64f074147e1f2b8ac0ea4bdb778db81fa1d2532
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: da170d2d058a586ced109c1904cd0c967e9c1c0c
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590849"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611614"
 ---
 # <a name="join-operator"></a>join 运算符
 

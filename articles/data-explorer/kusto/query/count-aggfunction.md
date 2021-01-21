@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/21/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 26d0d07ce9427b8a3f79cba26cbef2840348de8d
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: d736266bbe3b185b1fcf0e2add08ccadfe1edabf
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515716"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611509"
 ---
 # <a name="count-aggregation-function"></a>count()（聚合函数）
 

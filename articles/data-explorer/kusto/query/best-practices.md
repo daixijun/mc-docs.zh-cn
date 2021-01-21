@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/03/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 9cc2dc213f0827739cd39738d684ef57ea1eb02e
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: f1561c9780f410896f8a46a6fd41c6146d1c36dc
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104037"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611474"
 ---
 # <a name="query-best-practices"></a>查询最佳做法
 

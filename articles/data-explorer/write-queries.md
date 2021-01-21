@@ -7,13 +7,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 origin.date: 04/07/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: be5fd82bbc983f389e45d545db9785756c755f12
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 8616ab8dbbf225581d8baf4bd6a59f682ddcd6ab
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106080"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611463"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Azure 数据资源管理器的编写查询
 
@@ -56,7 +57,7 @@ StormEvents
 |   23|
 | |
 
-有关详细信息，请参阅[查询语言参考](/data-explorer/kusto)。
+有关详细信息，请参阅[查询语言参考](./kusto/query/index.md)。
 
 ## <a name="most-common-operators"></a>最常见的运算符
 

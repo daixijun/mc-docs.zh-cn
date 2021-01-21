@@ -7,13 +7,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 origin.date: 08/12/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: 121958b2b43b852d62a450ff20670c95c0dc5878
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 01/19/2021
+ms.localizationpriority: high
+ms.openlocfilehash: db17fe39c748c980d523fd11e2c587a33e8a5ffb
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146180"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611690"
 ---
 # <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>快速入门：将示例数据引入 Azure 数据资源管理器
 

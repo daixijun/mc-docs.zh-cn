@@ -8,15 +8,15 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 04/01/2020
-ms.date: 10/29/2020
+ms.date: 01/22/2021
 zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 2dfdfefeb257847944ce0cbbb4dbe7414c6b285f
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 05d9a99e29fe434e4c6a63d79c52d9a30e3572c6
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590898"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611627"
 ---
 # <a name="python-plugin"></a>Python 插件
 
@@ -64,7 +64,7 @@ Python 插件使用 Python 脚本运行用户定义函数 (UDF)。 Python 脚本
 ## <a name="python-sandbox-image"></a>Python 沙盒映像
 
 * Python 沙盒映像基于 Anaconda 5.2.0 发行版和 Python 3.6 引擎 。
-  请参阅 [Anaconda 包](https://docs.anaconda.com/anaconda/packages/old-pkg-lists/5.2.0/py3.6_win-64/)的列表。
+  请参阅 [Anaconda 包](http://docs.anaconda.com/anaconda/packages/old-pkg-lists/5.2.0/py3.6_win-64/)的列表。
   
   > [!NOTE]
   > 有一小部分包可能与运行插件的沙盒所实施的限制不兼容。
@@ -135,7 +135,7 @@ print "This is an example for using 'external_artifacts'"
     * 还可以使用[分区运算符](partitionoperator.md)对输入数据集进行分区。
 * 尽可能使用 Kusto 的查询语言来实现 Python 脚本的逻辑。
 
-    ## <a name="example"></a>示例
+    ### <a name="example"></a>示例
 
     ```kusto    
     .show operations
@@ -160,7 +160,7 @@ print "This is an example for using 'external_artifacts'"
      * Python 脚本中用于 Python 字符串的双引号字符 (`"`)
 * 使用 [`externaldata` 运算符](externaldata-operator.md)获取存储在外部位置（例如 Azure Blob 存储）中的脚本内容。
   
-    ## <a name="example"></a>示例
+    ### <a name="example"></a>示例
 
     ```kusto
     let script = 

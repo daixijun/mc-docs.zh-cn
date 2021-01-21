@@ -7,13 +7,13 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 09/26/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: 774a023196f672d0beac76757bda40dda57bef3c
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/22/2021
+ms.openlocfilehash: 0d8fee0c7d02df63ceb503d83a49f3dfb799d302
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431193"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611695"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板创建 Azure 数据资源管理器群集和数据库
 
@@ -73,16 +73,39 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
               "tier": "Standard",
               "capacity": 2
           },
-          "apiVersion": "2019-09-07",
+          "apiVersion": "2020-18-09",
           "location": "[parameters('location')]",
           "tags": {
             "Created By": "GitHub quickstart template"
+          },
+          "properties": {
+              "trustedExternalTenants": [],
+              "optimizedAutoscale": {
+                  "version": 1,
+                  "isEnabled": true,
+                  "minimum": 2,
+                  "maximum": 10
+              },
+              "enableDiskEncryption": false,
+              "enableStreamingIngest": false,
+              "virtualNetworkConfiguration":{
+                  "subnetId": "<subnet resource id>",
+                  "enginePublicIpId": "<Engine service's public IP address resource id>",
+                  "dataManagementPublicIpId": "<Data management's service public IP address resource id>"
+              },
+              "keyVaultProperties":{
+                  "keyName": "<Key name>",
+                  "keyVaultUri": "<Key vault uri>"
+              },
+              "enablePurge": false,
+              "enableDoubleEncryption": false,
+              "engineType": "V3",
           }
       },
       {
           "name": "[concat(parameters('clusters_kustocluster_name'), '/', parameters('databases_kustodb_name'))]",
           "type": "Microsoft.Kusto/clusters/databases",
-          "apiVersion": "2019-09-07",
+          "apiVersion": "2020-18-09",
           "location": "[parameters('location')]",
           "dependsOn": [
               "[resourceId('Microsoft.Kusto/clusters', parameters('clusters_kustocluster_name'))]"

@@ -6,12 +6,12 @@ origin.date: 03/25/2020
 ms.date: 12/30/2020
 ms.custom: devx-track-java
 ms.author: v-tawe
-ms.openlocfilehash: 675cfc965e84cc097ac590e797a3ca889ade266c
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: b4f2988fd9f192ff4305ee2ff7d221473687bb27
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820794"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98612952"
 ---
 本快速入门介绍使用语音 SDK 进行文本到语音合成的常见设计模式。 首先，请进行基本的配置和合成，然后通过更高级的示例来了解自定义应用程序开发，其中包括：
 
@@ -244,7 +244,7 @@ public static void main(String[] args) {
 若要切换到某种神经语音，请将 `name` 更改为[神经语音选项](../../../language-support.md#neural-voices)之一。 然后，为 `mstts` 添加 XML 命名空间，并在 `<mstts:express-as>` 标记中包装文本。 使用 `style` 参数自定义讲话风格。 此示例使用 `cheerful`，但请尝试将其设置为 `customerservice` 或 `chat`，以了解讲话风格的差别。
 
 <!-- > [!IMPORTANT]
-> Neural voices are **only** supported for Speech resources created in *China East*, *South East Asia*, and *West Europe* regions. -->
+> Neural voices are **only** supported for Speech resources created in *China East* regions. -->
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">

@@ -8,13 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: b94c1bfaed3a31f66ff000359690992404904bf6
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: dcabd97710b12b8108ffaca921ee9fc684be8c45
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515920"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611656"
 ---
 # <a name="getting-started-with-kusto"></a>Kusto 入门
 

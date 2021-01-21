@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: 04bdf9a6079bf5b61d87f8384d64337b2a381a00
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 67929f4ecaea32a7c3530d64c0120f8e2e336757
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105013"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611692"
 ---
 # <a name="rolling_percentile-plugin"></a>rolling_percentile() 插件
 
@@ -30,19 +30,17 @@ T | evaluate rolling_percentile(ValueColumn, Percentile, IndexColumn, BinSize, B
 
 ## <a name="arguments"></a>参数
 
-* *T* ：输入表格表达式。
-* *ValueColumn* ：列的名称，其中包含要计算百分位数的值。 
-* *Percentile* ：带有要计算的百分位数的标量。
-* *IndexColumn* ：要对其运行滚动窗口的列名称。
+* *T*：输入表格表达式。
+* *ValueColumn*：列的名称，其中包含要计算百分位数的值。 
+* *Percentile*：带有要计算的百分位数的标量。
+* *IndexColumn*：要对其运行滚动窗口的列名称。
 * BinSize：标量，带有要在 IndexColumn 上应用的箱大小。
-* *BinsPerWindow* ：标量，具有每个窗口中包含的箱数。
-* *dim1* , *dim2* , ... ：（可选）要作为切片依据的维度列的列表。
+* *BinsPerWindow*：标量，具有每个窗口中包含的箱数。
+* *dim1*, *dim2*, ... ：（可选）要作为切片依据的维度列的列表。
 
 ## <a name="returns"></a>返回
 
-返回一个表，其中为每个箱设有一行（如果指定，则为维度的组合），该表含有截至箱处的窗口中的滚动百分位值。 每个时间窗口的非重复计数值、新值的非重复计数、聚合非重复计数。
-
-输出表架构如下：
+返回一个表，其中为每个箱设有一行（如果指定，则为维度的组合），该表含有截至箱处的窗口中的滚动百分位值。 输出表架构如下：
 
 
 |IndexColumn|dim1|...|dim_n|rolling_BinsPerWindow_percentile_ValueColumn_Pct

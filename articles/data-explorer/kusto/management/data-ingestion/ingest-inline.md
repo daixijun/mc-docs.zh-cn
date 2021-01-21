@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/24/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: b894ddd39fdd7ca55d2719e8fd802f8102e5b326
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 01/22/2021
+ms.openlocfilehash: 12c1f99370f215b7f6d79d22918ce9b60f8c74ab
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226198"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611334"
 ---
 # <a name="ingest-inline-command-push"></a>.ingest inline 命令（推送）
 
@@ -65,7 +65,5 @@ Wide Shoes,50
 <!--
 You can generate inline ingests commands using the Kusto.Data client library. 
 Compression lets you embed new lines in quoted fields.
-
     Kusto.Data.Common.CslCommandGenerator.GenerateTableIngestPushCommand(tableName, compressed: true, csvData: csvStream);
-
 -->

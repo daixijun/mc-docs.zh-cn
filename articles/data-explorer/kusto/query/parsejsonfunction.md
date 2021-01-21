@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 3f41183357abab654c37e62eeb7159b2db326b71
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: e9037ac662b0cac02a65a1171af2e2a55ee3dd8a
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104610"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611608"
 ---
 # <a name="parse_json"></a>parse_json()
 

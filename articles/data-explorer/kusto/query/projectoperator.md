@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 81856ffe264ce0ed135f88922bb27d27ce5fc540
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: f8565ccc7d456504f48e84a22aa35bf1c78a9b77
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104193"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611617"
 ---
 # <a name="project-operator"></a>project 运算符
 
@@ -28,17 +29,17 @@ T | project cost=price*quantity, price
 
 ## <a name="syntax"></a>语法
 
-*T* `| project` *ColumnName* [`=` *Expression* ] [`,` ...]
+*T* `| project` *ColumnName* [`=` *Expression*] [`,` ...]
   
 或
   
-*T* `| project` [ *ColumnName* | `(`*ColumnName* [`,`]`)` `=`] *Expression* [`,` ...]
+*T* `| project` [*ColumnName* | `(`*ColumnName*[`,`]`)` `=`] *Expression* [`,` ...]
 
 ## <a name="arguments"></a>参数
 
-* *T* ：输入表。
+* *T*：输入表。
 * ColumnName：要在输出中显示的列的可选名称。 如果没有 Expression，则 ColumnName 是必需的，输入中必须出现该名称的列。 如果省略该项，则会自动生成名称。 如果 Expression 返回多个列，则可在括号中指定列名列表。 在这种情况下，会将指定的名称赋予 Expression 的输出列，并会删除所有其余的输出列（如果有）。 如果未指定列名列表，则 Expression 的所有具有生成名称的输出列都将添加到输出中。
-* *Expression* ：引用输入列的可选标量表达式。 如果未省略 ColumnName，则 Expression 是必需的。
+* *Expression*：引用输入列的可选标量表达式。 如果未省略 ColumnName，则 Expression 是必需的。
 
     允许返回与输入中现有列具有相同名称的新计算列。
 

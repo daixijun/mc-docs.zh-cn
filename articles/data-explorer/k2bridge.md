@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 03/12/2020
 ms.date: 10/30/2020
-ms.openlocfilehash: e99fca60c3f820de583607720036d231909e35b0
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 050810e8b0575f07d94a98efdae767852afc2550
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106532"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611714"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-kibana-with-the-k2bridge-open-source-connector"></a>使用 K2Bridge 开源连接器在 Kibana 中可视化来自 Azure 数据资源管理器的数据
 
@@ -81,7 +81,7 @@ K2Bridge 支持 Kibana 的“发现”选项卡，你可以在其中执行以下
     1. 将变量设置为适合你的环境的正确值。
 
         ```bash
-        ADX_URL=[YOUR_ADX_CLUSTER_URL] #For example, https://mycluster.westeurope.kusto.chinacloudapi.cn
+        ADX_URL=[YOUR_ADX_CLUSTER_URL] #For example, https://mycluster.chinaeast2.kusto.chinacloudapi.cn
         ADX_DATABASE=[YOUR_ADX_DATABASE_NAME]
         ADX_CLIENT_ID=[SERVICE_PRINCIPAL_CLIENT_ID]
         ADX_CLIENT_SECRET=[SERVICE_PRINCIPAL_CLIENT_SECRET]
@@ -176,7 +176,7 @@ K2Bridge 支持 Kibana 的“发现”选项卡，你可以在其中执行以下
     * 使用 Lucene 查询语法。 例如：
         * 搜索“error”以查找包含此值的所有记录。
         * 搜索“status:200”以获取状态值为 200 的所有记录。
-    * 使用逻辑运算符 **AND** 、 **OR** 和 **NOT** 。
+    * 使用逻辑运算符 **AND**、**OR** 和 **NOT**。
     * 使用星号 (\*) 和问号 (?) 通配符。 例如，查询“destination_city:L*”会匹配 destination-city 值以“L”或“l”开头的记录。 （K2Bridge 不区分大小写。）
 
     ![运行查询](media/k2bridge/k2bridge-run-query.png)

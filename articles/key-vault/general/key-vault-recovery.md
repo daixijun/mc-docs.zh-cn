@@ -9,12 +9,12 @@ ms.author: v-tawe
 manager: ravijan
 origin.date: 09/30/2020
 ms.date: 11/27/2020
-ms.openlocfilehash: 75f9cd990c2b18052dfa860f1316677b5ebef35d
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 25a019c454f64d8e2012b546a30902b30030155c
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301004"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611492"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>如何启用软删除和清除保护
 
@@ -259,13 +259,13 @@ ms.locfileid: "96301004"
 * 恢复已软删除的密钥保管库
 
     ```powershell
-    Undo-AzKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
+    Undo-AzKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location chinaeast2
     ```
 
 * 清除已软删除的密钥保管库（警告！此操作会永久删除你的密钥保管库）
 
     ```powershell
-    Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
+    Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location chinaeast2
     ```
 
 * 对密钥保管库启用清除保护

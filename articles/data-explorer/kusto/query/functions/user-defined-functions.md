@@ -8,13 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/12/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 8865d48eb71d793f18b459ce3448d59fde9971c3
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 3f6b11a3ba1f1fe41b8fe26ddd37f237004a0d2b
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106311"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611642"
 ---
 # <a name="user-defined-functions"></a>用户定义的函数
 
@@ -45,6 +46,9 @@ ms.locfileid: "93106311"
 有效的用户定义的函数名称必须遵循与其他实体相同的[标识符命名规则](../schema-entities/entity-names.md#identifier-naming-rules)。
 
 该名称在定义的范围内也必须是唯一的。
+
+> [!NOTE]
+> 如果存储函数和表具有相同的名称，则存储函数会在查询该表/函数名时重写。
 
 ## <a name="input-arguments"></a>输入参数
 

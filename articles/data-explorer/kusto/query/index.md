@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/07/2019
-ms.date: 10/29/2020
-ms.openlocfilehash: 064a8b51d8f8295f3dd63e07cca5756985c4841c
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 0318690ab8de7be04c08a3f36451974c5d515de6
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104789"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611616"
 ---
 # <a name="overview"></a>概述
 

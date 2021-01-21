@@ -7,18 +7,19 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: how-to
 origin.data: 04/07/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: a0cae9bb5545322a6c7ce8368436c646095b1003
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: f1e7c985dfdb9bda6861a6bf796cdac3f492fbe9
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146534"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611664"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure 数据资源管理器中的时序分析
 
 Azure 数据资源管理器 (ADX) 持续从云服务或 IoT 设备收集遥测数据。 分析这些数据可获得各种见解，例如，监视服务的运行状况、物理生产流程和使用趋势。 分析是针对所选指标的时序执行的，以找出某种模式与其典型基线模式之间的偏差。
-ADX 原生支持创建、操作和分析多个时序。 本主题介绍如何使用 ADX 在**几秒钟内创建和分析数千个时序**，实现近实时的监视解决方案和工作流。
+ADX 原生支持创建、操作和分析多个时序。 本主题介绍如何使用 ADX 在 **几秒钟内创建和分析数千个时序**，实现近实时的监视解决方案和工作流。
 
 ## <a name="time-series-creation"></a>时序的创建
 

@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/03/2019
 ms.date: 09/30/2020
-ms.openlocfilehash: b38cb4c45da0f40e47823ba7c14e91bbcb42bf76
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: f2edb0612ee9cadb758c2e45d1c5daf50fbc176f
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431192"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611631"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>使用 Python 创建 Azure 数据资源管理器群集和数据库
 
@@ -127,7 +127,7 @@ pip install azure-mgmt-kusto
         tenant=tenant_id
     )
     
-    location = 'Central US'
+    location = 'China East 2'
     resource_group_name = 'testrg'
     cluster_name = 'mykustocluster'
     soft_delete_period = timedelta(days=3650)

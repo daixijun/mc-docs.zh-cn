@@ -8,15 +8,15 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 08/18/2020
+ms.date: 01/22/2021
 zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 31aafffe5fbc233a43473da58c9c0ff837ce79d2
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: ffa0ae2d251d8bd28fabfd75672b15cfd075490e
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590903"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611422"
 ---
 # <a name="null-values"></a>Null 值
 
@@ -69,6 +69,12 @@ null 值不等于该数据类型的任何其他值，包括它本身。 （也�
 
 * 如果在 Kusto.Explorer 中运行上述查询，则所有 `true` 值将显示为 `1`，所有 `false` 值将显示为 `0`。
 
+* Kusto 未提供用于限制表列，使其不具有 null 值的方法（换句话说，SQL 的 `NOT NULL` 约束没有对等项）。
+
 ::: zone-end
 
+::: zone pivot="azuremonitor"
+
 * Kusto 未提供用于限制表列，使其不具有 null 值的方法（换句话说，SQL 的 `NOT NULL` 约束没有对等项）。
+
+::: zone-end

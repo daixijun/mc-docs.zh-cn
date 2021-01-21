@@ -7,19 +7,20 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 06/17/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: 4c050204418388e886cb299253b7178d3fd433d9
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: f84ead64c082d4e6888b91df0cb4d82063541be1
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103912"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611699"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>使用 Azure 数据资源管理器查询 Azure Data Lake 中的数据
 
 Azure Data Lake Storage 是一种用于大数据分析的数据湖解决方案，可伸缩性高且经济高效。 它既有高性能文件系统的强大功能，又有规模效应且经济高效，可以帮助你快速获得见解。 Data Lake Storage Gen2 扩展了 Azure Blob 存储功能，并针对分析工作负载进行了优化。
  
-Azure 数据资源管理器与 Azure Blob 存储和 Azure Data Lake Storage (Gen2) 集成，可用于对存储在外部存储中的数据进行快速、缓存式和索引式访问。 无需先将数据引入 Azure 数据资源管理器即可分析和查询数据。 还可以同时对引入的和未引入的外部数据进行查询。  
+Azure 数据资源管理器与 Azure Blob 存储和 Azure Data Lake Storage（Gen1 和 Gen2）集成，提供对存储在外部存储中的数据的快速、缓存和索引访问。 无需先将数据引入 Azure 数据资源管理器即可分析和查询数据。 还可以同时对引入的和未引入的外部数据进行查询。  
 
 > [!TIP]
 > 若要获得最佳查询性能，必须将数据引入 Azure 数据资源管理器中。 在不预先引入数据的情况下查询外部数据的功能只应当用于历史数据或极少会查询的数据。 请[优化外部数据查询性能](#optimize-your-query-performance)以获得最佳结果。
@@ -210,7 +211,7 @@ dataformat=csv
 
 可以通过查看 Web UI 的左窗格查找已创建的 **TaxiRides** 表：
 
-:::image type="content" source="media/data-lake-query-data/taxirides-external-table.png" alt-text="Web UI 中的外部表":::
+:::image type="content" source="media/data-lake-query-data/taxirides-external-table.png" alt-text="出租车搭乘记录外部表":::
 
 ### <a name="query-taxirides-external-table-data"></a>查询 TaxiRides 外部表数据 
 
@@ -228,7 +229,7 @@ external_table("TaxiRides")
 
 此查询显示一周中最忙碌的一天。 由于数据未分区，因此查询可能需要好几分钟的时间才能返回结果。
 
-:::image type="content" source="media/data-lake-query-data/taxirides-no-partition.png" alt-text="Web UI 中的外部表":::
+:::image type="content" source="media/data-lake-query-data/taxirides-no-partition.png" alt-text="呈现未分区的查询":::
 
 #### <a name="query-taxirides-external-table-with-partitioning"></a>在分区的情况下查询 TaxiRides 外部表 
 
@@ -243,7 +244,7 @@ external_table("TaxiRides")
 
 此查询使用分区，这样可以优化查询时间和性能。 此查询基于分区的列 (pickup_datetime) 进行筛选，在数秒钟内返回结果。
 
-:::image type="content" source="media/data-lake-query-data/taxirides-with-partition.png" alt-text="Web UI 中的外部表":::
+:::image type="content" source="media/data-lake-query-data/taxirides-with-partition.png" alt-text="呈现分区的查询":::
   
 你可以编写针对外部表 TaxiRides 运行的其他查询，了解有关数据的更多信息。 
 
@@ -268,7 +269,7 @@ external_table("TaxiRides")
  
 ### <a name="compression"></a>压缩
  
-使用压缩可以减少从远程存储提取的数据量。 对于 Parquet 格式，请使用内部 Parquet 压缩机制来单独压缩列组，这样就可以单独读取列组。 若要验证压缩机制的使用情况，请检查文件的命名方式是否如下所示： *&lt;filename&gt;.gz.parquet* 或 *&lt;filename&gt;.snappy.parquet* ，而不是 *&lt;filename&gt;.parquet.gz* 。 
+使用压缩可以减少从远程存储提取的数据量。 对于 Parquet 格式，请使用内部 Parquet 压缩机制来单独压缩列组，这样就可以单独读取列组。 若要验证压缩机制的使用情况，请检查文件的命名方式是否如下所示： *&lt;filename&gt;.gz.parquet* 或 *&lt;filename&gt;.snappy.parquet*，而不是 *&lt;filename&gt;.parquet.gz*。 
  
 ### <a name="partitioning"></a>分区
  

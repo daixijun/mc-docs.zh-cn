@@ -7,13 +7,13 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 10/07/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: 29ddad92dcd8d14ae21afb6eb77980bcd777869e
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/22/2021
+ms.openlocfilehash: ae8a78ea02040471290317d33b16b73ab43395f0
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431191"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611635"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-python"></a>使用 Python 为 Azure 数据资源管理器创建事件中心数据连接
 
@@ -75,7 +75,7 @@ location = "China East 2"
 table_name = "StormEvents"
 mapping_rule_name = "StormEvents_CSV_Mapping"
 data_format = "csv"
-#Returns an instance of LROPoller, check https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller
+#Returns an instance of LROPoller, check https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name, data_connection_name=data_connection_name,
                                         parameters=EventHubDataConnection(event_hub_resource_id=event_hub_resource_id, consumer_group=consumer_group, location=location,
                                                                             table_name=table_name, mapping_rule_name=mapping_rule_name, data_format=data_format))

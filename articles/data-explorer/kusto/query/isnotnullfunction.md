@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: f804821a2139d4f344f6da4ca4b553e4b4db476c
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: b0d0e09e59d0c0147faed1a214863d5da4e707f2
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105388"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611622"
 ---
 # <a name="isnotnull"></a>isnotnull()
 
@@ -22,18 +22,12 @@ ms.locfileid: "93105388"
 
 ## <a name="syntax"></a>语法
 
-`isnotnull(`[ *value* ]`)`
+`isnotnull(`[*value*]`)`
 
-`notnull(`[ *value* ]`)` - `isnotnull` 的别名
+`notnull(`[*value*]`)` - `isnotnull` 的别名
 
 ## <a name="example"></a>示例
 
 ```kusto
 T | where isnotnull(PossiblyNull) | count
-```
-
-请注意，还可通过其他方法实现这种效果：
-
-```kusto
-T | summarize count(PossiblyNull)
 ```

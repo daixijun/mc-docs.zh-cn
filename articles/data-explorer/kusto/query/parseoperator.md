@@ -8,18 +8,18 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: bd13dfddbf7cfb3763107e116db914e68cc98748
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: edfbc81a3e160826d59bcfd7e37ec7491a36fb76
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106146"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611605"
 ---
 # <a name="parse-operator"></a>parse 运算符
 
-计算字符串表达式并将其值分析为一个或多个计算列。 对于未成功分析的字符串，计算列将具有 null 值。
-有关详细信息，请参阅 [parse-where 运算符](parsewhereoperator.md)。
+计算字符串表达式并将其值分析为一个或多个计算列。 对于未成功分析的字符串，计算列将具有 null 值。 如果不需要使用分析不成功的行，则优先使用 [parse-where 运算符](parsewhereoperator.md)。
 
 ```kusto
 T | parse Text with "ActivityName=" name ", ActivityType=" type
@@ -27,11 +27,11 @@ T | parse Text with "ActivityName=" name ", ActivityType=" type
 
 ## <a name="syntax"></a>语法
 
-*T* `| parse` [`kind=regex` [`flags=regex_flags`] |`simple`|`relaxed`] *Expression* `with` `*` ( *StringConstant* *ColumnName* [`:` *ColumnType* ]) `*`...
+*T* `| parse` [`kind=regex` [`flags=regex_flags`] |`simple`|`relaxed`] *Expression* `with` `*` (*StringConstant* *ColumnName* [`:` *ColumnType*]) `*`...
 
 ## <a name="arguments"></a>参数
 
-* *T* ：输入表。
+* *T*：输入表。
 * 种类：
 
     * simple（默认值）：StringConstant 是一个正则字符串值，匹配是严格的。 所有字符串分隔符都应出现在分析的字符串中，并且所有扩展列都必须与所需类型匹配。
@@ -42,7 +42,7 @@ T | parse Text with "ActivityName=" name ", ActivityType=" type
         
     * relaxed：StringConstant 是一个正则字符串值，匹配是宽松的。 所有字符串分隔符都应出现在分析的字符串中，但是扩展列可以部分匹配所需的类型。 与所需类型不匹配的扩展列将获得 null 值。
 
-* *表达式* ：计算结果为字符串的表达式。
+* *表达式*：计算结果为字符串的表达式。
 
 * ColumnName：要为其赋值的列的名称（从字符串表达式中提取）。 
   
@@ -87,7 +87,7 @@ T | parse Text with "ActivityName=" name ", ActivityType=" type
 `parse` 运算符提供了一种简单的方法，可通过对同一 `string` 表达式使用多个 `extract` 应用程序来 `extend` 表。 当表中有一个 `string` 列，其中包含多个要分解为单独列的值时，此结果非常有用。 例如，由开发人员 trace ("`printf`"/"`Console.WriteLine`") 语句生成的列。
 
 在下面的示例中，假定 `Traces` 表的 `EventText` 列包含 `Event: NotifySliceRelease (resourceName={0}, totalSlices= {1}, sliceNumber={2}, lockTime={3}, releaseTime={4}, previousLockTime={5})` 格式的字符串。
-此操作将用六个列来扩展表：`resourceName`、`totalSlices`、`sliceNumber`、`lockTime `、`releaseTime`、`previousLockTime`、`Month` 和 `Day`。 
+该操作将对表进行扩展，在其中添加以下六列：`resourceName`、`totalSlices`、`sliceNumber`、`lockTime `、`releaseTime` 和 `previousLockTime`。 
 
 <!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
 ```kusto

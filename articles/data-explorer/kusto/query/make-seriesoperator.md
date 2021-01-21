@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/16/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 9fd3c35090ca2dd17c0fa0c4396897f62fdbc3cc
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 32269ffc90c5487a1a2b6a6e06c95743b66e5616
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104585"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611697"
 ---
 # <a name="make-series-operator"></a>make-series 运算符
 
@@ -30,7 +31,7 @@ T `| make-series` [MakeSeriesParamters] [Column `=`] Aggregation [`default` `=` 
 
 ## <a name="arguments"></a>参数
 
-* *Column* ：结果列的可选名称。 默认为派生自表达式的名称。
+* *Column*：结果列的可选名称。 默认为派生自表达式的名称。
 * DefaultValue：将使用默认值，而不是不存在的值。 如果没有任何行包含特定的 AxisColumn 和 GroupExpression 值，则在结果中，将为数组的相应元素分配 DefaultValue  。 如果省略 DefaultValue，则假定为 0。 
 * *聚合：* 对 [聚合函数](make-seriesoperator.md#list-of-aggregation-functions)（如 `count()` 或 `avg()`）的调用，使用列名作为参数。 请参阅[聚合函数列表](make-seriesoperator.md#list-of-aggregation-functions)。 只能将返回数值结果的聚合函数与 `make-series` 运算符配合使用。
 * AxisColumn：将用作序列排序依据的列。 可将其视为时间线，但接受除 `datetime` 之外的任何数字类型。

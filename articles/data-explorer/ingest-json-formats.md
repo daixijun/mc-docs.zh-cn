@@ -7,13 +7,13 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 05/19/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: 0626f5e870d125ea87e33a0d0b4681dbe49ef60b
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/19/2021
+ms.openlocfilehash: f3b3a1ae39094bf1bbdfda59c0e36c75b1b17c96
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103615"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611719"
 ---
 # <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>将 JSON 格式的示例数据引入 Azure 数据资源管理器
 
@@ -80,7 +80,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
 1. 将数据引入 `RawEvents` 表中。
 
     ```kusto
-    .ingest into table RawEvents h'https://kustosamplefiles.blob.core.chinacloudapi.cn/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
+    .ingest into table RawEvents ('https://kustosamplefiles.blob.core.chinacloudapi.cn/jsonsamplefiles/simple.json') with '{"format":json, "ingestionMappingReference":"DiagnosticRawRecordsMapping"}'
     ```
 
 # <a name="c"></a>[C#](#tab/c-sharp)
@@ -136,7 +136,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
 
     ```csharp
     var ingestUri = "https://ingest-<ClusterName>.<Region>.kusto.chinacloudapi.cn:443/";
-    var blobPath = "https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
+    var blobPath = "https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/simple.json"; 
     var ingestConnectionStringBuilder =
         new KustoConnectionStringBuilder(ingestUri)
         {
@@ -196,7 +196,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
     INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.chinacloudapi.cn:443/"
     KCSB_INGEST = KustoConnectionStringBuilder.with_aad_device_authentication(INGEST_URI, AAD_TENANT_ID)
     INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
-    BLOB_PATH = 'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D'
+    BLOB_PATH = 'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/simple.json'
     
     INGESTION_PROPERTIES = IngestionProperties(database=DATABASE, table=TABLE, dataFormat=DataFormat.json, mappingReference=MAPPING)
     BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)
@@ -232,7 +232,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
 1. 将数据引入 `Events` 表中。
 
     ```kusto
-    .ingest into table Events h'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=FlatEventMapping)
+    .ingest into table Events ('https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/simple.json') with '{"format":"json", "ingestionMappingReference":"FlatEventMapping"}'
     ```
 
     文件“simple.json”包含几条行分隔的 JSON 记录。 格式为 `json`，在引入命令中使用的映射是创建的 `FlatEventMapping`。
@@ -284,7 +284,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
 1. 将数据引入 `Events` 表中。
 
     ```csharp
-    var blobPath = "https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
+    var blobPath = "https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/simple.json";
     var properties =
         new KustoQueuedIngestionProperties(database, table)
         {
@@ -305,7 +305,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
 1. 创建一个新表，该表采用类似于 JSON 输入数据的架构。 我们将对下面的所有示例和引入命令使用此表。 
 
     ```python
-    TABLE = "RawEvents"
+    TABLE = "Events"
     CREATE_TABLE_COMMAND = ".create table " + TABLE + " (Time: datetime, Device: string, MessageId: string, Temperature: double, Humidity: double)"
     RESPONSE = KUSTO_CLIENT.execute_mgmt(DATABASE, CREATE_TABLE_COMMAND)
     dataframe_from_result_table(RESPONSE.primary_results[0])
@@ -323,7 +323,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
 1. 将数据引入 `Events` 表中。
 
     ```python
-    BLOB_PATH = 'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D'
+    BLOB_PATH = 'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/simple.json'
     
     INGESTION_PROPERTIES = IngestionProperties(database=DATABASE, table=TABLE, dataFormat=DataFormat.json, mappingReference=MAPPING)
     BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)
@@ -343,7 +343,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
 将数据引入 `Events` 表中。
 
 ```kusto
-.ingest into table Events (h'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/multilined.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D') with '{"format":"multijson", "ingestionMappingReference":"FlatEventMapping"}'
+.ingest into table Events ('https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/multilined.json') with '{"format":"multijson", "ingestionMappingReference":"FlatEventMapping"}'
 ```
 
 # <a name="c"></a>[C#](#tab/c-sharp)
@@ -352,7 +352,7 @@ Azure 数据资源管理器支持两种 JSON 文件格式：
 
 ```csharp
 var tableMapping = "FlatEventMapping";
-var blobPath = "https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/multilined.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
+var blobPath = "https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/multilined.json";
 var properties =
     new KustoQueuedIngestionProperties(database, table)
     {
@@ -372,7 +372,7 @@ ingestClient.IngestFromStorageAsync(blobPath, properties);
 
 ```python
 MAPPING = "FlatEventMapping"
-BLOB_PATH = 'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/multilined.JSON?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D'
+BLOB_PATH = 'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/multilined.json'
 INGESTION_PROPERTIES = IngestionProperties(database=DATABASE, table=TABLE, dataFormat=DataFormat.multijson, mappingReference=MAPPING)
 BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)
 INGESTION_CLIENT.ingest_from_blob(
@@ -439,7 +439,7 @@ INGESTION_CLIENT.ingest_from_blob(
 1. 将数据引入 `RawEvents` 表中。
 
     ```kusto
-    .ingest into table RawEvents (h'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D') with '{"format":"multijson", "ingestionMappingReference":"RawEventMapping"}'
+    .ingest into table RawEvents ('https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/array.json') with '{"format":"multijson", "ingestionMappingReference":"RawEventMapping"}'
     ```
 
 1. 检查 `Events` 表中的数据。
@@ -489,7 +489,7 @@ INGESTION_CLIENT.ingest_from_blob(
     ```csharp
     var table = "RawEvents";
     var tableMapping = "RawEventMapping";
-    var blobPath = "https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
+    var blobPath = "https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/array.json";
     var properties =
         new KustoQueuedIngestionProperties(database, table)
         {
@@ -542,7 +542,7 @@ INGESTION_CLIENT.ingest_from_blob(
     ```python
     TABLE = "RawEvents"
     MAPPING = "RawEventMapping"
-    BLOB_PATH = 'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D'
+    BLOB_PATH = 'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/array.json'
     INGESTION_PROPERTIES = IngestionProperties(database=DATABASE, table=TABLE, dataFormat=DataFormat.multijson, mappingReference=MAPPING)
     BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)
     INGESTION_CLIENT.ingest_from_blob(
@@ -596,7 +596,7 @@ INGESTION_CLIENT.ingest_from_blob(
 1. 将数据引入 `Events` 表中。
 
     ```kusto
-    .ingest into table Events h'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=KeyValueEventMapping)
+    .ingest into table Events ('https://kustosamplefiles.blob.core.chinacloudapi.cn/jsonsamplefiles/dictionary.json') with '{"format":"multijson", "ingestionMappingReference":"KeyValueEventMapping"}'
     ```
 
 # <a name="c"></a>[C#](#tab/c-sharp)
@@ -638,7 +638,7 @@ INGESTION_CLIENT.ingest_from_blob(
 1. 将数据引入 `Events` 表中。
 
     ```csharp
-    var blobPath = "https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
+    var blobPath = "https://kustosamplefiles.blob.core.chinacloudapi.cn/jsonsamplefiles/dictionary.json";
     var properties =
         new KustoQueuedIngestionProperties(database, table)
         {
@@ -666,7 +666,7 @@ INGESTION_CLIENT.ingest_from_blob(
 
      ```python
     MAPPING = "KeyValueEventMapping"
-    BLOB_PATH = 'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D'
+    BLOB_PATH = 'https://kustosamplefiles.blob.core.chinaclouapi.cn/jsonsamplefiles/dictionary.json'
     INGESTION_PROPERTIES = IngestionProperties(database=DATABASE, table=TABLE, dataFormat=DataFormat.multijson, mappingReference=MAPPING)u
     BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)
     INGESTION_CLIENT.ingest_from_blob(

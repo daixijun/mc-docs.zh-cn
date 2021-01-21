@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 83eb67db1df3c1a6eb69ea85a4ad9625b2f824c7
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 7153d2a7f96df8e940ed55c4d308320ea3551cf2
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106313"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611347"
 ---
 # <a name="security-roles-management"></a>安全角色管理
 
@@ -25,13 +25,13 @@ ms.locfileid: "93106313"
 本文介绍了用于管理安全角色的控制命令。
 安全角色定义哪些安全主体（用户和应用程序）有权对受保护的资源（例如数据库或表）进行操作，以及允许进行哪些操作。 例如，对于特定的数据库，具有 `database viewer` 安全角色的主体可以查询和查看该数据库的所有实体（受限制的表除外）。
 
-安全角色可以与安全主体或安全组（可以有其他安全主体或其他安全组）相关联。 当安全主体尝试对受保护的资源进行操作时，系统将检查该主体是否与至少一个授权对资源执行此操作的安全角色相关联。 这称为 **授权检查** 。 授权检查失败会中止操作。
+安全角色可以与安全主体或安全组（可以有其他安全主体或其他安全组）相关联。 当安全主体尝试对受保护的资源进行操作时，系统将检查该主体是否与至少一个授权对资源执行此操作的安全角色相关联。 这称为 **授权检查**。 授权检查失败会中止操作。
 
 **语法**
 
 安全角色管理命令的语法：
 
-*Verb* *SecurableObjectType* *SecurableObjectName* *Role* [`(` *ListOfPrincipals* `)` [ *Description* ]]
+*Verb* *SecurableObjectType* *SecurableObjectName* *Role* [`(` *ListOfPrincipals* `)` [*Description*]]
 
 * *Verb* 指示要执行的操作类型：`.show`、`.add`、`.drop` 和 `.set`。
 
@@ -82,15 +82,19 @@ ms.locfileid: "93106313"
 |---|---|---|---|---
 |Apsty 数据库管理员 |Azure AD 用户 |Mark Smith |cd709aed-a26c-e3953dec735e |aaduser=msmith@fabrikam.com|
 
+
+
+
+
 ## <a name="managing-database-security-roles"></a>管理数据库安全角色
 
 `.set` `database` *DatabaseName* *Role* `none` [`skip-results`]
 
-`.set` `database` *DatabaseName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [ *Description* ]
+`.set` `database` *DatabaseName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [*Description*]
 
-`.add` `database` *DatabaseName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [ *Description* ]
+`.add` `database` *DatabaseName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [*Description*]
 
-`.drop` `database` *DatabaseName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [ *Description* ]
+`.drop` `database` *DatabaseName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [*Description*]
 
 第一个命令从角色中删除所有主体。 第二个命令从角色中删除所有主体，并设置一组新的主体。 第三个命令向角色中添加新的主体，不删除现有主体。 最后一个命令从角色中删除指定的主体，并保留其他主体。
 
@@ -106,18 +110,15 @@ ms.locfileid: "93106313"
 
 * Description（如果已提供）是将与更改关联的文本，可通过相应的 `.show` 命令进行检索。
 
-<!-- TODO: Need more examples for the public syntax. Until then we're keeping this internal -->
-
-
 ## <a name="managing-table-security-roles"></a>管理表安全角色
 
 `.set` `table` *TableName* *Role* `none` [`skip-results`]
 
-`.set` `table` *TableName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [ *Description* ]
+`.set` `table` *TableName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [*Description*]
 
-`.add` `table` *TableName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [ *Description* ]
+`.add` `table` *TableName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [*Description*]
 
-`.drop` `table` *TableName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [ *Description* ]
+`.drop` `table` *TableName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [*Description*]
 
 第一个命令从角色中删除所有主体。 第二个命令从角色中删除所有主体，并设置一组新的主体。 第三个命令向角色中添加新的主体，不删除现有主体。 最后一个命令从角色中删除指定的主体，并保留其他主体。
 
@@ -158,11 +159,11 @@ ms.locfileid: "93106313"
 
 `.set` `function` *FunctionName* *Role* `none` [`skip-results`]
 
-`.set` `function` *FunctionName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [ *Description* ]
+`.set` `function` *FunctionName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [*Description*]
 
-`.add` `function` *FunctionName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [ *Description* ]
+`.add` `function` *FunctionName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [*Description*]
 
-`.drop` `function` *FunctionName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [ *Description* ]
+`.drop` `function` *FunctionName* *Role* `(` *Principal* [`,` *Principal*...] `)` [`skip-results`] [*Description*]
 
 第一个命令从角色中删除所有主体。 第二个命令从角色中删除所有主体，并设置一组新的主体。 第三个命令向角色中添加新的主体，不删除现有主体。 最后一个命令从角色中删除指定的主体，并保留其他主体。
 

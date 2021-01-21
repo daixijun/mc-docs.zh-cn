@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 12/09/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: f989a0fe0555d1b785d454a9e099eeb9b09e7a33
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 3d5ba93a0aee76f052821608623cf92d4a58b1af
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104003"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611696"
 ---
 # <a name="re2-syntax"></a>RE2 语法
 

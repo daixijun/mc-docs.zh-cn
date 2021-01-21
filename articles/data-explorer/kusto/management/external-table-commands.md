@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 05/26/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 1a59522f60acbe90ce799db4045ef0bcde44be19
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.openlocfilehash: 123913a2fa3dbc01548c3b0bc8ccbd51d39adf16
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556485"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611304"
 ---
 # <a name="external-table-general-control-commands"></a>外部表常规控制命令
 
@@ -113,7 +113,7 @@ csl：
 
 **输出**
 
-返回已删除表的属性。 有关详细信息，请参阅 [.show external tables](#show-external-tables)。
+返回已删除表的属性。 有关详细信息，请参阅 [`.show external tables`](#show-external-tables)。
 
 **示例：**
 

@@ -7,13 +7,13 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 11/28/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: cd645d4ea5072b393b2aec3cca10c7f21d5b7d3a
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/22/2021
+ms.openlocfilehash: e534ae0357b8cd905739b17c2d49d3289712eca2
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431186"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611633"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>使用 Azure 资源管理器模板为 Azure 数据资源管理器创建事件中心数据连接
 

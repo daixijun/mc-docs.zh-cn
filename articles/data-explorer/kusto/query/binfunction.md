@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 0d3e824fb4ac10a3aa0eed16ec8f0a37edd1a26a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: bbf05eec3faf2724df76fe60a7174777908b9083
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106048"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611517"
 ---
 # <a name="bin"></a>bin()
 
@@ -33,8 +34,8 @@ Null 值、null bin 大小或负的 bin 大小将导致 null。
 
 ## <a name="arguments"></a>参数
 
-* *value* ：数字、日期或时间跨度。 
-* *roundTo* ：“bin 大小”。 可以用来除 *value* 的数字或时间跨度。 
+* *value*：数字、日期或 [时间跨度](scalar-data-types/timespan.md)。 
+* *roundTo*：“bin 大小”。 可以用来除 *value* 的数字或时间跨度。 
 
 ## <a name="returns"></a>返回
 

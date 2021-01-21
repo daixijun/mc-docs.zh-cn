@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 08/13/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: 89d8c5d84918bfbbae222df308093ddf4224c497
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.date: 01/19/2021
+ms.openlocfilehash: aa6fd1601009699706979d737e4402a4b5d82ee0
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300363"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611493"
 ---
 # <a name="iot-hub-data-connection"></a>IoT 中心数据连接
 
@@ -99,7 +99,7 @@ IoT 中心公开了以下系统属性：
 
 ## <a name="sending-events"></a>发送事件
 
-请参阅用于模拟设备并生成数据的[示例项目](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Quickstarts/simulated-device)。
+请参阅用于模拟设备并生成数据的[示例项目](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Quickstarts/SimulatedDevice)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -12,12 +12,12 @@ origin.date: 08/17/2020
 ms.date: 12/30/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 25974f963d206be6d4839fb1f3ad6f2bc0e93c91
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: db355dc960a0ffc2c36f98ae94d370bee8b2c487
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820274"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611712"
 ---
 # <a name="speech-service-release-notes"></a>语音服务发行说明
 
@@ -55,7 +55,7 @@ With this release, we now support a total of 129 neural voices across 54 languag
 - **Five new voices and languages** are introduced to the Neural TTS portfolio. They are: Grace in Maltese (Malta), Ona in Lithuanian (Lithuania), Anu in Estonian (Estonia), Orla in Irish (Ireland) and Everita in Latvian (Latvia).
 - **Five new `zh-CN` voices with multiple styles and roles support**: Xiaohan, Xiaomo, Xiaorui, Xiaoxuan and Yunxi.
 
-> These voices are available in public preview in three Azure regions: EastUS, SouthEastAsia and WestEurope.
+> These voices are available in public preview in three Azure regions: China East 2.
 -->
 
 <!--

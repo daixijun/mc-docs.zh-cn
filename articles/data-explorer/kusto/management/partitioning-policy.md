@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/04/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 666c07bf38f8cea50c477a72c9c0f00c663e8ff9
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.openlocfilehash: 936fc6f77f33c1903070d0fba9b2016607ba6a9a
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515993"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611308"
 ---
 # <a name="partitioning-policy-command"></a>分区策略命令
 
@@ -78,6 +78,7 @@ ms.locfileid: "88515993"
       '"Properties": {'
         '"Reference": "1970-01-01T00:00:00",'
         '"RangeSize": "1.00:00:00"'
+        '"OverrideCreationTime": false'
       '}'
     '}'
   ']'
@@ -103,6 +104,7 @@ ms.locfileid: "88515993"
       '"Properties": {'
         '"Reference": "1970-01-01T00:00:00",'
         '"RangeSize": "1.00:00:00"'
+        '"OverrideCreationTime": false'
       '}'
     '}'
   ']'

@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/08/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: cbcc9d3fceb54732a0caa373a8dc3e77b6f84549
-ms.sourcegitcommit: c17e965d4ffd82fd7cd86b2648fcb0053a65df00
+ms.date: 01/22/2021
+ms.openlocfilehash: c73d5ef0b7b2f627b56059344fc60e55438e8936
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470504"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611343"
 ---
 # <a name="alter-merge-table"></a>.alter-merge table
  
@@ -29,7 +29,7 @@ ms.locfileid: "86470504"
 > `.alter-merge` 命令使用不当可能会导致数据丢失。
 
 > [!TIP]
-> `.alter-merge` 有一个对应的 `.alter` 表命令，它具有类似的功能。 有关详细信息，请参阅 [.alter table](../management/alter-table-command.md)
+> `.alter-merge` 有一个对应的 `.alter` 表命令，它具有类似的功能。 有关详细信息，请参阅 [`.alter table`](../management/alter-table-command.md)
 
 **语法**
 

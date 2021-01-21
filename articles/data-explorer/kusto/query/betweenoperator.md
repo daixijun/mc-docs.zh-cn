@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 10/29/2020
-ms.openlocfilehash: 925cebe415b888d9f2c888e12c6e5b774a08c38f
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: ac3808b57b69e893a8479614363bedb9b7c24bc3
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103737"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611475"
 ---
 # <a name="between-operator"></a>between 运算符
 

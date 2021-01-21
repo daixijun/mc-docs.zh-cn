@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/24/2019
-ms.date: 07/31/2020
-ms.openlocfilehash: 47cb8fdcc05cc227e2b0f6b9312562de27cbbe02
-ms.sourcegitcommit: 4e1bc2e9b2a12dbcc05c52db5dbd1ae290aeb18d
+ms.date: 01/22/2021
+ms.openlocfilehash: 54cf05675a709e851a13ba38a6b84c99f325bed6
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2020
-ms.locfileid: "87509239"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611307"
 ---
 # <a name="entity-names"></a>实体名称
 
@@ -32,8 +32,6 @@ Kusto 实体（数据库、表、列和存储函数；群集是例外）具有�
 友好名称允许中间层应用程序将自动创建的实体名称（如 UUID）映射到易于理解的名称，以便显示和引用。
 
 ## <a name="identifier-naming-rules"></a>标识符命名规则
-
-<!-- TODO: This section should be reviewed and moved to its own page -->
 
 标识符用于命名各种实体（实体或其他项）。
 有效的标识符名称遵循以下规则：

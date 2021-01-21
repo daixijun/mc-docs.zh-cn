@@ -8,15 +8,16 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/30/2020
+ms.date: 01/22/2021
+ms.localizationpriority: high
 zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 425263820ec643d2a28d9b55176058507ea7e3b7
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: e017b97a605f257d8c52e296a68f0e1a18c6cfc3
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590645"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611490"
 ---
 # <a name="union-operator"></a>union 运算符
 
@@ -65,6 +66,10 @@ Table1 | union Table2, Table3
     *  表的名称，例如 `Events`
     *  必须用圆括号括起来的查询表达式，例如 `(Events | where id==42)`
     *  使用通配符指定的一组表。 例如，`E*` 将构成数据库中所有名称以 `E` 开头的表的并集。
+
+> [!NOTE]
+> 表的列表已知时，请勿使用通配符。 某些工作区包含非常多的表，会导致执行效率低下。 还可能会随着时间的推移添加表，导致不可预测结果。
+    
 * `kind`: 
     * `inner` - 此结果包含所有输入表所共有列的子集。
     * `outer` -（默认值）。 结果包含所有输入中出现的所有列。 未由输入行定义的单元格设置为 `null`。

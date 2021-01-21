@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/19/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 9755fd6d44bb80c1bee20b67e1f9d59254f05fc9
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: ba99f10cfc73c5efcc4cbc25319dc689a15dc97d
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104426"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611497"
 ---
 # <a name="string-operators"></a>字符串运算符
 
@@ -30,7 +31,7 @@ Kusto 将为所有列（包括 `string` 类型的列）编制索引。 将根据
 例如，在下面的 `string` 中，词语是 `Kusto`、`WilliamGates3rd` 以及以下子字符串：`ad67d136`、`c1db`、`4f9f`、`88ef`、`d94f3b6b0b5a`。
 
 ```
-Kusto:  ad67d136-c1db-4f9f-88ef-d94f3b6b0b5a;;WilliamGates3rd
+Kusto: ad67d136-c1db-4f9f-88ef-d94f3b6b0b5a;;WilliamGates3rd
 ```
 
 Kusto 会构建一个词语索引，其中包含具有四个或更多个字符的所有词语。此索引由 `has`、`!has` 等使用。 如果查询查找小于四个字符的词语，或者使用 `contains` 运算符，则如果 Kusto 无法确定匹配项，它将恢复为扫描列中的值。 此方法比在词语索引中查找词语的速度要慢得多。
@@ -41,6 +42,11 @@ Kusto 会构建一个词语索引，其中包含具有四个或更多个字符�
 > 下表中使用了以下缩写：
 > * RHS = 表达式的右侧
 > * LHS = 表达式的左侧
+> 
+> 带有 `_cs` 后缀的运算符要区分大小写。
+
+> [!NOTE]
+> 目前仅 ASCII 文本支持不区分大小写的运算符。 对于非 ASCII 比较，请使用 [tolower()](tolowerfunction.md) 函数。
 
 运算符        |描述                                                       |区分大小写|示例（生成 `true`）
 ----------------|------------------------------------------------------------------|--------------|-----------------------
@@ -50,6 +56,7 @@ Kusto 会构建一个词语索引，其中包含具有四个或更多个字符�
 `!~`            |不等于                                                        |否            |`"aBc" !~ "xyz"`
 `has`           |右侧 (RHS) 是左侧 (LHS) 的整体     |否            |`"North America" has "america"`
 `!has`          |RHS 不是 LHS 中的完整词语                                     |否            |`"North America" !has "amer"` 
+[`has_any`](has-anyoperator.md)       |与 `has` 相同，但适用于任何元素                    |否            |`"North America" has_any("south", "north")`
 `has_cs`        |RHS 是 LHS 中的完整词语                                        |是           |`"North America" has_cs "America"`
 `!has_cs`       |RHS 不是 LHS 中的完整词语                                     |是           |`"North America" !has_cs "amer"` 
 `hasprefix`     |RHS 是 LHS 中的词语前缀                                       |否            |`"North America" hasprefix "ame"`
@@ -73,11 +80,11 @@ Kusto 会构建一个词语索引，其中包含具有四个或更多个字符�
 `endswith_cs`   |RHS 是 LHS 的闭合子序列                               |是           |`"Fabrikam" endswith_cs "kam"`
 `!endswith_cs`  |RHS 不是 LHS 的闭合子序列                           |是           |`"Fabrikam" !endswith_cs "brik"`
 `matches regex` |LHS 包含 RHS 的匹配项                                      |是           |`"Fabrikam" matches regex "b.*k"`
-`in`            |等于某个元素                                     |是           |`"abc" in ("123", "345", "abc")`
-`!in`           |不等于任何元素                                 |是           |`"bca" !in ("123", "345", "abc")`
+[`in`](inoperator.md)            |等于某个元素                                     |是           |`"abc" in ("123", "345", "abc")`
+[`!in`](inoperator.md)           |不等于任何元素                                 |是           |`"bca" !in ("123", "345", "abc")`
 `in~`           |等于某个元素                                     |否            |`"abc" in~ ("123", "345", "ABC")`
 `!in~`          |不等于任何元素                                 |否            |`"bca" !in~ ("123", "345", "ABC")`
-`has_any`       |与 `has` 相同，但适用于任何元素                    |否            |`"North America" has_any("south", "north")`
+
 
 > [!TIP]
 > 包含 `has` 的所有运算符都对四个或更多个字符的索引项进行搜索，而不对子字符串匹配项进行搜索。 通过将字符串分解为 ASCII 字母数字字符序列来创建词语。 请参阅[了解字符串词语](#understanding-string-terms)。

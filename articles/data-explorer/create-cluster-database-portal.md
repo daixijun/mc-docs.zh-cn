@@ -7,13 +7,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 origin.date: 07/22/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: 533e4f0d9400951abdf36082e66792dccf6a5a56
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: a0ef5ea1905fca0ca32533134fdc49372a1bd1de
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96430859"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611671"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>快速入门：创建 Azure 数据资源管理器群集和数据库
 
@@ -66,6 +67,11 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 1. 部署完成后，选择“转到资源”。 
 
     ![转到资源](media/create-cluster-database-portal/notification-resource.png)
+
+> [!NOTE]
+> 如果部署失败，并出现错误“SubscriptionNotRegistered”，请重试该操作。 
+> 
+> 如果未在 [Azure 资源提供程序和类型](/azure-resource-manager/management/resource-providers-and-types)中所述的订阅上注册 Kusto 资源提供程序，部署将失败。 部署失败时，Kusto 资源提供程序将在订阅上自行注册，然后重试操作会成功。
 
 ## <a name="create-a-database"></a>创建数据库
 

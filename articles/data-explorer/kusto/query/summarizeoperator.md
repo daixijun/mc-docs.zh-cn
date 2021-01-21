@@ -8,13 +8,14 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/20/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: 61ed6eea143427ee205fde17856adb50d3af8447
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: a5f611293c22113f88e6cd1022e57304e1799f13
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104004"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611640"
 ---
 # <a name="summarize-operator"></a>summarize 运算符
 
@@ -35,11 +36,11 @@ T | summarize count() by price_range=bin(price, 10.0)
 
 ## <a name="syntax"></a>语法
 
-*T* `| summarize` [[ *Column* `=`] *Aggregation* [`,` ...]] [`by` [ *Column* `=`] *GroupExpression* [`,` ...]]
+*T* `| summarize` [[*Column* `=`] *Aggregation* [`,` ...]] [`by` [*Column* `=`] *GroupExpression* [`,` ...]]
 
 ## <a name="arguments"></a>参数
 
-* *Column* ：结果列的可选名称。 默认为派生自表达式的名称。
+* *Column*：结果列的可选名称。 默认为派生自表达式的名称。
 * *聚合：* 对 [聚合函数](summarizeoperator.md#list-of-aggregation-functions)（例如 `count()` 或 `avg()`）的调用，以列名作为参数。 请参阅[聚合函数的列表](summarizeoperator.md#list-of-aggregation-functions)。
 * GroupExpression：一个可以引用输入数据的标量表达式。
   所有组表达式有多少个不同的值，输出就会包含多少个记录。
@@ -118,7 +119,7 @@ T | summarize count() by price_range=bin(price, 10.0)
 
 :::image type="content" source="images/summarizeoperator/summarize-price-by-supplier.png" alt-text="按水果和供应商汇总价格":::
 
-## <a name="example"></a>示例
+## <a name="example-unique-combination"></a>示例：唯一组合
 
 确定表中有 `ActivityType` 和 `CompletionStatus` 的哪些唯一组合。 没有聚合函数，只是有分组依据键。 输出将只显示这些结果的列：
 
@@ -133,7 +134,7 @@ Activities | summarize by ActivityType, completionStatus
 |`dancing`|`abandoned`
 |`singing`|`completed`
 
-## <a name="example"></a>示例
+## <a name="example-minimum-and-maximum-timestamp"></a>示例：最小和最大时间戳
 
 查找 Activities 表中所有记录的最小和最大时间戳。 没有 group by 子句，因此输出中只有一行：
 
@@ -145,7 +146,7 @@ Activities | summarize Min = min(Timestamp), Max = max(Timestamp)
 |---|---
 |`1975-06-09 09:21:45` | `2015-12-24 23:45:00`
 
-## <a name="example"></a>示例
+## <a name="example-distinct-count"></a>示例：非重复计数
 
 为每个大陆创建一行，并显示发生活动的城市的计数。 由于“continent”的值很少，因此“by”子句中不需要使用任何分组函数：
 
@@ -160,7 +161,7 @@ Activities | summarize cities=dcount(city) by continent
 |`2673`|`North America`|
 
 
-## <a name="example"></a>示例
+## <a name="example-histogram"></a>示例：直方图
 
 下面的示例将计算每个活动类型的直方图。 由于 `Duration` 有许多值，因此请使用 `bin` 将其值按 10 分钟的间隔分组：
 

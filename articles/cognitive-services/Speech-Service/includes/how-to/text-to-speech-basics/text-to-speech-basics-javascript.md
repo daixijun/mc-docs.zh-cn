@@ -6,12 +6,12 @@ origin.date: 04/15/2020
 ms.date: 12/30/2020
 ms.author: v-tawe
 ms.custom: devx-track-js
-ms.openlocfilehash: 234efbee5312a845a35c9338e84db3c7501d81a6
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: 42479d0c18f332edb381a8784b0ab97fe0b88c63
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820667"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98612943"
 ---
 本快速入门介绍使用语音 SDK 进行文本到语音合成的常见设计模式。 首先，请进行基本的配置和合成，然后通过更高级的示例来了解自定义应用程序开发，其中包括：
 
@@ -304,7 +304,7 @@ function synthesizeSpeech() {
 若要切换到某种神经语音，请将 `name` 更改为[神经语音选项](../../../language-support.md#neural-voices)之一。 然后，为 `mstts` 添加 XML 命名空间，并在 `<mstts:express-as>` 标记中包装文本。 使用 `style` 参数自定义讲话风格。 此示例使用 `cheerful`，但请尝试将其设置为 `customerservice` 或 `chat`，以了解讲话风格的差别。
 
 <!-- > [!IMPORTANT]
-> Neural voices are **only** supported for Speech resources created in *China East*, *South East Asia*, and *West Europe* regions. -->
+> Neural voices are **only** supported for Speech resources created in *China East* regions. -->
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"

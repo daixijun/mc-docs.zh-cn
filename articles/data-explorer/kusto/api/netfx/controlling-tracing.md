@@ -9,13 +9,13 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 origin.date: 10/23/2018
-ms.date: 07/01/2020
-ms.openlocfilehash: b761406b269f9aa96bced854baf7197a0820e6af
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 01/22/2021
+ms.openlocfilehash: e1620e0fabc24f3edb62290fae408b0ce2b9d739
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226272"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611703"
 ---
 # <a name="controlling-and-suppressing-kusto-sdk-client-side-tracing"></a>控制和取消 Kusto SDK 客户端跟踪
 
@@ -40,7 +40,7 @@ Kusto.Cloud.Platform.Utils.TraceSourceManager.SetTraceVerbosityForAll(
 若要通过配置文件从 Kusto 客户端库取消跟踪，请修改文件 `Kusto.Cloud.Platform.dll.tweaks`（在 `Kusto.Data` 库中随附）。
 
 ```xml
-    <!-- Overrides the default trace verbosity level -->
+    //Overrides the default trace verbosity level
     <add key="Kusto.Cloud.Platform.Utils.Tracing.OverrideTraceVerbosityLevel" value="0" />
 ```
 

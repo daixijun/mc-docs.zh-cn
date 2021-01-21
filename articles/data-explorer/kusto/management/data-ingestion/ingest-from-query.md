@@ -8,13 +8,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/30/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: e0d20654ef8b90c15fb815f4f1d6390a8cdf442b
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 01/22/2021
+ms.localizationpriority: high
+ms.openlocfilehash: d914d6a1e3b47dc61ac26a0530162c4fc0c018ce
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226202"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611340"
 ---
 # <a name="ingest-from-query-set-append-set-or-append-set-or-replace"></a>从查询引入（.set、.append、.set-or-append、.set-or-replace）
 
@@ -81,7 +82,7 @@ ms.locfileid: "86226202"
 
 **示例** 
 
-在数据库中创建一个名为“RecentErrors”的新表，使该表具有与“LogsTable”相同的架构并保存过去一小时的所有错误记录。
+在数据库中创建名为 :::no-loc text="RecentErrors"::: 的新表，该表与 :::no-loc text="LogsTable"::: 具有相同的架构，并保存最近一小时的所有错误记录。
 
 ```kusto
 .set RecentErrors <|

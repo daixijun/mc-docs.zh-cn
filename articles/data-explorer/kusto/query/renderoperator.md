@@ -7,16 +7,17 @@ ms.author: v-tawe
 ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
-origin.date: 03/29/2020
-ms.date: 09/30/2020
+origin.date: 12/08/2020
+ms.date: 01/22/2021
+ms.localizationpriority: high
 zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 92cfd1e8f209b48cb46b059619e88cbcb774cdff
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: cd54235792371d362d98c3059b0efc6af9d6d3d7
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590896"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611694"
 ---
 # <a name="render-operator"></a>render 运算符
 
@@ -43,7 +44,7 @@ range x from 0.0 to 2*pi() step 0.01 | extend y=sin(x) | render linechart
 
 |*可视化*     |描述|
 |--------------------|-|
-| `anomalychart`     | 与 timechart 类似，但使用 [series_decompose_anomalies](./series-decompose-anomaliesfunction.md) 函数[突出显示异常](./samples.md#get-more-out-of-your-data-in-kusto-with-machine-learning)。 |
+| `anomalychart`     | 与 timechart 类似，但使用 [series_decompose_anomalies](./series-decompose-anomaliesfunction.md) 函数[突出显示异常](./samples.md#get-more-from-your-data-by-using-kusto-with-machine-learning)。 |
 | `areachart`        | 面积图。 第一列是 x 轴，应当为数值列。 其他数值列是 y 轴。 |
 | `barchart`         | 第一列是 x 轴，可以是文本、日期/时间或数值。 其他列是数值，显示为水平条带。|
 | `card`             | 第一个结果记录被视为标量值集，并显示为卡片。 |
@@ -140,8 +141,6 @@ range x from 0.0 to 2*pi() step 0.01 | extend y=sin(x) | render linechart
 |`axes`    |单个图表将显示多个 y 轴（每个系列一个）。|
 |`panels`  |为每个 `ycolumn` 值呈现一个图表（直至达到某个限制）。|
 
-::: zone-end
-
 > [!NOTE]
 > render 运算符的数据模型将表格数据视为具有下述三种列的数据：
 >
@@ -167,10 +166,40 @@ range x from -2 to 2 step 0.1
 | render linechart with  (ycolumns = sin, cos, series = x_sign, sum_sign)
 ```
 
-::: zone pivot="azuredataexplorer"
+[在教程中呈现示例](./tutorial.md#displaychartortable)
 
-[教程中的呈现示例](./tutorial.md#render-display-a-chart-or-table)。
+[异常检测](./samples.md#get-more-from-your-data-by-using-kusto-with-machine-learning)
 
-[异常检测](./samples.md#get-more-out-of-your-data-in-kusto-with-machine-learning)
+::: zone-end
+
+::: zone pivot="azuremonitor"
+
+> [!NOTE]
+> render 运算符的数据模型将表格数据视为具有下述三种列的数据：
+>
+> * X 轴列（由 `xcolumn` 属性指示）。
+> * series 列（由 `series` 属性指示的任意数量的列）。
+> * Y 轴列（由 `ycolumns` 属性指示的任意数目的列）。
+  对于每个记录，该系列都具有与 y 轴列一样多的度量（图表中的“点”）。
+
+> [!TIP]
+> 
+> * 可使用 `where`、`summarize` 和 `top` 来限制显示的数据量。
+> * 对数据进行排序以定义 x 轴的顺序。
+> * 用户代理可以自由地“推测”查询未指定的属性的值。 需要特别注意的是，在结果架构中提高“不感兴趣的”列可能会导致推测错误。 如果出现这种情况，请尝试通过 project-away 运算符排除此类列。 
+
+## <a name="example"></a>示例
+
+<!-- csl: https://help.kusto.chinacloudapi.cn/Samples -->
+```kusto
+InsightsMetrics
+| where Computer == "DC00.NA.contosohotels.com"
+| where Namespace  == "Processor" and Name == "UtilizationPercentage"
+| summarize avg(Val) by Computer, bin(TimeGenerated, 1h)
+| render timechart
+```
+
+[在教程中呈现示例](./tutorial.md?pivots=azuremonitor#display-a-chart-or-table-render-1)
+
 
 ::: zone-end
