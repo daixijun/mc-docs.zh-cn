@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/25/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 5c134098690cfe5090da6f6fe9973449ea73615a
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: ea2109759061b3402fd098e9dc5552044acabe74
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021987"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230932"
 ---
 # <a name="configure-and-submit-training-runs"></a>配置和提交训练运行
 
@@ -204,6 +204,18 @@ run.wait_for_completion(show_output=True)
     ```
 
     在内部，Azure ML 会将具有相同指标名称的块串联到一个连续列表中。
+
+* 运行失败并出现 `jwt.exceptions.DecodeError`：确切的错误消息：`jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`。 
+    
+    请考虑升级到 azureml-core 的最新版本：`pip install -U azureml-core`。
+    
+    如果在本地运行时遇到此问题，请检查在启动运行的环境中安装的 PyJWT 的版本。 受支持的 PyJWT 的版本是低于 2.0.0 的版本。 如果版本不低于 2.0.0，请从环境中卸载 PyJWT。 可以检查 PyJWT 的版本，按如下所述进行卸载，然后安装正确的版本：
+    1. 启动命令 shell，激活安装了 azureml-core 的 conda 环境。
+    2. 输入 `pip freeze` 并查找 `PyJWT`，如果找到，则列出的版本应低于 2.0.0
+    3. 如果列出的版本不受支持，请在命令行界面中使用 `pip uninstall PyJWT`，并输入 y 进行确认。
+    4. 使用 `pip install 'PyJWT<2.0.0'` 进行安装
+    
+    如果要随运行提交用户创建的环境，请考虑在该环境中使用 azureml-core 的最新版本。 不低于 1.18.0 版的 azureml-core 已经固定为使用低于 2.0.0 的 PyJWT。 如果需要在提交的环境中使用低于 1.18.0 版的 azureml-core，请确保在 pip 依赖项中指定低于 2.0.0 版的 PyJWT。
 
 ## <a name="next-steps"></a>后续步骤
 

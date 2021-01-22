@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/28/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: e696e1a4a8465adc22fc9fd971b4ff585d680c6c
-ms.sourcegitcommit: 3a8a7d65d0791cdb6695fe6c2222a1971a19f745
+ms.openlocfilehash: e273f77765e8ea297f03acb613b618f749e902ed
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85516455"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570600"
 ---
 # <a name="user-profile-attributes"></a>用户配置文件属性
 
@@ -52,7 +52,7 @@ Azure Active Directory (Azure AD) B2C 目录用户配置文件附带了一组内
 |facsimileTelephoneNumber<sup>1</sup>|字符串|用户的业务传真号码。|是|否|持久化、输出|
 |givenName       |字符串|用户的名字（名）。 最大长度为 64。|是|是|持久化、输出|
 |jobTitle        |字符串|用户的职务。 最大长度为 128。|是|是|持久化、输出|
-|immutableId     |字符串|从本地 Active Directory 迁移的用户通常使用的标识符。|否|否|持久化、输出|
+|immutableId     |字符串|通常用于从本地 Active Directory 迁移的用户的标识符。|否|否|持久化、输出|
 |legalAgeGroupClassification|字符串|法定年龄组分类。 基于 ageGroup 和 consentProvidedForMinor 属性计算的只读属性。 允许的值：null、minorWithOutParentalConsent、minorWithParentalConsent、minorNoParentalConsentRequired、notAdult 和 adult。|是|否|持久化、输出|
 |legalCountry<sup>1</sup>  |字符串|用于法律目的的国家/地区。|否|否|持久化、输出|
 |mail            |字符串|用户的 SMTP 地址，例如“bob@contoso.com”。 只读。|否|否|持久化、输出|
@@ -62,29 +62,35 @@ Azure Active Directory (Azure AD) B2C 目录用户配置文件附带了一组内
 |objectId        |字符串|全局唯一标识符 (GUID)（用户的唯一标识符）。 示例：12345678-9abc-def0-1234-56789abcde。 只读，不可变。|只读|是|输入、持久化、输出|
 |otherMails      |字符串集合|用户的其他电子邮件地址列表。 示例：[“bob@contoso.com”、“Robert@fabrikam.com”]。|是（备用电子邮件）|否|持久化、输出|
 |password        |字符串|创建用户期间用于本地帐户的密码。|否|否|持久化|
-|passwordPolicies     |字符串|密码策略。 它是由逗号分隔的不同策略名称构成的字符串。 例如“DisablePasswordExpiration, DisableStrongPassword”。|否|否|持久化、输出|
+|passwordPolicies     |字符串|密码策略。 它是由逗号分隔的不同策略名称构成的字符串。 例如，“DisablePasswordExpiration, DisableStrongPassword”。|否|否|持久化、输出|
 |physicalDeliveryOfficeName (officeLocation)|字符串|用户营业地点的办公室位置。 最大长度为 128。|是|否|持久化、输出|
-|postalCode      |字符串|用户邮政地址的邮政编码。 该邮政编码特定于用户所在的国家/地区。 在美国，此属性包含邮政编码。 最大长度为 40。|是|否|持久化、输出|
+|postalCode      |字符串|用户邮政地址的邮政编码。 该邮政编码特定于用户所在的国家/地区。 最大长度为 40。|是|否|持久化、输出|
 |preferredLanguage    |字符串|用户的首选语言。 应遵循 ISO 639-1 代码。 示例：“en-US”。|否|否|持久化、输出|
 |refreshTokensValidFromDateTime|DateTime|在此时间之前颁发的所有刷新令牌无效，使用无效刷新令牌获取新的访问令牌时，应用程序会收到错误。 如果发生这种情况，应用程序需要通过向授权终结点发出请求来获取新的刷新令牌。 只读。|否|否|输出|
 |signInNames（[标识](manage-user-accounts-graph-api.md#identities-property)） |字符串|目录中任何类型的本地帐户用户的唯一登录名。 使用此属性可以获取具有登录值的用户，而无需指定本地帐户类型。|否|否|输入|
 |signInNames.userName（[标识](manage-user-accounts-graph-api.md#identities-property)） |字符串|目录中本地帐户用户的唯一用户名。 使用此属性可以创建或获取具有特定登录用户名的用户。 在执行修补操作期间，在 PersistedClaims 中单独指定此属性会删除其他 signInNames 类型。 若要添加新的 signInNames 类型，还需要保存现有的 signInNames。|否|否|输入、持久化、输出|
-|signInNames.phoneNumber（[标识](manage-user-accounts-graph-api.md#identities-property)） |字符串|目录中本地帐户用户的唯一电话号码。 使用此属性可以创建或获取具有特定登录电话号码的用户。 在执行修补操作期间，在 PersistedClaims 中单独指定此属性会删除其他 signInNames 类型。 若要添加新的 signInNames 类型，还需要保存现有的 signInNames。|否|否|输入、持久化、输出|
-|signInNames.emailAddress（[标识](manage-user-accounts-graph-api.md#identities-property)）|字符串|目录中本地帐户用户的唯一电子邮件地址。 使用此属性可以创建或获取具有特定登录电子邮件地址的用户。 在执行修补操作期间，在 PersistedClaims 中单独指定此属性会删除其他 signInNames 类型。 若要添加新的 signInNames 类型，还需要保存现有的 signInNames。|否|否|输入、持久化、输出|
+|signInNames.phoneNumber（[标识](manage-user-accounts-graph-api.md#identities-property)） |字符串|目录中本地帐户用户的唯一电话号码。 使用此属性可以创建或获取具有特定登录电话号码的用户。 在执行 Patch 操作期间，在 PersistedClaims 中单独指定此属性会删除其他类型的 signInNames。 若要添加新的 signInNames 类型，还需要保存现有的 signInNames。|否|否|输入、持久化、输出|
+|signInNames.emailAddress（[标识](manage-user-accounts-graph-api.md#identities-property)）|字符串|目录中本地帐户用户的唯一电子邮件地址。 使用此属性可以创建或获取具有特定登录电子邮件地址的用户。 在执行 Patch 操作期间，在 PersistedClaims 中单独指定此属性会删除其他类型的 signInNames。 若要添加新的 signInNames 类型，还需要保存现有的 signInNames。|否|否|输入、持久化、输出|
 |state           |字符串|用户地址中的省/自治区/直辖市。 最大长度为 128。|是|是|持久化、输出|
 |streetAddress   |字符串|用户营业地点的街道地址。 最大长度为 1024。|是|是|持久化、输出|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|字符串|用户的次要电话号码，用于多重身份验证。|是|否|持久化、输出|
 |strongAuthenticationEmailAddress<sup>1</sup>|字符串|用户的 SMTP 地址。 示例：“bob@contoso.com”。此属性在通过用户名策略进行登录时用于存储用户电子邮件地址。 然后，该电子邮件地址将在密码重置流中使用。|是|否|持久化、输出|
-|strongAuthenticationPhoneNumber<sup>1</sup>|字符串|用户的主要电话号码，用于多重身份验证。|是|否|持久化、输出|
+|strongAuthenticationPhoneNumber<sup>2</sup>|字符串|用户的主要电话号码，用于多重身份验证。|是|否|持久化、输出|
 |surname         |字符串|用户的姓（家族名或姓氏）。 最大长度为 64。|是|是|持久化、输出|
 |telephoneNumber（businessPhones 的第一个条目）|字符串|用户营业地点的主要电话号码。|是|否|持久化、输出|
 |userPrincipalName    |字符串|用户的用户主体名称 (UPN)。 UPN 是用户的 Internet 样式登录名，基于 Internet 标准 RFC 822。 域必须存在于租户的已验证域集合中。 创建帐户时必须使用此属性。 不可变。|否|否|输入、持久化、输出|
 |usageLocation   |字符串|这对由于法律要求要向其分配许可证的用户而言为必填项，以检查服务在国家/地区中的可用性。 不可为 Null。 双字母国家/地区代码（ISO 标准 3166）。 示例：示例:“US”、“JP”和“GB”。|是|否|持久化、输出|
 |userType        |字符串|一个字符串值，可用于分类目录中的用户类型。 值必须为 Member。 只读。|只读|否|持久化、输出|
-|userState (externalUserState)<sup>2</sup>|字符串|仅适用于 Azure AD B2B 帐户，指示邀请是 PendingAcceptance 还是 Accepted。|否|否|持久化、输出|
+|userState (externalUserState)<sup>3</sup>|字符串|仅适用于 Azure AD B2B 帐户，指示邀请是 PendingAcceptance 还是 Accepted。|否|否|持久化、输出|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|显示 UserState 属性最新更改的时间戳。|否|否|持久化、输出|
-|<sup>1 </sup>不受 Microsoft Graph 支持<br><sup>2 </sup>不应该与 Azure AD B2C 一起使用||||||
 
+<sup>1 </sup>不受 Microsoft Graph 支持<br><sup>2 </sup>有关详细信息，请参阅 [MFA 电话号码属性](#mfa-phone-number-attribute)<br><sup>3</sup> 不应该用于 Azure AD B2C
+
+## <a name="mfa-phone-number-attribute"></a>MFA 电话号码属性
+
+在使用电话进行多重身份验证 (MFA) 时，移动电话会用来验证用户标识。 若要采用编程方式[添加](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)新电话号码，或者要[更新](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)、[获取](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)或[删除](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)电话号码，请使用 MS Graph API [电话身份验证方法](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod)。
+
+在 Azure AD B2C [自定义策略](custom-policy-overview.md)中，可通过 `strongAuthenticationPhoneNumber` 声明类型获取电话号码。
 
 ## <a name="extension-attributes"></a>扩展属性
 
@@ -114,6 +120,5 @@ Azure AD B2C 扩展存储在每个用户帐户中的属性集。 扩展属性[�
 ## <a name="next-steps"></a>后续步骤
 了解有关扩展属性的详细信息：
 - [架构扩展](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions)
-- [使用用户流定义自定义属性](user-flow-custom-attributes.md)
-
+- [定义自定义属性](user-flow-custom-attributes.md)
 

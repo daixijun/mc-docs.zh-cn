@@ -7,13 +7,13 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 8cbec5ca3a39256e19497975e607c302a22e2fdf
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/18/2021
+ms.openlocfilehash: c40aa30db1d98d7798e1cd919b1072bfc88b7212
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104994"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231088"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>使用托管标识来访问应用程序配置
 
@@ -22,6 +22,11 @@ Azure Active Directory [托管标识](../active-directory/managed-identities-azu
 Azure 应用程序配置及其 .NET Core、.NET Framework 和 Java Spring 客户端库拥有内置的托管标识支持。 虽然并非必须使用托管标识，但借助它便无需再使用包含机密的访问令牌。 你的代码只能使用服务终结点访问应用程序配置存储区。 可以直接在代码中嵌入此 URL，而不会泄露任何机密。
 
 本文介绍如何利用管理标识访问应用程序配置。 它建立在快速入门中介绍的 Web 应用之上。 在继续操作之前，先[使用应用程序配置创建 ASP.NET Core 应用](./quickstart-aspnet-core-app.md)。
+
+> [!NOTE]
+> 本文使用 Azure 应用服务作为示例，但相同的概念也适用于任何其他支持托管标识的 Azure 服务，例如，[Azure 虚拟机](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)和 [Azure 容器实例](../container-instances/container-instances-managed-identity.md)。 如果在其中某一种服务中托管工作负载，也可以利用该服务的托管标识支持。
+
+<!--Not Available on [Azure Kubernetes Service](../aks/use-azure-ad-pod-identity.md)-->
 
 本文还介绍如何将托管标识与应用程序配置的 Key Vaul 引用结合使用。 通过单个托管标识，可以无缝访问 Key Vault 的机密和“应用程序配置”的配置值。 如果希望了解此功能，请先完成[将 Key Vault 引用和 ASP.NET Core 结合使用](./use-key-vault-references-dotnet-core.md)。
 
@@ -100,7 +105,7 @@ Azure 应用程序配置及其 .NET Core、.NET Framework 和 Java Spring 客户
     using Azure.Identity;
     ```
 
-1. 如果希望只访问直接存储在应用程序配置中的值，请通过替换 `config.AddAzureAppConfiguration()` 方法来更新 `CreateWebHostBuilder` 方法。
+1. 如果只需要访问直接存储在应用程序配置中的值，请通过替换 `config.AddAzureAppConfiguration()` 方法（可在 `Microsoft.Azure.AppConfiguration.AspNetCore` 包中找到）来更新 `CreateWebHostBuilder` 方法。
 
     > [!IMPORTANT]
     > `CreateHostBuilder` 替换 .NET Core 3.0 中的 `CreateWebHostBuilder`。 根据环境选择正确的语法。
@@ -137,7 +142,7 @@ Azure 应用程序配置及其 .NET Core、.NET Framework 和 Java Spring 客户
     ```
     ---
 
-1. 若要同时使用应用程序配置值和 Key Vault 引用，请更新 Program.cs，如下所示。 此代码使用 `KeyVaultClient` 创建新 `AzureServiceTokenProvider`，然后将该引用传递给对 `UseAzureKeyVault` 方法的调用。
+1. 若要同时使用应用程序配置值和 Key Vault 引用，请更新 Program.cs，如下所示。 此代码调用了作为 `ConfigureKeyVault` 的一部分的 `SetCredential`，以告知配置提供程序在向 Key Vault 进行身份验证时使用哪一凭据。
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -187,10 +192,10 @@ Azure 应用程序配置及其 .NET Core、.NET Framework 和 Java Spring 客户
     ```
     ---
 
-    现在，你可以像访问任何其他应用程序配置键一样访问 Key Vault 引用。 配置提供程序将使用你配置用于进行 Key Vault 身份验证的 `KeyVaultClient`，并检索值。
+    现在，你可以像访问任何其他应用程序配置键一样访问 Key Vault 引用。 配置提供程序将会使用 `ManagedIdentityCredential` 来向 Key Vault 进行身份验证并检索值。
 
-> [!NOTE]
-> `ManagedIdentityCredential` 仅支持托管标识身份验证。 它在本地环境中不起作用。 如果要在本地运行代码，请考虑使用 `DefaultAzureCredential`，它还支持服务主体身份验证。 有关详细信息，请查看此[链接](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential)。
+    > [!NOTE]
+    > `ManagedIdentityCredential` 只适用于支持托管标识身份验证的服务的 Azure 环境。 它在本地环境中不起作用。 请使用 [`DefaultAzureCredential`](https://docs.azure.cn/dotnet/api/azure.identity.defaultazurecredential) 以使代码在本地和 Azure 环境中都能正常工作，因为它将会回退到包括托管标识在内的几个身份验证选项。
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -236,7 +241,7 @@ git remote add azure <url>
 使用以下命令推送到 Azure 远程库以部署应用。 当系统提示输入密码时，请输入你在[配置部署用户](#configure-a-deployment-user)中创建的密码。 请勿使用用于登录 Azure 门户的密码。
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 在输出中可能会看到特定于运行时的自动化，如 MSBuild for ASP.NET、`npm install` for Node.js 和 `pip install` for Python。

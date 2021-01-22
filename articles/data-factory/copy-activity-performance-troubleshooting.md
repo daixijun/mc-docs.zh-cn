@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-origin.date: 12/09/2020
-ms.date: 01/04/2021
-ms.openlocfilehash: 38cfb7ecc4cc6b951b7adcd6c1dfd70f4fa242f1
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+origin.date: 01/07/2021
+ms.date: 01/25/2021
+ms.openlocfilehash: 7db7f00a4c54d54f278343b891317ea536910042
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829985"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541869"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>排查复制活动的性能问题
 
@@ -173,6 +173,46 @@ ms.locfileid: "97829985"
 
   - 考虑逐步优化[并行复制](copy-activity-performance-features.md)，同时请注意，过多的并行复制可能会进一步损害性能。
 
+
+## <a name="connector-and-ir-performance"></a>连接器和 IR 性能
+
+### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>在将数据加载到 Azure SQL 数据库时性能较低
+
+- **症状**：在将数据复制到 Azure SQL 数据库时速度变慢。
+
+- **原因：** 此问题的根本原因主要由 Azure SQL 数据库端的瓶颈触发。 下面是一些可能的原因：
+
+    - Azure SQL 数据库层不够高。
+
+    - Azure SQL 数据库 DTU 使用率接近 100%。 可以[监视性能](/azure-sql/database/monitor-tune-overview)并考虑将 Azure SQL 数据库层升级。
+
+    - 未正确设置索引。 请在加载数据之前先删除所有索引，并在加载完成之后再重新创建索引。
+
+    - WriteBatchSize 不够大，无法容纳架构行大小。 若要解决此问题，请尝试增大该属性。
+
+    - 使用的是存储过程，而不是批量插入，这会使性能更差。 
+
+- **解决方法**：请参阅[排查复制活动的性能问题](/data-factory/copy-activity-performance-troubleshooting)。
+
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>分析大型 Excel 文件时超时或性能较低
+
+- **症状**：
+
+    - 在创建 Excel 数据集并从连接/存储导入架构、预览数据、列出或刷新工作表时，如果 Excel 文件很大，则可能会出现超时错误。
+
+    - 在使用复制活动将大型 Excel 文件（不小于 100 MB）中的数据复制到其他数据存储时，可能会遇到性能低下或 OOM 问题。
+
+- **原因**： 
+
+    - 对于导入架构、预览数据以及在 Excel 数据集上列出工作表等操作，超时为 100 秒并且是静态的。 对于大型 Excel 文件，这些操作可能无法在超时值内完成。
+
+    - ADF 复制活动将整个 Excel 文件读入内存，然后查找指定的工作表和单元格来读取数据。 此行为是由 ADF 使用的基础 SDK 导致的。
+
+- **解决方法**： 
+
+    - 对于导入架构，你可以生成一个较小的示例文件（原始文件的一部分），并选择“从示例文件导入架构”而不是“从连接/存储导入架构”。
+
+    - 若要列出工作表，可以改为在工作表下拉框中单击“编辑”并输入工作表名称/索引。
 ## <a name="other-references"></a>其他参考资料
 
 下面是有关一些受支持数据存储的性能监视和优化参考：
