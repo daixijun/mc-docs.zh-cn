@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c46d4c50c33f385f75a7d268a10aed0682aa18b4
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: efcf00167b6f50844028fdf175ae1e157311f4ae
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004123"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195158"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 同步：目录扩展
 通过目录扩展，可以使用本地 Active Directory 中的属性扩展 Azure AD 中的架构。 此功能允许使用继续在本地管理的属性来构建 LOB 应用。 可通过[扩展](https://docs.microsoft.com/graph/extensibility-overview)使用这些属性。 
@@ -45,7 +45,7 @@ ms.locfileid: "97004123"
 
 
 >[!NOTE]
-> 虽然 Azure AD Connect 支持将多值 Active Directory 属性作为多值目录扩展同步到 Azure AD，但目前无法检索/使用在多值目录扩展属性中上传的数据。
+> Azure AD Connect 将多值 Active Directory 属性作为多值属性扩展同步到 Azure AD 后，可以将该属性包含到 SAML 声明。 但无法通过 API 调用来使用此数据。
 
 属性列表是从安装 Azure AD Connect 期间创建的架构缓存中读取的。 如果已使用附加属性扩展了 Active Directory 架构，则必须[刷新架构](how-to-connect-installation-wizard.md#refresh-directory-schema)，然后这些新属性才可见。
 
@@ -72,6 +72,28 @@ Azure AD 中的对象最多可以有 100 个目录扩展属性。 最大长度�
 
 >[!NOTE]
 > 不支持将属性值从 AADConnect 同步到不是由 AADConnect 创建的扩展属性。 这样做可能会产生性能问题和意外结果。 仅支持同步如上所示创建的扩展属性。
+
+## <a name="use-the-attributes-in-dynamic-groups"></a>在动态组中使用属性
+
+更有用的方案之一是在动态安全组或 Microsoft 365 组中使用这些属性。
+
+1. 在 Azure AD 中创建新组。 为其提供一个良好的名称，并确保成员身份类型是“动态用户”。
+
+   ![屏幕截图，其中显示了一个新组](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup1.png)
+
+2. 选择“添加动态查询”。 如果查看属性，则不会看到这些扩展属性。 需要先添加它们。 单击“获取自定义扩展属性”，输入应用程序 ID，然后单击“刷新属性”。
+
+   ![屏幕截图，其中显示已添加了目录扩展](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup2.png) 
+
+3. 打开属性下拉列表，此时可观察到你已添加的属性现在可见。
+
+   ![屏幕截图，其中新属性显示在 UI 内](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup3.png)
+
+   完成表达式以满足你的需求。 在我们的示例中，规则设置为 **(user.extension_9d98ed114c4840d298fad781915f27e4_division -eq "Sales and marketing")** 。
+
+4. 创建组后，为 Azure AD 提供一段时间来填充成员，然后查看成员。
+
+   ![屏幕截图，其中显示了动态组中的成员](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup4.png)  
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure AD Connect 同步](how-to-connect-sync-whatis.md)配置的详细信息。

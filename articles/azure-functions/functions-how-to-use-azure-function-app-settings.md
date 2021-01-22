@@ -1,16 +1,16 @@
 ---
-title: 在 Azure 中配置函数应用设置
-description: 了解如何配置 Azure Function App 设置。
+title: 配置 Azure Functions 中的函数应用设置
+description: 了解如何配置 Azure Functions 中的函数应用设置。
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 06/08/2020
-ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 6ac68dcb8b2d91ce0e196544957f5529997706a3
-ms.sourcegitcommit: f1a76ee3242698123a3d77f44c860db040b48f70
+ms.date: 01/13/2021
+ms.custom: cc996988-fb4f-47, devx-track-azurecli
+ms.openlocfilehash: 3ed1516fa176e8cb8710abb2b1dcdc2f99eb1dc0
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84563750"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195248"
 ---
 # <a name="manage-your-function-app"></a>管理函数应用 
 
@@ -29,19 +29,19 @@ ms.locfileid: "84563750"
 
 1. 要开始，请转到 [Azure 门户]，并使用 Azure 帐户登录。 在门户顶端的搜索栏中，输入函数应用的名称，并从列表中将其选中。 
 
-2. 在左窗格的“配置”下，选择“配置”**** ****。
+2. 在左窗格的“配置”下，选择“配置” 。
 
     :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Azure 门户中的函数应用概述":::
 
 可以从概述页导航到管理函数应用所需的所有内容，特别是 **[应用程序设置](#settings)** 和 **[平台功能](#platform-features)** 。
 
-## <a name="application-settings"></a><a name="settings"></a>应用程序设置
+## <a name="work-with-application-settings"></a><a name="settings"></a>使用应用程序设置
 
-“应用程序设置”选项卡维护函数应用使用的设置****。 这些设置是加密存储的，必须选择“显示值”**** 才能查看门户中的值。 也可使用 Azure CLI 访问应用程序设置。
+“应用程序设置”选项卡维护函数应用使用的设置。 这些设置是加密存储的，必须选择“显示值”才能查看门户中的值。 也可使用 Azure CLI 访问应用程序设置。
 
 ### <a name="portal"></a>门户
 
-若要在门户中添加设置，请选择“新建应用程序设置”**** 并添加新的键值对。
+若要在门户中添加设置，请选择“新建应用程序设置”并添加新的键值对。
 
 ![Azure 门户中的函数应用设置。](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
@@ -68,6 +68,56 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
 在本地开发函数应用时，必须将这些值的本地副本保留在 local.settings.json 项目文件中。 若要了解详细信息，请参阅[本地设置文件](functions-run-local.md#local-settings-file)。
+
+## <a name="hosting-plan-type"></a>托管计划类型
+
+创建函数应用时也会创建应用服务托管计划，应用将在该计划中运行。 一个计划可以有一个或多个函数应用。 函数的功能、缩放和定价取决于计划的类型。 要了解详细信息，请参阅 [Azure Functions 定价页](https://www.azure.cn/pricing/details/azure-functions/)。
+
+可以从 Azure 门户中或通过使用 Azure CLI 或 Azure PowerShell API 确定函数应用所使用的计划类型。 
+
+以下值指示计划类型：
+
+| 计划类型 | 门户 | Azure CLI/PowerShell |
+| --- | --- | --- |
+| [消耗](consumption-plan.md) | **消耗** | `Dynamic` |
+| [高级](functions-premium-plan.md) | **ElasticPremium** | `ElasticPremium` |
+| [专用（应用服务）](dedicated-plan.md) | 各种 | 各种 |
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+要确定你的函数应用所使用的计划的类型，请在 [Azure 门户](https://portal.azure.cn)中查看该函数应用的“概述”选项卡中的“应用服务计划” 。 若要查看定价层，请选择“应用服务计划”的名称，然后从左侧窗格中选择“属性” 。
+
+![在门户中查看缩放计划](./media/functions-scale/function-app-overview-portal.png)
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+
+运行以下 Azure CLI 命令以获取托管计划类型：
+
+```azurecli
+functionApp=<FUNCTION_APP_NAME>
+resourceGroup=FunctionMonitoringExamples
+appServicePlanId=$(az functionapp show --name $functionApp --resource-group $resourceGroup --query appServicePlanId --output tsv)
+az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
+
+```  
+
+在前面的示例中，将 `<RESOURCE_GROUP>` 和 `<FUNCTION_APP_NAME>` 分别替换为资源组和函数应用名称。 
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+运行以下 Azure PowerShell 命令以获取托管计划类型：
+
+```azurepowershell
+$FunctionApp = '<FUNCTION_APP_NAME>'
+$ResourceGroup = '<RESOURCE_GROUP>'
+
+$PlanID = (Get-AzFunctionApp -ResourceGroupName $ResourceGroup -Name $FunctionApp).AppServicePlan
+(Get-AzFunctionAppPlan -Name $PlanID -ResourceGroupName $ResourceGroup).SkuTier
+```
+在前面的示例中，将 `<RESOURCE_GROUP>` 和 `<FUNCTION_APP_NAME>` 分别替换为资源组和函数应用名称。 
+
+---
+
 
 ## <a name="platform-features"></a>平台功能
 
@@ -107,7 +157,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 
 ![配置 Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
-应用服务的高级工具（也称为 Kudu）提供对 Function App 高级管理功能的访问。 从 Kudu 中，可以管理系统信息、应用设置、环境变量、站点扩展、HTTP 头和服务器变量。 也可以通过浏览到 Function App 的 SCM 终结点（如 `https://<myfunctionapp>.scm.chinacloudsites.cn/`），启动 Kudu**** 
+应用服务的高级工具（也称为 Kudu）提供对 Function App 高级管理功能的访问。 从 Kudu 中，可以管理系统信息、应用设置、环境变量、站点扩展、HTTP 头和服务器变量。 也可以通过浏览到 Function App 的 SCM 终结点（如 `https://<myfunctionapp>.scm.chinacloudsites.cn/`），启动 Kudu 
 
 
 ### <a name="deployment-center"></a><a name="deployment"></a>部署中心
@@ -120,7 +170,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 
 #### <a name="portal"></a>门户
 
-配置函数应用的“允许的域”列表时，****`Access-Control-Allow-Origin` 标头会自动添加到函数应用中 HTTP 终结点发出的所有响应。 
+配置函数应用的“允许的域”列表时，`Access-Control-Allow-Origin` 标头会自动添加到函数应用中 HTTP 终结点发出的所有响应。 
 
 ![配置函数应用的 CORS 列表](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
@@ -151,4 +201,3 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 [Azure CLI]: /cli/
 [Azure 门户]: https://portal.azure.cn
 
-<!-- Update_Description: wording update -->
