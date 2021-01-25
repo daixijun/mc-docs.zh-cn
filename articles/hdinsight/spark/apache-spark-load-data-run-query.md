@@ -10,18 +10,18 @@ ms.topic: tutorial
 origin.date: 02/12/2020
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: b76507f65d0ac8a525b2bcb8fdbdf17c9608cb2c
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: f63bad5c26650539d236342b5d1dad3fa9ee185b
+ms.sourcegitcommit: bb7497d5a11e8fb506907221ff65a18e6c523372
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "77563447"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98692057"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>教程：在 Azure HDInsight 中的 Apache Spark 群集上加载数据并运行查询
 
 本教程介绍如何从 csv 文件创建数据帧，以及如何针对 Azure HDInsight 中的 [Apache Spark](https://spark.apache.org/) 群集运行交互式 Spark SQL 查询。 在 Spark 中，数据帧是已组织成命名列的分布式数据集合。 数据帧在概念上相当于关系型数据库中的表，或 R/Python 中的数据帧。
  
-本教程介绍如何执行下列操作：
+在本教程中，你将了解如何执行以下操作：
 > [!div class="checklist"]
 > * 从 csv 文件创建数据帧
 > * 对数据帧运行查询
@@ -47,11 +47,11 @@ Jupyter Notebook 是支持各种编程语言的交互式笔记本环境。 通�
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>从 csv 文件创建数据帧
 
-应用程序可以直接从远程存储（例如 Azure 存储或 Azure Data Lake Storage）上的文件或文件夹创建数据帧；从 Hive 表或从 Spark 支持的其他数据源（例如 Cosmos DB、Azure SQL DB、DW 等）创建数据帧。以下屏幕截图显示本教程中所用 HVAC.csv 文件的快照。 所有 HDInsight Spark 群集都随附了该 csv 文件。 该数据捕获了一些建筑物的温度变化。
-    
+应用程序可以直接从远程存储（例如 Azure 存储或 Azure Data Lake Storage）上的文件或文件夹创建数据帧；从 Hive 表或从 Spark 支持的其他数据源（例如 Cosmos DB、Azure SQL DB、DW 等）创建数据帧。 以下屏幕截图显示本教程中所用 HVAC.csv 文件的快照。 所有 HDInsight Spark 群集都随附了该 csv 文件。 该数据捕获了一些建筑物的温度变化。
+
 ![交互式 Spark SQL 查询的数据快照](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "交互式 Spark SQL 查询的数据快照")
 
-1. 在 Jupyter 笔记本的空单元格中粘贴以下代码，然后按 **SHIFT + ENTER** 运行这些代码。 该代码导入此方案所需的类型：
+1. 在 Jupyter 笔记本的空单元格中粘贴以下代码，然后按 **SHIFT + ENTER** 运行这些代码。 这些代码会导入此方案所需的类型：
 
     ```python
     from pyspark.sql import *
