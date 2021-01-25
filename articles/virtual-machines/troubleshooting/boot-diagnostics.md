@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 origin.date: 10/31/2018
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: 70d90458067164c2e22c0634dba0bee0e6dc02d5
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: e72091270bb05dfc5ae1d4e98974ddca7fde43eb
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106216"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570680"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>如何使用启动诊断功能来排查 Azure 中虚拟机的问题
 
@@ -54,8 +54,10 @@ ms.locfileid: "93106216"
 :::image type="content" source="./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png" alt-text="创建 VM":::
 
 > [!NOTE]
-> 启动诊断功能不支持高级存储帐户或“区域冗余”存储帐户类型。 如果使用高级存储帐户进行启动诊断，则可能会在启动 VM 时收到 StorageAccountTypeNotSupported 错误。
+> 启动诊断功能不支持高级存储帐户存储帐户类型。 如果使用高级存储帐户进行启动诊断，则可能会在启动 VM 时收到 StorageAccountTypeNotSupported 错误。
 >
+
+<!--Not Avaiable on  or Zone Redundent-->
 
 ### <a name="deploying-from-an-azure-resource-manager-template"></a>通过 Azure 资源管理器模板部署
 
@@ -73,11 +75,11 @@ ms.locfileid: "93106216"
 ```json
     "diagnosticsProfile": {
     "bootDiagnostics": {
-    "enabled": true,
-    "storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.chinacloudapi.cn')]"
+        "enabled": true,
+        "storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.chinacloudapi.cn')]"
+        }
     }
-    }
-    }
+  }
 }
 ```
 

@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 origin.date: 12/28/2020
-ms.date: 01/04/2021
-ms.openlocfilehash: 30aa4ad5047c489ae0ac5d121804b46688467c9b
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.date: 01/25/2021
+ms.openlocfilehash: 88b620388cc8e96947759e4e1f8f8093a621fc01
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830133"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541890"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>使用 Azure 数据工厂在 Azure Blob 存储中复制和转换数据
 
@@ -424,6 +424,9 @@ Azure Blob 存储支持基于格式的复制源中 `storeSettings` 设置下的�
 ]
 ```
 
+> [!NOTE]
+> `$logs` 容器（为存储帐户启用存储分析时自动创建的）在通过数据工厂 UI 执行容器列出操作时不会显示。 必须直接提供文件路径，数据工厂才能使用 `$logs` 容器中的文件。
+
 ### <a name="blob-storage-as-a-sink-type"></a>用作接收器类型的 Blob 存储
 
 [!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)] 
@@ -529,7 +532,7 @@ Azure Blob 存储支持基于格式的复制接收器中 `storeSettings` 设置�
 
 ### <a name="legacy-dataset-model"></a>旧数据集模型
 
-| 属性 | 说明 | 必需 |
+| properties | 说明 | 必需 |
 |:--- |:--- |:--- |
 | type | 数据集的 **type** 属性必须设置为 **AzureBlob**。 |是 |
 | folderPath | 指向 Blob 存储中的容器和文件夹的路径。 <br/><br/>不包含容器名称的路径支持通配符筛选器。 允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。 如果文件夹名内包含通配符或此转义字符，请使用 `^` 进行转义。 <br/><br/>示例：myblobcontainer/myblobfolder/。 请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 |对于复制或查找活动为“是”，对于 GetMetadata 活动为“否” |

@@ -5,17 +5,17 @@ services: data-factory
 author: WenJason
 ms.service: data-factory
 ms.topic: troubleshooting
-origin.date: 12/18/2020
-ms.date: 01/04/2021
+origin.date: 01/07/2021
+ms.date: 01/25/2021
 ms.author: v-jay
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 408f25a53cc3cee4a8f01ca6c3d7d2652da3d045
-ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
+ms.openlocfilehash: 49ff1b3750263a5907a0e2f41ea930c5db29d2e5
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97894457"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541876"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>排查 Azure 数据工厂连接器问题
 
@@ -25,7 +25,7 @@ ms.locfileid: "97894457"
   
 ## <a name="azure-blob-storage"></a>Azure Blob 存储
 
-### <a name="error-code--azurebloboperationfailed"></a>错误代码：AzureBlobOperationFailed
+### <a name="error-code-azurebloboperationfailed"></a>错误代码：AzureBlobOperationFailed
 
 - 消息：`Blob operation Failed. ContainerName: %containerName;, path: %path;.`
 
@@ -34,24 +34,9 @@ ms.locfileid: "97894457"
 - **建议**：检查详细信息中的错误。 参阅 Blob 帮助文档： https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes 。 如需帮助，请联系存储团队。
 
 
-### <a name="error-code--azureblobservicenotreturnexpecteddatalength"></a>错误代码：AzureBlobServiceNotReturnExpectedDataLength
-
-- 消息：`Error occurred when trying to fetch the blob '%name;'. This could be a transient issue and you may rerun the job. If it fails again continuously, contact customer support.`
-
-
-### <a name="error-code--azureblobnotsupportmultiplefilesintosingleblob"></a>错误代码：AzureBlobNotSupportMultipleFilesIntoSingleBlob
-
-- 消息：`Transferring multiple files into a single Blob is not supported. Currently only single file source is supported.`
-
-
-### <a name="error-code--azurestorageoperationfailedconcurrentwrite"></a>错误代码：AzureStorageOperationFailedConcurrentWrite
-
-- 消息：`Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
-
-
 ### <a name="invalid-property-during-copy-activity"></a>执行复制活动期间属性无效
 
-- **消息**：`Copy activity <Activity Name> has an invalid "source" property. The source type is not compatible with the dataset <Dataset Name> and its linked service <Linked Service Name>. Please verify your input against.`
+- 消息：`Copy activity <Activity Name> has an invalid "source" property. The source type is not compatible with the dataset <Dataset Name> and its linked service <Linked Service Name>. Please verify your input against.`
 
 - **原因：** 数据集中定义的类型与复制活动中定义的源/接收器类型不一致。
 
@@ -80,7 +65,6 @@ ms.locfileid: "97894457"
 - **原因：** 有两个可能的原因：
 
     - 如果使用“插入”作为写入行为，则此错误表示源数据包含具有相同 ID 的行/对象。
-
     - 如果使用“更新插入”作为写入行为，并设置了容器的另一个唯一键，则此错误表示源数据中的行/对象使用了定义的唯一键的不同 ID，但使用了该键的相同值。
 
 - **解决方法**： 
@@ -101,9 +85,8 @@ ms.locfileid: "97894457"
 
 - **解决方法**：下面是两种解决方法：
 
-    1. **增加容器 RU**，使之大于 Cosmos DB 中的值，这可以提高复制活动的性能，不过会增大 Cosmos DB 的费用。 
-
-    2. 将 **writeBatchSize** 减至更小的值（例如 1000），并将 **parallelCopies** 设置为更小的值（例如 1），这会导致复制运行性能比当前更糟，但不会增大 Cosmos DB 的费用。
+    - **增加容器 RU**，使之大于 Cosmos DB 中的值，这可以提高复制活动的性能，不过会增大 Cosmos DB 的费用。 
+    - 将 **writeBatchSize** 减至更小的值（例如 1000），并将 **parallelCopies** 设置为更小的值（例如 1），这会导致复制运行性能比当前更糟，但不会增大 Cosmos DB 的费用。
 
 ### <a name="column-missing-in-column-mapping"></a>列映射中缺少列
 
@@ -131,10 +114,19 @@ ms.locfileid: "97894457"
 
 - **解决方法**：在 MongoDB 连接字符串中，添加选项 "**uuidRepresentation=standard**"。 有关详细信息，请参阅 [MongoDB 连接字符串](connector-mongodb.md#linked-service-properties)。
             
+## <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB (SQL API)
+
+### <a name="error-code--cosmosdbsqlapioperationfailed"></a>错误代码：CosmosDbSqlApiOperationFailed
+
+- 消息：`CosmosDbSqlApi operation Failed. ErrorMessage: %msg;.`
+
+- **原因：** CosmosDbSqlApi operation hit problem.
+
+- **建议**：检查详细信息中的错误。 请参阅 [CosmosDb 帮助文档](/cosmos-db/troubleshoot-dot-net-sdk)。 如需帮助，请联系 CosmosDb 团队。
 
 ## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
-### <a name="error-code--adlsgen2operationfailed"></a>错误代码：AdlsGen2OperationFailed
+### <a name="error-code-adlsgen2operationfailed"></a>错误代码：ADLSGen2OperationFailed
 
 - 消息：`ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
 
@@ -150,27 +142,6 @@ ms.locfileid: "97894457"
 
 - **建议**：这可能是由暂时性失败导致的，请重试。 如果此问题仍然存在，请联系 Azure 存储支持部门，并提供错误消息中的请求 ID。
 
-
-### <a name="error-code--adlsgen2invalidurl"></a>错误代码：AdlsGen2InvalidUrl
-
-- 消息：`Invalid url '%url;' provided, expecting http[s]://<accountname>.dfs.core.chinacloudapi.cn.`
-
-
-### <a name="error-code--adlsgen2invalidfolderpath"></a>错误代码：AdlsGen2InvalidFolderPath
-
-- **消息**：`The folder path is not specified. Cannot locate the file '%name;' under the ADLS Gen2 account directly. Please specify the folder path instead.`
-
-
-### <a name="error-code--adlsgen2operationfailedconcurrentwrite"></a>错误代码：AdlsGen2OperationFailedConcurrentWrite
-
-- 消息：`Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
-
-
-### <a name="error-code-adlsgen2timeouterror"></a>错误代码：AdlsGen2TimeoutError
-
-- **消息**：`Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
-
-
 ### <a name="request-to-adls-gen2-account-met-timeout-error"></a>向 ADLS Gen2 帐户发出请求时出现超时错误
 
 - **消息**：错误代码 = `UserErrorFailedBlobFSOperation`，错误消息 = `BlobFS operation failed for: A task was canceled`。
@@ -179,22 +150,34 @@ ms.locfileid: "97894457"
 
 - **建议**： 
 
-    1. 如果可能，请将自承载 IR 计算机和目标 ADLS Gen2 帐户置于同一区域中。 这可以避免随机超时错误，并获得更好的性能。
+    - 如果可能，请将自承载 IR 计算机和目标 ADLS Gen2 帐户置于同一区域中。 这可以避免随机超时错误，并获得更好的性能。
 
-    1. 检查是否有任何特殊的网络设置（例如 ExpressRoute），并确保网络具有足够的带宽。 建议在总体带宽较低时降低自承载 IR 并发作业数设置，这样可以避免多个并发作业之间的网络资源争用。
+    - 检查是否有任何特殊的网络设置（例如 ExpressRoute），并确保网络具有足够的带宽。 建议在总体带宽较低时降低自承载 IR 并发作业数设置，这样可以避免多个并发作业之间的网络资源争用。
 
-    1. 如果文件大小适中或较小，对于非二进制复制，请使用较小的块大小以减轻此类超时错误。 请参阅 [Blob 存储放置块](https://docs.microsoft.com/rest/api/storageservices/put-block)。
+    - 如果文件大小适中或较小，对于非二进制复制，请使用较小的块大小以减轻此类超时错误。 请参阅 [Blob 存储放置块](https://docs.microsoft.com/rest/api/storageservices/put-block)。
 
        若要指定自定义块大小，可以在 .json 编辑器中编辑此属性：
-    ```
-    "sink": {
-        "type": "DelimitedTextSink",
-        "storeSettings": {
-            "type": "AzureBlobFSWriteSettings",
-            "blockSizeInMB": 8
+        ```
+        "sink": {
+            "type": "DelimitedTextSink",
+            "storeSettings": {
+                "type": "AzureBlobFSWriteSettings",
+                "blockSizeInMB": 8
+            }
         }
-    }
-    ```
+        ```
+
+                  
+## <a name="azure-file-storage"></a>Azure 文件存储
+
+### <a name="error-code--azurefileoperationfailed"></a>错误代码：AzureFileOperationFailed
+
+- 消息：`Azure File operation Failed. Path: %path;. ErrorMessage: %msg;.`
+
+- **原因：** Azure 文件存储操作遇到问题。
+
+- **建议**：检查详细信息中的错误。 请参阅 Azure 文件帮助文档： https://docs.microsoft.com/rest/api/storageservices/file-service-error-codes 。 如需帮助，请联系存储团队。
+
 
 ## <a name="azure-synapse-analyticsazure-sql-databasesql-server"></a>Azure Synapse Analytics/Azure SQL 数据库/SQL Server
 
@@ -202,13 +185,25 @@ ms.locfileid: "97894457"
 
 - 消息：`Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
 
+- **原因：** Azure SQL：如果错误消息包含 SQL 错误代码，如“SqlErrorNumber=[errorcode]”，请参阅 Azure SQL 疑难解答指南。
+
+- **建议**：可从 https://docs.azure.cn/azure-sql/database/troubleshoot-common-errors-issues 了解详细信息。
+
+- **原因：** 检查端口 1433 是否位于防火墙允许列表中。
+
+- **建议**：请参阅此参考文档： https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by- 。
+
 - **原因：** 如果错误消息包含“SqlException”，则 SQL 数据库将引发错误，指示某个特定操作失败。
 
 - **建议**：如需了解更多详细信息，请按 SQL 错误代码在以下参考文档中进行搜索： https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors 。 如需进一步的帮助，请联系 Azure SQL 支持。
 
-- **原因：** 如果错误消息包含“具有 IP 地址的客户端‘...’不允许访问服务器”，并且你正在尝试连接到 Azure SQL 数据库，这通常是由 Azure SQL 数据库防火墙问题导致的。
+- **原因：** 如果这是暂时性问题（例如网络连接不稳定），请在活动策略中添加重试以缓解这种情况。
 
-- **建议**：在逻辑 SQL Server 防火墙配置中，启用“允许 Azure 服务和资源访问此服务器”选项。 参考文档： https://docs.azure.cn/sql-database/sql-database-firewall-configure 。
+- **建议**：请参阅此参考文档： https://docs.azure.cn/data-factory/concepts-pipelines-activities#activity-policy 。
+
+- **原因**：如果错误消息包含“不允许 IP 地址为 '...' 的客户端访问服务器”，并且你正在尝试连接到 Azure SQL 数据库，表明这通常是由于 Azure SQL 数据库防火墙问题所致。
+
+- **建议**：在 Azure SQL Server 防火墙配置中，启用“允许 Azure 服务和资源访问此服务器”选项。 参考文档： https://docs.azure.cn/sql-database/sql-database-firewall-configure 。
 
 
 ### <a name="error-code--sqloperationfailed"></a>错误代码：SqlOperationFailed
@@ -228,7 +223,6 @@ ms.locfileid: "97894457"
 - **原因：** 如果错误消息包含“InvalidOperationException”，这通常是由于输入数据无效导致的。
 
 - **建议**：若要确定哪个行遇到了问题，请在复制活动上启用容错功能，该功能可将有问题的行重定向到存储，以便进一步调查。 参考文档： https://docs.azure.cn/data-factory/copy-activity-fault-tolerance 。
-
 
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>错误代码：SqlUnauthorizedAccess
@@ -298,11 +292,6 @@ ms.locfileid: "97894457"
 - **建议**：验证查询中的列、数据集中的“结构”和活动中的“映射”。
 
 
-### <a name="error-code--sqlcolumnnamemismatchbycasesensitive"></a>错误代码：SqlColumnNameMismatchByCaseSensitive
-
-- 消息：`Column '%column;' in DataSet '%dataSetName;' cannot be found in physical SQL Database. Column matching is case-sensitive. Column '%columnInTable;' appears similar. Check the DataSet(s) configuration to proceed further.`
-
-
 ### <a name="error-code--sqlbatchwritetimeout"></a>错误代码：SqlBatchWriteTimeout
 
 - 消息：`Timeouts in SQL write operation.`
@@ -341,11 +330,6 @@ ms.locfileid: "97894457"
 - **原因：** 当高并发运行和服务器终止连接时，SQL 数据库关闭了 SQL 连接。
 
 - **建议**：远程服务器关闭了 SQL 连接。 Retry。 如果问题重现，请联系 Azure SQL 支持人员。
-
-
-### <a name="error-code--sqlcreatetablefailedunsupportedtype"></a>错误代码：SqlCreateTableFailedUnsupportedType
-
-- 消息：`Type '%type;' in source side cannot be mapped to a type that supported by sink side(column name:'%name;') in autocreate table.`
 
 
 ### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>错误消息：将字符串转换为唯一标识符失败
@@ -410,9 +394,9 @@ ms.locfileid: "97894457"
     - Time -> 12 字节
     - Tinyint -> 1 字节
 
-- **解决方法**：将列宽缩小至 1 MB 以下
-
-- 或者，通过禁用 Polybase 来使用批量插入方法
+- **解决方法**： 
+    - 请将列宽缩小至 1 MB 以下。
+    - 或者通过禁用 Polybase 来使用批量插入方法。
 
 
 ### <a name="error-message-the-condition-specified-using-http-conditional-headers-is-not-met"></a>错误消息：不满足使用 HTTP 条件标头指定的条件
@@ -426,34 +410,15 @@ ms.locfileid: "97894457"
 - **原因：** Azure Synapse Analytics 在查询 Azure 存储中的外部表时遇到问题。
 
 - **解决方法**：在 SSMS 中运行同一查询，检查是否看到相同的结果。 如果是，请创建 Azure Synapse Analytics 支持票证，并提供 Azure Synapse Analytics 服务器和数据库名称以进一步排查问题。
-            
-
-### <a name="low-performance-when-load-data-into-azure-sql"></a>将数据加载到 Azure SQL 时性能较低
-
-- **症状**：将数据复制到 Azure SQL 时速度变慢。
-
-- **原因：** 此问题就根本原因来说主要由 Azure SQL 端的瓶颈触发。 下面是一些可能的原因：
-
-    1. Azure DB 层的等级不够高。
-
-    1. Azure DB DTU 使用率接近 100%。 你可以[监视性能](/azure-sql/database/monitor-tune-overview)并考虑升级 DB 层。
-
-    1. 未正确设置索引。 请在加载数据之前删除所有索引，并在加载完成后重新创建它们。
-
-    1. WriteBatchSize 不够大，无法容纳架构行大小。 若要解决此问题，请尝试增大此属性。
-
-    1. 使用的是存储过程，而不是批量插入，这会使性能更差。 
-
-- **解决方法**：请参阅 TSG 来了解 [复制活动性能](/data-factory/copy-activity-performance-troubleshooting)
 
 
 ### <a name="performance-tier-is-low-and-leads-to-copy-failure"></a>性能层等级较低，导致复制失败
 
-- **症状**：将数据复制到 Azure SQL 时出现以下错误消息：`Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
+- **症状**：将数据复制到 Azure SQL 数据库时出现以下错误消息：`Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
 
-- **原因：** 正在使用 Azure SQL s1，在此情况下达到了 IO 限制。
+- **原因：** 正在使用 Azure SQL 数据库 s1，在此情况下达到了 IO 限制。
 
-- **解决方法**：请升级 Azure SQL 性能层以解决此问题。 
+- **解决方法**：升级 Azure SQL 数据库性能层可解决此问题。 
 
 
 ### <a name="sql-table-cannot-be-found"></a>找不到 SQL 表 
@@ -462,22 +427,47 @@ ms.locfileid: "97894457"
 
 - **原因：** 当前 SQL 帐户的权限不足，无法执行由 .NET SqlBulkCopy.WriteToServer 发出的请求。
 
-- **解决方法**：请切换到权限更高的一个 SQL 帐户。
+- **解决方法**：切换到权限更高的一个 SQL 帐户。
 
 
-### <a name="string-or-binary-data-would-be-truncated"></a>字符串或二进制数据会被截断
+### <a name="error-message-string-or-binary-data-would-be-truncated"></a>错误消息：字符串或二进制数据会被截断
 
 - **症状**：将数据复制到本地/Azure SQL Server 表时出错： 
 
 - **原因：** Cx Sql 表架构定义具有一个或多个长度小于预期的列。
 
-- **解决方法**：请尝试以下步骤来解决问题：
+- **解决方法**：尝试以下步骤来解决问题：
 
-    1. 应用[容错](/data-factory/copy-activity-fault-tolerance)（尤其是“redirectIncompatibleRowSettings”）来排查哪些行有问题。
+    1. 应用 SQL 接收器[容错](/data-factory/copy-activity-fault-tolerance)（尤其是“redirectIncompatibleRowSettings”）来排查哪些行有问题。
 
-    1. 请仔细将重定向的数据与 SQL 表架构列长度进行核对，以查明哪些列需要更新。
+        > [!NOTE]
+        > 请注意，容错可能会引入额外的执行时间，这可能会导致更高的成本。
 
-    1. 相应地更新表架构。
+    2. 请仔细将重定向的数据与 SQL 表架构列长度进行核对，以查明哪些列需要更新。
+
+    3. 相应地更新表架构。
+
+
+## <a name="azure-table-storage"></a>Azure 表存储
+
+### <a name="error-code--azuretableduplicatecolumnsfromsource"></a>错误代码：AzureTableDuplicateColumnsFromSource
+
+- 消息：`Duplicate columns with same name '%name;' are detected from source. This is NOT supported by Azure Table Storage sink`
+
+- **原因：** 具有联接或非结构化 CSV 文件的 SQL 查询很常见
+
+- **建议**：仔细检查源列并进行相应修复。
+
+
+## <a name="db2"></a>DB2
+
+### <a name="error-code--db2driverrunfailed"></a>错误代码：DB2DriverRunFailed
+
+- 消息：`Error thrown from driver. Sql code: '%code;'`
+
+- **原因：** 如果错误消息包含“SQLSTATE=51002 SQLCODE=-805”，请参阅本文档中的提示： https://docs.azure.cn/data-factory/connector-db2#linked-service-properties
+
+- **建议**：尝试在属性“packageCollection”中设置“NULLID”
 
 
 ## <a name="delimited-text-format"></a>带分隔符的文本格式
@@ -493,7 +483,7 @@ ms.locfileid: "97894457"
 
 ### <a name="error-code--delimitedtextmorecolumnsthandefined"></a>错误代码：DelimitedTextMoreColumnsThanDefined
 
-- 消息：`Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
+- 消息：`Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %expectedColumnCount;.`
 
 - **原因：** 有问题的行的列计数大于第一行的列计数。 原因可能是数据有问题，或者列分隔符/引号字符设置不正确。
 
@@ -506,22 +496,6 @@ ms.locfileid: "97894457"
 - **原因：** 如果源是文件夹，则原因可能是指定的文件夹中的文件采用了不同的架构。
 
 - **建议**：确保给定文件夹中的文件采用相同的架构。
-
-
-### <a name="error-code--delimitedtextincorrectrowdelimiter"></a>错误代码：DelimitedTextIncorrectRowDelimiter
-
-- 消息：`The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
-
-
-### <a name="error-code--delimitedtexttoolargecolumncount"></a>错误代码：DelimitedTextTooLargeColumnCount
-
-- 消息：`Column count reaches limitation when deserializing csv file. Maximum size is '%size;'. Check the column delimiter and row delimiter provided. (Column delimiter: '%columnDelimiter;', Row delimiter: '%rowDelimiter;')`
-
-
-### <a name="error-code--delimitedtextinvalidsettings"></a>错误代码：DelimitedTextInvalidSettings
-
-- 消息：`%settingIssues;`
-
 
 
 ## <a name="dynamics-365common-data-servicedynamics-crm"></a>Dynamics 365/Common Data Service/Dynamics CRM
@@ -539,84 +513,67 @@ ms.locfileid: "97894457"
 
 - **症状**：导入架构或预览数据时，缺少某些列。 错误消息：`The valid structure information (column name and type) are required for Dynamics source.`
 
-- **原因：** 此问题基本上是设计使然，因为 ADF 无法显示前 10 条记录中没有值的列。 请确保你添加的列采用正确格式。 
+- **原因：** 此问题基本上是设计使然，因为 ADF 无法显示前 10 条记录中没有值的列。 确保你添加的列采用正确格式。 
 
 - **建议**：在映射选项卡中手动添加列。
 
 
-## <a name="excel-format"></a>Excel 格式
+### <a name="error-code--dynamicsmissingtargetformultitargetlookupfield"></a>错误代码：DynamicsMissingTargetForMultiTargetLookupField
 
-### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>分析大型 Excel 文件时超时或性能较低
+- 消息：`Cannot find the target column for multi-target lookup field: '%fieldName;'.`
 
-- **症状**：
+- **原因：** 源或列映射中不存在目标列。
 
-    1. 创建 Excel 数据集并从连接/存储导入架构、预览数据、列出或刷新工作表时，如果 Excel 文件很大，则可能会出现超时错误。
-
-    1. 使用复制活动将大型 Excel 文件 (>= 100MB) 中的数据复制到其他数据存储时，可能会遇到性能下降或 OOM 问题。
-
-- **原因**： 
-
-    1. 对于导入架构、预览数据以及在 Excel 数据集上列出工作表等操作，超时为 100 秒并且是静态的。 对于大型 Excel 文件，这些操作可能无法在超时值内完成。
-
-    2. ADF 复制活动将整个 Excel 文件读入内存，然后查找指定的工作表和单元格来读取数据。 此行为是由 ADF 使用的基础 SDK 导致的。
-
-- **解决方法**： 
-
-    1. 若要导入架构，你可以生成一个是原始文件子集的较小示例文件，并选择“从示例文件导入架构”而不是“从连接/存储导入架构”。
-
-    2. 若要列出工作表，可以改为在工作表下拉框中单击“编辑”并输入工作表名称/索引。
-
-    3. 若要将大型 Excel 文件 (>100MB) 复制到其他存储，可以使用支持流式读取且性能更好的数据流 Excel 源。
+- **建议**：1. 确保源包含目标列。 2. 在列映射中添加目标列。 确保接收器列的格式为“{fieldName}@EntityReference”。
 
 
-## <a name="hdinsight"></a>HDInsight
+### <a name="error-code--dynamicsinvalidtargetformultitargetlookupfield"></a>错误代码：DynamicsInvalidTargetForMultiTargetLookupField
 
-### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>ADF 链接服务使用 HDInsight ESP 群集时出现 SSL 错误
+- 消息：`The provided target: '%targetName;' is not a valid target of field: '%fieldName;'. Valid targets are: '%validTargetNames;"`
 
-- 消息：`Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+- **原因：** 提供了错误的实体名称作为多目标查找字段的目标实体。
 
-- **原因：** 此问题很可能与系统信任存储相关。
-
-- **解决方法**：你可以导航到 Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib 路径，并打开 DriverConfiguration64.exe 以更改设置。
-
-    ![取消选中“使用系统信任存储”](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+- **建议**：为多目标查找字段提供有效的实体名称。
 
 
-## <a name="json-format"></a>JSON 格式
+### <a name="error-code--dynamicsinvalidtypeformultitargetlookupfield"></a>错误代码：DynamicsInvalidTypeForMultiTargetLookupField
 
-### <a name="error-code--jsoninvalidarraypathdefinition"></a>错误代码：JsonInvalidArrayPathDefinition
+- 消息：`The provided target type is not a valid string. Field: '%fieldName;'.`
 
-- 消息：`Error occurred when deserializing source JSON data. Check whether the JsonPath in JsonNodeReference and JsonPathDefintion is valid.`
+- **原因：** 目标列中的值不是字符串
 
-
-### <a name="error-code--jsonemptyjobjectdata"></a>错误代码：JsonEmptyJObjectData
-
-- 消息：`The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
+- **建议**：在“多目标查找目标”列中提供有效字符串。
 
 
-### <a name="error-code--jsonnullvalueinpathdefinition"></a>错误代码：JsonNullValueInPathDefinition
+### <a name="error-code--dynamicsfailedtorequetserver"></a>错误代码：DynamicsFailedToRequetServer
 
-- 消息：`Null JSONPath detected in JsonPathDefinition.`
+- 消息：`The dynamics server or the network is experiencing issues. Check network connectivity or check dynamics server log for more details.`
+
+- **原因：** Dynamics 服务器不稳定或不可访问，或者网络出现问题。
+
+- **建议**：检查网络连接性或检查 Dynamics 服务器日志以获取更多详细信息。 如需更多帮助，请联系 Dynamics 支持部门。
+    
+
+## <a name="ftp"></a>FTP
+
+### <a name="error-code--ftpfailedtoconnecttoftpserver"></a>错误代码：FtpFailedToConnectToFtpServer
+
+- 消息：`Failed to connect to FTP server. Please make sure the provided server informantion is correct, and try again.`
+
+- **原因：** 可能为 FTP 服务器使用了错误的链接服务类型，例如，使用 SFTP 链接服务连接到 FTP 服务器。
+
+- **建议**：检查目标服务器的端口。 默认情况下，FTP 使用端口 21。
 
 
-### <a name="error-code--jsonunsupportedhierarchicalcomplexvalue"></a>错误代码：JsonUnsupportedHierarchicalComplexValue
+## <a name="http"></a>Http
 
-- 消息：`The retrieved type of data %data; with value %value; is not supported yet. Please either remove the targeted column '%name;' or enable skip incompatible row to skip the issue rows.`
+### <a name="error-code--httpfilefailedtoread"></a>错误代码：HttpFileFailedToRead
 
+- 消息：`Failed to read data from http server. Check the error from http server：%message;`
 
-### <a name="error-code--jsonconflictpartitiondiscoveryschema"></a>错误代码：JsonConflictPartitionDiscoverySchema
+- **原因：** 当 Azure 数据工厂与 http 服务器通信，但是 http 请求操作失败时，会发生此错误。
 
-- 消息：`Conflicting partition column names detected.'%schema;', '%partitionDiscoverySchema;'`
-
-
-### <a name="error-code--jsoninvaliddataformat"></a>错误代码：JsonInvalidDataFormat
-
-- 消息：`Error occurred when deserializing source JSON file '%fileName;'. Check if the data is in valid JSON object format.`
-
-
-### <a name="error-code--jsoninvaliddatamixedarrayandobject"></a>错误代码：JsonInvalidDataMixedArrayAndObject
-
-- 消息：`Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
+- **建议**：检查错误消息中的 http 状态代码或消息，并修复远程服务器问题。
 
 
 ## <a name="oracle"></a>Oracle
@@ -629,9 +586,44 @@ ms.locfileid: "97894457"
 
 - **建议**： 
 
-    请运行 `select dump(<column name>)` 以检查 Oracle 中的值是否在 ADF 的范围内。 
+    运行 `select dump(<column name>)` 以检查 Oracle 中的值是否在 ADF 的范围内。 
 
     如果你希望知道结果中的字节序列，请查看 https://stackoverflow.com/questions/13568193/how-are-dates-stored-in-oracle 。
+
+
+## <a name="orc-format"></a>ORC 格式
+
+### <a name="error-code--orcjavainvocationexception"></a>错误代码：OrcJavaInvocationException
+
+- 消息：`An error occurred when invoking java, message: %javaException;.`
+
+- **原因：** 如果错误消息包含“java.lang.OutOfMemory”、“Java 堆空间”和“doubleCapacity”，则原因通常与旧版集成运行时中的内存管理问题有关。
+
+- **建议**：如果使用的是自承载集成运行时，建议升级到最新版本。
+
+- **原因：** 如果错误消息包含“java.lang.OutOfMemory”，则原因是集成运行时不能提供足够的资源来处理文件。
+
+- **建议**：限制集成运行时中的并发运行。 对于自承载集成运行时，请扩展到具有 8 GB 或更大内存的强大计算机。
+
+- **原因：** 如果错误消息包含“NullPointerReference”，则原因可能是出现了暂时性错误。
+
+- **建议**：重试。 如果问题仍然出现，请联系支持人员。
+
+- **原因：** 如果错误消息包含“BufferOverflowException”，则原因可能是出现了暂时性错误。
+
+- **建议**：重试。 如果问题仍然出现，请联系支持人员。
+
+- **原因：** 如果错误消息包含“java.lang.ClassCastException:org.apache.hadoop.hive.serde2.io.HiveCharWritable 无法转换为 org.apache.hadoop.io.Text”，这是 Java 运行时内部的类型转换问题。 通常，此问题是由于在 Java 运行时中不能很好地处理源数据。
+
+- **建议**：这是数据问题。 尝试在 ORC 格式数据中使用字符串代替 char/varchar。
+
+### <a name="error-code--orcdatetimeexceedlimit"></a>错误代码：OrcDateTimeExceedLimit
+
+- 消息：`The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000.`
+
+- **原因：** 如果日期/时间值为“0001-01-01 00:00:00”，则可能是儒略历和公历之间的差异导致的。 https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar#Difference_between_Julian_and_proleptic_Gregorian_calendar_dates.
+
+- **建议**：检查时钟周期值，并避免使用日期/时间值“0001-01-01 00:00:00”。
 
 
 ## <a name="parquet-format"></a>Parquet 格式
@@ -776,7 +768,7 @@ ms.locfileid: "97894457"
 
 - **原因**： 
 
-    此问题可能是由列名中的空格或不受支持的字符（例如 ,;{}()\n\t=）导致的，因为 Parquet 不支持此类格式。 
+    此问题可能是由列名中的空格或不受支持的字符（例如 ;{}()\n\t=）导致的，因为 Parquet 不支持此类格式。 
 
     例如，contoso(test) 之类的列名会分析[代码](https://github.com/apache/parquet-mr/blob/master/parquet-column/src/main/java/org/apache/parquet/schema/MessageTypeParser.java) `Tokenizer st = new Tokenizer(schemaString, " ;{}()\n\t");` 中的括号中的类型。 将引发错误，因为不存在这样的“test”类型。
 
@@ -784,14 +776,22 @@ ms.locfileid: "97894457"
 
 - **解决方法**： 
 
-    1. 仔细检查接收器列名中是否有空格。
+    - 仔细检查接收器列名中是否有空格。
 
-    1. 仔细检查是否将包含空格的第一行用作了列名。
+    - 仔细检查是否将包含空格的第一行用作了列名。
 
-    1. 仔细检查是否支持类型 OriginalType。 尽量避免使用这些特殊符号：`,;{}()\n\t=`。 
+    - 仔细检查是否支持类型 OriginalType。 尽量避免使用这些特殊符号：`,;{}()\n\t=`。 
 
 
 ## <a name="rest"></a>REST
+
+### <a name="error-code--restsinkcallfailed"></a>错误代码：RestSinkCallFailed
+
+- 消息：`Rest Endpoint responded with Failure from server. Check the error from server:%message;`
+
+- **原因：** 当 Azure 数据工厂通过 http 协议与 REST 终结点对话，并且请求操作失败时，会发生此错误。
+
+- **建议**：检查错误消息中的 http 状态代码或消息，并修复远程服务器问题。
 
 ### <a name="unexpected-network-response-from-rest-connector"></a>来自 REST 连接器的意外网络响应
 
@@ -806,7 +806,7 @@ ms.locfileid: "97894457"
         ```
       如果命令返回相同的意外响应，请使用“curl”修复以上参数，直到返回预期的响应。 
 
-      也可以使用“curl --help”来更高级地使用命令。
+      也可使用“curl--help”来更高级地使用命令。
 
     - 如果只有 ADF REST 连接器返回意外响应，请联系 Azure 支持人员，以进一步进行故障排除。
     
@@ -817,75 +817,76 @@ ms.locfileid: "97894457"
 
 ## <a name="sftp"></a>SFTP
 
-### <a name="invalid-sftp-credential-provided-for-sshpublickey-authentication-type"></a>为“SSHPublicKey”身份验证类型提供的 SFTP 凭据无效
+#### <a name="error-code--sftpoperationfail"></a>错误代码：SftpOperationFail
 
-- **症状**：使用了 SSH 公钥身份验证，但为“'SshPublicKey”身份验证类型提供了无效的 SFTP 凭据。
+- 消息：`Failed to '%operation;'. Check detailed error from SFTP.`
 
-- **原因：** 此错误可能是由以下三个可能的原因导致的：
+- **原因：** Sftp 操作遇到问题。
 
-    1. 从 AKV/SDK 中提取了私钥内容，但该内容未正确编码。
-
-    1. 选择了错误的密钥内容格式。
-
-    1. 凭据或私钥内容无效。
-
-- **解决方法**： 
-
-    1. 对于原因 1：
-
-       如果私钥内容来自 AKV，并且客户将原始密钥文件直接上传到 SFTP 链接服务，则原始密钥文件可以正常使用。
-
-       请参阅 https://docs.azure.cn/data-factory/connector-sftp#using-ssh-public-key-authentication 。privateKey 内容是 Base64 编码的 SSH 私钥内容。
-
-       请使用 Base64 编码将原始私钥文件的整个内容编码，并将编码后的字符串存储到 AKV 中。 如果单击“从文件上传”，则原始私钥文件是可以在 SFTP 链接服务上使用的文件。
-
-       下面是用于生成字符串的一些示例：
-
-       - 使用 C# 代码：
-       ```
-       byte[] keyContentBytes = File.ReadAllBytes(Private Key Path);
-       string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
-       ```
-
-       - 使用 Python 代码：
-       ```
-       import base64
-       rfd = open(r'{Private Key Path}', 'rb')
-       keyContent = rfd.read()
-       rfd.close()
-       print base64.b64encode(Key Content)
-       ```
-
-       - 使用第三方 Base64 转换工具
-
-         建议使用 https://www.base64encode.org/ 之类的工具。
-
-    1. 对于原因 2：
-
-       如果使用的是 PKCS#8 格式的 SSH 私钥
-
-       当前不支持使用 PKCS#8 格式的 SSH 私钥（开头为“-----BEGIN ENCRYPTED PRIVATE KEY-----”）访问 ADF 中的 SFTP 服务器。 
-
-       请运行以下命令，将密钥转换为传统的 SSH 密钥格式（开头为“-----BEGIN RSA PRIVATE KEY-----”）：
-
-       ```
-       openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
-       chmod 600 traditional_format_key_file
-       ssh-keygen -f traditional_format_key_file -p
-       ```
-    1. 对于原因 3：
-
-       请使用 WinSCP 之类的工具仔细检查，看密钥文件或密码是否正确。
+- **建议**：检查来自 SFTP 的详细错误。
 
 
-### <a name="incorrect-linked-service-type-is-used"></a>使用了错误的链接服务类型
+### <a name="error-code--sftprenameoperationfail"></a>错误代码：SftpRenameOperationFail
 
-- **症状**：无法访问 FTP/SFTP 服务器。
+- 消息：`Failed to rename the temp file. Your SFTP server doesn't support renaming temp file, please set "useTempFileRename" as false in copy sink to disable uploading to temp file.`
 
-- **原因：** 为 FTP 或 SFTP 服务器使用了错误的链接服务类型，例如，使用 FTP 链接服务连接到 SFTP 服务器或进行反向连接。
+- **原因：** SFTP 服务器不支持重命名临时文件。
 
-- **解决方法**：请检查目标服务器的端口。 默认情况下，FTP 使用端口 21，SFTP 使用端口 22。
+- **建议**：在复制接收器中将“useTempFileRename”设置为 false，以禁止上传到临时文件。
 
+
+### <a name="error-code--sftpinvalidsftpcredential"></a>错误代码：SftpInvalidSftpCredential
+
+- 消息：`Invalid Sftp credential provided for '%type;' authentication type.`
+
+- **原因：** 从 AKV/SDK 中提取了私钥内容，但该内容未正确编码。
+
+- **建议**：  
+
+    如果私钥内容来自 AKV，并且客户将原始密钥文件直接上传到 SFTP 链接服务，则原始密钥文件可以正常使用。
+
+    请参阅 https://docs.azure.cn/data-factory/connector-sftp#using-ssh-public-key-authentication 。privateKey 内容是 Base64 编码的 SSH 私钥内容。
+
+    请使用 Base64 编码将原始私钥文件的整个内容编码，并将编码后的字符串存储到 AKV 中。 如果单击“从文件上传”，则原始私钥文件是可以在 SFTP 链接服务上使用的文件。
+
+    下面是用于生成字符串的一些示例：
+
+    - 使用 C# 代码：
+    ```
+    byte[] keyContentBytes = File.ReadAllBytes(Private Key Path);
+    string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
+    ```
+
+    - 使用 Python 代码：
+    ```
+    import base64
+    rfd = open(r'{Private Key Path}', 'rb')
+    keyContent = rfd.read()
+    rfd.close()
+    print base64.b64encode(Key Content)
+    ```
+
+    - 使用第三方 Base64 转换工具
+
+        建议使用 https://www.base64encode.org/ 之类的工具。
+
+- **原因：** 选择了错误的密钥内容格式
+
+- **建议**：  
+
+    当前不支持使用 PKCS#8 格式的 SSH 私钥（开头为“-----BEGIN ENCRYPTED PRIVATE KEY-----”）访问 ADF 中的 SFTP 服务器。 
+
+    请运行以下命令，将密钥转换为传统的 SSH 密钥格式（开头为“-----BEGIN RSA PRIVATE KEY-----”）：
+
+    ```
+    openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
+    chmod 600 traditional_format_key_file
+    ssh-keygen -f traditional_format_key_file -p
+    ```
+
+- **原因：** 凭据或私钥内容无效
+
+- **建议**：使用 WinSCP 之类的工具仔细检查，看密钥文件或密码是否正确。
 
 ### <a name="sftp-copy-activity-failed"></a>SFTP 复制活动失败
 
@@ -896,15 +897,19 @@ ms.locfileid: "97894457"
 - **解决方法**：通过映射目标数据集列来仔细检查你的数据集的配置情况，以确认是否存在这样的“AccMngr”列。
 
 
-### <a name="sftp-server-connection-throttling"></a>SFTP 服务器连接限制
+### <a name="error-code--sftpfailedtoconnecttosftpserver"></a>错误代码：SftpFailedToConnectToSftpServer
 
-- **症状**：服务器响应不包含 SSH 协议标识，并且无法复制。
+- 消息：`Failed to connect to Sftp server '%server;'.`
 
-- **原因：** ADF 会创建多个连接，以从 SFTP 服务器进行并行下载，有时会达到 SFTP 服务器限制。 实际上，不同的服务器在达到限制时会返回不同的错误。
+- **原因：** 如果错误消息包含“套接字读取操作在 30000 毫秒后超时”，则可能是因为 SFTP 服务器使用了错误的链接服务类型，例如使用 FTP 链接服务连接到 SFTP 服务器。
 
-- **解决方法**： 
+- **建议**：检查目标服务器的端口。 默认情况下，SFTP 使用端口 22。
 
-    请将 SFTP 数据集的最大并发连接数指定为 1，然后重新运行复制。 如果成功，则可确定这是由限制导致的。
+- **原因：** 如果错误消息包含“服务器响应不包含 SSH 协议标识”，则可能是因为 SFTP 服务器限制了连接。 ADF 会创建多个连接，以从 SFTP 服务器进行并行下载，有时会达到 SFTP 服务器限制。 实际上，不同的服务器在达到限制时会返回不同的错误。
+
+- **建议**：  
+
+    将 SFTP 数据集的最大并发连接数指定为 1，然后重新运行复制。 如果成功，则可确定这是由限制导致的。
 
     若要提升吞吐量，请联系 SFTP 管理员以提高并发连接计数限制，或将下面的 IP 添加到允许列表：
 
@@ -914,13 +919,53 @@ ms.locfileid: "97894457"
     - 如果使用自承载 IR，请将安装了 SHIR 的计算机 IP 添加到允许列表。
 
 
-### <a name="error-code-sftprenameoperationfail"></a>错误代码：SftpRenameOperationFail
+## <a name="sharepoint-online-list"></a>SharePoint Online 列表
 
-- **症状**：管道无法将数据从 Blob 复制到 SFTP，出现以下错误：`Operation on target Copy_5xe failed: Failure happened on 'Sink' side. ErrorCode=SftpRenameOperationFail,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException`。
+### <a name="error-code--sharepointonlineauthfailed"></a>错误代码：SharePointOnlineAuthFailed
 
-- **原因：** 在复制数据时，选项 useTempFileRename 已设置为 True。 这允许进程使用临时文件。 如果在复制整个数据之前删除了一个或多个临时文件，则会触发此错误。
+- 消息：`The access token generated failed, status code: %code;, error message: %message;.`
 
-- **解决方法**：将 useTempFileName 选项设置为 False。
+- **原因：** 服务主体 ID 和密钥可能未正确设置。
+
+- **建议**：检查注册的应用程序（服务主体 ID）和密钥是否设置正确。
+
+
+## <a name="xml-format"></a>XML 格式
+
+### <a name="error-code--xmlsinknotsupported"></a>错误代码：XmlSinkNotSupported
+
+- 消息：`Write data in xml format is not supported yet, please choose a different format!`
+
+- **原因：** 在复制活动中将 XML 数据集用作接收器数据集
+
+- **建议**：将不同格式的数据集用作副本接收器。
+
+
+### <a name="error-code--xmlattributecolumnnameconflict"></a>错误代码：XmlAttributeColumnNameConflict
+
+- 消息：`Column names %attrNames;' for attributes of element '%element;' conflict with that for corresponding child elements, and the attribute prefix used is '%prefix;'.`
+
+- **原因：** 使用了属性前缀，导致出现了冲突。
+
+- **建议**：为“attributePrefix”属性设置其他值。
+
+
+### <a name="error-code--xmlvaluecolumnnameconflict"></a>错误代码：XmlValueColumnNameConflict
+
+- 消息：`Column name for the value of element '%element;' is '%columnName;' and it conflicts with the child element having the same name.`
+
+- **原因：** 使用某个子元素名称作为元素值的列名称。
+
+- **建议**：为“valueColumn”属性设置其他值。
+
+
+### <a name="error-code--xmlinvalid"></a>错误代码：XmlInvalid
+
+- 消息：`Input XML file '%file;' is invalid with parsing error '%error;'.`
+
+- **原因：** 输入 XML 文件的格式不正确。
+
+- **建议**：更正 XML 文件以使其格式正确.
 
 
 ## <a name="general-copy-activity-error"></a>常规复制活动错误
@@ -943,25 +988,6 @@ ms.locfileid: "97894457"
 - **建议**：检查接收器数据集，并修复路径（不使用通配符值）。
 
 
-### <a name="error-code--mappinginvalidpropertywithemptyvalue"></a>错误代码：MappingInvalidPropertyWithEmptyValue
-
-- 消息：`One or more '%sourceOrSink;' in copy activity mapping doesn't point to any data. Choose one of the three properties 'name', 'path' and 'ordinal' to reference columns/fields.`
-
-
-### <a name="error-code--mappinginvalidpropertywithnamepathandordinal"></a>错误代码：MappingInvalidPropertyWithNamePathAndOrdinal
-
-- 消息：`Mixed properties are used to reference '%sourceOrSink;' columns/fields in copy activity mapping. Please only choose one of the three properties 'name', 'path' and 'ordinal'. The problematic mapping setting is 'name': '%name;', 'path': '%path;','ordinal': '%ordinal;'.`
-
-
-### <a name="error-code--mappingduplicatedordinal"></a>错误代码：MappingDuplicatedOrdinal
-
-- 消息：`Copy activity 'mappings' has duplicated ordinal value "%Ordinal;". Fix the setting in 'mappings'.`
-
-
-### <a name="error-code--mappinginvalidordinalforsinkcolumn"></a>错误代码：MappingInvalidOrdinalForSinkColumn
-
-- 消息：`Invalid 'ordinal' property for sink column under 'mappings' property. Ordinal: %Ordinal;.`
-
 ### <a name="fips-issue"></a>FIPS 问题
 
 - **症状**：复制活动在启用了 FIPS 的自承载 Integration Runtime 计算机上失败，并出现以下错误消息：`This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms.`。 使用 Azure Blob、SFTP 等连接器复制数据时可能会发生此问题。
@@ -979,6 +1005,7 @@ ms.locfileid: "97894457"
         ![禁用 FIPS](./media/connector-troubleshoot-guide/disable-fips-policy.png)
 
     3. 重启自承载 Integration Runtime 计算机。
+
 
 ## <a name="next-steps"></a>后续步骤
 

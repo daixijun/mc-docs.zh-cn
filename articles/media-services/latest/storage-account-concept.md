@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-origin.date: 08/31/2020
-ms.date: 11/30/2020
+origin.date: 01/05/2021
+ms.date: 01/18/2021
 ms.author: v-jay
-ms.openlocfilehash: c85dba05a0dc68825e01f8a22a3df1b30bdc356e
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 344fe406fd50e03bc8108989beab49a6dcf2b950
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300745"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230591"
 ---
 # <a name="azure-storage-accounts"></a>Azure 存储帐户
 
@@ -55,6 +55,9 @@ ms.locfileid: "96300745"
 |[存储客户端加密](../../storage/common/storage-client-side-encryption.md)|由 Azure 存储提供的客户端加密，由 Key Vault 中的客户托管密钥。|不支持。|
 
 <sup>1</sup> 在媒体服务 v3 中，仅当资产是使用媒体服务 v2 创建的时才支持存储加密（AES-256 加密）以实现向后兼容性，这意味着 v3 适用于现有存储加密的资产，但不允许创建新资产。
+
+## <a name="double-encryption"></a>双重加密
+媒体服务支持双重加密。  若要详细了解双重加密，请参阅 [Azure 双重加密](/security/fundamentals/double-encryption)。
 
 ## <a name="storage-account-errors"></a>存储帐户错误
 

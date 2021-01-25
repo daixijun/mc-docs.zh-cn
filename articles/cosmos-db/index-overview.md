@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB 中的索引
-description: 了解索引在 Azure Cosmos DB 中的工作原理，学习受支持的不同类型的索引，例如范围索引、空间索引和组合索引。
+description: 了解 Azure Cosmos DB 中索引的工作原理，Azure Cosmos DB 支持不同类型的索引，如范围索引、空间索引和组合索引。
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 05/21/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a302df1feb7350de8da03b0b158a9ae10bc73342
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 0f4b93377fa0f7c69276fcf3cd757cac0ddfe718
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598483"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231005"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的索引 - 概述
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -67,9 +67,10 @@ Azure Cosmos DB 将项转换为树的原因是，它允许通过这些树中属�
 
 写入项时，Azure Cosmos DB 会有效地对每个属性的路径及其相应的值编制索引。
 
-## <a name="index-kinds"></a>索引类型
+<a name="index-types"></a>
+## <a name="types-of-indexes"></a>索引类型
 
-Azure Cosmos DB 目前支持三种类型的索引。
+Azure Cosmos DB 目前支持三种类型的索引。 定义索引策略时，可以配置这些索引类型。
 
 ### <a name="range-index"></a>范围索引
 
@@ -125,7 +126,7 @@ Azure Cosmos DB 目前支持三种类型的索引。
     SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
     ```
 
-范围索引可用于标量值（字符串或数字）。
+范围索引可用于标量值（字符串或数字）。 新建容器的默认索引策略会对任何字符串或数字强制使用范围索引。 若要了解如何配置范围索引，请参阅[范围索引策略示例](how-to-manage-indexing-policy.md#range-index)
 
 ### <a name="spatial-index"></a>空间索引
 
@@ -149,11 +150,11 @@ Azure Cosmos DB 目前支持三种类型的索引。
     SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
     ```
 
-空间索引可在格式正确的 [GeoJSON](./sql-query-geospatial-intro.md) 对象上使用。 目前支持点、线串、多边形和多面。
+空间索引可在格式正确的 [GeoJSON](./sql-query-geospatial-intro.md) 对象上使用。 目前支持点、线串、多边形和多面。 若要使用此索引类型，请在配置索引策略时使用 `"kind": "Range"` 属性进行设置。 若要了解如何配置空间索引，请参阅[空间索引策略示例](how-to-manage-indexing-policy.md#spatial-index)
 
 ### <a name="composite-indexes"></a>组合索引
 
-对多个字段执行操作时，组合索引可提高效率。 组合索引类型用于：
+对多个字段执行操作时，组合索引可提高效率。 复合索引类型用于：
 
 - 对多个属性的 `ORDER BY` 查询：
 
@@ -173,11 +174,13 @@ Azure Cosmos DB 目前支持三种类型的索引。
      SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
     ```
 
-只要有一个筛选器谓词使用某一索引类型，查询引擎就将在扫描其余部分之前先评估该谓词。 例如，如果你有一个 SQL 查询，如 `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+只要一个筛选器谓词使用其中一种索引类型，查询引擎就会在扫描其余内容之前先对其进行评估。 例如，如果你有一个 SQL 查询，如 `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
 * 上面的查询将先使用索引筛选 firstName = "Andrew" 的条目， 然后通过后续管道传递所有 firstName = "Andrew" 的条目来评估 CONTAINS 筛选器谓词。
 
 * 如果使用不采用索引（如 CONTAINS）的函数，可额外添加使用该索引的筛选器谓词来加快查询速度和避免完整容器扫描。 筛选子句的顺序并不重要。 查询引擎将确定哪些谓词更具选择性，并相应地运行查询。
+
+若要了解如何配置组合索引，请参阅[组合索引策略示例](how-to-manage-indexing-policy.md#composite-index)
 
 ## <a name="querying-with-indexes"></a>使用索引进行查询
 

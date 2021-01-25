@@ -1,19 +1,19 @@
 ---
-title: 有关 Azure Stack Hub 集成系统的数据中心集成规划注意事项
+title: 规划 Azure Stack Hub 集成系统的数据中心集成
 description: 了解如何规划和准备数据中心与 Azure Stack Hub 集成式系统的集成。
 author: WenJason
-ms.topic: article
+ms.topic: conceptual
 origin.date: 04/02/2020
-ms.date: 05/18/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: da819105bc8b200f9b408c274325ac3a0672e8bd
-ms.sourcegitcommit: 134afb420381acd8d6ae56b0eea367e376bae3ef
+ms.openlocfilehash: 35b848198270fa54f9ae9379a4aed39f1f4a1c9c
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83422134"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541897"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>有关 Azure Stack Hub 集成系统的数据中心集成规划注意事项
 

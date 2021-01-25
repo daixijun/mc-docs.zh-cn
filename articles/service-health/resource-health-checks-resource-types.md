@@ -2,13 +2,13 @@
 title: 通过 Azure 资源运行状况支持的资源类型 | Microsoft Docs
 description: 通过 Azure 资源运行状况支持的资源类型
 ms.topic: conceptual
-ms.date: 11/02/2020
-ms.openlocfilehash: 9b5e8b1c39bf3483c8cb7f2631574a86307777a0
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.date: 01/11/2021
+ms.openlocfilehash: ce8477f1bb6d0a8d23a374ab24bf9fcccee096f8
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326417"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195105"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 资源运行状况中的资源类型和运行状况检查
 下面是通过资源运行状况执行的所有检查（按资源类型）的完整列表。
@@ -168,6 +168,11 @@ ms.locfileid: "94326417"
 |执行的检查|
 |---|
 |<ul><li>应用程序网关的性能是否下降了？</li><li>应用程序网关是否可用？</li></ul>|
+
+## <a name="microsoftnetworkbastionhosts"></a>Microsoft.network/bastionhosts
+|执行的检查|
+|---|
+|<ul><li>Bastion 主机是否已启动且正在运行？</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |执行的检查|

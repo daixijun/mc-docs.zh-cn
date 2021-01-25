@@ -4,14 +4,14 @@ description: Azure Monitor 指标警报的常见问题和可能的解决方案�
 author: Johnnytechn
 ms.author: v-johya
 ms.topic: troubleshooting
-ms.date: 12/08/2020
+ms.date: 01/12/2021
 ms.subservice: alerts
-ms.openlocfilehash: 6e3e798406fadaf148670b69b75251face670d3b
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: a3c5ce12166feea6290bcc9be8a273d3b44b6503
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104519"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230788"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>排查 Azure Monitor 指标警报的问题 
 
@@ -228,6 +228,23 @@ ms.locfileid: "97104519"
 -   监视多个维度的指标警报规则 - 添加新维度值组合时
 -   监视多个资源的指标警报规则 - 新资源添加到范围时
 -   监视未连续发出的指标（稀疏指标）的指标警报规则 - 指标在超过 24 小时的时间段发出时（24 小时内未发出）
+
+## <a name="the-dynamic-thresholds-borders-dont-seem-to-fit-the-data"></a>动态阈值边界似乎不适用于数据
+
+如果指标的行为最近发生了更改，则这些更改不一定会立即反映在动态阈值边界（上限和下限）中，因为它们是基于过去 10 天的指标数据计算得出的。 查看给定指标的动态阈值边界时，请务必查看过去一周（而不仅仅是过去几个小时或几天）的指标趋势。
+
+## <a name="why-is-weekly-seasonality-not-detected-by-dynamic-thresholds"></a>为什么动态阈值未检测到周周期性？
+
+为了确定周周期性，动态阈值模型至少需要三周的历史数据。 有了足够的历史数据可用之后，就会识别指标数据中存在的任何周周期性，并相应调整该模型。 
+
+## <a name="dynamic-thresholds-shows-a-negative-lower-bound-for-a-metric-even-though-the-metric-always-has-positive-values"></a>即使指标始终为正值，动态阈值也会显示该指标的负值下限
+
+当指标出现较大波动时，动态阈值将围绕指标值生成更大的模型，这可能会导致下限值低于零。 具体来说，在以下情况下可能会发生这种情况：
+1. 敏感度设置为低 
+2. 中值接近零
+3. 指标出现无规律的行为，且变化较大（数据中存在峰值或最小值）
+
+当下限具有负值时，这意味着在指标出现无规律行为的情况下，指标可能会达到零值。 可以考虑选择更高的敏感度或更大的聚合粒度（时间范围），以降低模型的敏感度，或者使用“之前忽略数据”选项从用于构建模型的历史数据中排除最近的不规则行为 。
 
 ## <a name="next-steps"></a>后续步骤
 

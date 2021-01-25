@@ -2,16 +2,16 @@
 title: 使用实时指标流进行诊断 - Azure Application Insights
 description: 通过自定义指标实时监视 Web 应用，使用实时失败、跟踪和事件源以诊断问题。
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 01/12/2021
 origin.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: v-johya
-ms.openlocfilehash: d129a6c988440abf002fac2686104b0b9985fb18
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: a461f51eb4b14aa877e1a27a171c19ef6a41eac3
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637875"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230342"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>实时指标流：以 1 秒的延迟进行监视和诊断
 
@@ -38,6 +38,7 @@ ms.locfileid: "94637875"
    * [ASP.NET Core](./asp-net-core.md) - 默认启用实时指标。
    * [.NET/.NET Core 控制台/辅助角色](./worker-service.md) - 默认启用实时指标。
    * [.NET 应用程序 - 使用代码启用](#enable-livemetrics-using-code-for-any-net-application)。
+    * [Java](/azure-monitor/app/java-in-process-agent) - 默认启用实时指标。
    * [Node.js](./nodejs.md#live-metrics)
 
 2. 在 [Azure 门户](https://portal.azure.cn)中，打开应用的 Application Insights 资源，然后打开实时流。
@@ -257,9 +258,6 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 - 当应用在任何 Windows 计算机（VM、云服务或本地等）上运行时（AspNetCore SDK 版本 2.7.1 或更高版本），支持 PerfCounters，但针对 .NET Core 2.0 或更高版本的应用除外。
 - 当应用以最新版本（即 AspNetCore SDK 2.8.0 或更高版本）在任意位置（Linux、Windows、用于 Linux 的应用服务、容器等）运行时，支持 PerfCounters，但仅适用于面向 .NET Core 2.0 或更高版本的应用。
 
-## <a name="troubleshooting"></a>疑难解答
-
-实时指标流使用不同于其他 Application Insights 遥测功能的 IP 地址。 请确保在防火墙中开放[这些 IP 地址](./ip-addresses.md)。 另外，请检查[实时指标流的传出端口](./ip-addresses.md#outgoing-ports)在服务器的防火墙中是否为打开状态。
 
 ## <a name="next-steps"></a>后续步骤
 

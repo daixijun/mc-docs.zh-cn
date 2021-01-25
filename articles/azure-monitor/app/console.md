@@ -3,17 +3,17 @@ title: 适用于控制台应用程序的 Azure Application Insights | Azure Docs
 description: 监视 Web 应用程序的可用性、性能和使用情况。
 ms.topic: conceptual
 origin.date: 11/19/2019
-ms.date: 11/10/2020
+ms.date: 01/12/2021
 ms.custom: devx-track-csharp
 author: Johnnytechn
 ms.reviewer: lmolkova
 ms.author: v-johya
-ms.openlocfilehash: 254cf6b30d84a5d4eb964d84aab012135740a16e
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 4e0363bcb406afeaa4ea681a1e2ca07ffff29309
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638210"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230035"
 ---
 # <a name="application-insights-for-net-console-applications"></a>适用于 .NET 控制台应用程序的 Application Insights
 
@@ -25,6 +25,9 @@ ms.locfileid: "94638210"
 > 强烈建议将 [ Microsoft.ApplicationInsights.WorkerService ](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 包以及[此处](./worker-service.md)的相关说明用于任何控制台应用程序。 此包针对 [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)，因此可在 .NET Core 2.1 或更高版本，以及 .NET Framework 4.7.2 或更高版本中使用。
 
 ## <a name="getting-started"></a>入门
+
+> [!IMPORTANT]
+> 新的 Azure 区域要求使用连接字符串而不是检测密钥。 [连接字符串](./sdk-connection-string.md?tabs=net)用于标识要与遥测数据关联的资源。 它还允许你修改可供你的资源将其用作遥测目标的终结点。 你需要复制连接字符串，并将其添加到应用程序的代码或环境变量中。
 
 * 在 [Azure 门户](https://portal.azure.cn)中，[创建 Application Insights 资源](./create-new-resource.md)。 对于应用程序类型，选择“常规”。
 * 获取检测密钥的副本。 在创建的新资源的“概要”下拉列表中找到该密钥。

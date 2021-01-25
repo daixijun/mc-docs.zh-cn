@@ -3,13 +3,13 @@ title: 在 IoT Edge 设备上部署实时视频分析 - Azure
 description: 本文列出了将帮助你在 IoT Edge 设备上部署实时视频分析的步骤。 你可能会在以下情况下执行此操作，例如：如果你有权访问本地 Linux 计算机并且/或之前创建了 Azure 媒体服务帐户。
 ms.topic: how-to
 origin.date: 09/09/2020
-ms.date: 01/11/2021
-ms.openlocfilehash: b172c4ce77a373e14b4b4ff92d773aa00aad9b1c
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.date: 01/18/2021
+ms.openlocfilehash: 3c5454f2ba3b775bc3c35d80c36c910e58851166
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021296"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229853"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>在 IoT Edge 设备上部署实时视频分析
 
@@ -107,7 +107,7 @@ Azure 门户引导你创建部署清单并将部署推送到 IoT Edge 设备。
     示例:
     
     * **IoT Edge 模块名称**：lvaEdge
-    * **映像 URI**：mcr.microsoft.com/media/live-video-analytics:1.0    
+    * **映像 URI**：mcr.microsoft.com/media/live-video-analytics:2.0    
     
     ![屏幕截图显示了“模块设置”选项卡。](./media/deploy-iot-edge-device/add.png)
     

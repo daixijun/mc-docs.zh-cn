@@ -6,22 +6,22 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 10/27/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 276d5c55c94175389d4a83d57707754c3b1cc207
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 75159b77025254a863c593784a4f1924a79f9bfe
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850834"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230166"
 ---
 <!--Verified successfully the snipcode-->
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>使用 .NET SDK 在 Azure Cosmos DB 中执行事务性批处理操作
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-事务性批处理描述了一组需要一起成功或失败且在容器中具有相同分区键的点操作。 在 .NET SDK 中，`TranscationalBatch` 类用于定义该批操作。 如果所有操作都按照事务性批处理操作中描述的顺序成功完成，则会提交事务。 但是，如果任何操作失败，则会回滚整个事务。
+事务性批处理描述了一组需要一起成功或失败且在容器中具有相同分区键的点操作。 在 .NET SDK 中，`TransactionalBatch` 类用于定义该批操作。 如果所有操作都按照事务性批处理操作中描述的顺序成功完成，则会提交事务。 但是，如果任何操作失败，则会回滚整个事务。
 
 ## <a name="whats-a-transaction-in-azure-cosmos-db"></a>什么是 Azure Cosmos DB 中的事务
 
@@ -55,13 +55,13 @@ TransactionalBatch batch = container.CreateTransactionalBatch(new PartitionKey(p
   .CreateItem<ChildClass>(child);
 ```
 
-接下来需调用 `ExecuteAsync`：
+接下来需对批处理调用 `ExecuteAsync`：
 
 ```csharp
 TransactionalBatchResponse batchResponse = await batch.ExecuteAsync();
 ```
 
-收到响应后，需检查其是否成功，并提取结果：
+收到响应后，检查其是否成功，并提取结果：
 
 ```csharp
 using (batchResponse)
@@ -76,7 +76,7 @@ using (batchResponse)
 }
 ```
 
-如果失败，则失败的操作会有其相应错误的状态代码。 而所有其他操作都会有 424 状态代码（失败的依赖项）。 在下面的示例中，操作失败，因为它尝试创建已存在的项 (409 HttpStatusCode.Conflict)。 利用状态代码，可以更容易地查明导致事务失败的原因。
+如果失败，则失败的操作会有其相应错误的状态代码。 其他所有操作都会有 424 状态代码（失败的依赖项）。 在下面的示例中，操作失败，因为它尝试创建已存在的项 (409 HttpStatusCode.Conflict)。 可通过状态代码查明导致事务失败的原因。
 
 ```csharp
 // Parent's birthday!
@@ -104,7 +104,7 @@ using (failedBatchResponse)
 
 调用 `ExecuteAsync` 方法时，会对 `TransactionalBatch` 对象中的所有操作进行分组，将其序列化为单个有效负载，并将其作为单个请求发送到 Azure Cosmos DB 服务。
 
-服务接收请求并在事务作用域内执行所有操作，然后使用相同的序列化协议返回响应。 此响应是成功或失败，在内部包含所有单个操作响应。
+服务接收请求并在事务作用域内执行所有操作，然后使用相同的序列化协议返回响应。 此响应是成功或失败，并为每个操作提供各项操作响应。
 
 SDK 会将响应公开，以便你验证结果并根据需要提取每个内部操作结果。
 
@@ -112,8 +112,8 @@ SDK 会将响应公开，以便你验证结果并根据需要提取每个内部�
 
 目前有两个已知限制：
 
-* Azure Cosmos DB 请求大小限制指定 `TransactionalBatch` 有效负载的大小不能超过 2 MB，最大执行时间为 5 秒。
-* 对于每个 `TransactionalBatch`，当前的限制为 100 个操作，以确保性能符合预期并满足 SLA。
+* Azure Cosmos DB 请求大小限制约束 `TransactionalBatch` 有效负载的大小不能超过 2 MB，最大执行时间为 5 秒。
+* 为了确保性能符合预期并满足 SLA，每个 `TransactionalBatch` 的当前限制为 100 个操作。
 
 ## <a name="next-steps"></a>后续步骤
 

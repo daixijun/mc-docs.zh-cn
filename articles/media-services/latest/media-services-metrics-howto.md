@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 origin.date: 08/31/2020
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7c41056fe0452b9a4fcf61f4127c134c045b14d4
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: e43d883089909eff1eb47a7b18dcfdb57a070d79
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300736"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230978"
 ---
 # <a name="monitor-media-services-metrics"></a>监视媒体服务指标
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-可以通过 [Azure Monitor](../../azure-monitor/overview.md) 监视指标和诊断日志，以便了解应用程序的执行情况。 有关此功能的详细说明以及使用 Azure 媒体服务指标和诊断日志的原因，请参阅[监视媒体服务指标和诊断日志](media-services-metrics-diagnostic-logs.md)。
+可以通过 [Azure Monitor](../../azure-monitor/overview.md) 监视指标和诊断日志，以便了解应用程序的执行情况。 有关此功能的详细说明以及应使用 Azure 媒体服务指标和诊断日志的原因，请参阅[监视媒体服务指标和诊断日志](media-services-metrics-diagnostic-logs.md)。
 
 Azure Monitor 提供多种方式来与指标交互，包括在门户中制作指标图表、通过 REST API 访问指标，或者使用 Azure CLI 查询指标。 本文介绍如何使用 Azure 门户图表和 Azure CLI 监视指标。
 
@@ -39,24 +39,21 @@ Azure Monitor 提供多种方式来与指标交互，包括在门户中制作指
 
 1. 通过 https://portal.azure.cn 登录到 Azure 门户。
 1. 导航到你的 Azure 媒体服务帐户，选择“指标”。 
-1. 单击“资源”框，选择要监视其指标的资源。 
+1. 单击“范围”框，然后选择要监视的资源。
 
-    右侧会显示“选择资源”窗口，其中提供了可用资源的列表。  在本例中，你会看到：
+    右侧会显示“选择范围”窗口，其中提供了可用资源的列表。 在本例中，你会看到：
 
     * &lt;媒体服务帐户名称&gt;
     * &lt;媒体服务帐户名称&gt;/&lt;流式处理终结点名称&gt;
     * &lt;存储帐户名称&gt;
 
-    选择资源并按“应用”。  有关支持的资源和指标的详细信息，请参阅[监视媒体服务指标](media-services-metrics-diagnostic-logs.md)。
-
-    ![屏幕截图，显示选定资源并突出显示“应用”按钮。](media/media-services-metrics/metrics02.png)
+    筛选，然后选择资源并按“应用”。 有关支持的资源和指标的详细信息，请参阅[监视媒体服务指标](media-services-metrics-diagnostic-logs.md)。
 
     > [!NOTE]
-    > 若要在你要监视其指标的资源之间切换，请再次单击“资源”框，然后重复上述步骤。 
-1. （可选）为图表命名（按顶部的铅笔图标来编辑名称）。
-1. 添加要查看的指标
+    > 若要在你要监视的资源之间切换，请再次单击“源”框，然后重复上述步骤。
 
-    ![度量值](media/media-services-metrics/metrics03.png)
+1. （可选）为图表命名（按顶部的铅笔图标来编辑名称）。
+1. 添加想要查看的指标。
 1. 可将图表固定到仪表板。
 
 ## <a name="view-metrics-with-azure-cli"></a>使用 Azure CLI 查看指标
@@ -73,8 +70,8 @@ az monitor metrics list --resource \
 
 ## <a name="see-also"></a>另请参阅
 
-* [Azure Monitor 指标](../../azure-monitor/platform/data-platform.md)
-* [使用 Azure Monitor 创建、查看和管理指标警报](../../azure-monitor/platform/alerts-metric.md)。
+- [Azure Monitor 指标](../../azure-monitor/platform/data-platform.md)
+- [使用 Azure Monitor 创建、查看和管理指标警报](../../azure-monitor/platform/alerts-metric.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

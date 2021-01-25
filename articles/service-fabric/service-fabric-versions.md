@@ -4,16 +4,16 @@ description: 了解 Azure Service Fabric 中的群集版本，包括指向 Servi
 ms.topic: troubleshooting
 origin.date: 06/15/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 144d488168e1101b0ded3d1eaa766b6a531b85d2
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: cdb620d57c562c3540c0c707045cddbf377abac9
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022116"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230523"
 ---
 # <a name="supported-service-fabric-versions"></a>支持的 Service Fabric 版本
 
@@ -27,6 +27,30 @@ ms.locfileid: "98022116"
 
 - [升级 Azure Service Fabric 群集](service-fabric-cluster-upgrade.md)
 - [升级在单独的 Windows Server 群集上运行的 Service Fabric 版本](service-fabric-cluster-upgrade-windows-server.md)
+
+
+## <a name="unsupported-versions"></a>不支持的版本
+
+### <a name="upgrade-alert-for-versions-between-57-and-below-6363"></a>5\.7 和 6.3.63 以下版本之间的版本升级警报。
+
+***从 5.7 到 6.3.63 的不受支持版本上的所有 Service Fabric 群集* 会受到将于 2021 年 1 月 7 日在 Azure 中推出的安全中断性变更的影响。
+ 
+ 为避免严重的服务中断（包括无法启动群集），必须将群集尽快升级到 Service Fabric 运行时的以下受支持版本之一，其中包括针对安全问题的修补程序。 我们已向受影响的客户提供指导。 如你有支持计划并且需要技术帮助，请提出一个支持请求，从而通过 [Azure 支持通道](https://support.azure.cn/support/support-azure/)与我们联系，并在支持票证中提及此上下文。 
+ 
+  #### <a name="supported-service-fabric-runtime-versions-including-the-fix-for-the-security-breaking-change"></a>支持的 Service Fabric 运行时版本，包括安全中断性变更的修补程序 
+   将在受安全中断性变更影响的较旧的不受支持版本上运行的 Service Fabric 群集升级到以下受支持的版本之一。
+
+  | OS | 当前群集中的 Service Fabric 运行时 | CU/修补程序版本  | 
+  | --- | --- |--- | 
+  | Windows | 7.0.* | 7.0.478.9590 |
+  | Windows | 7.1.* | 7.1.503.9590 |
+  | Windows | 7.2.* | 7.2.445.9590 |
+  | Ubuntu 16 | 7.0.* | 7.0.472.1  |
+  | Ubuntu 16 | 7.1.* | 7.1.455.1  |
+  | Ubuntu 1804 | 7.1.* | 7.1.455.1804 |
+  | Ubuntu 16 | 7.2.* | 7.2.447.1 |
+  | Ubuntu 1804 | 7.2.* | 7.2.447.1804 |
+ 
 
 ## <a name="supported-versions"></a>支持的版本
 

@@ -6,17 +6,17 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 11/03/2020
-ms.date: 11/30/2020
+origin.date: 12/11/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e1f1cd430dcabb472fc8c54fae2f4076f5754358
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 34b5cddc5a875b0b5efe6e822bbf77f88a7a5621
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153007"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163128"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>针对发送到存储帐户的请求强制实施必需的最低版本的传输层安全性 (TLS)
 
@@ -33,6 +33,9 @@ Azure 存储当前支持 TLS 协议的三个版本：1.0、1.1 和 1.2。 Azure 
 ## <a name="remediate-security-risks-with-a-minimum-version-of-tls"></a>使用最低版本的 TLS 修正安全风险
 
 如果你确信来自使用较旧版 TLS 的客户端的流量很小，或者允许使用较旧版 TLS 发出的请求失败，则可开始在存储帐户上实施最低版本的 TLS。 要求客户端使用最低版本的 TLS 对存储帐户发出请求是将数据的安全风险降至最低的策略的一部分。
+
+> [!IMPORTANT]
+> 如果使用连接到 Azure 存储的服务，请确保在你设置存储帐户所需的最低版本前，该服务使用相应的 TLS 版本向 Azure 存储发送请求。
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>为存储帐户配置最低 TLS 版本
 
@@ -286,6 +289,23 @@ Azure Policy 可以确保 Azure 资源符合要求和标准，从而为云治理
 下图显示了在以下情况下发生的错误：当具有 Deny 效果的策略要求将最低 TLS 版本设置为 TLS 1.2 时，你尝试创建最低 TLS 版本设置为 TLS 1.0（针对新帐户的默认值）的存储帐户。
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="屏幕截图显示了在违反策略的情况下创建存储帐户时出现的错误":::
+
+## <a name="permissions-necessary-to-require-a-minimum-version-of-tls"></a>需要最低版本的 TLS 所需的权限
+
+若要为存储帐户设置 MinimumTlsVersion 属性，用户必须具有创建和管理存储帐户的权限。 提供这些权限的 Azure 基于角色的访问控制 (Azure RBAC) 角色包括 Microsoft.Storage/storageAccounts/write 或 *Microsoft.Storage/storageAccounts/\*_ 操作。 具有此操作的内置角色包括：
+
+- Azure 资源管理器[所有者](../../role-based-access-control/built-in-roles.md#owner)角色
+- Azure 资源管理器[参与者](../../role-based-access-control/built-in-roles.md#contributor)角色
+- [存储帐户参与者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)角色
+
+这些角色不提供通过 Azure Active Directory (Azure AD) 对存储帐户中数据的访问权限。 但是，它们包括 _*Microsoft.Storage/storageAccounts/listkeys/action**，它授予对帐户访问密钥的访问权限。 借助此权限，用户可以使用帐户访问密钥访问存储帐户中的所有数据。
+
+角色分配的范围必须设定为存储帐户级别或更高级别，以允许用户为存储帐户要求最低版本的 TLS。 有关角色范围的详细信息，请参阅[了解 Azure RBAC 的范围](../../role-based-access-control/scope-overview.md)。
+
+请注意，仅向需要能够创建存储帐户或更新其属性的用户分配这些角色。 使用最小特权原则确保用户拥有完成任务所需的最少权限。 有关使用 Azure RBAC 管理访问权限的详细信息，请参阅 [Azure RBAC 最佳做法](../../role-based-access-control/best-practices.md)。
+
+> [!NOTE]
+> 经典订阅管理员角色“服务管理员”和“共同管理员”具有 Azure 资源管理器[所有者](../../role-based-access-control/built-in-roles.md#owner)角色的等效权限。 所有者角色包括所有操作，因此具有这些管理角色之一的用户也可以创建和管理存储帐户。 有关详细信息，请参阅[经典订阅管理员角色、Azure 角色和 Azure AD 管理员角色](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)。
 
 ## <a name="network-considerations"></a>网络注意事项
 

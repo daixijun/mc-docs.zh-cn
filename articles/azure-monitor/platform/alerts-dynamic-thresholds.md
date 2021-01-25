@@ -5,13 +5,13 @@ author: Johnnytechn
 ms.author: v-johya
 ms.topic: conceptual
 origin.date: 02/16/2020
-ms.date: 11/02/2020
-ms.openlocfilehash: dbf0779e1d1d6813c7ca77b1382cbd46cf206108
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 01/12/2021
+ms.openlocfilehash: 18439d6e98ad1a9943da78094e92bb5dc8bfb9a0
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327719"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230792"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Azure Monitor 中具有动态阈值的指标警报
 
@@ -19,7 +19,7 @@ ms.locfileid: "94327719"
 
 创建警报规则后，仅当受监视指标的行为不符合预期时（根据定制的阈值来确定），才会触发该规则。
 
-我们很乐意听取你的反馈意见，请将其发送到[支持团队](https://www.azure.cn/zh-cn/support/contact/)。
+我们很乐意听取你的反馈意见，请将其发送到[支持团队](https://www.azure.cn/support/contact/)。
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>使用建议的动态条件类型的原因和时机
 
@@ -40,7 +40,7 @@ ms.locfileid: "94327719"
 如果与选择的阈值之间有偏差，则表示指标行为存在异常。
 
 > [!NOTE]
-> 季节性模式检测设置为一小时、一天或一周的间隔。 这意味着其他模式（如两小时模式或半周模式）可能不会检测到。
+> 动态阈值可以检测每小时、每天或每周模式的周期性。 可能无法检测到其他模式（如每两小时一次或每半周一次）的周期性。 若要检测周周期性，至少需要三周的历史数据。 
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>动态阈值中的“敏感度”设置是指什么？
 

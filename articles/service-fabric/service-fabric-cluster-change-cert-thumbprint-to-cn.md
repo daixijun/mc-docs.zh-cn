@@ -4,16 +4,16 @@ description: 了解如何将 Azure Service Fabric 群集证书从基于指纹的
 ms.topic: conceptual
 origin.date: 09/06/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 4035ec1bdb22fc58b30e49fc9f5e8c5e5f13ab09
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 39ee5ddac3044fde5d7743c0c1dc1e9085e107b3
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94327407"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230139"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>将群集证书从基于指纹的声明转换为公用名
 
@@ -68,8 +68,11 @@ Service Fabric 支持以两种方式通过 CN 声明证书：
 #### <a name="valid-starting-states"></a>有效的起始状态
 
 - `Thumbprint: GoalCert, ThumbprintSecondary: None`
-- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`，其中的 `GoalCert` 具有比 `OldCert1` 的日期更晚的 `NotAfter` 日期
-- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`，其中的 `GoalCert` 具有比 `OldCert1` 的日期更晚的 `NotAfter` 日期
+- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`，其中的 `GoalCert` 具有比 `OldCert1` 的日期更晚的 `NotBefore` 日期
+- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`，其中的 `GoalCert` 具有比 `OldCert1` 的日期更晚的 `NotBefore` 日期
+
+> [!NOTE]
+> 在版本 7.2.445 (7.2 CU4) 之前，Service Fabric 选择了最后面的即将到期的证书（具有最远的“NotAfter”属性的证书），因此上述 7.2 CU4 之前的起始状态要求 GoalCert 的 `NotAfter` 日期晚于 `OldCert1`
 
 如果你的群集未处于前面所述的有效状态之一，请参阅本文末尾部分关于如何实现该状态的内容。
 
@@ -79,14 +82,14 @@ Service Fabric 支持以两种方式通过 CN 声明证书：
 
 请确保你很好地了解选择任一机制的差别和影响。 从语法上讲，这种差异或选择取决于 `certificateIssuerThumbprintList` 参数的值。 为空表示依赖于受信任的根 CA （信任定位点），而一组指纹会限制允许的群集证书直接颁发者。
 
-> [!NOTE]
-> 使用 `certificateIssuerThumbprint` 字段，可以指定由使用者 CN 声明的证书的预期直接颁发者。 可接受的值为一个或多个以逗号分隔的 SHA1 指纹。 此操作会改进证书验证。
->
-> 如果未指定颁发者或列表为空，并且证书链可以生成，则可使用证书进行身份验证。 然后，证书最终出现在验证程序信任的根中。 当指定了一个或多个颁发者指纹时，如果证书的直接颁发者的指纹（从链中提取）与此字段中指定的任意值匹配，则会接受该证书。 无论根是否可信，都会接受该证书。
->
-> PKI 可能会使用不同的证书颁发机构（也称为“颁发者”）对具有给定使用者的证书进行签名。 因此，请务必为该使用者指定所有预期的颁发者指纹。 换句话说，证书续订不保证要续订的证书会由其颁发者签名。
->
-> 指定颁发者被认为是最佳做法。 对于可以链接到受信任根的证书，省略颁发者也是可行的，但此行为存在限制，在不久的将来可能会被淘汰。 在 Azure 中部署并使用 X509 证书（由私有 PKI 颁发并通过使用者进行声明）保护的群集可能无法获得 Service Fabric 的验证，因此无法进行从群集到服务的通信。 进行验证时，要求 PKI 的证书策略是可发现的、可用的且可访问的。
+    > [!NOTE]
+    > The `certificateIssuerThumbprint` field allows you to specify the expected direct issuers of certificates declared by subject CN. Acceptable values are one or more comma-separated SHA1 thumbprints. This action strengthens the certificate validation.
+    >
+    > If no issuers are specified or the list is empty, the certificate will be accepted for authentication if its chain can be built. The certificate then ends up in a root trusted by the validator. If one or more issuer thumbprints are specified, the certificate will be accepted if the thumbprint of its direct issuer, as extracted from the chain, matches any of the values specified in this field. The certificate will be accepted whether the root is trusted or not.
+    >
+    > A PKI might use different certification authorities (also known as *issuers*) to sign certificates with a given subject. For this reason, it's important to specify all expected issuer thumbprints for that subject. In other words, the renewal of a certificate isn't guaranteed to be signed by the same issuer as the certificate being renewed.
+    >
+    > Specifying the issuer is considered a best practice. Omitting the issuer will continue to work for certificates chaining up to a trusted root, but this behavior has limitations and might be phased out in the near future. Clusters deployed in Azure, secured with X509 certificates issued by a private PKI, and declared by subject might not be able to be validated by Service Fabric (for cluster-to-service communication). Validation requires the PKI's certificate policy to be discoverable, available, and accessible.
 
 ## <a name="update-the-clusters-azure-resource-manager-template-and-deploy"></a>更新群集的 Azure 资源管理器模板并进行部署
 
@@ -222,11 +225,14 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 
 | 开始状态 | 升级 1 | 升级 2 |
 | :--- | :--- | :--- |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` 和 `GoalCert` 具有比 `OldCert1` 晚的 `NotAfter` 日期 | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` 和 `OldCert1` 具有比 `GoalCert` 晚的 `NotAfter` 日期 | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
-| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`，其中的 `OldCert1` 具有比 `GoalCert` 晚的 `NotAfter` 日期 | 升级到 `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
-| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`，其中的 `OldCert1` 具有比 `GoalCert` 晚的 `NotAfter` 日期 | 升级到 `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` 和 `GoalCert` 具有比 `OldCert1` 晚的 `NotBefore` 日期 | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` 和 `OldCert1` 具有比 `GoalCert` 晚的 `NotBefore` 日期 | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
+| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`，其中的 `OldCert1` 具有比 `GoalCert` 晚的 `NotBefore` 日期 | 升级到 `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`，其中的 `OldCert1` 具有比 `GoalCert` 晚的 `NotBefore` 日期 | 升级到 `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
 | `Thumbprint: OldCert1, ThumbprintSecondary: OldCert2` | 删除 `OldCert1` 或 `OldCert2` 以达到状态 `Thumbprint: OldCertx, ThumbprintSecondary: None` | 从新的起始状态继续 |
+
+> [!NOTE]
+> 对于 7.2.445 (7.2 CU4) 之前版本上的群集，在上述状态下，将 `NotBefore` 替换为 `NotAfter`。
 
 有关如何执行这些升级中的任一升级的说明，请参阅[管理 Azure Service Fabric 群集中的证书](service-fabric-cluster-security-update-certs-azure.md)。
 

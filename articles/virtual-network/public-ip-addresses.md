@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/28/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d8b5d92d5e10b84caa62422e840510fb0e6473ca
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: d1f9415ee686c0be33cd80d3e2194c99fe4351c5
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300391"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230758"
 ---
 # <a name="public-ip-addresses"></a>公共 IP 地址
 
@@ -42,7 +42,7 @@ ms.locfileid: "96300391"
 
 ## <a name="sku"></a><a name="sku"></a>SKU
 
-<!--Not Available on [Public IP upgrade](../virtual-network/virtual-network-public-ip-address-upgrade.md)-->
+若要了解有关 SKU 升级的信息，请参阅[公共 IP 升级](../virtual-network/virtual-network-public-ip-address-upgrade.md)。
 
 使用以下 SKU 之一创建公共 IP 地址：
 
@@ -202,7 +202,7 @@ Azure 中的[网络限制](../azure-resource-manager/management/azure-subscripti
 
 ## <a name="pricing"></a>定价
 
-公共 IP 地址可能会产生少许费用。 有关 Azure 中 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/ip-addresses)页。
+公共 IP 地址可能会产生少许费用。 有关 Azure 中 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/ip-addresses/)页。
 
 ## <a name="next-steps"></a>后续步骤
 * 了解 [Azure 中的专用 IP 地址](private-ip-addresses.md)

@@ -3,14 +3,14 @@ title: Durable Functions 中的函数链 - Azure
 description: 了解如何运行执行一系列函数的 Durable Functions 示例。
 author: cgillum
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
-ms.openlocfilehash: 591095f8ee1a0ab1afb00a0a81481d04e68b1a4a
-ms.sourcegitcommit: 84606cd16dd026fd66c1ac4afbc89906de0709ad
+ms.openlocfilehash: 9a63d1cdc659d2f8c7a92293362572546981a0b7
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88223181"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195129"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Durable Functions 中的函数链 - Hello 序列示例
 
@@ -24,7 +24,7 @@ ms.locfileid: "88223181"
 
 * `E1_HelloSequence`：在一个序列中多次调用 `E1_SayHello` 的一个[业务流程协调程序函数](durable-functions-bindings.md#orchestration-trigger)。 它存储来自 `E1_SayHello` 调用的输出并记录结果。
 * `E1_SayHello`：在字符串前添加“Hello”的一个[活动函数](durable-functions-bindings.md#activity-trigger)。
-* `HttpStart`：用于启动业务流程协调程序实例的一个 HTTP 触发的函数。
+* `HttpStart`：HTTP 触发的[持久客户端](durable-functions-bindings.md#orchestration-client)函数，用于启动业务流程协调程序的实例。
 
 ### <a name="e1_hellosequence-orchestrator-function"></a>E1_HelloSequence 业务流程协调程序函数
 
@@ -53,7 +53,7 @@ ms.locfileid: "88223181"
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 > [!NOTE]
-> JavaScript Durable Functions 仅适用于 Functions 2.0 运行时。
+> JavaScript Durable Functions 仅适用于 Functions 3.0 运行时。
 
 #### <a name="functionjson"></a>function.json
 
@@ -78,7 +78,7 @@ ms.locfileid: "88223181"
 
 #### <a name="indexjs"></a>index.js
 
-下面是此函数：
+下面是业务流程协调程序函数：
 
 ```javascript
 const df = require("durable-functions");
@@ -94,9 +94,9 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-所有 JavaScript 业务流程函数都必须包括 [`durable-functions` 模块](https://www.npmjs.com/package/durable-functions)。 它是一个库，可用于以 JavaScript 编写 Durable Functions。 业务流程函数与其他 JavaScript 函数之间有三个明显差异：
+所有 JavaScript 业务流程函数都必须包括 [`durable-functions` 模块](https://www.npmjs.com/package/durable-functions)。 它是一个库，可用于以 JavaScript 编写 Durable Functions。 业务流程协调程序函数与其他 JavaScript 函数之间有三个明显差异：
 
-1. 此函数是一个[生成器函数](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)。
+1. 业务流程协调程序函数是一个[生成器函数](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)。
 2. 此函数包装在对 `durable-functions` 模块的 `orchestrator` 方法的调用（此处为 `df`）中。
 3. 此函数必须是同步的。 因为“orchestrator”方法处理“context.done”的调用，所以此函数应该只是“return”。
 
@@ -150,7 +150,7 @@ module.exports = df.orchestrator(function*(context){
 ```
 
 > [!NOTE]
-> Orchestration 函数调用的任何函数都必须使用 `activityTrigger` 绑定。
+> 业务流程函数调用的所有活动函数都必须使用 `activityTrigger` 绑定。
 
 `E1_SayHello` 的实现是一种相对简单的字符串格式设置操作。
 
@@ -162,7 +162,7 @@ module.exports = async function(context) {
 };
 ```
 
-与 JavaScript 业务流程函数不同，活动函数不需要特殊设置。 业务流程协调程序函数传递给它的输入位于 `context.bindings` 对象上，在 `activityTrigger` 绑定的名称下，在本例中为 `context.bindings.name`。 绑定名称可以设置为导出函数的参数并且可以直接访问，这是示例代码所做的事情。
+与业务流程函数不同，活动函数不需要特殊设置。 业务流程协调程序函数传递给它的输入位于 `context.bindings` 对象上，在 `activityTrigger` 绑定的名称下，在本例中为 `context.bindings.name`。 绑定名称可以设置为导出函数的参数并且可以直接访问，这是示例代码所做的事情。
 
 ---
 
@@ -299,4 +299,3 @@ Content-Type: application/json; charset=utf-8
 > [!div class="nextstepaction"]
 > [运行扇出/扇入示例](durable-functions-cloud-backup.md)
 
-<!-- Update_Description: wording update -->

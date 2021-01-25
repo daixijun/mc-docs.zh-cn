@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: c54c8f47d1fd63c1aa0fa184bbb2172ff6b65ce1
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: ad1705cd761e394fae20c3ac33f3e56ef7994be2
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244687"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194996"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>如何：配置应用的服务条款和隐私声明
 
@@ -58,7 +58,7 @@ ms.locfileid: "91244687"
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>使用 Azure 门户
 在 Azure 门户中执行以下步骤。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn/)，选择正确的 AzureAD 租户（而非 B2C）。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>，选择正确的 AzureAD 租户（而非 B2C）。
 2. 导航到“应用注册”部分并选择应用  。
 3. 打开“品牌”  窗格。
 4. 填写“服务条款 URL”和“隐私声明 URL”字段   。
@@ -104,4 +104,3 @@ PATCH https://microsoftgraph.chinacloudapi.cn/v1.0/applications/{application id}
 > * 请注意不要覆盖已分配给以下任何字段的任何预先存在的值：`supportUrl``marketingUrl` 和 `logoUrl`
 > * 只有使用 Azure AD 帐户登录时，Microsoft Graph API 才起作用。
 
-<!-- Update_Description: wording update -->

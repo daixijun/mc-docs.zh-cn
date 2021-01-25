@@ -4,15 +4,15 @@ description: 了解并配置 Azure Stack Hub 的 VPN 网关设置。
 author: WenJason
 ms.topic: conceptual
 origin.date: 05/07/2020
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 644188533de3d10a60afc6e918c252ec0349e17c
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 140312ea1d9a236dc744898ccf9318b62001ce41
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507907"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541833"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>配置 Azure Stack Hub 的 VPN 网关设置
 
@@ -40,7 +40,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 Azure Stack Hub 提供下表中所示的 VPN 网关 SKU：
 
-| | VPN 网关吞吐量 |VPN 网关最大 IPsec 隧道数 |
+| | 隧道吞吐量 |VPN 网关最大 IPsec 隧道数 |
 |-------|-------|-------|
 |**基本 SKU**  | 100 Mbps    | 20 个    |
 |**标准 SKU**   | 100 Mbps  | 20 个 |

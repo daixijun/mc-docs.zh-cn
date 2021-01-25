@@ -1,34 +1,40 @@
 ---
-title: 在 Azure 应用服务中为 .NET 应用启用 Snapshot Debugger | Microsoft Docs
+title: 在 Azure 应用服务中为 .NET 应用启用快照调试器 | Azure Docs
 description: 在 Azure 应用服务中为 .NET 应用启用快照调试器
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 07/17/2020
+ms.date: 01/12/2021
 origin.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c8ce2466a5de6ac03aac8df4d674c50b838b736b
-ms.sourcegitcommit: 2b78a930265d5f0335a55f5d857643d265a0f3ba
+ms.openlocfilehash: 531c3be1f8ce54f5f073b9a5c8c211e8676e5e38
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87244432"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231030"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>在 Azure 应用服务中为 .NET 应用启用快照调试器
 
-快照调试器当前适用于按 Windows 服务计划在 Azure 应用服务上运行的 ASP.NET 和 ASP.NET Core 应用。
+快照调试器当前适用于按 Windows 服务计划在 Azure 应用服务上运行的 ASP.NET 和 ASP.NET Core 应用。 建议在使用 Snapshot Debugger 时在“基本”服务层或更高的服务层上运行应用程序。 对于大多数应用程序，“免费”和“共享”服务层没有足够的内存或磁盘空间来保存快照。
 
 <a name="installation"></a>
 ##  <a name="enable-snapshot-debugger"></a>启用快照调试器
-若要为应用启用快照调试器，请遵循下面的说明。 如果你在运行另一种类型的 Azure 服务，则下面提供了用于在其他受支持平台上启用快照调试器的说明：
-* [Azure 云服务](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Service Fabric 服务](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Azure 虚拟机和虚拟机规模集](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [本地虚拟机或物理计算机](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+若要为应用启用快照调试器，请遵循下面的说明。
 
-如果使用的是 .NET Core 预览版，请按照[为其他环境启用 Snapshot Debugger 的说明](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)首先将 [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 包包含在应用程序中，然后完成下面的其余说明。 
+如果你在运行另一种类型的 Azure 服务，则下面提供了用于在其他受支持平台上启用 Snapshot Debugger 的说明：
+* [Azure Function](snapshot-debugger-function-app.md?toc=/azure-monitor/toc.json)
+* [Azure 云服务](snapshot-debugger-vm.md?toc=/azure-monitor/toc.json)
+* [Azure Service Fabric 服务](snapshot-debugger-vm.md?toc=/azure-monitor/toc.json)
+* [Azure 虚拟机和虚拟机规模集](snapshot-debugger-vm.md?toc=/azure-monitor/toc.json)
+* [本地虚拟机或物理计算机](snapshot-debugger-vm.md?toc=/azure-monitor/toc.json)
 
-预安装 Application Insights 快照调试器作为应用程序服务运行时的一部分，但需启用它才能获得适用于应用服务应用的快照。 部署应用后，即使在源代码中包括了 Application Insights SDK，也要执行以下步骤来启用快照调试器。
+> [!NOTE]
+> 如果使用的是 .NET Core 预览版，或者应用程序通过依赖程序集直接或间接引用了 Application Insights SDK，请首先按照[为其他环境启用 Snapshot Debugger](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)进行操作，将 [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 包包含在应用程序中，然后完成下面的其余说明。 
+
+预安装 Snapshot Debugger 作为应用程序服务运行时的一部分，但需启用它才能获得适用于应用服务应用的快照。
+
+部署应用后，请按照以下步骤启用 Snapshot Debugger：
 
 1. 导航到应用服务的 Azure 控制面板。
 2. 转到“设置”>“Application Insights”页面。
@@ -45,12 +51,13 @@ ms.locfileid: "87244432"
 
 ## <a name="disable-snapshot-debugger"></a>禁用快照调试器
 
-执行与**启用快照调试器**相同的步骤，但将快照调试器的两个开关都切换到“关”  。
-我们建议在所有应用上启用快照调试器，以简化对应用程序异常的诊断。
+执行与 **启用快照调试器** 相同的步骤，但将快照调试器的两个开关都切换到“关”  。
+
+建议对所有应用启用 Snapshot Debugger，以简化应用程序异常的诊断。
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板
 
-对于 Azure 应用服务，可在 Azure 资源管理器模板中设置应用设置，以启用 Snapshot Debugger 和 Profiler。 将包含应用设置的配置资源添加为网站的子资源：
+对于 Azure 应用服务，可在 Azure 资源管理器模板中设置应用设置，以启用 Snapshot Debugger 和 Profiler，请参阅下面的模板代码片段：
 
 ```json
 {
@@ -93,6 +100,8 @@ ms.locfileid: "87244432"
 ## <a name="next-steps"></a>后续步骤
 
 - 为应用程序生成可触发异常的流量。 然后等待 10 到 15 分钟，这样快照就会发送到 Application Insights 实例。
+- 请参见 Azure 门户中的[快照](snapshot-debugger.md?toc=/azure-monitor/toc.json#view-snapshots-in-the-portal)。
+- 排查 Snapshot Debugger 问题时如需帮助，请参阅 [ Snapshot Debugger 故障排除](snapshot-debugger-troubleshoot.md?toc=/azure-monitor/toc.json)。
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png

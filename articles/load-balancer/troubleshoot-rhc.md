@@ -10,18 +10,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/14/2020
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
-ms.openlocfilehash: 6ae02c5bc2b9acfe98195787d6fe00b0f12cd567
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 8019b635aa2f7242a14d1217f82ee6306117a6ea
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105071"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230154"
 ---
-# <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>排查资源运行状况、前端和后端可用性问题 
+# <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>排查资源运行状况和入站可用性问题 
 
 本文介绍了如何调查影响负载均衡器前端 IP 和后端资源的可用性的问题。 
+
+负载均衡器的资源运行状况检查 (RHC) 用于确定负载均衡器的运行状况。 它在 2 分钟间隔内分析数据路径可用性指标，以确定负载均衡终结点、前端 IP 和具有负载均衡规则的前端端口组合是否可用。
+
+下表描述了用于确定负载均衡器的运行状况状态的 RHC 逻辑。
+
+| 资源运行状况 | 说明 |
+| --- | --- |
+| 可用 | 标准负载均衡器资源正常且可用。 |
+| 已降级 | 标准负载均衡器具有平台或用户启动的影响性能的事件。 “数据路径可用性”指标至少有两分钟报告了低于 90% 但高于 25% 的运行状况。 你将遇到中等到严重程度的性能影响。 
+| 不可用 | 标准负载均衡器资源不正常。 “数据路径可用性”指标至少有两分钟报告了低于 25% 的运行状况。 你会遇到严重的性能影响，或者入站连接不可用。 可能存在导致不可用的用户或平台事件。 |
+| Unknown | 标准负载均衡器资源的资源运行状况状态尚未更新，或者最近 10 分钟内未收到数据路径可用性信息。 此状态应该是暂时性的，系统在收到数据后会立即反映正确的状态。 |
+
 
 ## <a name="about-the-metrics-well-use"></a>关于我们将使用的指标
 要使用的两个指标是“数据路径可用性”和“运行状况探测状态”，必须了解其含义才能得出正确的见解。 

@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 origin.date: 11/21/2019
-ms.openlocfilehash: 8aec56e9b561f7273eb7742a78ff27df0b6fa7fc
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: b91c8db46773d33ab1fc1a2df01a5819ee195670
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104330"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230703"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>如何排查 Log Analytics Linux 代理的问题 
 
@@ -242,23 +242,6 @@ nss-pem 包 [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3
 3. 重启 OMI： <br/>
 `sudo scxadmin -restart`
 
-## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>问题：Azure 门户中未显示任何数据
-
-### <a name="probable-causes"></a>可能的原因
-
-- 加入 Azure Monitor 失败
-- 已阻止连接到 Azure Monitor
-- Log Analytics Linux 代理数据已备份
-
-### <a name="resolution"></a>解决方法
-1. 通过检查是否存在以下文件，来检查是否已成功载入 Azure Monitor：`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
-2. 使用 `omsadmin.sh` 命令行指令重新载入
-3. 如果使用代理，请参阅之前提供的代理解决方法步骤。
-4. 在某些情况下，当 Log Analytics Linux 代理无法与此服务通信时，代理上的数据会在整个缓冲区（大小 50 MB）中排队。 该代理应通过运行以下命令重新启动：`/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`。 
-
-    >[!NOTE]
-    >此问题已在代理版本 1.1.0-28 及更高版本中解决。
-
 
 ## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>问题：看不到转发的 Syslog 消息 
 
@@ -336,6 +319,7 @@ nss-pem 包 [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3
 * 已阻止连接到 Azure Monitor
 * 虚拟机已重新启动
 * 相比 Log Analytics Linux 代理程序包安装的版本，OMI 程序包已手动升级到较新版本
+* OMI 已冻结，正在阻止 OMS 代理
 * DSC 资源在 `omsconfig.log` 日志文件中记录“找不到类”错误
 * Log Analytics 代理数据已备份
 * DSC 记录“当前配置不存在。执行 Start-DscConfiguration 命令及 -Path 参数来指定配置文件并先创建当前的配置。” （在 `omsconfig.log` 日志文件中），但不存在关于 `PerformRequiredConfigurationChecks` 操作的日志消息。
@@ -346,6 +330,7 @@ nss-pem 包 [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3
 4. 如果使用代理服务器，请检查上述代理服务器故障排除步骤。
 5. 在某些 Azure 分发系统中，omid OMI 服务器后台程序在重新启动虚拟机后未启动。 这将导致看不到 Audit、ChangeTracking 或 UpdateManagement 解决方案相关的数据。 解决方法是通过运行 `sudo /opt/omi/bin/service_control restart` 来手动启动 omi 服务器。
 6. OMI 程序包手动升级到较新版本后，必须手动重新启动，Log Analytics 代理才能继续运行。 对于其中 OMI 服务器在升级之后无法自动启动的分发，此为必需步骤。 运行 `sudo /opt/omi/bin/service_control restart` 重新启动 OMI。
+* 在某些情况下，OMI 可能会冻结。 OMS 代理可能会进入等待 OMI 的阻塞状态，阻止所有数据收集。 OMS 代理进程将运行，但将没有任何活动，`omsagent.log` 中不存在新的日志行（如发送的检测信号）就证明了这一点。 使用 `sudo /opt/omi/bin/service_control restart` 重启 OMI 以恢复代理。
 7. 如果在 omsconfig.log 中看到 DSC 资源“找不到类”错误，请运行 `sudo /opt/omi/bin/service_control restart`。
 8. 在某些情况下，当 Log Analytics Linux 代理无法与 Azure Monitor 通信时，代理上的数据会备份到整个缓冲区：大小 50 MB。 该代理应通过运行以下命令重新启动：`/opt/microsoft/omsagent/bin/service_control restart`。
 

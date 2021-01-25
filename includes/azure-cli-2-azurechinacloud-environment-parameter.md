@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 3dcd059ca423be0f46b3245bf65dd0a1e1a5520b
-ms.sourcegitcommit: b5ea35dcd86ff81a003ac9a7a2c6f373204d111d
+ms.openlocfilehash: 60591a914b81a2082a9cc939b24396f4108f8d83
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88946525"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229833"
 ---
 > [!NOTE]
-> 请先运行 `az cloud set -n AzureChinaCloud` 更改云环境，然后才能在 Azure 中国中使用 Azure CLI。 若要切换回 Azure 公有云，请再次运行 `az cloud set -n AzureCloud`。
+> 请先运行 `az cloud set -n AzureChinaCloud` 更改云环境，然后才能在 Azure 中国世纪互联中使用 Azure CLI。 若要切换回 Azure 公有云，请再次运行 `az cloud set -n AzureCloud`。

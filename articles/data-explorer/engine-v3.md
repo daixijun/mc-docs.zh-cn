@@ -7,13 +7,13 @@ ms.reviewer: avnera
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 10/11/2020
-ms.date: 10/30/2020
-ms.openlocfilehash: 90f187317a4354eddbfa2083dea749c98042469a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 09747a9b805a792171f0d36a855bd0cf7d407088
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106469"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611698"
 ---
 # <a name="enginev3---preview"></a>EngineV3 - 预览版
 
@@ -46,8 +46,8 @@ EngineV3 侧重于优化分布式查询的“底部”。
 
 查询的性能改进和速度提高得益于引擎中的两项重大更改：
 
-* 新的和改进的分片存储格式。
-* 重新设计低级别分片查询引擎。
+* **新的和改进的分片存储格式。** 类似于 EngineV2，该存储格式是压缩列存储，特别关注了非结构化（文本）和半结构化数据类型。 EngineV3 改进了这些不同数据类型的编码。 索引已经过重新设计以提高其粒度，允许根据索引来计算查询的部分，而不扫描数据。
+* **重新设计低级别分片查询引擎。** 新的分片查询会实时编译为高效机器代码，形成快速高效的融合查询计算逻辑。 查询编译由从所有分片中收集的数据统计信息引导，并根据列编码的详情进行定制。
 
 EngineV3 对性能的影响取决于所使用的数据集、查询模式、并发和 VM SKU。 在性能测试中，使用了 100 TB 的数据集，并探讨了不同场景，其中涉及针对结构化、非结构化和半结构化数据的分析。 测试使用了相同级别的并发和相同的硬件配置，性能平均提高了约 8 倍。 实际性能提高因查询和数据集而异。
 

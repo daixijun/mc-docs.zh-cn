@@ -5,14 +5,14 @@ author: MikeDodaro
 ms.author: v-junlch
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 01/11/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: f4e6d220b5a769a40eaa803f2e80a555f9e6f5d8
-ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
+ms.openlocfilehash: d3a2c9bc6c300a6e73550244d03b33becd6c3a2b
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829524"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195097"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Azure Spring Cloud 中的 Application Insights Java 进程内代理（预览版）
 
@@ -83,7 +83,7 @@ Application Insights 提供了许多可观察的角度，包括：
 
   [ ![IPA 8](./media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)](./media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
 
-* 在左侧导航窗格中，单击“可用性”可通过创建“`Availability tests in Application Insights`”来监视 Web 应用的可用性和响应性。
+* 在左侧导航窗格中，单击“可用性”可通过创建 [Application Insights 中的可用性测试](/azure-monitor/app/monitor-web-app-availability)来监视 Web 应用的可用性和响应性。
 
   [ ![IPA 9](./media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](./media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 

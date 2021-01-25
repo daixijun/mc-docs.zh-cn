@@ -8,16 +8,16 @@ ms.subservice: extensions
 ms.topic: article
 origin.date: 12/02/2019
 author: rockboyfor
-ms.date: 01/04/2021
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/31/2020
 ms.author: v-yeche
-ms.openlocfilehash: f94a1b79c62a1c81779cab85c828982a8d3cf395
-ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
+ms.openlocfilehash: f7c22a38e63cdf19eb66663b037b208b4e9f4d51
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857100"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570679"
 ---
 <!--Verified successfully-->
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>适用于 Linux 的 Key Vault 虚拟机扩展
@@ -42,40 +42,60 @@ Key Vault VM 扩展支持以下 Linux 发行版：
 - 具有证书的 Key Vault 实例。 请参阅[创建 Key Vault](../../key-vault/general/quick-create-portal.md)
 - VM/VMSS 必须已分配[托管标识](../../active-directory/managed-identities-azure-resources/overview.md)
 - 必须使用机密 `get` 和 `list` 权限为 VM/VMSS 托管标识设置 Key Vault 访问策略，以检索证书的机密部分。 请参阅[如何向 Key Vault 进行身份验证](../../key-vault/general/authentication.md)和[分配 Key Vault 访问策略](../../key-vault/general/assign-access-policy-cli.md)。
+- VMSS 应具有以下标识设置：
+    
+    ```
+    "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+            "[parameters('userAssignedIdentityResourceId')]": {}
+        }
+    }
+    ```
+
+- AKV 扩展应具有以下设置：
+
+    ```
+    "authenticationSettings": {
+        "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
+        "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
+    }
+    ```
 
 ## <a name="extension-schema"></a>扩展架构
 
 以下 JSON 显示 Key Vault VM 代理扩展的架构。 该扩展不需要受保护的设置 - 其所有设置都被视为没有安全影响的信息。 该扩展需要受监视的密钥列表、轮询频率和目标证书存储。 具体而言：  
+
 ```json
-    {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "KVVMExtensionForLinux",
-      "apiVersion": "2019-07-01",
-      "location": "<location>",
-      "dependsOn": [
-          "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
-      ],
-      "properties": {
-      "publisher": "Microsoft.Azure.KeyVault",
-      "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
-      "autoUpgradeMinorVersion": true,
-      "settings": {
-        "secretsManagementSettings": {
-          "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
-          "certificateStoreName": <It is ignored on Linux>,
-          "linkOnRenewal": <Not available on Linux e.g.: false>,
-          "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
-          "requireInitialSync": <initial synchronization of certificates e..g: true>,
-          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.cn/secrets/mycertificate", "https://myvault.vault.azure.cn/secrets/mycertificate2"]>
-        },
-        "authenticationSettings": {
-                "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
-                "msiClientId":  <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
-        }
-       }
-      }
+{
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "KVVMExtensionForLinux",
+  "apiVersion": "2019-07-01",
+  "location": "<location>",
+  "dependsOn": [
+      "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
+  ],
+  "properties": {
+  "publisher": "Microsoft.Azure.KeyVault",
+  "type": "KeyVaultForLinux",
+  "typeHandlerVersion": "1.0",
+  "autoUpgradeMinorVersion": true,
+  "settings": {
+    "secretsManagementSettings": {
+      "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
+      "certificateStoreName": <It is ignored on Linux>,
+      "linkOnRenewal": <Not available on Linux e.g.: false>,
+      "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
+      "requireInitialSync": <initial synchronization of certificates e..g: true>,
+      "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.cn/secrets/mycertificate", "https://myvault.vault.azure.cn/secrets/mycertificate2"]>
+    },
+    "authenticationSettings": {
+            "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
+            "msiClientId":  <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
     }
+   }
+  }
+}
 ```
 
 > [!NOTE]
@@ -92,10 +112,10 @@ Key Vault VM 扩展支持以下 Linux 发行版：
 | 名称 | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publisher | Microsoft.Azure.KeyVault | 字符串 |
+| publisher | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | 字符串 |
+| pollingIntervalInS | 3600 | string |
 | certificateStoreName | 它在 Linux 上被忽略 | string |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
@@ -106,7 +126,7 @@ Key Vault VM 扩展支持以下 Linux 发行版：
 
 ## <a name="template-deployment"></a>模板部署
 
-可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 部署需要部署后刷新证书的一个或多个虚拟机时，模板是理想选择。 可将该扩展部署到单个 VM 或虚拟机规模集。 架构和配置对于这两种模板类型通用。 
+可使用 Azure 资源管理器模板部署 Azure VM 扩展。 部署需要部署后刷新证书的一个或多个虚拟机时，模板是理想选择。 可将该扩展部署到单个 VM 或虚拟机规模集。 架构和配置对于这两种模板类型通用。 
 
 虚拟机扩展的 JSON 配置必须嵌套在模板的虚拟机资源片段中，具体来说是嵌套在虚拟机模板的 `"resources": []` 对象中，对于虚拟机规模集而言，是嵌套在 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 对象下。
 
@@ -139,6 +159,20 @@ Key Vault VM 扩展支持以下 Linux 发行版：
       }
     }
 ```
+
+### <a name="extension-dependency-ordering"></a>扩展依赖项排序
+Key Vault VM 扩展支持扩展排序（如果已配置）。 默认情况下，扩展在开始轮询后会立即报告它已成功启动。 但是，可以将其配置为等到成功下载证书的完整列表之后再报告成功启动。 如果其他扩展依赖于在启动之前安装全套证书，则启用此设置将使那些扩展可以声明 Key Vault 扩展的依赖项。 这将阻止启动那些扩展，直到安装了其所依赖的所有证书为止。 扩展将一直重试初始下载，并保持 `Transitioning` 状态。
+
+若要启用此功能，请设置以下项：
+```
+"secretsManagementSettings": {
+    "requireInitialSync": true,
+    ...
+}
+```
+
+> [!NOTE] 
+> 使用此功能与 ARM 模板不兼容（该模板会创建系统分配的标识并使用该标识更新 Key Vault 访问策略）。 这样做将导致死锁，因为在所有扩展启动之前，无法更新保管库访问策略。 应改为在部署之前使用单个用户分配的 MSI 标识，并使用该标识对你的保管库进行预 ACL 操作。
 
 ## <a name="azure-powershell-deployment"></a>Azure PowerShell 部署
 > [!WARNING]

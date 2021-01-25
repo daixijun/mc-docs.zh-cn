@@ -11,12 +11,12 @@ author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: 235ff804175567354ba87f02a14d8ee624835574
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 697e00e458ed77f414de2e7517382c55624fb8ed
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023326"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230682"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>使用 Azure 机器学习创建、查看和部署自动化机器学习模型
 
@@ -92,7 +92,7 @@ ms.locfileid: "98023326"
 
 1. 新建的数据集出现后，请将其选中。 还可以查看数据集和样本统计信息的预览。 
 
-1. 在“配置运行”窗体中，输入唯一的试验名称。
+1. 在“配置运行”窗体上，选择“新建”，然后输入“Tutorial-automl-deploy”作为实验名称  。
 
 1. 选择目标列；这是要对其进行预测的列。
 

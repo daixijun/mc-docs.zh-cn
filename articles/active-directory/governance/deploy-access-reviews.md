@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 11/10/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2a0d7bfa11c6aee8a46a859288dc27237b71ec2
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 38c79d19b70781dcab14617d8c32e37354533a52
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501975"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195218"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>规划 Azure Active Directory 访问评审部署
 
@@ -39,7 +39,7 @@ ms.locfileid: "94501975"
 
   ![显示访问评审流的关系图。](./media/deploy-access-review/1-planning-review.png)
 
-访问评审是一项 [Azure AD Identity Governance](identity-governance-overview.md) 功能。 其他功能包括：[Privileged Identity Management](../privileged-identity-management/pim-configure.md)。 将它们配合使用，可帮助组织解决以下四个问题：
+访问评审是一项 [Azure AD Identity Governance](identity-governance-overview.md) 功能。 其他功能是指[权利管理](entitlement-management-overview.md)和 [Privileged Identity Management](../privileged-identity-management/pim-configure.md)。 将它们配合使用，可帮助组织解决以下四个问题：
 
 * 哪些用户应该有权访问哪些资源？
 
@@ -68,7 +68,7 @@ ms.locfileid: "94501975"
 
 你需要一个有效的 Azure AD Premium (P2) 许可证，用于将创建或执行访问评审的每个用户（不是全局管理员或用户管理员）。 有关详细信息，请参阅[访问评审许可证要求](access-reviews-overview.md)。
 
-可能还需要其他 Identity Governance 功能，例如 Privileged Identity Management。 在这种情况下，可能还需要相关的许可证。 有关详细信息，请参阅 [Azure Active Directory 定价](https://www.azure.cn/pricing/details/active-directory/)。
+可能还需要其他 Identity Governance 功能，例如[权利生命周期管理](entitlement-management-overview.md)或 Privileged Identity Management。 在这种情况下，可能还需要相关的许可证。 有关详细信息，请参阅 [Azure Active Directory 定价](https://www.azure.cn/pricing/details/active-directory/)。
 
 ## <a name="plan-the-access-reviews-deployment-project"></a>规划访问评审部署项目
 
@@ -80,7 +80,7 @@ ms.locfileid: "94501975"
 
 对于访问评审，可能需包括组织中以下团队的代表：
 
-* **IT 管理**：管理 IT 基础结构和云投资应用。 该团队将：
+* IT 管理负责管理 IT 基础结构、云投资应用和软件即服务 (SaaS) 应用。 该团队将：
 
    * 评审对基础结构和应用（包括 Microsoft 365 和 Azure AD）的特权访问权限。
 
@@ -90,7 +90,7 @@ ms.locfileid: "94501975"
 
 * **开发团队**：为组织构建和维护应用程序。 该团队将：
 
-   * 控制谁可以访问和管理 PaaS 中的组件以及构成已开发解决方案的 IaaS 资源。
+   * 控制谁可访问和管理构成已开发的解决方案的 SaaS、PaaS 和 IaaS 资源中的组件。
 
    * 管理可访问应用程序和工具（用于内部应用程序开发）的组。
 
@@ -165,7 +165,7 @@ ms.locfileid: "94501975"
 
 * 组[成员身份](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)（同步到 Azure AD，或者在 Azure AD 或 Microsoft 365 中创建，包括 Microsoft Teams）。
 
-* 访问包：用于将资源（组、应用和站点）分组到单个包中以管理访问权限。
+* [访问包](./entitlement-management-overview.md)：用于将资源（组、应用和站点）分组到单个包中以管理访问权限。
 
 * [Azure AD 角色和 Azure 资源角色](../privileged-identity-management/pim-resource-roles-assign-roles.md)：详见 Privileged Identity Management 中的定义。
 
@@ -277,9 +277,9 @@ ms.locfileid: "94501975"
 
 ## <a name="plan-access-reviews-for-access-packages"></a>规划访问包的访问评审
 
-访问包可以极大地简化治理和访问评审策略。 访问包是一个捆绑包，其中包含的所有资源所具有的访问权限是用户在处理项目或执行其任务时需要的。 例如，你可能希望创建一个访问包，其中包含组织中的开发人员所需的所有应用程序，或外部用户应该有权访问的所有应用程序。 然后，管理员或受委托的访问包管理员会将资源（组或应用）以及用户需要将其用于这些资源的角色分组。
+[访问包](entitlement-management-overview.md)可以极大地简化治理和访问评审策略。 访问包是一个捆绑包，其中包含的所有资源所具有的访问权限是用户在处理项目或执行其任务时需要的。 例如，你可能希望创建一个访问包，其中包含组织中的开发人员所需的所有应用程序，或外部用户应该有权访问的所有应用程序。 然后，管理员或受委托的访问包管理员会将资源（组或应用）以及用户需要将其用于这些资源的角色分组。
 
-创建访问包时，可以创建一个或多个访问策略，用于设置用户请求访问包的条件、审批流程的外观，以及人员需要重新请求访问权限的频率。 访问评审在创建或编辑访问包策略时配置。
+[创建访问包](entitlement-management-access-package-create.md)时，可以创建一个或多个访问策略，用于设置用户请求访问包的条件、审批流程的外观，以及人员需要重新请求访问权限的频率。 访问评审在创建或编辑访问包策略时配置。
 
 打开“生命周期”选项卡即可向下滚动到“访问评审”。
 
@@ -316,9 +316,9 @@ ms.locfileid: "94501975"
 > [!NOTE]
 > 建议在定义业务策略时定义组的创建方式，务必明确组所有权和责任，以便对成员身份进行定期评审。 
 
-### <a name="review-membership-of-exclusion-groups-in-ca-policies"></a>评审 CA 策略中排除组的成员身份 
+### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>评审条件访问策略中排除组的成员身份 
 
-有时，不应将旨在确保网络安全的条件访问 (CA) 策略应用到所有用户。 例如，仅允许用户在公司网络上登录的 CA 策略可能不适用于需要到各处出差的销售团队。 在这种情况下，需将销售团队成员置于一个从 CA 策略中排除的组中。 
+有时，不得将旨在确保网络安全的条件访问策略应用给所有用户。 例如，仅允许用户在公司网络上登录的条件访问策略可能不适用于需要到处出差的销售团队。 在这种情况下，需要将销售团队成员置于一个从条件访问策略中排除的组中。 
 
 请定期评审此类组成员身份，因为如果从要求中排除了错误的成员，则排除意味着潜在风险。
 
@@ -326,6 +326,7 @@ ms.locfileid: "94501975"
 
 ### <a name="review-external-users-group-memberships"></a>评审外部用户的组成员身份
 
+若要最大限度地减少手动工作和相关的潜在错误，请考虑使用[动态组](../enterprise-users/groups-create-rule.md)根据用户的属性分配组成员身份。 需要为外部用户创建一个或多个动态组。 内部发起人可充当审阅者来审阅组中的成员资格。 
 
 注意：由于访问评审而从组中删除的外部用户不会从租户中删除。 
 
@@ -403,9 +404,9 @@ ms.locfileid: "94501975"
 
 | 操作方法文章| 描述 |
 | - | - |
-| 创建访问评审| 启用对访问包的评审。 |
-| 执行访问评审| 针对分配到访问包的其他用户执行访问评审。 |
-| 自我评审分配的访问包| 自我评审分配的访问包 |
+| [创建访问评审](entitlement-management-access-reviews-create.md)| 启用对访问包的评审。 |
+| [执行访问评审](entitlement-management-access-reviews-review-access.md)| 针对分配到访问包的其他用户执行访问评审。 |
+| [自我评审分配的访问包](entitlement-management-access-reviews-self-review.md)| 自我评审分配的访问包 |
 
 
 > [!NOTE]
@@ -496,6 +497,8 @@ ms.locfileid: "94501975"
 ## <a name="next-steps"></a>后续步骤
 
 了解以下相关技术。
+
+* [什么是 Azure AD 权利管理？](entitlement-management-overview.md)
 
 * [什么是 Azure AD Privileged Identity Management？](../privileged-identity-management/pim-configure.md)
 

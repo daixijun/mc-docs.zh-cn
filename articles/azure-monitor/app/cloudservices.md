@@ -4,17 +4,17 @@ description: 使用 Application Insights 有效监视 Web 角色和辅助角色
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/05/2018
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.author: v-johya
-ms.openlocfilehash: f07849a49c890038dcb6d9062ab9396a9c925718
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 2bb3a74c20a2358f5f3fcce8b37fa21d1517b86c
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104653"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231057"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>适用于 Azure 云服务的 Application Insights
-[Application Insights][start] 可以通过将 Application Insights SDK 提供的数据与云服务提供的 [Azure 诊断](../../azure-monitor/platform/diagnostics-extension-overview.md)数据合并，来监视 [Azure 云服务应用](/cloud-services/)的可用性、性能、故障和使用情况。 通过收到的有关应用在现实中的性能和有效性的反馈，可以针对每个开发生命周期确定合理的设计方向。
+[Application Insights][start] 可以通过将 Application Insights SDK 提供的数据与云服务提供的 [Azure 诊断](../platform/diagnostics-extension-overview.md)数据合并，来监视 [Azure 云服务应用](/cloud-services/)的可用性、性能、故障和使用情况。 通过收到的有关应用在现实中的性能和有效性的反馈，可以针对每个开发生命周期确定合理的设计方向。
 <!-- Correct on links -->
 
 ![“概述”仪表板](./media/cloudservices/overview-graphs.png)
@@ -37,7 +37,7 @@ ms.locfileid: "97104653"
 
 后续步骤是[通过应用查看指标](../platform/metrics-charts.md)、[使用 Analytics 查询数据](../log-query/log-query-overview.md)。 
 
-若要在浏览器中监视性能，还可能需要设置[可用性测试](./monitor-web-app-availability.md)并[将代码添加到网页](./javascript.md)。
+若要在浏览器中监视性能，还可能需要[将代码添加到网页](./javascript.md)。
 
 下一部分将介绍以下附加选项：
 
@@ -114,15 +114,14 @@ ms.locfileid: "97104653"
 
     b. 添加[适用于 Windows Server 的 Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)。
 
-    ![搜索“Application Insights”](./media/cloudservices/04-ai-nuget.png)
-
 1. 将 SDK 配置为向 Application Insights 资源发送数据：
 
     a. 在适当的启动函数中，通过 *.cscfg* 文件中的配置设置指定检测密钥：
  
     ```csharp
-   
-     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+        configuration.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        var telemetryClient = new TelemetryClient(configuration);
     ```
    
     b. 针对应用中的每个角色重复“步骤 a”。 参阅示例：
@@ -258,8 +257,6 @@ ms.locfileid: "97104653"
 ## <a name="client-telemetry"></a>客户端遥测数据
 若要获取基于浏览器的遥测数据（例如页面查看次数、页面加载时间或脚本异常）以及在页面脚本中编写自定义遥测，请参阅[将 JavaScript SDK 添加到网页][client]。
 
-## <a name="availability-tests"></a>可用性测试
-为确保应用处于活动状态且能够做出响应，请[设置 Web 测试][availability]。
 
 ## <a name="display-everything-together"></a>统一显示所有信息
 若要获得系统的整体视图，可在一个[仪表板](./overview-dashboard.md)中将关键的监视图表一起显示。 例如，可以固定每个角色的请求和失败次数。 
@@ -281,7 +278,6 @@ ms.locfileid: "97104653"
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: ./api-custom-events-metrics.md
-[availability]: ./monitor-web-app-availability.md
 [azure]: ./app-insights-overview.md
 [client]: ./javascript.md
 [diagnostic]: ./diagnostic-search.md

@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 08/20/2020
 ms.date: 01/14/2021
 ms.author: v-tawe
-ms.openlocfilehash: 5e92524ada2321394f1b6f5c5690f3ee41058ef4
-ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
+ms.openlocfilehash: 5f0b8efd03b85f14dbb1728c4b4b4aa2238fff1d
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98193228"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611660"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>语音转文本常见问题解答
 
@@ -56,7 +56,7 @@ ms.locfileid: "98193228"
 
 其他结果可能更糟，可能没有应用完整的大写和标点。 这些结果在特殊情况下非常有用，例如，为用户提供选项来从列表中选取更正项或处理错误识别的命令。
 
-问：为什么会有不同的基础模型？
+**问：** 为什么会有不同的基础模型？
 
 **答**：你可以从语音服务的多个基础模型中进行选择。 每个模型名称都包含添加它的日期。 开始训练自定义模型时，请使用最新模型以获取最佳准确度。 当有新模型可用时，较旧的基础模型在一段时间内仍可供使用。 你可以继续使用所使用的模型，直到它被停用（请参阅[模型生命周期](custom-speech-overview.md#model-lifecycle)）。 仍建议切换到最新的基础模型，以提高准确度。
 
@@ -66,7 +66,7 @@ ms.locfileid: "98193228"
 
 旧数据集和新数据集必须合并为单个 .zip 文件（用于声学数据）或 .txt 文件（用于语言数据）。 适应完成后，需要重新部署新的更新后模型以获取新的终结点
 
-问：当有新版本的基础模型可用时，我的部署是否会自动更新？
+**问：** 当有新版本的基础模型可用时，我的部署是否会自动更新？
 
 **答**：部署不会自动更新。
 
@@ -78,7 +78,7 @@ ms.locfileid: "98193228"
 
 **答**：无法下载模型并在本地执行。
 
-问：是否可以将数据集、模型和部署复制或移动到另一个区域或订阅？
+**问：** 是否可以将数据集、模型和部署复制或移动到另一个区域或订阅？
 
 **答**：你可以使用 [REST API](https://chinaeast2.dev.cognitive.azure.cn/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) 将自定义模型复制到另一个区域或订阅。 无法复制数据集或部署。 可以在另一个订阅中再次导入数据集，并使用模型副本在其中创建终结点。
 
@@ -135,9 +135,9 @@ ms.locfileid: "98193228"
 
 **答**：是的。 可以自行转录或使用专业听录服务进行转录。 有些用户更喜欢使用专业听录器，而其他用户则使用众包或自己进行听录。
 
-问：使用音频数据训练一个自定义模型需要多长时间？
+**问：** 使用音频数据训练一个自定义模型需要多长时间？
 
-**答**：使用音频数据训练模型是一个漫长的过程。 创建自定义模型可能需要几天时间，具体取决于数据量。 如果它无法在一周内完成，则服务可能会中止训练操作并将该模型报告为失败。 为了更快地获得结果，请使用其中有用于训练的专用硬件的[区域](custom-speech-overview.md#set-up-your-azure-account)之一。 你可以使用 [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) 将已完全训练好的模型复制到另一个区域。 仅使用文本进行训练速度要快得多，通常在几分钟内就可完成。
+**答**：使用音频数据训练模型是一个漫长的过程。 创建自定义模型可能需要几天时间，具体取决于数据量。 如果它无法在一周内完成，则服务可能会中止训练操作并将该模型报告为失败。 为了更快地获得结果，请使用其中有用于训练的专用硬件的[区域](custom-speech-overview.md#set-up-your-azure-account)之一。 你可以使用 [REST API](https://chinaeast2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) 将已完全训练好的模型复制到另一个区域。 仅使用文本进行训练速度要快得多，通常在几分钟内就可完成。
 
 某些基础模型不能使用音频数据进行自定义。 对于这些模型，该服务会仅使用听录的文本进行训练并忽略音频数据。 然后，训练的完成速度会快得多，结果将与仅使用文本进行训练相同。
 

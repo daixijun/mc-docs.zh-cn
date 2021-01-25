@@ -7,16 +7,16 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 03/12/2020
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 90961bfb8f1c8f2f18ec0c59d5edf8e07950edfc
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 3c996bcb6ca15f35435c7f99f0050f80d66d07e3
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552955"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163215"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>为 Azure 存储使用专用终结点
 
@@ -47,12 +47,16 @@ VNet 中的应用程序可以使用通过其他方式连接时所用的相同连
 
 通过[配置存储防火墙](storage-network-security.md#change-the-default-network-access-rule)，使其默认拒绝通过其公共终结点进行的访问，可以保护存储帐户，使其仅接受来自 VNet 的连接。 无需防火墙规则来允许来自具有专用终结点的 VNet 的流量，因为存储防火墙只控制通过公共终结点进行的访问。 专用终结点则是依赖于“同意流”来授予子网对存储服务的访问权限。
 
+> [!NOTE]
+> 在存储帐户之间复制 Blob 时，客户端必须对两个帐户都具有网络访问权限。 因此，如果选择仅对一个帐户（源帐户或目标帐户）使用专用链接，请确保客户端对另一帐户具有网络访问权限。 若要了解配置网络访问的其他方法，请参阅[配置 Azure 存储防火墙和虚拟网络](storage-network-security.md?toc=/storage/blobs/toc.json)。 
+
 ### <a name="private-endpoints-for-azure-storage"></a>Azure 存储的专用终结点
 
 创建专用终结点时，需要指定存储帐户及其连接到的存储服务。 需要为需要访问的存储帐户中的每个存储服务提供单独的专用终结点，即 [Blob](../blobs/storage-blobs-overview.md)、[Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)、[文件存储](../files/storage-files-introduction.md)、[队列](../queues/storage-queues-introduction.md)、[表](../tables/table-storage-overview.md)或[静态网站](../blobs/storage-blob-static-website.md)。
 
 > [!TIP]
 > 为存储服务的辅助实例创建单独的专用终结点，以便在 RA-GRS 帐户上获得更好的读取性能。
+> 请确保创建常规用途 v2（标准或高级）存储帐户。
 
 若要使用为异地冗余存储配置的存储帐户对次要区域进行读取访问，需要为服务的主实例和辅助实例使用单独的专用终结点。 无需为“故障转移”的辅助实例创建专用终结点。 专用终结点将在故障转移后自动连接到新的主实例。 有关存储冗余选项的详细信息，请参阅 [Azure 存储冗余](storage-redundancy.md)。
 
@@ -113,10 +117,6 @@ VNet 中的应用程序可以使用通过其他方式连接时所用的相同连
 ## <a name="known-issues"></a>已知问题
 
 请记住以下关于 Azure 存储专用终结点的已知问题。
-
-### <a name="copy-blob-support"></a>复制 Blob 支持
-
-如果存储帐户受防火墙保护，并且是通过专用终结点进行访问的，则该帐户不能充当[复制 Blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob) 操作的源。
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>针对专用终结点所在 VNet 中的客户端的存储访问约束
 

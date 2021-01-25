@@ -4,23 +4,23 @@ description: 了解如何导出要用于 Java、Python 和 Node.js 应用的 Azu
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/17/2020
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 author: rockboyfor
 ms.author: v-yeche
-ms.custom: devx-track-python, devx-track-java, contperfq1
-ms.openlocfilehash: b16fe5ff7c0b5bf9bbba80bcdf07d3a079fbe81b
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.custom: devx-track-python, devx-track-java, contperf-fy21q1
+ms.openlocfilehash: 4974bae17b4d1078c72a57ef613ea969ddb24056
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598693"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230387"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>导出要用于 Java、Python 和 Node.js 应用的 Azure Cosmos DB 模拟器证书
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-为方便进行开发，Azure Cosmos DB 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 Azure Cosmos 模拟器仅支持通过 TLS 连接进行安全通信。
+为方便进行开发，Azure Cosmos DB 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 Azure Cosmos DB 模拟器仅支持通过 TLS 连接进行安全通信。
 
 首次运行 Azure Cosmos DB 本地模拟器时，会在该模拟器中生成证书。 有两个证书。 其中一个用于连接到本地模拟器，另一个用于管理模拟器中模拟器数据的默认加密。 要导出的证书是友好名称为“DocumentDBEmulatorCertificate”的连接证书。
 

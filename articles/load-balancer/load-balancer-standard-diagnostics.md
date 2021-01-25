@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/14/2019
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
-ms.openlocfilehash: 2a9b27e5ac34f3576e21cde8f56a5c0f0f8ddd1f
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 05d9083cfbd47c1f53a758edcf6677824b9b4840
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105293"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230995"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>通过指标、警报和资源运行状况进行标准负载均衡器诊断
 
@@ -214,6 +214,13 @@ Azure 标准负载均衡器支持易于配置的针对多维指标的警报。 �
 
 可以通过“Monitor”>“服务运行状况”下面的现有“资源运行状况”公开标准负载均衡器资源的运行状况。
 
+| 资源运行状况 | 说明 |
+| --- | --- |
+| 可用 | 标准负载均衡器资源正常且可用。 |
+| 已降级 | 标准负载均衡器具有平台或用户启动的影响性能的事件。 “数据路径可用性”指标至少有两分钟报告了低于 90% 但高于 25% 的运行状况。 你将遇到中等到严重程度的性能影响。 [按照 RHC 故障排除指南](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc)确定是否存在用户发起的且会影响你的可用性的事件。
+| 不可用 | 标准负载均衡器资源不正常。 “数据路径可用性”指标至少有两分钟报告了低于 25% 的运行状况。 你会遇到严重的性能影响，或者入站连接不可用。 可能存在导致不可用的用户或平台事件。 [按照 RHC 故障排除指南](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc)确定是否存在用户发起的且会影响你的可用性的事件。 |
+| Unknown | 标准负载均衡器资源的资源运行状况状态尚未更新，或者最近 10 分钟内未收到数据路径可用性信息。 此状态应该是暂时性的，系统在收到数据后会立即反映正确的状态。 |
+
 若要查看公共标准负载均衡器资源的运行状况，请执行以下步骤：
 1. 选择“Monitor” > “服务运行状况”。
 
@@ -235,12 +242,6 @@ Azure 标准负载均衡器支持易于配置的针对多维指标的警报。 �
 
 [RHC 文档](../service-health/resource-health-overview.md)中提供了一般的资源运行状况状态说明。 下表列出了 Azure 负载均衡器的特定状态： 
 
-| 资源运行状况 | 说明 |
-| --- | --- |
-| 可用 | 标准负载均衡器资源正常且可用。 |
-| 已降级 | 标准负载均衡器具有平台或用户启动的影响性能的事件。 “数据路径可用性”指标至少有两分钟报告了低于 90% 但高于 25% 的运行状况。 你将遇到中等到严重程度的性能影响。 [按照数据路径可用性故障排除指南]来确定是否存在用户启动的影响你的可用性的事件。
-| 不可用 | 标准负载均衡器资源不正常。 “数据路径可用性”指标至少有两分钟报告了低于 25% 的运行状况。 你会遇到严重的性能影响，或者入站连接不可用。 可能存在导致不可用的用户或平台事件。 [按照数据路径可用性故障排除指南]来确定是否存在用户启动的影响你的可用性的事件。 |
-| Unknown | 标准负载均衡器资源的资源运行状况状态尚未更新，或者最近 10 分钟内未收到数据路径可用性信息。 此状态应该是暂时性的，系统在收到数据后会立即反映正确的状态。 |
 
 ## <a name="next-steps"></a>后续步骤
 

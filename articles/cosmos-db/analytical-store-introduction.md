@@ -3,26 +3,23 @@ title: Azure Cosmos DB 分析存储（预览版）是什么？
 description: 了解 Azure Cosmos DB 事务性（基于行）和分析（基于列）存储。 分析存储的优势、对大型工作负荷的性能响应以及自动将事务性存储中的数据同步到分析存储
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 09/22/2020
+origin.date: 11/30/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seo-nov-2020
-ms.openlocfilehash: e8dd7dfa64d1118dad2e86ea02102f96bfc1960d
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 888f7dcf8d099e4c2956bb620f54118012ad6a97
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598551"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230122"
 ---
 <!--Verified successfully-->
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Azure Cosmos DB 分析存储（预览版）是什么？
+# <a name="what-is-azure-cosmos-db-analytical-store"></a>什么是 Azure Cosmos DB 分析存储？
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
-
-> [!IMPORTANT]
-> Azure Cosmos DB 分析存储目前处于预览状态。 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)。
 
 Azure Cosmos DB 分析存储是完全独立的列存储，可以借助它对 Azure Cosmos DB 中的操作数据进行大型分析，这对事务性工作负载没有任何影响。 
 
@@ -40,7 +37,7 @@ Azure Cosmos DB 容器中的多模型操作数据存储在已编索的基于行�
 
 Azure Cosmos DB 分析存储解决了传统 ETL 管道所具有的复杂和延迟问题。 Azure Cosmos DB 分析存储可以自动将操作数据同步到单独的列存储。 列存储格式适用于采用优化的方式执行大型分析查询，可改进此类查询的延迟性。
 
-借助 Azure Synapse Link，现在可以直接从 Synapse Analytics 链接到 Azure Cosmos DB 分析存储，生成无 ETL HTAP 解决方案。 借助它，你可以以接近实时的速度对操作数据运行的大型分析。
+借助 Azure Synapse Link，现可直接从 Azure Synapse Analytics 链接到 Azure Cosmos DB 分析存储，构建不用 ETL HTAP 的解决方案。 借助它，你可以以接近实时的速度对操作数据运行的大型分析。
 
 ## <a name="features-of-analytical-store"></a>分析存储的功能 
 
@@ -186,10 +183,10 @@ salary: 1000000
 
 分析存储已经过优化，无需依赖计算运行时即可为分析工作负荷提供可伸缩性、弹性和性能。 存储技术是自行管理，无需手动操作即可优化分析工作负荷。
 
-通过将分析存储系统与分析计算系统分离，可以同时从 Azure Synapse Analytics 支持的不同分析运行时中查询 Azure Cosmos DB 分析存储中的数据。 目前，Synapse Analytics 支持 Apache Spark 和 SQL 无服务器使用 Azure Cosmos DB 分析存储。
+通过将分析存储系统与分析计算系统分离，可以同时从 Azure Synapse Analytics 支持的不同分析运行时中查询 Azure Cosmos DB 分析存储中的数据。 目前，Azure Synapse Analytics 支持 Apache Spark 和无服务器 SQL 池使用 Azure Cosmos DB 分析存储。
 
 > [!NOTE]
-> 只能使用 Synapse Analytics 运行时读取分析存储。 可以将数据重写入事务性存储，将其作为服务层。
+> 只能使用 Azure Synapse Analytics 运行时从分析存储中读取内容。 可以将数据重写入事务性存储，将其作为服务层。
 
 <a name="analytical-store-pricing"></a>
 ## <a name="pricing"></a>定价
@@ -200,14 +197,13 @@ salary: 1000000
 
 * 分析写入操作：从事务性存储将操作数据更新以完全托管的方式同步到分析存储（自动同步）
 
-* 分析读取操作：从 Synapse Analytics Spark 和 SQL 无服务器运行时对分析存储执行的读取操作。
-
-> [!NOTE]
-> Azure Cosmos DB 分析存储目前以公共预览版提供，免收任何费用。
+* 分析读取操作：从 Azure Synapse Analytics Spark 池和无服务器 SQL 池运行时对分析存储执行的读取操作。
 
 分析存储定价与事务性存储定价模型不同。 分析存储中没有预配 RU 这一概念。 有关分析存储定价模型的完整详细信息，请参阅 [Azure Cosmos DB 定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
 
-若要为在 Azure Cosmos DB 容器中启用分析存储进行高级别成本估算，可以使用 [Azure Cosmos DB 容量规划器](https://cosmos.azure.com/capacitycalculator/)，来获得分析存储和写入操作成本的估算值。 分析读取操作成本取决于分析工作负荷特性，但按照高级别估算，扫描分析存储中的 1 TB 的数据通常引发 130,000 个分析读取操作，产生的成本为 0.065 美元。
+若要为在 Azure Cosmos DB 容器中启用分析存储进行高级别成本估算，可以使用 [Azure Cosmos DB 容量规划器](https://cosmos.azure.com/capacitycalculator/)，来获得分析存储和写入操作成本的估算值。 分析读取操作成本由分析工作负载特性决定，但大概估算是，在分析存储中扫描 1 TB 的数据通常会引发 130,000 个分析读取操作。
+
+<!--Not Avaialble on , and results in a cost of $0.065-->
 
 <a name="analytical-ttl"></a>
 ## <a name="analytical-time-to-live-ttl"></a>分析生存时间 (TTL)

@@ -6,21 +6,21 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 05/17/2019
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: 7314e52738a839b6e0388ddc90c9df937eaef4dd
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 15f44708087ab33e65e8cd5c5cd7a9ec73c40e95
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850707"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231002"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Azure Cosmos DB 中的联接
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 在关系数据库中，跨表联接是设计规范化架构的逻辑定理。 相比之下，SQL API 使用无架构项的反规范化数据模型，这在逻辑上等效于自联接。 
 
-内联会导致加入联接的集产生完整叉积。 N 向联接的结果是获得一组 N-元素元组，其中元组中的每个值与参与联接的别名集相关联，并且可以通过引用其他子句中的这些别名来访问。
+联接可获得参与联接的集的完整叉积。 N 向联接的结果是获得一组 N-元素元组，其中元组中的每个值与参与联接的别名集相关联，并且可以通过引用其他子句中的这些别名来访问。
 
 ## <a name="syntax"></a>语法
 
@@ -255,10 +255,12 @@ JOIN 子句真正实用的地方是通过以其他方式难以投影的形式基
     ]
 ```
 
+如果你的查询具有 JOIN 和筛选器，那么你可将查询的一部分重写为[子查询](sql-query-subquery.md#optimize-join-expressions)来提高性能。
+
 ## <a name="next-steps"></a>后续步骤
 
 - [入门](sql-query-getting-started.md)
-- [Azure Cosmos DB.NET 示例](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [子查询](sql-query-subquery.md)
 
 <!-- Update_Description: wording update, update link -->

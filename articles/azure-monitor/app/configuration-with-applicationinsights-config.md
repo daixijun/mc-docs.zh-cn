@@ -2,18 +2,18 @@
 title: ApplicationInsights.config 参考 - Azure | Azure Docs
 description: 启用或禁用数据收集模块，并添加性能计数器和其他参数。
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 01/14/2021
 ms.custom: devx-track-csharp
 author: Johnnytechn
 ms.reviewer: olegan
 ms.author: v-johya
 origin.date: 05/22/2019
-ms.openlocfilehash: a8010913e72ac483c0d9b494392fc3fa3e9e4e11
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: e3aeed034ec3b924d4035612e6b3d2757a556db3
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638211"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230048"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>使用 ApplicationInsights.config 或 .xml 配置 Application Insights SDK
 Application Insights .NET SDK 由多个 NuGet 包组成。 [核心包](https://www.nuget.org/packages/Microsoft.ApplicationInsights)提供 API，用于将遥测数据发送到 Application Insights。 [其他包](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遥测 *模块* 和 *初始值设定项*，用于自动从应用程序及其上下文跟踪遥测。 可以通过调整配置文件来启用或禁用遥测模块和初始值设定项并为其设置参数。
@@ -128,7 +128,7 @@ Microsoft.ApplicationInsights 包提供 SDK 的[核心 API](https://docs.microso
 
     `<Filters>` 设置请求的标识属性。
 * 对于包含从用户浏览器中运行的 Application Insights JavaScript 检测代码生成的 `ai_user` Cookie 提取的值的所有遥测项，`UserTelemetryInitializer` 将更新 `User` 上下文的 `Id` 和 `AcquisitionDate` 属性。
-* `WebTestTelemetryInitializer` 设置用户 ID、会话 ID，以及来自[可用性测试](./monitor-web-app-availability.md)的 HTTP 请求的综合源属性。
+* `WebTestTelemetryInitializer` 设置用户 ID、会话 ID，以及来自可用性测试的 HTTP 请求的综合源属性。
   `<Filters>` 设置请求的标识属性。
 
 对于在 Service Fabric 中运行的 .NET 应用程序，可包含 `Microsoft.ApplicationInsights.ServiceFabric` NuGet 包。 该包所含的 `FabricTelemetryInitializer` 会将 Service Fabric 属性添加到遥测项。 有关详细信息，请参阅[GitHub 页](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md)，了解由此 NuGet 包所添加的属性。

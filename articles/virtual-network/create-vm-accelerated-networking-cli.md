@@ -3,7 +3,7 @@ title: 使用 Azure CLI 创建具有加速网络的 Azure VM
 description: 了解如何创建启用加速网络的 Linux 虚拟机。
 services: virtual-network
 documentationcenter: na
-manager: digimobile
+manager: gedegrac
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/10/2019
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 06/15/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3880a4541ad32dc88cd2b4bf61eb277e8dacd232
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 889c8d09c4854be1e7103dfa29b46694241c5af9
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590837"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230340"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>使用 Azure CLI 创建具有加速网络的 Linux 虚拟机
 
@@ -48,8 +48,8 @@ ms.locfileid: "94590837"
 * **SLES12 SP3 或更高版本** 
 * **CentOS 7.4 或更高版本**
 * **CoreOS Linux**
-* **Debian“Stretch”（backport 内核）**
-* **FreeBSD 10.4、11.1 和 12.0**
+* **Debian“Stretch”（backport 内核）、Debian“Buster”或更高版本**
+* **FreeBSD 10.4, 11.1 & 12.0 或更高版本**
 
 <!-- Not Available on * **RHEL 7.4**-->
 <!-- Not Available on * **Oracle Linux 7.4**-->
@@ -60,9 +60,9 @@ ms.locfileid: "94590837"
 ### <a name="supported-vm-instances"></a>支持的 VM 实例
 大多数常规用途实例以及具有 2 个或更多 vCPU 的计算优化实例都支持加速网络。  这些受支持的系列包括：D/DSv2 和 F/Fs
 
-在支持超线程的实例上，具有 4 个或更多 vCPU 的 VM 实例支持加速网络。 受支持的系列包括：D/Dsv3、E/Esv3、Fsv2、Ms/Mms 和 Ms/Mmsv2。
+在支持超线程的实例上，具有 4 个或更多 vCPU 的 VM 实例支持加速网络。 受支持的系列包括：D/Dsv3、D/Dsv4、Dd/Ddv4、E/Esv3、E/Esv4、Edsv4、Fsv2 和 Ms/Mms。
 
-<!--Not Available on D/Dsv4, Ea/Easv4, Lsv2 -->
+<!--Not Available on  Da/Dasv4, Edv4, Ea/Easv4, Lsv2, and and Ms/Mmsv2 -->
 
 有关 VM 实例的详细信息，请参阅[Linux VM 大小](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json)。
 
@@ -103,7 +103,8 @@ removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 az group create --name myResourceGroup --location chinaeast
 ```
 
-<!-- Not Available on  [Linux accelerated networking](https://www.azure.cn/updates/accelerated-networking-in-expanded-preview)-->
+<!--List Regions is not Avialable on Mooncake-->
+<!-- Not Available on  [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)-->
 
 使用 [az network vnet create](https://docs.azure.cn/cli/network/vnet#az-network-vnet-create) 创建虚拟网络。 以下示例创建名为 myVnet 且具有一个子网的虚拟网络：
 
@@ -166,7 +167,10 @@ az network nic create \
 ```
 
 ### <a name="create-a-vm-and-attach-the-nic"></a>创建 VM 并附加 NIC
-创建 VM 时，指定使用 `--nics` 创建的 NIC。 选择 [Linux 加速网络](https://www.azure.cn/updates/accelerated-networking-in-expanded-preview)中列出的大小和分发版本。 
+
+<!--CORRECT ON VM size and distribution lists are Available to Mooncake-->
+
+创建 VM 时，指定使用 `--nics` 创建的 NIC。 选择 [Linux 加速网络](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)中列出的大小和分发版本。 
 
 使用 [az vm create](https://docs.azure.cn/cli/vm#az-vm-create) 创建 VM。 以下示例创建名为 myVM 的 VM，其具有 UbuntuLTS 映像，并且大小支持加速网络 (*Standard_DS4_v2*) ：
 

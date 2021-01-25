@@ -4,23 +4,23 @@ titleSuffix: Azure Network Watcher
 description: 在 Azure 中使用网络观察程序和 Elastic Stack 管理和分析网络安全组流日志。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 85a3c52adae2178c89f030c0c68a2a8252071cf0
-ms.sourcegitcommit: a9aa7d358cd2bef2e4e35b2b720487cb22b2c461
+ms.openlocfilehash: 1086806e2c159b49ea6844900c297dd9b59b7949
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592794"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231094"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>使用开源工具可视化 Azure 网络观察程序 NSG 流日志
 
@@ -32,7 +32,7 @@ ms.locfileid: "97592794"
 
 在本文中，我们将设置一个解决方案，方便用户使用 Elastic Stack 来可视化网络安全组流日志。  将使用 Logstash 输入插件直接从已配置为存储流日志的存储 Blob 获取流日志。 然后使用 Elastic Stack 为流日志编制索引并将这些日志用于创建 Kibana 仪表板，实现信息的可视化。
 
-![方案][scenario]
+![图为方便用户使用 Elastic Stack 可视化网络安全组流日志的方案。][scenario]
 
 ## <a name="steps"></a>步骤
 
@@ -44,7 +44,7 @@ ms.locfileid: "97592794"
 
 #### <a name="install-elasticsearch"></a>安装 Elasticsearch
 
-1. Elastic Stack 5.0 及更高版本需要 Java 8。 运行命令 `java -version` 可以检查版本。 如果尚未安装 java，请参阅 [Azure 支持的 JDK](https://docs.azure.cn/java/java-supported-jdk-runtime?view=azure-java-stable) 上的文档。
+1. Elastic Stack 5.0 及更高版本需要 Java 8。 运行命令 `java -version` 可以检查版本。 如果尚未安装 java，请参阅 [Azure 支持的 JDK](https://docs.azure.cn/java/java-supported-jdk-runtime) 上的文档。
 2. 下载适用于系统的正确二进制程序包：
 
     ```bash
@@ -218,27 +218,27 @@ sudo /etc/init.d/logstash start
 
 1. 按一段时间的决策/方向显示的流 - 时间系列图，显示一段时间内流的数目。 可以编辑这些可视化效果的时间单位和跨度。 “按决策显示的流”显示所做的允许或拒绝决策所占的比例，而“按方向显示的流”则显示入站和出站流量的比例。 用户可以利用这些可视化效果检查一段时间内的流量趋势，查看是否存在峰值或异常模式。
 
-    ![图 2][2]
+    ![屏幕截图显示了一个样本面板，其中包含按一段时间的决策和方向显示的流。][2]
 
 2. 按目标端口/源端口显示的流 - 饼图，显示流向各自端口的流的明细。 可以通过此视图查看最常用的端口。 如果单击饼图中的特定端口，仪表板的其余部分就会对流进行筛选，仅保留该端口的流。
 
-    ![图 3][3]
+    ![屏幕截图显示了一个样本面板，其中包含按目标和源端口显示的流。][3]
 
 3. 流的数目和最早的日志时间 - 此指标显示记录的流的数目，以及捕获的最早日志的日期。
 
-    ![图 4][4]
+    ![屏幕截图显示了一个样本面板，其中包含流数和最早的日志时间。][4]
 
 4. 按 NSG 和规则显示的流 - 条形图，显示每个 NSG 中流的分布情况，以及每个 NSG 中规则的分布情况。 可以通过此图了解产生最多流量的 NSG 和规则。
 
-    ![图 5][5]
+    ![屏幕截图显示了一个样本面板，其中包含按 NSG 和规则显示的流。][5]
 
 5. 排名前 10 的源/目标 IP - 条形图，显示排名前 10 的源 IP 和目标 IP。 可以调整这些图表，增加或减少排名靠前的 IP 的显示数目。 可以通过此图了解最常出现的 IP，以及针对每个 IP 所做的流量决策（允许或拒绝）。
 
-    ![图 6][6]
+    ![屏幕截图显示了一个样本面板，其中包含按排名前十的来源和目标 IP 地址显示的流。][6]
 
 6. 流元组 - 此表显示包含在每个流元组中的信息及其相应的 NSG 和规则。
 
-    ![图 7][7]
+    ![屏幕截图显示了表中的流元组。][7]
 
 用户可以使用仪表板顶部的查询栏，根据流的任何参数（例如订阅 ID、资源组、规则或者任何其他感兴趣的变量）对仪表板的内容进行筛选。 有关 Kibana 的查询和筛选器的详细信息，请参阅[正式文档](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 

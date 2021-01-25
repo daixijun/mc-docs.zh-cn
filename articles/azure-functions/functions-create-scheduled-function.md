@@ -1,28 +1,28 @@
 ---
 title: 在 Azure 中创建按计划运行的函数
-description: 了解如何在 Azure 中创建根据所定义的计划运行的函数。
+description: 了解如何使用 Azure 门户创建根据所定义的计划运行的函数。
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 01/13/2021
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 510cae4d8aad9c21a026a9d51741d89dba5bad12
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 9b9fb19c06df4c163b9efa550cb4000dfe7d5a1f
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508978"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195233"
 ---
-# <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>在 Azure 中创建由计时器触发的函数
+# <a name="create-a-function-in-the-azure-portal-that-runs-on-a-schedule"></a>在 Azure 门户中创建按计划运行的函数
 
-了解如何使用 Azure Functions 创建根据所定义的计划运行的[无服务器](https://azure.microsoft.com/solutions/serverless/)函数。
+了解如何使用 Azure 门户创建根据所定义的计划在 Azure 上运行[无服务器](https://azure.microsoft.com/solutions/serverless/)的函数。
 
 ## <a name="prerequisites"></a>先决条件
 
 为完成此教程：
 
-+ 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
++ 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn/?WT.mc_id=A261C142F)。
 
-## <a name="create-an-azure-function-app"></a>创建 Azure Function App
+## <a name="create-a-function-app"></a>创建函数应用
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -73,7 +73,7 @@ ms.locfileid: "96508978"
 
 1. 将“计划”值更新为 `0 0 */1 * * *`，然后选择“保存”。  
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Azure 门户中的函数更新计时器计划。" border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="更新 Azure 门户中的函数计时器计划。" border="true":::
 
 现在已获得一个每小时运行一次的函数。
 

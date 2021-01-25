@@ -6,18 +6,18 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
 origin.date: 11/06/2020
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/28/2020
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: devx-track-js
-ms.openlocfilehash: 2ac1d8459128316e6f8faba90fa62d3c5059762d
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 40dbbf0e14798b7edceca3815c62145dc65ecc11
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598652"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230315"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>管理 Azure Cosmos DB 的用于 MongoDB 的 API 中的索引编制
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -32,6 +32,16 @@ Azure Cosmos DB 的用于 MongoDB 服务器版本 3.6 的 API 会自动为无法
 
 要将排序应用于查询，必须对排序操作中使用的字段创建索引。
 
+### <a name="editing-indexing-policy"></a>编辑索引策略
+
+建议在 Azure 门户的数据资源管理器中编辑索引策略。
+. 可以在数据资源管理器中的索引策略编辑器中添加单个字段和通配符索引：
+
+:::image type="content" source="./media/mongodb-indexing/indexing-policy-editor.png" alt-text="索引策略编辑器":::
+
+> [!NOTE]
+> 无法使用数据资源管理器中的索引策略编辑器来创建复合索引。
+
 ## <a name="index-types"></a>索引类型
 
 ### <a name="single-field"></a>单个字段
@@ -39,6 +49,10 @@ Azure Cosmos DB 的用于 MongoDB 服务器版本 3.6 的 API 会自动为无法
 只能对任何单个字段创建索引。 单字段索引的排序顺序并不重要。 以下命令对字段 `name` 创建索引：
 
 `db.coll.createIndex({name:1})`
+
+可以在 Azure 门户的 `name` 上创建相同的单个字段索引：
+
+:::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="在索引策略编辑器中添加名称索引":::
 
 在适用的情况下，一个查询将使用多个单字段索引。 对于每个容器，最多可以创建 500 个单字段索引。
 
@@ -137,6 +151,10 @@ Azure Cosmos DB 的用于 MongoDB 的 API 目前支持文本索引。 要对字�
 在所有字段上创建通配符索引的方法如下：
 
 `db.coll.createIndex( { "$**" : 1 } )`
+
+还可以使用 Azure 门户中的数据资源管理器创建通配符索引：
+
+:::image type="content" source="./media/mongodb-indexing/add-wildcard-index.png" alt-text="在索引策略编辑器中添加通配符索引":::
 
 > [!NOTE]
 > 如果你刚开始开发，强烈建议你在所有字段上使用通配符索引。 这可以简化开发，并使优化查询更加容易。

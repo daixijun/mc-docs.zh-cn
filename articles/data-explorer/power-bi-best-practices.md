@@ -7,13 +7,13 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 09/26/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: 8c66d018f403f3296cfc275297b1c15326b2df91
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/19/2021
+ms.openlocfilehash: d2ec90b324e1de3c47b376cca90ae1fc61835a85
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104172"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611297"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>有关使用 Power BI 查询和可视化 Azure 数据资源管理器数据的最佳做法
 
@@ -92,6 +92,7 @@ in
 | NoTruncate | `[NoTruncate=true]` | 将 `notruncation` set 语句添加到查询中。 启用禁止截断返回给调用方的查询结果的功能。
 | AdditionalSetStatements | `[AdditionalSetStatements="set query_datascope=hotcache"]` | 将提供的 set 语句添加到查询中。 这些语句用于设置查询持续时间的查询选项。 查询选项控制查询的执行方式并返回结果。
 | CaseInsensitive | `[CaseInsensitive=true]` | 使连接器生成不区分大小写的查询；在比较值时，查询将使用 `=~` 运算符而不是 `==` 运算符。
+| ForceUseContains | `[ForceUseContains=true]` | 在使用文本字段时，使连接器生成使用 `contains`（而不是默认的 `has`）的查询。 虽然 `has` 的性能要高很多，但它不会处理子字符串。 若要详细了解这两个运算符之间的差异，请参阅[字符串运算符](./kusto/query/datatypes-string-operators.md)。
 | 超时 | `[Timeout=#duration(0,10,0,0)]` | 将查询的客户端和服务器超时都配置为提供的持续时间。
 
 > [!NOTE]
@@ -174,6 +175,20 @@ in
 可以在支持查询参数的任何查询步骤中使用查询参数。 例如，根据某个参数的值筛选结果。
 
 ![使用参数筛选结果](media/power-bi-best-practices/filter-using-parameter.png)
+
+### <a name="use-valuenativequery-for-azure-data-explorer-features"></a>使用 Value.NativeQuery 获取 Azure 数据资源管理器功能
+
+若要使用 Power BI 不支持的 Azure 数据资源管理器功能，请使用 M 中的 [Value.NativeQuery()](/powerquery-m/value-nativequery) 方法。此方法用于在生成的查询中插入 Kusto 查询语言片段，还可用于更好地控制执行的查询。
+
+以下示例演示如何在 Azure 数据资源管理器中使用 `percentiles()` 函数：
+
+```m
+let
+    StormEvents = AzureDataExplorer.Contents(DefaultCluster, DefaultDatabase){[Name = DefaultTable]}[Data],
+    Percentiles = Value.NativeQuery(StormEvents, "| summarize percentiles(DamageProperty, 50, 90, 95) by State")
+in
+    Percentiles
+```
 
 ### <a name="dont-use-power-bi-data-refresh-scheduler-to-issue-control-commands-to-kusto"></a>不要使用 Power BI 数据刷新计划程序向 Kusto 发出控制命令。
 

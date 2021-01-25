@@ -6,17 +6,17 @@ author: Johnnytechn
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 origin.date: 03/26/2019
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.author: v-johya
-ms.openlocfilehash: 64968041dc3c51ec848e61a87efb35302e08e85d
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 37c7784cbc7449df9b63a3d0b491f77d3dc75cb2
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104336"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230898"
 ---
 # <a name="azure-monitor-logs-overview"></a>Azure Monitor 日志概览
-Azure Monitor 日志是 Azure Monitor 的一项功能，用于从[受监视的资源](../monitor-reference.md)收集并整理日志和性能数据。 来自不同源的数据（例如来自 Azure 服务的[平台日志](platform-logs-overview.md)、来自[虚拟机代理](agents-overview.md)的日志和性能数据以及来自[应用程序](../app/app-insights-overview.md)的使用情况和性能数据）可以合并到一个工作区中，以便使用一种能够快速分析数百万条记录的复杂查询语言对这些数据进行集中分析。 你可以执行仅检索特定记录集的简单查询，也可以执行复杂的数据分析来识别监视数据中的关键模式。 通过 Log Analytics 以交互方式使用日志查询及其结果，在警报规则中使用它们来主动接收问题通知，或在工作簿或仪表板中将其结果可视化。
+Azure Monitor 日志是 Azure Monitor 的一项功能，用于从[受监视的资源](../monitor-reference.md)收集并整理日志和性能数据。 来自不同源的数据（例如来自 Azure 服务的[平台日志](platform-logs-overview.md)、来自[虚拟机代理](agents-overview.md)的日志和性能数据以及来自[应用程序](../app/app-insights-overview.md)的使用情况和性能数据）可以合并到一个工作区中，以便使用一种能够快速分析数百万条记录的复杂查询语言对这些数据进行集中分析。 你可以执行仅检索特定记录集的简单查询，也可以执行复杂的数据分析来识别监视数据中的关键模式。 通过 Log Analytics 以交互方式使用日志查询及其结果，在警报规则中使用它们来主动接收问题通知，或者在工作簿或仪表板中将直观显示其结果。
 
 > [!NOTE]
 > Azure Monitor 日志是支持 Azure Monitor 的数据平台的一半。 另一半则是将数值数据存储在时序数据库中的 [Azure Monitor 指标](data-platform-metrics.md)。 它使得这些数据比 Azure Monitor 日志中的数据更为轻量，并且能够支持准实时方案，因此特别适用于对问题发出警报并快速进行检测。 不过，指标只能将数值数据存储在特定的结构中，而日志可以存储各种不同的数据类型，每个数据类型都有自己的结构。 还可使用日志查询对日志数据执行复杂的分析，只是无法分析指标数据。

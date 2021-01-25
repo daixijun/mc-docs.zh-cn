@@ -4,14 +4,14 @@ description: 搜索和筛选由 Web 应用发送的原始遥测数据。
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 07/30/2019
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.author: v-johya
-ms.openlocfilehash: d93f4ee75f500f2ca6c5f0ceda5ef310eb47e5a4
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 0b72fd1d54f6ecb1c9e50a8a03ac222d2d7b450d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104470"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231056"
 ---
 # <a name="using-search-in-application-insights"></a>使用 Application Insights 中的搜索
 
@@ -65,7 +65,7 @@ ms.locfileid: "97104470"
 * **自定义事件** - 如果插入了对 TrackEvent() 的调用以便 [监视使用情况](./api-custom-events-metrics.md)，可以在此处搜索这些调用。
 * **异常** - 未捕获到的 [服务器中的异常](./asp-net-exceptions.md)，以及使用 TrackException() 记录的异常。
 * **依赖项** - [发自服务器应用程序的调用](./asp-net-dependencies.md)，调用对象为 REST API 或数据库等其他服务器，以及 [客户端代码](./javascript.md)中的 AJAX 调用。
-* **可用性** - [可用性测试](./monitor-web-app-availability.md)的结果。
+* **可用性** - 可用性测试的结果。
 
 ## <a name="filter-on-property-values"></a>按属性值筛选
 
@@ -150,6 +150,5 @@ ms.locfileid: "97104470"
 
 * [在 Analytics 中编写复杂查询](../log-query/log-analytics-tutorial.md)
 * [向 Application Insights 发送日志和自定义的遥测数据](./asp-net-trace-logs.md)
-* [设置可用性和响应能力测试](./monitor-web-app-availability.md)
-* [故障排除](../faq.md)
+* [疑难解答](../faq.md)
 

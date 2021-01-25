@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 01/14/2021
 ms.author: v-junlch
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 798246d420375115c71038d1a3b6b06c2be04c84
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 662374bb6d73553be424002fca29d4d7d5c43627
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023504"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195050"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>规划 Azure Active Directory 设备部署
 
@@ -44,7 +44,7 @@ Azure Active Directory (Azure AD) 使你的组织能够通过设备标识管理�
 
 * 提高工作效率 - 借助 Azure AD，用户可以对本地和云资源进行[无缝登录 (SSO)](./azuread-join-sso.md)，从而使他们能够随时随地提高工作效率。
 
-* 提高安全性 - 通过 Azure AD 设备，你可以根据设备或用户的标识对资源应用[条件访问 (CA) 策略](../conditional-access/require-managed-devices.md)。 若要使用无密码身份验证策略提高安全性，必须将设备联接到 Azure AD。
+* 提高安全性 - 借助 Azure AD 设备，你可以基于设备或用户的标识将[条件访问策略](../conditional-access/require-managed-devices.md)应用于资源。若要使用无密码身份验证策略提高安全性，必须将设备联接到 Azure AD。
 
 * 改善用户体验 - 通过 Azure AD 中的设备标识，你可以使你的用户从个人和公司设备轻松访问你组织基于云的资源。
 
@@ -121,11 +121,12 @@ iOS 和 Android 设备只能注册 Azure AD。 下表列出了 Windows 客户端
 | Windows 登录屏幕的自助式密码重置| | ![这些值的复选标记。](./media/plan-device-deployment/check.png)| ![这些值的复选标记。](./media/plan-device-deployment/check.png) |
 | Windows Hello PIN 重置| | ![这些值的复选标记。](./media/plan-device-deployment/check.png)| ![这些值的复选标记。](./media/plan-device-deployment/check.png) |
 
+
 ## <a name="azure-ad-registration"></a>Azure AD 注册 
 
 已注册的设备通常由 [Microsoft Intune](https://docs.microsoft.com/mem/intune/enrollment/device-enrollment) 管理。 设备在 Intune 中有多种注册方式，具体取决于操作系统。 
 
-已注册 Azure AD 的设备支持通过自带设备 (BYOD) 和公司拥有的设备单一登录到云资源。 对资源的访问基于应用于设备和用户的 Azure AD [CA 策略](../conditional-access/require-managed-devices.md)。
+已注册 Azure AD 的设备支持通过自带设备 (BYOD) 和公司拥有的设备单一登录到云资源。 对资源的访问基于应用于设备和用户的 Azure AD [条件访问策略](../conditional-access/require-managed-devices.md)。
 
 ### <a name="registering-devices"></a>注册设备
 

@@ -3,28 +3,28 @@ title: Azure 虚拟网络服务终结点策略 | Azure
 description: 了解如何使用服务终结点策略来筛选发往 Azure 服务资源的虚拟网络流量
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/21/2020
-ms.date: 07/06/2020
+author: rockboyfor
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: 05a2b9c63fde30a6c4eaa6f5b91eff2c3f27dd83
-ms.sourcegitcommit: af71b9199d47fb81e85d70da0cfb265cc814a644
+ms.openlocfilehash: 3bfeb721e70379c0fe526faed87843fc1be6aefd
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969068"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570643"
 ---
 <!--Verified successfuly on Charactor content-->
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Azure 存储的虚拟网络服务终结点策略
 
 使用虚拟网络 (VNet) 服务终结点策略可以通过服务终结点筛选发往 Azure 存储帐户的出口虚拟网络流量，并让数据只能外泄到特定 Azure 存储帐户。 通过服务终结点进行连接时，终结点策略为虚拟网络到 Azure 存储的流量提供精细访问控制。
 
-![保护到 Azure 存储帐户的虚拟网络出站流量](./media/virtual-network-service-endpoint-policies-overview/vnet-service-endpoint-policies-overview.png)
+:::image type="content" source="./media/virtual-network-service-endpoint-policies-overview/vnet-service-endpoint-policies-overview.png" alt-text="保护到 Azure 存储帐户的虚拟网络出站流量":::
 
 已面向所有全球 Azure 区域中的 Azure 存储正式推出此功能。
 
@@ -34,13 +34,13 @@ ms.locfileid: "85969068"
 
 - __改进了发往 Azure 存储的虚拟网络流量的安全性__
 
-    使用[网络安全组的 Azure 服务标记](/virtual-network/security-overview#service-tags)可以只允许将虚拟网络出站流量发往特定 Azure 存储区域。 但是，这允许向选定 Azure 存储区域内的任何帐户发送流量。
-  
-    使用终结点策略可以指定允许进行虚拟网络出站访问的 Azure 存储帐户，并限制所有其他存储帐户的访问。 这可以提供精细得多的安全控制，为虚拟网络中的数据外泄提供保护。
+  使用[网络安全组的 Azure 服务标记](https://docs.azure.cn/virtual-network/security-overview#service-tags)可以只允许将虚拟网络出站流量发往特定 Azure 存储区域。 但是，这允许向选定 Azure 存储区域内的任何帐户发送流量。
+
+  使用终结点策略可以指定允许进行虚拟网络出站访问的 Azure 存储帐户，并限制所有其他存储帐户的访问。 这可以提供精细得多的安全控制，为虚拟网络中的数据外泄提供保护。
 
 - __可缩放、高可用性的策略可以筛选 Azure 服务流量__
 
-    终结点策略提供可横向缩放、高可用性的解决方案来筛选虚拟网络通过服务终结点发出的 Azure 服务流量。 为虚拟网络中的此流量维护中心网络设备不会产生额外的开销。
+   终结点策略提供可横向缩放、高可用性的解决方案来筛选虚拟网络通过服务终结点发出的 Azure 服务流量。 为虚拟网络中的此流量维护中心网络设备不会产生额外的开销。
 
 ## <a name="json-object-for-service-endpoint-policies"></a>服务终结点策略的 JSON 对象
 让我们快速了解服务终结点策略对象。
@@ -124,7 +124,7 @@ ms.locfileid: "85969068"
 - 虚拟网络必须与服务终结点策略位于同一区域。
 - 如果为策略中列出的 Azure 服务配置了服务终结点，则只能在子网上应用服务终结点策略。
 - 不能对从本地网络发往 Azure 服务的流量使用服务终结点策略。
-- Azure 托管服务目前不支持终结点策略。 这包括部署到共享子网中的托管服务（例如，Azure HDInsight、Azure Batch、Azure ADDS、Azure 应用程序网关、Azure VPN 网关、Azure 防火墙）或部署到专用子网中的托管服务（例如，Azure 应用服务环境、Azure Redis 缓存、Azure API 管理、Azure SQL MI、经典托管服务）。
+- Azure 托管服务目前不支持终结点策略。 这包括部署到共享子网中的托管服务（例如 Azure Batch、Azure ADDS、Azure 应用程序网关、Azure VPN 网关、Azure 防火墙）或部署到专用子网中的托管服务（例如 Azure 应用服务环境、Azure Redis 缓存、Azure API 管理、Azure SQL MI、经典托管服务）。
 
     > [!WARNING]
     > 部署到虚拟网络中的 Azure 服务（例如 Azure HDInsight）出于基础结构要求的访问其他 Azure 服务（例如 Azure 存储）。 将终结点策略限制为特定的资源可能会中断虚拟网络中部署的 Azure 服务对这些基础结构资源的访问。
@@ -140,7 +140,7 @@ ms.locfileid: "85969068"
  |资源 | 默认限制 |
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
- |ServiceEndpintPoliciesPerSubnet|100 |
+ |ServiceEndpointPoliciesPerSubnet|100 |
  |ServiceResourcesPerServiceEndpointPolicyDefinition|200 |
 
 ## <a name="next-steps"></a>后续步骤
@@ -149,4 +149,4 @@ ms.locfileid: "85969068"
 
 - 详细了解[虚拟网络服务终结点](virtual-network-service-endpoints-overview.md)
 
-<!--Update_Description: new articles on virtual network service endpoint policies overview -->
+<!-- Update_Description: update meta properties, wording update, update link -->

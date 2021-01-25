@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 11/16/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 3e510230ea20a4c336a1b38ff46d8ed8fa4cdc25
-ms.sourcegitcommit: 054636c134cc0f53c194a6b76668644e18d1c4fe
+ms.openlocfilehash: 78d552e07a7791150481e16e9b35b1cd96369811
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028495"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231196"
 ---
 > [!NOTE]
 > 当我们从 `https://raw.githubusercontent.com/` 网站下载特定模板文件时，有时会遇到某些问题。
@@ -27,7 +27,7 @@ ms.locfileid: "96028495"
 >     | 类别 | 原始值 | 转换后的值 |  操作  |
 >     |----------|----------------|-----------------|----------|
 >     | 前缀   | `https://raw.githubusercontent.com`  |  `https://github.com`  | 更新 |
->     | 中辍    |                | `blob`          |  在 `master` 之前添加，它是 git 存储库的远程分支名称。 |
+>     | 中辍    |                | `blob`          |  在 `master`/`main` 之前添加，它是 git 存储库的远程分支名称。 |
 >     | 模板文件名  |azuredeploy.json | 你的下载模板文件名 | update |
 >
 >     修改后，转换后的 URI 看起来将类似于 `https://github.com/Azure/azure-quickstart-templates/blob/master/101-cosmosdb-sql-autoscale/azuredeploy.json`。

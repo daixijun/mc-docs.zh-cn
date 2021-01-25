@@ -8,19 +8,19 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 09/08/2020
-ms.date: 11/27/2020
-ms.openlocfilehash: 663c131b480f42a307ee2da95172814d392a1e53
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.date: 01/14/2021
+ms.openlocfilehash: eea7019e9db14190a24ecfded92af0b3a6545bea
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300716"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194777"
 ---
 # <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>调整 Azure 认知搜索服务的容量
 
 在[预配搜索服务](search-create-service-portal.md)和锁定特定的定价层之前，请花几分钟时间来了解容量如何工作以及如何调整副本和分区来适应工作负荷波动。
 
-容量是[所选层](search-sku-tier.md)（层确定硬件特征）以及预期工作负荷所需的副本和分区组合的一个功能因素。 你可以单独增加或减少副本或分区数。 增加或减少容量所需的时间为 15 分钟到几个小时，具体取决于调整的层和大小。
+容量是[所选层](search-sku-tier.md)（层确定硬件特征）以及预期工作负荷所需的副本和分区组合的一个功能因素。 创建服务后，可以单独增加或减少副本或分区数。 每增加一个物理资源，成本就会增加，但是一旦完成大的工作负载，就可以减小规模以降低费用。 增加或减少容量所需的时间为 15 分钟到几个小时，具体取决于调整的层和大小。
 
 修改副本和分区的分配时，建议使用 Azure 门户。 该门户针对允许的组合强制实施限制，使其低于层的上限。 但是，如果需要使用基于脚本或基于代码的预配方法，[Azure PowerShell](search-manage-powershell.md) 或[管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) 是替代的解决方案。
 
@@ -106,7 +106,7 @@ ms.locfileid: "96300716"
 | **4 个副本** |4 SU |8 SU |12 SU |16 SU |24 SU |不适用 |
 | **5 副本** |5 SU |10 SU |15 SU |20 SU |30 SU |不适用 |
 | **6 个副本** |6 SU |12 SU |18 SU |24 SU |36 个 SU |不适用 |
-| **12 副本** |12 SU |24 SU |36 个 SU |不适用 |空值 |不适用 |
+| **12 副本** |12 SU |24 SU |36 个 SU |空值 |不适用 |不适用 |
 
 Azure 网站上详细说明了 SU、定价和容量。 有关详细信息，请参阅 [Pricing Details](https://www.azure.cn/pricing/details/search/)（定价详细信息）。
 

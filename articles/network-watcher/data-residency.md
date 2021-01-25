@@ -1,5 +1,5 @@
 ---
-title: Azure 网络观察程序的数据驻留 | Azure
+title: Azure 网络观察程序的数据驻留 | Azure Docs
 description: 本文介绍 Azure 网络观察程序服务的数据驻留。
 services: network-watcher
 documentationcenter: na
@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/20/2020
 author: rockboyfor
-ms.date: 10/19/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 120e5fd8d7e089509f210231de9ee0931789747c
-ms.sourcegitcommit: 7320277f4d3c63c0b1ae31ba047e31bf2fe26bc6
+ms.openlocfilehash: 36a350420e97b779989012957faeab8d90b00a91
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92118804"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230451"
 ---
 <!--Verified successfully for charactors only-->
 # <a name="data-residency-for-azure-network-watcher"></a>Azure 网络观察程序的数据驻留
@@ -33,7 +33,6 @@ Azure 网络观察程序不会存储客户数据，连接监视器（预览版�
 
 ## <a name="next-steps"></a>后续步骤
 
-* 阅读[网络观察程序](/network-watcher/network-watcher-monitoring-overview)的概述。
+* 阅读[网络观察程序](./network-watcher-monitoring-overview.md)的概述。
 
-<!-- Update_Description: new article about data residency -->
-<!--NEW.date: 10/19/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

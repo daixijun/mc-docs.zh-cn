@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 01/07/2021
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab40692feae5648cf428505126a813af74905469
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: a00fee8acbd186bd3dfb36f50b4744796423b258
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021889"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195099"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的管理员角色权限
 
@@ -87,6 +87,14 @@ ms.locfileid: "98021889"
 >* 安全组和 Microsoft 365 组所有者，可以管理组成员资格。 这些组可能会授予对 Azure AD 或其他位置敏感或私有信息或关键配置的访问权限。
 >* Azure AD 之外的其他服务中的管理员，如 Exchange Online、Office 安全与合规中心以及人力资源系统。
 >* 高级管理人员、法律顾问和人力资源员工之类的非管理员，可能有权访问敏感或私有信息。
+
+### <a name="attack-payload-author"></a>[攻击有效负载作者](#attack-payload-author-permissions)
+
+拥有此角色的用户可以创建攻击有效负载，但不能实际启动或调度它们。 然后，租户中的所有管理员都可以使用攻击有效负载创建模拟。
+
+### <a name="attack-simulation-administrator"></a>[攻击模拟管理员](#attack-simulation-administrator-permissions)
+
+拥有此角色的用户可以创建和管理攻击模拟创建的所有方面、启动/调度模拟以及查看模拟结果。 此角色的成员对租户中的所有模拟具有此访问权限。
 
 ### <a name="azure-devops-administrator"></a>[Azure DevOps 管理员](#azure-devops-administrator-permissions)
 
@@ -446,6 +454,10 @@ Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP
 
 充当此角色的用户可以通过 Microsoft Teams 和 Skype for Business 管理中心以及相应的 PowerShell 模块来管理 Microsoft Teams 工作负荷的所有方面。 这包括（但不限于）与电话、消息、会议和 Teams 自身相关的所有管理工具。 另外，利用此角色，还可以创建和管理所有 Microsoft 365 组，管理支持票证并监视服务运行状况。
 
+### <a name="usage-summary-reports-reader"></a>[使用情况摘要报表读取者](#usage-summary-reports-reader-permissions)
+
+拥有此角色的用户可以访问 Microsoft 365 管理中心内使用情况和生产力分数的租户级聚合数据和相关见解，但无法访问任何用户级详细信息或见解。 在 Microsoft 365 管理中心的这两个报表中，我们区分了租户级聚合数据和用户级详细信息。 此角色为客户和法律团队共同请求的单个用户身份数据提供了一层额外的保护。 
+
 ### <a name="user-administrator"></a>[用户管理员](#user-administrator-permissions)
 
 具有此角色的用户可以创建用户并管理用户的所有方面（存在一些限制，具体请参阅下表），还可以更新密码过期策略。 此外，具有此角色的用户可以创建和管理所有组。 此角色还能够创建和管理用户视图、管理支持票证和监视服务运行状况。 用户管理员无权管理充当大部分管理员角色的用户的某些用户属性。 具有此角色的用户无权管理 MFA。 下表列出了不存在这种限制的角色。
@@ -548,6 +560,25 @@ Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP
 | microsoft.office365.serviceHealth/allEntities/allTasks | 读取和配置 Microsoft 365 服务运行状况。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 创建和管理 Office 365 支持票证。 |
 | microsoft.directory/users/password/update | 更新 Microsoft 365 组织中所有用户的密码。 有关详细信息，请参阅联机文档。 |
+
+### <a name="attack-payload-author-permissions"></a>攻击有效负载作者权限
+
+可以创建可由管理员稍后部署的攻击有效负载。
+
+| **操作** | **说明** |
+| --- | --- |
+| microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | 在攻击模拟器中创建和管理攻击有效负载。 |
+| microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | 读取有关攻击模拟、响应和相关培训的报告。 |
+
+### <a name="attack-simulation-administrator-permissions"></a>攻击模拟管理员权限
+
+可以创建和管理攻击模拟活动的各个方面。
+
+| **操作** | **说明** |
+| --- | --- |
+| microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | 在攻击模拟器中创建和管理攻击有效负载。 |
+| microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | 读取有关攻击模拟、响应和相关培训的报告。 |
+| microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | 在攻击模拟器中创建和管理攻击模拟模板。 |
 
 ### <a name="azure-devops-administrator-permissions"></a>Azure DevOps 管理员权限
 
@@ -1689,6 +1720,14 @@ Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP
 | microsoft.office365.webPortal/allEntities/basic/read | 读取 microsoft.office365.webPortal 中所有资源的基本属性。 |
 | microsoft.teams/allEntities/allProperties/allTasks | 管理 Teams 中的所有资源。 |
 
+### <a name="usage-summary-reports-reader-permissions"></a>使用情况摘要报表读取者权限
+只能查看 M365 使用情况分析和生产力分数中的租户级聚合。
+
+| **操作** | **说明** |
+| --- | --- |
+| microsoft.office365.usageReports/allEntities/standard/read | 读取租户级聚合的 Office 365 使用情况报表。 |
+| microsoft.office365.webPortal/allEntities/standard/read | 读取 microsoft.office365.webPortal 中所有资源的基本属性。|
+
 ### <a name="user-administrator-permissions"></a>用户管理员权限
 可以管理用户和组的所有方面，包括重置有限管理员的密码。
 
@@ -1735,6 +1774,8 @@ Graph displayName | Azure 门户显示名称 | directoryRoleTemplateId
 应用程序管理员 | 应用程序管理员 | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 应用程序开发人员 | 应用程序开发人员 | CF1C38E5-3621-4004-A7CB-879624DCED7C
 身份验证管理员 | 身份验证管理员 | c4e39bd9-1100-46d3-8c65-fb160da0071f
+攻击有效负载作者 | 攻击有效负载作者 | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
+攻击模拟管理员 | 攻击模拟管理员 | c430b396-e693-46cc-96f3-db01bf8bb62a
 Azure DevOps 管理员 | Azure DevOps 管理员 | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure 信息保护管理员 | Azure 信息保护管理员 | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C IEF 密钥集管理员 | B2C IEF 密钥集管理员 | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1798,6 +1839,7 @@ Teams 通信支持工程师 | Teams 通信支持工程师 | f70938a0-fc10-4177-9
 Teams 通信支持专家 | Teams 通信支持专家 | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Teams 设备管理员 | Teams 设备管理员 | 3d762c5a-1b6c-493f-843e-55a3b42923d4
 Teams 服务管理员 | Teams 服务管理员 | 69091246-20e8-4a56-aa4d-066075b2a7a8
+使用情况摘要报表读取者 | 使用情况摘要报表读取者 | 75934031-6c7e-415a-99d7-48dbd49e875e
 用户 | 未显示，因为无法使用它 | a0b1b346-4d3e-4e8b-98f8-753987be4970
 用户帐户管理员 | 用户管理员 | fe930be7-5e62-47db-91af-98c3a49a38b1
 工作区设备联接 | 已放弃 | c34f683f-4d5a-4403-affd-6615e00e3a7f

@@ -11,12 +11,12 @@ ms.author: v-jay
 ms.reviewer: MashaMSFT
 origin.date: 11/06/2020
 ms.date: 01/04/2021
-ms.openlocfilehash: 16fda750e6a896e77a04d320d7fda4e356e24015
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: e2552871ab838929b9726b296cda38d25bacf263
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830409"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541857"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>迁移指南：将 SQL Server 到 SQL 托管实例
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -89,10 +89,7 @@ ms.locfileid: "97830409"
 - [使用 PowerShell 执行规模化评估](https://docs.microsoft.com/sql/dma/dma-consolidatereports)
 - [使用 Power BI 分析评估报告](https://docs.microsoft.com/sql/dma/dma-consolidatereports#dma-reports)
 
-> [!IMPORTANT]
->还可以使用 [DMA 命令行实用程序](https://docs.microsoft.com/sql/dma/dma-commandline)自动对多个数据库运行大规模评估，并将结果上传到 [Azure Migrate](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) 以进一步进行分析和目标准备。
-
-### <a name="create-a-performance-baseline"></a>创建性能基线
+=### 创建性能基线
 
 如果需要将 SQL 托管实例上工作负载的性能与 SQL Server 上运行的原始工作负载的性能进行比较，请创建用于比较的性能基线。 请参阅[性能基线](sql-server-to-managed-instance-performance-baseline.md)以了解详细信息。 
 
@@ -211,15 +208,15 @@ ms.locfileid: "97830409"
 
 - 有关在执行各种数据库和数据迁移方案及专门任务时可为你提供帮助的 Azure 与第三方服务和工具的矩阵，请参阅[数据迁移服务和工具](../../../dms/dms-tools-matrix.md)。
 
-- 若要详细了解 Azure SQL 托管实例，请参阅：
+- 详细了解 Azure SQL 托管实例，请参阅：
    - [Azure SQL 托管实例中的服务层级](../../managed-instance/sql-managed-instance-paas-overview.md#service-tiers)
    - [SQL Server 与 Azure SQL 托管实例之间的差异](../../managed-instance/transact-sql-tsql-differences-sql-server.md)
    - [Azure 总拥有成本计算器](https://azure.cn/pricing/calculator/) 
 
 
-- 若要详细了解云迁移的框架和采用周期，请参阅
+- 有关云迁移的框架和采用周期的详细信息，请参阅
    -  [适用于 Azure 的云采用框架](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [为迁移到 Azure 的工作负载计算成本和调整大小的最佳做法](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
-- 若要评估应用程序访问层，请参阅[Data Access Migration Toolkit（预览版）](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
-- 详细了解如何执行数据访问层 A/B 测试，请参阅[数据库实验助手](https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview)。
+- 若要评估应用程序访问层，请参阅 [Data Access Migration Toolkit（预览版）](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
+- 若要详细了解如何执行数据访问层 A/B 测试，请参阅[数据库实验助手](https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview)。

@@ -1,9 +1,8 @@
 ---
 title: 创建 Azure 网络观察程序实例 | Azure
-description: 了解如何在 Azure 区域中启用网络观察程序。
+description: 了解如何使用 Azure 门户或其他技术在 Azure 区域中创建 Azure 网络观察程序，以及如何删除网络监视程序。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
 ms.service: network-watcher
 ms.devlang: na
@@ -11,16 +10,17 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 237da51a5304308d74511e517e5d527039afba25
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: 9a05ffe52692335b499ea1eb20dd88810a68dc29
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548031"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231102"
 ---
 <!--Verify Successfully-->
 <!--Only Valid on China East 2-->
@@ -55,18 +55,18 @@ az provider register -n Microsoft.Network
 
 :::image type="content" source="./media/network-watcher-create/figure1.png" alt-text="创建网络观察程序":::
 
-使用门户启用网络观察程序时，网络观察程序实例的名称会自动设置为 *NetworkWatcher_region_name*，其中，*region_name* 对应于启用了该实例的 Azure 区域。 例如，在“中国东部 2”区域启用的网络观察程序名为“NetworkWatcher_chinaeast2”。
+使用门户启用网络观察程序时，网络观察程序实例的名称会自动设置为 *NetworkWatcher_region_name*，其中，*region_name* 对应于启用了该实例的 Azure 区域。 例如，在“中国东部”区域启用的网络观察程序名为“NetworkWatcher_chinaeast”。
 
 将自动在名为 *NetworkWatcherRG* 的资源组中创建网络观察程序实例。 如果该资源组尚不存在，则会创建该资源组。
 
-若要自定义网络观察程序实例的名称和放置该实例的资源组名称，可使用下面各部分中介绍的 Powershell、Azure CLI、REST API 或 ARMClient 方法。 在每个选项中，都必须存在资源组，然后才能在其中创建网络观察程序。  
+若要自定义网络观察程序实例的名称和放置该实例的资源组名称，可使用下面各部分中介绍的 PowerShell、Azure CLI、REST API 或 ARMClient 方法。 在每个选项中，都必须存在资源组，然后才能在其中创建网络观察程序。  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>使用 PowerShell 创建网络观察程序
 
 若要创建网络观察程序的实例，请运行以下示例：
 
 ```powershell
-New-AzNetworkWatcher -Name "NetworkWatcher_chinaeast2" -ResourceGroupName "NetworkWatcherRG" -Location "China East 2"
+New-AzNetworkWatcher -Name "NetworkWatcher_chinaeast" -ResourceGroupName "NetworkWatcherRG" -Location "China East"
 ```
 
 ## <a name="create-a-network-watcher-with-the-azure-cli"></a>使用 Azure CLI 创建网络观察程序
@@ -74,7 +74,7 @@ New-AzNetworkWatcher -Name "NetworkWatcher_chinaeast2" -ResourceGroupName "Netwo
 若要创建网络观察程序的实例，请运行以下示例：
 
 ```azurecli
-az network watcher configure --resource-group NetworkWatcherRG --locations 'China East 2' --enabled
+az network watcher configure --resource-group NetworkWatcherRG --locations 'China East' --enabled
 ```
 
 ## <a name="create-a-network-watcher-with-the-rest-api"></a>使用 REST API 创建网络观察程序
@@ -97,12 +97,16 @@ $resourceGroupName = '<resource group name>'
 $apiversion = "2016-09-01"
 $requestBody = @"
 {
-'location': 'China East 2'
+'location': 'China East'
 }
 "@
 
 armclient put "https://management.chinacloudapi.cn/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
+
+## <a name="create-a-network-watcher-using-azure-quickstart-template"></a>使用 Azure 快速入门模板创建网络观察程序
+
+若要创建网络观察程序实例，请参阅此[快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-networkwatcher-create/)
 
 ## <a name="delete-a-network-watcher-in-the-portal"></a>在门户中删除网络观察程序
 
@@ -118,16 +122,16 @@ armclient put "https://management.chinacloudapi.cn/subscriptions/${subscriptionI
 若要删除网络观察程序的实例，请运行以下示例：
 
 ```powershell
-New-AzResourceGroup -Name NetworkWatcherRG -Location "China East 2"
-New-AzNetworkWatcher -Name NetworkWatcher_chinaeast2 -ResourceGroup NetworkWatcherRG -Location "China East 2"
-Remove-AzNetworkWatcher -Name NetworkWatcher_chinaeast2 -ResourceGroup NetworkWatcherRG
+New-AzResourceGroup -Name NetworkWatcherRG -Location chinaeast
+New-AzNetworkWatcher -Name NetworkWatcher_chinaeast -ResourceGroup NetworkWatcherRG -Location chinaeast
+Remove-AzNetworkWatcher -Name NetworkWatcher_chinaeast -ResourceGroup NetworkWatcherRG
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
 现在，已有网络观察程序实例，请了解可用功能：
 
-* [拓扑](network-watcher-topology-overview.md)
+* [拓扑](./view-network-topology.md)
 * [数据包捕获](network-watcher-packet-capture-overview.md)
 * [IP 流验证](network-watcher-ip-flow-verify-overview.md)
 * [下一跃点](network-watcher-next-hop-overview.md)

@@ -6,14 +6,14 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 05/19/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: e5b3eb001b4fcb15399a4817005fc99eb1c77979
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: b8ee1d122430c2083701ed741d680ce024ab126e
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850716"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231003"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 GROUP BY 子句
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,7 +42,7 @@ GROUP BY 子句按照一个或多个指定属性的值来拆分查询的结果�
 
 ## <a name="remarks"></a>备注
 
-当查询使用 GROUP BY 子句时，SELECT 子句只能包含包括在 GROUP BY 子句中的属性和系统函数的一部分。 一个例外是[聚合系统函数](sql-query-aggregates.md)，此类函数可以出现在 SELECT 子句中，但不需包含在 GROUP BY 子句中。 也可始终在 SELECT 子句中包含文本值。
+当查询使用 GROUP BY 子句时，SELECT 子句只能包含包括在 GROUP BY 子句中的属性和系统函数的一部分。 一个例外是[聚合函数](sql-query-aggregate-functions.md)，此类函数可以出现在 SELECT 子句中，但不需包含在 GROUP BY 子句中。 也可始终在 SELECT 子句中包含文本值。
 
 GROUP BY 子句必须位于 SELECT、FROM 和 WHERE 子句后面，OFFSET LIMIT 子句前面。 目前不能将 GROUP BY 和 ORDER BY 子句配合使用，但这已在计划内。
 
@@ -193,6 +193,6 @@ GROUP BY ARRAY_CONTAINS(f.tags, {name: 'orange'}), f.version BETWEEN 0 AND 2
 
 - [入门](sql-query-getting-started.md)
 - [SELECT 子句](sql-query-select.md)
-- [聚合函数](sql-query-aggregates.md)
+- [聚合函数](sql-query-aggregate-functions.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

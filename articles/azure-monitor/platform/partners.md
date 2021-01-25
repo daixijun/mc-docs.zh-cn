@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.subservice: ''
 ms.topic: conceptual
 origin.date: 03/14/2019
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.author: v-johya
-ms.openlocfilehash: 48e50570178425c4d3d5366daa377aba042db859
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: fae5d968b82f94d541fae375ea751add57e247db
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104400"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229881"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 监视器合作伙伴集成
 
@@ -303,6 +303,20 @@ Sumo Logic 是一项安全的云本机计算机数据分析服务，可实时、
 Turbonomic 为混合云提供工作负荷自动化解决方案，同时实时优化性能、成本和符合性。 Turbonomic 可持续优化资产，帮助组织在 Azure 资产方面获得弹性，确保应用程序可以持续获得所需的资源来履行 SLA，同时，对于 IaaS 和 PaaS 层，不需要进一步配置计算、存储和网络资源。 组织可以模拟迁移、合理缩放工作负荷以及淘汰数据中心资源，以便在预算范围内按时可靠迁移到 Azure，同时确保性能和符合性不受影响。 Turbonomic 由 API 驱动，作为 Azure 中和本地的无代理 VM 运行。
 
 [Turbonomic 简介](https://turbonomic.com/)
+
+## <a name="partner-tools-with-event-hub-integration"></a>具有事件中心集成的合作伙伴工具
+
+使用 Azure Monitor 将监视数据路由到 Azure 事件中心，使你可以轻松地与某些外部 SIEM 和监视工具集成。 已知以下合作伙伴已通过事件中心进行了集成。 
+
+| 工具 | 在 Azure 中托管 | 说明 |
+|:---|:---| :---|
+|  IBM QRadar | 否 | Azure DSM 和 Azure 事件中心协议可从 [IBM 支持网站](https://www.ibm.com/support)下载。 可以在 [QRadar DSM 配置](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)中详细了解与 Azure 的集成。 |
+| Splunk | 否 | [适用于 Splunk 的 Azure 附加产品](https://splunkbase.splunk.com/app/3757/)是在 Splunkbase 中提供的一个开放源代码项目。 <br><br> 如果无法在 Splunk 实例中安装加载项（例如，如果使用代理或在 Splunk Cloud 上运行），则可以使用[适用于 Splunk 的 Azure 函数](https://github.com/Microsoft/AzureFunctionforSplunkVS)（由事件中心内的新消息触发）将这些事件转发到 Splunk HTTP 事件收集器。 |
+| SumoLogic | 否 | [从事件中心收集 Azure 审核应用的日志](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)中提供了有关设置 SumoLogic，以使用事件中心数据的说明。 |
+| ArcSight | 否 | ArcSight Azure 事件中心智能连接器作为 [ArcSight 智能连接器集合](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)的一部分提供。 |
+| Syslog 服务器 | 否 | 若要将 Azure Monitor 数据直接流式传输到 syslog 服务器，可以使用[基于 Azure 函数的解决方案](https://github.com/miguelangelopereira/azuremonitor2syslog/)。
+| LogRhythm | 否| [此处](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)提供了有关设置 LogRhythm，以从事件中心收集日志的说明。 
+|Logz.io | 是 | 有关详细信息，请参阅[开始使用用于在 Azure 上运行的 Java 应用的 Logz.io 进行监视和日志记录](https://docs.microsoft.com/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 
 ## <a name="next-steps"></a>后续步骤

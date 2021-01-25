@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: 9bafe3fdd0d9c78dcca5b3138095061cf05ced20
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 3fcf56b923ff517745a00b37a0db4fd6db78c4f4
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552831"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230820"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>将数百 TB 的数据迁移到 Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ Azure 数据工厂、Azure 数据迁移服务之类的工具正在修复上述�
 
 自定义工具使用批量执行程序库，支持跨多个客户端横向扩展，并可以跟踪引入过程中出现的错误。 若要使用此工具，应将源数据分区成 Azure Data Lake Storage (ADLS) 中的不同文件，以便不同的迁移工作线程可以选取每个文件并将其引入 Azure Cosmos DB。 自定义工具利用单独的集合，该集合存储 ADLS 中每个源文件的迁移进度的相关元数据，并跟踪与这些文件关联的任何错误。  
 
-下图描述了使用此自定义工具的迁移过程。 该工具在一组虚拟机上运行，其中每个虚拟机查询 Azure Cosmos DB 中的跟踪集合，以获取某个源数据分区上的租约。 完成此操作后，该工具将读取源数据分区，并使用批量执行程序库将其引入 Azure Cosmos DB。 接下来，跟踪集合将会更新，以记录数据引入的进度和遇到的任何错误。 处理数据分区后，该工具会尝试查询下一个可用的源分区。 它会继续处理下一个源分区，直到迁移了所有数据。 [此处](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion)提供了该工具的源代码。  
+下图描述了使用此自定义工具的迁移过程。 该工具在一组虚拟机上运行，其中每个虚拟机查询 Azure Cosmos DB 中的跟踪集合，以获取某个源数据分区上的租约。 完成此操作后，该工具将读取源数据分区，并使用批量执行程序库将其引入 Azure Cosmos DB。 接下来，跟踪集合将会更新，以记录数据引入的进度和遇到的任何错误。 处理数据分区后，该工具会尝试查询下一个可用的源分区。 它会继续处理下一个源分区，直到迁移了所有数据。 该工具的源代码可从 [Azure Cosmos DB 批量引入](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion)存储库中获得。  
 
 :::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="迁移工具设置" border="false":::
 
@@ -129,11 +129,6 @@ Azure 数据工厂、Azure 数据迁移服务之类的工具正在修复上述�
 6. 其中某些错误可能是源数据中错误的文档造成的。 应识别并修复这些错误。 接下来，应针对失败的分区重新运行导入步骤以将其重新引入。 
 
 完成迁移后，可以验证 Azure Cosmos DB 中的文档计数是否与源数据库中的文档计数相同。 在此示例中，Azure Cosmos DB 中的总大小为 65 TB。 迁移后，可以选择性地打开索引，并将 RU 降低到执行工作负荷操作所需的级别。
-
-## <a name="contact-the-azure-cosmos-db-team"></a>联系 Azure Cosmos DB 团队
-虽然可以遵循本指南成功地将大型数据集迁移到 Azure Cosmos DB，但对于大规模迁移，我们建议联系 Azure Cosmos DB 产品团队来验证数据建模并完成一般性的体系结构评审。 产品团队还可以根据数据集和工作负荷提出可能适用于你的其他性能和成本优化方案。 若要联系 Azure Cosmos DB 团队以获取大规模迁移的帮助，可以开具[支持票证](https://support.azure.cn/support/support-azure/)。
-
-<!--Not Available on ![Migration Support Topic](./media/migrate-cosmosdb-data/supporttopic.png)-->
 
 ## <a name="next-steps"></a>后续步骤
 

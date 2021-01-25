@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 432a5cec00715aad0b7e2d3464090779d2262c11
-ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
+ms.openlocfilehash: a387023933dd92d63b93fcd5ef9c4926810748ba
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98163117"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629041"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Azure 队列存储入门（使用 .NET）
 
@@ -472,7 +472,7 @@ public void DequeueMessage(string queueName)
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
-代码通过两个步骤来取消对队列中某条消息的排队。 调用 [`GetMessage`](/dotnet/api/microsoft.winsowsazure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true) 时，你会获得队列中的下一条消息。 从 `GetMessage` 返回的消息对于从此队列读取消息的任何其他代码都是不可见的。 默认情况下，此消息持续 30 秒不可见。 若要完成从队列中删除消息的操作，还必须调用 [`DeleteMessage`](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true)。 此删除消息的两步过程可确保，如果代码因硬件或软件故障而无法处理消息，则代码的其他实例可以获取相同消息并重试。 代码在处理消息后会立即调用 `DeleteMessage`。
+代码通过两个步骤来取消对队列中某条消息的排队。 调用 [`GetMessage`](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true) 时，你会获得队列中的下一条消息。 从 `GetMessage` 返回的消息对于从此队列读取消息的任何其他代码都是不可见的。 默认情况下，此消息持续 30 秒不可见。 若要完成从队列中删除消息的操作，还必须调用 [`DeleteMessage`](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true)。 此删除消息的两步过程可确保，如果代码因硬件或软件故障而无法处理消息，则代码的其他实例可以获取相同消息并重试。 代码在处理消息后会立即调用 `DeleteMessage`。
 
 ```csharp
 // Retrieve storage account from connection string

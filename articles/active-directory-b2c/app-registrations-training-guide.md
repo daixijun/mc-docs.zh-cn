@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/01/2020
+ms.date: 01/18/2021
 ms.custom: project-no-code
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 0f64bb7287d50af6b3c8422644c4660d439d9aa5
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 04900751752123264851fb05fc527b8d28396357
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507144"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570518"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Azure Active Directory B2C 的新应用注册体验
 
@@ -63,7 +63,7 @@ Azure AD B2C 应用注册体验在适用于所有 Azure AD 租户的常规[应�
 > [!NOTE]
 > 若要对此应用程序的用户进行身份验证，需要此选项才能运行 Azure AD B2C 用户流。 了解[如何注册应用程序以便能使用用户流。](tutorial-register-applications.md)
 
-还可以使用此选项，以便使用 Azure AD B2C 作为 SAML 服务提供程序。
+还可以使用此选项，以便使用 Azure AD B2C 作为 SAML 服务提供程序。 [了解详细信息](identity-provider-adfs.md)。
 
 ## <a name="applications-for-devops-scenarios"></a>适用于 DevOps 方案的应用程序
 可使用其他帐户类型来创建用于管理 DevOps 方案（如使用 Microsoft Graph 上传 Identity Experience Framework 策略或预配用户）的应用。 了解[如何注册 Microsoft Graph 应用程序来管理 Azure AD B2C 资源](microsoft-graph-get-started.md)。
@@ -97,7 +97,7 @@ iOS/macOS 和 Android 平台是公共客户端 。 它们提供了一种简单�
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>不适用于 Azure AD B2C 租户的功能
 以下 Azure AD 应用注册功能不适用或不可用于 Azure AD B2C 租户：
 - **角色和管理员** - 当前不可用于 Azure AD B2C。
-- **品牌** - UI/UX 自定义在“公司品牌”体验中配置或作为用户流的一部分进行配置。 了解如何[自定义 Azure Active Directory B2C 中的用户界面](customize-ui-overview.md)。
+- **品牌** - UI/UX 自定义在“公司品牌”体验中配置或作为用户流的一部分进行配置。 了解如何[自定义 Azure Active Directory B2C 中的用户界面](customize-ui-with-html.md)。
 - **发布服务器域验证** - 你的应用在 .partner.onmschina.cn 上注册，该域未经过验证。 此外，发布服务器域主要用于授予用户同意，这对于 Azure AD B2C 应用进行用户身份验证并不适用。 [详细了解发布服务器域](../active-directory/develop/howto-configure-publisher-domain.md)。
 - **令牌配置** - 令牌配置为用户流而不是应用的一部分。
 - **快速入门** 体验目前不适用于 Azure AD B2C 租户。
@@ -116,5 +116,6 @@ iOS/macOS 和 Android 平台是公共客户端 。 它们提供了一种简单�
 * 了解[如何注册 Web API](add-web-api-application.md)。
 * 了解[如何注册本机客户端应用程序](add-native-application.md)。
 * 了解[如何注册 Microsoft Graph 应用程序来管理 Azure AD B2C 资源](microsoft-graph-get-started.md)。
+* 了解[如何使用 Azure AD B2C 作为 SAML 服务提供程序。](identity-provider-adfs.md)
 * 了解[应用程序类型](application-types.md)。
 

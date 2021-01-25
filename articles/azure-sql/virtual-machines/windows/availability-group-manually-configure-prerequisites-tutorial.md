@@ -8,19 +8,20 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/29/2018
-ms.date: 01/04/2021
+ms.date: 01/25/2021
 ms.author: v-jay
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 348764591fb9b02f584994b78c30072b4691bb2c
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: 88eb59a09e8f4ba00d67482aea34ca57ee3383e8
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829781"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541898"
 ---
 <!--Verified the Redirect articles successfully-->
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>教程：在 Azure 虚拟机中的 SQL Server 上创建可用性组的先决条件
@@ -533,8 +534,9 @@ Azure 会创建虚拟机。
 
 在另一个 SQL Server VM 上重复上述步骤。
 
-<!--Not Available on [Azure SQL VM CLI](availability-group-az-cli-configure.md)-->
-<!--Not Available on [Azure Quickstart Templates](availability-group-quickstart-template-configure.md)-->
+### <a name="tuning-failover-cluster-network-thresholds"></a>调整故障转移群集网络阈值
+
+使用 SQL Server 可用性组在 Azure VM 中运行 Windows 故障转移群集节点时，请将群集设置更改为更宽松的监视状态。  这将使群集更稳定、更可靠。  有关详细信息，请参阅[使用 SQL Server 的 IaaS - 调整故障转移群集网络阈值](https://docs.microsoft.com/windows-server/troubleshoot/iaas-sql-failover-cluster)。
 
 
 ## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a>在每个 SQL Server VM 上配置防火墙

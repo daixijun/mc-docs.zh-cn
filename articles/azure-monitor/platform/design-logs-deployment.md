@@ -5,14 +5,14 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 origin.date: 09/20/2019
-ms.openlocfilehash: 108f5225345690d33cdb5dd3aa5f9558fca40358
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: babf03416e2e4fdb08ef1fdd1201d122ed0c74e0
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105052"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230024"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>设计 Azure Monitor 日志部署
 
@@ -28,7 +28,7 @@ Log Analytics 工作区可提供：
 * 遵循建议的设计策略之一授予不同的用户访问权限，以实现数据隔离。
 * 设置配置的范围，例如[定价层级](./manage-cost-storage.md#changing-pricing-tier)、[保留期](./manage-cost-storage.md#change-the-data-retention-period)和[数据上限](./manage-cost-storage.md#manage-your-maximum-daily-data-volume)。
 
-工作区在物理群集上托管。 默认情况下，系统会创建和管理这些群集。 每天引入的数据超过 4TB 的客户应创建其自己的专用于工作区的群集，这样可以更好地进行控制并提高引入速率。
+工作区托管在物理群集上。 默认情况下，系统会创建和管理这些群集。 每天引入的数据超过 4TB 的客户应创建其自己的专用于工作区的群集，这样可以更好地进行控制并提高引入速率。
 
 本文提供设计和迁移注意事项的详细概述、访问控制概述，我们为 IT 组织推荐的设计实施方案的介绍。
 

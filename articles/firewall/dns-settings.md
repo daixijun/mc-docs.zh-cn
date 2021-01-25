@@ -4,18 +4,18 @@ description: 你可以为 Azure 防火墙配置 DNS 服务器和 DNS 代理设�
 services: firewall
 ms.service: firewall
 ms.topic: how-to
-origin.date: 11/06/2020
+origin.date: 01/04/2021
 author: rockboyfor
-ms.date: 11/23/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 11/23/2020
 ms.author: v-yeche
-ms.openlocfilehash: b0150609c9a76d055208b98e698c07463f5458de
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 7ebeba900afe47bae2ec4b7e4ca21c6f7c67f1f5
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977572"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230878"
 ---
 <!--Verify Successfully-->
 # <a name="azure-firewall-dns-settings"></a>Azure 防火墙 DNS 设置
@@ -68,6 +68,8 @@ $azFw | Set-AzFirewall
 ## <a name="dns-proxy"></a>DNS 代理
 
 可以对 Azure 防火墙进行配置来充当 DNS 代理。 DNS 代理是从客户端虚拟机到 DNS 服务器的 DNS 请求的中介。 如果你配置了自定义 DNS 服务器，则应启用 DNS 代理以避免 DNS 解析不匹配，并在网络规则中启用 FQDN（完全限定的域名）筛选。
+
+:::image type="content" source="media/dns-settings/dns-proxy-2.png" alt-text="使用自定义 DNS 服务器的 DNS 代理配置。":::
 
 如果未启用 DNS 代理，则来自客户端的 DNS 请求可能会在不同的时间传到 DNS 服务器，或者返回与防火墙不同的响应。 DNS 代理将 Azure 防火墙放置在客户端请求的路径中以避免不一致。
 

@@ -1,17 +1,18 @@
 ---
-title: 遥测数据处理器（预览版）- Azure Monitor Application Insights Java
-description: 适用于 Azure Monitor Application Insights Java 的遥测数据处理器
+title: 遥测处理器（预览版）- 适用于 Java 的 Azure Monitor Application Insights
+description: 如何在适用于 Java 的 Azure Monitor Application Insights 中配置遥测处理器
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 01/12/2021
+ms.custom: devx-track-java
 ms.author: v-johya
-ms.openlocfilehash: c15c586a31a07fa86ff085137a4b3b6a41abe427
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 9b73a819216e41c0f3845027ae081fdb8f79eb71
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105465"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229926"
 ---
-# <a name="telemetry-processors-preview-for-azure-monitor-application-insights-java"></a>适用于 Azure Monitor Application Insights Java 的遥测数据处理器（预览版）
+# <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>遥测处理器（预览版）- 适用于 Java 的 Azure Monitor Application Insights
 
 > [!NOTE]
 > 此功能目前仍为预览版。

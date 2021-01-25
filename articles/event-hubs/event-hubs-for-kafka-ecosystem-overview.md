@@ -4,13 +4,13 @@ description: 本文介绍有关 Azure 事件中心提供的 Apache Kafka 支持�
 ms.topic: article
 ms.author: v-tawe
 origin.date: 09/25/2020
-ms.date: 11/05/2020
-ms.openlocfilehash: b9d52b70eeebfb80401a9b60a988d84c5c20f76a
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.date: 01/14/2021
+ms.openlocfilehash: 995bc7ea81d75ce21665c3c89b2d0d0df8d2e8ef
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004111"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193275"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>使用 Apache Kafka 应用程序中的 Azure 事件中心
 事件中心提供与 Apache Kafka® 生成者和使用者 API 兼容的终结点，大多数现有 Apache Kafka 客户端应用程序可以使用这些 API 作为运行你自己的 Apache Kafka 群集的替代方法。 事件中心 1.0 及更高版本支持 Apache Kafka 的生成者和使用者 API 客户端。
@@ -122,9 +122,7 @@ Apache Kafka 的客户端[压缩](https://cwiki.apache.org/confluence/display/KA
 
 ### <a name="log-compaction"></a>日志压缩
 
-Apache-Kafka 日志压缩是如下所述的一项功能：它允许从分区中逐出每个键除了最后一条记录之外的所有记录，这实际上会将 Apache Kafka 主题转换为一个键-值存储，其中最后添加的值将替代前一个。 键-值存储模式，即使频繁进行更新，在由 [Azure Cosmos DB](../cosmos-db/introduction.md) 之类的数据库服务提供支持时也比其他支持方式要好得多。
-
-日志压缩功能由 Kafka Connect 和 Kafka Streams 客户端框架使用。
+Apache-Kafka 日志压缩是如下所述的一项功能：它允许从分区中逐出每个键除了最后一条记录之外的所有记录，这实际上会将 Apache Kafka 主题转换为一个键-值存储，其中最后添加的值将替代前一个。 Azure 事件中心目前未实现此功能。 键-值存储模式，即使频繁进行更新，在由 [Azure Cosmos DB](../cosmos-db/introduction.md) 之类的数据库服务提供支持时也比其他支持方式要好得多。
 
 ### <a name="kafka-streams"></a>Kafka Stream
 

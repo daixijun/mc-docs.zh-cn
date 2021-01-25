@@ -6,21 +6,21 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 05/21/2019
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: 19aab61c3b09045c20a33fc5571627e55baa1ce3
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: d391cffb76f366c3740f88d1624ff9d62816be43
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850847"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230547"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>使用 Apache Spark 到 Azure Cosmos DB 的连接器加速大数据分析
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 可以使用 Cosmos DB Spark 连接器针对 Azure Cosmos DB 中存储的数据运行 [Spark](https://spark.apache.org/) 作业。 Cosmos 可用于批处理和流式处理，并可充当服务层来降低访问延迟。
 
-可以将连接器用于 [Azure Databricks](https://azure.microsoft.com/services/databricks/) 或 [Azure HDInsight](https://www.azure.cn/home/features/hdinsight/)，它们在 Azure 上提供 Spark 托管群集。 下表显示了支持的 Spark 版本。
+可以将连接器用于 [Azure Databricks](https://azure.microsoft.com/services/databricks/) 或 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)，它们在 Azure 上提供 Spark 托管群集。 下表显示了支持的 Spark 版本。
 
 | 组件 | 版本 |
 |---------|-------|
@@ -32,7 +32,9 @@ ms.locfileid: "96850847"
 > 此连接器支持 Azure Cosmos DB 的核心 (SQL) API。
 > 对于 Cosmos DB for MongoDB API，请使用 [MongoDB Spark 连接器](https://docs.mongodb.com/spark-connector/master/)。
 > 对于 Cosmos DB Cassandra API，请使用 [Cassandra Spark 连接器](https://github.com/datastax/spark-cassandra-connector)。
->
+
+> [!IMPORTANT]
+> Azure Cosmos DB Spark 连接器目前不受[无服务器](serverless.md)帐户支持。 随着无服务器产品/服务正式发布，这一问题将得到解决。
 
 ## <a name="quickstart"></a>快速入门
 
@@ -137,7 +139,6 @@ readConfig = {
     "InferStreamSchema": "true",
     "ChangeFeedCheckpointLocation": "dbfs:/Departure-Delays"
 }
-
 
 # Open a read stream to the Cosmos DB Change Feed via azure-cosmosdb-spark to create Spark DataFrame
 changes = (spark

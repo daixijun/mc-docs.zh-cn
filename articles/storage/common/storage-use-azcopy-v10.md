@@ -4,17 +4,17 @@ description: AzCopy 是一个命令行实用工具，可用于向/从存储帐�
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 11/09/2020
-ms.date: 11/30/2020
+origin.date: 12/08/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.subservice: common
-ms.custom: contperfq2
-ms.openlocfilehash: 7a972d203dbae3095353632124ca1f912e79e39e
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 54cd956fc6e54c0f259c6c597340ddb53cfdb8b6
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153010"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163114"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 入门
 
@@ -96,19 +96,20 @@ azcopy copy "C:\local\path" "https://account.blob.core.chinacloudapi.cn/mycontai
 
 若要详细了解 SAS 令牌及其获取方式，请参阅[使用共享访问签名 (SAS)](./storage-sas-overview.md)。
 
+<a id="transfer-data"></a>
+
 ## <a name="transfer-data"></a>传输数据
 
 对标识授权或获取 SAS 令牌后，即可开始传输数据。
 
 若要查找示例命令，请参阅以下文章中的任何一篇。
 
-- [使用 AzCopy 和 Blob 存储传输数据](storage-use-azcopy-blobs.md)
-
-- [使用 AzCopy 和文件存储传输数据](storage-use-azcopy-files.md)
-
-- [使用 AzCopy 和 Amazon S3 Bucket 传输数据](storage-use-azcopy-s3.md)
-
-- [使用 AzCopy 和 Azure Stack 存储传输数据](/azure-stack/user/azure-stack-storage-transfer#azcopy)
+| 服务 | 文章 |
+|--------|-----------|
+|Azure Blob 存储 |[将文件上传到 Azure Blob 存储](storage-use-azcopy-blobs-upload.md)<br><br>[从 Azure Blob 存储下载 Blob](storage-use-azcopy-blobs-download.md)<br><br>[在 Azure 存储帐户之间复制 Blob](storage-use-azcopy-blobs-download.md)<br><br>[与 Azure Blob 存储同步](storage-use-azcopy-blobs-download.md)|
+|Azure 文件 |[使用 AzCopy 和文件存储传输数据](storage-use-azcopy-files.md)|
+|Amazon S3|[使用 AzCopy 和 Amazon S3 Bucket 传输数据](storage-use-azcopy-s3.md)|
+|Azure Stack 存储|[使用 AzCopy 和 Azure Stack 存储传输数据](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
 
 ## <a name="use-in-a-script"></a>在脚本中使用
 

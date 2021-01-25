@@ -4,15 +4,15 @@ description: 在设备、桌面应用、网页或服务中插入几行代码，�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 03/27/2019
-ms.date: 11/10/2020
+ms.date: 01/12/2021
 ms.author: v-johya
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: bf9f1dceab45a64a60146f4b8d8b7f5e22a2aeb2
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: d401d0038746976d54595632cdbe7b97c69cc0a4
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637933"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230841"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>用于处理自定义事件和指标的 Application Insights API
 
@@ -535,6 +535,9 @@ telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties
 
 可使用 TrackDependency 调用跟踪响应时间以及调用外部代码片段的成功率。 结果会显示在门户上的依赖项图表中。 需要在进行依赖项调用的任何位置添加以下代码片段。
 
+> [!NOTE]
+> 对于 .NET 和 .NET Core，也可使用 `TelemetryClient.StartOperation`（扩展）方法，它会填充关联所需的 `DependencyTelemetry` 属性以及其他一些属性（例如开始时间和持续时间），因此你无需像下例那样创建自定义计时器。 有关详细信息，请查看本文[有关传出依赖项跟踪的部分](/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking)。
+
 *C#*
 
 ```csharp
@@ -570,8 +573,8 @@ finally {
     Instant endTime = Instant.now();
     Duration delta = Duration.between(startTime, endTime);
     RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
-    RemoteDependencyTelemetry.setTimeStamp(startTime);
-    RemoteDependencyTelemetry.trackDependency(dependencyTelemetry);
+    dependencyTelemetry.setTimeStamp(startTime);
+    telemetry.trackDependency(dependencyTelemetry);
 }
 ```
 
@@ -1103,7 +1106,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
 
 ## <a name="reference-docs"></a>参考文档
 
-* [ASP.NET 参考](https://docs.azure.cn/zh-cn/dotnet/api/overview/insights?view=azure-dotnet)
+* [ASP.NET 参考](/dotnet/api/overview/insights?view=azure-dotnet)
 * [Java 参考](https://docs.microsoft.com/java/api/overview/appinsights?view=azure-java-stable/)
 * [JavaScript 参考](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 

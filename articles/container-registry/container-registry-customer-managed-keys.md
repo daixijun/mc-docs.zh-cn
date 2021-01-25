@@ -2,19 +2,19 @@
 title: 使用客户管理的密钥加密注册表
 description: 了解 Azure 容器注册表的静态加密，以及如何使用 Azure Key Vault 中存储的客户管理的密钥来加密高级注册表
 ms.topic: article
-origin.date: 11/17/2020
+origin.date: 12/03/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 06/08/2020
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: d2f44565fc3e0c0cd06d7761c521ad5f26b6c503
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 3efca267f3976a205e8ae31f364faa57cc23e4c2
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004153"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230627"
 ---
 <!--Verified successfully with PORTAL on 06/08/2020-->
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>使用客户管理的密钥加密注册表
@@ -53,14 +53,13 @@ ms.locfileid: "97004153"
 
 * 手动更新密钥版本 - 若要使用特定版本的密钥进行注册表加密，请在启用通过客户管理的密钥进行的注册表加密时指定该密钥版本。 使用特定密钥版本对注册表加密时，Azure 容器注册表会使用该版本进行加密，直到你手动轮换客户管理的密钥。
 
-> [!NOTE]
-> 目前只能使用 Azure CLI 将注册表配置为自动更新客户管理的密钥的版本。 通过门户启用加密时，必须手动更新密钥版本。
-
 有关详细信息，请参阅本文后面部分的[选择带或不带密钥版本的密钥 ID](#choose-key-id-with-or-without-key-version) 和[更新密钥版本](#update-key-version)。
 
 ## <a name="prerequisites"></a>先决条件
 
 若要使用本文中所述的 Azure CLI 步骤，需要安装 Azure CLI 2.2.0 或更高版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
+
+<!--Not Available on or Azure Cloud Shell-->
 
 ## <a name="enable-customer-managed-key---cli"></a>启用客户管理的密钥 - CLI
 
@@ -259,7 +258,7 @@ az acr encryption show --name <registry-name>
 
 ### <a name="create-a-key-vault"></a>创建 key vault
 
-有关创建密钥保管库的步骤，请参阅[快速入门：使用 Azure 门户创建 Azure Key Vault](../key-vault/general/quick-create-portal.md)。
+有关创建密钥保管库的步骤，请参阅[快速入门：使用 Azure 门户创建密钥保管库](../key-vault/general/quick-create-portal.md)。
 
 为客户管理的密钥创建密钥保管库时，请在“基本信息”选项卡中启用“清除保护”设置 。 此设置有助于防止意外删除密钥或密钥保管库而导致的数据丢失。
 
@@ -283,17 +282,20 @@ az acr encryption show --name <registry-name>
 1. 导航到你的密钥保管库。
 1. 选择“访问控制(IAM)” > “+添加” > “添加角色分配”。
 1. 在“添加角色分配”窗口中：
+    
     1. 选择“密钥保管库加密服务加密(预览版)”角色。 
     1. 将访问权限分配给“用户分配的托管标识”。
     1. 选择用户分配的托管标识的资源名称，然后选择“保存”。
 
-### <a name="create-key"></a>创建密钥
+### <a name="create-key-optional"></a>创建密钥（可选）
+
+（可选）在密钥保管库中创建密钥，以用于加密注册表。 如果要选择特定的密钥版本作为客户管理的密钥，请执行以下步骤。 
 
 1. 导航到你的密钥保管库。
 1. 选择“设置” > “密钥”。
 1. 选择“+生成/导入”并输入密钥的唯一名称。
 1. 接受剩余的默认值，然后选择“创建”。
-1. 创建后，选择该密钥并记下当前密钥版本。
+1. 创建后，选择该密钥，然后选择当前版本。 复制密钥版本的密钥标识符。
 
 ### <a name="create-azure-container-registry"></a>创建 Azure 容器注册表
 
@@ -307,10 +309,11 @@ az acr encryption show --name <registry-name>
 1. 在“基本信息”选项卡中选择或创建一个资源组，然后输入注册表名称。 在“SKU”中选择“高级”。
 1. 在“加密”选项卡上的“客户管理的密钥”中，选择“已启用”。
 1. 在“标识”中，选择你创建的托管标识。
-1. 在“加密”中，选择“从 Key Vault 中选择”。
-1. 在“从 Azure Key Vault 中选择密钥”窗口中，选择在上一部分创建的密钥保管库、密钥和版本。
+1. 在“加密”中，选择以下任一项：
+    * 选择“从密钥保管库中选择”，然后选择现有密钥保管库和密钥或“新建” 。 你选择的密钥不受版本控制，可启用自动密钥轮换。
+    * 选择“输入密钥 URI”，并直接提供密钥标识符。 可以提供受版本控制的密钥 URI（适用于必须手动轮换的密钥）或不受版本控制的密钥 URI（该 URI 启用自动密钥轮换）。 
 1. 在“加密”选项卡中，选择“查看 + 创建”。
-1. 选择“创建”以创建注册表实例。
+1. 选择“创建”以部署注册表实例。
 
     :::image type="content" source="media/container-registry-customer-managed-keys/create-encrypted-registry.png" alt-text="在 Azure 门户中创建加密注册表":::
 
@@ -512,11 +515,12 @@ az acr encryption rotate-key \
 
 1. 在门户中导航到你的注册表。
 1. 在“设置”下，选择“加密” > “更改密钥”。
-1. 选择“选择密钥”。
 
     :::image type="content" source="media/container-registry-customer-managed-keys/rotate-key.png" alt-text="在 Azure 门户中轮换密钥":::
-1. 在“从 Azure Key Vault 中选择密钥”窗口中，选择前面配置的密钥保管库和密钥，然后在“版本”中选择“新建”。
-1. 在“创建密钥”窗口中，依次选择“生成”、“创建”。
+
+1. 在“加密”中，选择以下任一项：
+    * 选择“从密钥保管库中选择”，然后选择现有密钥保管库和密钥或“新建” 。 你选择的密钥不受版本控制，可启用自动密钥轮换。
+    * 选择“输入密钥 URI”，并直接提供密钥标识符。 可以提供受版本控制的密钥 URI（适用于必须手动轮换的密钥）或不受版本控制的密钥 URI（该 URI 启用自动密钥轮换）。
 1. 完成密钥选择，然后选择“保存”。
 
 ## <a name="revoke-key"></a>撤销密钥

@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 93d4d97c493e53c813043d2b44d0daee224bd31c
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 1621b3b6426d97a51cd713b60141b355da96bfb9
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297619"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570503"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的单一登录会话管理
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[单一登录 (SSO) 会话](session-overview.md)管理使用的语义与自定义策略中其他任何技术配置文件使用的语义相同。 执行某个业务流程步骤时，会在与该步骤关联的技术配置文件中查询 `UseTechnicalProfileForSessionManagement` 引用。 如果存在该引用，则会检查引用的 SSO 会话提供程序，确定用户是否为会话参与者。 如果是，则使用 SSO 会话提供程序来重新填充会话。 同样，在完成执行某个业务流程步骤后，如果已指定 SSO 会话提供程序，则使用该提供程序将信息存储在会话中。
+[单一登录 (SSO) 会话](session-behavior.md)管理使用的语义与自定义策略中其他任何技术配置文件使用的语义相同。 执行某个业务流程步骤时，会在与该步骤关联的技术配置文件中查询 `UseTechnicalProfileForSessionManagement` 引用。 如果存在该引用，则会检查引用的 SSO 会话提供程序，确定用户是否为会话参与者。 如果是，则使用 SSO 会话提供程序来重新填充会话。 同样，在完成执行某个业务流程步骤后，如果已指定 SSO 会话提供程序，则使用该提供程序将信息存储在会话中。
 
 Azure AD B2C 定义了大量可用的 SSO 会话提供程序：
 
@@ -55,7 +55,7 @@ SSO 管理类是使用技术配置文件的 `<UseTechnicalProfileForSessionManag
 
 ### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
 
-顾名思义，此提供程序不执行任何操作。 此提供程序可用于抑制特定技术配置文件的 SSO 行为。 
+顾名思义，此提供程序不执行任何操作。 此提供程序可用于抑制特定技术配置文件的 SSO 行为。 [自定义策略入门包](custom-policy-get-started.md#custom-policy-starter-pack)包含以下 `SM-Noop` 技术配置文件。
 
 ```xml
 <TechnicalProfile Id="SM-Noop">
@@ -66,7 +66,7 @@ SSO 管理类是使用技术配置文件的 `<UseTechnicalProfileForSessionManag
 
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
-此提供程序可以用于在会话中存储声明。 此提供程序通常在用于管理本地和联合帐户的技术配置文件中引用。
+此提供程序可以用于在会话中存储声明。 此提供程序通常在用于管理本地和联合帐户的技术配置文件中引用。 [自定义策略入门包](custom-policy-get-started.md#custom-policy-starter-pack)包含以下 `SM-AAD` 技术配置文件。
 
 ```xml
 <TechnicalProfile Id="SM-AAD">
@@ -86,7 +86,8 @@ SSO 管理类是使用技术配置文件的 `<UseTechnicalProfileForSessionManag
 </TechnicalProfile>
 ```
 
-此技术配置文件管理多重身份验证会话。
+
+[自定义策略入门包](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa` 包含以下 `SM-MFA` 技术配置文件。 此技术配置文件管理多重身份验证会话。
 
 ```xml
 <TechnicalProfile Id="SM-MFA">
@@ -103,24 +104,21 @@ SSO 管理类是使用技术配置文件的 `<UseTechnicalProfileForSessionManag
 
 ### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
-此提供程序用于禁止“选择标识提供者”屏幕并从联合标识提供者注销。 它通常在为联合标识提供者（如 Azure Active Directory）配置的技术配置文件中引用。 
+此提供程序用于禁止“选择标识提供者”屏幕并从联合标识提供者注销。 它通常在为联合标识提供者（如 Azure Active Directory）配置的技术配置文件中引用。 [自定义策略入门包](custom-policy-get-started.md#custom-policy-starter-pack)包含以下 `SM-SocialLogin` 技术配置文件。
 
 ```xml
 <TechnicalProfile Id="SM-SocialLogin">
   <DisplayName>Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.ExternalLoginSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-  <Metadata>
-    <Item Key="AlwaysFetchClaimsFromProvider">true</Item>
-  </Metadata>
   <PersistedClaims>
     <PersistedClaim ClaimTypeReferenceId="AlternativeSecurityId" />
   </PersistedClaims>
 </TechnicalProfile>
 ```
 
-#### <a name="metadata"></a>Metadata
+#### <a name="metadata"></a>元数据
 
-| 属性 | 必须 | 说明|
+| 属性 | 必需 | 说明|
 | --- | --- | --- |
 | AlwaysFetchClaimsFromProvider | 否 | 当前未使用，可以忽略。 |
 
@@ -162,7 +160,7 @@ SSO 管理类是使用技术配置文件的 `<UseTechnicalProfileForSessionManag
 
 #### <a name="metadata"></a>Metadata
 
-| 属性 | 必须 | 说明|
+| 属性 | 必需 | 说明|
 | --- | --- | --- |
 | IncludeSessionIndex | 否 | 当前未使用，可以忽略。|
 | RegisterServiceProviders | 否 | 指示提供程序应注册已颁发断言的所有 SAML 服务提供程序。 可能的值为 `true`（默认）或 `false`。|
@@ -170,6 +168,5 @@ SSO 管理类是使用技术配置文件的 `<UseTechnicalProfileForSessionManag
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解 [Azure AD B2C 会话](session-overview.md)。
-- 了解如何[在自定义策略中配置会话行为](session-behavior-custom-policy.md)。
+了解如何[配置会话行为](session-behavior.md)。
 

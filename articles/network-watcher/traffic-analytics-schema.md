@@ -3,7 +3,6 @@ title: Azure 流量分析架构 | Azure
 description: 了解用于分析 Azure 网络安全组流日志的流量分析的架构。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 manager: agummadi
 editor: ''
 ms.service: network-watcher
@@ -11,17 +10,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/26/2019
-ms.date: 08/10/2020
+origin.date: 01/07/2021
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 655fe801133b13b1f5341a425e562a40242db3c2
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: d6783b19fe9bb73feb2576ed44f87f3585905383
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548056"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229839"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>流量分析中的架构和数据聚合
 
@@ -42,11 +42,11 @@ ms.locfileid: "87548056"
 5. FlowStartTime_t 字段指示流日志处理间隔中出现在“FlowIntervalStartTime_t”与“FlowIntervalEndTime_t”之间的第一个此类聚合流（相同的四元组）。
 6. 对于 TA 中的任何资源，UI 中指示的流是 NSG 看到的总流数，但在 Log Analytics 中，用户只会看到一条简化的记录。 若要查看所有流，请使用可从存储引用的 blob_id 字段。 该记录的总流数将与 Blob 中出现的各个流相匹配。
 
-以下查询可帮助你查看过去 30 天内来自本地的所有流日志。
+下面的查询有助于查看过去 30 天内与非 Azure 公共 IP 交互的所有子网。
 ```
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
-| project Subnet_s  
+| project Subnet1_s, Subnet2_s  
 ```
 若要查看上述查询中的流的 Blob 路径，请使用以下查询：
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/13/2019
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
-ms.openlocfilehash: 34912c58ef7afecbb32f7167347d8ced5734d3b4
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 3310851d6a3eea677f7b1bfe058784837095ce7e
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508092"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230916"
 ---
 # <a name="create-change-or-delete-a-public-ip-prefix"></a>创建、更改或删除公共 IP 前缀
 
@@ -33,10 +33,10 @@ ms.locfileid: "96508092"
 
 在完成本文任何部分中的步骤之前，请完成以下任务：
 
-- 如果还没有 Azure 帐户，请注册[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
+- 如果还没有 Azure 帐户，请注册[试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 - 如果使用门户，请打开 https://portal.azure.cn ，并使用 Azure 帐户登录。
 - 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。 本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
-- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.41 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+- 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.41 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 
     <!--Not Available on either run the commands in the [Azure local Shell](https://shell.azure.com/powershell)-->
 
@@ -45,6 +45,9 @@ ms.locfileid: "96508092"
 公共 IP 前缀要收费。 有关详细信息，请参阅[定价](https://www.azure.cn/pricing/details/ip-addresses/)。
 
 ## <a name="create-a-public-ip-prefix"></a>创建公共 IP 前缀
+
+<!--CUSTOMIZE ON MOONCAKE 01/15/2021-->
+<!--CORRECT ON Public IP Prefix-->
 
 1. 在门户左上角的顶部选择“+ 创建资源”。
 2. 在“搜索市场”框中输入“公共 IP 前缀”。 当“公共 IP 前缀”出现在搜索结果中时，请选择它。
@@ -65,6 +68,8 @@ ms.locfileid: "96508092"
 |---|---|
 |CLI|[az network public-ip prefix create](https://docs.azure.cn/cli/network/public-ip/prefix#az_network_public_ip_prefix_create)|
 |PowerShell|[New-AzPublicIpPrefix](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipprefix)|
+
+<!--Not Available on Available Zone-->
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>从前缀创建静态公共 IP 地址
 在创建前缀后，必须从前缀创建静态 IP 地址。 为此，请执行以下步骤。
@@ -102,6 +107,9 @@ ms.locfileid: "96508092"
     - **删除**：若要删除公共 IP 前缀，请在“概述”部分中选择“删除”。 如果前缀中的地址关联到公共 IP 地址资源，必须先删除公共 IP 地址资源。 请参阅[删除公共 IP 地址](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address)。
 
 命令
+
+<!--CUSTOMIZE ON MOONCAKE 01/15/2021-->
+<!--CORRECT ON Public IP Prefix-->
 
 |工具|命令|
 |---|---|

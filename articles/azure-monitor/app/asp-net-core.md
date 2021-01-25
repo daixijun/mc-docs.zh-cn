@@ -3,15 +3,15 @@ title: 适用于 ASP.NET Core 应用程序的 Azure Application Insights | Azure
 description: 监视 ASP.NET Core Web 应用程序的可用性、性能和使用情况。
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 11/10/2020
+ms.date: 01/12/2021
 ms.author: v-johya
 origin.date: 05/22/2019
-ms.openlocfilehash: 33fee7c8002021be24b61b50b296487ab1e206e5
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 7a593450f7255772e15e63c4a9d72dcfe1a0563c
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638127"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230839"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>适用于 ASP.NET Core 应用程序的 Application Insights
 
@@ -27,7 +27,7 @@ ms.locfileid: "94638127"
 * 部署方法：框架依赖或自包含。
 * Web 服务器：IIS（Internet 信息服务器）或 Kestrel。
 * **托管平台**：Azure 应用服务的 Web 应用功能、Azure VM、Docker、Azure Kubernetes 服务 (AKS) 等。
-* **.NET Core 版本**：所有正式[支持的](https://dotnet.microsoft.com/download/dotnet-core) .NET Core 版本。
+* **.NET Core 版本**：所有正式 [支持的](https://dotnet.microsoft.com/download/dotnet-core) .NET Core 版本。
 * **IDE**：Visual Studio、VS Code 或命令行。
 
 > [!NOTE]
@@ -37,6 +37,10 @@ ms.locfileid: "94638127"
 
 - 一个正常运行的 ASP.NET Core 应用程序。 如果需要创建 ASP.NET Core 应用程序，请遵循此 [ASP.NET Core 教程](https://docs.microsoft.com/aspnet/core/getting-started/)。
 - 有效的 Application Insights 检测密钥。 将任何遥测数据发送到 Application Insights 都需要使用此密钥。 如果需要创建新的 Application Insights 资源来获取检测密钥，请参阅[创建 Application Insights 资源](./create-new-resource.md)。
+
+> [!IMPORTANT]
+> 新的 Azure 区域要求使用连接字符串而不是检测密钥。 [连接字符串](./sdk-connection-string.md?tabs=net)用于标识要与遥测数据关联的资源。 它还允许你修改可供你的资源将其用作遥测目标的终结点。 你需要复制连接字符串，并将其添加到应用程序的代码或环境变量中。
+
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>启用 Application Insights 服务器端遥测 (Visual Studio)
 
@@ -144,7 +148,7 @@ ms.locfileid: "94638127"
 
 ### <a name="performance-counters"></a>性能计数器
 
-对 ASP.NET Core 中的[性能计数器](./web-monitor-performance.md)的支持限制如下：
+对 ASP.NET Core 中的[性能计数器](./performance-counters.md)的支持限制如下：
 
 * 如果应用程序在 Azure Web 应用 (Windows) 中运行，则 SDK 2.4.1 和更高版本将收集性能计数器。
 * 如果应用程序在 Windows 中运行，并且面向 `NETSTANDARD2.0` 或更高版本，则 SDK 2.7.1 和更高版本将收集性能计数器。
@@ -211,7 +215,7 @@ public void ConfigureServices(IServiceCollection services)
 
 `ApplicationInsightsServiceOptions` 中的完整设置列表
 
-|设置 | 描述 | 默认
+|设置 | 说明 | 默认
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | 启用/禁用 `PerformanceCounterCollectionModule` | 是
 |EnableRequestTrackingTelemetryModule   | 启用/禁用 `RequestTrackingTelemetryModule` | 是
@@ -263,6 +267,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+> [!NOTE]
+> `services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` 适用于简单的初始化程序。 对于其他程序，则需要以下内容：`services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });`
+    
 ### <a name="removing-telemetryinitializers"></a>删除 TelemetryInitializer
 
 默认已提供遥测初始化表达式。 若要删除所有或特定的遥测初始化表达式，请在调用 `AddApplicationInsightsTelemetry()` 之后使用以下示例代码。
@@ -522,6 +529,5 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 * [浏览用户流](./usage-flows.md)，了解用户如何在应用中导航。
 * [配置快照收集](./snapshot-debugger.md)，以便在引发异常时查看源代码和变量的状态。
 * [使用 API](./api-custom-events-metrics.md) 发送自己的事件和指标，以获取应用性能和使用情况的详细视图。
-* 使用[可用性测试](./monitor-web-app-availability.md)从世界各地不断检查应用。
 * [ASP.NET Core 中的依赖项注入](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection)
 

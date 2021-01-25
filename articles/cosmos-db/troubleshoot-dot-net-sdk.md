@@ -4,7 +4,7 @@ description: 通过客户端日志记录等功能及其他第三方工具来识�
 ms.service: cosmos-db
 origin.date: 09/12/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
@@ -12,12 +12,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 21d185a8a02f899c6e79b5b62c413b8cbb6ab725
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: df55af5066804b36f6538a62d9da181cc4b77328
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552466"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230160"
 ---
 <!--Verify sucessfully-->
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>诊断和排查在使用 Azure Cosmos DB .NET SDK 时出现的问题
@@ -57,6 +57,14 @@ ms.locfileid: "94552466"
 
 ### <a name="check-the-portal-metrics"></a>检查门户指标
 检查[门户指标](./monitor-cosmos-db.md)有助于确定问题是否与客户端相关，或者服务是否有问题。 例如，如果指标中包含较高比率的速率受限请求（HTTP 状态代码 429，表示请求受到限制），请查看[请求速率过大](troubleshoot-request-rate-too-large.md)部分。 
+
+## <a name="retry-logic"></a>重试逻辑<a name="retry-logics"></a>
+如果可以在 SDK 中重试，则任何 IO 故障的 Cosmos DB SDK 都将尝试重试失败的操作。 重试任何故障是一种好习惯，特别是处理/重试写入故障必不可少。 由于重试逻辑不断改进，因此建议使用最新的 SDK。
+
+1. SDK 会重试读取和查询 IO 故障，而不会将它们呈现给最终用户。
+2. 写入（创建、更新、替换、删除）不是幂等的，因此，SDK 不能总是盲目地重试失败的写入操作。 要求用户的应用程序逻辑能够处理故障并重试。
+3. [SDK 可用性疑难解答](troubleshoot-sdk-availability.md)说明了多区域 Cosmos DB 帐户的重试。
+
 
 <a name="error-codes"></a>
 ## <a name="common-error-status-codes"></a>常见错误状态代码
@@ -123,7 +131,7 @@ ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: r
 ## <a name="next-steps"></a>后续步骤
 
 * 了解 [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) 和 [.NET V2](performance-tips.md) 的性能准则
-* 了解[基于 Reactor 的 Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md)
+* 了解[基于 Reactor 的 Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md)
 
  <!--Anchors-->
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 origin.date: 10/01/2020
 ms.date: 03/16/2020
-ms.openlocfilehash: 663ccf045791daaaf03e9bdd1bdc645d372ef1d5
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: 9b85dda7138f7fe75f2c821df63b92517ede6f08
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94977903"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229856"
 ---
 # <a name="monitor-azure-machine-learning"></a>监视 Azure 机器学习
 
@@ -91,6 +91,9 @@ Azure 机器学习的所有指标都位于命名空间 **机器学习服务工�
 ![机器学习服务工作区处于选定状态的指标资源管理器](./media/monitor-azure-machine-learning/metrics.png)
 
 若要参考，可以查看 [Azure Monitor 中所有受支持的资源指标](../azure-monitor/platform/metrics-supported.md)列表。
+
+> [!TIP]
+> Azure Monitor 指标数据有效期为 90 天。 但在创建图表时，只直观显示 30 天的数据。 例如，如果想要直观显示 90 天的数据，必须将它拆分成 90 天内包含 30 天的数据的三个图表。
 
 ### <a name="filtering-and-splitting"></a>筛选和拆分
 

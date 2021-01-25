@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07d7cc1e125c9795d3ba1f183988263d5271c9ee
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: ff637bcf6e33da83d7e2085d0d81fc13537fb747
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023850"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195211"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3.为外部访问创建安全性计划 
 
@@ -172,7 +172,7 @@ Azure AD P2 和 Microsoft 365 E5 具有全套安全性和治理工具。
 | 权利管理| **通过分配或自助服务访问添加用户**| **访问包**| **访问包**|  |
 | Office 365 组| | 对组中包含的站点（以及相关内容）的访问权限| 对组中包含的团队（以及相关内容）的访问权限|  |
 | 敏感度标签| | **手动和自动对访问进行分类和限制**| **手动和自动对访问进行分类和限制**| **手动和自动对访问进行分类和限制** |
-| Azure AD 安全组| **访问包中未包含的 CA 访问策略**| | |  |
+| Azure AD 安全组| **访问包中未包含用于访问的条件访问策略**| | |  |
 
 
 ### <a name="entitlement-management"></a>权利管理 
@@ -192,7 +192,7 @@ Azure AD P2 和 Microsoft 365 E5 具有全套安全性和治理工具。
 | Azure AD B2B 协作| **通过电子邮件、OTP、自助服务邀请**| 直接 B2B 联合| **按合作伙伴定期评审**| 删除帐户<br>限制登录 |
 | Microsoft 或 Office 365 组| | | | 组过期或删除组。<br>从组中删除。 |
 | 安全组| | **将外部用户添加到安全组（组织、团队、项目等）**| |  |
-| 条件访问策略| | **外部用户的登录 CA 策略**| |  |
+| 条件访问策略| | **登录用于外部用户的条件访问策略**| |  |
 
 
  ### <a name="access-to-resources"></a>访问资源。
@@ -201,7 +201,7 @@ Azure AD P2 和 Microsoft 365 E5 具有全套安全性和治理工具。
 | - |-|-|-|-|
 | Microsoft 或 Office 365 组| | **对组中包含的站点（以及相关内容）的访问权限**|**对 Microsoft 365 组中包含的团队（以及相关内容）的访问权限**|  |
 | 敏感度标签| | 手动分类和限制访问| 手动分类和限制访问。| 手动分类以限制和加密 |
-| 条件访问策略| 访问控制的 CA 策略| | |  |
+| 条件访问策略| 用于访问控住的条件访问策略| | |  |
 | 其他方法| | 使用安全组精确限制 SharePoint 站点访问。<br>禁止直接共享。| **限制从团队内发出外部邀请**|  |
 
 

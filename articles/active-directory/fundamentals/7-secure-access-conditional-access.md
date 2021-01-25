@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b54a1d36e270b67b71cb6658880eac244521f87
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 46924d2d87bf8c93251cd4afe2707f9752212c8f
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023736"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195210"
 ---
 # <a name="manage-external-access-with-conditional-access-policies"></a>使用条件访问策略管理外部访问 
 
-[条件访问](../conditional-access/overview.md)是 Azure AD 用于以下用途的工具：将信号放置在一起、强制实施策略、确定是否允许用户访问资源。 若要详细了解如何创建和使用条件访问策略（CA 策略），请参阅[计划条件访问部署](../conditional-access/plan-conditional-access.md)。 
+[条件访问](../conditional-access/overview.md)是 Azure AD 用于以下用途的工具：将信号放置在一起、强制实施策略、确定是否允许用户访问资源。 若要详细了解如何创建和使用条件访问策略（条件访问策略），请参阅[计划条件访问部署](../conditional-access/plan-conditional-access.md)。 
 
 ![条件访问信号和决策的示意图](./media/secure-external-access//7-conditional-access-signals.png)
 
 
 
-本文讨论了如何向外部用户应用 CA 策略，并假设你无权访问[权利管理](../governance/entitlement-management-overview.md)功能。 CA 策略可以与权利管理一起使用，事实也是如此。
+本文讨论了如何向外部用户应用条件访问策略，并假设你无权访问[权利管理](../governance/entitlement-management-overview.md)功能。 条件访问策略可以与权利管理一起使用，事实也是如此。
 
 在本文档集的前面部分，你[创建了一个安全计划](3-secure-access-plan.md)，其中概述了以下内容：
 
@@ -36,27 +36,27 @@ ms.locfileid: "98023736"
 
 * 对外部用户的登录要求。
 
-你将使用该计划创建用于外部访问的 CA 策略。 
+你将使用该计划创建用于外部访问的条件访问策略。 
 
 > [!IMPORTANT]
 > 创建几个外部用户测试帐户，以便在将所创建的策略应用于所有外部用户之前对其进行测试。
 
 ## <a name="conditional-access-policies-for-external-access"></a>用于外部访问的条件访问策略
 
-下面是与使用 CA 策略治理外部访问相关的最佳做法。
+下面是与使用条件访问策略治理外部访问相关的最佳做法。
 
-* 如果你无法在权利管理中使用连接的组织，请为你使用的每个合作伙伴组织创建一个 Azure AD 安全组或 Microsoft 365 组。 将来自该合作伙伴的所有用户分配到该组。 然后，你可以在 CA 策略中使用这些组。
+* 如果你无法在权利管理中使用连接的组织，请为你使用的每个合作伙伴组织创建一个 Azure AD 安全组或 Microsoft 365 组。 将来自该合作伙伴的所有用户分配到该组。 然后，你可以在条件访问策略中使用这些组。
 
-* 请创建尽可能少的 CA 策略。 对于具有相同访问需求的应用程序，请将它们全都添加到同一策略中。  
+* 创建尽可能少的条件访问策略。 对于具有相同访问需求的应用程序，请将它们全都添加到同一策略中。  
 ‎ 
    > [!NOTE]
-   > CA 策略可以应用于最多 250 个应用程序。 如果多于 250 个应用具有相同的访问需求，请创建重复的策略。 策略 A 将应用于应用 1-250，策略 B 将应用于应用 251-500，依此类推。
+   > 条件访问策略可以应用于最多 250 个应用程序。 如果多于 250 个应用具有相同的访问需求，请创建重复的策略。 策略 A 将应用于应用 1-250，策略 B 将应用于应用 251-500，依此类推。
 
 * 使用一个命名约定清楚地为特定于外部访问的策略命名。 一个命名约定是 ExternalAccess_actiontaken_AppGroup。 例如 ExternalAccess_Block_FinanceApps。
 
 ## <a name="block-all-external-users-from-resources"></a>阻止所有外部用户访问资源
 
-你可以使用 CA 策略阻止外部用户访问特定的资源集。 确定要阻止访问的资源集后，创建一个策略。
+你可以使用条件访问策略阻止外部用户访问特定的资源集。 确定要阻止访问的资源集后，创建一个策略。
 
 若要创建一个阻止外部用户访问一组应用程序的策略，请执行以下操作：
 

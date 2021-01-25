@@ -7,18 +7,18 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
-ms.openlocfilehash: f470780065df7eeec350223141366b7045a8420b
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 50c01d0144749be61ff3fc05f09a97c12bf7ddf4
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507969"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195276"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>使用 Azure PowerShell 添加或删除 Azure 角色分配
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 本文介绍如何使用 Azure PowerShell 分配角色。
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] 本文介绍如何使用 Azure PowerShell 分配角色。
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -28,6 +28,7 @@ ms.locfileid: "96507969"
 
 - `Microsoft.Authorization/roleAssignments/write` 和 `Microsoft.Authorization/roleAssignments/delete` 权限，例如[用户访问管理员](built-in-roles.md#user-access-administrator)或[所有者](built-in-roles.md#owner)
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+- 用于运行 PowerShell 命令的帐户必须具有 Microsoft Graph `Directory.Read.All` 权限。
 
 ## <a name="steps-to-add-a-role-assignment"></a>角色分配的添加步骤
 

@@ -4,17 +4,17 @@ description: 创建 Azure 容器注册表，配置异地复制，准备 Docker �
 ms.topic: tutorial
 origin.date: 06/30/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 12/09/2019
 ms.author: v-yeche
-ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 384af5cce2a69dc362c214d4f8032840a3ca97cc
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.custom: seodec18, mvc
+ms.openlocfilehash: a5716dfe5ece361195529597158d32345fddcec1
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024490"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230821"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>教程：准备异地复制的 Azure 容器注册表
 
@@ -51,11 +51,11 @@ Azure 本地 Shell 不包含完成本教程每个步骤所需的 Docker 组件�
 
 <!--MOONCAKE: CUSTOMIZE-->
 
-选择“创建资源”，在“新建”页的筛选器栏中键入“容器注册表”，按 Enter 键，然后在“市场”页中选择“容器注册表”来创建容器注册表。
+选择“创建资源”，在“新建”页的筛选器栏中键入“容器注册表”，按 Enter 键，在“市场”页中选择“容器注册表”，然后选择“创建”来创建容器注册表    。
 
 <!--MOONCAKE: CUSTOMIZE-->
 
-![在 Azure 门户中创建容器注册表][tut-portal-01]
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-01.png" alt-text="在 Azure 门户中创建容器注册表":::
 
 使用以下设置配置新注册表。 在“基本信息”选项卡中：
 

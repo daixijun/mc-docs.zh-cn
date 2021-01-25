@@ -3,14 +3,14 @@ title: 如何创建适用于 Windows 的来宾配置策略
 description: 了解如何创建适用于 Windows 的 Azure Policy 来宾配置策略。
 ms.author: v-tawe
 origin.date: 08/17/2020
-ms.date: 01/05/2021
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 94c1963abb2b592d1e4e8cb794769f3f38424123
-ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
+ms.openlocfilehash: cdd0e514265bbca047270b839fe1bdebd92c1f5a
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874901"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193271"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>如何创建适用于 Windows 的来宾配置策略
 
@@ -140,9 +140,32 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
+如果资源具有所需的属性，还必须通过 `Get-TargetResource` 类与 `reasons` 类来返回这些属性。 如果未包括 `reasons`，则该服务将包括“全部捕获”行为，该行为将输入到 `Get-TargetResource` 的值与 `Get-TargetResource` 返回的值进行比较，并将详细的比较结果作为 `reasons` 提供。
+
 ### <a name="configuration-requirements"></a>配置要求
 
 自定义配置的名称必须在所有位置都保持一致。 内容包的 .zip 文件名称、MOF 文件中的配置名称，以及 Azure 资源管理器模板 (ARM template) 中的来宾分配名称必须相同。
+
+### <a name="policy-requirements"></a>策略要求
+
+策略定义 `metadata` 部分必须包括来宾配置服务的两个属性，以自动预配和报告来宾配置分配。 `category` 属性必须设置为“来宾配置”，并且名为 `Guest Configuration` 的部分必须包含有关来宾配置分配的信息。 `New-GuestConfigurationPolicy` cmdlet 会自动创建此文本。
+请参阅此页上的分步说明。
+
+以下示例演示了 `metadata` 部分。
+
+```json
+    "metadata": {
+      "category": "Guest Configuration",
+      "guestConfiguration": {
+        "name": "test",
+        "version": "1.0.0",
+        "contentType": "Custom",
+        "contentUri": "CUSTOM-URI-HERE",
+        "contentHash": "CUSTOM-HASH-VALUE-HERE",
+        "configurationParameter": {}
+      }
+    },
+```
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>搭建来宾配置项目
 

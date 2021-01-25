@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: 5224ece9c1542c524d95d799f8571e1248b2c8fb
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: 5b98a1e3ff0c74f690b52ecf441bad58b232a65c
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647481"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194992"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>如何：配置应用程序的发布者域
 
@@ -48,7 +48,7 @@ ms.locfileid: "88647481"
 
 若要设置应用的发布者域，请执行以下步骤。
 
-1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn)。
+1. 使用工作或学校帐户登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 
 1. 如果你的帐户在多个 Azure AD 租户中存在：
    1. 从页面右上角的菜单中选择你的个人资料，然后选择“切换目录”。 

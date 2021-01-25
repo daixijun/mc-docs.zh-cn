@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 10/14/2020
-ms.date: 11/27/2020
-ms.openlocfilehash: ca07f779912d50f353f583ad0dc2e77d7ff9125d
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+origin.date: 12/15/2020
+ms.date: 01/14/2021
+ms.openlocfilehash: 2b94f5eaf9a8cee315caa6668d8c71f1010d4225
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300511"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194772"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Azure 认知搜索中的服务限制
 
@@ -130,7 +130,7 @@ ms.locfileid: "96300511"
 
 索引相关操作的静态速率请求限制：
 
-+ 列出索引 (GET /indexes)：每个搜索单位每秒限制为 5 个
++ 列出索引 (GET /indexes)：每个搜索单位每秒限制为 3 个
 + 获取索引 (GET /indexes/myindex)：每个搜索单位每秒限制为 10 个
 + 创建索引 (POST /indexes)：每个搜索单位每分钟限制为 12 个
 + 创建或更新索引 (PUT /indexes/myindex)：每个搜索单位每秒限制为 6 个

@@ -1,61 +1,61 @@
 ---
-title: Azure Active Directory B2C 中的 SubJourneys | Microsoft Docs
-description: 在 Azure Active Directory B2C 中指定自定义策略的 SubJourneys 元素。
+title: Azure Active Directory B2C 中的子旅程 | Microsoft Docs
+description: 在 Azure Active Directory B2C 中指定自定义策略的子旅程元素。
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/22/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: afb761a489d1463a2a3b49a1e09b733cb9afea2f
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.openlocfilehash: d935c92863803a1736021f4c834ca5181822399d
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92472738"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570565"
 ---
-# <a name="subjourneys"></a>SubJourneys
+# <a name="sub-journeys"></a>子旅程
 
-SubJourneys 可用于组织和简化用户旅程中的业务流程步骤流。 [用户旅程](userjourneys.md)指定策略允许信赖方应用为用户获取所需声明的显式路径。 用户通过这些路径检索要提供给信赖方的声明。 换言之，用户旅程定义最终用户在 Azure AD B2C 标识体验框架处理请求时所经历的业务逻辑。 用户旅程表示为成功事务必须遵循的业务流程序列。 业务流程步骤的 [ClaimsExchange](userjourneys.md#claimsexchanges) 元素绑定到执行的单个[技术配置文件](technical-profiles-overview.md)。
+子旅程可用于组织和简化用户旅程中的业务流程步骤流。 [用户旅程](userjourneys.md)指定策略允许信赖方应用程序为用户获取所需声明的显式路径。 用户通过这些路径检索要提供给信赖方的声明。 换言之，用户旅程定义最终用户在 Azure AD B2C 标识体验框架处理请求时所经历的业务逻辑。 用户旅程表示为成功事务必须遵循的业务流程序列。 业务流程步骤的 [ClaimsExchange](userjourneys.md#claimsexchanges) 元素绑定到执行的单个[技术配置文件](technicalprofiles.md)。
 
-Subjourney 是业务流程步骤的分组，可以在用户旅程中的任何时间点调用。 你可以使用 Subjourney 来创建可重用的步骤序列，或实现分支以更好地表示业务逻辑。
+子旅程是业务流程步骤的分组，可以在用户旅程中的任何时间点调用。 你可以使用子旅程来创建可重用的步骤序列，或实施分支来更好地表示业务逻辑。
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="user-journey-branching"></a>用户旅程分支
 
-Subjourney 的行为类似于[用户旅程](userjourneys.md)，它们都可以表示为成功事务必须遵循的业务流程序列。 用户旅程可以自行调用，并且需要执行 SendClaims 步骤。 Subjourney 是用户旅程的组件，不能单独调用，并且始终从用户旅程中调用。
+子旅程的行为类似于[用户旅程](userjourneys.md)，它们都可以表示为事务获得成功必须遵循的业务流程序列。 用户旅程可以自行调用，并且需要执行 SendClaims 步骤。 子旅程是用户旅程的组件，不能单独调用，并且始终从用户旅程中调用。
 
-分支的关键部分是允许在用户旅程中进行更好的业务逻辑处理。 常见的业务流程步骤分组为单独的部分，以便分别调用。 Subjourney 可简化将多个业务流程步骤耦合在一起（具有相同的前提条件）的旅程。 Subjourney 仅从用户旅程中调用，它不应调用另一个 Subjourney。
+分支的关键部分是允许在用户旅程中进行更好的业务逻辑处理。 常见的业务流程步骤分组为单独的部分，以便分别调用。 子旅程可简化将多个业务流程步骤（具有相同的前提条件）耦合在一起的旅程。 子旅程仅从用户旅程中调用，它不应调用另一个子旅程。
 
-有两种类型的 Subjourney：
+有两种类型的子旅程：
 
-- **Call** - 将控制权返回给调用方。 SubJourney 执行，然后将控制权返回给用户旅程中当前正在执行的业务流程步骤。
-- **Transfer** - 将控制权转移给 Subjourney（不可逆的分支）。 Subjourney 必须具有 SendClaims 步骤，才能将声明返回给信赖方应用。
+- **Call** - 将控制权返回给调用方。 执行子旅程后，将控制权返回给用户旅程中当前正在执行的业务流程步骤。
+- 转移 - 将控制权转移给子旅程（不可逆的分支）。 子旅程必须具有 SendClaims 步骤，才能将声明返回给信赖方应用。
 
-## <a name="example-scenarios"></a>方案示例
+## <a name="example-scenarios"></a>示例方案
 
-### <a name="call-subjourney"></a>Call SubJourney
+### <a name="call-sub-journey"></a>“调用”子旅程
 
-Call SubJourney 在以下情况下非常有用：
+“调用”子旅程在以下情况下非常有用：
 
 - 年龄限制：对于年龄限制，用户旅程中有许多共享组件。 分支允许将公共元素编译为可共享的组件。  
 - 家长同意：分支允许我们访问未成年人执行的用户旅程中的声明，以及在发现用户需要同意后能够分支到家长同意用户旅程中，从而在家长同意设计中提供了便利。 
-- 注册以登录：请考虑这样一种情况：用户已存在于目录中，但可能忘记了他们实际上已创建了帐户。 在这种情况下，可能希望策略可以为该用户从注册流切换到登录流，而不是告诉用户他们输入的凭据已经存在，并强制用户重新开始旅程。  
+- 注册以登录：请考虑这样一种情况：用户已存在于目录中，但可能忘记了他们实际上已创建了帐户。 在这种情况下，可以让策略为用户执行切换（从注册流切换到登录流），而不是告诉该用户他们输入的凭据已经存在，并强制该用户重新开始旅程。  
 
-### <a name="transfer-subjourney"></a>Transfer SubJourney
+### <a name="transfer-sub-journey"></a>“转移”子旅程
 
-Transfer SubJourney 在以下情况下非常有用：
+“转移”子旅程在以下情况下非常有用：
 
 - 显示块页。
-- A/B 测试，通过将请求路由到 SubJourney 来执行和颁发令牌。
+- A/B 测试，通过将请求路由到子旅程来执行和颁发令牌。
 
-## <a name="adding-a-subjourney-element"></a>添加 SubJourney 元素
+## <a name="adding-a-subjourneys-element"></a>添加 SubJourneys 元素
 
-以下 xml 是 `Call` 类型的 `SubJourney` 元素的一个示例，它将控制权返回给用户旅程。
+下面是 `Call` 类型的 `SubJourney` 元素的一个示例，它将控制权返还给用户旅程。
 
 ```xml
 <SubJourneys>
@@ -82,7 +82,7 @@ Transfer SubJourney 在以下情况下非常有用：
 </SubJourneys>
 ```
 
-以下 xml 是 `Transfer` 类型的 `SubJourney` 元素的一个示例，它将一个令牌返回给信赖方应用。
+下面是 `Transfer` 类型的 `SubJourney` 元素的一个示例，它将一个令牌返回给信赖方应用程序。
 
 ```xml
 <SubJourneys>
@@ -95,9 +95,9 @@ Transfer SubJourney 在以下情况下非常有用：
 </SubJourneys>
 ```
 
-### <a name="invoke-a-subjourney-step"></a>调用 Subjourney 步骤
+### <a name="invoke-a-sub-journey-step"></a>调用子旅程步骤
 
-`InvokeSubJourney` 类型的新业务流程步骤用于执行 Subjourney。 以下 xml 示例显示了此业务流程步骤的所有执行元素。
+`InvokeSubJourney` 类型的新业务流程步骤用于执行子旅程。 以下示例显示了此业务流程步骤的所有执行元素。
 
 ```xml
 <OrchestrationStep Order="5" Type="InvokeSubJourney">
@@ -108,23 +108,23 @@ Transfer SubJourney 在以下情况下非常有用：
 ```
 
 > [!NOTE]
-> Subjourney 不应调用另一个 Subjourney。
+> 一个子旅程不应调用另一个子旅程。
 
 ## <a name="components"></a>组件
 
-若要定义策略支持的 Subjourney，请在策略文件的最上层元素下添加 SubJourneys 元素。
+若要定义策略支持的子旅程，请在策略文件的最上层元素下添加 SubJourneys 元素。
 
 SubJourneys 元素包含以下元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
-| SubJourney | 1:n | 定义完整用户流所需全部构造的 Subjourney。 |
+| SubJourney | 1:n | 一个定义了完整用户流所需的所有构造的子旅程。 |
 
 SubJourneys 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
-| ID | 是 | 用户旅程可用于引用策略中 SubJourney 的 SubJourney 标识符。 [Candidate](userjourneys.md#journeylist) 元素的 **SubJourneyReferenceId** 元素指向此属性。 |
+| ID | 是 | 子旅程标识符，用户旅程可使用它在策略中引用子旅程。 [Candidate](userjourneys.md#journeylist) 元素的 **SubJourneyReferenceId** 元素指向此属性。 |
 | 类型 | 是 | 可能的值：`Call` 或 `Transfer`。 有关详细信息，请参阅[用户旅程分支](#user-journey-branching)|
 
 SubJourney 元素包含以下元素：
@@ -139,5 +139,5 @@ SubJourney 元素包含以下元素：
 
 ## <a name="next-steps"></a>后续步骤
 
-[UserJourneys](userjourneys.md)
+了解 [UserJourneys](userjourneys.md)
 

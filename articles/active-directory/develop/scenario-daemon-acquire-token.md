@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/23/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 6cb339dfebc2a2931bb2fa3c0f8c1f5ba01a83e5
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 7ce771c15f54a72c950a9a65bb3f17e2f136630c
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918491"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195065"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>用于调用 Web API 的守护程序应用 - 获取令牌
 
@@ -91,6 +91,10 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
     // Mitigation: Change the scope to be as expected.
 }
 ```
+
+### <a name="acquiretokenforclient-uses-the-application-token-cache"></a>AcquireTokenForClient 使用应用程序令牌缓存
+
+在 MSAL.NET 中，`AcquireTokenForClient` 使用应用程序令牌缓存。 （所有其他 AcquireToken *XX* 方法都使用用户令牌缓存。）不要在调用 `AcquireTokenForClient` 之前调用 `AcquireTokenSilent`，因为 `AcquireTokenSilent` 使用“用户”  令牌缓存。 `AcquireTokenForClient` 会检查 *应用程序* 令牌缓存本身并对其进行更新。
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -200,10 +204,6 @@ scope=https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2F.default
 
 有关详细信息，请参阅协议文档：[Microsoft 标识平台和 OAuth 2.0 客户端凭据流](v2-oauth2-client-creds-grant-flow.md)。
 
-## <a name="application-token-cache"></a>应用程序令牌缓存
-
-在 MSAL.NET 中，`AcquireTokenForClient` 使用应用程序令牌缓存。 （所有其他 AcquireToken *XX* 方法都使用用户令牌缓存。）不要在调用 `AcquireTokenForClient` 之前调用 `AcquireTokenSilent`，因为 `AcquireTokenSilent` 使用“用户”  令牌缓存。 `AcquireTokenForClient` 会检查 *应用程序* 令牌缓存本身并对其进行更新。
-
 ## <a name="troubleshooting"></a>故障排除
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>你是否使用过 resource/.default 作用域？
@@ -228,6 +228,12 @@ Content: {
   }
 }
 ```
+
+### <a name="are-you-calling-your-own-api"></a>是否在调用自己的 API？
+
+如果你调用自己的 Web API，并且无法向守护程序应用的应用注册添加应用权限，则你是否公开了 Web API 中的应用角色？
+
+有关详细信息，请参阅[公开应用程序权限（应用角色）](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles)，尤其是[确保 Azure AD 仅向允许的客户端颁发 Web API 的令牌](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients)。
 
 ## <a name="next-steps"></a>后续步骤
 

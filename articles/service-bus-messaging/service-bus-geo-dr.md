@@ -1,30 +1,40 @@
 ---
-title: Azure 服务总线异地灾难恢复 | Azure
+title: Azure 服务总线异地灾难恢复 | Azure Docs
 description: 如何使用地理区域进行故障转移并在 Azure 服务总线中执行灾难恢复
+ms.service: service-bus-messaging
 ms.topic: article
-origin.date: 06/23/2020
+origin.date: 01/04/2021
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 07/20/2020
 ms.author: v-yeche
-ms.openlocfilehash: d9cd6b682053f9d10a39655cfea1146458db93bf
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 3389a5aeb8d26bcf0561fe89ca8ff2ea2c52f741
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590879"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230927"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure 服务总线异地灾难恢复
 
-当整个 Azure 区域或数据中心遭遇停机时，在另一个区域或数据中心继续实现数据处理变得至关重要。 因此，“异地灾难恢复”对于任何企业而言都是非常重要的功能。 Azure 服务总线支持命名空间级别的异地灾难恢复。
+针对数据处理资源灾难性中断的复原能力是许多企业的一项要求，某些情况下甚至是行业法规要求。 
+
+Azure 服务总线已将各计算机甚至整个机架的灾难性故障风险分散到数据中心内跨多个故障域的群集中，并且实现了透明的故障检测和故障转移机制，使服务将继续在有保证的服务级别内运行，而通常不会在此类故障发生时出现明显中断。 
 
 <!--Not Available on [availability zones](../availability-zones/az-overview.md)-->
 
-异地灾难恢复功能在全球范围内可用于服务总线高级 SKU。 
+在针对严重硬件故障甚至整个数据中心设施灾难性损失的恢复能力方面，具有可用性区域支持的完全活动 Azure 服务总线群集模型优于任何本地消息中转站产品。 然而，仍有可能出现严重的情况，造成广泛的物理破坏，即使采取这些措施也无法充分防范。 
 
->[!NOTE]
-> 异地灾难恢复当前仅确保元数据（队列、主题、订阅、筛选器）在配对时从主要命名空间复制到次要命名空间。
+服务总线异地灾难恢复功能旨在使你更轻松地从如此大规模的灾难中恢复，并永久放弃发生故障的 Azure 区域，且无需更改应用程序配置。 放弃 Azure 区域通常会涉及到几项服务，此功能主要是为了帮助保持复合应用程序配置的完整性。 此功能在全球范围内可用于服务总线高级 SKU。 
+
+异地灾难恢复功能可确保命名空间（队列、主题、订阅、筛选器）的整个配置在配对时将从主命名空间连续复制到辅助命名空间，并允许你随时启动从主命名空间到辅助命名空间的一次性故障转移。 故障转移移动会将命名空间的所选别名重新指向辅助命名空间，然后中断配对。 故障转移几乎是启动后立即发生的。 
+
+> [!IMPORTANT]
+> 此功能支持具有相同配置的操作的即时连续性，但不会复制保存在队列或主题订阅或死信队列中的消息。 若要保留队列语义，此类复制不仅需要复制消息数据，还需要复制中转站中的每个状态更改。 对于大多数服务总线命名空间，所需复制流量将远远超过应用程序流量并具有高吞吐量队列，大多数消息仍会在其已从主命名空间中删除的情况下复制到辅助命名空间，从而导致流量过度浪费。 对于高延迟复制路由（适用于为异地灾难恢复选择的许多配对），由于延迟导致的限制影响，复制流量也可能无法持续跟上应用程序流量。
+ 
+> [!TIP]
+> 若要复制队列和主题订阅的内容，并在主动/主动配置中操作相应的命名空间来应对中断和灾难，请不要依赖此异地灾难恢复功能集，而是要按照[复制指南](service-bus-federation-overview.md)进行操作。  
 
 ## <a name="outages-and-disasters"></a>中断和灾难
 
@@ -145,9 +155,7 @@ Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解�
 ![3][]
 
 ## <a name="private-endpoints"></a>专用终结点
-本部分提供了将异地灾难恢复与使用专用终结点的命名空间一起使用时的其他注意事项。 
-
-<!--Not Available on To learn about using private endpoints with Service Bus in general, see [Integrate Azure Service Bus with Azure Private Link](private-link-service.md).-->
+本部分提供了将异地灾难恢复与使用专用终结点的命名空间一起使用时的其他注意事项。 若要总体了解有关将专用终结点与服务总线一起使用的信息，请参阅[将 Azure 服务总线与 Azure 专用链接集成](private-link-service.md)。
 
 ### <a name="new-pairings"></a>新建配对
 如果尝试在具有专用终结点的主命名空间与没有专用终结点的辅助命名空间之间创建配对，则配对会失败。 仅当主命名空间和辅助命名空间都具有专用终结点时，配对才会成功。 建议在主命名空间和辅助命名空间以及创建了专用终结点的虚拟网络上使用相同的配置。 

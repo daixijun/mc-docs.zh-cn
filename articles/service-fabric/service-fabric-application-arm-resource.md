@@ -4,16 +4,16 @@ description: 了解如何使用 Azure 资源管理器模板，将应用程序和
 ms.topic: conceptual
 origin.date: 12/06/2017
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: bdca65726eb0fb3a4a344dca0cf3af35178d4851
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: d962a2cb54fbb5557154f63fca642b7bd9ae0e32
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104410"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230925"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>将应用程序和服务作为 Azure 资源管理器资源进行管理
 
@@ -59,8 +59,8 @@ ms.locfileid: "97104410"
 
 1. 准备群集的资源管理器模板，以供部署时使用。 若要详细了解如何执行此操作，请参阅[使用 Azure 资源管理器创建 Service Fabric 群集](service-fabric-cluster-creation-via-arm.md)。
 2. 考虑一下，打算在群集中部署的一些应用程序。 是否有始终要运行的被其他应用程序依赖的应用程序？ 是否计划部署任何群集治理应用程序或安装应用程序？ 如上所述，此类应用程序最好是通过资源管理器模板进行管理。 
-3. 确定要使用此方法部署的应用程序后，需要立即打包、压缩这些应用程序，并将它们上传到文件共享。 此共享必须可通过 REST 终结点进行访问，这样 Azure 资源管理器才能在部署期间使用它。
-4. 在资源管理器模板中的群集声明下，描述每个应用程序的属性。 这些属性包括副本或实例计数，以及资源（其他应用程序或服务）之间的任何依赖链。 有关完整属性列表，请参阅 [REST API Swagger 规范](https://aka.ms/sfrpswaggerspec)。请注意，这不会取代应用程序或服务清单，只是在群集的资源管理器模板中描述了清单的部分内容。 下面展示了示例模板，包括在 Application1  中部署无状态服务 Service1  和有状态服务 Service2  ：
+3. 确定要使用此方法部署的应用程序后，需要立即打包、压缩这些应用程序，并将它们放置在存储共享上。 此共享必须可通过 REST 终结点进行访问，这样 Azure 资源管理器才能在部署期间使用它。 有关详细信息，请参阅[创建存储帐户](service-fabric-concept-resource-model.md#create-a-storage-account)。
+4. 在资源管理器模板中的群集声明下，描述每个应用程序的属性。 这些属性包括副本或实例计数，以及资源（其他应用程序或服务）之间的任何依赖链。 请注意，这不会取代应用程序或服务清单，只是在群集的资源管理器模板中描述了清单的部分内容。 下面展示了示例模板，包括在 Application1  中部署无状态服务 Service1  和有状态服务 Service2  ：
 
     ```json
     {
@@ -248,7 +248,7 @@ ms.locfileid: "97104410"
     ```
 
     > [!NOTE] 
-    > 必须将 apiVersion  设置为 `"2019-03-01"`。 部署的此模板也可以与群集互不影响，只要群集已部署即可。
+    > 请查看 Service Fabric [Azure 资源管理器参考](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters/applicationtypes)，查找各个模板属性的使用情况和详细信息。
 
 5. 部署！ 
 

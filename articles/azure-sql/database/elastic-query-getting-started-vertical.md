@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 01/25/2019
-ms.date: 12/14/2020
-ms.openlocfilehash: 7bbc2f27b0031380b0c0637318a0176d1add5f19
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.date: 01/25/2021
+ms.openlocfilehash: de6cf3afdb50fbcf1caa293da3aa1061bb258dc1
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829923"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541815"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>跨数据库查询（纵向分区）入门（预览）
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,6 +78,7 @@ INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]
     SECRET = '<password>';  
     ```
 
+    “master_key_password”是你选择用于加密连接凭据的强密码。 
     “username”和“password”应是用于登录到 Customers 数据库的用户名和密码。
     当前不支持使用 Azure Active Directory 通过弹性查询进行身份验证。
 

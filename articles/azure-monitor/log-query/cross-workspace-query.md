@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 11/02/2020
-ms.openlocfilehash: 230bd12e392e52a3583bb630ae7afd860442a468
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.date: 01/12/2021
+ms.openlocfilehash: 665635db6ab600b7e54ae0291370e817f2408692
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328639"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229928"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>在 Azure Monitor 中执行跨工作区和应用的日志查询
 
@@ -22,7 +22,9 @@ Azure Monitor 日志支持跨同一资源组、另一资源组或另一订阅中
 1. 通过指定工作区和应用详细信息来显式查询。 本文详细介绍了这一方法。
 2. 隐式使用[资源上下文查询](../platform/design-logs-deployment.md#access-mode)。 当你在特定资源、资源组或订阅的上下文中查询时，将从包含这些资源的数据的所有工作区中提取相关数据。 将不会提取存储在应用中的 Application Insights 数据。
 
-<!--Not avaiable in MC: create-workspace-resource.md-->
+> [!IMPORTANT]
+> 如果使用的是[基于工作区的 Application Insights 资源](../app/create-workspace-resource.md)，则遥测与其他所有日志数据一起存储在 Log Analytics 工作区中。 使用 workspace() 表达式编写一个查询，使其在多个工作区中包含应用。 对于同一个工作区中的多个应用，则无需跨工作区查询。
+
 
 ## <a name="cross-resource-query-limits"></a>跨资源查询限制 
 

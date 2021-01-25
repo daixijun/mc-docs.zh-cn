@@ -6,17 +6,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 origin.date: 10/14/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: fc7cf910a7a8e131bad7be16f9b01ebd67d7dadb
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: aecace48e343a2e215c9ff4e5bafa5f5fd683617
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850448"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230174"
 ---
 <!--Verified successfully from released content-->
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Azure Cosmos DB SQL SDK 连接模式
@@ -51,7 +51,7 @@ ms.locfileid: "96850448"
 |连接模式  |支持的协议  |支持的 SDK  |API/服务端口  |
 |---------|---------|---------|---------|
 |网关  |   HTTPS    |  所有 SDK    |   SQL (443)、MongoDB（10250、10255、10256）、表 (443)、Cassandra (10350)、Graph (443) <br /> 端口 10250 映射到没有异地复制功能的默认 Azure Cosmos DB API for MongoDB 实例。 而端口 10255 和 10256 映射到具有异地复制功能的实例。   |
-|直接    |     TCP    |  .NET SDK    | 使用公共/服务终结点时：端口介于 10000 到 20000 之间<br />使用专用终结点时：端口介于 0 到 65535 之间 |
+|直接    |     TCP    |  .NET SDK Java SDK    | 使用公共/服务终结点时：端口介于 10000 到 20000 之间<br />使用专用终结点时：端口介于 0 到 65535 之间 |
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,7 +1,7 @@
 ---
 title: 训练 scikit-learn 机器学习模型
 titleSuffix: Azure Machine Learning
-description: 了解如何在 Azure 机器学习上运行 scikit-learn 训练脚本。
+description: 了解如何通过 Azure 机器学习使用弹性云计算资源横向扩展 scikit-learn 训练作业。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ origin.date: 09/28/2020
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ecc8627e6c99c092d0c043beb670d5b0db77a07f
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: d4c09059aa70e4456642f67f79456c4c93abc03b
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978149"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229981"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>使用 Azure 机器学习大规模训练 scikit-learn 模型
 
@@ -134,7 +134,7 @@ src = ScriptRunConfig(source_directory='.',
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'train-iris').submit(src)
+run = Experiment(ws,'Tutorial-TrainIRIS').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 

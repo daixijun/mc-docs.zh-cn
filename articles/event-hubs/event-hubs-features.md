@@ -5,12 +5,12 @@ ms.topic: article
 origin.date: 06/23/2020
 ms.date: 01/05/2021
 ms.author: v-tawe
-ms.openlocfilehash: f7b6905d11f72afd9df9641db1c70437edac335e
-ms.sourcegitcommit: ff20289adb80a6ab45e15fa5e196ff7af7e1c6b5
+ms.openlocfilehash: d370952955ea59ac2c55228cfe47449b14faf05d
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874888"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193279"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure 事件中心的功能和术语
 
@@ -43,7 +43,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 ![分区键](./media/event-hubs-features/partition_keys.png)
 
-事件中心可确保按顺序将共享分区键值的所有事件传送到同一分区。 如果将分区键与发布者策略结合使用，则发布者的标识与分区键的值必须匹配。 否则会出错。
+事件中心确保共享分区键值的所有事件存储在一起，并按到达顺序进行传递。 如果将分区键与发布者策略结合使用，则发布者的标识与分区键的值必须匹配。 否则会出错。
 
 ### <a name="publisher-policy"></a>发布者策略
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 6bad0d606d0e4390b0986de8e5b3570dac7e9cc3
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 0985df287a68a519a1df92786ddaed0b4531c7d8
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326463"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570551"
 ---
 # <a name="set-redirect-urls-to-b2clogincn-for-azure-active-directory-b2c"></a>将 Azure Active Directory B2C 的重定向 URL 设置为 b2clogin.cn
 
@@ -26,7 +26,7 @@ ms.locfileid: "94326463"
 
 **2020 年 10 月更新：** 我们将为无法在最初宣布的弃用日期 2020 年 12 月 4 日实现弃用的租户延长宽限期。 目前已更改为在 2021 年 1 月 14 日或以后停用 login.partner.microsoftonline.cn。
 
-**背景**：我们最初于 2019 年 12 月 4 日[宣布](https://azure.microsoft.com/updates/b2c-deprecate-msol/)计划于 2020 年 12 月 4 日在 Azure AD B2C 中停用对 login.partner.microsoftonline.cn 的支持。 这为现有租户提供了一 (1) 年时间迁移到 b2clogin.cn。 2019 年 12 月 4 日后创建的新租户将不接受来自 login.partner.microsoftonline.cn 的请求。 b2clogin.cn 终结点上的所有功能保持不变。
+**背景**：我们最初于 2019 年 12 月 4 日 [宣布](https://azure.microsoft.com/updates/b2c-deprecate-msol/)计划于 2020 年 12 月 4 日在 Azure AD B2C 中停用对 login.partner.microsoftonline.cn 的支持。 这为现有租户提供了一 (1) 年时间迁移到 b2clogin.cn。 2019 年 12 月 4 日后创建的新租户将不接受来自 login.partner.microsoftonline.cn 的请求。 b2clogin.cn 终结点上的所有功能保持不变。
 
 弃用 login.partner.microsoftonline.cn 不会对 Azure Active Directory 租户造成影响。 该变更仅影响 Azure Active Directory B2C 租户。
 
@@ -53,7 +53,7 @@ ms.locfileid: "94326463"
 
 * Microsoft 服务在 cookie 标头中使用的空间就会减少。
 * 重定向 URL 不再需要包含对 Microsoft 的引用。
-* 自定义页面支持 JavaScript 客户端代码（目前为[预览版](user-flow-javascript-overview.md)）。 由于安全限制，如果使用 *login.partner.microsoftonline.cn*，将从自定义页面中删除 JavaScript 代码和 HTML 窗体元素。
+* 自定义页面支持 JavaScript 客户端代码（目前为[预览版](javascript-and-page-layout.md)）。 由于安全限制，如果使用 *login.partner.microsoftonline.cn*，将从自定义页面中删除 JavaScript 代码和 HTML 窗体元素。
 
 ## <a name="overview-of-required-changes"></a>所需的更改概述
 
@@ -61,7 +61,7 @@ ms.locfileid: "94326463"
 
 * 将标识提供者应用程序中的重定向 URL 更改为引用 *b2clogin.cn*。
 * 将 Azure AD B2C 应用程序更新为在其用户流和令牌终结点引用中使用 *b2clogin.cn*。 这可能包括更新对诸如 Microsoft 身份验证库 (MSAL) 之类的身份验证库的使用。
-* 更新在 `user interface customization` 的 CORS 设置中定义的任何“允许的来源”。
+* 更新在 CORS 设置中为[用户界面自定义](customize-ui-with-html.md)定义的“允许的源”。
 
 旧版终结点可能如下所示：
 - <b><code>https://login.microsoft.com/</b>\<tenant-name\>.partner.onmschina.cn/\<policy-name\>/oauth2/v2.0/authorize</code>
@@ -104,6 +104,8 @@ https://{your-tenant-name}.b2clogin.cn/{your-tenant-name}.partner.onmschina.cn/o
 ```
 https://contosob2c.b2clogin.cn/00000000-0000-0000-0000-000000000000/B2C_1_signupsignin1
 ```
+
+若要了解如何将基于 OWIN 的 Web 应用迁移到 b2clogin.cn，请参阅[将基于 OWIN 的 Web API 迁移到 b2clogin.cn](multiple-token-endpoints.md)。
 
 如需了解如何迁移受 Azure AD B2C 保护的 Azure API 管理 API，请参阅[使用 Azure AD B2C 保护 Azure API 管理 API](secure-api-management.md) 的[迁移到 b2clogin.cn](secure-api-management.md#migrate-to-b2clogincom) 部分。
 
@@ -150,6 +152,8 @@ this.clientApplication = new UserAgentApplication(
 ```
 
 ## <a name="next-steps"></a>后续步骤
+
+若要了解如何将基于 OWIN 的 Web 应用迁移到 b2clogin.cn，请参阅[将基于 OWIN 的 Web API 迁移到 b2clogin.cn](multiple-token-endpoints.md)。
 
 如需了解如何迁移受 Azure AD B2C 保护的 Azure API 管理 API，请参阅[使用 Azure AD B2C 保护 Azure API 管理 API](secure-api-management.md) 的[迁移到 b2clogin.cn](secure-api-management.md#migrate-to-b2clogincom) 部分。
 

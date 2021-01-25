@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 10/23/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: 7212f49a9f0b32d5a2799c97e041a855990dae5e
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 8b9dff8c9346d9d93d22a13d9ee3084bd4dba652
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552799"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231115"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中优化多区域成本
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,16 +31,16 @@ ms.locfileid: "94552799"
 
 ### <a name="example"></a>示例
 
-假设在中国北部配置了一个用于单区域写入的容器，该容器预配的吞吐量为 10K RU/秒，这个月存储的数据为 1 TB。 假设你添加了一个具有相同存储和吞吐量的区域“中国东部”，并且你希望能够从你的应用写入到这两个区域中的容器。 一个月的总月度帐单（假定为 31 天）如下所示：
+假设在中国北部配置了一个用于单区域写入的容器，该容器预配的吞吐量为 10K RU/秒，这个月存储的数据为 0.5 TB。 假设你添加了一个具有相同存储和吞吐量的区域“中国东部”，并且你希望能够从你的应用写入到这两个区域中的容器。 新的月度总账单（假设每月 744 个小时）将如下所示：
 
 <!--MOONCAKE: Master region(WEST US) is China North, and the other regions are China East-->
 
 |**Item**|**使用情况（每月）**|**费率**|**每月成本**|
 |----|----|----|----|
-|中国北部（单个写入区域）容器的吞吐量帐单 |10K RU/秒 * 24 小时 * 31 天 |每小时每 100 RU/秒 0.051 元 |3,794.4 元 |
+|中国北部（单个写入区域）容器的吞吐量账单 |10K RU/秒 * 24 小时 * 31 天 |每小时每 100 RU/秒 0.051 元 |3,794.4 元 |
 |中国北部和中国东部这 2 个区域（多个写入区域）中容器的吞吐量帐单 |2 * 10K RU/秒 * 24 小时 * 31 天|每小时每 100 RU/秒 0.102 元 |15,177.6 元 |
-|中国北部容器的存储帐单 |1 TB（或 1,024 GB）  |2.576 元/GB | 2637.83 元 |
-|2 个区域（中国北部和中国东部）的存储帐单 |2 * 1 TB（或 2,048 GB）|2.576 元/GB  |5,275.65 元 |
+|中国北部容器的存储帐单 | 0.5 TB（或 512 GB）  |2.576 元/GB | 1318.92 元 |
+|2 个区域（中国北部和中国东部）的存储帐单 | 2 * 0.5 TB（或 1,024 GB） |2.576 元/GB  | 2637.83 元 |
 
 <!--MOONCAKE: Master region(WEST US) is China North, and the other 3 regions are China East-->
 

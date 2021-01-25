@@ -1,19 +1,19 @@
 ---
-title: 配置选项 - Azure Monitor Application Insights Java
-description: Azure Monitor Application Insights Java 的配置选项
+title: 配置选项 - 适用于 Java 的 Azure Monitor Application Insights
+description: 如何配置适用于 Java 的 Azure Monitor Application Insights
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: c3e691c58da9c44dc72fbb9fcce5203a06017180
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 4e4650941f9b5043bbf416ef027cb6da5df76e90
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104639"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231051"
 ---
-# <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Azure Monitor Application Insights Java 的配置选项
+# <a name="configuration-options---azure-monitor-application-insights-for-java"></a>配置选项 - 适用于 Java 的 Azure Monitor Application Insights
 
 > [!WARNING]
 > **如果要从 3.0 预览版升级**
@@ -169,6 +169,9 @@ ms.locfileid: "97104639"
 
 `${...}` 可用于在启动时从指定的环境变量中读取值。
 
+> [!NOTE]
+> 从 3.0.1-BETA 版开始，如果你添加名为 `service.version` 的自定义维度，该值将存储在 Application Insights 日志表的 `application_Version` 列中，而不是作为自定义维度。
+
 ## <a name="telemetry-processors-preview"></a>遥测处理器（预览版）
 
 此功能为预览版。
@@ -184,9 +187,9 @@ ms.locfileid: "97104639"
 
 系统自动检测 Log4j、Logback 和 java.util.logging，并自动收集通过这些记录框架执行的日志记录。
 
-默认情况下，仅当在 `INFO` 级别或更高级别执行日志记录时，才收集该日志记录。
+仅在日志记录首先满足记录框架的配置阈值，并且还满足 Application Insights 的配置阈值时，才捕获日志记录。
 
-如果要更改此收集级别，请运行以下命令：
+默认 Application Insights 阈值为 `INFO`。 若要更改此级别，请执行以下代码：
 
 ```json
 {
@@ -253,7 +256,7 @@ ms.locfileid: "97104639"
 
 ## <a name="http-proxy"></a>HTTP 代理
 
-如果应用程序位于防火墙后面，无法直接连接到 Application Insights（请参阅 [Application Insights 使用的 IP 地址](./ip-addresses.md)），则可将 Application Insights Java 3.0 配置为使用 HTTP 代理：
+如果应用程序位于防火墙后面，无法直接连接到 Application Insights，则可将 Application Insights Java 3.0 配置为使用 HTTP 代理：
 
 ```json
 {

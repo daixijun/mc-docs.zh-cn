@@ -6,16 +6,16 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
 origin.date: 11/17/2020
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: prishet
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: fb9d3b84dd90acad0b0c5d83cd3261535083fefe
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 53cfba62ab7c68f2887261a241462a2c65b11fcc
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850778"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163080"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>以递归方式为 Azure Data Lake Storage Gen2 设置访问控制列表 (ACL)
 
@@ -152,27 +152,9 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-打开 Windows PowerShell 命令窗口，使用 `Connect-AzAccount` 命令登录到 Azure 订阅，然后按照屏幕上的指示进行操作。
-
-```powershell
-Connect-AzAccount -Environment AzureChinaCloud
-```
-
-如果你的标识已关联到多个订阅，请将活动订阅设置为要在其中创建和管理目录的存储帐户的订阅。 在此示例中，请将 `<subscription-id>` 占位符值替换为你的订阅 ID。
-
-```powershell
-Select-AzSubscription -SubscriptionId <subscription-id>
-```
-
-接下来，选择希望命令如何获取存储帐户的授权。 
-
-### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>选项 1：使用 Azure Active Directory (AD) 获取授权
+#### <a name="connect-by-using-azure-active-directory-ad"></a>使用 Azure Active Directory (AD) 进行连接
 
 如果使用此方法，系统可确保用户帐户具有适当的 Azure 基于角色的访问控制 (Azure RBAC) 分配和 ACL 权限。 
-
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
-```
 
 下表显示了每个受支持的角色及其 ACL 设置功能。
 
@@ -181,13 +163,29 @@ $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseCon
 |[存储 Blob 数据所有者](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|帐户中的所有目录和文件。|
 |[存储 Blob 数据参与者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|仅限安全主体拥有的目录和文件。|
 
-### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>选项 2：使用存储帐户密钥获取授权
+1. 打开 Windows PowerShell 命令窗口，使用 `Connect-AzAccount` 命令登录到 Azure 订阅，然后按照屏幕上的指示进行操作。
 
-如果使用此方法，系统不会检查 Azure RBAC 或 ACL 权限。
+   ```powershell
+   Connect-AzAccount -Environment AzureChinaCloud
+   ```
+
+2. 如果你的标识已关联到多个订阅，请将活动订阅设置为要在其中创建和管理目录的存储帐户的订阅。 在此示例中，请将 `<subscription-id>` 占位符值替换为你的订阅 ID。
+
+   ```powershell
+   Select-AzSubscription -SubscriptionId <subscription-id>
+   ```
+3. 获取存储帐户上下文。
+
+   ```powershell
+   $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+   ```
+
+#### <a name="connect-by-using-an-account-key"></a>使用帐户密钥进行连接
+
+如果使用此方法，系统不会检查 Azure RBAC 或 ACL 权限。 使用帐户密钥获取存储帐户上下文。
 
 ```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-$ctx = $storageAccount.Context
+$ctx = New-AzStorageContext -StorageAccountName "<storage-account-name>" -StorageAccountKey "<storage-account-key>"
 ```
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -238,8 +236,8 @@ using Azure.Identity;
 
 此示例使用客户端 ID、客户端密码和租户 ID 创建 DataLakeServiceClient 实例。  
 
-```cs
-public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient, 
+```csharp
+public static void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
     String accountName, String clientID, string clientSecret, string tenantID)
 {
 
@@ -259,8 +257,8 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 
 此示例使用帐户密钥创建 DataLakeServiceClient 实例。
 
-```cs
-public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
+```csharp
+public static void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
     string accountName, string accountKey)
 {
     StorageSharedKeyCredential sharedKeyCredential =
@@ -439,32 +437,32 @@ az storage fs access set-recursive --acl "user::rwx,group::r-x,other::---,user:x
 
 此示例设置名为 `my-parent-directory` 的目录的 ACL。 此方法接受一个名为 `isDefaultScope` 的布尔参数，该参数指定是否设置默认 ACL。 该参数用在 [PathAccessControlItem](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) 的构造函数中。 ACL 的条目为所有者用户提供读取、写入和执行权限，仅为负责人组授予读取和执行权限，不为所有其他用户提供任何访问权限。 此示例中的最后一个 ACL 条目为对象 ID 为“xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx”的特定用户提供读取和执行权限。
 
-```cs
-public async void SetACLRecursively(DataLakeServiceClient serviceClient, bool isDefaultScope)
+```csharp
+public async Task SetACLRecursively(DataLakeServiceClient serviceClient, bool isDefaultScope)
 {
     DataLakeDirectoryClient directoryClient =
         serviceClient.GetFileSystemClient("my-container").
             GetDirectoryClient("my-parent-directory");
 
-    List<PathAccessControlItem> accessControlList = 
-        new List<PathAccessControlItem>() 
+    List<PathAccessControlItem> accessControlList =
+        new List<PathAccessControlItem>()
     {
-        new PathAccessControlItem(AccessControlType.User, 
-            RolePermissions.Read | 
-            RolePermissions.Write | 
-            RolePermissions.Execute, isDefaultScope),
-                    
-        new PathAccessControlItem(AccessControlType.Group, 
-            RolePermissions.Read | 
-            RolePermissions.Execute, isDefaultScope),
-                    
-        new PathAccessControlItem(AccessControlType.Other, 
-            RolePermissions.None, isDefaultScope),
+new PathAccessControlItem(AccessControlType.User,
+    RolePermissions.Read |
+    RolePermissions.Write |
+    RolePermissions.Execute, isDefaultScope),
 
-        new PathAccessControlItem(AccessControlType.User, 
-            RolePermissions.Read | 
-            RolePermissions.Execute, isDefaultScope,
-            entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
+new PathAccessControlItem(AccessControlType.Group,
+    RolePermissions.Read |
+    RolePermissions.Execute, isDefaultScope),
+
+new PathAccessControlItem(AccessControlType.Other,
+    RolePermissions.None, isDefaultScope),
+
+new PathAccessControlItem(AccessControlType.User,
+    RolePermissions.Read |
+    RolePermissions.Execute, isDefaultScope,
+    entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
     };
 
     await directoryClient.SetAccessControlRecursiveAsync
@@ -632,21 +630,21 @@ az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 
 此示例以写入权限更新某个 ACL 条目。 此方法接受一个名为 `isDefaultScope` 的布尔参数，该参数指定是否更新默认 ACL。 该参数用在 [PathAccessControlItem](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) 的构造函数中。
 
-```cs
-public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient, bool isDefaultScope)
+```csharp
+public async Task UpdateACLsRecursively(DataLakeServiceClient serviceClient, bool isDefaultScope)
 {
     DataLakeDirectoryClient directoryClient =
         serviceClient.GetFileSystemClient("my-container").
         GetDirectoryClient("my-parent-directory");
 
-    List<PathAccessControlItem> accessControlListUpdate = 
+    List<PathAccessControlItem> accessControlListUpdate =
         new List<PathAccessControlItem>()
     {
-        new PathAccessControlItem(AccessControlType.User, 
-            RolePermissions.Read |
-            RolePermissions.Write | 
-            RolePermissions.Execute, isDefaultScope, 
-            entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
+new PathAccessControlItem(AccessControlType.User,
+    RolePermissions.Read |
+    RolePermissions.Write |
+    RolePermissions.Execute, isDefaultScope,
+    entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
     };
 
     await directoryClient.UpdateAccessControlRecursiveAsync
@@ -773,18 +771,18 @@ az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 
 此示例从名为 `my-parent-directory` 的目录的 ACL 中删除 ACL 条目。 此方法接受一个名为 `isDefaultScope` 的布尔参数，该参数指定是否删除默认 ACL 中的条目。 该参数用在 [PathAccessControlItem](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) 的构造函数中。
 
-```cs
-public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient, isDefaultScope)
+```csharp
+public async Task RemoveACLsRecursively(DataLakeServiceClient serviceClient, bool isDefaultScope)
 {
     DataLakeDirectoryClient directoryClient =
         serviceClient.GetFileSystemClient("my-container").
             GetDirectoryClient("my-parent-directory");
 
-    List<RemovePathAccessControlItem> accessControlListForRemoval = 
+    List<RemovePathAccessControlItem> accessControlListForRemoval =
         new List<RemovePathAccessControlItem>()
         {
-            new RemovePathAccessControlItem(AccessControlType.User, isDefaultScope,
-            entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
+    new RemovePathAccessControlItem(AccessControlType.User, isDefaultScope,
+    entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
         };
 
     await directoryClient.RemoveAccessControlRecursiveAsync
@@ -895,10 +893,10 @@ az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --con
 
 此示例在失败时返回一个继续标记。 应用程序可以在错误得到解决后再次调用此示例方法，并传入继续标记。 如果是第一次调用此示例方法，则应用程序可以为继续标记参数传入 `null` 值。 
 
-```cs
+```csharp
 public async Task<string> ResumeAsync(DataLakeServiceClient serviceClient,
     DataLakeDirectoryClient directoryClient,
-    List<PathAccessControlItem> accessControlList, 
+    List<PathAccessControlItem> accessControlList,
     string continuationToken)
 {
     try
@@ -1022,14 +1020,14 @@ az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --con
 
 此示例以递归方式设置 ACL 条目。 如果此代码遇到权限错误，它会记录该故障并继续执行。 此示例将故障数输出到控制台。 
 
-```cs
+```csharp
 public async Task ContinueOnFailureAsync(DataLakeServiceClient serviceClient,
-    DataLakeDirectoryClient directoryClient, 
+    DataLakeDirectoryClient directoryClient,
     List<PathAccessControlItem> accessControlList)
 {
-    var accessControlChangeResult = 
+    var accessControlChangeResult =
         await directoryClient.SetAccessControlRecursiveAsync(
-            accessControlList, null, new AccessControlChangeOptions() 
+            accessControlList, null, new AccessControlChangeOptions()
             { ContinueOnFailure = true });
 
     var counters = accessControlChangeResult.Value.Counters;
@@ -1119,7 +1117,7 @@ def continue_on_failure():
 - [Azure CLI](/cli/storage/fs/access)
 - [.NET](https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json)
 - [Java](https://docs.microsoft.com/java/api/overview/azure/storage-file-datalake-readme)
-- [Python](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2Fazure_storage_file_datalake-12.1.0b99-py2.py3-none-any.whl%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A47%253A01Z%26se%3D2021-08-25T07%253A47%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DH1XYw4FTLJse%252BYQ%252BfamVL21UPVIKRnnh2mfudA%252BfI0I%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C95a5966d938a4902560e08d84912fe32%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339693209725909&sdata=acv4KWZdzkITw1lP0%2FiA3lZuW7NF5JObjY26IXttfGI%3D&reserved=0)
+- [Python](https://recursiveaclpr.blob.core.windows.net/privatedrop/azure_storage_file_datalake-12.1.0b99-py2.py3-none-any.whl?sv=2019-02-02&st=2020-08-24T07%3A47%3A01Z&se=2021-08-25T07%3A47%3A00Z&sr=b&sp=r&sig=H1XYw4FTLJse%2BYQ%2BfamVL21UPVIKRnnh2mfudA%2BfI0I%3D)
 - [REST](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)
 
 #### <a name="code-samples"></a>代码示例

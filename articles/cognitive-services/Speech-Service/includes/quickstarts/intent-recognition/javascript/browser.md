@@ -3,15 +3,15 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 04/03/2020
-ms.date: 12/30/2020
+ms.date: 01/14/2021
 ms.author: v-tawe
 ms.custom: devx-track-js
-ms.openlocfilehash: 30bbb43743740234bf91c226534100f21510314d
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: 03a59807e1c309b46c7bd33cbaa8ce71f06f48e6
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820502"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195299"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>从一些样本代码入手
 
@@ -188,6 +188,13 @@ ms.locfileid: "97820502"
           recognizer.addAllIntents(lm);
         }
 ```
+
+> [!NOTE]
+> 你可以通过将终结点 URL 传递到 FromEndpoint 方法来创建 LanguageUnderstandingModel。
+> 语音 SDK 仅支持 LUIS v2.0 终结点，LUIS v2.0 终结点始终遵循以下两种模式之一：
+> * `https://{AzureResourceName}.cognitiveservices.azure.cn/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.azure.cn/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+
 ## <a name="recognize-an-intent"></a>识别意向
 
 在 `IntentRecognizer` 对象中，我们将调用 `recognizeOnceAsync()` 方法。 此方法是告知语音服务你要发送单个需识别的短语，在确定该短语后会停止识别语音。

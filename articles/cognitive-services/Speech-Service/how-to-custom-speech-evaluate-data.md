@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 11/11/2020
-ms.date: 12/10/2020
+ms.date: 01/14/2021
 ms.author: v-tawe
-ms.openlocfilehash: d154c6df32481d89889ee4f0c335e750597b92ad
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: c76ed380e9e72f569e019f05b3345040e518038e
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004082"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193220"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>评估并提升自定义语音识别准确度
 
@@ -37,6 +37,8 @@ ms.locfileid: "97004082"
 下面是一个示例：
 
 ![错误标识的单词的示例](./media/custom-speech/custom-speech-dis-words.png)
+
+若要在本地复制 WER 度量，可使用 [SCTK](https://github.com/usnistgov/SCTK) 中的 sclite。
 
 ## <a name="resolve-errors-and-improve-wer"></a>解决错误并降低 WER
 
@@ -87,51 +89,57 @@ Different scenarios produce different quality outcomes. The following table exam
 | Video closed captioning | Depends on video type (can be < 50% WER) | Low | Can be high due to music, noises, microphone quality | Jargon may cause these errors |
 
 Determining the components of the WER (number of insertion, deletion, and substitution errors) helps determine what kind of data to add to improve the model. Use the [Custom Speech portal](https://speech.azure.cn/customspeech) to view the quality of a baseline model. The portal reports insertion, substitution, and deletion error rates that are combined in the WER quality rate.
-
-## Improve model recognition
-
-You can reduce recognition errors by adding training data in the [Custom Speech portal](https://speech.azure.cn/customspeech). 
-
-Plan to maintain your custom model by adding source materials periodically. Your custom model needs additional training to stay aware of changes to your entities. For example, you may need updates to product names, song names, or new service locations.
-
-The following sections describe how each kind of additional training data can reduce errors.
-
-### Add related text sentences
-
-Additional related text sentences can primarily reduce substitution errors related to misrecognition of common words and domain-specific words by showing them in context. Domain-specific words can be uncommon or made-up words, but their pronunciation must be straightforward to be recognized.
-
-> [!NOTE]
-> Avoid related text sentences that include noise such as unrecognizable characters or words.
-
-### Add audio with human-labeled transcripts
-
-Audio with human-labeled transcripts offers the greatest accuracy improvements if the audio comes from the target use case. Samples must cover the full scope of speech. For example, a call center for a retail store would get most calls about swimwear and sunglasses during summer months. Assure that your sample includes the full scope of speech you want to detect.
-
-Consider these details:
-
-* Custom Speech can only capture word context to reduce substitution errors, not insertion or deletion errors.
-* Avoid samples that include transcription errors, but do include a diversity of audio quality.
-* Avoid sentences that are not related to your problem domain. Unrelated sentences can harm your model.
-* When the quality of transcripts vary, you can duplicate exceptionally good sentences (like excellent transcriptions that include key phrases) to increase their weight.
-
-### Add new words with pronunciation
-
-Words that are made-up or highly specialized may have unique pronunciations. These words can be recognized if the word can be broken down into smaller words to pronounce it. For example, to recognize **Xbox**, pronounce as **X box**. This approach will not increase overall accuracy, but can increase recognition of these keywords.
-
-> [!NOTE]
-> This technique is only available for some languages at this time. See customization for pronunciation in [the Speech-to-text table](language-support.md) for details.
-
-## Sources by scenario
-
-The following table shows voice recognition scenarios and lists source materials to consider within the three training content categories listed above.
-
-| Scenario | Related text sentences | Audio + human-labeled transcripts | New words with pronunciation |
-|----------|------------------------|------------------------------|------------------------------|
-| Call center             | marketing documents, website, product reviews related to call center activity | call center calls transcribed by humans | terms that have ambiguous pronunciations (see Xbox above) |
-| Voice assistant         | list sentences using all combinations of commands and entities | record voices speaking commands into device, and transcribe into text | names (movies, songs, products) that have unique pronunciations |
-| Dictation               | written input, like instant messages or emails | similar to above | similar to above |
-| Video closed captioning | TV show scripts, movies, marketing content, video summaries | exact transcripts of videos | similar to above |
 -->
+
+## <a name="improve-model-recognition"></a>改善模型识别
+
+可以通过在[自定义语音识别门户](https://speech.azure.cn/customspeech)中添加训练数据来减少识别错误。 
+
+计划通过定期添加源材料来维护自定义模型。 自定义模型需要额外的训练来了解对实体的更改。 例如，可能需要更新的产品名称、歌曲名称或新的服务位置。
+
+以下各节介绍了其他每种类型的训练数据如何减少错误。
+
+### <a name="add-related-text-sentences"></a>添加相关的文本句子
+
+训练新的自定义模型时，首先添加相关文本，来改进对领域特定字词和短语的识别。 相关文本句子主要可通过在上下文中显示常见字词和领域特定字词，来减少与错误识别这些字词相关的替换错误。 特定领域的字词可能不太常见或者属于杜撰的字词，但其发音必须易于识别。
+
+> [!NOTE]
+> 避免相关的文本句子包含无法识别的字符或字词等干扰因素。
+
+### <a name="add-audio-with-human-labeled-transcripts"></a>添加具有人为标记的脚本的音频
+
+如果音频来自目标用例，则带有人为标记的脚本的音频可提供最大的准确性改进。 示例必须涵盖整个语音范围。 例如，零售商店的呼叫中心会在夏季接到大量有关泳装和太阳镜的电话。 确保示例包括要检测的整个语音范围。
+
+考虑以下细节：
+
+* 自定义语音识别只能捕获字词上下文来减少替换错误，而不是插入或删除错误。
+* 避免使用包含脚本错误的示例，但使用包含各种音频质量的示例。
+* 避免使用与问题领域无关的句子。 不相关的句子可能损坏模型。
+* 当脚本质量参差不齐时，可以复制非常好的句子（例如包含关键短语的优秀脚本）以增加其权重。
+* 语音服务将自动使用脚本来改进对领域特定字词和短语的识别，就像它们被添加作为相关文本一样。
+* 如果音频对人们来说也很难理解，那么通过音频训练将提供最大优势。 在大多数情况下，你应该只使用相关文本开始训练。
+* 完成训练操作可能需要几天时间。 为了加快训练速度，请确保在[具有专用硬件的区域](custom-speech-overview.md#set-up-your-azure-account)创建语音服务订阅来进行训练。
+
+> [!NOTE]
+> 并非所有基本模型都支持通过音频训练。 如果基本模型不支持该训练，语音服务将仅使用脚本中的文本，而忽略音频。
+
+### <a name="add-new-words-with-pronunciation"></a>添加具有发音的新字词
+
+杜撰的字词或高度专业化的字词可能具有独特发音。 如果可以将这类字词分解为更小的字词，则可以识别这些字词。  例如，若要识别 Xbox，可以发音为 X box。 此方法不会提高总体准确性，但可以增加对这些关键字的识别度。
+
+> [!NOTE]
+> 此方法目前仅适用于某些语言。 有关详细信息，请参阅[语音转文本表](language-support.md)中的发音自定义。
+
+## <a name="sources-by-scenario"></a>按场景划分的来源
+
+下表显示了语音识别场景，列出了上述三个训练内容类别中需要考虑的来源资料。
+
+| 方案 | 相关文本句子 | 音频和人为标记的听录内容 | 带有发音的新字词 |
+|----------|------------------------|------------------------------|------------------------------|
+| 呼叫中心             | 与呼叫中心活动相关的营销文档、网站和产品评审 | 呼叫中心通话采用人工转录 | 发音模糊的术语（请查看上面的 Xbox） |
+| 语音助手         | 使用命令和实体的各种组合列出句子 | 将语音命令录制到设备中，并转录到文本中 | 具有独特发音的名称（电影、歌曲、产品） |
+| 听写               | 书面输入内容，例如即时消息或电子邮件 | 与上述内容相似 | 与上述内容相似 |
+| 视频隐藏式字幕 | 电视节目脚本、电影、营销内容、视频摘要 | 视频的确切脚本 | 与上述内容相似 |
 
 ## <a name="next-steps"></a>后续步骤
 

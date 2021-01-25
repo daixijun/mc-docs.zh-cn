@@ -6,14 +6,14 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 origin.date: 04/28/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: 3f5a3d9f5c1b963b61e99cb9b0acc75b7fc701cc
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: f950ac705286fcef86ad0cc33ebbc2ad9c1dd9b8
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598638"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230331"
 ---
 <!--Verified successfully, ONLY CHARACTER CONTENT-->
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>有关适用于 MongoDB 的 Azure Cosmos DB API 的常见问题解答
@@ -31,12 +31,7 @@ Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户�
 
 ## <a name="error-codes-while-using-azure-cosmos-dbs-api-for-mongodb"></a>在使用适用于 MongoDB 的 Azure Cosmos DB API 时出现错误代码？
 
-除了常见的 MongoDB 错误代码外，Azure Cosmos DB 的用于 MongoDB 的 API 还有自己的特定错误代码：
-
-| 错误               | 代码  | 说明  | 解决方案  |
-|---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | 使用的请求单位总数超过了容器的预配请求单位率，已被限制。 | 考虑从 Azure 门户中对分配给一个容器或一组容器的吞吐量进行缩放，或者重试。 |
-| ExceededMemoryLimit | 16501 | 作为一种多租户服务，操作已超出客户端的内存配额。 | 通过限制性更强的查询条件缩小操作的作用域，或者通过 [Azure 门户](https://support.azure.cn/support/support-azure/)联系技术支持。 <br /><br /> 示例： `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
+除常见的 MongoDB 错误代码外，Azure Cosmos DB 的用于 MongoDB 的 API 还有自己的特定错误代码。 可在[故障排除指南](mongodb-troubleshoot.md)中找到这些代码。
 
 ## <a name="supported-drivers"></a>支持的驱动程序
 

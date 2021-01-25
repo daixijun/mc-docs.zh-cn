@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 4190a0c4215bb0075a917534da6ef0471aa7da9e
-ms.sourcegitcommit: b072689d006cbf9795612acf68e2c4fee0eccfbc
+ms.openlocfilehash: cdf5db8019cacb77f0a63bac261a32e5248248df
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94849277"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570612"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的令牌概述
 
@@ -52,7 +52,7 @@ ID 令牌中的声明不按任何特定顺序返回。 新的声明可以在任�
 
 | 名称 | 声明 | 示例值 | 说明 |
 | ---- | ----- | ------------- | ----------- |
-| 读者 | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | 标识令牌的目标接收方。 对于 Azure AD B2C，受众是在应用程序 ID。 应用程序应该验证此值并拒绝不匹配的令牌。 受众是资源的同义词。 |
+| 目标受众 | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | 标识令牌的目标接收方。 对于 Azure AD B2C，受众是在应用程序 ID。 应用程序应该验证此值并拒绝不匹配的令牌。 受众是资源的同义词。 |
 | 颁发者 | `iss` |`https://<tenant-name>.b2clogin.cn/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | 标识构造并返回令牌的安全令牌服务 (STS)。 它还标识在其中进行用户身份验证的目录。 应用程序应该验证颁发者声明，以确保令牌来自适当的终结点。 |
 | 颁发时间 | `iat` | `1438535543` | 颁发令牌的时间，以纪元时间表示。 |
 | 过期时间 | `exp` | `1438539443` | 令牌失效的时间，以纪元时间表示。 应用程序应该使用此声明来验证令牌生存期的有效性。 |
@@ -61,7 +61,7 @@ ID 令牌中的声明不按任何特定顺序返回。 新的声明可以在任�
 | 代码哈希 | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | 仅当令牌随 OAuth 2.0 授权代码一起颁发时，代码哈希才包含在 ID 令牌中。 代码哈希可用于验证授权代码的真实性。 有关如何执行此验证的详细信息，请参阅 [OpenID Connect 规范](https://openid.net/specs/openid-connect-core-1_0.html)。  |
 | 访问令牌哈希 | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | 仅当令牌随 OAuth 2.0 访问令牌一起颁发时，访问令牌哈希才包含在 ID 令牌中。 访问令牌哈希可用于验证访问令牌的真实性。 有关如何执行此验证的详细信息，请参阅 [OpenID Connect 规范](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Nonce | `nonce` | `12345` | Nonce 是缓和令牌重放攻击的策略。 应用程序可通过使用 `nonce` 查询参数，在授权请求中指定 nonce。 在请求中提供的值将仅在 ID 令牌的 `nonce` 声明中发出（未经修改）。 此声明可让应用程序根据请求中指定的值验证该值。 应用程序应该在 ID 令牌验证过程中执行这项验证。 |
-| 使用者 | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | 令牌针对其断言信息的主体，例如应用程序的用户。 此值固定不变，无法重新分配或重复使用。 可以使用它来安全地执行授权检查，例如，当使用令牌访问资源时。 默认情况下，将使用目录中用户的对象 ID 填充使用者声明。 |
+| 主题 | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | 令牌针对其断言信息的主体，例如应用程序的用户。 此值固定不变，无法重新分配或重复使用。 可以使用它来安全地执行授权检查，例如，当使用令牌访问资源时。 默认情况下，将使用目录中用户的对象 ID 填充使用者声明。 |
 | 身份验证上下文类引用 | `acr` | 不适用 | 仅与旧策略配合使用。 |
 | 信任框架策略 | `tfp` | `b2c_1_signupsignin1` | 用于获取 ID 令牌的策略名称。 |
 | 身份验证时间 | `auth_time` | `1438535543` | 用户最后一次输入凭据的时间，以新纪元时间表示。 该身份验证是全新登录、单一登录 (SSO) 会话还是其他登录类型之间没有区别。 `auth_time` 是应用程序（或用户）上次针对 Azure AD B2C 发起身份验证尝试的时间。 不区分用于身份验证的方法。 |
@@ -97,7 +97,7 @@ ID 令牌中的声明不按任何特定顺序返回。 新的声明可以在任�
 
 ## <a name="pass-through"></a>直通
 
-用户旅程开始时，Azure AD B2C 会从标识提供者处收到一个访问令牌。 Azure AD B2C 使用该令牌来检索有关用户的信息。 [在用户流中启用声明](idp-pass-through-user-flow.md)或[在自定义策略中定义声明](idp-pass-through-custom.md)即可将该令牌传递给你在 Azure AD B2C 中注册的应用程序。 应用程序必须使用[建议的用户流](user-flow-versions.md)才能利用将令牌作为声明传递的优势。
+用户旅程开始时，Azure AD B2C 会从标识提供者处收到一个访问令牌。 Azure AD B2C 使用该令牌来检索有关用户的信息。 在用户流中启用声明即可将[该令牌传递](idp-pass-through-user-flow.md)给你在 Azure AD B2C 中注册的应用程序。 应用程序必须使用[建议的用户流](user-flow-versions.md)才能利用将令牌作为声明传递的优势。
 
 Azure AD B2C 当前仅支持传递 OAuth 2.0 标识提供者的访问令牌。 对于所有其他标识提供者，声明将返回空白。
 

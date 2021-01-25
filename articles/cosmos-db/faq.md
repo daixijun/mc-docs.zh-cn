@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/01/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: a6aba51921f7a96de0ad7f38b35b340bee6e8682
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 4b366c3a4c4ffb67d9336c004258b04529c0ed55
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431734"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230964"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中不同 API 的常见问题
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -62,26 +62,26 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 有关详细信息，请参阅 [Azure Cosmos DB 定价详细信息](https://www.azure.cn/pricing/details/cosmos-db/)页。 Azure Cosmos DB 使用费取决于预配的容器数、容器的联机小时数，以及每个容器的预配吞吐量。
 
-### <a name="is-a-trial-account-available"></a>有试用帐户吗？
+### <a name="is-a-trial-subscription-available"></a>是否可使用试用版订阅？
 
 <!-- Not Available [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
 
-如果不熟悉 Azure，可以注册 [Azure 试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)，这样可以得到 30 天试用期和额度，以便试用所有 Azure 服务。 如果你有 Visual Studio 订阅，则还有资格[免费获取 Azure 信用额度](https://www.azure.cn/offers/ms-mc-arz-msdn/)，可用于任何 Azure 服务。
+如果不熟悉 Azure，可注册 [Azure 试用版订阅](https://www.microsoft.com/china/azure/index.html?fromtype=cn)，这样可获得 30 天试用期和赠金来试用各项 Azure 服务。 如果你有 Visual Studio 订阅，则还有资格[免费获取 Azure 信用额度](https://www.azure.cn/offers/ms-mc-arz-msdn/)，可用于任何 Azure 服务。
 
 也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)在本地免费开发和测试应用程序，无需创建 Azure 订阅。 如果对应用程序在 Azure Cosmos DB 模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure Cosmos DB 帐户。
 
-### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>如何获取 Azure Cosmos DB 的更多帮助？
+### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>如何获取与 Azure Cosmos DB 相关的其他帮助？
 
 <!---Mooncake Customization on question and answer forums-->
 
-若要咨询技术问题，可在问答论坛中发帖：
+若要询问技术问题，可以在下述两个问答论坛之一发帖：
 
 * [Azure 支持](https://support.azure.cn/support/contact/)
+* [Microsoft 问答页](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 
 <!--Not Available on * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb)-->
 <!--Not Available on [on-topic](https://stackoverflow.com/help/on-topic)-->
 <!--Not Available on [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask)-->
-
 <!---Mooncake Customization on question and answer forums-->
 
 若要请求新功能，请在 [Azure 支持](https://support.azure.cn/support/contact/)上创建新的请求。
@@ -174,13 +174,13 @@ SQL API 支持的 SQL 查询语言是 SQL Server 支持的查询功能增强子�
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>SQL API 是否支持 SQL 聚合函数？
 
-SQL API 支持通过聚合函数 `COUNT`、`MIN`、`MAX`、`AVG` 和 `SUM` 通过 SQL 语法实现的任何规模的低延迟聚合。 有关详细信息，请参阅[聚合函数](sql-query-aggregates.md)。
+SQL API 支持通过聚合函数 `COUNT`、`MIN`、`MAX`、`AVG` 和 `SUM` 通过 SQL 语法实现的任何规模的低延迟聚合。 有关详细信息，请参阅[聚合函数](sql-query-aggregate-functions.md)。
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>SQL API 如何提供并发性？
 
 SQL API 通过 HTTP 实体标记或 ETag 支持乐观并发控制 (OCC)。 每个 SQL API 资源都有一个 ETag。每次更新文档时，都会在服务器上设置此 ETag。 ETag 标头和当前值包含在所有响应消息中。 ETag 可与 If-Match 标头配合使用，让服务器决定是否应更新资源。 If-Match 值是用作检查依据的 ETag 值。 如果 ETag 值与服务器的 ETag 值匹配，就会更新资源。 如果 ETag 不再是最新状态，则服务器会拒绝该操作，并提供“HTTP 412 不满足前提条件”响应代码。 客户端接着必须重新提取资源，以获取该资源当前的 ETag 值。 此外，ETag 可以与 If-None-Match 标头配合使用，以确定是否需要重新提取资源。
 
-若要在 .NET 中使用乐观并发，可以使用 [AccessCondition](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.accesscondition) 类。 如需 .NET 示例，请参阅 GitHub 上 DocumentManagement 示例中的 [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs)。
+若要在 .NET 中使用乐观并发，可以使用 [AccessCondition](https://docs.azure.cn/dotnet/api/microsoft.azure.documents.client.accesscondition) 类。 如需 .NET 示例，请参阅 GitHub 上 DocumentManagement 示例中的 [Program.cs](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/DocumentManagement/Program.cs)。
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>如何在 SQL API 中执行事务？
 

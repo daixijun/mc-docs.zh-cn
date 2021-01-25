@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 10/19/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: fe569e6f72f5deedec7d0bfcffa348b58fc3532a
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/14/2021
+ms.openlocfilehash: 074990fa0b125d484407f1bc6e3de355b10085af
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105392"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194718"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>创建专用终结点以建立到 Azure 认知搜索的安全连接
 
@@ -86,7 +86,7 @@ Azure 认知搜索的专用终结点允许虚拟网络上的客户端通过专�
     | ------- | ----- |
     | 订阅 | 选择订阅。 |
     | 资源组 | 选择“myResourceGroup”。 已在上一部分创建此内容。|
-    | 位置 | 选择“美国西部”。|
+    | 位置 | 选择“中国东部”。|
     | 名称 | 输入“myPrivateEndpoint”。  |
     | 目标子资源 | 保留默认值“searchService”。 |
     | **网络** |  |
@@ -122,7 +122,7 @@ Azure 认知搜索的专用终结点允许虚拟网络上的客户端通过专�
     | 资源组 | 选择“myResourceGroup”。 已在上一部分创建此内容。  |
     | **实例详细信息** |  |
     | 虚拟机名称 | 输入 *myVm*。 |
-    | 区域 | 选择“美国西部”或你使用的任何其他区域。 |
+    | 区域 | 选择“中国东部”或你使用的任何其他区域。 |
     | 可用性选项 | 保留默认值“不需要基础结构冗余”。 |
     | 映像 | 选择“Windows Server 2019 Datacenter”。 |
     | 大小 | 保留默认值“标准 DS1 v2”。 |

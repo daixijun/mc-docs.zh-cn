@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 10/19/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: yes|no
 ms.testdate: 11/09/2020null
 ms.author: v-yeche
-ms.openlocfilehash: 54d9ef482d1a48f2912c6f6857879b0d00b04c66
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 8f8ae0743786f0fc78095d6bf837392f9ecc34be
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329325"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230885"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>如何配置适用于 Cosmos DB 的 Azure Functions 触发器的日志记录和连接
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -85,13 +85,13 @@ traces
 ```
 
 > [!NOTE]
-> 使用 Azure Functions 消耗计划托管计划时，每个实例可以维护的套接字连接数量有限制。 使用 Direct/TCP 模式时，根据设计会创建更多的连接，这可能会达到[消耗计划限制](../azure-functions/manage-connections.md#connection-limit)，在这种情况下，可以使用 Gateway 模式，或者以[应用服务模式](../azure-functions/functions-scale.md#app-service-plan)运行 Azure Functions。
+> 在消耗计划中托管函数应用时，每个实例可以维护的套接字连接数量都有限制。 使用 Direct/TCP 模式时，根据设计，会创建更多的连接，这可能会达到[消耗计划限制](../azure-functions/manage-connections.md#connection-limit)，在这种情况下，可以使用 Gateway 模式，或改为在[高级计划](../azure-functions/functions-premium-plan.md)中托管函数应用。
 
+<!--Not Available on [Dedicated (App Service) plan](../azure-functions/dedicated-plan.md)-->
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure Functions 中的连接限制](../azure-functions/manage-connections.md#connection-limit)
 * 在 Azure Functions 应用程序中[启用监视](../azure-functions/functions-monitoring.md)。
 * 了解使用适用于 Cosmos DB 的 Azure Functions 触发器时如何[诊断和排查常见问题](./troubleshoot-changefeed-functions.md)。
 
-<!-- Update_Description: new article about how to configure cosmos db trigger -->
-<!--NEW.date: 11/09/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

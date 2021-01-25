@@ -3,16 +3,16 @@ title: 排查无数据问题 - 用于 .NET 的 Application Insights
 description: 在 Azure Application Insights 中看不到数据？ 试试这里。
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 11/10/2020
+ms.date: 01/12/2021
 ms.author: v-johya
 author: Johnnytechn
 origin.date: 07/23/2018
-ms.openlocfilehash: c38faa26a714dd31efb720be891633676be64e94
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 008cb6e7fa63812ac38b21920c6a9763a53ed598
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638062"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230837"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>排查无数据问题 - 用于 .NET/.NET Core 的 Application Insights
 
@@ -35,16 +35,47 @@ ms.locfileid: "94638062"
 ## <a name="no-data-from-my-server"></a>服务器未提供数据
 *我已在 Web 服务器上安装应用，但未看到服务器提供任何遥测数据。服务器在开发计算机上正常运行。*
 
-* 可能是防火墙有问题。 [为 Application Insights 设置防火墙例外即可发送数据](./ip-addresses.md)。
+* 可能是防火墙有问题。 为 Application Insights 设置防火墙例外即可发送数据。
 * IIS 服务器可能缺少某些必备组件：.NET Extensibility 4.5 和 ASP.NET 4.5。
 
 *我已在 Web 服务器上 [安装状态监视器](./monitor-performance-live-website-now.md)来监视现有应用，但未看到任何结果。*
 
 * 请参阅[排查状态监视器问题](./monitor-performance-live-website-now.md#troubleshoot)。
 
-<a name="q01"></a>
-## <a name="no-add-application-insights-option-in-visual-studio"></a>Visual Studio 中没有“添加 Application Insights”选项
-*在解决方案资源管理器中右键单击现有项目时，未看到任何 Application Insights 选项。*
+> [!IMPORTANT]
+> 新的 Azure 区域要求使用连接字符串而不是检测密钥。 [连接字符串](./sdk-connection-string.md?tabs=net)用于标识要与遥测数据关联的资源。 它还允许你修改可供你的资源将其用作遥测目标的终结点。 你需要复制连接字符串，并将其添加到应用程序的代码或环境变量中。
+
+
+## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>FileNotFoundException：无法加载文件或程序集“Microsoft.AspNet TelemetryCorrelation”
+
+有关此错误的详细信息，请参阅 [GitHub 问题 1610] (https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610) )。
+
+从 (2.4) 之前的 SDK 升级时，需要确保将以下更改应用到 `web.config` 和 `ApplicationInsights.config`：
+
+1. 两个 http 模块，而不是一个。 在 `web.config` 中，应该有两个 http 模块。 对于某些场景，顺序很重要：
+
+    ``` xml
+    <system.webServer>
+      <modules>
+          <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" preCondition="integratedMode,managedHandler" />
+          <add name="ApplicationInsightsHttpModule" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" />
+      </modules>
+    </system.webServer>
+    ```
+
+2. 在 `ApplicationInsights.config` 中，除了 `RequestTrackingTelemetryModule` 之外，还应具有以下遥测模块：
+
+    ``` xml
+    <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Web.AspNetDiagnosticTelemetryModule, Microsoft.AI.Web"/>
+    </TelemetryModules>
+    ```
+
+如果未能正确升级，可能会导致意外异常或无法收集遥测数据*。
+
+
+## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Visual Studio 中没有“添加 Application Insights”选项
+在解决方案资源管理器中右键单击现有项目时，未看到任何 Application Insights 选项。
 
 * 工具并非支持所有类型的 .NET 项目。 支持 Web 和 WCF 项目。 对于其他项目类型，例如桌面或服务应用程序，仍可以[手动将 Application Insights SDK 添加到项目](./windows-desktop.md)。
 * 请务必使用 [Visual Studio 2013 Update 3 或更高版本](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs)。 该软件预装了开发人员分析工具，其中提供了 Application Insights SDK。
@@ -163,7 +194,7 @@ ApplicationInsights.config 中的检测密钥控制遥测数据发送到的位�
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>将应用发布到服务器后未看到（服务器）数据
 * 请检查是否确实将 Microsoft. ApplicationInsights DLL 连同 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll 一起复制到了服务器。
-* 在防火墙中，可能需要[打开某些 TCP 端口](./ip-addresses.md)。
+* 在防火墙中，可能需要打开某些 TCP 端口。
 * 如果必须使用代理在企业网络外部发送数据，请在 Web.config 中设置 [defaultProxy](https://docs.microsoft.com/previous-versions/dotnet/netframework-1.1/aa903360(v=vs.71))
 * Windows Server 2008：请确保已安装以下更新：[KB2468871](https://support.microsoft.com/kb/2468871)、[KB2533523](https://support.microsoft.com/kb/2533523)、[KB2600217](https://support.microsoft.com/kb/2600217)。
 

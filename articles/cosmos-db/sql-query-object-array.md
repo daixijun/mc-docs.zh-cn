@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 12/02/2019
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: d2115af42fd8443502c7eb6db0687d18b2f068a7
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 03826924d650c970681e7972dc29d45e771a65c2
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850696"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231000"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用数组和对象
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -57,17 +57,35 @@ SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as Ch
 FROM f
 ```
 
+其结果是：
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 <a name="Iteration"></a>
 ## <a name="iteration"></a>迭代
 
-SQL API 支持循环访问 JSON 数组，它可以通过 FROM 源中的 [IN 关键字](sql-query-keywords.md#in)添加一个新的构造。 在以下示例中：
+SQL API 支持循环访问 JSON 数组，其中 [IN 关键字](sql-query-keywords.md#in)在 FROM 源中。 如下示例中：
 
 ```sql
 SELECT *
 FROM Families.children
 ```
 
-结果有：
+其结果是：
 
 ```json
 [
@@ -103,7 +121,7 @@ SELECT *
 FROM c IN Families.children
 ```
 
-结果有：
+其结果是：
 
 ```json
 [
@@ -136,7 +154,7 @@ FROM c IN Families.children
 WHERE c.grade = 8
 ```
 
-结果有：
+其结果是：
 
 ```json
 [{
@@ -147,24 +165,27 @@ WHERE c.grade = 8
 还可基于数组迭代的结果进行聚合。 例如，以下查询计数所有家庭中的孩子数目。
 
 ```sql
-SELECT COUNT(child)
+SELECT COUNT(1) AS Count
 FROM child IN Families.children
 ```
 
-结果有：
+其结果是：
 
 ```json
 [
   {
-    "$1": 3
+    "Count": 3
   }
 ]
 ```
 
+> [!NOTE]
+> 使用 IN 关键字进行迭代时，不能筛选或投射数组外部的任何属性。 应改用 [JOIN](sql-query-join.md)。
+
 ## <a name="next-steps"></a>后续步骤
 
 - [入门](sql-query-getting-started.md)
-- [Azure Cosmos DB.NET 示例](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [联接](sql-query-join.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

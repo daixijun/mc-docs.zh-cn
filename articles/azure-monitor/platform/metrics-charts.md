@@ -5,15 +5,15 @@ author: Johnnytechn
 services: azure-monitor
 ms.topic: conceptual
 origin.date: 01/29/2019
-ms.date: 11/02/2020
+ms.date: 01/12/2021
 ms.author: v-johya
 ms.subservice: metrics
-ms.openlocfilehash: 272c25688fe789063d4b2e90a135dc4e37dfb61e
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 4eb440c3888822ac5aae52951d484ed166ebbe3b
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328837"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229963"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 指标资源管理器的高级功能
 
@@ -24,6 +24,36 @@ ms.locfileid: "94328837"
 
 [Azure Monitor 中的指标](data-platform-metrics.md)是随着时间的推移收集和存储的一系列测量值和计数。 有标准（或“平台”）指标和自定义指标。 标准指标由 Azure 平台本身提供。 标准指标反映 Azure 资源的运行状况和使用情况统计信息。 而自定义指标是由应用程序通过[用于自定义事件和指标的 Application Insights API](../app/api-custom-events-metrics.md)、[Azure 诊断 (WAD) 扩展](./diagnostics-extension-overview.md)或 Azure Monitor REST API 发送给 Azure 的。
 
+## <a name="resource-scope-picker"></a>资源范围选取器
+使用资源范围选取器，你可以查看单个和多个资源的指标。 下面是有关如何使用资源范围选取器的说明。 
+
+### <a name="selecting-a-single-resource"></a>选择一个资源
+从 Azure Monitor 菜单或从资源的菜单的“监视”部分选择“指标”    。 单击“选择范围”按钮以打开范围选取器，这将使你能够选择要查看其指标的资源。 如果从资源的菜单中打开了指标资源管理器，则该字段已填充完毕。 
+
+![资源范围选取器的屏幕截图](./media/metrics-charts/scope-picker.png)
+
+对于某些资源，一次只能查看一个资源的指标。 这些资源位于“资源类型”下拉列表中的“所有资源类型”部分下。
+
+![单个资源的屏幕截图](./media/metrics-charts/single-resource-scope.png)
+
+单击所需的资源后，你将看到包含该资源的所有订阅和资源组。
+
+![可用资源的屏幕截图](./media/metrics-charts/available-single-resource.png)
+
+> [!TIP]
+> 如果想同时查看多个资源的指标，或整个订阅或资源组的指标，请单击“更新”按钮。
+
+选好之后，单击“应用”。
+
+<!--Not available in MC: metrics-dynamic-scope.md-->
+### <a name="viewing-metrics-across-multiple-resources"></a>查看多个资源的指标
+只要某些资源类型在相同的订阅和位置内，就可以查询跨多个资源的指标。 可以在“资源类型”下拉列表的顶部找到这些资源类型。
+
+![跨资源类型的屏幕截图](./media/metrics-charts/multi-resource-scope.png)
+
+对于多资源兼容类型，你还可以查询跨订阅或多个资源组的指标。
+
+
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>使用多个指标和图表创建视图
 
 可以创建一次绘制多个指标行或显示多个指标图表的图表。 此功能用于：
@@ -32,8 +62,7 @@ ms.locfileid: "94328837"
 - 显示很临近但具有不同度量单位的指标
 - 以视觉方式聚合和比较来自多个源的指标
 
-例如，你有 5 个存储帐户，想要知道在其中消耗了多少总空间，则可创建一个（堆积的）面积图表，以便显示特定时间点的各个值以及所有值的总计。
-
+<!--Not available in MC: storage account-->
 ### <a name="multiple-metrics-on-the-same-chart"></a>同一图表上的多个指标
 
 首先，[创建新图表](metrics-getting-started.md#create-your-first-metric-chart)。 单击“添加指标”，然后通过同样的步骤在同一图表上添加另一指标。
@@ -62,11 +91,25 @@ ms.locfileid: "94328837"
 
 指标资源管理器中提供了五种基本的统计信息聚合类型：Sum、Count、Min、Max 和 Average    。 “Sum”聚合有时称为“Total”聚合 。 对于许多指标，指标资源管理器将隐藏完全不相关且无法使用的聚合。
 
-- **Sum** - 在聚合间隔内捕获的所有值的总和
-- **Count** - 在聚合间隔内捕获的度量的数目。 请注意，在捕获的指标值始终为 1 的情况下，“Count”将等于“Sum” 。 当指标跟踪不同事件的计数，并且每个度量表示一个事件时（即每次新请求传入时，代码都会触发指标记录），这种情况很常见
-- **Average** - 在聚合间隔内捕获的指标值的平均值
-- **Min** - 在聚合间隔内捕获的最小值
-- **Max** - 在聚合间隔内捕获的最大值
+**Sum** - 在聚合间隔内捕获的所有值的总和
+
+![请求总数的屏幕截图](./media/metrics-charts/request-sum.png)
+
+**Count** - 在聚合间隔内捕获的度量的数目。 请注意，在捕获的指标值始终为 1 的情况下，“Count”将等于“Sum” 。 当指标跟踪不同事件的计数，并且每个度量表示一个事件时（即每次新请求传入时，代码都会触发指标记录），这种情况很常见
+
+![请求计数的屏幕截图](./media/metrics-charts/request-count.png)
+
+**Average** - 在聚合间隔内捕获的指标值的平均值
+
+![平均请求数的屏幕截图](./media/metrics-charts/request-avg.png)
+
+**Min** - 在聚合间隔内捕获的最小值
+
+![最小请求数的屏幕截图](./media/metrics-charts/request-min.png)
+
+**Max** - 在聚合间隔内捕获的最大值
+
+![最大请求数的屏幕截图](./media/metrics-charts/request-max.png)
 
 ## <a name="apply-filters-to-charts"></a>向图表应用筛选器
 
@@ -78,15 +121,15 @@ ms.locfileid: "94328837"
 
 2. 选择想要筛选的维度（属性）
 
-   ![该屏幕截图显示了可筛选的维度（属性）。](./media/metrics-charts/00006.png)
+   ![该屏幕截图显示了可筛选的维度（属性）。](./media/metrics-charts/028.png)
 
 3. 选择想要在绘制图表时包含的维度值（此示例将显示筛选出了成功的存储事务）：
 
-   ![该屏幕截图显示筛选成功的存储事务。](./media/metrics-charts/00007.png)
+   ![该屏幕截图显示筛选成功的存储事务。](./media/metrics-charts/029.png)
 
 4. 选择筛选值后，在“筛选选择器”之外单击将其关闭。 现在图表将显示失败的存储事务数：
 
-   ![该屏幕截图显示了已失败的存储交易数](./media/metrics-charts/00008.png)
+   ![该屏幕截图显示了已失败的存储交易数](./media/metrics-charts/030.png)
 
 5. 可以重复步骤 1-4 将多个筛选器应用到同一个图表。
 
@@ -105,11 +148,11 @@ ms.locfileid: "94328837"
 
 2. 选择想要用于分割图表的维度：
 
-   ![该屏幕截图显示了细分图表所基于的选定维度。](./media/metrics-charts/00010.png)
+   ![该屏幕截图显示了细分图表所基于的选定维度。](./media/metrics-charts/031.png)
 
    现在图表将显示多个折线图，每个维度部分均有一个：
 
-   ![该屏幕截图显示了多个折线图，每个维度部分均有一个。](./media/metrics-charts/00012.png)
+   ![该屏幕截图显示了多个折线图，每个维度部分均有一个。](./media/metrics-charts/032.png)
 
 3. 在“分组选择器”之外单击以将其关闭。
 
@@ -124,9 +167,13 @@ ms.locfileid: "94328837"
 
 另一个示例是可用内存的波动，其中的值在技术上永远不会达到 0。 将范围固定到一个较高的值可以使可用内存的降低更容易被发现。 
 
-若要控制 y 轴范围，请使用 “…” 图表菜单，并选择“编辑图表”以访问高级图表设置。 修改“Y 轴范围”部分中的值，或者使用“自动”按钮恢复为默认值。
+若要控制 y 轴范围，请使用 “…” 图表菜单，并选择“图表设置”以访问高级图表设置。
 
-![该屏幕截图突出显示了“编辑图表”选项。](./media/metrics-charts/00014-manually-set-granularity.png)
+![突出显示“图表”设置选项的屏幕截图。](./media/metrics-charts/033.png)
+
+ 修改“Y 轴范围”部分中的值，或者使用“自动”按钮恢复为默认值。
+ 
+ ![突出显示 Y 轴范围部分的屏幕截图。](./media/metrics-charts/034.png)
 
 > [!WARNING]
 > 如果图表用于跟踪一段时间内的各种计数或合计（并因此使用计数、求和、最小值或最大值聚合），要锁定这类图表的 y 轴边界，通常需要指定一个固定的时间粒度，而不是依赖于自动默认值。 这是必要的，因为当用户通过调整浏览器窗口大小或者通过更改屏幕分辨率来自动修改时间粒度时，图表上的值也会发生更改。 时间粒度发生的更改会影响图表的外观，导致当前选择的 y 轴范围失效。
@@ -137,9 +184,9 @@ ms.locfileid: "94328837"
 
 若要更改图表线条的颜色，请单击与图表相对应的图例中的彩色条。 这将打开“颜色选取器”对话框。 使用颜色选取器配置线条的颜色。
 
-配置图表颜色后，将图表固定到仪表板时，它们将保持此配置。 以下部分说明如何固定图表。
+![显示如何更改颜色的屏幕截图](./media/metrics-charts/035.png)
 
-![该屏幕截图显示了如何固定图表。](./media/metrics-charts/018.png)
+配置图表颜色后，将图表固定到仪表板时，它们将保持此配置。 以下部分说明如何固定图表。
 
 ## <a name="pin-charts-to-dashboards"></a>将图表固定到仪表板
 
@@ -147,9 +194,9 @@ ms.locfileid: "94328837"
 
 将配置的图表固定到仪表板：
 
-配置图表后，单击图表右上角的“图表操作”菜单，然后单击“固定到仪表板”。
+图表配置完成后，单击图表右上角的“固定到仪表板”。
 
-![图表上的](./media/metrics-charts/00013.png)
+![显示如何固定到图表的屏幕截图](./media/metrics-charts/036.png)
 
 ## <a name="create-alert-rules"></a>创建警报规则
 
@@ -157,11 +204,11 @@ ms.locfileid: "94328837"
 
 ### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>单击“新建警报规则”，创建新的警报规则
 
-![以红色突出显示的“新建警报规则”按钮](./media/metrics-charts/015.png)
+![以红色突出显示的“新建警报规则”按钮](./media/metrics-charts/042.png)
 
 则会转到警报规则创建窗格，其中预先填充了来自你的图表的底层指标维度，以便更轻松地生成自定义警报规则。
 
-![创建警报规则](./media/metrics-charts/016.png)
+![创建警报规则](./media/metrics-charts/041.png)
 
 若要详细了解如何设置指标警报，请查看此[文章](alerts-metric.md)。
 

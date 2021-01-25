@@ -4,15 +4,15 @@ description: 获取指标警报功能的概述，以及它们在 Azure Monitor �
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 12/5/2019
-ms.date: 11/02/2020
+ms.date: 01/12/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 17d7af4d73bdb6f6dd7a54937df326c193b7b85d
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: f32afd5e043cfed2f1498248279c6975dea1eade
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328453"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230982"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解指标警报在 Azure Monitor 中的工作原理
 
@@ -179,6 +179,7 @@ Azure Monitor 中的指标警报还支持使用一个规则来监视多个维度
 ## <a name="next-steps"></a>后续步骤
 
 - [了解如何在 Azure 中创建、查看和管理指标警报](alerts-metric.md)
+- [了解如何在 Azure 监视器指标资源管理器中创建警报](./metrics-charts.md#create-alert-rules)
 - [了解如何使用 Azure 资源管理器模板部署指标警报](./alerts-metric-create-templates.md)
 - [详细了解操作组](action-groups.md)
 - [详细了解动态阈值条件类型](alerts-dynamic-thresholds.md)

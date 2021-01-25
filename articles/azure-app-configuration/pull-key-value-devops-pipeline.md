@@ -6,14 +6,14 @@ author: drewbatgit
 ms.service: azure-app-configuration
 ms.topic: how-to
 origin.date: 11/17/2020
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: drewbat
-ms.openlocfilehash: 21f0990dcfb23a27eb700061a57aef102e58de44
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 657468bf08a5b8104499bdf1e6595c80e2c5d72b
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105525"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230943"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>使用 Azure Pipelines 从应用程序配置中拉取设置
 
@@ -104,6 +104,9 @@ ms.locfileid: "97105525"
 echo "$env:myBuildSetting"
 ```
 值将输出到控制台。
+
+> [!NOTE]
+> 将解析应用程序配置中的 Azure Key Vault 引用，并将其设置为[机密变量](https://docs.microsoft.com/azure/devops/pipelines/process/variables#secret-variables)。 在 Azure 管道中，会从日志中屏蔽机密变量。 它们不会作为环境变量传递到任务中，而是作为输入传递。 
 
 ## <a name="troubleshooting"></a>疑难解答
 

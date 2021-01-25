@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 origin.date: 02/06/2020
 author: rockboyfor
-ms.date: 01/04/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: a16d5be36e56516a54846e55492128e55d2b1ebd
-ms.sourcegitcommit: b4fd26098461cb779b973c7592f951aad77351f2
+ms.openlocfilehash: f1f8f18482e45815cf35fd13b11098c6a9a96d12
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97856705"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570655"
 ---
 <!--Verified successfully from rename articles-->
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Linux 中平台支持的从经典部署模型到 Azure 资源管理器的 IaaS 资源迁移
@@ -25,6 +25,8 @@ ms.locfileid: "97856705"
 > 目前，大约有 90% 的 IaaS VM 在使用 [Azure 资源管理器](https://azure.microsoft.com/features/resource-manager/)。 自 2020 年 2 月 28 日起，经典 VM 已弃用，并将于 2023 年 3 月 1 日完全停用。 [详细了解](https://docs.azure.cn/virtual-machines/classic-vm-deprecation)此弃用以及[它对你的影响](classic-vm-deprecation.md#how-does-this-affect-me)。
 
 本文概述平台支持的迁移工具、如何将资源从 Azure 服务管理器 (ASM)（经典）迁移到资源管理器 (ARM) 部署模型，并详细说明如何使用虚拟网络站点到站点网关连接两个在订阅中共存的两个部署模型的资源。 用户可以阅读有关 [Azure Resource Manager 功能和优点](../azure-resource-manager/management/overview.md)的更多内容。 
+
+ASM 支持两种不同的计算产品：Azure 虚拟机（经典）（也称为 IaaS VM）和 [Azure 云服务（经典）](https://docs.azure.cn/cloud-services/)（也称为 PaaS VM 或 Web/辅助角色）。 本文档仅讨论迁移 Azure 虚拟机（经典）。
 
 ## <a name="goal-for-migration"></a>迁移目标
 Resource Manager 除了可让你通过模板部署复杂的应用程序之外，还可使用 VM 扩展来配置虚拟机，并且纳入了访问管理和标记。 Azure Resource Manager 将虚拟机的可缩放并行部署包含在可用性集内。 新部署模型还针对计算、网络和存储单独提供生命周期管理。 最后，重点介绍为了按默认启用安全性而要在虚拟网络中实施虚拟机的做法。

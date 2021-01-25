@@ -2,16 +2,17 @@
 title: 监视 Linux 上 Java Web 应用的性能 - Azure | Azure Docs
 description: 通过 Application Insights 的 CollectD 插件监视 Java 网站的扩展应用程序性能。
 ms.topic: conceptual
-author: Johnnytechn
 origin.date: 03/14/2019
-ms.date: 12/07/2020
+ms.date: 01/12/2021
+author: Johnnytechn
+ms.custom: devx-track-java
 ms.author: v-johya
-ms.openlocfilehash: 4f3b99816d3b4f407763f64d345d9656bb96f592
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 414c26dacbf0c63a37ceb79b00abbefeae65dc4f
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104460"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230570"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd：Application Insights 中的 Linux 性能指标 [已弃用]
 
@@ -110,7 +111,7 @@ ms.locfileid: "97104460"
 *在门户中看不到数据*
 
 * 打开[搜索][diagnostic]，查看原始事件是否已到达。 有时需较长时间才能在指标资源管理器中看到数据。
-* 可能需要[为传出数据设置防火墙例外](./ip-addresses.md)
+* 可能需要为传出数据设置防火墙例外。
 * 在 Application Insights 插件中启用跟踪。 在 `<Plugin ApplicationInsightsWriter>` 中添加此行：
   * `SDKLogger true`
 * 打开终端并在详细模式下启动 collectd，查看其报告的任何问题：
@@ -128,7 +129,6 @@ Application Insights 写入插件与某些读取插件不兼容。 Application I
 
 [api]: ./api-custom-events-metrics.md
 [apiexceptions]: ./api-custom-events-metrics.md#track-exception
-[availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md

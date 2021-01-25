@@ -1,5 +1,5 @@
 ---
-title: 保护对 Azure Active Directory 中资源的外部访问
+title: 保护 Azure Active Directory 中的外部协作
 description: 架构师和 IT 管理员指南：保护对内部资源的外部访问
 services: active-directory
 author: BarbaraSelden
@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc1cb838f80c44551ecddf15f8d2c9a7272e8fef
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: a9b3c221b27ad01b316a0e253c891ed4f9216145
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023469"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195268"
 ---
-# <a name="securing-external-access-to-resources"></a>保护对资源的外部访问
+# <a name="securing-external-collaboration-in-azure-active-directory-and-microsoft-365"></a>保护 Azure Active Directory 和 Microsoft 365 中的外部协作
 
 保护与外部合作伙伴之间的协作可确保合适的外部合作伙伴可以在合适的时间范围内适当访问内部资源。 通过全面的管理方法，可以降低安全风险，满足合规性目标，并确保你了解具有访问权限的人员。
 
@@ -43,7 +43,7 @@ Microsoft 提供了全面的工具套件来保护外部访问。  Azure Active D
 请参阅以下文章，了解如何保护对资源的外部访问。 建议你按列出顺序执行这些操作。
 
 
-1. [确定外部访问所需的安全状况](1-secure-access-posture.md)
+1. [确定与外部访问相关的安全状况](1-secure-access-posture.md)
 
 2. [了解当前的状况](2-secure-access-current-state.md)
 

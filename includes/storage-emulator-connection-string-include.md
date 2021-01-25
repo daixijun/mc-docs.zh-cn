@@ -2,17 +2,17 @@
 author: WenJason
 ms.service: storage
 ms.topic: include
-origin.date: 07/17/2020
-ms.date: 08/24/2020
+origin.date: 12/28/2020
+ms.date: 01/18/2021
 ms.author: v-jay
-ms.openlocfilehash: 1388c5011b82ff08fc3d852eedd9d9a097eaf085
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: b67139f2526162d737e6df596960d1da66a59ce7
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753418"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163112"
 ---
-Azurite 支持单一固定的帐户和众所周知的用于共享密钥身份验证的身份验证密钥。 此帐户和密钥是允许用于 Azurite 的唯一共享密钥凭据。 它们分别是：
+模拟器支持单一固定的帐户和众所周知的用于共享密钥身份验证的身份验证密钥。 此帐户和密钥是允许用于模拟器的唯一共享密钥凭据。 它们分别是：
 
 ```
 Account name: devstoreaccount1
@@ -20,22 +20,14 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 ```
 
 > [!NOTE]
-> Azurite 支持的身份验证密钥仅用于测试客户端身份验证代码的功能。 它没有任何安全用途。 不能在 Azurite 中使用生产存储帐户和密钥。 不应将开发帐户用于生产数据。
-> 
-> Azurite 仅支持通过 HTTP 进行连接。 但是，若要访问生产性 Azure 存储帐户中的资源，建议使用 HTTPS 协议。
-> 
+> 模拟器支持的身份验证密钥仅用于测试客户端身份验证代码的功能。 它没有任何安全用途。 不能在模拟器中使用生产存储帐户和密钥。 不应将开发帐户用于生产数据。
+>
+> 模拟器仅支持通过 HTTP 进行连接。 但是，若要访问生产性 Azure 存储帐户中的资源，建议使用 HTTPS 协议。
+>
 
-#### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>使用快捷方式连接到模拟器帐户
-从应用程序连接到 Azurite 的最简单方法是在应用程序的配置文件中配置一个引用快捷方式 `UseDevelopmentStorage=true` 的连接字符串。 以下是 *app.config* 文件中连接对象为 Azurite 的连接字符串的示例： 
+#### <a name="connect-to-the-emulator-account-using-the-shortcut"></a>使用快捷方式连接到模拟器帐户
 
-```xml
-<appSettings>
-  <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
-</appSettings>
-```
-
-#### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>使用从众所周知的帐户名称和密钥连接到存储模拟器
-要创建引用存储模拟器帐户名称和密钥的连接字符串，必须在连接字符串中希望从模拟器中使用的每个服务指定终结点。 这是必须的，这样连接字符串将引用与生产存储帐户中的终结点不同的模拟器终结点。 例如，连接字符串的值将如下所示：
+从应用程序连接到模拟器的最简单方式是在应用程序的配置文件内配置一个引用快捷方式 `UseDevelopmentStorage=true` 的连接字符串。 该快捷方式等效于模拟器的完整连接字符串，该字符串指定每个 Azure 存储服务的帐户名、帐户密钥和模拟器终结点：
 
 ```
 DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
@@ -43,6 +35,14 @@ AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFP
 EndpointSuffix=core.chinacloudapi.cn;
 BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
 QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
+TableEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 ```
 
-此值等同于如上所示的快捷方式 `UseDevelopmentStorage=true`。
+下面的 .NET 代码片段显示了如何通过采用连接字符串的方法使用该快捷方式。 例如，[BlobContainerClient(String, String)](/dotnet/api/azure.storage.blobs.blobcontainerclient.-ctor#Azure_Storage_Blobs_BlobContainerClient__ctor_System_String_System_String_) 构造函数采用连接字符串。
+
+```csharp
+BlobContainerClient blobContainerClient = new BlobContainerClient("UseDevelopmentStorage=true", "sample-container");
+blobContainerClient.CreateIfNotExists();
+```
+
+在调用代码片段中的代码之前，请确保模拟器正在运行。

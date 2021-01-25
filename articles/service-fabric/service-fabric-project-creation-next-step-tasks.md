@@ -2,28 +2,33 @@
 title: 创建 Service Fabric 项目的后续步骤
 description: 了解刚才在 Visual Studio 中创建的应用程序项目。  了解如何使用教程生成服务以及有关开发 Service Fabric 服务的详细信息。
 ms.topic: conceptual
-origin.date: 12/07/2017
+origin.date: 12/21/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 11/09/2020
 ms.author: v-yeche
-ms.openlocfilehash: fc03376e982754d6db5e9042d590c39f90d2dd83
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 8b3e1778d2dc8ba88725884d8790e7e3e507cca8
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328633"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230924"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Service Fabric 应用程序和后续步骤
-已创建 Azure Service Fabric 应用程序。 本文介绍了一些试验教程、项目的组成、你可能感兴趣的其他信息以及有可能执行的后续步骤。
+已创建 Azure Service Fabric 应用程序。 本文包含许多资源、你可能感兴趣的更多信息以及可能的[后续步骤](#next-steps)。
+
+新用户可能会发现[教程、演练和示例](#get-started-with-tutorials-walk-throughs-and-samples)有所帮助。 检查[所创建应用程序项目的结构](#the-application-project)也很有用。 还包括 Service Fabric [编程模型](#learn-more-about-the-programming-models)、[服务通信](#learn-about-service-communication)、[应用程序安全](#learn-about-configuring-application-security)和[应用程序生命周期](#learn-about-the-application-lifecycle)的说明。
+
+较有经验的用户可能会发现 Service Fabric [最佳做法](#learn-about-best-practices)部分对了解如何以最大效率利用平台和构造应用程序非常有用。
+
+如有疑问或反馈，或想要报告问题，请参阅[相应部分](#have-questions-or-feedback--need-to-report-an-issue)。
 
 ## <a name="get-started-with-tutorials-walk-throughs-and-samples"></a>快速入门教程、演练和示例
-已准备就绪？  
+准备好开始了吗？  
 
-按照 .NET 应用程序教程进行操作。 了解如何使用 ASP.NET Core 前端和有状态后端[生成应用程序](service-fabric-tutorial-create-dotnet-app.md)、[将应用程序部署](service-fabric-tutorial-deploy-app-to-party-cluster.md)到群集以及[配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)。
-
-<!-- Not Available on [set up monitoring and diagnostics](service-fabric-tutorial-monitoring-aspnet.md) -->
+按照 .NET 应用程序教程进行操作。 了解如何使用 ASP.NET Core 前端和监控状态的后端[构建应用](service-fabric-tutorial-create-dotnet-app.md)，如何为群集[部署应用程序](service-fabric-tutorial-deploy-app-to-party-cluster.md)、[配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) 以及如何[设置监视和诊断](service-fabric-tutorial-monitoring-aspnet.md)。
 
 或尝试以下某个演练并创建第一个...
 - [基于 Windows 的 C# Reliable Services 服务](service-fabric-reliable-services-quick-start.md) 
@@ -32,11 +37,6 @@ ms.locfileid: "94328633"
 - [Windows 容器应用程序](service-fabric-get-started-containers.md) 
 
 还可以尝试[示例应用程序](https://aka.ms/servicefabricsamples)。
-
-## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>还有任何疑问或反馈？  需要报告问题？
-请浏览[常见问题](service-fabric-common-questions.md)，了解有关 Service Fabric 的功能及用法方面的解答。
-
-[支持选项](service-fabric-support.md)列出了 StackOverflow 和 MSDN 的相关论坛和选项，可通过论坛提问并通过选项报告问题、获得支持和提交产品反馈。
 
 ## <a name="the-application-project"></a>应用程序项目
 每个新应用程序都包含一个应用程序项目。 根据选择的服务类型，可能有一个或两个附加的项目。
@@ -56,12 +56,32 @@ Service Fabric 提供了多种方法来编写和管理服务。  以下是[无�
 Service Fabric 应用程序由不同的服务组成，其中每个服务执行专门任务。 这些服务之间可以相互通信，并且存在连接到服务并与之通信的群集外客户端应用程序。 了解如何在 Service Fabric 中[设置与服务进行的通信以及服务之间的通信](service-fabric-connect-and-communicate-with-services.md)。 
 
 ## <a name="learn-about-configuring-application-security"></a>了解配置应用程序安全性的相关信息
-可以保护群集中以不同用户帐户运行的应用程序。 Service Fabric 还有助于在部署时使用用户帐户来保护应用程序所用的资源，例如文件、目录和证书。 这样，即使在共享托管环境中，也可确保运行的应用程序彼此更安全。  了解如何[配置应用程序的安全策略](service-fabric-application-runas-security.md)。
+可以保护群集中以不同用户帐户运行的应用程序。 使用用户帐户进行部署时，Service Fabric 还有助于保护应用程序所使用的资源，例如文件、目录和证书。 这样，即使是在共享托管环境中，运行应用程序会更加安全。  了解如何[配置应用程序的安全策略](service-fabric-application-runas-security.md)。
 
 应用程序可能包含敏感信息，例如存储连接字符串、密码或其他不应以明文形式处理的值。 了解如何[管理应用程序中的机密](service-fabric-application-secret-management.md)。
 
 ## <a name="learn-about-the-application-lifecycle"></a>了解应用程序生命周期的相关信息
 与其他平台一样，Service Fabric 应用程序通常将经历以下几个阶段：设计、开发、测试、部署、升级、维护和删除。 [本文](service-fabric-application-lifecycle.md)提供了有关 API 的概述，并且介绍了在 Service Fabric 应用程序生命周期的各个阶段，它们如何被不同角色所使用。
+
+## <a name="learn-about-best-practices"></a>了解最佳做法
+Service Fabric 有许多介绍[最佳做法](./service-fabric-best-practices-overview.md)的文章。 利用此信息来帮助确保群集和应用程序尽可能正常地运行。
+涵盖的主题包括：
+* [安全性](./service-fabric-best-practices-security.md)
+* [网络](./service-fabric-best-practices-networking.md)
+* [计算规划和缩放](./service-fabric-best-practices-capacity-scaling.md)
+* [基础结构即代码](./service-fabric-best-practices-infrastructure-as-code.md)
+* [监视和诊断](./service-fabric-best-practices-monitoring.md)
+* [应用程序设计](./service-fabric-best-practices-applications.md)
+
+还包括一个[生产就绪情况清单](./service-fabric-production-readiness-checklist.md)，其中以一种易于使用的格式集成了所有最佳做法信息。
+
+## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>有问题或反馈？  需要报告问题？
+请浏览[常见问题](service-fabric-common-questions.md)，了解有关 Service Fabric 的功能及用法方面的解答。
+
+[疑难解答指南](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)有助于诊断和解决 Service Fabric 群集中的常见问题。
+
+[支持选项](service-fabric-support.md)列出了 StackOverflow 和 MSDN 的相关论坛和选项，可通过论坛提问并通过选项报告问题、获得支持和提交产品反馈。
+
 
 ## <a name="next-steps"></a>后续步骤
 - [在 Azure 中创建 Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
