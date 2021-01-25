@@ -7,17 +7,17 @@ ms.reviewer: guregini
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 09/18/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: 0d2906ae0889539d150e1a0961e66b9c82e4bd21
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/22/2021
+ms.openlocfilehash: 809feb3f648febf7efaf10e80d268eb597a31f4c
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431113"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611279"
 ---
-# <a name="monitor-azure-data-explorer-ingestion-commands-and-queries-using-diagnostic-logs"></a>使用诊断日志监视 Azure 数据资源管理器的引入、命令和查询
+# <a name="monitor-azure-data-explorer-ingestion-commands-queries-and-tables-using-diagnostic-logs"></a>使用诊断日志监视 Azure 数据资源管理器的引入、命令、查询和表
 
-Azure 数据资源管理器是一项快速、完全托管的数据分析服务，用于实时分析从应用程序、网站和 IoT 设备等资源流式传输的海量数据。 [Azure Monitor 诊断日志](/azure-monitor/platform/diagnostic-logs-overview)提供有关 Azure 资源操作的数据。 Azure 数据资源管理器使用诊断日志获取有关引入成功、引入失败、命令和查询操作的见解。 可将操作日志导出到 Azure 存储、事件中心或 Log Analytics 以监视引入、命令和查询状态。 可将 Azure 存储和 Azure 事件中心的日志路由到 Azure 数据资源管理器群集中的某个表，以进一步分析。
+Azure 数据资源管理器是一项快速、完全托管的数据分析服务，用于实时分析从应用程序、网站和 IoT 设备等资源流式传输的海量数据。 [Azure Monitor 诊断日志](/azure/azure-monitor/platform/diagnostic-logs-overview)提供有关 Azure 资源操作的数据。 Azure 数据资源管理器使用诊断日志获取有关引入、命令、查询和表的见解。 可将操作日志导出到 Azure 存储、事件中心或 Log Analytics 以监视引入、命令和查询状态。 可将 Azure 存储和 Azure 事件中心的日志路由到 Azure 数据资源管理器群集中的某个表，以进一步分析。
 
 > [!IMPORTANT] 
 > 诊断日志数据可能包含敏感数据。 请根据监视需求限制日志目标的权限。 
@@ -34,8 +34,17 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 # <a name="ingestion"></a>[引流](#tab/ingestion)
 
+> [!NOTE]
+> 对于使用 SDK、数据连接和连接器将排队的引入内容引入到引入终结点，引入日志受支持。
+>
+> 对于流式引入、目标为引擎的直接引入、从查询进行的引入或者设置或追加命令，引入日志不受支持。
+
+> [!NOTE]
+> 只会针对引入操作的最终状态报告“失败引入”日志，这与[引入结果](using-metrics.md#ingestion-metrics)指标不同，后者是针对在内部重试的暂时性故障发出的。
+
 * **成功的引入操作**：这些日志包含有关已成功完成的引入操作的信息。
 * **失败的引入操作**：这些日志包含有关失败的引入操作的详细信息，包括错误详细信息。 
+* 引入批处理操作：这些日志详细说明了可用于引入的批处理的统计信息（持续时间、批大小和 blob 计数）。
 
 # <a name="commands-and-queries"></a>[命令和查询](#tab/commands-and-queries)
 
@@ -44,6 +53,15 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
     > [!NOTE]
     > 查询日志数据不包含查询文本。
+    
+# <a name="tables"></a>[表](#tab/tables)
+
+* TableUsageStatistics：这些日志包含已达到最终状态的命令和查询的详细使用情况信息。
+
+    > [!NOTE]
+    > `TableUsageStatistics` 日志数据不包含命令或查询文本。
+
+* TableDetails：这些日志包含有关群集的表的详细信息。
 
 ---
 
@@ -59,20 +77,20 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
     ![添加诊断日志](media/using-diagnostic-logs/add-diagnostic-logs.png)
 
 1. 选择“添加诊断设置”。 
-1. 在“诊断设置”窗口中： 
+1. 在“诊断设置”窗口中，执行以下操作：
 
     :::image type="content" source="media/using-diagnostic-logs/configure-diagnostics-settings.png" alt-text="配置诊断设置":::
 
-    1. 选择诊断设置的 **名称**。
-    1. 选择一个或多个目标：存储帐户、事件中心或 Log Analytics。
-    1. 选择要收集的日志：`SucceededIngestion`、`FailedIngestion`、`Command` 或 `Query`。
+    1. 输入一个诊断设置名称。
+    1. 选择一个或多个目标：Log Analytics 工作区、存储帐户或事件中心。
+    1. 选择要收集的日志：`SucceededIngestion`、`FailedIngestion`、`IngestionBatching`、`Command`、`Query`、`TableUsageStatistics` 或 `TableDetails`。
     1. 选择要收集的[指标](using-metrics.md#supported-azure-data-explorer-metrics)（可选）。  
     1. 选择“保存”以保存新的诊断日志设置和指标。 
 
 在几分钟内即会完成新的设置。 日志随后会显示在配置的存档目标（存储帐户、事件中心或 Log Analytics）中。 
 
 > [!NOTE]
-> 如果将日志发送到 Log Analytics，则 `SucceededIngestion`、`FailedIngestion`、`Command` 和 `Query` 日志将分别存储在名为 `SucceededIngestion`、`FailedIngestion`、`ADXCommand` 和 `ADXQuery` 的 Log Analytics 表中。
+> 如果将日志发送到 Log Analytics，则 `SucceededIngestion`、`FailedIngestion`、`IngestionBatching`、`Command`、`Query`、`TableUsageStatistics` 和 `TableDetails` 日志会分别存储在名为 `SucceededIngestion`、`FailedIngestion`、`ADXIngestionBatching`、`ADXCommand`、`ADXQuery`、`ADXTableUsageStatistics` 和 `ADXTableDetails` 的 Log Analytics 表中。
 
 ## <a name="diagnostic-logs-schema"></a>诊断日志架构
 
@@ -90,7 +108,7 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 |ResourceId         |Azure Resource Manager 资源 ID
 |operationName      |操作名称：'MICROSOFT.KUSTO/CLUSTERS/INGEST/ACTION'
 |operationVersion   |架构版本：'1.0' 
-|category           |操作类别。 `SucceededIngestion` 或 `FailedIngestion`。 [成功的操作](#successful-ingestion-operation-log)或[失败的操作](#failed-ingestion-operation-log)的属性不同。
+|category           |操作类别。 `SucceededIngestion`、`FailedIngestion` 或 `IngestionBatching`。 [成功的操作](#successful-ingestion-operation-log)、[失败的操作](#failed-ingestion-operation-log)或[批处理操作](#ingestion-batching-operation-log)的属性不同。
 |properties         |操作的详细信息。
 
 #### <a name="successful-ingestion-operation-log"></a>成功引入操作日志
@@ -106,13 +124,13 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
     "category": "SucceededIngestion",
     "properties":
     {
-        "succeededOn": "2019-05-27 07:55:05.3693628",
-        "operationId": "b446c48f-6e2f-4884-b723-92eb6dc99cc9",
-        "database": "Samples",
-        "table": "StormEvents",
-        "ingestionSourceId": "66a2959e-80de-4952-975d-b65072fc571d",
-        "ingestionSourcePath": "https://kustoingestionlogs.blob.core.chinacloudapi.cn/sampledata/events8347293.json",
-        "rootActivityId": "d0bd5dd3-c564-4647-953e-05670e22a81d"
+        "SucceededOn": "2019-05-27 07:55:05.3693628",
+        "OperationId": "b446c48f-6e2f-4884-b723-92eb6dc99cc9",
+        "Database": "Samples",
+        "Table": "StormEvents",
+        "IngestionSourceId": "66a2959e-80de-4952-975d-b65072fc571d",
+        "IngestionSourcePath": "https://kustoingestionlogs.blob.core.chinacloudapi.cn/sampledata/events8347293.json",
+        "RootActivityId": "d0bd5dd3-c564-4647-953e-05670e22a81d"
     }
 }
 ```
@@ -120,13 +138,13 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 |名称               |说明
 |---                |---
-|succeededOn        |引入完成时间
-|operationId        |Azure 数据资源管理器引入操作 ID
-|database           |目标数据库的名称
+|SucceededOn        |引入完成时间
+|OperationId        |Azure 数据资源管理器引入操作 ID
+|数据库           |目标数据库的名称
 |表              |目标表的名称
-|ingestionSourceId  |引入数据源的 ID
-|ingestionSourcePath|引入数据源或 Blob URI 的路径
-|rootActivityId     |活动 ID
+|IngestionSourceId  |引入数据源的 ID
+|IngestionSourcePath|引入数据源或 Blob URI 的路径
+|RootActivityId     |活动 ID
 
 #### <a name="failed-ingestion-operation-log"></a>失败引入操作日志
 
@@ -161,18 +179,58 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 |名称               |说明
 |---                |---
-|failedOn           |引入完成时间
-|operationId        |Azure 数据资源管理器引入操作 ID
-|database           |目标数据库的名称
+|FailedOn           |引入完成时间
+|OperationId        |Azure 数据资源管理器引入操作 ID
+|数据库           |目标数据库的名称
 |表              |目标表的名称
-|ingestionSourceId  |引入数据源的 ID
-|ingestionSourcePath|引入数据源或 Blob URI 的路径
-|rootActivityId     |活动 ID
+|IngestionSourceId  |引入数据源的 ID
+|IngestionSourcePath|引入数据源或 Blob URI 的路径
+|RootActivityId     |活动 ID
 |详细信息            |失败和错误消息的详细说明
-|errorCode          |错误代码 
-|failureStatus      |`Permanent` 或 `Transient`。 重试暂时性故障可能会成功。
-|originatesFromUpdatePolicy|如果故障源自更新策略，则为 True
-|shouldRetry        |如果重试可以成功，则为 True
+|ErrorCode          |错误代码 
+|FailureStatus      |`Permanent` 或 `Transient`。 重试暂时性故障可能会成功。
+|OriginatesFromUpdatePolicy|如果故障源自更新策略，则为 True
+|ShouldRetry        |如果重试可以成功，则为 True
+
+#### <a name="ingestion-batching-operation-log"></a>引入批处理操作日志
+
+**示例：**
+
+```json
+{
+  "resourceId": "/SUBSCRIPTIONS/12534EB3-8109-4D84-83AD-576C0D5E1D06/RESOURCEGROUPS/KEREN/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KERENEUS",
+  "time": "2020-05-27T07:55:05.3693628Z",
+  "operationVersion": "1.0",
+  "operationName": "MICROSOFT.KUSTO/CLUSTERS/INGESTIONBATCHING/ACTION",
+  "category": "IngestionBatching",
+  "correlationId": "2bb51038-c7dc-4ebd-9d7f-b34ece4cb735",
+  "properties": {
+    "Database": "Samples",
+    "Table": "StormEvents",
+    "BatchingType": "Size",
+    "SourceCreationTime": "2020-05-27 07:52:04.9623640",
+    "BatchTimeSeconds": 215.5,
+    "BatchSizeBytes": 2356425,
+    "DataSourcesInBatch": 4,
+    "RootActivityId": "2bb51038-c7dc-4ebd-9d7f-b34ece4cb735"
+  }
+}
+
+```
+**引入批处理操作诊断日志的属性**
+
+|名称               |说明
+|---                   |---
+| TimeGenerated        | 生成此事件的时间 (UTC) |
+| 数据库             | 保存目标表的数据库的名称 |
+| 表                | 数据引入到的目标表的名称 |
+| BatchingType         | 批处理类型：批处理是否达到批处理策略设置的批处理时间、数据大小或文件数限制 |
+| SourceCreationTime   | 此批中 blob 的最早创建时间 (UTC) |
+| BatchTimeSeconds     | 此批的总批处理时间（秒） |
+| BatchSizeBytes       | 此批中数据的未压缩大小总计（字节） |
+| DataSourcesInBatch   | 此批中的数据源数 |
+| RootActivityId       | 操作的活动 ID |
+
 
 # <a name="commands-and-queries"></a>[命令和查询](#tab/commands-and-queries)
 
@@ -349,6 +407,117 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 |TablesStatistics        |包含结果集表统计信息
 |RowCount        | 结果集表行计数
 |TableSize        |结果集表行计数
+
+
+# <a name="tables"></a>[表](#tab/tables)
+
+### <a name="tableusagestatistics-and-tabledetails-logs-schema"></a>TableUsageStatistics 和 TableDetails 日志架构
+
+日志 JSON 字符串包含下表中列出的元素：
+
+|名称               |说明
+|---                |---
+|time               |报告时间
+|ResourceId         |Azure Resource Manager 资源 ID
+|operationName      |操作名称：“MICROSOFT.KUSTO/CLUSTERS/DATABASE/SCHEMA/READ”。 TableUsageStatistics 和 TableDetails 的属性相同。
+|operationVersion   |架构版本：'1.0' 
+|properties         |操作的详细信息
+
+#### <a name="tableusagestatistics-log"></a>TableUsageStatistics 日志
+
+**示例：**
+
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/0571b364-eeeb-4f28-ba74-90a8b4132b53/RESOURCEGROUPS/MYRG/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/MYKUSTOCLUSTER",
+    "time": "08-04-2020 16:42:29",
+    "operationName": "MICROSOFT.KUSTO/CLUSTERS/DATABASE/SCHEMA/READ",
+    "correlationId": "MyApp.Kusto.DM.MYKUSTOCLUSTER.ShowTableUsageStatistics.e10fe80b-6f4d-4b7e-9756-b87720f88901",
+    "properties": {
+        "RootActivityId": "3e6e8814-e64f-455a-926d-bf16229f6d2d",
+        "StartedOn": "2020-08-19T11:51:41.1258308Z",
+        "Database": "MyDB",
+        "Table": "MyTable",
+        "MinCreatedOn": "2020-07-20T09:16:00.9906347Z",
+        "MaxCreatedOn": "2020-08-19T11:50:37.1233374Z",
+        "Application": "MyApp",
+        "User": "AAD app id=0571b364-eeeb-4f28-ba74-90a8b4132b53",
+        "Principal": "aadapp=0571b364-eeeb-4f28-ba74-90a8b4132b53;5c823e4d-c927-4010-a2d8-6dda2449b6cf"
+    }
+}
+```
+
+**TableUsageStatistics 诊断日志的属性**
+
+|名称               |说明
+|---                |---
+|RootActivityId |根活动 ID
+|StartedOn        |该命令开始的时间 (UTC)
+|数据库          |数据库的名称
+|TableName              |表的名称
+|MinCreatedOn  |表的最早区时间
+|MaxCreatedOn |表的最新区时间
+|ApplicationName     |调用了该命令的应用程序的名称
+|用户     |调用了查询的用户
+|主体     |调用了查询的主体
+
+#### <a name="tabledetails-log"></a>TableDetails 日志
+
+**示例：**
+
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/0571b364-eeeb-4f28-ba74-90a8b4132b53/RESOURCEGROUPS/MYRG/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/MYKUSTOCLUSTER",
+    "time": "08-04-2020 16:42:29",
+    "operationName": "MICROSOFT.KUSTO/CLUSTERS/DATABASE/SCHEMA/READ",
+    "correlationId": "MyApp.Kusto.DM.MYKUSTOCLUSTER.ShowTableUsageStatistics.e10fe80b-6f4d-4b7e-9756-b87720f88901",
+    "properties": {
+        "RootActivityId": "3e6e8814-e64f-455a-926d-bf16229f6d2d",
+        "TableName": "MyTable",
+        "DatabaseName": "MyDB",
+        "TotalExtentSize": 9632.0,
+        "TotalOriginalSize": 4143.0,
+        "HotExtentSize": 0.0,
+        "RetentionPolicyOrigin": "table",
+        "RetentionPolicy": "{\"SoftDeletePeriod\":\"90.00:00:00\",\"Recoverability\":\"Disabled\"}",
+        "CachingPolicyOrigin": "database",
+        "CachingPolicy": "{\"DataHotSpan\":\"7.00:00:00\",\"IndexHotSpan\":\"7.00:00:00\",\"ColumnOverrides\":[]}",
+        "MaxExtentsCreationTime": "2020-08-30T02:44:43.9824696Z",
+        "MinExtentsCreationTime": "2020-08-30T02:38:42.3031288Z",
+        "TotalExtentCount": 1164,
+        "TotalRowCount": 223325,
+        "HotExtentCount": 29,
+        "HotOriginalSize": 1388213,
+        "HotRowCount": 5117
+  }
+}
+```
+
+**TableDetails 诊断日志的属性**
+
+|名称               |说明
+|---                |---
+|RootActivityId |根活动 ID
+|TableName        |表的名称
+|DatabaseName           |数据库的名称
+|TotalExtentSize              |表中数据的原始总大小（以字节为单位）
+|HotExtentSize  |表中的区（存储在热缓存中）的总大小（压缩大小和索引大小），以字节为单位。
+|RetentionPolicyOrigin |保留策略源实体（表/数据库/群集）
+|RetentionPolicy     |表的有效实体保留策略，已序列化为 JSON
+|CachingPolicyOrigin            |缓存策略源实体（表/数据库/群集）
+|CachingPolicy          |表的有效实体缓存策略，已序列化为 JSON
+|MaxExtentsCreationTime      |表中的区的最大创建时间（如果没有区，则为 NULL）
+|MinExtentsCreationTime |表中的区的最小创建时间（如果没有区，则为 NULL）
+|TotalExtentCount        |表中的总区数
+|TotalRowCount        |表中的总行数
+|MinDataScannedTime        |最短数据扫描时间
+|MaxDataScannedTime        |最长数据扫描时间
+|TotalExtentsCount        |盘区总数
+|ScannedExtentsCount        |扫描的盘区计数
+|TotalRowsCount        |总行计数
+|HotExtentCount        |表中的区（存储在热缓存中）的总数
+|HotOriginalSize        |表中的数据（存储在热缓存中）的原始总大小（以字节为单位）
+|HotRowCount        |表中的行（存储在热缓存中）的总数
 
 ---
 

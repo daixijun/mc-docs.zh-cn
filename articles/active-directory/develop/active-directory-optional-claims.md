@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/06/2021
+ms.date: 01/13/2021
 ms.author: v-junlch
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 74a2546cd153854da91682cc103fe61adb19ea7a
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: d2be57c62dad67422e4d6b02d7ad961991b78cff
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021647"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195005"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>如何：向应用提供可选声明
 
@@ -65,7 +65,7 @@ ms.locfileid: "98021647"
 | `ztdid`                    | 零接触部署 ID | JWT | | 用于 [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) 的设备标识 |
 | `email`                    | 此用户的可寻址电子邮件（如果此用户有）。  | JWT、SAML | MSA、Azure AD | 如果用户是租户中的来宾，则默认包含此值。  对于托管用户（租户内部的用户），它必须通过此可选声明进行请求，或者仅在 v2.0 上使用 OpenID 范围进行请求。| 
 | `acct`                | 租户中的用户帐户状态 | JWT、SAML | | 如果用户是租户的成员，则该值为 `0`。 如果他们是来宾，则该值为 `1`。 |
-| `groups`| 组声明的可选格式 |JWT、SAML| |与[应用程序清单](reference-app-manifest.md)中的 GroupMembershipClaims 设置（也是必需的）结合使用。 
+| `groups`| 组声明的可选格式 |JWT、SAML| |与[应用程序清单](reference-app-manifest.md)中的 GroupMembershipClaims 设置（也是一个必需设置）结合使用。 
 | `upn`                      | UserPrincipalName | JWT、SAML  |           | 可以与 username_hint 参数一起使用的用户标识符。  不是用户的持久标识符，不应当用于唯一标识用户信息（例如，用作数据库密钥）。 应改用用户对象 ID (`oid`) 作为数据库密钥。 不应向使用备用登录 ID 登录的用户显示其用户主体名称 (UPN)。 应改用以下 ID 令牌声明向用户显示登录状态：`preferred_username` 或 `unique_name` 适用于 v1 令牌，`preferred_username` 适用于 v2 令牌。 尽管会自动包含此声明，但可以将它指定为可选声明，以附加额外的属性，在来宾用例中修改此声明的行为。  |
 | `idtyp`                    | 令牌类型   | JWT 访问令牌 | 特别之处：仅在仅限应用的访问令牌中 |  当令牌为仅限应用的令牌时，值为 `app`。 这是 API 确定令牌是应用令牌还是应用+用户令牌最准确的方法。|
 
@@ -84,7 +84,19 @@ ms.locfileid: "98021647"
 | `in_corp`     | 企业网络内部        | 表示客户端是否从企业网络登录。 如果不是，则不包括该声明。   |  以 MFA 中的[可信 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) 设置为基础。    |
 | `family_name` | 姓氏                       | 根据用户对象中的定义提供用户的姓氏。 <br>"family_name":"Miller" | 在 MSA 和 Azure AD 中受支持。 需要 `profile` 范围。   |
 | `given_name`  | 名字                      | 根据用户对象中的设置提供用户的名字和“姓氏”。<br>"given_name":"Frank"                   | 在 MSA 和 Azure AD 中受支持。  需要 `profile` 范围。 |
-| `upn`         | 用户主体名称 | 可以与 username_hint 参数一起使用的用户标识符。  不是用户的持久标识符，不应当用于唯一标识用户信息（例如，用作数据库密钥）。 应改用用户对象 ID (`oid`) 作为数据库密钥。 不应向使用备用登录 ID 登录的用户显示其用户主体名称 (UPN)。 应改用以下 ID 令牌声明向用户显示登录状态：`preferred_username` 或 `unique_name` 适用于 v1 令牌，`preferred_username` 适用于 v2 令牌。 | 有关声明配置，请参阅下面的[附加属性](#additional-properties-of-optional-claims)。 需要 `profile` 范围。|
+| `upn`         | 用户主体名称 | 可以与 username_hint 参数一起使用的用户标识符。  不是用户的持久标识符，不应当用于唯一标识用户信息（例如，用作数据库密钥）。 应改用用户对象 ID (`oid`) 作为数据库密钥。 不应向使用备用登录 ID 登录的用户显示其用户主体名称 (UPN)。 请改用下面的 `preferred_username` 声明向用户显示登录状态。 | 有关声明配置，请参阅下面的[附加属性](#additional-properties-of-optional-claims)。 需要 `profile` 范围。|
+
+## <a name="v10-specific-optional-claims-set"></a>特定于 v1.0 的可选声明集
+
+v2 令牌格式的一些改进供使用 v1 令牌格式的应用使用，因为它们有助于提高安全性和可靠性。 对于从 v2 终结点请求的 ID 令牌，或者使用 v2 令牌格式的 API 的访问令牌，这些声明集不会生效。 它们仅适用于 JWT，不适用于 SAML 令牌。 
+
+表 4：仅限 v1.0 的可选声明
+
+
+| JWT 声明     | 名称                            | 说明 | 说明 |
+|---------------|---------------------------------|-------------|-------|
+|`aud`          | 目标受众 | 在 JWT 中始终提供，但在 v1 访问令牌中，发出此声明可以使用各种方式 - 任何 appID URI（带或不带尾随斜杠）以及资源的客户端 ID。 执行令牌验证时，此随机化可能会导致难以进行编码。  请使用[此声明的附加属性](#additional-properties-of-optional-claims)，以确保它在 v1 访问令牌中始终设置为资源的客户端 ID。 | 仅限 v1 JWT 访问令牌|
+|`preferred_username` | 首选用户名        | 在 v1 令牌中提供首选用户名声明。 这使得应用可以更轻松地提供用户名提示并显示可供人工阅读的显示名称，不需要考虑其令牌类型。  建议使用此可选声明，而不要使用 `upn` 或 `unique_name` 之类的声明。 | v1 ID 令牌和访问令牌 |
 
 ### <a name="additional-properties-of-optional-claims"></a>可选声明的附加属性
 
@@ -96,7 +108,9 @@ ms.locfileid: "98021647"
 |----------------|--------------------------|-------------|
 | `upn`          |                          | 可用于 SAML 和 JWT 响应，以及 v1.0 和 v2.0 令牌。 |
 |                | `include_externally_authenticated_upn`  | 包含资源租户中存储的来宾 UPN。 例如： `foo_hometenant.com#EXT#@resourcetenant.com` |
-|                | `include_externally_authenticated_upn_without_hash` | 同上，不过，井号标记 (`#`) 已替换为下划线 (`_`)，例如 `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | 同上，不过，井号标记 (`#`) 已替换为下划线 (`_`)，例如 `foo_hometenant.com_EXT_@resourcetenant.com`|
+| `aud`          |                          | 在 v1 访问令牌中，这用来更改 `aud` 声明的格式。  这在 v2 令牌或任一版本的 ID 令牌中都不起作用，这些令牌中的 `aud` 声明始终为客户端 ID。 使用此配置可确保你的 API 能够更轻松地执行受众验证。 与影响访问令牌的所有可选声明一样，请求中的资源必须设置此可选声明，因为资源拥有访问令牌。|
+|                | `use_guid`               | 始终以 GUID 格式将资源 (API) 的客户端 ID 作为 `aud` 声明发出，而不是让它依赖于运行时。 例如，如果某个资源设置了此标志，并且它的客户端 ID 为 `bb0a297b-6a42-4a55-ac40-09a501456577`，则请求该资源的访问令牌的任何应用都会收到包含 `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577` 的访问令牌。 </br></br> 如果不设置此声明，则 API 得到的令牌中的 `aud` 声明可能为 `api://MyApi.com`、`api://MyApi.com/`、`api://myapi.com/AdditionalRegisteredField` 或设置为该 API 的应用 ID URI 以及资源的客户端 ID 的任何其他值。 |
 
 #### <a name="additional-properties-example"></a>附加属性示例
 
@@ -123,8 +137,8 @@ ms.locfileid: "98021647"
 
 可以通过 UI 或应用程序清单来配置应用程序的可选声明。
 
-1. 转到 [Azure 门户](https://portal.azure.cn)。 
-1. 搜索并选择“Azure Active Directory”。
+1. 转到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。 
+1. 搜索并选择“Azure Active Directory”  。
 1. 在“管理”下，选择“应用注册”。 
 1. 在列表中选择要为其配置可选声明的应用程序。
 
@@ -230,7 +244,7 @@ ms.locfileid: "98021647"
 
 **通过 UI 配置组可选声明：**
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 通过身份验证后，在页面右上角选择 Azure AD 租户。
 1. 搜索并选择“Azure Active Directory”  。
 1. 在“管理”下，选择“应用注册”。 
@@ -243,7 +257,7 @@ ms.locfileid: "98021647"
 
 **通过应用程序清单配置组可选声明：**
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 通过身份验证后，在页面右上角选择 Azure AD 租户。
 1. 搜索并选择“Azure Active Directory”  。
 1. 在列表中选择要为其配置可选声明的应用程序。
@@ -287,7 +301,7 @@ ms.locfileid: "98021647"
     }
     ```
 
-   | 可选声明架构 | Value |
+   | 可选声明架构 | 值 |
    |----------|-------------|
    | **name：** | 必须是“groups” |
    | **source：** | 未使用。 省略或指定 null |
@@ -374,7 +388,7 @@ ms.locfileid: "98021647"
 
 **UI 配置：**
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 通过身份验证后，在页面右上角选择 Azure AD 租户。
 
 1. 搜索并选择“Azure Active Directory”  。
@@ -397,7 +411,7 @@ ms.locfileid: "98021647"
 
 **清单配置：**
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 通过身份验证后，在页面右上角选择 Azure AD 租户。
 1. 搜索并选择“Azure Active Directory”  。
 1. 在列表中找到要为其配置可选声明的应用程序并选择它。

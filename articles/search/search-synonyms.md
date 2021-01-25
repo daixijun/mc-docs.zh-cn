@@ -3,182 +3,152 @@ title: 搜索索引上查询扩展的同义词
 titleSuffix: Azure Cognitive Search
 description: 创建一个同义词映射，用于扩展 Azure 认知搜索索引上搜索查询的范围。 扩宽了范围，使其包括你在列表中提供的同义术语。
 manager: nitinme
-author: brjohnstmsft
+author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 08/26/2020
-ms.date: 12/10/2020
-ms.openlocfilehash: 4f010a6effc21034d3dfa92e4b192fc149b12452
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+origin.date: 12/18/2020
+ms.date: 01/14/2021
+ms.openlocfilehash: 63c50b31c8698300d54cf05182c071452aed1fd8
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003847"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194757"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Azure 认知搜索中的同义词
 
-搜索引擎中的同义词功能无需用户实际提供术语，便可关联隐式扩展查询作用域的等效术语。 例如，若给定术语“dog”以及“canine”和“puppy”同义词关联，则包含“dog”、“canine”或“puppy”的所有文档都属于查询作用域。
-
-在 Azure 认知搜索中，查询时会完成同义词功能扩展。 可将同义词映射添加到服务，而不会中断现有操作。 可将  **synonymMaps** 属性添加到字段定义，而无需重新生成索引。
+使用同义词映射，你可以关联等效字词，从而在无需用户实际提供字词的情况下扩展查询范围。 例如，假设“dog”、“canine”和“puppy”是同义词，则对“canine”的查询会匹配包含“dog”的文档。
 
 ## <a name="create-synonyms"></a>创建同义词
 
-我们不提供创建同义词的门户支持，但你可以使用 REST API 或 .NET SDK。 若要开始使用 REST，建议使用 [Postman 或 Visual Studio Code](search-get-started-rest.md)，并使用此 API 来表述请求：[创建同义词映射](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)。 如果是 C# 开发人员，一开始可以[使用 C# 在 Azure 认知搜索中添加同义词](search-synonyms-tutorial-sdk.md)。
+同义词映射是一种可以在创建一次后由许多索引使用的资产。 [服务层级](search-limits-quotas-capacity.md#synonym-limits)决定了你可以创建多少个同义词映射，范围为 3 个同义词映射（适用于“免费”层级和“基本”层级）到最多 20 个同义词映射（适用于“标准”层级）。 
 
-另外，如果使用[客户托管密钥](search-security-manage-encryption-keys.md)进行服务端静态加密，则可对同义词映射的内容应用该保护。
+如果你的内容包含技术或模糊术语，则你可以为不同的语言（例如英语和法语版本）或词典创建多个同义词映射。 虽然你可以创建多个同义词映射，但是，一个字段当前只能使用其中一个映射。
 
-## <a name="use-synonyms"></a>使用同义词
+同义词映射由名称、格式和充当同义词映射条目的规则组成。 唯一受支持的格式是 `solr`，`solr` 格式决定了规则构造。
 
-在 Azure 认知搜索中，同义词支持基于定义和上传到服务的同义词映射。 这些映射构成独立的资源（如索引或数据源），在搜索服务中可用于任何索引的任何可搜索字段。
-
-同义词映射和索引独立维护。 定义同义词映射并将其上传到服务后，可通过在字段定义中添加名为 **synonymMaps** 的新属性在字段上启用同义词功能。 创建、更新和删除同义词映射始终是一项全文档操作。也就是说，无法逐个创建、更新或删除同义词映射的各个部分。 甚至更新单个条目也需要重新加载。
-
-将同义词并入搜索应用程序需要两步：
-
-1.  通过以下 API 将同义词映射添加到搜索服务。  
-
-2.  配置可搜索字段以在索引定义中使用同义词映射。
-
-可为搜索应用程序创建多个同义词映射（例如，如果应用程序支持多语言客户群，则可按语言创建同义词映射）。 目前，一个字段仅可使用其中一种。 可随时更新字段的 synonymMaps 属性。
-
-### <a name="synonymmaps-resource-apis"></a>SynonymMaps 资源 API
-
-#### <a name="add-or-update-a-synonym-map-under-your-service-using-post-or-put"></a>使用 POST 或 PUT 可在服务下添加或更新同义词映射。
-
-使用 POST 或 PUT 可将同义词映射上传到服务。 每个规则必须通过换行符（“\n”）进行分隔。 在免费服务中可为每个同义词映射定义最多 5,000 条规则，在所有其他 SKU 中可为每个映射定义最多 20,000 条规则。 每条规则可包含最多 20 个扩展。
-
-同义词映射的格式必须为 Apache Solr，以下对此进行了解释。 如果现有的同义词字典具有不同格式，并且希望直接使用它，请在 [UserVoice](https://feedback.azure.com/forums/263029-azure-search) 上向我们反馈。
-
-如以下示例所示，可使用 HTTP POST 创建新的同义词映射：
-
-```synonym-map
-    POST https://[servicename].search.azure.cn/synonymmaps?api-version=2020-06-30
-    api-key: [admin key]
-
-    {
-       "name":"mysynonymmap",
-       "format":"solr",
-       "synonyms": "
-          USA, United States, United States of America\n
-          Washington, Wash., WA => WA\n"
-    }
+```http
+POST /synonymmaps?api-version=2020-06-30
+{
+    "name": "geo-synonyms",
+    "format": "solr",
+    "synonyms": "
+        USA, United States, United States of America\n
+        Washington, Wash., WA => WA\n"
+}
 ```
 
-此外，可使用 PUT 并在 URI 上指定同义词映射名称。 如果同义词映射不存在，则创建一个。
+若要创建同义词映射，请使用[创建同义词映射 (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map) 或 Azure SDK。 对于 C# 开发人员，建议从[使用 C# 在 Azure 认知搜索中添加同义词](search-synonyms-tutorial-sdk.md)开始。
 
-```synonym-map
-    PUT https://[servicename].search.azure.cn/synonymmaps/mysynonymmap?api-version=2020-06-30
-    api-key: [admin key]
+## <a name="define-rules"></a>定义规则
 
-    {
-       "format":"solr",
-       "synonyms": "
-          USA, United States, United States of America\n
-          Washington, Wash., WA => WA\n"
-    }
+映射规则遵循 Apache Solr 的开源同义词筛选器规范，详情请参阅此文档：[SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter)。`solr` 格式支持两种类型的规则：
+
++ 等效（例如，字词在查询中是等效替代项）
+
++ 显式映射（例如，字词在查询之前映射到一个显式字词）
+
+每个规则都必须由换行符 (`\n`) 分隔。 在免费服务中可为每个同义词映射定义最多 5,000 条规则，在其他层级中可为每个映射定义最多 20,000 条规则。 每条规则可包含最多 20 个扩展（或规则中的项）。 有关详细信息，请参阅[同义词限制](search-limits-quotas-capacity.md#synonym-limits)。
+
+查询分析程序会将任何大写或混合大小写的字词转换为小写，但如果你想在字符串中保留特殊字符（例如逗号或短划线），请在创建同义词映射时添加合适的转义字符。 
+
+### <a name="equivalency-rules"></a>等效规则
+
+等效字词的规则在同一规则中用逗号分隔。 在第一个示例中，针对 `USA` 的查询将扩展为 `USA` OR `"United States"` OR `"United States of America"`。 请注意，如果想要匹配某个短语，则查询本身必须是带引号的短语查询。
+
+对于等效情况，对 `dog` 的查询会对查询进行扩展，以同时包括 `puppy` 和 `canine`。
+
+```json
+{
+"format": "solr",
+"synonyms": "
+    USA, United States, United States of America\n
+    dog, puppy, canine\n
+    coffee, latte, cup of joe, java\n"
+}
 ```
 
-##### <a name="apache-solr-synonym-format"></a>Apache Solr 同义词格式
+### <a name="explicit-mapping"></a>显式映射
 
-Solr 格式支持等效和显式同义词映射。 映射规则遵循 Apache Solr 的开源同义词筛选器规范，详情请参阅此文档：[SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter)。 下面是等效同义词的示例规则。
+显式映射的规则由箭头 `=>` 表示。 在指定它的情况下，与 `=>` 左侧内容匹配的一系列搜索查询字词在查询时会被替换为右侧的替代项。
 
+对于显式情况，对 `Washington`、`Wash.` 或 `WA` 的查询会被重写为 `WA`，查询引擎将仅查找 `WA` 一词的匹配项。 显式映射只会按指定方向应用，在这种情况下，不会将查询 `WA` 重写为 `Washington`。
+
+```json
+{
+"format": "solr",
+"synonyms": "
+    Washington, Wash., WA => WA\n
+    California, Calif., CA => CA\n"
+}
 ```
-USA, United States, United States of America
-```
 
-使用以上规则，搜索查询“USA”会扩展为“USA”、“United States”或“United States of America”。
+### <a name="escaping-special-characters"></a>转义特殊字符
 
-箭头“=>”表示显式映射。 如果指定，与“=>”左侧内容匹配的一系列搜索查询词会被替换为“=>”右侧的替代项。 给定以下规则，搜索查询“Washington”、“Wash”。 或“WA”全都会重写为“WA”。 显式映射只会按指定方向应用，在此示例中，不会将查询“WA”重写为“Washington”。
+如果需要定义包含逗号或其他特殊字符的同义词，可以使用反斜杠对其进行转义，如以下示例所示：
 
-```
-Washington, Wash., WA => WA
-```
-
-如果需要定义包含逗号的同义词，可以使用反斜杠对其进行转义，如以下示例所示：
-
-```
-WA\, USA, WA, Washington
+```json
+{
+"format": "solr",
+"synonyms": "WA\, USA, WA, Washington\n"
+}
 ```
 
 由于反斜杠本身是其他语言（例如 JSON 和 C#）中的特殊字符，因此你可能需要对其进行双重转义。 例如，发送到上述同义词映射的 REST API 的 JSON 如下所示：
 
 ```json
-    {
-       "format":"solr",
-       "synonyms": "WA\\, USA, WA, Washington"
-    }
+{
+"format":"solr",
+"synonyms": "WA\\, USA, WA, Washington"
+}
 ```
 
-#### <a name="list-synonym-maps-under-your-service"></a>列出服务下的同义词映射。
+## <a name="upload-and-manage-synonym-maps"></a>上传和管理同义词映射
 
-```synonym-map
-    GET https://[servicename].search.azure.cn/synonymmaps?api-version=2020-06-30
-    api-key: [admin key]
+如前文所述，若要创建或更新同义词映射，你无需中断查询，也无需为工作负荷编制索引。 同义词映射是一个独立的对象（像索引或数据源一样），只要没有字段使用它，更新便不会导致索引或查询失败。 但是，一旦你将同义词映射添加到字段定义，则在删除同义词映射后，包含相关字段的任何查询都会失败并出现 404 错误。
+
+创建、更新和删除同义词映射始终是一项全文档操作。也就是说，无法逐个更新或删除同义词映射的各个部分。 甚至更新单个规则也需要重新加载。
+
+## <a name="assign-synonyms-to-fields"></a>向字段分配同义词
+
+上传同义词映射后，你可以在类型为 `Edm.String` 或 `Collection(Edm.String)` 且设置了 `"searchable":true` 的字段上启用同义词。 如上所述，一个字段定义只能使用一个同义词映射。
+
+```http
+POST /indexes?api-version=2020-06-30
+{
+    "name":"hotels-sample-index",
+    "fields":[
+        {
+            "name":"description",
+            "type":"Edm.String",
+            "searchable":true,
+            "synonymMaps":[
+            "en-synonyms"
+            ]
+        },
+        {
+            "name":"description_fr",
+            "type":"Edm.String",
+            "searchable":true,
+            "analyzer":"fr.microsoft",
+            "synonymMaps":[
+            "fr-synonyms"
+            ]
+        }
+    ]
+}
 ```
 
-#### <a name="get-a-synonym-map-under-your-service"></a>获取服务下的同义词映射。
+## <a name="query-on-equivalent-or-mapped-fields"></a>对等效或映射的字段进行查询
 
-```synonym-map
-    GET https://[servicename].search.azure.cn/synonymmaps/mysynonymmap?api-version=2020-06-30
-    api-key: [admin key]
-```
+添加同义词不会对查询构造施加新的要求。 你可以像添加同义词之前一样发出字词和短语查询。 唯一的区别是，如果同义词映射中存在查询字词，则查询引擎会根据规则扩展或重写该字词或短语。
 
-#### <a name="delete-a-synonyms-map-under-your-service"></a>删除服务下的同义词映射。
-
-```synonym-map
-    DELETE https://[servicename].search.azure.cn/synonymmaps/mysynonymmap?api-version=2020-06-30
-    api-key: [admin key]
-```
-
-### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>配置可搜索字段以在索引定义中使用同义词映射。
-
-新字段属性 **synonymMaps** 可用于指定同义词映射以供可搜索字段使用。 同义词映射是服务级资源，服务下的任意索引字段都可以引用。
-
-```synonym-map
-    POST https://[servicename].search.azure.cn/indexes?api-version=2020-06-30
-    api-key: [admin key]
-
-    {
-       "name":"myindex",
-       "fields":[
-          {
-             "name":"id",
-             "type":"Edm.String",
-             "key":true
-          },
-          {
-             "name":"name",
-             "type":"Edm.String",
-             "searchable":true,
-             "analyzer":"en.lucene",
-             "synonymMaps":[
-                "mysynonymmap"
-             ]
-          },
-          {
-             "name":"name_jp",
-             "type":"Edm.String",
-             "searchable":true,
-             "analyzer":"ja.microsoft",
-             "synonymMaps":[
-                "japanesesynonymmap"
-             ]
-          }
-       ]
-    }
-```
-
-可为类型“Edm.String”或“Collection(Edm.String)”的可搜索字段指定 **synonymMaps**。
-
-> [!NOTE]
-> 每个字段仅可包含一个同义词映射。 如果要使用多个同义词映射，请在 [UserVoice](https://feedback.azure.com/forums/263029-azure-search) 上告诉我们。
-
-## <a name="impact-of-synonyms-on-other-search-features"></a>同义词功能对其他搜索功能的影响
+## <a name="how-synonyms-interact-with-other-features"></a>同义词如何与其他功能进行交互
 
 同义词功能将使用 OR 操作符将原始查询重写为同义词。 出于这个原因，突出显示和计分配置文件会将原始术语和同义词视为等效项。
 
-同义词功能适用于搜索查询且不适用于筛选器或方面。 同样，建议仅基于原始术语；同义词匹配不会在响应中显示。
+同义词仅适用于搜索查询，不支持筛选器、facet、自动完成或建议。 自动完成和建议仅基于原始字词；同义词匹配项不会在响应中显示。
 
 同义词扩展不适用于通配符搜索术语；也不会扩展前缀、模糊和正则表达式术语。
 
@@ -189,4 +159,4 @@ WA\, USA, WA, Washington
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [创建同义词映射](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
+> [创建同义词映射 (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)

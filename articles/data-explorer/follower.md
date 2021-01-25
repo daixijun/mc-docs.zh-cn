@@ -6,18 +6,18 @@ ms.author: v-tawe
 ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: how-to
-origin.date: 11/07/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: 4c2e3b9838587fe1af61a28031aaa09cec8b20a0
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+origin.date: 10/06/2020
+ms.date: 01/22/2021
+ms.openlocfilehash: 87917ca6e3b161b3304deaef08a4a59a8172c823
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431199"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611545"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>在 Azure 数据资源管理器中使用后继数据库来附加数据库
 
-使用 **后继数据库** 功能可将另一群集中的数据库附加到 Azure 数据资源管理器群集。 **后继数据库** 以只读模式附加，因此可以查看其数据，并针对已引入 **先导数据库** 的数据运行查询。 后继数据库会同步先导数据库中的更改。 由于同步，需要经过几秒到几分钟的延迟之后，才会提供数据。 具体的延迟时长取决于先导数据库元数据的总体大小。 先导数据库和后继数据库使用相同的存储帐户来提取数据。 存储由先导数据库拥有。 后继数据库无需引入数据即可查看数据。 由于附加的数据库是只读的数据库，因此无法修改数据库中除[缓存策略](#configure-caching-policy)、[主体](#manage-principals)和[权限](#manage-permissions)以外的其他数据、表和策略。 无法删除附加的数据库。 这些数据库必须先由先导数据库或后继数据库分离，然后才能将其删除。 
+使用 **后继数据库** 功能可将另一群集中的数据库附加到 Azure 数据资源管理器群集。 **后继数据库** 以只读模式附加，因此可以查看其数据，并针对已引入 **先导数据库** 的数据运行查询。 后继数据库会同步先导数据库中的更改。 由于同步的缘故，数据可用性方面会存在几秒钟到几分钟的数据延迟。 具体的延迟时长取决于先导数据库元数据的总体大小。 先导数据库和后继数据库使用相同的存储帐户来提取数据。 存储由先导数据库拥有。 后继数据库无需引入数据即可查看数据。 由于附加的数据库是只读的数据库，因此无法修改数据库中除[缓存策略](#configure-caching-policy)、[主体](#manage-principals)和[权限](#manage-permissions)以外的其他数据、表和策略。 无法删除附加的数据库。 这些数据库必须先由先导数据库或后继数据库分离，然后才能将其删除。 
 
 使用后继功能将数据库附加到不同群集是在组织与团队之间共享数据的基础结构。 此功能可用于隔离计算资源，以防止将生产环境用于非生产用例。 后继功能还可用于将 Azure 数据资源管理器群集的成本关联到对数据运行查询的一方。
 
@@ -35,7 +35,7 @@ ms.locfileid: "96431199"
 
 ## <a name="attach-a-database"></a>附加数据库
 
-可以使用多种方法来附加数据库。 本文介绍如何使用 C#、Python、Powershell 或 Azure 资源管理器模板附加数据库。 若要附加数据库，必须在先导群集和后继群集上拥有至少具有参与者角色的用户、组、服务主体或托管标识。 可以使用 [Azure 门户](/role-based-access-control/role-assignments-portal)、[PowerShell](/role-based-access-control/role-assignments-powershell)、[Azure CLI](/role-based-access-control/role-assignments-cli) 和 [ARM 模板](/role-based-access-control/role-assignments-template)添加或删除角色分配。 可以深入了解 [Azure 基于角色的访问控制 (Azure RBAC)](/role-based-access-control/overview) 和[不同角色](/role-based-access-control/rbac-and-directory-admin-roles)。 
+可以使用多种方法来附加数据库。 本文介绍如何使用 C#、Python、PowerShell 或 Azure 资源管理器模板来附加数据库。 若要附加数据库，必须在先导群集和后继群集上拥有至少具有参与者角色的用户、组、服务主体或托管标识。 可以使用 [Azure 门户](/role-based-access-control/role-assignments-portal)、[PowerShell](/role-based-access-control/role-assignments-powershell)、[Azure CLI](/role-based-access-control/role-assignments-cli) 和 [ARM 模板](/role-based-access-control/role-assignments-template)来添加或删除角色分配。 可以深入了解 [Azure 基于角色的访问控制 (Azure RBAC)](/role-based-access-control/overview) 和[不同角色](/role-based-access-control/rbac-and-directory-admin-roles)。 
 
 
 # <a name="c"></a>[C#](#tab/csharp)
@@ -127,13 +127,13 @@ cluster_resource_id = "/subscriptions/" + leader_subscription_id + "/resourceGro
 
 attached_database_configuration_properties = AttachedDatabaseConfiguration(cluster_resource_id = cluster_resource_id, database_name = database_name, default_principals_modification_kind = default_principals_modification_kind, location = location)
 
-#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.attached_database_configurations.create_or_update(follower_resource_group_name, follower_cluster_name, attached_database_Configuration_name, attached_database_configuration_properties)
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-### <a name="attach-a-database-using-powershell"></a>使用 Powershell 附加数据库
+### <a name="attach-a-database-using-powershell"></a>使用 PowerShell 附加数据库
 
 #### <a name="needed-modules"></a>所需的模块
 
@@ -247,7 +247,7 @@ New-AzKustoAttachedDatabaseConfiguration -ClusterName $FollowerClustername `
 
 ### <a name="deploy-the-template"></a>部署模板 
 
-可以[使用 Azure 门户](https://portal.azure.cn)或 PowerShell 部署 Azure 资源管理器模板。
+可以通过[使用 Azure 门户](https://portal.azure.cn)或使用 PowerShell 来部署 Azure 资源管理器模板。
 
    ![模板部署](media/follower/template-deployment.png)
 
@@ -264,14 +264,16 @@ New-AzKustoAttachedDatabaseConfiguration -ClusterName $FollowerClustername `
 
 ## <a name="verify-that-the-database-was-successfully-attached"></a>验证是否已成功附加数据库
 
-若要验证是否已成功附加数据库，请在 [Azure 门户](https://portal.azure.cn)中找到附加的数据库。 
+若要验证是否已成功附加数据库，请在 [Azure 门户](https://portal.azure.cn)中找到附加的数据库。 可以验证数据库是否已成功附加到[后继](#check-your-follower-cluster)群集或[先导](#check-your-leader-cluster)群集。
+
+### <a name="check-your-follower-cluster"></a>检查后继群集  
 
 1. 导航到后继群集并选择“数据库”
 1. 在数据库列表中搜索新的只读数据库。
 
     ![只读的后继数据库](media/follower/read-only-follower-database.png)
 
-也可使用以下命令：
+### <a name="check-your-leader-cluster"></a>检查先导群集
 
 1. 导航到先导群集并选择“数据库”
 2. 检查相关数据库是否标记为“与其他人共享” > “是” 
@@ -369,7 +371,7 @@ follower_resource_group_name = "followerResouceGroup"
 follower_cluster_name = "follower"
 attached_database_configurationName = "uniqueName"
 
-#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.attached_database_configurations.delete(follower_resource_group_name, follower_cluster_name, attached_database_configurationName)
 ```
 
@@ -407,13 +409,13 @@ attached_database_configuration_name = "uniqueName"
 location = "China East 2"
 cluster_resource_id = "/subscriptions/" + follower_subscription_id + "/resourceGroups/" + follower_resource_group_name + "/providers/Microsoft.Kusto/Clusters/" + follower_cluster_name
 
-#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller
+#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.clusters.detach_follower_databases(resource_group_name = leader_resource_group_name, cluster_name = leader_cluster_name, cluster_resource_id = cluster_resource_id, attached_database_configuration_name = attached_database_configuration_name)
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-### <a name="detach-a-database-using-powershell"></a>使用 Powershell 分离数据库
+### <a name="detach-a-database-using-powershell"></a>使用 PowerShell 拆离数据库
 
 #### <a name="needed-modules"></a>所需的模块
 
@@ -450,7 +452,7 @@ Remove-AzKustoAttachedDatabaseConfiguration -ClusterName $FollowerClustername -N
 
 |**种类** |**说明**  |
 |---------|---------|
-|**联合**     |   附加的数据库主体始终包括原始数据库主体，以及添加到后继数据库的其他新主体。      |
+|**联合**     |   附加的数据库主体将会始终包括原始数据库主体，以及添加到后继数据库的其他新主体。      |
 |**将**   |    不会从原始数据库继承主体。 必须为附加的数据库创建新主体。     |
 |**无**   |   附加的数据库主体只包括原始数据库的主体，而不包括其他主体。      |
 
@@ -464,6 +466,14 @@ Remove-AzKustoAttachedDatabaseConfiguration -ClusterName $FollowerClustername -N
 
 后继数据库管理员可以修改附加数据库或者该数据库在托管群集上的任何表的[缓存策略](kusto/management/cache-policy.md)。 默认设置是保留数据库和表级缓存策略的先导数据库集合。 例如，可对先导数据库使用一个 30 天缓存策略以运行每月报告，并对后继数据库使用一个 3 天缓存策略，以仅查询最近的数据进行故障排除。 有关使用控制命令对后继数据库或表配置缓存策略的详细信息，请参阅[用于管理后继群集的控制命令](kusto/management/cluster-follower.md)。
 
+## <a name="notes"></a>注释
+
+* 如果先导/后继群集的数据库之间存在冲突，则在所有数据库都被该后继群集后继时，这些数据库的解析方式如下：
+  * 在后继群集上创建的名为 DB 的数据库优先于在先导群集上创建的同名数据库。 因此，需要删除或重命名后继群集中的数据库 DB，以使后继群集包括先导群集的数据库 DB 。
+  * 将会从某一个先导群集中任意选择两个或多个先导群集中被后继的名为 DB 的数据库，并且该数据库被后继的次数不会多于一次 。
+* 在某个后继群集上运行的用于显示[群集活动日志和历史记录](kusto/management/systeminfo.md)的命令将会显示该后继群集上的活动和历史记录，并且这些命令的结果集不会包括一个或多个先导群集的相应结果。
+  * 例如：在后继群集上运行的 `.show queries` 命令将只显示在由后继群集后继的数据库上运行的查询，而不会显示针对先导群集中同一数据库运行的查询。
+  
 ## <a name="limitations"></a>限制
 
 <!-- * Data encryption using [customer managed keys](security.md#customer-managed-keys-with-azure-key-vault) is not supported on both leader and follower clusters.  -->

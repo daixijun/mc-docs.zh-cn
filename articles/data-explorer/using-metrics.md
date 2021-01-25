@@ -6,15 +6,15 @@ ms.author: v-tawe
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: how-to
-origin.date: 01/19/2020
-ms.date: 09/30/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 4000854613cc942f09ff54333c2261958cb0ebff
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+origin.date: 09/19/2020
+ms.date: 01/22/2021
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 10d9b67b7ab0185f6ea9775cf0deb1c38bb4457e
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431112"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611467"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>使用指标监视 Azure 数据资源管理器的性能、运行状况和使用情况
 
@@ -93,18 +93,31 @@ Azure 数据资源管理器指标有助于深入了解资源的整体性能和�
 
 引入指标可跟踪引入操作的常规运行状况和性能，如延迟、结果和数据量。
 
+> [!NOTE]
+> * [将筛选器应用到图表](/azure-monitor/platform/metrics-charts#apply-filters-to-charts)，以便按维度绘制部分数据。 例如，浏览引入，一直浏览到特定的 `Database`。
+> * [将拆分应用到图表](/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart)，以便按不同组件将数据可视化。 此过程可用于分析引入管道的每个步骤所报告的指标，例如 `Blobs received`。
+
 |**指标** | **单位** | **聚合** | **度量值说明** | **Dimensions** |
 |---|---|---|---|---|
-| 批处理 Blob 计数 | 计数 | Avg、Max、Min | 引入的已完成批处理中数据源数。 | 数据库 |
-| 批处理持续时间 | 秒 | Avg、Max、Min | 引入流中批处理阶段的持续时间  | 数据库 |
-| 批大小 | 字节 | Avg、Max、Min | 引入的聚合批处理中未压缩的预期数据大小。 | 数据库 |
-| 已处理批处理 | 计数 | Avg、Max、Min | 引入的已完成批处理数。 `Batching Type`：批处理是否达到[批处理策略](./kusto/management/batchingpolicy.md)设置的批处理时间、数据大小或文件数限制。 | 数据库、批处理类型 |
-| 发现延迟 | 秒 | Avg、Max、Min | 从数据排队开始到被数据连接发现为止的时间。 此时间未包括在 Kusto 总体引入持续时间或 KustoEventAge（引入延迟）中  | 数据库、表、数据连接类型、数据连接名称 |
-| 处理的事件数（适用于事件中心/IoT 中心） | 计数 | Max、Min、Sum | 从事件中心读取的以及由群集处理的事件总数 事件划分为群集引擎拒绝的事件和接受的事件。 | EventStatus |
+| 批处理 Blob 计数  | 计数 | Avg、Max、Min | 引入的已完成批处理中数据源数。 | 数据库 |
+| 批处理持续时间    | 秒 | Avg、Max、Min | 引入流中批处理阶段的持续时间。  | 数据库 |
+| 批大小        | 字节 | Avg、Max、Min | 引入的聚合批处理中未压缩的预期数据大小。 | 数据库 |
+| 已处理批处理 | 计数 | Avg、Max、Min | 引入的已完成批处理数。 <br> `Batching Type`：批处理是否达到[批处理策略](./kusto/management/batchingpolicy.md)设置的批处理时间、数据大小或文件数限制。 | 数据库、批处理类型 |
+| 已接收的 blob    | 计数 | Avg、Max、Min | 组件从输入流接收的 blob 数。 <br> <br> 使用“应用拆分”来分析每个组件。 | 数据库、组件类型、组件名称 |
+| 已处理的 blob   | 计数 | Avg、Max、Min | 组件处理的 blob 数。 <br> <br> 使用“应用拆分”来分析每个组件。 | 数据库、组件类型、组件名称 |
+| 已删除的 blob     | 计数 | Avg、Max、Min | 被组件永久删除的 blob 数。 对于每个这样的 blob，都将发送一个包含失败原因的 `Ingestion result` 指标。 <br> <br> 使用“应用拆分”来分析每个组件。 | 数据库、组件类型、组件名称 |
+| 发现延迟 | 秒 | 平均值 | 从数据排队开始到被数据连接发现为止的时间。 此时间未包括在“阶段延迟”或“引入延迟”指标中  | 组件类型、组件名称 |
+| 已接收的事件   | 计数 | Avg、Max、Min、Sum | 数据连接从输入流接收的事件数。 | 组件类型、组件名称 |
+| 已处理的事件  | 计数 | Avg、Max、Min、Sum | 数据连接处理的事件数。 | 组件类型、组件名称 | 
+| 已删除的事件    | 计数 | Avg、Max、Min、Sum | 数据连接永久删除的事件数。 | 组件类型、组件名称 | 
+| 处理的事件数（适用于事件中心/IoT 中心） | 计数 | Max、Min、Sum | 从事件中心读取的以及由群集处理的事件总数。 这些事件拆分为两组：群集引擎拒绝的事件和群集引擎接受的事件。 | 状态 |
 | 引入延迟 | 秒 | Avg、Max、Min | 引入数据的延迟，根据从群集中收到数据，到数据可供查询的时间来测得。 引入延迟周期决于引入方案。 | 无 |
-| 引入结果 | 计数 | 计数 | 失败和成功的引入操作总数。 <br> <br> 使用“应用拆分”可以创建成功和失败结果桶，并分析维度（**值** > **状态**）。| IngestionResultDetails |
+| 引入结果  | 计数 | Sum | 失败的或成功的引入操作的总数。 <br> <br> 使用“应用拆分”可以创建成功和失败结果 Bucket，并分析维度（“值” > “状态”）。 <br>若要详细了解可能的失败结果，请参阅 [Azure 数据资源管理器中的引入错误代码](error-codes.md)| 状态 |
 | 引入量 (MB) | 计数 | Max、Sum | 引入到群集中的数据在压缩前的总大小 (MB)。 | 数据库 |
-| 阶段延迟 | 秒 | Avg、Max、Min | 某个特定组件处理这批数据的持续时间。 一批数据的所有组成部分的总阶段延迟等于这批数据的引入延迟。 | 数据库、数据连接类型、数据连接名称|
+| 队列长度 | 计数 | Avg | 组件输入队列中挂起的消息数。 | 组件类型 |
+| 队列最早消息 | 秒 | 平均值 | 从在组件的输入队列中插入最早消息开始算起的时间，以秒为单位。 | 组件类型 | 
+| 接收的数据大小（字节） | 字节 | Avg、Sum | 数据连接从输入流接收的数据的大小。 | 组件类型、组件名称 |
+| 阶段延迟 | 秒 | 平均值 | 从 Azure 数据资源管理器发现消息到引入组件收到其要处理的内容的时间。 <br> <br> 使用“应用筛选器”并选择“组件类型”>“EngineStorage”，以便显示总引入延迟。| 数据库、组件类型 | 
 
 ## <a name="streaming-ingest-metrics"></a>流引入指标
 

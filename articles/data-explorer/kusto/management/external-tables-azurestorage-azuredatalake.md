@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/24/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 5b8fb7b18aade48513a60a17124a196bb12bb890
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: d41a810c3c403ccb5222ec02810073d3181c3f9d
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103552"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611686"
 ---
 # <a name="create-and-alter-external-tables-in-azure-storage-or-azure-data-lake"></a>在 Azure 存储或 Azure Data Lake 中创建和更改外部表
 
@@ -84,14 +84,14 @@ ms.locfileid: "93103552"
   *PartitionName* `:` `datetime` `=` (`startofyear` \| `startofmonth` \| `startofweek` \| `startofday`) `(` *ColumnName* `)`  
   *PartitionName* `:` `datetime` `=` `bin` `(` *ColumnName* `,` *TimeSpan* `)`
 
-若要检查分区定义的正确性，请在创建外部表时使用属性 `sampleUris`。
+若要检查分区定义的正确性，请在创建外部表时使用属性 `sampleUris` 或 `filesPreview`。
 
 <a name="path-format"></a>
 *PathFormat*
 
-除分区之外还可以指定的外部数据 URI 文件路径格式。 路径格式是分区元素和文本分隔符的序列：
+除分区之外还可以指定的外部数据文件夹 URI 路径格式。 路径格式是分区元素和文本分隔符的序列：
 
-&nbsp;&nbsp;[ *StringSeparator* ] *Partition* [ *StringSeparator* ] [ *Partition* [ *StringSeparator* ] ...]  
+&nbsp;&nbsp;[*StringSeparator*] *Partition* [*StringSeparator*] [*Partition* [*StringSeparator*] ...]  
 
 其中，Partition 指的是在 `partition` `by` 子句中声明的分区，StringSeparator 是括在引号中的任何文本。 必须使用 StringSeparator 分隔连续的分区元素。
 
@@ -117,7 +117,10 @@ ms.locfileid: "93103552"
 
 如果在外部表定义中省略了 PathFormat，则会假定使用 `/` 分隔符分隔所有分区，分区的顺序与定义它们的顺序完全相同。 分区是使用其默认字符串表示形式呈现的。
 
-若要检查路径格式定义的正确性，请在创建外部表时使用属性 `sampleUris`。
+若要检查路径格式定义的正确性，请在创建外部表时使用属性 `sampleUris` 或 `filesPreview`。
+
+> [!NOTE]
+> PathFormat 只能描述存储“文件夹”URI 路径。 若要按文件名进行筛选，请使用 `NamePrefix` 和/或 `FileExtension` 外部表属性。
 
 <a name="format"></a>
 *Format*
@@ -148,8 +151,10 @@ ms.locfileid: "93103552"
 | `namePrefix`     | `string` | 如果设置了此项，则表示文件的前缀。 在写入操作中，所有文件都将用此前缀来写入。 在读取操作中，将只读取具有此前缀的文件。 |
 | `fileExtension`  | `string` | 如果设置了此项，则表示文件的文件扩展名。 写入时，文件名将以此后缀结尾。 读取时，将只读取具有此文件扩展名的文件。           |
 | `encoding`       | `string` | 表示文本编码方式：`UTF8NoBOM`（默认值）或 `UTF8BOM`。             |
-| `sampleUris`     | `bool`   | 如果设置了，则命令结果会提供外部表定义所需的外部数据文件 URI 的几个示例（示例在第二个结果表中返回）。 此选项有助于验证是否正确定义了 [Partitions](#partitions) 和 [PathFormat](#path-format) 参数。 |
+| `sampleUris`     | `bool`   | 如果设置了此属性，命令结果就会提供外部表定义所需的模拟外部数据文件 URI 的几个示例。 此选项有助于验证是否正确定义了 [Partitions](#partitions) 和 [PathFormat](#path-format) 参数 。 |
+| `filesPreview`   | `bool`   | 如果设置了此属性，其中某一个命令结果表就会包含 [.show external table artifacts](#show-external-table-artifacts) 命令的预览。 与 `sampleUri` 类似，该选项有助于验证外部表定义的 [Partitions](#partitions) 和 [PathFormat](#path-format) 参数 。 |
 | `validateNotEmpty` | `bool`   | 如果设置了，则验证连接字符串是否有内容。 如果指定的 URI 位置不存在，或者没有足够的访问它的权限，则该命令会失败。 |
+| `dryRun` | `bool` | 如果设置了此属性，则不会保留外部表定义。 此选项对于验证外部表定义很有用，特别是在与 `filesPreview` 或 `sampleUris` 参数一起使用的情况下。 |
 
 > [!TIP]
 > 若要详细了解 `namePrefix` 和 `fileExtension` 属性在查询期间在数据文件筛选中所起的作用，请参阅[文件筛选逻辑](#file-filtering)部分。
@@ -220,6 +225,14 @@ dataformat=csv
 with (fileExtension = ".txt")
 ```
 
+若要在查询中按分区列进行筛选，请在查询谓词中指定原始列名：
+
+```kusto
+external_table("ExternalTable")
+ | where Timestamp between (datetime(2020-01-01) .. datetime(2020-02-01))
+ | where CustomerName in ("John.Doe", "Ivan.Ivanov")
+```
+
 **示例输出**
 
 |TableName|TableType|文件夹|DocString|属性|ConnectionStrings|分区|PathFormat|
@@ -242,6 +255,14 @@ dataformat=parquet
 ( 
    h@'https://storageaccount.blob.core.chinacloudapi.cn/container1;secretKey'
 )
+```
+
+若要在查询中按虚拟列进行筛选，请在查询谓词中指定分区名：
+
+```kusto
+external_table("ExternalTable")
+ | where Date between (datetime(2020-01-01) .. datetime(2020-02-01))
+ | where CustomerName in ("John.Doe", "Ivan.Ivanov")
 ```
 
 <a name="file-filtering"></a>
@@ -271,7 +292,7 @@ dataformat=parquet
 
 **语法：** 
 
-`.show` `external` `table` *TableName* `artifacts` [`limit` *MaxResults* ]
+`.show` `external` `table` *TableName* `artifacts` [`limit` *MaxResults*]
 
 其中，MaxResults 是可选参数，可设置此参数来限制结果数。
 
@@ -310,14 +331,14 @@ dataformat=parquet
 
 ## <a name="create-external-table-mapping"></a>.create external table mapping
 
-`.create` `external` `table` *ExternalTableName* `json` `mapping` *MappingName* *MappingInJsonFormat*
+`.create` `external` `table` *ExternalTableName* `mapping` *MappingName* *MappingInJsonFormat*
 
 创建新映射。 有关详细信息，请参阅[数据映射](./mappings.md#json-mapping)。
 
 **示例** 
  
 ```kusto
-.create external table MyExternalTable json mapping "Mapping1" '[{"Column": "rownumber", "Properties": {"Path": "$.rownumber"}}, {"Column": "rowguid", "Properties": {"Path": "$.rowguid"}}]'
+.create external table MyExternalTable mapping "Mapping1" '[{"Column": "rownumber", "Properties": {"Path": "$.rownumber"}}, {"Column": "rowguid", "Properties": {"Path": "$.rowguid"}}]'
 ```
 
 **示例输出**
@@ -328,14 +349,14 @@ dataformat=parquet
 
 ## <a name="alter-external-table-mapping"></a>.alter external table mapping
 
-`.alter` `external` `table` *ExternalTableName* `json` `mapping` *MappingName* *MappingInJsonFormat*
+`.alter` `external` `table` *ExternalTableName* `mapping` *MappingName* *MappingInJsonFormat*
 
 更改现有映射。 
  
 **示例** 
  
 ```kusto
-.alter external table MyExternalTable json mapping "Mapping1" '[{"Column": "rownumber", "Properties": {"Path": "$.rownumber"}}, {"Column": "rowguid", "Properties": {"Path": "$.rowguid"}}]'
+.alter external table MyExternalTable mapping "Mapping1" '[{"Column": "rownumber", "Properties": {"Path": "$.rownumber"}}, {"Column": "rowguid", "Properties": {"Path": "$.rowguid"}}]'
 ```
 
 **示例输出**
@@ -346,18 +367,18 @@ dataformat=parquet
 
 ## <a name="show-external-table-mappings"></a>.show external table mappings
 
-`.show` `external` `table` *ExternalTableName* `json` `mapping` *MappingName* 
+`.show` `external` `table` *ExternalTableName* `mapping` *MappingName* 
 
-`.show` `external` `table` *ExternalTableName* `json` `mappings`
+`.show` `external` `table` *ExternalTableName* `mappings`
 
 显示映射（所有映射或按名称指定的某个映射）。
  
 **示例** 
  
 ```kusto
-.show external table MyExternalTable json mapping "Mapping1" 
+.show external table MyExternalTable mapping "Mapping1" 
 
-.show external table MyExternalTable json mappings 
+.show external table MyExternalTable mappings 
 ```
 
 **示例输出**
@@ -368,14 +389,14 @@ dataformat=parquet
 
 ## <a name="drop-external-table-mapping"></a>.drop external table mapping
 
-`.drop` `external` `table` *ExternalTableName* `json` `mapping` *MappingName* 
+`.drop` `external` `table` *ExternalTableName* `mapping` *MappingName* 
 
 从数据库中删除映射。
  
 **示例** 
  
 ```kusto
-.drop external table MyExternalTable json mapping "Mapping1" 
+.drop external table MyExternalTable mapping "Mapping1" 
 ```
 ## <a name="next-steps"></a>后续步骤
 

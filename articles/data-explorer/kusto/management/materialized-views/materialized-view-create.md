@@ -8,13 +8,13 @@ ms.reviewer: yifats
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/30/2020
-ms.date: 10/30/2020
-ms.openlocfilehash: dd3cf9016cb4d9daafb10a0e7f973ed65c906d54
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: c70a25ce724bd9662e5300ab051755fc27a15122
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106575"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611321"
 ---
 # <a name="create-materialized-view"></a>.create materialized-view
 
@@ -23,16 +23,15 @@ ms.locfileid: "93106575"
 创建具体化视图有两种可能的方法，由命令中的 backfill 选项指示：
 
  * **基于源表中的现有记录创建：** 
-      * 创建过程可能需要很长时间才能完成，具体取决于源表中的记录数。 在完成之前，视图不可用于查询。
+      * 创建过程可能需要很长时间才能完成，具体取决于源表中的记录数。 在回填完成之前，视图不可用于查询。
       * 使用此选项时，create 命令必须是 `async` 的，可以使用 [.show operations](../operations.md#show-operations) 命令来监视执行。
 
     * 可以使用 [.cancel operation](#cancel-materialized-view-creation) 命令取消回填过程。
 
       > [!IMPORTANT]
-      > * 对于冷缓存中的数据，不支持使用回填选项。 如有必要，请增加用于创建视图的热缓存期限。 这可能需要横向扩展。    
-      > * 对于大型源表，使用回填选项可能需要很长时间才能完成。 如果此过程在运行时暂时失败，将不会自动重试，需要重新执行 create 命令。
+      > 对于大型源表，使用回填选项可能需要很长时间才能完成。 如果此过程在运行时暂时失败，将不会自动重试，需要重新执行 create 命令。 如需更多详细信息，请参阅[回填具体化视图](#backfill-a-materialized-view)部分。
     
-* **从头开始创建具体化视图：** 
+* **从头开始创建具体化视图：**
     * 具体化视图创建后为空，只会包括在创建视图后引入的记录。 此类型的创建操作会立即返回，不需要 `async`，而视图将立即可用于查询。
 
 创建操作需要[数据库管理员](../access-control/role-based-authorization.md)权限。 具体化视图的创建者将成为它的管理员。
@@ -73,7 +72,7 @@ ms.locfileid: "93106575"
 
     * 视图的源表（事实数据表）中的记录仅具体化一次。 事实数据表与维度表之间的不同引入延迟可能会影响视图结果。
 
-    * **示例** ：视图定义包含一个与维度表的内联。 在具体化时，维度记录未完全引入，但已引入到事实数据表。 此记录会从视图中删除，不会再次重新处理。 
+    * **示例**：视图定义包含一个与维度表的内联。 在具体化时，维度记录未完全引入，但已引入到事实数据表。 此记录会从视图中删除，不会再次重新处理。 
 
         同样，如果联接是外部联接，则会处理事实数据表中的记录，并将其添加到视图，其中维度表列具有 null 值。 已添加到视图的记录（具有 null 值）不会再次处理。 它们在维度表的列中的值将保留为 null。
 
@@ -133,6 +132,7 @@ ms.locfileid: "93106575"
         | summarize count(), dcount(User), max(Duration) by Customer, Day
     } 
     ```
+
 1. 基于 EventId 列对源表执行重复数据删除操作的具体化视图：
 
     <!-- csl -->
@@ -203,7 +203,7 @@ ms.locfileid: "93106575"
 
 * 当按具体化视图维度之一（聚合依据子句）进行筛选时，具体化视图查询筛选器会得到优化。 如果你知道查询模式经常按某个列（可以是具体化视图中的维度）筛选，请将其包含在视图中。 例如：对于通过 `ResourceId` 公开了 `arg_max` 且经常会按 `SubscriptionId` 进行筛选的具体化视图，建议如下所示：
 
-    **建议做法** ：
+    **建议做法**：
     
     ```kusto
     .create materialized-view ArgMaxResourceId on table FactResources
@@ -212,7 +212,7 @@ ms.locfileid: "93106575"
     }
     ``` 
     
-    **禁止做法** ：
+    **禁止做法**：
     
     ```kusto
     .create materialized-view ArgMaxResourceId on table FactResources
@@ -221,9 +221,9 @@ ms.locfileid: "93106575"
     }
     ```
 
-* 不要在具体化视图定义中包括转换、规范化和其他可移动到[更新策略](../updatepolicy.md)的繁重计算， 而要在更新策略中执行所有这些过程，仅在具体化视图中执行聚合。 使用此过程在维度表中查找（如果适用）。
+* 不要在具体化视图定义中包括转换、规范化、维度表中的查找，以及其他可移到[更新策略](../updatepolicy.md)的繁重计算， 而要在更新策略中执行所有这些过程，仅在具体化视图中执行聚合。
 
-    **建议做法** ：
+    **建议做法**：
     
     * 更新策略：
     
@@ -234,6 +234,7 @@ ms.locfileid: "93106575"
         "Query": 
             "SourceTable 
             | extend ResourceId = strcat('subscriptions/', toupper(SubscriptionId), '/', resourceId)", 
+            | lookup DimResources on ResourceId
         "IsTransactional": false}]'  
     ```
         
@@ -242,24 +243,56 @@ ms.locfileid: "93106575"
     ```kusto
     .create materialized-view Usage on table Events
     {
-    &nbsp;     Target 
-    &nbsp;     | summarize count() by ResourceId 
+        Target 
+        | summarize count() by ResourceId 
     }
     ```
     
-    **禁止做法** ：
+    **禁止做法**：
     
     ```kusto
     .create materialized-view Usage on table SourceTable
     {
-    &nbsp;     SourceTable 
-    &nbsp;     | extend ResourceId = strcat('subscriptions/', toupper(SubscriptionId), '/', resourceId)
-    &nbsp;     | summarize count() by ResourceId
+        SourceTable
+        | extend ResourceId = strcat('subscriptions/', toupper(SubscriptionId), '/', resourceId)
+        | lookup DimResources on ResourceId
+        | summarize count() by ResourceId
     }
     ```
 
-> [!NOTE]
-> 如果你需要最佳查询时间性能，但可以牺牲一些数据时效性，请使用 [materialized_view() 函数](../../query/materialized-view-function.md)。
+> [!TIP]
+> 如果你需要最佳查询时间性能，但可以容忍某种程度的数据延迟，请使用 [materialized_view() 函数](../../query/materialized-view-function.md)。
+
+## <a name="backfill-a-materialized-view"></a>回填具体化视图
+
+创建具有 `backfill` 属性的具体化视图时，将会基于源表中的可用记录（在使用 `effectiveDateTime` 的情况下，也可基于这些记录的一部分）创建具体化视图。 对于大型源表，回填可能需要很长时间才能完成。
+
+* 对于冷缓存中的数据，不支持使用回填选项。 如有必要，请增加用于创建视图的热缓存期限。 这可能需要横向扩展。
+
+* 在后台，回填过程会将要回填的数据拆分成多个批，并会执行多个引入操作来回填视图。 回填过程中发生暂时性故障时会进行重试，但如果已耗尽所有重试，则可能需要以手动方式重新执行 create 命令。
+
+* 如果在创建视图时遇到故障，则可尝试更改几个属性：
+
+    * `MaxSourceRecordsForSingleIngest` - 默认情况下，在回填期间，每个引入操作中的源记录数为每个节点 2 百万。 可以通过将此属性设置为所需的记录数来更改此默认值（此值是每个引入操作中的记录总数）。 如果创建操作因内存限制/查询超时而失败，那么降低该值可能会解决问题。 提高该值可以加快视图创建速度（假设群集能够在记录数超过默认值的情况下执行聚合函数）。
+
+    * `Concurrency` - 在回填过程中运行的引入操作以并发方式运行。 默认情况下，并发度为 `min(number_of_nodes * 2, 5)`。 可以设置此属性来提高/降低并发度。 仅当群集的 CPU 很低时，提高此值才是可取的，因为这可能会对群集的 CPU 消耗产生严重影响。
+
+  例如，以下命令会从 `2020-01-01` 开始回填具体化视图（每个引入操作的最大记录数为 `3 million`），并会执行并发度为 `2` 的引入操作： 
+    
+    <!-- csl -->
+    ```
+    .create async materialized-view with (
+            backfill=true,
+            effectiveDateTime=datetime(2019-01-01),
+            MaxSourceRecordsForSingleIngest=3000000,
+            Concurrency=2
+        )
+        CustomerUsage on table T
+    {
+        T
+        | summarize count(), dcount(User), max(Duration) by Customer, bin(Timestamp, 1d)
+    } 
+    ```
 
 ## <a name="limitations-on-creating-materialized-views"></a>创建具体化视图的限制
 
@@ -282,7 +315,7 @@ ms.locfileid: "93106575"
 > [!WARNING]
 > 运行此命令后，无法还原具体化视图。
 
-无法立即中止创建进程。 取消命令会通知具体化停止，创建时会定期检查是否请求了取消。 取消命令会等待最长 10 分钟时间，直到具体化视图创建过程被取消，并报告取消是否已成功。 即使取消未在 10 分钟内成功完成，并且取消命令报告了失败，具体化视图也很可能会稍后在创建过程中自行中止。 [.show operations](../operations.md#show-operations) 命令会指示操作是否已取消。 `cancel operation` 命令仅支持取消具体化视图的创建操作，而不支持取消任何其他操作。
+无法立即中止创建进程。 取消命令会通知具体化停止，创建时会定期检查是否请求了取消。 取消命令会等待最长 10 分钟时间，直到具体化视图创建过程被取消，并报告取消是否已成功。 即使取消未在 10 分钟内成功完成，并且取消命令报告了失败，具体化视图也很可能会稍后在创建过程中自行中止。 [`.show operations`](../operations.md#show-operations) 命令会指示操作是否已取消。 `cancel operation` 命令仅支持取消具体化视图的创建操作，而不支持取消任何其他操作。
 
 ### <a name="syntax"></a>语法
 
