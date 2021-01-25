@@ -3,17 +3,17 @@ title: 将数据从 Kafka 引入到 Azure 数据资源管理器
 description: 本文介绍如何将数据从 Kafka 引入（加载）到 Azure 数据资源管理器中。
 author: orspod
 ms.author: v-tawe
-ms.reviewer: mblythe
+ms.reviewer: ankhanol
 ms.service: data-explorer
 ms.topic: how-to
-origin.date: 06/03/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: 3e425c7dc1a15d389764f688de70b284efc99598
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+origin.date: 09/22/2020
+ms.date: 01/19/2021
+ms.openlocfilehash: d62fc55917e56f4e844f4cfc980a74c0056b30c9
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97003676"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611720"
 ---
 # <a name="ingest-data-from-apache-kafka-into-azure-data-explorer"></a>将数据从 Apache Kafka 引入到 Azure 数据资源管理器中
  
@@ -91,7 +91,7 @@ Azure Active Directory 服务主体可以通过 [Azure 门户](/active-directory
 1. 针对可配置的引入延迟，在表上创建批量引入策略。
 
     > [!TIP]
-    > [引入批处理策略](kusto/management/batchingpolicy.md)是一个性能优化器，包含三个参数。 满足第一个参数将触发到 Azure 数据资源管理器表的引入。
+    > [引入批处理策略](kusto/management/batchingpolicy.md)是一个性能优化器，包含三个参数。 满足第一个条件将触发到 Azure 数据资源管理器表的引入。
 
     ```kusto
     .alter table Storms policy ingestionbatching @'{"MaximumBatchingTimeSpan":"00:00:15", "MaximumNumberOfItems": 100, "MaximumRawDataSizeMB": 300}'

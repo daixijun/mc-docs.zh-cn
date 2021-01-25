@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 01/20/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: 643da246c14c486b7df98a65b3246e54b3e593f8
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 01/22/2021
+ms.openlocfilehash: c748fc530f71adb5fa5614370d5ba48837f6aff7
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146347"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611683"
 ---
 # <a name="ingestion-failures"></a>引入失败
 
@@ -25,8 +25,10 @@ ms.locfileid: "91146347"
 
 
 > [!NOTE]
-> 引入流的其他部分发生的引入失败不会出现在此命令的结果集中。 例如，在将数据引入控制命令发送到 Kusto 数据引擎服务之前，可能会发生这种故障。
-
+> 引入流的其他部分发生的引入失败不会出现在此命令的结果集中。 例如，在将数据引入控制命令发送到 Kusto 数据引擎服务之前，可能会发生这种故障。 
+> 
+> 引入失败应通过[指标](../../using-metrics.md)监视，并可选择使用引入日志。 若要设置引入日志，请参阅[使用诊断日志监视 Azure 数据资源管理器的引入、命令、查询和表](../../using-diagnostic-logs.md)。
+> 
 > 若要详细了解如何监视在涉及[排队引入](../api/netfx/about-kusto-ingest.md#queued-ingestion)的流中发生的故障，请参阅[此指南](../api/netfx/kusto-ingest-client-status.md)。
 
 **语法**

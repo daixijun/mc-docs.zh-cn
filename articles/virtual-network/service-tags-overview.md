@@ -6,22 +6,22 @@ services: virtual-network
 documentationcenter: na
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/18/2020
+origin.date: 10/30/2020
 author: rockboyfor
-ms.date: 12/12/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: kumud
-ms.openlocfilehash: 2ad451f86d53a1979b68060d523d6b981c29a937
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 0b722faf6fee3f159d4f1ea41c2a5f53d655e037
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104947"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230339"
 ---
 # <a name="virtual-network-service-tags"></a>虚拟网络服务标记
 <a name="network-service-tags"></a>
@@ -48,7 +48,7 @@ ms.locfileid: "97104947"
 默认情况下，服务标记反映了整个云的范围。 某些服务标记还可以通过将相应 IP 范围限制为指定的区域，来实现更精细的控制。 例如，服务标记 Storage 代表整个云的 Azure 存储，而 Storage.ChinaNorth 将范围局限于 ChinaNorth 区域中的存储 IP 地址范围 。 下表指示每个服务标记是否支持此区域范围。  
 
 | 标记 | 目的 | 可以使用入站还是出站连接？ | 可以支持区域范围？ | 是否可与 Azure 防火墙一起使用？ |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| --- | -------- |:---:|:---:|:---:|
 | **ActionGroup** | 操作组。 | 入站 | 否 | 否 |
 | **ApiManagement** | 专用于 Azure API 管理的部署的管理流量。 <br/><br/>*注意：* 此标记表示每个区域的控制平面的 Azure API 管理服务终结点。 这使得客户可以对在 API 管理服务中配置的 API、操作、策略和 NamedValues 执行管理操作。  | 入站 | 是 | 是 |
 | **ApplicationInsightsAvailability** | Application Insights 可用性。 | 入站 | 否 | 否 |
@@ -96,13 +96,15 @@ ms.locfileid: "97104947"
 | **MicrosoftContainerRegistry** | Azure 容器映像的容器注册表。 <br/><br/>*注意：* 此标记依赖于 **AzureFrontDoor.FirstParty** 标记。 | 出站 | 是 | 是 |
 | **PowerQueryOnline** | Power Query Online。 | 推送、请求和匿名 | 否 | 否 |
 | **服务总线** | 使用高级服务层级的 Azure 服务总线流量。 | 出站 | 是 | 是 |
-| **ServiceFabric** | Azure Service Fabric。<br/><br/>*注意：* 此标记表示每个区域的控制平面的 Service Fabric 服务终结点。 这使得客户能够从其 VNET（例如终结点： https://chinanorth.servicefabric.azure.com) | 推送、请求和匿名 | 否 | 否 |
+| **ServiceFabric** | Azure Service Fabric。<br/><br/>*注意：* 此标记表示每个区域的控制平面的 Service Fabric 服务终结点。 这使得客户能够从其 VNET（例如终结点： https://clustername.chinanorth.cloudapp.chinacloudapi.cn) | 推送、请求和匿名 | 否 | 否 |
 | **Sql** | Azure SQL 数据库、Azure Database for MySQL、Azure Database for PostgreSQL 和 Azure Synapse Analytics。<br/><br/>*注意：* 此标记代表服务，而不是服务的特定实例。 例如，标记可表示 Azure SQL 数据库服务，但不能表示特定的 SQL 数据库或服务器。 此标记不适用于 SQL 托管实例。 | 出站 | 是 | 是 |
 | **SqlManagement** | SQL 专用部署的管理流量。 | 推送、请求和匿名 | 否 | 是 |
 | **存储** | Azure 存储。 <br/><br/>*注意：* 此标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure 存储服务，但不能表示特定的 Azure 存储帐户。 | 出站 | 是 | 是 |
 | **StorageSyncService** | 存储同步服务。 | 推送、请求和匿名 | 否 | 否 |
 | **VirtualNetwork** | 虚拟网络地址空间（为虚拟网络定义的所有 IP 地址范围）、所有连接的本地地址空间、[对等互连](virtual-network-peering-overview.md)的虚拟网络、已连接到[虚拟网络网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%3ftoc.json)的虚拟网络、[主机的虚拟 IP 地址](security-overview.md#azure-platform-considerations)以及在[用户定义的路由](virtual-networks-udr-overview.md)上使用的地址前缀。 此标记还可能包含默认路由。 | 推送、请求和匿名 | 否 | 否 |
 
+
+<!--Not Available on AzureArcInfrastructure-->
 <!--MOONCAKE: CORRECT ON Line 55 AzureCloud-->
 <!--Not Available on **AzureDataLake**-->
 <!--Not Available on **AzureDevSpaces**-->
@@ -145,17 +147,14 @@ ms.locfileid: "97104947"
 
 <!--MOONCAKE: CUSTOMIZED ON THE URL-->
 
-- [Azure 公有云](https://www.microsoft.com/download/confirmation.aspx?id=56519)
-- [Azure 美国政府版](https://www.microsoft.com/download/confirmation.aspx?id=57063)  
 - [Azure 中国](https://www.microsoft.com/download/confirmation.aspx?id=57062) 
-- [Azure 德国](https://www.microsoft.com/download/confirmation.aspx?id=57064)   
 
 这些文件中的 IP 地址范围采用 CIDR 表示法。 
 
 <!--MOONCAKE: CUSTOMIZED ON THE URL-->
 
 > [!NOTE]
->在这些信息中，有一部分已在 [Azure 公有云](https://www.microsoft.com/download/confirmation.aspx?id=41653)、[Azure 中国云](https://www.microsoft.com/download/confirmation.aspx?id=42064)和 [Azure 德国云](https://www.microsoft.com/download/details.aspx?id=54770)的 XML 文件中发布。 这些 XML 下载内容将在 2020 年 6 月 30 日弃用，在该日期过后将不再提供。 应按照前面几节中所述，使用发现 API 或 JSON 文件下载进行迁移。
+> 在这些信息中，有一部分已在 [Azure 中国](https://www.microsoft.com/download/confirmation.aspx?id=42064)的 XML 文件中发布。 这些 XML 下载内容将在 2020 年 6 月 30 日弃用，在该日期过后将不再提供。 应按照前面几节中所述，使用发现 API 或 JSON 文件下载进行迁移。
 
 <!--MOONCAKE: CUSTOMIZED ON THE URL 41653, 42064, 54770-->
 

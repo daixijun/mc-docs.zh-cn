@@ -5,14 +5,14 @@ author: MikeDodaro
 ms.author: v-junlch
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 01/11/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: f753fccea98ae820f29d44e407e0ff3f6681529a
-ms.sourcegitcommit: a37f80e7abcf3e42859d6ff73abf566efed783da
+ms.openlocfilehash: c0a606ef925220bf395001c195fe721c8645c784
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829516"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195272"
 ---
 # <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-preview"></a>收集 Spring Cloud Resilience4J 断路器指标（预览版）
 
@@ -22,7 +22,7 @@ ms.locfileid: "97829516"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 根据 [Application Insights 的 Java 进程内代理指南](spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights)启用 Java 进程内代理。 
+* 根据 [Application Insights 的 Java 进程内代理指南](/spring-cloud/spring-cloud-howto-application-insights#enable-java-in-process-agent-for-application-insights)启用 Java 进程内代理。 
 
 * 根据 [Application Insights 指南](/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation)启用 resilience4j 指标的维度收集。
 
@@ -73,7 +73,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >       <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 >   </dependency>
 >   ```
-> * 客户代码必须使用 `CircuitBreakerFactory` 的 API，该 API 是在你包括 Spring Cloud 断路器入门版时作为自动创建的 `bean` 实现的。 
+> * 客户代码必须使用 `CircuitBreakerFactory` 的 API，该 API 是在你包括 Spring Cloud 断路器入门版时作为自动创建的 `bean` 实现的。 有关详细信息，请参阅 [Spring Cloud 断路器](https://spring.io/projects/spring-cloud-circuitbreaker#overview)。
 >
 > * 以下 2 个依赖项与上述 resilient4j 包冲突。  请确保客户不要包括这些依赖项。
 >
@@ -125,7 +125,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## <a name="see-also"></a>另请参阅
 
-* [Application insights](spring-cloud-howto-application-insights.md)
+* [Application insights](/spring-cloud/spring-cloud-howto-application-insights)
 * [分布式跟踪](spring-cloud-tutorial-distributed-tracing.md)
 * [断路器仪表板](spring-cloud-tutorial-circuit-breaker.md)
 

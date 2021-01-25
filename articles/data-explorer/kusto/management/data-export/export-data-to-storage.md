@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/12/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: f4c26a430b8ba6abdaeca03c62dbea7baf9e092e
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 01/22/2021
+ms.openlocfilehash: 91e94feed10f88baa9f1660fe2d91f7bb36145e2
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146666"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611644"
 ---
 # <a name="export-data-to-storage"></a>将数据导出到存储
 
@@ -70,8 +70,8 @@ ms.locfileid: "91146666"
 如果指定了 `async` 标志，则命令将以异步模式执行。
 在此模式下，命令会立即返回一个操作 ID，而数据导出则在后台继续进行，直到完成。 可以使用此命令返回的操作 ID 通过以下命令跟踪其进度并最终跟踪其结果：
 
-* [.show operations](../operations.md#show-operations)：跟踪进度。
-* [.show operation details](../operations.md#show-operation-details)：获取完成结果。
+* `.show operations`[](../operations.md#show-operations)：跟踪进度。
+* `.show operation details`[](../operations.md#show-operation-details)：获取完成结果。
 
 例如，在成功完成后，可使用以下命令来检索结果：
 
@@ -99,10 +99,36 @@ ms.locfileid: "91146666"
   <| myLogs | where id == "moshe" | limit 10000
 ```
 
-#### <a name="known-issues"></a>已知问题
+## <a name="failures-during-export-commands"></a>执行 export 命令期间发生故障
 
-执行 export 命令期间发生故障
+export 命令在执行期间可能会暂时失败。 [连续导出](continuous-data-export.md)会自动重试此命令。 常规 export 命令（[导出到存储](export-data-to-storage.md)、[导出到外部表](export-data-to-an-external-table.md)）不执行任何重试操作。
 
-* export 命令在执行期间可能会暂时失败。 如果 export 命令失败，不会删除已写入到存储的项目。 这些项目将保留在存储中。 如果该命令失败，应假定导出不完整（即使已写入了一些项目）。 跟踪命令完成情况和成功完成时导出的项目的最佳方法是使用 [.show operations](../operations.md#show-operations) 和 [.show operation details](../operations.md#show-operation-details) 命令。
+*  如果 export 命令失败，不会删除已写入到存储的项目。 这些项目将保留在存储中。 如果该命令失败，应假定导出不完整（即使已写入了一些项目）。 
+* 若要跟踪命令完成情况和成功完成时导出的项目，最好使用 [`.show operations`](../operations.md#show-operations) 和 [`.show operation details`](../operations.md#show-operation-details) 命令。
 
-* 默认情况下，export 命令是分布式的，所有包含数据的[盘区](../extents-overview.md)都以并发方式将数据导出/写入到存储。 进行大容量导出时，如果此类盘区的数量很大，则可能会导致存储空间的负载过高，从而导致存储受限或出现暂时性存储错误。 在这种情况下，建议你尝试增加为 export 命令提供的存储帐户数（目的是将负载分布到各个帐户中），并且/或者通过将分布提示设置为 `per_node` 来减少并发性（请参阅命令属性）。 还可以完全禁用分布，但这可能会显著影响命令性能。
+### <a name="storage-failures"></a>存储故障
+
+默认情况下会对 export 命令进行分配，从而可能会有许多针对存储的并发写入。 分配级别取决于 export 命令的类型：
+* 常规 `.export` 命令的默认分配为 `per_shard`，这意味着所有包含要导出数据的[区](../extents-overview.md)都以并发方式写入到存储。 
+* [导出到外部表](export-data-to-an-external-table.md)命令的默认分配为 `per_node`，这意味着并发度是指群集中的节点数。
+
+当区/节点的数量很大时，可能会导致存储中的负载过高，从而导致发生存储限制或出现暂时性存储错误。 以下建议可能会解决这些错误（按优先级顺序）：
+
+* 增加为 export 命令或[外部表定义](../external-tables-azurestorage-azuredatalake.md)提供的存储帐户数（负载会在帐户之间均匀分配）。
+* 通过将分配提示设置为 `per_node` 来降低并发度（请参阅命令属性）。
+* 通过将[客户端请求属性](../../api/netfx/request-properties.md) `query_fanout_nodes_percent` 设置为所需的并发度（节点百分比）来降低进行导出的节点的并发度。 可以在导出查询中设置此属性。 例如，以下命令会将以并发方式写入到存储的节点的数目限制为群集节点的 50%：
+
+    ```kusto
+    .export async  to csv
+        ( h@"https://storage1.blob.core.chinacloudapi.cn/containerName;secretKey" ) 
+        with
+        (
+            distribution="per_node"
+        ) 
+        <| 
+        set query_fanout_nodes_percent = 50;
+        ExportQuery
+    ```
+
+* 如果要导出到分区的外部表，则设置 `spread`/`concurrency` 属性可以降低并发度（请参阅[命令属性](export-data-to-an-external-table.md#syntax)中的详细信息）。
+* 如果上述方式都不起作用，则也可通过将 `distributed` 属性设置为 false 来完全禁用分配，但我们不建议这样做，因为这可能会显著影响命令性能。

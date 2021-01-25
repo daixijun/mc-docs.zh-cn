@@ -4,13 +4,13 @@ description: 了解 Azure 资源日志支持的服务和事件架构。
 ms.subservice: logs
 author: Johnnytechn
 ms.topic: reference
-ms.date: 12/07/2020
-ms.openlocfilehash: 1d53482855f3ef6b0b6594cfe696f8f2be347132
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/12/2021
+ms.openlocfilehash: b117bd35c48547d11b890e458efd971ccd8f69a3
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104378"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229871"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Azure 资源日志的通用架构和特定于服务的架构
 
@@ -53,6 +53,7 @@ ms.locfileid: "97104378"
 | Azure Active Directory | [概述](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)、[审核日志架构](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md)和[登录架构](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | [Azure Analysis Services - 设置诊断日志记录](../../analysis-services/analysis-services-logging.md) |
 | API 管理 | [API 管理资源日志](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
+| 应用服务 | [应用服务日志](../../app-service/troubleshoot-diagnostic-logs.md)
 | 应用程序网关 |[应用程序网关的日志记录](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure 自动化 |[适用于 Azure 自动化的 Log Analytics](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 日志记录](../../batch/batch-diagnostics.md) |
@@ -63,6 +64,7 @@ ms.locfileid: "97104378"
 | Azure 数据资源管理器 | [Azure 数据资源管理器日志](/data-explorer/using-diagnostic-logs) |
 | Azure Database for MySQL | [Azure Database for MySQL 诊断日志](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL 日志](../../postgresql/concepts-server-logs.md#resource-logs) |
+| Azure Databricks | [Azure Databricks 中的诊断日志记录](/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
 | 事件中心 |[Azure 事件中心日志](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | 架构不可用。 |
 | Azure 防火墙 | 架构不可用。 |
@@ -71,6 +73,7 @@ ms.locfileid: "97104378"
 | Kubernetes 服务 |[Azure Kubernetes 日志记录](../../aks/view-master-logs.md#log-event-schema) |
 | 负载均衡器 |[Azure 负载均衡器的 Log Analytics](../../load-balancer/load-balancer-monitor-log.md) |
 | 逻辑应用 |[逻辑应用 B2B 自定义跟踪架构](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| 网络安全组 |[网络安全组 (NSG) 的 Log Analytics](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Power BI 专用 | [Azure 中 Power BI Embedded 的日志记录](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | 恢复服务 | [Azure 备份的数据模型](../../backup/backup-azure-reports-data-model.md)|
 | 搜索 |[允许并使用搜索流量分析](../../search/search-traffic-analytics.md) |

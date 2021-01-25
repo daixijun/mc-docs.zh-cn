@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 8b4367a17b7d61e5189f25aa11ae4fbf83629ff2
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 04cfa6d344d12eb3b2c6e2f6c6ad12cac8983ff8
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297712"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570576"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 和 PredicateValidations
 
@@ -42,7 +42,7 @@ Predicates 元素包含以下元素：
 
 Predicate 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | ID | 是 | 用于谓词的标识符。 其他元素可以在策略中使用此标识符。 |
 | 方法 | 是 | 用于验证的方法类型。 可能的值：[IsLengthRange](#islengthrange)、[MatchesRegex](#matchesregex)、[IncludesCharacters](#includescharacters) 或 [IsDateRange](#isdaterange)。  |
@@ -178,7 +178,7 @@ PredicateValidations 元素包含以下元素：
 
 PredicateValidation 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | ID | 是 | 用于谓词验证的标识符。 ClaimType 元素可以在策略中使用此标识符。 |
 
@@ -196,7 +196,7 @@ PredicateGroups 元素包含以下元素：
 
 PredicateGroup 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | ID | 是 | 用于谓词组的标识符。  |
 
@@ -209,7 +209,7 @@ PredicateGroup 元素包含以下元素：
 
 PredicateReferences 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | MatchAtLeast | 否 | 指定该值针对要接受的输入必须至少匹配多个谓词定义。 如果未指定，则该值必须与所有谓词定义匹配。 |
 
@@ -221,7 +221,7 @@ PredicateReferences 元素包含以下元素：
 
 PredicateReference 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | ID | 是 | 用于谓词验证的标识符。  |
 
@@ -426,4 +426,7 @@ PredicateReference 元素包含以下属性：
 </ClaimType>
  ```
 
-<!-- Update_Description: wording update -->
+## <a name="next-steps"></a>后续步骤
+
+- 了解如何通过谓词验证[在 Azure Active Directory B2C 中使用自定义策略配置密码复杂性](password-complexity.md)。
+

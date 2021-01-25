@@ -4,15 +4,15 @@ description: 了解如何查看 Azure Spring Cloud 中的指标
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 01/11/2021
 ms.author: v-junlch
 ms.custom: devx-track-java
-ms.openlocfilehash: 1b45f9a9e49dbf01eef653ab371b64a516ed3aaa
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 0cde9235d0c27437472893bd56d8cf3d25e3725f
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507692"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195072"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>了解用于 Azure Spring Cloud 的指标
 
@@ -114,7 +114,7 @@ Azure Spring Cloud 提供以下五个图表，其中的指标每分钟更新一�
 >[!div class="mx-tdCol2BreakAll"]
 >| 名称 | Spring Actuator 指标名称 | 计价单位 | 详细信息 |
 >|------|-----------------------------|------|---------|
->| CPU 使用率       | cpu-usage      | 毫秒 | 进程使用 CPU 的时间。 |
+>| CPU 使用率       | cpu-usage      | 百分比      | 进程的 CPU 使用率相对于所有系统 CPU 资源的百分比 [0-100]。 |
 >| 工作集     | working-set    | 兆字节    | 进程所使用的工作集数量。 |
 >| GC 堆大小    | gc-heap-size   | 兆字节    | 垃圾回收器报告的堆总大小。 |
 >| 第 0 代 GC 计数  | gen-0-gc-count | 计数        | 每秒第 0 代垃圾回收数。 |

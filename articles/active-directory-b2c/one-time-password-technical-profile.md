@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/04/2020
+ms.date: 01/19/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 7e4891a0aaf68b0710e4afa203f37fb6309ae83d
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 74b7cf829181e88691bff4d73967946476f22047
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326443"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570584"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>在 Azure AD B2C 自定义策略中定义一次性密码技术配置文件
 
@@ -45,7 +45,7 @@ Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.
 
 ## <a name="generate-code"></a>生成代码
 
-此技术配置文件的第一种模式是生成代码。 下面是可以为此模式配置的选项。
+此技术配置文件的第一种模式是生成代码。 下面是可以为此模式配置的选项。 在会话中跟踪生成的代码和尝试。 
 
 ### <a name="input-claims"></a>输入声明
 
@@ -71,9 +71,9 @@ OutputClaims 元素包含由一次性密码协议提供程序生成的声明列�
 
 以下设置可用于配置代码生成模式：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | 否 | 代码过期之前的时间（秒）。 最小值：`60`；大值：`1200`；默认值：`600` 每次提供代码（使用 `ReuseSameCode` 的相同代码或新代码）时，代码过期时间都会延长。  |
+| CodeExpirationInSeconds | 否 | 代码过期之前的时间（秒）。 最小值：`60`；大值：`1200`；默认值：`600` 每次提供代码（使用 `ReuseSameCode` 的相同代码或新代码）时，代码过期时间都会延长。 此时间还用于设置重试超时（达到最大尝试次数后，用户将被锁定，在此时间到期之前无法尝试获取新代码） |
 | CodeLength | 否 | 代码的长度。 默认值为 `6`。 |
 | CharacterSet | 否 | 代码的字符集，其格式设置为可在正则表达式中使用。 例如，`a-z0-9A-Z`。 默认值为 `0-9`。 字符集必须在指定的集中至少包含 10 个不同的字符。 |
 | NumRetryAttempts | 否 | 代码被视为无效之前的验证尝试次数。 默认值为 `5`。 |
@@ -136,7 +136,7 @@ InputClaimsTransformations 元素可以包含 InputClaimsTransformation 元素�
 
 | 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
-| 操作 | 是 | 要执行的操作。 可能的值：`VerifyCode`。 |
+| Operation | 是 | 要执行的操作。 可能的值：`VerifyCode`。 |
 
 
 ### <a name="ui-elements"></a>UI 元素

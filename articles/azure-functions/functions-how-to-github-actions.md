@@ -3,19 +3,19 @@ title: 使用 GitHub Actions 在 Azure Functions 中进行代码更新
 description: 了解如何使用 GitHub Actions 来定义一个在 GitHub 中生成和部署 Azure Functions 项目的工作流。
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 01/13/2021
 ms.author: v-junlch
 ms.custom: devx-track-csharp, github-actions-azure
-ms.openlocfilehash: ed79c6eef7c2ff809d17149fcc3a0d74cc5d77dc
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 4cc2b74a187f9b20b826724b30a8fc5431a1a481
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021460"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195238"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>使用 Github Actions 进行持续交付
 
-使用 [GitHub Actions](https://github.com/features/actions) 定义一个工作流，以便自动生成代码并将其部署到 Azure 函数应用。 
+使用 [GitHub Actions](https://github.com/features/actions) 定义一个工作流，以便自动生成代码并将其部署到 Azure Functions 中的函数应用。 
 
 在 GitHub Actions 中，[工作流](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions)是在 GitHub 存储库中定义的自动化过程。 此过程告知 GitHub 如何在 GitHub 中生成和部署函数应用项目。 
 
@@ -162,6 +162,7 @@ JavaScript (Node.js) 使用 `actions/setup-node` 操作。
 ---
 
 ## <a name="deploy-the-function-app"></a>部署函数应用
+
 使用 `Azure/functions-action` 操作将代码部署到函数应用。 此操作有三个参数：
 
 |参数 |说明  |
@@ -177,7 +178,7 @@ JavaScript (Node.js) 使用 `actions/setup-node` 操作。
 设置使用发布配置文件的 .NET Linux 工作流。
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Linux environment
+name: Deploy DotNet project to function app with a Linux environment
 
 on:
   [push]
@@ -216,7 +217,7 @@ jobs:
 设置使用发布配置文件的 .NET Windows 工作流。
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Windows environment
+name: Deploy DotNet project to function app with a Windows environment
 
 on:
   [push]
@@ -258,7 +259,7 @@ jobs:
 设置使用发布配置文件的 Java Linux 工作流。
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -300,7 +301,7 @@ jobs:
 设置使用发布配置文件的 Java Windows 工作流。
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -344,7 +345,7 @@ jobs:
 设置使用发布配置文件的 Node.JS Linux 工作流。
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -386,7 +387,7 @@ jobs:
 设置使用发布配置文件的 Node.JS Windows 工作流。
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]

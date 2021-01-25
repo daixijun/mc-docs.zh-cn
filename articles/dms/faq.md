@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 origin.date: 02/20/2020
-ms.date: 12/07/2020
-ms.openlocfilehash: 8b43709d5105ca44263a2a7f25154ea34088a794
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.date: 01/18/2021
+ms.openlocfilehash: 1c014deb2f50619da902f055c7ec0db408575b53
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746831"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230593"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>有关使用 Azure 数据库迁移服务的常见问题解答
 
@@ -51,6 +51,9 @@ Azure 数据库迁移服务是将数据库大规模迁移到 Azure 的首选方�
 
 **问：Azure 数据库迁移服务与 Azure 迁移产品/服务有何差别？**
 Azure 迁移服务可以帮助将本地虚拟机迁移到 Azure IaaS。 该服务会评估是否适合迁移以及需要根据性能进行哪些大小调整，并提供在 Azure 中运行本地虚拟机的成本估算。 Azure Migrate 适合用于将基于本地 VM 的工作负荷直接迁移到 Azure IaaS VM。 但是，与 Azure 数据库迁移服务不同，Azure Migrate 不是适用于 Azure SQL 数据库或 Azure SQL 托管实例等 Azure PaaS 关系数据库平台的专用数据库迁移服务产品。
+
+**问：数据库迁移服务是否存储客户数据？**
+不是。 数据库迁移服务不存储客户数据。
 
 ## <a name="setup"></a>设置
 

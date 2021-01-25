@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/28/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 10/05/2020
 ms.author: v-yeche
-ms.openlocfilehash: 7693e2bb319ad65cd46109c2135ad81f2b31c802
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: abe3b7260ef946311b4a6acbb95161221139b4df
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300807"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230349"
 ---
 <!--Verified Successfully-->
 <!--Remove the part of Availability Zones-->
@@ -44,6 +44,9 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
     --name myResourceGroup \
     --location chinaeast2
 ```
+
+## <a name="create-public-ip"></a>创建公共 IP
+
 ---
 
 <!--Not Available on # [**Standard SKU - Using zones**](#tab/option-create-public-ip-standard-zones)-->
@@ -54,7 +57,7 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 # <a name="standard-sku---no-zones"></a>[标准 SKU - 无区域](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
->以下命令适用于 API 版本 2020-08-01 或更高版本。  有关当前正在使用的 API 版本的详细信息，请参阅[资源提供程序和类型](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)。
+>以下命令适用于 API 版本 2020-08-01 或更高版本。  有关当前正在使用的 API 版本的详细信息，请参阅[资源提供程序和类型](https://docs.azure.cn/azure-resource-manager/management/resource-providers-and-types)。
 
 使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip#az_network_public_ip_create) 在 myResourceGroup 中创建一个标准公共 IP 地址作为名为 myStandardPublicIP 的非区域性资源 。
 
@@ -64,7 +67,10 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
     --name myStandardPublicIP \
     --sku Standard
 ```
-此选择在所有区域均有效，并且在没有[可用性区域](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/virtual-network/toc.json#availability-zones)的区域中，这是标准公共 IP 地址的默认选择。
+
+此选择在所有区域均有效，并且目前在 Azure 中国区域中，这是标准公共 IP 地址的默认选择。
+
+<!--Not Available on [Availability Zones](https://docs.azure.cn/availability-zones/az-overview?toc=/virtual-network/toc.json#availability-zones)-->
 
 # <a name="basic-sku"></a>[**基本 SKU**](#tab/option-create-public-ip-basic)
 

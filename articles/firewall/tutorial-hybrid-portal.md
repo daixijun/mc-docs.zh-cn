@@ -6,17 +6,17 @@ ms.service: firewall
 ms.topic: tutorial
 origin.date: 11/17/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 12/07/2020
 ms.author: v-yeche
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: c78207bb0e2d69d3020fdfd52ad41ae5eaaafa3a
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 7ccd6d628348b75cb0f34d0a29dc23d8ec2cf30c
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746626"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231071"
 ---
 <!--Verify Successfully-->
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>教程：使用 Azure 门户在混合网络中部署和配置 Azure 防火墙
@@ -91,10 +91,11 @@ ms.locfileid: "96746626"
 现在创建 VNet：
 
 > [!NOTE]
-> AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。
+> AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size)。
 
 1. 在 Azure 门户主页上，选择“创建资源”。
 2. 在“网络”下，选择“虚拟网络”。 
+1. 选择“创建”。
 1. 对于“资源组”，请选择“FW-Hybrid-Test”。 
 1. 对于“名称”，请键入 **VNet-hub**。
 1. 在完成时选择“下一步:IP 地址”。
@@ -159,7 +160,7 @@ ms.locfileid: "96746626"
 
     <!--MoonCake Customization on the portal-->
 
-    |设置  |“值”  |
+    |设置  |值  |
     |---------|---------|
     |订阅     |\<your subscription\>|
     |资源组     |**FW-Hybrid-Test** |
@@ -172,7 +173,6 @@ ms.locfileid: "96746626"
 6. 查看摘要，然后选择“创建”以创建防火墙。 
 
     部署过程需要花费几分钟时间。
-    
 7. 部署完成后，转到“FW-Hybrid-Test”资源组，然后选择“AzFW01”防火墙。 
 8. 记下专用 IP 地址。 稍后在创建默认路由时需要用到此地址。
 
@@ -187,7 +187,7 @@ ms.locfileid: "96746626"
 5. 对于“优先级”，请键入 **100**。
 6. 对于“操作”，请选择“允许”。
 6. 在“规则”下，为“名称”键入 **AllowWeb**。 
-7. 对于“协议”，请选择“TCP”。 
+7. 对于“协议”，请选择“TCP”。
 8. 对于 **源类型**，请选择“IP 地址”。
 9. 对于 **源**，请键入 **192.168.1.0/24**。
 10. 对于“目标类型”，请选择“IP 地址” 。
@@ -199,7 +199,7 @@ ms.locfileid: "96746626"
 在第二个规则行中键入以下信息：
 
 1. 对于“名称”，请键入 **AllowRDP**。
-2. 对于“协议”，请选择“TCP”。  
+2. 对于“协议”，请选择“TCP”。 
 3. 对于 **源类型**，请选择“IP 地址”。
 4. 对于 **源**，请键入 **192.168.1.0/24**。
 5. 对于“目标类型”，请选择“IP 地址” 。
@@ -258,7 +258,7 @@ ms.locfileid: "96746626"
 5. 选择“VNet 到 VNet”作为“连接类型”。
 6. 对于“第二个虚拟网络网关”，请选择“GW-Onprem”。
 7. 对于“共享密钥(PSK)”，请键入 **AzureA1b2C3**。
-8. 选择“确定”  。
+8. 选择“确定”。
 
 创建本地到中心虚拟网络连接。 此步骤类似于前一步骤，但这次是创建从 VNet-Onprem 到 VNet-hub 的连接。 确保共享密钥匹配。 几分钟后会建立连接。
 
@@ -269,7 +269,7 @@ ms.locfileid: "96746626"
 5. 选择“VNet 到 VNet”作为“连接类型”。
 6. 对于“第二个虚拟网络网关”，请选择“GW-hub”。
 7. 对于“共享密钥(PSK)”，请键入 **AzureA1b2C3**。
-8. 选择“确定”  。
+8. 选择“确定”。
 
 #### <a name="verify-the-connection"></a>验证连接
 
@@ -335,7 +335,7 @@ ms.locfileid: "96746626"
 15. 键入 **10.6.0.0/16** 作为地址前缀。
 16. 选择“虚拟设备”作为下一跃点类型。
 17. 键入前面记下的防火墙专用 IP 地址作为下一跃点地址。
-18. 选择“确定”  。
+18. 选择“确定”。
 
 现在，将路由关联到子网。
 
@@ -369,7 +369,7 @@ ms.locfileid: "96746626"
 6. 键入 **0.0.0.0/0** 作为地址前缀。
 7. 选择“虚拟设备”作为下一跃点类型。
 8. 键入前面记下的防火墙专用 IP 地址作为下一跃点地址。
-9. 选择“确定”  。
+9. 选择“确定”。
 
 现在，将路由关联到子网。
 
@@ -388,7 +388,7 @@ ms.locfileid: "96746626"
 在分支虚拟网络中，创建运行 IIS 且不使用公共 IP 地址的虚拟机。
 
 1. 在 Azure 门户主页上，选择“创建资源”。
-2. 在“常用”下，选择“Windows Server 2016 Datacenter”。  
+2. 在“常用”下，选择“Windows Server 2016 Datacenter”。
 3. 输入虚拟机的以下值：
     - **资源组** - 选择“FW-Hybrid-Test”。
     - **虚拟机名称**：*VM-Spoke-01*。
@@ -406,7 +406,7 @@ ms.locfileid: "96746626"
 
 ### <a name="install-iis"></a>安装 IIS
 
-1. 使用管理员打开 PowerShell 控制台，然后使用你的帐户登录。
+1. 以管理员身份运行 PowerShell 控制台，然后使用你的帐户登录。
 
     <!--Mooncake Customization on Cloud Shell-->
 
@@ -429,7 +429,7 @@ ms.locfileid: "96746626"
 你将使用此虚拟机通过远程桌面连接到公共 IP 地址。 然后，请在该虚拟机中通过防火墙连接到本地服务器。
 
 1. 在 Azure 门户主页上，选择“创建资源”。
-2. 在“常用”下，选择“Windows Server 2016 Datacenter”。  
+2. 在“常用”下，选择“Windows Server 2016 Datacenter”。
 3. 输入虚拟机的以下值：
     - **资源组** - 选择现有资源组，然后选择“FW-Hybrid-Test”。
     - **虚拟机名称** - *VM-Onprem*。
@@ -465,10 +465,10 @@ ms.locfileid: "96746626"
 - 可以浏览分支虚拟网络中的 Web 服务器。
 - 可以使用 RDP 连接到分支虚拟网络中的服务器。
 
-接下来，将防火墙网络规则集合操作更改为“拒绝”，以验证防火墙规则是否按预期工作。 
+接下来，将防火墙网络规则集合操作更改为“拒绝”，以验证防火墙规则是否按预期工作。
 
 1. 选择“AzFW01”防火墙。
-2. 选择“规则”。
+2. 选择“规则”。 
 3. 选择“网络规则集合”选项卡，然后选择“RCNet01”规则集合。 
 4. 对于“操作”，请选择“拒绝”。 
 5. 选择“保存”。

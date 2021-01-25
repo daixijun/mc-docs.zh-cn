@@ -13,12 +13,12 @@ ms.author: v-jay
 ms.reviewer: bonova, sstein, danil
 origin.date: 12/25/2020
 ms.date: 01/04/2021
-ms.openlocfilehash: 59db4f628174078881a8b7b08a197e5411134242
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: ec807736683aed17de3bfb0295b11fa870a6d106
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829892"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541839"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>功能比较：Azure SQL 数据库和 Azure SQL 托管实例
 
@@ -52,7 +52,7 @@ Azure 管理数据库并保证其高可用性。 可能影响高可用性或无�
 | [排序规则 - 服务器/实例](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | 否，始终使用默认的服务器排序规则 `SQL_Latin1_General_CP1_CI_AS`。 | 是，可以在[创建实例](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md)时设置，以后不可更新。 |
 | [列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | 是 - [高级层、标准层 - S3 及以上层、常规用途层、业务关键层和超大规模层](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |是 |
 | [公共语言运行时 - CLR](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | 否 | 是，但无权在 `CREATE ASSEMBLY` 语句中访问文件系统 - 请参阅 [CLR 差异](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) |
-| [凭据](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/credentials-database-engine) | 是，但是仅限[数据库范围的凭据](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql)。 | 是，但仅支持 **Azure Key Vault** 和 `SHARED ACCESS SIGNATURE`，请参阅 [详细信息](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
+| [凭据](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/credentials-database-engine) | 是，但是仅限[数据库范围的凭据](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql)。 | 是，但仅支持 **Azure Key Vault** 和 `SHARED ACCESS SIGNATURE` - 请参阅[详细信息](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
 | [跨数据库/三部分名称查询](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 - 请参阅[弹性查询](elastic-query-overview.md) | 是，外加[弹性查询](elastic-query-overview.md) |
 | [跨数据库事务](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 | 是，在实例中。 对于跨实例查询，请参阅[链接服务器的差异](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers)。 |
 | [数据库邮件 - DbMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | 否 | 是 |

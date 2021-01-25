@@ -4,7 +4,7 @@ description: 使用客户端日志记录等功能和其他第三方工具来确�
 ms.service: cosmos-db
 origin.date: 06/11/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
@@ -12,12 +12,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 1e8b21b4a6a093667eadf9fa080f542b71412933
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 4c3f694893c0c87cdc2491b6dfd4e13630d15ac0
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850798"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230241"
 ---
 <!--Verified successfully, ONLY CHARACTORS CONTENT-->
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>排查将 Azure Cosmos DB Java SDK v4 与 SQL API 帐户配合使用时出现的问题
@@ -42,6 +42,13 @@ Azure Cosmos DB Java SDK v4 提供客户端逻辑表示用于访问 Azure Cosmos
 * 查看 Azure Cosmos DB 中心存储库中的 Java SDK，它以 [GitHub 上的开放源代码](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos)的形式提供。 该 SDK 拥有受到主动监视的[问题部分](https://github.com/Azure/azure-sdk-for-java/issues)。 检查是否已提交包含解决方法的任何类似问题。 一个有用的提示是通过 cosmos:v4-item 标签来筛选问题。
 * 查看适用于 Azure Cosmos DB Java SDK v4 的[性能提示](performance-tips-java-sdk-v4-sql.md)并按照建议的做法进行操作。
 * 阅读本文的其余部分，如果找不到解决方案， 则提交 [GitHub 问题](https://github.com/Azure/azure-sdk-for-java/issues)。 如果有向 GitHub 问题添加标签的选项，请添加 cosmos:v4-item 标签。
+
+### <a name="retry-logic"></a>重试逻辑 <a name="retry-logics"></a>
+如果可以在 SDK 中重试，则任何 IO 故障的 Cosmos DB SDK 都将尝试重试失败的操作。 重试任何故障是一种好习惯，特别是处理/重试写入故障必不可少。 由于重试逻辑不断改进，因此建议使用最新的 SDK。
+
+1. SDK 会重试读取和查询 IO 故障，而不会将它们呈现给最终用户。
+2. 写入（创建、更新、替换、删除）不是幂等的，因此，SDK 不能总是盲目地重试失败的写入操作。 用户的应用程序逻辑必须能够处理故障并重试。
+3. [SDK 可用性疑难解答](troubleshoot-sdk-availability.md)说明了多区域 Cosmos DB 帐户的重试。
 
 <a name="common-issues-workarounds"></a>
 ## <a name="common-issues-and-workarounds"></a>常见问题和解决方法

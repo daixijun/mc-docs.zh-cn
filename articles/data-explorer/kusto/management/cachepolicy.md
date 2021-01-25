@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 274517291cdfd1ff7118d42d7015ba9cf9157129
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.openlocfilehash: 079c1839ab24cccc6899ca055792494ecb9928f1
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516076"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611460"
 ---
 # <a name="cache-policy-hot-and-cold-cache"></a>缓存策略（热缓存和冷缓存） 
 
@@ -42,6 +42,7 @@ Azure 数据资源管理器缓存提供了一种精细的缓存策略，客户�
 
 > [!NOTE]
 > 可以使用引入属性 `creationTime` 来指定引入日期和时间的值。
+> 这样做时，请确保表的有效[盘区合并策略](mergepolicy.md)中的 `Lookback` 属性与你为 `creationTime` 设置的值一致。
 
 默认情况下，有效策略为 `null`，这意味着所有数据都被视为热数据。
 非 `null` 表级别的策略会重写数据库级别的策略。

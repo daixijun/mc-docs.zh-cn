@@ -4,18 +4,18 @@ description: 了解如何使用 Azure 存储客户端库复制 blob。
 services: storage
 author: WenJason
 ms.author: v-jay
-origin.date: 09/10/2020
-ms.date: 09/28/2020
+origin.date: 01/08/2021
+ms.date: 01/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 7b52ea56c7548f6fd01ffd1829666dbdcd3c9749
-ms.sourcegitcommit: 119a3fc5ffa4768b1bd8202191091bd4d873efb4
+ms.openlocfilehash: c59549f22c3468001832b7c7c71a037aad6cef99
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91026544"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163068"
 ---
 # <a name="copy-a-blob-with-azure-storage-client-libraries"></a>使用 Azure 存储客户端库复制 blob
 
@@ -50,7 +50,7 @@ ms.locfileid: "91026544"
 - [StartCopyFromUri](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuri)
 - [StartCopyFromUriAsync](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuriasync)
 
-StartCopyFromUri 和 StartCopyFromUriAsync 方法返回包含有关复制操作的信息的 [CopyFromUriOperation](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.copyfromurioperation) 对象。
+`StartCopyFromUri` 和 `StartCopyFromUriAsync` 方法返回包含有关复制操作的信息的 [CopyFromUriOperation](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.copyfromurioperation) 对象。
 
 以下代码示例获取表示以前创建的 Blob 的 [BlobClient](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobclient)，并将其复制到同一容器中的新 Blob：
 
@@ -121,10 +121,10 @@ private static async Task CopyBlobAsync(BlobContainerClient container)
 
 若要复制 Blob，请调用以下方法之一：
 
-- [StartCopy](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
-- [StartCopyAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
+- [StartCopy](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.startcopy)
+- [StartCopyAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.startcopyasync)
 
-**StartCopy** 和 **StartCopyAsync** 方法返回用于检查状态或中止复制操作的复制 ID 值。
+`StartCopy` 和 `StartCopyAsync` 方法返回用于检查状态或中止复制操作的复制 ID 值。
 
 以下代码示例获取对以前创建的 Blob 的引用，并将其复制到同一容器中的新 Blob：
 
@@ -196,7 +196,7 @@ def blob_copy(self, container_name, blob_name):
 
     # Create a BlobClient from a connection string
     # retrieved from an environment variable named
-    # AZURE_STORAGE_CONNECTION_STRING
+    # AZURE_STORAGE_CONNECTION_STRING.
     source_blob = BlobClient.from_connection_string(
         os.getenv("AZURE_STORAGE_CONNECTION_STRING"), 
         container_name, blob_name
@@ -226,11 +226,11 @@ def blob_copy(self, container_name, blob_name):
         properties = dest_blob.get_blob_properties()
         copy_props = properties.copy
 
-        # Display the copy status
+        # Display the copy status.
         print("Copy status: " + copy_props["status"])
-        print("Copy progress: " + copy_props["progress"]);
-        print("Completion time: " + str(copy_props["completion_time"]));
-        print("Total bytes: " + str(properties.size));
+        print("Copy progress: " + copy_props["progress"])
+        print("Completion time: " + str(copy_props["completion_time"]))
+        print("Total bytes: " + str(properties.size))
 
         if (source_props.lease.state == "leased"):
             # Break the lease on the source blob.

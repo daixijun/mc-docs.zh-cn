@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
-ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 3684e2238ac5e8bad133d4e0ba4fb0481448695f
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.custom: devx-track-csharp, contperf-fy21q1
+ms.openlocfilehash: 2a9e930f3d427cf0bc89b20b618a71832228d9b6
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598689"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230882"
 ---
 # <a name="install-and-use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>安装并使用 Azure Cosmos DB 模拟器进行本地开发和测试
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -63,7 +63,7 @@ Azure Cosmos DB 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 �
 安装模拟器之前，请确保满足以下硬件和软件要求：
 
 * 所需软件：
-    * 当前支持 Windows Server 2012 R2、Windows Server 2016、2019 或 Windows 8、10 主机操作系统。 当前不支持启用了 Active Directory 的主机操作系统。
+    * 当前支持 Windows Server 2016、2019 或 Windows 10 主机操作系统。 当前不支持启用了 Active Directory 的主机操作系统。
     * 64 位操作系统
 
 * 最低硬件要求：

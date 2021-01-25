@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 04/16/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 4b142c851487373613337e1ce0429146cb456ee8
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: ceac5b458aa6e8140704456dcaa485677b4b8b4b
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104448"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611507"
 ---
 # <a name="count-operator"></a>count 运算符
 
@@ -26,7 +26,7 @@ ms.locfileid: "93104448"
 
 ## <a name="arguments"></a>参数
 
-*T* ：待计算记录数的表格数据。
+*T*：待计算记录数的表格数据。
 
 ## <a name="returns"></a>返回
 
@@ -38,3 +38,7 @@ ms.locfileid: "93104448"
 ```kusto
 StormEvents | count
 ```
+
+## <a name="see-also"></a>另请参阅
+
+有关 count() 聚合函数的信息，请参阅 [count()（聚合函数）](count-aggfunction.md)。

@@ -7,20 +7,23 @@ author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 04/01/2020
-ms.date: 11/27/2020
-ms.openlocfilehash: f84047e84e22b184fff0cfc078fbfcb861ba608d
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+origin.date: 12/09/2020
+ms.date: 01/14/2021
+ms.openlocfilehash: 01c862bf31fb08698f13cd29fbbc55b497970275
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300791"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194768"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>如何在 Azure 认知搜索中使用搜索结果
 
-本文介绍如何获取返回的查询响应，其中包含匹配文档的总数、已分页的结果、已排序的结果和突出显示的字词。
+本文介绍了如何在 Azure 认知搜索中规划查询响应。 响应的结构由查询中的参数决定：REST API 中的[搜索文档](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)，或 .NET SDK 中的 [SearchResults 类](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.searchresults-1)。 可通过以下方式使用查询上的参数来调整结果集的结构：
 
-响应的结构由查询中的参数决定：REST API 中的[搜索文档](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)，或 .NET SDK 中的 [DocumentSearchResult 类](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1)。
++ 对结果中的文档数量（默认为 50 个）进行限制或分批
++ 选择结果中要包含的字段
++ 对结果进行排序
++ 在搜索结果正文中突出显示完整匹配或部分匹配字词
 
 ## <a name="result-composition"></a>结果的构成
 
@@ -39,6 +42,14 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 
 > [!NOTE]
 > 若要在结果中包括图像文件（例如产品照片或徽标），请将其存储在 Azure 认知搜索外部，但在索引中包含一个字段，以引用搜索文档中的图像 URL。 支持在结果中包含图像的示例索引包括此[快速入门](search-create-app-portal.md)中专门介绍的 realestate-sample-us 演示，以及[纽约市工作岗位演示应用](https://aka.ms/azjobsdemo)。
+
+### <a name="tips-for-unexpected-results"></a>意外结果提示
+
+有时可能会出现预料外的结果内容（而不是结构）。 如果查询结果不符合预期，可以尝试对查询进行以下修改，然后查看结果是否有所改善：
+
++ 将 **`searchMode=any`** （默认）更改为 **`searchMode=all`** 可获取符合所有条件而不是某个条件的匹配项。 在查询包含布尔运算符时更应如此。
+
++ 使用不同的词法分析器或自定义分析器进行试验，看它是否改变了查询结果。 默认分析器会分解包含连字符的单词并将单词缩减为词根形式，这通常可以提高查询响应的稳定性。 但是，如果需要保留连字符，或者字符串中包含特殊字符，则你可能需要配置自定义分析器，以确保索引包含正确格式的标记。 有关详细信息，请参阅[部分字词搜索和包含特殊字符（连接符、通配符、正则表达式、模式）的模式](search-query-partial-matching.md)。
 
 ## <a name="paging-results"></a>分页结果
 
@@ -83,7 +94,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 
 对于全文搜索查询，结果将按照搜索评分自动排名，搜索评分是根据文档中的字词频率和邻近性计算的，根据搜索字词，匹配项越多或者匹配程度越高的文档，其评分越高。 
 
-搜索评分表达了对相关性的总体认知，反映了相对于同一结果集中其他文档的匹配强度。 评分在不同的查询之间并非始终一致，因此，在处理查询时，你可能会注意到搜索文档的排序方式存在细微差别。 下面对发生这种情况的可能原因给出了几条解释。
+搜索评分表达了对相关性的总体认知，反映了相对于同一结果集中的其他文档的匹配强度。 但是，评分在不同的查询之间并非始终一致，因此，在处理查询时，你可能会注意到搜索文档的排序方式存在细微差别。 下面对发生这种情况的可能原因给出了几条解释。
 
 | 原因 | 说明 |
 |-----------|-------------|
@@ -91,11 +102,11 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 | 多个副本 | 对于使用多个副本的服务，将并行针对每个副本发出查询。 用于计算搜索评分的索引统计信息是根据每个副本计算的，结果将在查询响应中合并和排序。 副本基本上是彼此的镜像，但由于状态存在细微差别，因此统计信息可能有所不同。 例如，一个副本可能删除了对统计信息有影响的文档，这些统计信息由其他副本合并而来。 通常，按副本的统计信息的差异在较小索引中更明显。 |
 | 相同的评分 | 如果多个文档具有相同的评分，其中的任何一个文档都可能会首先出现。  |
 
-### <a name="consistent-ordering"></a>一致的排序
+### <a name="how-to-get-consistent-ordering"></a>如何获得一致的排序
 
-假设结果的排序是灵活的，如果一致性是应用程序的一项要求，你可能需要使用其他选项。 最简单的方法是按字段值（例如评级或日期）排序。 若要按特定的字段（例如评级或日期）排序，可以显式定义一个 [`$orderby` 表达式](query-odata-filter-orderby-syntax.md)，该表达式可应用于在索引中设置为“可排序”的任何字段。
+如果一致的排序是一项应用程序要求，则可以在字段上显式定义 [ **`$orderby`** ] 表达式(query-odata-filter-orderby-syntax.md)。 只有在编制索引时设置为 `sortable` 的字段才可用于对结果排序。 如果你指定了 `orderby` 参数的值来包括字段名称并且针对地理空间值调用了 [`geo.distance()` 函数](query-odata-filter-orderby-syntax.md)，则 `$orderby` 中常用的字段包括评级、日期和位置。  
 
-另一个选项是使用[自定义评分配置文件](index-add-scoring-profiles.md)。 使用评分配置文件可以提高在特定字段中有匹配项的项的分数，从而可以让你更好地控制搜索结果中各个项的排名。 这一附加的评分逻辑有助于覆盖副本之间的细微差异，因为每个文档的搜索评分会在更大程度上拉开差距。 我们建议对此方法使用[排名算法](index-ranking-similarity.md)。
+提高一致性的另一种方法是使用[自定义评分配置文件](index-add-scoring-profiles.md)。 使用评分配置文件可以提高在特定字段中有匹配项的项的分数，从而可以让你更好地控制搜索结果中各个项的排名。 这一附加的评分逻辑有助于覆盖副本之间的细微差异，因为每个文档的搜索评分会在更大程度上拉开差距。 我们建议对此方法使用[排名算法](index-ranking-similarity.md)。
 
 ## <a name="hit-highlighting"></a>突出显示
 

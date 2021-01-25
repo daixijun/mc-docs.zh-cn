@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/04/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 147cdbd3420c250621772498f3bace50f58e15e7
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 5ee11e21a8c91c31722e6dbbbc436edf8aaedac3
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326440"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570622"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定义采用 Azure Active Directory B2C 中自定义策略的自断言技术配置文件
 
@@ -208,8 +208,8 @@ ms.locfileid: "94326440"
 | setting.showCancelButton | 否 | 显示“取消”按钮。 可能的值为 `true`（默认）或 `false` |
 | setting.showContinueButton | 否 | 显示“继续”按钮。 可能的值为 `true`（默认）或 `false` |
 | setting.showSignupLink <sup>2</sup>| 否 | 显示“注册”按钮。 可能的值为 `true`（默认）或 `false` |
-| setting.forgotPasswordLinkLocation <sup>2</sup>| 否| 显示“忘记密码”链接。 可能的值：`AfterInput`（默认值）链接显示在页面底部，或者 `None`（删除“忘记密码”链接）。|
-| setting.enableRememberMe <sup>2</sup>| 否| 显示“使我保持登录状态”复选框。 可能的值：`true` 或 `false`（默认值）。 |
+| setting.forgotPasswordLinkLocation <sup>2</sup>| 否| 显示“忘记密码”链接。 可能的值：`AfterLabel`（默认值）直接在标签后面或在没有标签时在密码输入字段后面显示链接，`AfterInput` 在密码输入字段后面显示链接，`AfterButtons` 在按钮后面的窗体底部显示链接，或 `None` 删除“忘记密码”链接。|
+| setting.enableRememberMe <sup>2</sup>| 否| 显示[使我保持登录状态](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi)复选框。 可能的值：`true` 或 `false`（默认值）。 |
 | setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| 否| 通过等待用户停止键入后再验证该值来改善用户体验。 默认值为 2000 毫秒。 |
 | IncludeClaimResolvingInClaimsHandling  | 否 | 对于输入和输出声明，指定[声明解析](claim-resolver-overview.md)是否包含在技术配置文件中。 可能的值：`true` 或 `false`（默认值）。 若要使用技术配置文件中的声明解析程序，请将此项设为 `true`。 |
 

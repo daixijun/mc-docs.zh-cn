@@ -2,15 +2,15 @@
 title: 建议用于 Apache Kafka 客户端的配置 - Azure 事件中心
 description: 本文提供了建议用于与 Apache Kafka 的 Azure 事件中心进行交互的客户端的 Apache Kafka 配置。
 ms.topic: reference
-origin.date: 07/20/2020
-ms.date: 11/04/2020
+origin.date: 01/07/2021
+ms.date: 01/14/2021
 ms.author: v-tawe
-ms.openlocfilehash: 0d0cdc9ad0db266c6e622605874dd948710e2730
-ms.sourcegitcommit: b217474b15512b0f40b2eaae66bd3c521383d321
+ms.openlocfilehash: 5c3039af175739e5e4edf4bd99a4b5c093fc74c9
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93375680"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193274"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>建议用于 Apache Kafka 客户端的配置
 下面是从 Apache Kafka 客户端应用程序使用 Azure 事件中心时的建议配置。 
@@ -81,7 +81,7 @@ properties | 建议的值 | 允许的范围 | 备注
 
 症状 | 问题 | 解决方案
 ----|---|-----
-由于重新平衡而导致偏移量提交失败 | 使用者在两次调用 poll() 之间等待的时间太长，因此服务将该使用者踢出了群组。 | 有几种选项： <ul><li>增大会话超时</li><li>减小消息批大小以提高处理速度</li><li>改进处理并行性，以避免阻塞 consumer.poll()</li></ul> 应用这三者的某个组合可能是最明智的。
+由于重新平衡而导致偏移量提交失败 | 使用者在两次调用 poll() 之间等待的时间太长，因此服务将该使用者踢出了群组。 | 有几种选项： <ul><li>增加轮询处理超时 (`max.poll.interval.ms`)</li><li>减小消息批大小以提高处理速度</li><li>改进处理并行性，以避免阻塞 consumer.poll()</li></ul> 应用这三者的某个组合可能是最明智的。
 生成吞吐量高时的网络异常 | 你是否正在使用 Java 客户端 + 默认的 max.request.size？  你的请求可能太大。 | 请参阅上述 Java 配置。
 
 ## <a name="next-steps"></a>后续步骤

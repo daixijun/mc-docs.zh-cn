@@ -8,21 +8,22 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/24/2020
-ms.date: 09/30/2020
+ms.date: 01/22/2021
 zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 6ed574131c360518c6ad2f5e687390362e4569c7
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: a4769ec4a876f08399c8d925050d51a128795d10
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590581"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611676"
 ---
 # <a name="sql_request-plugin"></a>sql_request 插件
 
 ::: zone pivot="azuredataexplorer"
 
 `sql_request` 插件将 SQL 查询发送到 SQL Server 网络终结点，并返回结果中的第一个行集。
+此查询可能返回多个行集，但只有第一个行集可用于 Kusto 查询的其余部分。
 
 ## <a name="syntax"></a>语法
 

@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/04/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 1752762fa9e19e351c9cdb41fe0d447011f40cd4
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 855a1e1e1b4816300f33583b2b5aafadb7bca8dc
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105694"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611478"
 ---
 # <a name="update-policy-commands"></a>更新策略命令
 
@@ -75,7 +75,7 @@ ArrayOfUpdatePolicyObjects 是一个定义了零个或多个更新策略对象�
 
 ### <a name="returns"></a>返回
 
-此命令设置表的更新策略对象，替代所有当前策略，然后返回相应的 [.show table update policy](#show-update-policy) 命令的输出。
+此命令设置表的更新策略对象，替代所有当前策略，然后返回相应的 [`.show table update policy`](#show-update-policy) 命令的输出。
 
 ### <a name="example"></a>示例
 
@@ -134,7 +134,7 @@ ArrayOfUpdatePolicyObjects 是一个定义了零个或多个更新策略对象�
 
 **返回**
 
-此命令追加到表的更新策略对象，替代所有当前策略，然后返回相应的 [.show table TableName update policy](#show-update-policy) 命令的输出。
+此命令追加到表的更新策略对象，替代所有当前策略，然后返回相应 [`.show table *TableName* update policy`](#show-update-policy) 命令的输出。
 
 **示例**
 
@@ -154,7 +154,7 @@ ArrayOfUpdatePolicyObjects 是一个定义了零个或多个更新策略对象�
 
 **返回**
 
-此命令删除表的更新策略对象，然后返回相应的 [.show table TableName update policy](#show-update-policy) 命令的输出。
+此命令删除表的更新策略对象，然后返回相应 [`.show table *TableName* update policy`](#show-update-policy) 命令的输出。
 
 **示例**
 

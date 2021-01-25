@@ -6,17 +6,17 @@ author: WenJason
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
-origin.date: 08/26/2020
-ms.date: 12/14/2020
+origin.date: 01/06/2021
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 874c4135aa9d532b30149fe787d40679b7be2e81
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: ec23cf3697162f8bf2b6c3ac2e4c8eb3269e0427
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850812"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163228"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>使用 PowerShell 管理 Azure Data Lake Storage Gen2 中的目录、文件和 ACL
 
@@ -52,35 +52,36 @@ ms.locfileid: "96850812"
 
 ## <a name="connect-to-the-account"></a>连接到帐户
 
-打开 Windows PowerShell 命令窗口，使用 `Connect-AzAccount` 命令登录到 Azure 订阅，然后按照屏幕上的指示进行操作。
-
-```powershell
-Connect-AzAccount -Environment AzureChinaCloud
-```
-
-如果你的标识已关联到多个订阅，请将活动订阅设置为要在其中创建和管理目录的存储帐户的订阅。 在此示例中，请将 `<subscription-id>` 占位符值替换为你的订阅 ID。
-
-```powershell
-Select-AzSubscription -SubscriptionId <subscription-id>
-```
-
-接下来，选择希望命令如何获取存储帐户的授权。 
+选择希望命令如何获取存储帐户的授权。 
 
 ### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>选项 1：使用 Azure Active Directory (AD) 获取授权
 
-如果使用此方法，系统可确保用户帐户具有适当的 Azure 基于角色的访问控制 (Azure RBAC) 分配和 ACL 权限。 
+如果使用此方法，系统可确保用户帐户具有适当的 Azure 基于角色的访问控制 (Azure RBAC) 分配和 ACL 权限。
 
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
-```
+1. 打开 Windows PowerShell 命令窗口，使用 `Connect-AzAccount` 命令登录到 Azure 订阅，然后按照屏幕上的指示进行操作。
+
+   ```powershell
+   Connect-AzAccount -Environment AzureChinaCloud
+   ```
+
+2. 如果你的标识已关联到多个订阅，请将活动订阅设置为要在其中创建和管理目录的存储帐户的订阅。 在此示例中，请将 `<subscription-id>` 占位符值替换为你的订阅 ID。
+
+   ```powershell
+   Select-AzSubscription -SubscriptionId <subscription-id>
+   ``` 
+
+3. 获取存储帐户上下文。
+
+   ```powershell
+   $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+   ```
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>选项 2：使用存储帐户密钥获取授权
 
-如果使用此方法，系统不会检查 Azure RBAC 或 ACL 权限。
+如果使用此方法，系统不会检查 Azure RBAC 或 ACL 权限。 使用帐户密钥获取存储帐户上下文。
 
 ```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-$ctx = $storageAccount.Context
+$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
 ```
 
 ## <a name="create-a-container"></a>创建容器
@@ -337,6 +338,10 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 $dir = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 $dir.ACL
 ```
+
+> [!NOTE]
+> 如果要设置 **默认** ACL 条目，请在运行 **Set-AzDataLakeGen2ItemAclObject** 命令时使用 **-DefaultScope** 参数。 例如：`$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`。
+
 此示例针对所有者用户、所有者组或其他用户的 **文件** 设置 ACL，然后将 ACL 输出到控制台。
 
 ```powershell
@@ -349,6 +354,8 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileP
 $file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filePath
 $file.ACL
 ```
+> [!NOTE]
+> 如果要设置 **默认** ACL 条目，请在运行 **Set-AzDataLakeGen2ItemAclObject** 命令时使用 **-DefaultScope** 参数。 例如：`$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`。
 
 下图显示了设置文件 ACL 后的输出。
 
@@ -369,6 +376,9 @@ $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID xxxxxxxx-xxxx-xxxxxxxxxxx -Permission r-x -InputObject $acl 
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
 ```
+
+> [!NOTE]
+> 如果要更新 **默认** ACL 条目，请在运行 **Set-AzDataLakeGen2ItemAclObject** 命令时使用 **-DefaultScope** 参数。 例如：`$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID xxxxxxxx-xxxx-xxxxxxxxxxx -Permission r-x -DefaultScope`。
 
 ### <a name="remove-an-acl-entry"></a>删除 ACL 条目
 

@@ -7,13 +7,13 @@ ms.reviewer: ankhanol
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 08/05/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: ca21551dc98c936a5e710d833ba176f9dcb54e7c
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.openlocfilehash: d43d7957f9ee536b6f053eb4baa78ce1540c05d7
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556507"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611708"
 ---
 # <a name="business-continuity-and-disaster-recovery-overview"></a>业务连续性和灾难恢复概述
 
@@ -85,14 +85,14 @@ Azure 数据资源管理器不提供针对整个 Azure 区域中断的自动保�
 在规划灾难恢复时，引入、处理和特选过程需要预先进行精心设计。 引入是指从各种来源将数据集成到 Azure 数据资源管理器中；处理是指转换及类似活动；特选是指具体化视图、导出到数据湖等等。
 
 以下是常用的灾难恢复配置，下面将详细介绍每种配置。
-* [永不中断配置](#always-on-configuration)
+* [主动-主动-主动 (always-on) 配置](#active-active-active-configuration)
 * [主动-主动配置](#active-active-configuration)
 * [主动-热备用服务器配置](#active-hot-standby-configuration)
 * [按需数据恢复群集配置](#on-demand-data-recovery-configuration)
 
-### <a name="always-on-configuration"></a>“永不中断”配置
+### <a name="active-active-active-configuration"></a>主动-主动-主动配置
 
-对于不允许中断的关键应用程序部署，应该跨 Azure 配对区域使用多个 Azure 数据资源管理器群集。 在所有群集中并行设置引入、处理和特选。 不同区域的群集 SKU 必须相同。 Azure 将确保在所有 Azure 配对区域中根据具体需要和安排推出更新。 Azure 区域中断不会导致应用程序中断。 你可能会遇到延迟或性能下降的情况。
+此配置也称为“always-on”。 对于不允许中断的关键应用程序部署，应该跨 Azure 配对区域使用多个 Azure 数据资源管理器群集。 在所有群集中并行设置引入、处理和特选。 不同区域的群集 SKU 必须相同。 Azure 将确保在所有 Azure 配对区域中根据具体需要和安排推出更新。 Azure 区域中断不会导致应用程序中断。 你可能会遇到延迟或性能下降的情况。
 
 :::image type="content" source="media/business-continuity-overview/active-active-active-n.png" alt-text="主动-主动-主动-n 配置":::
 
@@ -102,7 +102,7 @@ Azure 数据资源管理器不提供针对整个 Azure 区域中断的自动保�
 
 ### <a name="active-active-configuration"></a>主动-主动配置
 
-此配置与[永不中断配置](#always-on-configuration)相同，但只涉及了两个 Azure 配对区域。 配置双重引入、处理和特选。 将用户路由到最近的区域。 不同区域的群集 SKU 必须相同。
+此配置与[主动-主动-主动配置](#active-active-active-configuration)相同，但只涉及了两个 Azure 配对区域。 配置双重引入、处理和特选。 将用户路由到最近的区域。 不同区域的群集 SKU 必须相同。
 
 :::image type="content" source="media/business-continuity-overview/active-active.png" alt-text="主动-主动配置":::
 

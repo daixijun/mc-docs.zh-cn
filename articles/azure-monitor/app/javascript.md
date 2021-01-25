@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/12/2019
 ms.author: v-johya
-ms.date: 11/10/2020
+ms.date: 01/12/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: e07ecc2e3d40da76028bbdeefde46deec400935c
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 8565840e2ac1fdde210b1da784c60f6dce11a14d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638187"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230338"
 ---
 # <a name="application-insights-for-web-pages"></a>适用于网页的 Application Insights
 
@@ -22,8 +22,11 @@ ms.locfileid: "94638187"
 
 ## <a name="adding-the-javascript-sdk"></a>添加 JavaScript SDK
 
+> [!IMPORTANT]
+> 新的 Azure 区域要求使用连接字符串而不是检测密钥。 [连接字符串](./sdk-connection-string.md?tabs=js)用于标识要与遥测数据关联的资源。 它还允许你修改可供你的资源将其用作遥测目标的终结点。 你需要复制连接字符串，并将其添加到应用程序的代码或环境变量中。
+
 1. 首先需要一个 Application Insights 资源。 如果你尚未获得资源和检测密钥，请遵照[有关创建新资源的说明](create-new-resource.md)。
-2. 从你要将 JavaScript 遥测数据发送到的资源（从步骤 1 中得到的）复制检测密钥（也称为“iKey”）。你需要将该密钥添加到 Application Insights JavaScript SDK 的 `instrumentationKey` 设置。
+2. 复制你要将 JavaScript 遥测数据发送到的资源（从步骤 1）的检测密钥（也称为“iKey”）或[连接字符串](#connection-string-setup)。你需要将该密钥添加到 Application Insights JavaScript SDK 的 `instrumentationKey` 或 `connectionString` 设置。
 3. 通过以下两个选项之一，将 Application Insights JavaScript SDK 添加到网页或应用：
     * [npm 设置](#npm-based-setup)
     * [JavaScript 代码片段](#snippet-based-setup)
@@ -105,7 +108,7 @@ IE 8（或更低版本）尤其不支持报告 SDK 加载失败。 假设大多�
 
 每个配置选项都会显示在一个新行上，如果不希望覆盖作为 [可选] 列出的项的默认值，则可以删除该行以最大程度地减小所返回页面的大小。
 
-可用配置有： 
+可用配置有：
 
 | 名称 | 类型 | 说明
 |------|------|----------------
@@ -115,6 +118,20 @@ IE 8（或更低版本）尤其不支持报告 SDK 加载失败。 假设大多�
 | useXhr | 布尔 [可选] | 此设置仅用于报告 SDK 加载失败。 报告将首先尝试使用 fetch()（如果可用），然后回退到 XHR，将此值设置为 true 即可绕过提取检查。 仅当在提取将无法发送失败事件的环境中使用应用程序时，才需要使用此值。
 | crossOrigin | 字符串 [可选] | 通过包含此设置，添加以下载 SDK 的脚本标记将包含带有此字符串值的 crossOrigin 属性。 如果未定义（默认值），则不添加 crossOrigin 属性。 未定义建议的值（默认值）;""; 或“anonymous”（如需了解所有有效值，请参阅 [HTML 属性：`crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) 文档）
 | cfg | 对象 [必需] | 初始化期间传递到 Application Insights SDK 的配置。
+
+### <a name="connection-string-setup"></a>连接字符串设置
+
+对于 NPM 或代码片段设置，还可以使用连接字符串配置 Application Insights 的实例。 只需将 `instrumentationKey` 字段替换为 `connectionString` 字段。
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+const appInsights = new ApplicationInsights({ config: {
+  connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.loadAppInsights();
+appInsights.trackPageView();
+```
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>将遥测数据发送到 Azure 门户
 
@@ -167,8 +184,8 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | disableExceptionTracking | false | 如果为 true，则不自动收集异常。 默认值为 false。 |
 | disableTelemetry | false | 如果为 true，则不收集或发送遥测数据。 默认值为 false。 |
 | enableDebug | false | 如果为 true，则不管 SDK 日志记录设置如何，**内部** 调试数据都将引发为异常，**而不是** 记录这些数据。 默认值为 false。 <br>*注意：如果启用此设置，每当发生内部错误时，都会导致丢弃遥测数据。 这可能有利于快速识别 SDK 的配置或用法问题。 如果你不希望在调试时丢失遥测数据，请考虑使用 `consoleLoggingLevel` 或 `telemetryLoggingLevel`，而不是 `enableDebug`。 |
-| loggingLevelConsole | 0 | 将内部 Application Insights 错误记录到控制台。 <br>0：关闭， <br>1：仅限严重错误， <br>2：所有内容（错误和警告） |
-| loggingLevelTelemetry | 1 | 将 **内部** Application Insights 错误作为遥测数据发送。 <br>0：关闭， <br>1：仅限严重错误， <br>2：所有内容（错误和警告） |
+| loggingLevelConsole | 0 | 将内部 Application Insights 错误记录到控制台。 <br>0：关闭， <br>1:仅限严重错误， <br>2:所有内容（错误和警告） |
+| loggingLevelTelemetry | 1 | 将 **内部** Application Insights 错误作为遥测数据发送。 <br>0：关闭， <br>1:仅限严重错误， <br>2:所有内容（错误和警告） |
 | diagnosticLogInterval | 10000 | 内部日志记录队列的（内部）轮询间隔（以毫秒为单位） |
 | samplingPercentage | 100 | 要发送的事件百分比。 默认值为 100，表示发送所有事件。 如果你希望避免大型应用程序达到数据上限，请设置此项。 |
 | autoTrackPageVisitTime | false | 如果为 true，则对于页面视图，将跟踪前一个检测的页面的查看时间并将其作为遥测数据发送，同时，为当前的页面视图启动新的计时器。 默认值为 false。 |
@@ -198,7 +215,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | enableResponseHeaderTracking | false | 如果为 true，则跟踪 AJAX 和 Fetch 请求的响应标头，默认值为 false。
 | distributedTracingMode | `DistributedTracingModes.AI` | 设置分布式跟踪模式。 如果设置了 AI_AND_W3C 模式或 W3C 模式，则将生成 W3C 跟踪上下文标头 (traceparent/tracestate)，并将其包含在所有传出请求中。 提供 AI_AND_W3C 是为了与任何旧版 Application Insights 检测服务向后兼容。 请参阅[此处](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps)的示例。
 | enableAjaxErrorStatusText | false | 默认值为 false。 如果为 true，则在 AJAX 请求失败时包含依赖关系事件中的响应错误数据文本。
-| enableAjaxPerfTracking | false | 默认值为 false。 一个标记，用于启用此操作 - 查看其他浏览器 window.performance 计时，并将其包含在报告的 `ajax`（XHR 和 fetch）的报告指标中。
+| enableAjaxPerfTracking | false | 默认值为 false。 用于启用查找并包含报告的 `ajax`（XHR 和 fetch）报告的指标中其他浏览器 window.performance 计时的标记。
 | maxAjaxPerfLookupAttempts | 3 | 默认值为 3。 查找 window.performance 计时的最大次数，此值为必需，因为并非所有浏览器在报告 XHR 请求完成之前都会填充 window.performance，而对于 fetch 请求，将在请求完成之后添加该值。
 | ajaxPerfLookupDelay | 25 | 默认值为 25 毫秒。 重新尝试为 `ajax` 请求查找 windows.performance 计时时要等待的时间，时间以毫秒计并直接传递给 setTimeout()。
 | enableUnhandledPromiseRejectionTracking | false | 如果为 true，则将自动收集未处理的拒绝承诺并报告为 JavaScript 错误。 如果 disableExceptionTracking 为 true（不跟踪异常），则将忽略配置值且不会报告未处理的拒绝承诺。
@@ -242,7 +259,7 @@ Access-Control-Allow-Headers：`Request-Id`、`Request-Context`、`<your header>
 
 默认情况下，此 SDK **不会** 处理单页应用程序中发生的基于状态的路由更改。 若要为单页应用程序启用自动路由更改跟踪，可将 `enableAutoRouteTracking: true` 添加到设置配置。
 
-目前，我们提供了一个单独的 [React 插件](javascript-react-plugin.md)（可以使用此 SDK 对其进行初始化）。 它还将实现路由更改跟踪，并可收集其他特定于 React 的遥测数据。
+目前，我们提供了一个单独的 [React 插件](javascript-react-plugin.md)（可以使用此 SDK 对其进行初始化）。 该插件也能为你实现路由更改跟踪，并可收集其他特定于 React 的遥测数据。
 > [!NOTE]
 > 仅当你不使用 React 插件时，才使用 `enableAutoRouteTracking: true`。 当路由更改时，这两种方法都能发送新的 PageView。 如果这两种方法均已启用，则可能会发送重复的 PageView。
 
@@ -261,7 +278,7 @@ Access-Control-Allow-Headers：`Request-Id`、`Request-Context`、`<your header>
 
 还可以通过门户中的“浏览器”体验查看 JavaScript SDK 中的数据。
 
-选择“浏览器”，然后选择“失败”或“性能”。  
+选择“浏览器”，然后选择“失败”或“性能”。
 
 ![Application Insights“浏览器”页的屏幕截图，其中显示了如何将浏览器故障或浏览器性能添加到可以为 Web 应用程序查看的指标中。](./media/javascript/browser.png)
 
@@ -324,7 +341,7 @@ SDK V2 版本中的重大更改：
 - 为了让用户生成更好的 API 签名，某些 API 调用（例如 trackPageView 和 trackException）已更新。 不支持在 Internet Explorer 8 和早期版本的浏览器中运行。
 - 由于数据架构更新，遥测信封的字段名称和结构已更改。
 - 已将 `context.operation` 转移到 `context.telemetryTrace`。 此外还更改了一些字段 (`operation.id` --> `telemetryTrace.traceID`)。
-  - 若要手动刷新当前页面视图 ID（例如，在 SPA 应用中这样做），请使用 `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()`。
+  - 若要手动刷新当前页面视图 ID（例如，在 SPA 应用中这样做），请使用 `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()`。
     > [!NOTE]
     > 为了使跟踪 ID 独一无二，以前使用 `Util.newId()`，现在使用 `Util.generateW3CId()`。 二者最终都会成为操作 ID。
 

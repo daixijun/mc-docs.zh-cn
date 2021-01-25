@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: how-to
 ms.date: 08/20/2020
-ms.openlocfilehash: 460b99df13869b23a0abf0a39147daced5f400e7
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 6795fd867f42c11fa27c9584bd55b6cfa0d92ccc
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021994"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230935"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自动训练时序预测模型
 
@@ -168,6 +168,7 @@ from azureml.automl.core.forecasting_parameters import ForecastingParameters
 forecasting_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                                forecast_horizon=50,
                                                time_series_id_column_names=["store"],
+                                               freq='W',
                                                target_lags='auto',
                                                target_rolling_window_size=10)
                                               
@@ -284,19 +285,19 @@ automl_config = AutoMLConfig(task='forecasting',
 
 ### <a name="short-series-handling"></a>短时序处理
 
-如果没有足够的数据点来执行模型开发的训练和验证阶段，自动化 ML 就会将一个时序视为短时序。 数据点的数量因各个试验而异，并且依赖于 max_horizon、交叉验证拆分数以及模型回看的长度，该长度是构建时序功能所需的最长历史记录。 有关精确的计算，请参阅 [short_series_handling_config 参考文档](https://docs.microsoft.com/python//api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration)。
+如果没有足够的数据点来执行模型开发的训练和验证阶段，自动化 ML 就会将一个时序视为短时序。 数据点的数量因各个试验而异，并且依赖于 max_horizon、交叉验证拆分数以及模型回看的长度，该长度是构建时序功能所需的最长历史记录。 有关精确的计算，请参阅 [short_series_handling_configuration 参考文档](https://docs.microsoft.com/python//api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration)。
 
-默认情况下，自动化 ML 通过在 `ForecastingParameters` 对象中使用 `short_series_handling_config` 参数来提供“短时序处理”。 
+默认情况下，自动化 ML 通过在 `ForecastingParameters` 对象中使用 `short_series_handling_configuration` 参数来提供“短时序处理”。 
 
-若要启用“短序列处理”，还必须定义 `freq` 参数。 若要更改默认行为 `short_series_handling_config = auto`，请更新 `ForecastingParameter` 对象中的 `short_series_handling_config` 参数。  
+若要启用“短序列处理”，还必须定义 `freq` 参数。 为了定义每小时频率，我们将设置 `freq='H'`。 查看[此处](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)的频率字符串选项。 若要更改默认行为 `short_series_handling_configuration = 'auto'`，请更新 `ForecastingParameter` 对象中的 `short_series_handling_configuration` 参数。  
 
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
 forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                             forecast_horizon=50,
-                                            short_series_handling_config='auto',
-                                            freq = 50
+                                            short_series_handling_configuration='auto',
+                                            freq = 'H',
                                             target_lags='auto')
 ```
 下表总结了可用于 `short_series_handling_config` 的设置。
@@ -304,7 +305,7 @@ forecast_parameters = ForecastingParameters(time_column_name='day_datetime',
 |设置|说明
 |---|---
 |`auto`| 下面是“短时序处理”的默认行为 <li> 如果所有时序都短，则填充数据。 <br> <li> 如果并非所有时序都短，则删除短时序。 
-|`pad`| 如果 `short_series_handling_config = pad`，则自动化 ML 会为找到的每个短时序添加虚拟值。 下面列出了列类型以及用于填充这些列的内容： <li>对象列，其中包含 NAN <li> 数值列，其中包含 0 <li> 布尔/逻辑列，其中包含 False <li> 目标列填充平均值为零且标准偏差为 1 的随机值。 
+|`pad`| 如果 `short_series_handling_config = pad`，则自动化 ML 会为找到的每个短时序添加随机值。 下面列出了列类型以及用于填充这些列的内容： <li>对象列，其中包含 NAN <li> 数值列，其中包含 0 <li> 布尔/逻辑列，其中包含 False <li> 目标列填充平均值为零且标准偏差为 1 的随机值。 
 |`drop`| 如果 `short_series_handling_config = drop`，则自动化 ML 会删除短时序，并且该短时序不会用于训练或预测。 对这些时序的预测将会返回 NAN。
 |`None`| 不会填充或删除任何时序
 
@@ -317,7 +318,7 @@ forecast_parameters = ForecastingParameters(time_column_name='day_datetime',
 
 ```python
 ws = Workspace.from_config()
-experiment = Experiment(ws, "forecasting_example")
+experiment = Experiment(ws, "Tutorial-automl-forecasting")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```

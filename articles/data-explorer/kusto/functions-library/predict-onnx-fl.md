@@ -7,13 +7,13 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/09/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: e3c3ef5959702f55d48965e0b222cc8f82bbbdcd
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 05e469706d7648ce161a47de877da428335091e3
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105531"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611275"
 ---
 # <a name="predict_onnx_fl"></a>predict_onnx_fl()
 
@@ -93,7 +93,7 @@ OccupancyDetection
 
 # <a name="persistent"></a>[Persistent](#tab/persistent)
 
-如果是永久使用，请使用 [.create 函数](../management/create-function.md)。 创建函数需要[数据库用户权限](../management/access-control/role-based-authorization.md)。
+如果是永久使用，请使用 [`.create function`](../management/create-function.md)。 创建函数需要[数据库用户权限](../management/access-control/role-based-authorization.md)。
 
 ### <a name="one-time-installation"></a>一次性安装
 

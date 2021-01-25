@@ -5,18 +5,19 @@ services: data-factory
 author: WenJason
 ms.service: data-factory
 ms.topic: troubleshooting
-origin.date: 11/16/2020
-ms.date: 12/07/2020
+origin.date: 12/30/2020
+ms.date: 01/25/2021
 ms.author: v-jay
 ms.reviewer: craigg
-ms.openlocfilehash: afaf4b08e39f035df75ef0c44c345fe04e494feb
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: d76bf7f80eebe2f17b489b19aee07d80557ce21b
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747269"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541840"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>排查 Azure 数据工厂问题
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 本文探讨 Azure 数据工厂中的外部控制活动的常用故障排除方法。
@@ -468,7 +469,6 @@ ms.locfileid: "96747269"
 
 - **建议**：请考虑提供一个有权在所提供订阅中创建 HDInsight 群集的服务主体，然后重试。 验证是否[正确设置了托管标识](../hdinsight/hdinsight-managed-identities.md)。
 
-
 ### <a name="error-code-2300"></a>错误代码：2300
 
 - **消息**：`Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
@@ -864,6 +864,16 @@ ms.locfileid: "96747269"
 
 - **建议**：提供 Azure Blob 存储帐户作为 HDInsight 按需链接服务的附加存储。
 
+### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>ADF 链接服务使用 HDInsight ESP 群集时出现 SSL 错误
+
+- 消息：`Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+
+- **原因：** 此问题很可能与系统信任存储相关。
+
+- **解决方法**：你可以导航到 Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib 路径，并打开 DriverConfiguration64.exe 以更改设置。
+
+    ![取消选中“使用系统信任存储”](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+
 ## <a name="web-activity"></a>Web 活动
 
 ### <a name="error-code-2128"></a>错误代码：2128
@@ -927,7 +937,7 @@ ms.locfileid: "96747269"
 
 **错误消息：** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**原因：** 每个活动运行的有效负载包括活动配置、关联的数据集和链接服务配置（如果有），以及为每个活动类型生成的系统属性的一小部分。 此类负载大小限制为 896KB，如[数据工厂限制](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits)部分所述。
+**原因：** 每个活动运行的有效负载包括活动配置、关联的数据集和链接服务配置（如果有），以及为每个活动类型生成的系统属性的一小部分。 此类负载大小限制为 896 KB，如[数据工厂限制](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits)部分所述。
 
 **建议：** 达到此限制，很可能是因为从上游活动输出或外部传入了一个或多个大参数值，尤其是在控制流中跨活动传递实际数据时。 请检查是否可以减小大参数值，或调整管道逻辑以避免跨活动传递此类值，而改为在活动内处理此类值。
 

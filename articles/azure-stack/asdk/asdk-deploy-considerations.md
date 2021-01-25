@@ -4,16 +4,16 @@ description: 了解 Azure Stack 开发工具包 (ASDK) 的硬件、软件和环�
 author: WenJason
 ms.topic: article
 origin.date: 09/23/2020
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: 9cb58caf9183c17792d35fa8ad9abe440b0f2c05
-ms.sourcegitcommit: f187b1a355e2efafea30bca70afce49a2460d0c7
+ms.openlocfilehash: e4766b45c49b956096f03e9a6cc740f55a97d280
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330435"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541886"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK 要求和注意事项
 
@@ -67,7 +67,7 @@ ASDK 是一种单节点系统，设计用于验证 Azure Stack 集成系统的�
 
 - 需要系统中的 HDD 容量大于 2 TB。
 - 如果 ASDK 中没有 SSD，则需要至少 8 个 HDD 才能完成双向镜像配置。
-- 如果 ASDK 中有 SSD 和 HDD，则需要至少 5 个 HDD。 不过，建议使用 6 个 HHD。 如果使用 6 个 HDD，则建议在系统中使用至少 3 个相应的 SSD，让一个缓存磁盘 (SSD) 为两个容量磁盘 (HDD) 服务。
+- 如果 ASDK 中有 SSD 和 HDD，则需要至少 5 个 HDD。 不过，建议使用 6 个 HDD。 如果使用 6 个 HDD，则建议在系统中使用至少 3 个相应的 SSD，让一个缓存磁盘 (SSD) 为两个容量磁盘 (HDD) 服务。
 
 双向镜像配置示例：
 

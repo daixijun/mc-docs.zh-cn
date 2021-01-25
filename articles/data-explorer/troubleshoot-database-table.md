@@ -7,17 +7,17 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 09/24/2018
-ms.date: 09/24/2020
-ms.openlocfilehash: 73bf86d314e9120294e9522cd1158b8572663a2b
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 01/22/2021
+ms.openlocfilehash: 6f839659d73138e958a78c0b41d10466d7e2ad71
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146247"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611280"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>故障排除：无法在 Azure 数据资源管理器中创建或删除数据库或表
 
-在 Azure 数据资源管理器中，经常会使用数据库和表。 本文针对可能出现的问题提供了疑难解答步骤。
+在 Azure 数据资源管理器中，经常会使用数据库和表。 本文针对可能出现的问题提供了疑难解答步骤。 
 
 ## <a name="creating-a-database"></a>创建数据库
 
@@ -29,15 +29,15 @@ ms.locfileid: "91146247"
 
 ## <a name="deleting-or-renaming-a-database"></a>删除或重命名数据库
 
-确保有足够的权限。 若要删除或重命名数据库，你必须是 Azure 订阅的“参与者”  或“所有者”  角色。 如有必要，请与订阅管理员联系，请他们将你添加到相应的角色。
+确保有足够的权限。 若要删除或重命名数据库，你必须是 Azure 订阅的“参与者”  或“所有者”  角色。 如有必要，请与订阅管理员联系，请他们将你添加到相应的角色。 如果你拥有“数据库管理员”角色，则还可以删除或重命名数据库。
 
 ## <a name="creating-a-table"></a>创建表
 
-1. 确保有足够的权限。 若要创建表，你必须是数据库中的“数据库管理员”  或“数据库用户”  角色，或者是 Azure 订阅的“参与者”  或“所有者”  角色。 如有必要，请与订阅或群集管理员联系，以便他们可以将你添加到相应的角色。
+1. 确保有足够的权限。 若要创建表，你必须是数据库中的“数据库管理员”或“数据库用户”角色，或者是 Azure 订阅的“参与者”或“所有者”角色。 如有必要，请与订阅或群集管理员联系，以便他们可以将你添加到相应的角色。
 
     有关权限的详细信息，请参阅[管理数据库权限](manage-database-permissions.md)。
 
-1. 请确保不存在具有相同名称的表。 如果存在，可以：使用不同的名称创建表；重命名现有表（需要“表管理员”  角色）；或删除现有表（需要“数据库管理员”  角色）。 使用以下命令。
+1. 请确保不存在具有相同名称的表。 如果存在，可以：使用不同的名称创建表；重命名现有表（需要“表管理员”角色）；或删除现有表（需要“数据库管理员”角色）。 使用以下命令。
 
     ```Kusto
     .drop table <TableName>
@@ -47,7 +47,7 @@ ms.locfileid: "91146247"
 
 ## <a name="deleting-or-renaming-a-table"></a>删除或重命名表
 
-确保有足够的权限。 若要删除或重命名表，你必须是数据库中的“数据库管理员”  或“表管理员”  角色。 如有必要，请与订阅或群集管理员联系，以便他们可以将你添加到相应的角色。
+确保有足够的权限。 若要删除或重命名表，你必须是数据库中的“数据库管理员”或“表管理员”角色。 如有必要，请与订阅或群集管理员联系，以便他们可以将你添加到相应的角色。
 
 有关权限的详细信息，请参阅[管理数据库权限](manage-database-permissions.md)。
 
@@ -55,10 +55,11 @@ ms.locfileid: "91146247"
 
 1. 查看 [Azure 服务健康状况仪表板](https://azure.microsoft.com/status/)。 在尝试使用数据库或表的区域查找 Azure 数据资源管理器的状态。
 
-    如果状态不佳  （绿色复选标记），请在状态改善后重试。
+    如果状态不佳（绿色复选标记），请在状态改善后重试。
 
 1. 解决问题时如仍需帮助，请打开 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)中的支持请求。
 
 ## <a name="next-steps"></a>后续步骤
 
-[检查群集运行状况](check-cluster-health.md)
+* [检查群集运行状况](check-cluster-health.md)
+* [管理数据库权限](manage-database-permissions.md)

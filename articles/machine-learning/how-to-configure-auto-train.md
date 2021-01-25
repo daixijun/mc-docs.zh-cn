@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 7ca2e0faa7816a33652e7b9b2930f0693e21aca7
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 2c55826a70ad25fea951b8a3310e5a06fb1b2608
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022438"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230680"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>使用 Python 配置自动化 ML 试验
 
@@ -46,7 +46,7 @@ ms.locfileid: "98022438"
     若要安装该 SDK，你可以： 
     * 创建一个计算实例，该实例将自动安装 SDK 并针对 ML 工作流进行预先配置。 有关详细信息，请参阅[创建和管理 Azure 机器学习计算实例](how-to-create-manage-compute-instance.md)。 
 
-    * [自行安装 `automl` 包](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)，其中包括 SDK [默认安装](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py#default-install&preserve-view=true)。
+    * [自行安装 `automl` 包](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)，其中包括 SDK [默认安装](https://docs.microsoft.com/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py#default-install)。
 
 ## <a name="select-your-experiment-type"></a>选择试验类型
 
@@ -151,7 +151,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
    ```
 
 
-1. 预测任务需要其他设置，请参阅[自动训练时序预测模型](how-to-auto-train-forecast.md)一文来了解更多详细信息。 
+1. 预测任务需要额外的设置，请参阅[自动训练时序预测模型](how-to-auto-train-forecast.md)一文来了解更多详细信息。 
 
     ```python
     time_series_settings = {
@@ -321,7 +321,7 @@ from azureml.core.experiment import Experiment
 ws = Workspace.from_config()
 
 # Choose a name for the experiment and specify the project folder.
-experiment_name = 'automl-classification'
+experiment_name = 'Tutorial-automl'
 project_folder = './sample_projects/automl-classification'
 
 experiment = Experiment(ws, experiment_name)
@@ -464,10 +464,22 @@ run = experiment.submit(automl_config, show_output=True)
 
 * **`import numpy` 在 Windows 中失败**：在某些 Windows 环境中，最新的 Python 3.6.8 版本加载 numpy 时会出现错误。 如果出现此问题，请尝试使用 Python 3.6.7 版本。
 
-* **`import numpy` 失败**：在自动化 ML conda 环境中检查 TensorFlow 版本。 支持的版本为 <1.13 的版本。 如果版本高于或等于 1.13，请从环境中卸载 TensorFlow。可按如下所示检查 TensorFlow 的版本并进行卸载 -
+* **`import numpy` 失败**：在自动化 ML conda 环境中检查 TensorFlow 版本。 支持的版本为 <1.13 的版本。 如果版本不低于 1.13，请从环境中卸载 TensorFlow。 可以按下面的方式检查 TensorFlow 的版本并卸载：
   1. 启动命令 shell，激活安装了自动化 ML 包的 conda 环境。
   2. 输入 `pip freeze` 并查找 `tensorflow`，如果找到，则列出的版本应 <1.13
   3. 如果列出的版本不受支持，请在命令行界面中使用 `pip uninstall tensorflow`，并输入 y 进行确认。
+  
+ * 运行失败并出现 `jwt.exceptions.DecodeError`：确切的错误消息：`jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`。
+
+    对于版本不高于 1.17.0 的 SDK，安装可能会导致 PyJWT 的版本不受支持。 在自动化 ML conda 环境中检查 PyJWT 版本。 支持的版本为低于 2.0.0 的版本。 可以按下面的方式检查 PyJWT 的版本：
+    1. 启动命令 shell，激活安装了自动化 ML 包的 conda 环境。
+    2. 输入 `pip freeze` 并查找 `PyJWT`，如果找到，则列出的版本应低于 2.0.0
+
+    如果列出的版本不是受支持的版本：
+    1. 请考虑升级到 AutoML SDK 的最新版本：`pip install -U azureml-sdk[automl]`。
+    2. 如果这不可行，请从环境中卸载 PyJWT，并安装正确的版本，如下所示：
+        - 在命令行界面中输入 `pip uninstall PyJWT`，然后输入 `y` 进行确认。
+        - 使用 `pip install 'PyJWT<2.0.0'` 进行安装。
 
 ## <a name="next-steps"></a>后续步骤
 

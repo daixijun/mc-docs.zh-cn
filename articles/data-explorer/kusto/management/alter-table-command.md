@@ -8,13 +8,13 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/08/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: edfaec173607d97f40a191398a01d8b87fcaa8af
-ms.sourcegitcommit: c17e965d4ffd82fd7cd86b2648fcb0053a65df00
+ms.date: 01/22/2021
+ms.openlocfilehash: 18ce3d1f93e30a84d2f4683076fdfd29c6156865
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470501"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611560"
 ---
 # <a name="alter-table"></a>.alter table
  
@@ -29,7 +29,7 @@ ms.locfileid: "86470501"
 > `.alter` 命令使用不当可能会导致数据丢失。
 
 > [!TIP]
-> `.alter` 有一个对应的 `.alter-merge` 表命令，它具有类似的功能。 有关详细信息，请参阅 [.alter-merge table](../management/alter-merge-table-command.md)
+> `.alter` 有一个对应的 `.alter-merge` 表命令，它具有类似的功能。 有关详细信息，请参阅 [`.alter-merge table`](../management/alter-merge-table-command.md)
 
 **语法**
 
@@ -39,7 +39,7 @@ ms.locfileid: "86470501"
  * 表将具有采用指定的顺序的完全相同的列。
  指定表列：
  * 如果未在命令中指定现有列，则将删除这些列，且列中的数据将丢失，如使用 `.drop column` 命令时一样。
- * 更改表时，不支持更改列类型。 请改用 [.alter column](alter-column.md) 命令。
+ * 更改表时，不支持更改列类型。 请改为使用 [`.alter column`](alter-column.md) 命令。
 
 > [!TIP]
 > 更改之前，请使用 `.show table [TableName] cslschema` 获取现有列架构。

@@ -8,21 +8,35 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: f128828a76fdcd7d9226185b2abf8ac44c8422ae
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+zone_pivot_group_filename: zone-pivot-groups.json
+zone_pivot_groups: kql-flavors
+ms.openlocfilehash: f736780ceb81ac2ac441864e80bd9ab173b9e96e
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106192"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611596"
 ---
 # <a name="search-operator"></a>search 运算符
 
-search 运算符提供了多表/多列搜索体验。
+`search` 运算符提供了多表/多列搜索体验。
+
+::: zone pivot="azuredataexplorer"
+
+::: zone-end
+
+::: zone pivot="azuremonitor"
+
+> [!NOTE]
+> `search` 运算符实际上比特定于表和特定于列的文本筛选效率低。 当表或列已知时，建议使用 [union 运算符](unionoperator.md)和 [where 运算符](whereoperator.md)。 当工作区包含大量表和列，并且扫描的数据量大、查询的时间范围大时，搜索将无法正常工作。
+
+::: zone-end
+
 
 ## <a name="syntax"></a>语法
 
-* [ *TabularSource* `|`] `search` [`kind=`*CaseSensitivity* ] [`in` `(`*TableSources*`)`] *SearchPredicate*
+* [*TabularSource* `|`] `search` [`kind=`*CaseSensitivity*] [`in` `(`*TableSources*`)`] *SearchPredicate*
 
 ## <a name="arguments"></a>参数
 
@@ -36,7 +50,7 @@ search 运算符提供了多表/多列搜索体验。
 
 * SearchPredicate：一个必需的谓词，用于定义要搜索的内容（换言之，这是要针对输入中的每条记录进行评估的布尔表达式，如果它返回 `true`，则会输出该记录。）SearchPredicate 的语法扩展并修改布尔表达式的常规 Kusto 语法：
 
-  **字符串匹配扩展** ：作为 SearchPredicate 中的词语出现的字符串文本表示在所有列与使用 `has`、`hasprefix`、`hassuffix` 及这些运算符的反向 (`!`) 或区分大小写 (`sc`) 版本的文本之间存在词语匹配。 是应用 `has`、`hasprefix` 还是 `hassuffix` 取决于文本是否以星号 (`*`) 开头和/或结尾。 不允许在文本内部使用星号。
+  **字符串匹配扩展**：作为 SearchPredicate 中的词语出现的字符串文本表示在所有列与使用 `has`、`hasprefix`、`hassuffix` 及这些运算符的反向 (`!`) 或区分大小写 (`sc`) 版本的文本之间存在词语匹配。 是应用 `has`、`hasprefix` 还是 `hassuffix` 取决于文本是否以星号 (`*`) 开头和/或结尾。 不允许在文本内部使用星号。
 
     |文本   |运算符   |
     |----------|-----------|
@@ -46,14 +60,14 @@ search 运算符提供了多表/多列搜索体验。
     |`*billg*` |`contains` |
     |`bi*lg`   |`matches regex`|
 
-  **列限制** ：默认情况下，字符串匹配扩展会尝试匹配数据集的所有列。 可以使用以下语法将此匹配限制为特定列： *ColumnName*`:`*StringLiteral* 。
+  **列限制**：默认情况下，字符串匹配扩展会尝试匹配数据集的所有列。 可以使用以下语法将此匹配限制为特定列：*ColumnName*`:`*StringLiteral*。
 
-  **字符串等式** ：可以使用 *ColumnName*`==`*StringLiteral* 语法根据字符串值对列进行精确匹配（而不是字词匹配）。
+  **字符串等式**：可以使用 *ColumnName*`==`*StringLiteral* 语法根据字符串值对列进行精确匹配（而不是字词匹配）。
 
-  **其他布尔表达式** ：此语法支持所有正则 Kusto 布尔表达式。
+  **其他布尔表达式**：此语法支持所有正则 Kusto 布尔表达式。
     例如，`"error" and x==123` 表示：搜索在任何列中具有词语 `error` 并且在 `x` 列中包含值 `123` 的记录。
 
-  **正则表达式匹配** ：正则表达式匹配是使用 Column `matches regex` StringLiteral 语法进行指示的，其中 StringLiteral 是正则表达式模式。
+  **正则表达式匹配**：正则表达式匹配是使用 Column `matches regex` StringLiteral 语法进行指示的，其中 StringLiteral 是正则表达式模式。
 
 请注意，如果同时省略 TabularSource 和 TableSources，则会对作用域中数据库的所有不受限制的表和视图执行搜索。
 

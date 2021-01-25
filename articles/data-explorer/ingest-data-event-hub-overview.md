@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 08/13/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: a14f787ab017f866b397cfa29e682fee1c60694e
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.date: 01/19/2021
+ms.openlocfilehash: 32ad1d3364744cf3454fc86fb8ea6c002ebf017b
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300364"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611540"
 ---
 # <a name="event-hub-data-connection"></a>事件中心数据连接
 
@@ -26,7 +26,7 @@ ms.locfileid: "96300364"
 
 ## <a name="data-format"></a>数据格式
 
-* 将以 [EventData](https://docs.microsoft.com/dotnetapi/microsoft.servicebus.messaging.eventdata) 对象的形式从事件中心读取数据。
+* 将以 [EventData](https://docs.microsoft.com/dotnetapi/microsoft.servicebus.messaging.eventdata?view=azure-dotnet) 对象的形式从事件中心读取数据。
 * 请参阅[支持的格式](ingestion-supported-formats.md)。
     > [!NOTE]
     > 事件中心不支持 .raw 格式。
@@ -46,10 +46,7 @@ ms.locfileid: "96300364"
 | IngestionMappingReference | 要使用的现有[引入映射](kusto/management/create-ingestion-mapping-command.md)的名称。 替代“`Data Connection`”窗格上设置的“`Column mapping`”。|
 | 压缩 | 数据压缩。`None`（默认值）或 `GZip` 压缩。|
 | 编码 | 数据编码，默认值为 UTF8。 可以是 [.NET 支持的任何编码](https://docs.microsoft.com/dotnet/api/system.text.encoding#remarks)。 |
-| 标记（预览版） | 将要与引入的数据（格式设置为 JSON 数组字符串）关联的[标记](kusto/management/extents-overview.md#extent-tagging)的列表。 使用标记时存在[性能影响](kusto/management/extents-overview.md#performance-notes-1)。 |
-
-<!--| Database | Name of the existing target database.|-->
-<!--| Tags | String representing [tags](/kusto/management/extents-overview#extent-tagging) that will be attached to resulting extent. |-->
+| Tags | 将要与引入的数据（格式设置为 JSON 数组字符串）关联的[标记](kusto/management/extents-overview.md#extent-tagging)的列表。 使用标记时存在[性能影响](kusto/management/extents-overview.md#performance-notes-1)。 |
 
 > [!NOTE]
 > 只有创建数据连接后进入队列的事件才会被引入。
@@ -87,10 +84,7 @@ eventHubClient.Close();
 
 系统属性在事件排队时存储由事件中心服务设置的属性。 Azure 数据资源管理器事件中心连接会将所选属性嵌入置于表中的数据中。
 
-> [!Note]
-> * 单记录事件支持系统属性。
-> * 压缩数据不支持系统属性。
-> * 对于 `csv` 映射，属性将按下表中列出的顺序添加到记录的开头。 对于 `json` 映射，将根据下表中的属性名称添加属性。
+[!INCLUDE [event-hub-system-mapping](includes/event-hub-system-mapping.md)]
 
 ### <a name="system-properties"></a>系统属性
 
@@ -127,6 +121,13 @@ eventHubClient.Close();
 请参阅可生成数据并将其发送到事件中心的[示例应用](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)。
 
 有关如何生成示例数据的示例，请参阅[将数据从事件中心引入到 Azure 数据资源管理器](ingest-data-event-hub.md#generate-sample-data)
+
+## <a name="set-up-geo-disaster-recovery-solution"></a>设置异地灾难恢复解决方案
+
+事件中心提供[异地灾难恢复](/event-hubs/event-hubs-geo-dr)解决方案。 Azure 数据资源管理器不支持 `Alias` 事件中心命名空间。 若要在解决方案中实现异地灾难恢复，请创建两个事件中心数据连接：一个用于主命名空间，另一个用于辅助命名空间。 Azure 数据资源管理器将侦听这两个事件中心连接。
+
+> [!NOTE]
+> 用户负责实现从主命名空间到辅助命名空间的故障转移。
 
 ## <a name="next-steps"></a>后续步骤
 

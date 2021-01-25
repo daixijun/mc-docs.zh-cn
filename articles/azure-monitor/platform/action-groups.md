@@ -4,18 +4,18 @@ description: 了解如何在 Azure 门户中创建和管理操作组。
 author: Johnnytechn
 ms.topic: conceptual
 origin.date: 2/18/2020
-ms.date: 12/08/2020
+ms.date: 01/12/2021
 ms.author: v-johya
 ms.subservice: alerts
-ms.openlocfilehash: 04ae4316e2230586b01db8dc6ca045925332ee1a
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 684d0ef3a370270c8b033c64fbd1d8dd5712cd3c
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105208"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230749"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
-操作组是由 Azure 订阅的所有者定义的通知首选项的集合。 Azure Monitor 和服务运行状况警报使用操作组来通知用户某个警报已触发。 各种警报可以使用相同的操作组或不同的操作组，具体取决于用户的要求。 可以在订阅中最多配置 2,000 个操作组。
+操作组是由 Azure 订阅的所有者定义的通知首选项的集合。 Azure Monitor 和服务运行状况警报使用操作组来通知用户某个警报已触发。 各种警报可以使用相同的操作组或不同的操作组，具体取决于用户的要求。 
 
 本文演示如何在 Azure 门户中创建和管理操作组。
 
@@ -135,6 +135,18 @@ ms.locfileid: "97105208"
 
 通知电子邮件将只发送到主电子邮件地址。
 
+如果你没有在“主电子邮件”中收到通知，则可以尝试以下步骤：
+
+1. 在 Azure 门户中，转到“Active Directory”。
+2. 单击“所有用户”（在左窗格中），你将看到用户列表（在右窗格中）。
+3. 选择你要查看其“主电子邮件”信息的用户。
+
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="有关如何查看用户配置文件的示例。"border="true":::
+
+4. 在“联系人信息”下的“用户配置文件”中，如果“电子邮件”选项卡为空白，请单击顶部的“编辑”按钮，然后添加你的“主电子邮件”，然后单击顶部的“保存”按钮。
+
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="有关如何添加主电子邮件的示例。"border="true":::
+
 操作组中的电子邮件操作数可能有限。 请参阅[速率限制信息](./alerts-rate-limiting.md)一文。
 
 ### <a name="function"></a>函数
@@ -244,7 +256,47 @@ Write-Host $myApp.AppRoles
 > 如果在 Azure 门户操作组用户界面无法选择你的国家/地区代码，则表示你所在的国家/地区不支持短信。  如果你的国家/地区代码不可用，则可以在[用户之声](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice)投票以请求添加你的国家/地区。 此时，一个解决办法是使操作组向你所在国家/地区支持的第三方短信提供商调用 Webhook。  
 
 受支持国家/地区的定价在 [Azure Monitor 定价页](https://www.azure.cn/pricing/details/monitor/)中列出。
-  
+
+**支持短信通知的国家/地区列表**
+
+| 国家/地区代码 | 国家/地区名称 |
+|:---|:---|
+| 61 | 澳大利亚 |
+| 43 | 奥地利 |
+| 32 | 比利时 |
+| 55 | 巴西 |
+| 1 |加拿大 |
+| 56 | 智利 |
+| 86 | 中国 |
+| 420 | 捷克共和国 |
+| 45 | 丹麦 |
+| 372 | 爱沙尼亚 |
+| 358 | 芬兰 |
+| 33 | 法国 |
+| 49 | 德国 |
+| 852 | 香港特别行政区 |
+| 91 | 印度 |
+| 353 | 爱尔兰 |
+| 972 | 以色列 |
+| 39 | 意大利 |
+| 81 | 日本 |
+| 352 | 卢森堡 |
+| 60 | 马来西亚 |
+| 52 | 墨西哥 |
+| 31 | 荷兰 |
+| 64 | 新西兰 |
+| 47 | 挪威 |
+| 351 | 葡萄牙 |
+| 1 | 波多黎各 |
+| 40 | 罗马尼亚 |
+| 65 | 新加坡 |
+| 27 | 南非 |
+| 82 | 韩国 |
+| 34 | 西班牙 |
+| 41 | 瑞士 |
+| 886 | 台湾 |
+| 44 | 英国 |
+| 1 | 美国 |
 
 ### <a name="voice"></a>语音
 有关其他重要行为，请参阅[速率限制信息](./alerts-rate-limiting.md)一文。
@@ -253,6 +305,7 @@ Write-Host $myApp.AppRoles
 
 > [!NOTE]
 > 如果在 Azure 门户操作组用户界面无法选择你的国家/地区代码，则表示你所在的国家/地区不支持语音呼叫。 如果你的国家/地区代码不可用，则可以在[用户之声](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice)投票以请求添加你的国家/地区。  此时，一个解决办法是使操作组向你所在国家/地区支持的第三方语音呼叫提供商调用 Webhook。  
+> 目前在 Azure 门户操作组中支持语音通知的国家/地区代码只有“+1(美国)”。 
 
 受支持国家/地区的定价在 [Azure Monitor 定价页](https://www.azure.cn/pricing/details/monitor/)中列出。
 

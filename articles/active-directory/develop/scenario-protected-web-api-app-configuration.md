@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/23/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 5a40064b940c9689dfc42df4cf28dcb43f537fe2
-ms.sourcegitcommit: 883daddafe881e5f8a9f347df2880064d2375b6d
+ms.openlocfilehash: 80d5b8f9c714b70a2ba11e1f4ed2ef4b0437c866
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918385"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195127"
 ---
 # <a name="protected-web-api-code-configuration"></a>受保护的 Web API：代码配置
 
@@ -174,7 +174,7 @@ services.AddControllers();
 > - 在所有其他情况下（用于 v1.0 [访问令牌](access-tokens.md)），使用 `$"api://{ClientId}`。
 > 有关详细信息，请参阅 Microsoft.Identity.Web [源代码](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83)。
 
-前面的代码段摘自 [ASP.NET Core Web API 增量教程](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28)。 [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiServiceCollectionExtensions.cs#L27) 中提供了 AddMicrosoftIdentityWebApiAuthentication 的详细信息。 此方法调用 [AddMicrosoftWebAPI](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L58)，后者会指示中间件如何验证令牌。 有关详细信息，请参阅其[源代码](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/WebApiExtensions/WebApiAuthenticationBuilderExtensions.cs#L104-L122)。
+前面的代码段摘自 [ASP.NET Core Web API 增量教程](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28)。 [Microsoft.Identity.Web](microsoft-identity-web.md) 中提供了 AddMicrosoftIdentityWebApiAuthentication 的详细信息。 此方法调用 [AddMicrosoftIdentityWebAPI](https://docs.microsoft.com/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?view=azure-dotnet-preview&preserve-view=true)，后者会指示中间件如何验证令牌。
 
 ## <a name="token-validation"></a>令牌验证
 

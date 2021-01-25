@@ -3,15 +3,15 @@ title: 适用于 Azure Functions 的 Azure Blob 存储触发器
 description: 了解如何在 Azure Blob 存储数据更改时运行 Azure 函数。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 01/04/2021
+ms.date: 01/12/2021
 ms.author: v-junlch
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 35de784f217bd95ab3d8c65dec270eb4652ac27d
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 51b51fa8485d9fdb023fce9e8e02f990e8cecfb3
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021476"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195173"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>适用于 Azure Functions 的 Azure Blob 存储触发器
 
@@ -114,6 +114,24 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+在 `myblob` 容器中添加或更新 Blob 时，该函数会写入一条日志。
+
+```java
+@FunctionName("blobprocessor")
+public void run(
+  @BlobTrigger(name = "file",
+               dataType = "binary",
+               path = "myblob/{name}",
+               connection = "MyStorageAccountAppSetting") byte[] content,
+  @BindingName("name") String filename,
+  final ExecutionContext context
+) {
+  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 以下示例显示了 *function.json* 文件中的一个 Blob 触发器绑定以及使用该绑定的 [JavaScript 代码](functions-reference-node.md)。 在 `samples-workitems` 容器中添加或更新 Blob 时，该函数会写入日志。
@@ -148,22 +166,32 @@ module.exports = function(context) {
 };
 ```
 
-# <a name="java"></a>[Java](#tab/java)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-在 `myblob` 容器中添加或更新 Blob 时，该函数会写入一条日志。
+下面的示例演示如何创建在将文件添加到 `source` blob 存储容器时运行的函数。
 
-```java
-@FunctionName("blobprocessor")
-public void run(
-  @BlobTrigger(name = "file",
-               dataType = "binary",
-               path = "myblob/{name}",
-               connection = "MyStorageAccountAppSetting") byte[] content,
-  @BindingName("name") String filename,
-  final ExecutionContext context
-) {
-  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+函数配置文件 (_function.json_) 包含一个绑定，其 `type` 为 `blobTrigger` 且 `direction` 设置为 `in`。
+
+```json
+{
+  "bindings": [
+    {
+      "name": "InputBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "source/{name}",
+      "connection": "MyStorageAccountConnectionString"
+    }
+  ]
 }
+```
+
+下面是 run.ps1 文件的关联代码。
+
+```powershell
+param([byte[]] $InputBlob, $TriggerMetadata)
+
+Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($InputBlob.Length) bytes"
 ```
 
 ---
@@ -230,13 +258,18 @@ public void run(
 
 C# 脚本不支持特性。
 
+# <a name="java"></a>[Java](#tab/java)
+
+`@BlobTrigger` 特性用于授予对触发函数的 blob 的访问权限。 有关详细信息，请参阅[触发器示例](#example)。
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript 不支持特性。
 
-# <a name="java"></a>[Java](#tab/java)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-`@BlobTrigger` 特性用于授予对触发函数的 blob 的访问权限。 有关详细信息，请参阅[触发器示例](#example)。
+PowerShell 不支持特性。
+
 
 ---
 
@@ -246,9 +279,9 @@ JavaScript 不支持特性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|type | 不适用 | 必须设置为 `blobTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
+|type  | 不适用 | 必须设置为 `blobTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |**direction** | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 [用法](#usage)部分中已阐述异常。 |
-|**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。 |
+|name  | 不适用 | 表示函数代码中的 Blob 的变量的名称。 |
 |**路径** | **BlobPath** |要监视的[容器](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)。  可以是某种 [Blob 名称模式](#blob-name-patterns)。 |
 |连接 | **Connection** | 包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须属于某个常规用途存储帐户，而不能属于[Blob 存储帐户](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 
@@ -264,13 +297,18 @@ JavaScript 不支持特性。
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+`@BlobTrigger` 特性用于授予对触发函数的 blob 的访问权限。 有关详细信息，请参阅[触发器示例](#example)。
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 使用 `context.bindings.<NAME>` 访问 blob 数据，其中 `<NAME>` 与 function.json 中定义的值匹配。
 
-# <a name="java"></a>[Java](#tab/java)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-`@BlobTrigger` 特性用于授予对触发函数的 blob 的访问权限。 有关详细信息，请参阅[触发器示例](#example)。
+通过与 function.json 文件中绑定名称参数指定的名称匹配的字符串参数访问 Blob 数据。
+
 
 ---
 
@@ -329,6 +367,10 @@ JavaScript 不支持特性。
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+元数据在 Java 中不可用。
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
@@ -338,9 +380,10 @@ module.exports = function (context, myBlob) {
 };
 ```
 
-# <a name="java"></a>[Java](#tab/java)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-元数据在 Java 中不可用。
+可以通过 `$TriggerMetadata` 参数获取元数据。
+
 
 ---
 
@@ -350,11 +393,11 @@ Azure Functions 运行时确保没有为相同的新 blob 或更新 blob 多次�
 
 Azure Functions 将 Blob 回执存储在函数应用的 Azure 存储帐户中名为 azure-webjobs-hosts 的容器中（由 `AzureWebJobsStorage` 应用设置定义）。 Blob 回执包含以下信息：
 
-* 触发的函数（"&lt;function app name>.Functions.&lt;function name> "，例如："MyFunctionApp.Functions.CopyBlob"）
+* 触发的函数（`<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>`，例如：`MyFunctionApp.Functions.CopyBlob`）
 * 容器名称
-* Blob 类型（"BlockBlob" 或 "PageBlob"）
+* Blob 类型（`BlockBlob` 或 `PageBlob`）
 * Blob 名称
-* ETag（blob 版本标识符，例如："0x8D1DC6E70A277EF"）
+* ETag（blob 版本标识符，例如：`0x8D1DC6E70A277EF`）
 
 若要强制重新处理某个 blob，可从 azure-webjobs-hosts 容器中手动删除该 blob 的 blob 回执。 虽然重新处理可能不会立即发生，但它肯定会在稍后的时间点发生。 若要立即重新处理，可以更新 azure-webjobs-hosts/blobscaninfo 中的 scaninfo Blob 。 将再次扫描 `LatestScan` 属性后具有上次修改时间戳的任何 Blob。
 
@@ -364,17 +407,17 @@ Azure Functions 将 Blob 回执存储在函数应用的 Azure 存储帐户中名
 
 如果 5 次尝试全部失败，Azure Functions 会将消息添加到名为 webjobs-blobtrigger-poison 的存储队列。 最大尝试次数可配置。 使用相同的 MaxDequeueCount 设置处理有害 Blob 和有害队列消息。 有害 Blob 的队列消息是包含以下属性的 JSON 对象：
 
-* FunctionId（格式为 &lt;function app name>.Functions.&lt;function name> ）
-* BlobType（"BlockBlob" 或 "PageBlob"）
+* FunctionId（格式为 `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>`）
+* BlobType（`BlockBlob` 或 `PageBlob`）
 * ContainerName
 * BlobName
-* ETag（blob 版本标识符，例如："0x8D1DC6E70A277EF"）
+* ETag（blob 版本标识符，例如：`0x8D1DC6E70A277EF`）
 
 ## <a name="concurrency-and-memory-usage"></a>并发和内存使用情况
 
 Blob 触发器可在内部使用队列，因此并发函数调用的最大数量受 [host.json 中的队列配置](functions-host-json.md#queues)控制。 默认设置会将并发限制到 24 个调用。 此限制分别应用于使用 blob 触发器的函数。
 
-[消耗计划](functions-scale.md#how-the-consumption-and-premium-plans-work)将虚拟机 (VM) 上的函数应用限制为 1.5 GB 内存。 内存由每个并发执行函数实例和函数运行时本身使用。 如果 blob 触发的函数将整个 blob 加载到内存中，该函数使用的仅用于 blob 的最大内存为 24 * 最大 blob 大小。 例如，包含 3 个由 blob 触发的函数的函数应用和默认设置，其每 VM 最大并发为 3*24 = 72 个函数调用。
+[消耗计划](event-driven-scaling.md)将虚拟机 (VM) 上的函数应用限制为 1.5 GB 内存。 内存由每个并发执行函数实例和函数运行时本身使用。 如果 blob 触发的函数将整个 blob 加载到内存中，该函数使用的仅用于 blob 的最大内存为 24 * 最大 blob 大小。 例如，包含 3 个由 blob 触发的函数的函数应用和默认设置，其每 VM 最大并发为 3*24 = 72 个函数调用。
 
 JavaScript 和 Java 函数会将整个 blob 加载到内存中，并且如果绑定到 `string` 或 `Byte[]`，则 C# 函数也会如此。
 

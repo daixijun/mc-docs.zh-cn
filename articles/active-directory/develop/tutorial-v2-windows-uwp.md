@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: b300b1d45034d0caf117cb7b3af7d3919d26bc45
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: e1f2fbb1ec189c544c4ff3ff781f25922f2c932a
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004092"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195122"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>教程：从通用 Windows 平台 (UWP) 应用程序调用 Microsoft Graph API
 
@@ -346,22 +346,24 @@ private async Task DisplayMessageAsync(string message)
 
 现在需注册应用程序：
 
-1. 登录 [Azure 门户](https://portal.azure.cn)。
-1. 选择“Azure Active Directory” > “应用注册”。 
-1. 选择“新注册”。 输入一个会显示给应用用户的有意义的应用程序名称，例如 UWP-App-calling-MSGraph。
-1. 在 **支持的帐户类型** 下，选择“任何组织目录中的帐户”，然后选择“注册”以继续。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
+1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
+1. 搜索并选择“Azure Active Directory”  。
+1. 在“管理”下，选择“应用注册” > “新建注册”  。
+1. 输入应用程序的名称（例如 `UWP-App-calling-MSGraph`）。 应用的用户可能会看到此名称，你稍后可对其进行更改。
+1. 在“支持的帐户类型”下，选择“任何组织目录(任何 Azure AD 目录 - 多租户)中的帐户” 。 
+1. 选择“注册”  。
 1. 在概览页上，找到并复制“应用程序(客户端) ID”值。 返回到 Visual Studio，打开 *MainPage.xaml.cs*，将 `ClientId` 的值替换为该值。
 
 为应用程序配置身份验证：
 
-1. 回到 [Azure 门户](https://portal.azure.cn)中，在“管理”下选择“身份验证”。 
-1. 在“重定向 URI” | “建议用于公共客户端(移动、桌面)的重定向 URI”部分中，选中 https://login.partner.microsoftonline.cn/common/oauth2/nativeclient 。
-1. 选择“保存”。
+1. 返回 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>，在“管理”下，选择“身份验证” > “添加平台”，然后选择“移动和桌面应用程序”   。
+1. 在“重定向 URI”部分中，勾选 https://login.partner.microsoftonline.cn/common/oauth2/nativeclient 。
+1. 选择“配置” 。
 
 为应用程序配置 API 权限：
 
-1. 在“管理”下选择“API 权限”。
-1. 选择“添加权限”，并确保已选择“Microsoft API” 。
+1. 在“管理”下，选择“API 权限” > “添加权限”  。
 1. 选择“Microsoft Graph”。
 1. 选择“委托的权限”，搜索 User.Read 并验证是否已选择“User.Read”。
 1. 如果进行了更改，请选择“添加权限”以保存所做的更改。

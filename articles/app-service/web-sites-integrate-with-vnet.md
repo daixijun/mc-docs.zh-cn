@@ -5,21 +5,21 @@ author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
 origin.date: 08/05/2020
-ms.date: 10/19/2020
+ms.date: 01/18/2020
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 72fc9a0e55ec07ab4bb36f8849ae6e536a385150
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 648330e2f39c6de471a03a4c52a10c6f896cf795
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170719"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230798"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>将应用与 Azure 虚拟网络集成
 
-本文介绍 Azure 应用服务 VNet 集成功能，并介绍如何为 [Azure 应用服务](overview.md)中的应用设置此功能。 使用 [Azure 虚拟网络][VNETOverview] (VNet) 可将多个 Azure 资源置于无法通过 Internet 路由的网络中。
+本文介绍 Azure 应用服务 VNet 集成功能，并介绍如何为 [Azure 应用服务](./overview.md)中的应用设置此功能。 使用 [Azure 虚拟网络][VNETOverview] (VNet) 可将多个 Azure 资源置于无法通过 Internet 路由的网络中。 使用 VNet 集成功能，你的应用可以在 VNet 中访问资源，或者通过 VNet 来访问资源。 VNet 集成不允许以私密方式访问应用。
 
-Azure 应用服务有两种变体：
+Azure 应用服务包含 VNet 集成功能的两种变体：
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
@@ -35,16 +35,35 @@ Azure 应用服务有两种变体：
 
    ![选择 VNet][2]
 
-   <!-- * If the VNet is in the same region, either create a new subnet or select an empty preexisting subnet.  -->
-
-   * 若要选择另一区域中的 VNet，必须已预配一个启用了点到站点连接的 VNet 网关。
+   * 如果 VNet 位于同一区域，要么创建一个新的子网，要么选择一个已有的空子网。
+   * 若要选择另一个区域中的 VNet，必须预配了一个已启用点到站点连接的 VNet 网关。
    * 若要与经典 VNet 集成，请不要选择“虚拟网络”下拉列表，而应选择“单击此处连接到经典 VNet”。  选择所需的经典虚拟网络。 目标 VNet 中必须已预配一个启用了点到站点连接的虚拟网关。
 
     ![选择经典 VNet][3]
 
-在集成期间，应用会重启。 完成集成后，将会看到与之集成的 VNet 的详细信息。
-<!-- ## Regional VNet Integration -->
-<!-- Add VNet (preview) not available in mc portal-->
+在集成期间，应用会重启。 完成集成后，系统将显示你与之集成的 VNet 的详细信息。
+
+<!-- Add VNet now available in mc portal-->
+
+## <a name="regional-vnet-integration"></a>区域 VNet 集成
+
+[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
+
+### <a name="how-regional-vnet-integration-works"></a>区域 VNet 集成的工作原理
+
+应用服务中的应用托管在辅助角色上。 基本和更高的定价计划是专用托管计划，其中不会有任何其他客户的工作负载在同一辅助角色上运行。 区域 VNet 集成通过使用委托子网中的地址装载虚拟接口实现。 发送地址位于 VNet 中，因此它可以像 VNet 中的 VM 那样，访问位于 VNet 中或通过 VNet 传输的大多数内容。 网络实现不同于在 VNet 中运行 VM。 这就是一些网络功能尚不可用于此功能的原因。
+
+![区域 VNet 集成的工作原理][5]
+
+启用区域 VNet 集成后，应用通过往常所用的通道对 Internet 进行出站调用。 应用属性门户中列出的出站地址是应用仍然在使用的地址。 就应用而言，变化在于：对服务终结点保护服务的调用或者 RFC 1918 地址进入 VNet 中。 如果 WEBSITE_VNET_ROUTE_ALL 设置为 1，所有出站流量都可以被发送到 VNet 中。
+
+> [!NOTE]
+> Windows 容器目前不支持 `WEBSITE_VNET_ROUTE_ALL`。
+> 
+
+此功能仅支持每个辅助角色一个虚拟接口。 每个辅助角色一个虚拟接口意味着每个应用服务计划一个区域 VNet 集成。 同一个应用服务计划中的所有应用都可以使用相同的 VNet 集成。 如果需要使用一个应用来连接其他 VNet，你需要另外创建一个应用服务计划。 使用的虚拟接口不是客户可直接访问的资源。
+
+由于此技术的性质，用于 VNet 集成的流量不显示在 Azure 网络观察程序或 NSG 流日志中。
 
 ## <a name="gateway-required-vnet-integration"></a>需要网关的 VNet 集成
 
@@ -60,7 +79,10 @@ Azure 应用服务有两种变体：
 需要网关的 VNet 集成不可用于：
 
 * 通过 Azure ExpressRoute 连接的 VNet。
-* 从 Linux 应用
+* Linux 应用中。
+
+    <!-- From a [Windows container](quickstart-custom-container.md)-->
+
 * 访问服务终结点保护的资源。
 * 既支持 ExpressRoute，也支持点到站点 VPN 或站点到站点 VPN 的共存网关。
 
@@ -84,23 +106,20 @@ Azure 应用服务有两种变体：
 
 ### <a name="access-on-premises-resources"></a>访问本地资源
 
-应用可以通过与具备站点到站点连接的 VNet 集成来访问本地资源。 如果使用需要网关的 VNet 集成，请使用点到站点地址块更新本地 VPN 网关路由。 先设置站点到站点 VPN，接着应通过用于配置该 VPN 的脚本来正确地设置路由。 如果在创建站点到站点地址后才添加点到站点 VPN，则需手动更新路由。 操作详情取决于每个网关，在此不作说明。 不能使用站点到站点 VPN 连接来配置 BGP。
+应用可以通过与具备站点到站点连接的 VNet 集成来访问本地资源。 如果使用需要网关的 VNet 集成，请使用点到站点地址块更新本地 VPN 网关路由。 先设置站点到站点 VPN，接着应通过用于配置该 VPN 的脚本来正确地设置路由。 如果在创建站点到站点地址后才添加点到站点 VPN，则需手动更新路由。 操作详情取决于每个网关，在此不作说明。 你不能使用站点到站点 VPN 连接配置 BGP。
 
-<!-- There is no additional configuration required for the regional VNet Integration feature to reach through your VNet, and  -->
-
-本地连接。 只需使用 ExpressRoute 或站点到站点 VPN 将 VNet 连接到本地。 
+区域 VNet 集成功能无需额外的配置即可通过 VNet 连接到本地资源。 只需使用 ExpressRoute 或站点到站点 VPN 将 VNet 连接到本地资源。
 
 > [!NOTE]
-> 需要网关的 VNet 集成功能不将应用与包含 ExpressRoute 网关的 VNet 集成。 即使以[共存模式][VPNERCoex]配置 ExpressRoute 网关，VNet 集成也不会生效。
-> 
-
-<!--  If you need to access resources through an ExpressRoute connection, then you can use the regional VNet Integration feature or an [App Service Environment][ASE], which runs in your VNet.  -->
+> 需要网关的 VNet 集成功能不将应用与包含 ExpressRoute 网关的 VNet 集成。 即使以[共存模式][VPNERCoex]配置 ExpressRoute 网关，VNet 集成也不会生效。 如果需要通过 ExpressRoute 连接访问资源，请使用区域 VNet 集成功能或在 VNet 中运行的[应用服务环境][ASE]。
+>
+>
 
 ### <a name="peering"></a>对等互连
 
-<!-- If you use peering with the regional VNet Integration, you don't need to do any additional configuration.  -->
+如果将对等互连与区域 VNet 集成结合使用，无需进行任何其他配置。
 
-如果结合对等互连使用需要网关的 VNet 集成，则需要配置几个附加的项。 若要配置对等互连以使用应用，请执行以下操作：
+如果将需要网关的 VNet 集成与对等互连结合使用，需要额外配置几个项。 若要配置对等互连以使用应用，请执行以下操作：
 
 1. 在应用所连接的 VNet 上添加对等互连连接。 在添加对等互连连接时，请启用“允许虚拟网络访问”并选择“允许转发流量”和“允许网关传输”  。
 1. 在与所连接的 VNet 对等互连的 VNet 上添加对等互连连接。 在目标 VNet 上添加对等互连连接时，请启用“允许虚拟网络访问”并选择“允许转发流量”和“允许远程网关”  。
@@ -117,8 +136,14 @@ Azure 应用服务有两种变体：
 * **同步网络**：同步网络操作仅用于网关相关的 VNet 集成功能。 执行同步网络操作确保了证书与网络信息是同步的。如果添加或更改 VNet 的 DNS，请执行同步网络操作。 此操作重启使用此 VNet 的任何应用。 如果你使用的是属于不同订阅的应用和 VNet，此操作无效。
 * **添加路由**：添加路由会促使出站流量进入 VNet。
 
+分配给实例的专用 IP 是通过环境变量 WEBSITE_PRIVATE_IP 公开的。 Kudu 控制台 UI 也显示了可用于 Web 应用的环境变量的列表。 此 IP 是从集成子网的地址范围中分配的。 对于区域性 VNet 集成，WEBSITE_PRIVATE_IP 的值是委托子网的地址范围中的一个 IP；对于需要网关的 VNet 集成，此值是在虚拟网络网关上配置的点到站点地址池的地址范围中的一个 IP。 这是 Web 应用通过虚拟网络连接到资源时将使用的 IP。 
+
+> [!NOTE]
+> WEBSITE_PRIVATE_IP 的值必然会变化。 但是，它将是集成子网的地址范围或点到站点地址范围内的一个 IP，因此你需要允许从整个地址范围进行访问。
+>
+
 ### <a name="gateway-required-vnet-integration-routing"></a>需要网关的 VNet 集成路由
-在 VNet 中定义的路由用于将流量从应用导入 VNet。 若要将其他出站流量发送到 VNet 中，请在此处添加相关地址块。 此功能只适用于网关所需的 VNet 集成。 使用需要网关的 VNet 集成时，路由表不会影响应用流量。
+在 VNet 中定义的路由用于将流量从应用导入 VNet。 如果需要将其他出站流量发送到 VNet 中，请在此处添加地址块。 此功能仅适用于需要网关的 VNet 集成。 使用需要网关的 VNet 集成时，路由表不会像使用区域 VNet 集成时那样影响应用流量。
 
 ### <a name="gateway-required-vnet-integration-certificates"></a>需要网关的 VNet 集成证书
 启用需要网关的 VNet 集成后，必须进行证书交换以确保连接的安全性。 除了证书，还有 DNS 配置、路由以及其他类似的用于描述网络的内容。
@@ -126,9 +151,9 @@ Azure 应用服务有两种变体：
 如果更改了证书或网络信息，请选择“同步网络”。 选择“同步网络”会导致应用与 VNet 之间的连接出现短暂的中断。 虽然应用不会重启，但失去连接会导致站点功能失常。
 
 ## <a name="pricing-details"></a>定价详细信息
-<!-- The regional VNet Integration feature has no additional charge for use beyond the App Service plan pricing tier charges. -->
+除了应用服务计划定价层收费以外，区域 VNet 集成功能没有其他使用费。
 
-使用需要网关的 VNet 集成功能会产生三项相关费用：
+使用需要网关的 VNet 集成功能涉及三项费用：
 
 * **应用服务计划定价层费用**：应用必须属于“标准”、“高级”或“高级 V2”应用服务计划。 有关这些费用的详细信息，请参阅[应用服务定价][ASPricing]。
 * **数据传输费用**：传出数据会产生费用，即使 VNet 位于同一数据中心也是如此。 [数据传输定价详细信息][DataPricing]中对这些费用进行了说明。
@@ -136,12 +161,16 @@ Azure 应用服务有两种变体：
 
 ## <a name="troubleshooting"></a>疑难解答
 
+> [!NOTE]
+> 应用服务中的 Docker Compose 方案不支持 VNET 集成。
+> 如果存在专用终结点，则会忽略 Azure Functions 访问限制。
+>
+
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
 ## <a name="automation"></a>自动化
 
-<!-- regional VNet Integration
-CLI support is available for regional VNet Integration. To access the following commands, [install the Azure CLI][installCLI].
+为区域 VNet 集成提供了 CLI 支持。 要访问以下命令，请[安装 Azure CLI][installCLI]。
 
 ```azurecli
 az webapp vnet-integration --help
@@ -165,7 +194,7 @@ Commands:
     list : List the virtual network integrations used in an appservice plan.
 ```
 
-PowerShell support for regional VNet integration is available too, but you must create generic resource with a property array of the subnet resourceID
+还提供了对区域性 VNet 集成的 PowerShell 支持，但你必须使用子网 resourceID 的属性数组创建通用资源
 
 ```azurepowershell
 # Parameters
@@ -193,10 +222,11 @@ New-AzResource @vNetParams
 ```
 
 
-For gateway-required VNet Integration, you can integrate App Service with an Azure virtual network by using PowerShell. For a ready-to-run script, see [Connect an app in Azure App Service to an Azure virtual network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
+对于需要网关的 VNet 集成，可以使用 PowerShell 将应用服务与 Azure 虚拟网络相集成。 如需随时可运行的脚本，请参阅[将 Azure 应用服务中的应用连接到 Azure 虚拟网络](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3)。
 
 
 <!--Image references-->
+
 [1]: ./media/web-sites-integrate-with-vnet/vnetint-app.png
 [2]: ./media/web-sites-integrate-with-vnet/vnetint-addvnet.png
 [3]: ./media/web-sites-integrate-with-vnet/vnetint-classic.png

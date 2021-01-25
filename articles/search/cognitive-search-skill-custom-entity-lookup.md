@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 06/17/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 13d549593e384976d17f79fd4447b3ea95f69783
-ms.sourcegitcommit: 78c71698daffee3a6b316e794f5bdcf6d160f326
+ms.date: 01/18/2021
+ms.openlocfilehash: f9b9b28ae21575dbfe7e9ba8686de0f6b464ee13
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021601"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194746"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>自定义实体查找认知技能（预览版）
 
@@ -42,7 +42,9 @@ Microsoft.Skills.Text.CustomEntityLookupSkill
 | `entitiesDefinitionUri`    | JSON 或 CSV 文件的路径，该文件包含要匹配的所有目标文本。 索引器运行一开始就会读取此实体定义；在后续运行之前，不会识别到在运行中途对此文件所做的任何更新。 必须可以通过 HTTPS 访问此配置。 有关预期的 CSV 或 JSON 架构，请参阅下面的[自定义实体定义](#custom-entity-definition-format)格式。|
 |`inlineEntitiesDefinition` | 内联 JSON 实体定义。 此参数将取代 entitiesDefinitionUri 参数（如果存在）。 可通过内联方式提供不超过 10 KB 的配置。 有关预期的 JSON 架构，请参阅下面的[自定义实体定义](#custom-entity-definition-format)。 |
 |`defaultLanguageCode` |    （可选）用于标记化和描绘输入文本的输入文本的语言代码。 支持以下语言：`da, de, en, es, fi, fr, it, ko, pt`。 默认值为英语 (`en`)。 如果你传递的是 languagecode-countrycode 格式，只会使用格式的 languagecode 部分。  |
-
+|`globalDefaultCaseSensitive` | （可选）技能的默认“区分大小写”值。 如果未指定实体的 `defaultCaseSensitive` 值，则此值将成为该实体的 `defaultCaseSensitive` 值。 |
+|`globalDefaultAccentSensitive` | （可选）技能的默认“区分重音”值。 如果未指定实体的 `defaultAccentSensitive` 值，则此值将成为该实体的 `defaultAccentSensitive` 值。 |
+|`globalDefaultFuzzyEditDistance` | （可选）技能的默认“模糊编辑距离”值。 如果未指定实体的 `defaultFuzzyEditDistance` 值，则此值将成为该实体的 `defaultFuzzyEditDistance` 值。 |
 
 ## <a name="skill-inputs"></a>技能输入
 
@@ -152,8 +154,10 @@ Satya Nadella
 | `subtype` | （可选）此字段可用作有关匹配文本的自定义元数据的信息传达字段。 此字段的值将连同其在技能输出中的实体的每个匹配项一起显示。 |
 | `id` | （可选）此字段可用作有关匹配文本的自定义元数据的信息传达字段。 此字段的值将连同其在技能输出中的实体的每个匹配项一起显示。 |
 | `caseSensitive` | （可选）默认值为 false。 一个布尔值，表示在与实体名称进行比较时是否应区分字符大小写。 不区分大小写的“Microsoft”匹配示例：microsoft, microSoft, MICROSOFT |
+| `accentSensitive` | （可选）默认值为 false。 一个布尔值，指示重音字母和非重音字母（如“é”和“e”）是否应相同。 |
 | `fuzzyEditDistance` | （可选）默认值为 0。 最大值为 5。 表示仍看作与实体名称匹配的可接受分歧字符数。 将返回任意给定匹配项的最小可能模糊匹配数。  例如，如果编辑距离设置为 3，则“Windows 10”仍与“Windows”、“Windows10”和“windows 7”匹配。 <br/> 如果区分大小写设置为 false，则大小写差异不会计入模糊匹配容差；否则会计入。 |
-| `defaultCaseSensitive` | （可选）更改此实体的默认区分大小写值。 它用于更改所有别名 caseSensitive 值的默认值。 |
+| `defaultCaseSensitive` | （可选）更改此实体的默认区分大小写值。 它可用于更改所有别名 caseSensitive 值的默认值。 |
+| `defaultAccentSensitive` | （可选）更改此实体的默认“区分重音”值。 它可用于更改所有别名 accentSensitive 值的默认值。|
 | `defaultFuzzyEditDistance` | （可选）更改此实体的默认模糊编辑距离值。 它可用于更改所有别名 fuzzyEditDistance 值的默认值。 |
 | `aliases` | （可选）可用于指定根实体名称的替代拼写或同义词的复杂对象数组。 |
 
@@ -161,6 +165,7 @@ Satya Nadella
 |------------------|-------------|
 | `text`  | 某个目标实体名称的替代拼写或表示形式。  |
 | `caseSensitive` | （可选）作用与前面所述的根实体“caseSensitive”参数相同，但仅应用于这一个别名。 |
+| `accentSensitive` | （可选）作用与前面所述的根实体“accentSensitive”参数相同，但仅应用于这一个别名。 |
 | `fuzzyEditDistance` | （可选）作用与前面所述的根实体“fuzzyEditDistance”参数相同，但仅应用于这一个别名。 |
 
 

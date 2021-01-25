@@ -9,14 +9,14 @@ ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 06/25/2020
-ms.date: 07/22/2020
+ms.date: 01/18/2021
 ms.author: v-tawe
-ms.openlocfilehash: 137453cae7a786ac95783869eeee780f6a7da782
-ms.sourcegitcommit: 4d9846bb03ac24bd98b0c9a781bb8912ff6d2f61
+ms.openlocfilehash: ff480cfd19a1dafe88e9687f8efcc25482ff3af0
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86927002"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194784"
 ---
 # <a name="azure-for-network-engineers"></a>面向网络工程师的 Azure
 作为传统网络工程师，你之前负责通过物理资产（例如路由器、交换机、电缆、防火墙）来构建基础设施。 在逻辑层上，你曾经配置过虚拟 LAN (VLAN)、跨树协议 (STP)、路由协议（RIP、OSPF、BGP）。 你曾经使用管理工具和 CLI 来管理你的网络。 云中的网络有所不同，其中的网络终结点是逻辑终结点，很少使用路由协议。 你将使用 Azure 资源管理器 API、Azure CLI 和 PowerShell 来配置和管理 Azure 中的资产。 你将首先了解 Azure 网络的基本租户，从而开始你在云中的网络探索旅程。 

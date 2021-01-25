@@ -1,6 +1,6 @@
 ---
 title: .alter function docstring - Azure 数据资源管理器
-description: 本文介绍 Azure 数据资源管理器中的 `.alter function docstring`。
+description: 本文介绍 Azure 数据资源管理器中的 .alter function docstring。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/11/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: fea76d57d98d1a3b011fa6b749ce6d4ff1347688
-ms.sourcegitcommit: c17e965d4ffd82fd7cd86b2648fcb0053a65df00
+ms.date: 01/22/2021
+ms.openlocfilehash: 4bc6d9a0e8e93b21fe0ec431ec47850862739e24
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470515"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611420"
 ---
 # <a name="alter-function-docstring"></a>.alter function docstring
 
@@ -25,7 +25,7 @@ ms.locfileid: "86470515"
 > [!NOTE]
 > * 需要[数据库管理员权限](../management/access-control/role-based-authorization.md)
 > * 允许最初创建函数的[数据库用户](../management/access-control/role-based-authorization.md)修改该函数。
-> * 如果该函数不存在，则返回错误。 有关如何创建新函数的详细信息，请参阅 [.create function](create-function.md)。
+> * 如果该函数不存在，则返回错误。 有关如何创建新函数的详细信息，请参阅 [`.create function`](create-function.md)。
 
 |输出参数 |类型 |说明
 |---|---|--- 

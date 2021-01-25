@@ -5,57 +5,66 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 07/20/2020
-ms.date: 11/30/2020
+origin.date: 12/18/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8a9a5ade151c98e0c03f169b2f3d56b1458b3085
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 2f73287fdee2fd07b906f813680e4a1215922be1
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153045"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163063"
 ---
 # <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>使用 .NET 在对 Blob 存储的请求中指定客户提供的密钥
 
-对 Azure Blob 存储发出请求的客户端可以选择在单个请求中提供加密密钥。 在请求中包含加密密钥可以精细控制 Blob 存储操作的加密设置。 客户提供的密钥可以存储在 Azure Key Vault 或其他密钥存储中。
+对 Azure Blob 存储发出请求的客户端可以选择在单个请求中提供 AES-256 加密密钥。 在请求中包含加密密钥可以精细控制 Blob 存储操作的加密设置。 客户提供的密钥可以存储在 Azure Key Vault 或其他密钥存储中。
 
 本文介绍如何使用 .NET 在请求中指定客户提供的密钥。
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-若要详细了解如何使用 Azure 存储中的 Azure 标识客户端库进行身份验证，请参阅 [使用 Azure Active Directory 和 Azure 资源的托管标识授权访问 Blob 和队列](../common/storage-auth-aad-msi.md?toc=%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)中标题为 **使用 Azure 标识库进行身份验证** 的部分。
+若要详细了解如何使用 Azure 标识客户端库进行身份验证，请参阅[用于 .NET 的 Azure 标识客户端库](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)。
 
-## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>示例：使用客户提供的密钥上传 Blob
+## <a name="use-a-customer-provided-key-to-write-to-a-blob"></a>使用客户提供的密钥写入到 Blob
 
-以下示例创建客户提供的密钥，并使用该密钥上传 Blob。 该代码将上传一个块，然后提交块列表以将 Blob 写入 Azure 存储。
+下面的示例在使用用于 blob 存储的 v12 客户端库上传 blob 时提供了 AES-256 密钥。 该示例使用 [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) 对象授权 Azure AD 的写入请求，但也可以使用共享密钥凭据授权该请求。
 
 ```csharp
-async static Task UploadBlobWithClientKey(string accountName, string containerName,
-    string blobName, Stream data, byte[] key)
+async static Task UploadBlobWithClientKey(Uri blobUri,
+                                          Stream data,
+                                          byte[] key,
+                                          string keySha256)
 {
-    const string blobServiceEndpointSuffix = ".blob.core.chinacloudapi.cn";
-    Uri accountUri = new Uri("https://" + accountName + blobServiceEndpointSuffix);
+    // Create a new customer-provided key.
+    // Key must be AES-256.
+    var cpk = new CustomerProvidedKey(key);
+
+    // Check the key's encryption hash.
+    if (cpk.EncryptionKeyHash != keySha256)
+    {
+        throw new InvalidOperationException("The encryption key is corrupted.");
+    }
 
     // Specify the customer-provided key on the options for the client.
     BlobClientOptions options = new BlobClientOptions()
     {
-        CustomerProvidedKey = new CustomerProvidedKey(key)
+        CustomerProvidedKey = cpk
     };
 
-    // Create a client object for the Blob service, including options.
-    BlobServiceClient serviceClient = new BlobServiceClient(accountUri, 
-        new DefaultAzureCredential(), options);
+    // Create the client object with options specified.
+    BlobClient blobClient = new BlobClient(
+        blobUri,
+        new DefaultAzureCredential(),
+        options);
 
-    // Create a client object for the container.
+    // If the container may not exist yet,
+    // create a client object for the container.
     // The container client retains the credential and client options.
-    BlobContainerClient containerClient = serviceClient.GetBlobContainerClient(containerName);
-
-    // Create a new block blob client object.
-    // The blob client retains the credential and client options.
-    BlobClient blobClient = containerClient.GetBlobClient(blobName);
+    BlobContainerClient containerClient =
+        blobClient.GetParentBlobContainerClient();
 
     try
     {

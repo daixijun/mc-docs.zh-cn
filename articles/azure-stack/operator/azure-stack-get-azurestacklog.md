@@ -2,19 +2,19 @@
 title: 通过特权终结点 (PEP) 收集诊断日志
 description: 了解如何使用管理员门户或 PowerShell 脚本在 Azure Stack Hub 中按需收集诊断日志。
 author: WenJason
-ms.service: azure-stack
+ms.custom: conteperfq4
 ms.topic: article
 origin.date: 09/02/2020
-ms.date: 10/12/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: c8e81abde8ef9c400f3e413c57f04ac777a81361
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: 2570bb62e764b7ca7256104c204cf3cdb6dcd763
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830102"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541899"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>使用特权终结点 (PEP) 发送 Azure Stack Hub 诊断日志
 
@@ -87,6 +87,18 @@ if ($session) {
   Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
  
+  收集 SQL RP 的日志： 
+
+  ```powershell
+  Get-AzureStackLog -FilterByResourceProvider SQLAdapter
+  ```
+
+  收集 MySQL RP 的日志： 
+
+  ```powershell
+  Get-AzureStackLog -FilterByResourceProvider MySQLAdapter
+  ```
+  
   收集 IoT 中心的日志： 
 
   ```powershell

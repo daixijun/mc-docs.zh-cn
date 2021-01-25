@@ -5,14 +5,14 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 09/17/2018
-ms.date: 12/08/2020
+ms.date: 01/12/2021
 ms.author: v-johya
-ms.openlocfilehash: 54bc12b97b795368013c7b666b41610ec57a520a
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 5e340a00eb099dd5d5fed2854f0785914192527d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105202"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230707"
 ---
 # <a name="alerts-on-activity-log"></a>根据活动日志发出警报
 
@@ -21,7 +21,8 @@ ms.locfileid: "97105202"
 活动日志警报是新发生的[活动日志事件](activity-log-schema.md) 与警报中指定的条件匹配时激活的警报。 根据 [Azure 活动日志](platform-logs-overview.md)中记录的事件的顺序和数量，将触发警报规则。 活动日志警报规则是 Azure 资源，因此，可使用 Azure 资源管理器模板来创建。 此外，还可以在 Azure 门户中创建、更新或删除它们。 本文介绍活动日志警报背后的概念。 有关创建或使用活动日志警报规则的详细信息，请参阅[创建和管理活动日志警报](alerts-activity-log.md)。
 
 > [!NOTE]
-> **无法** 为活动日志的“警报”类别中的事件创建警报。
+> * **无法** 为活动日志的“警报”类别中的事件创建警报。
+> * “安全”类别的活动日志警报也可以在到 [ServiceNow](/security-center/export-to-siem) 的[新升级流](/security-center/continuous-export?tabs=azure-portal)中定义
 
 通常，你会在以下情况下创建活动日志警报以接收通知：
 

@@ -5,18 +5,18 @@ ms.service: cosmos-db
 ms.topic: troubleshooting
 origin.date: 10/12/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: c4122e94f008ee7e6f9a0f601ebe6e6f8bc38d16
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: d82871821d6c77a8106df06f49619a2f05b4a4b1
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850795"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230235"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>排查使用 Azure Cosmos DB 时遇到的查询问题
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -199,9 +199,7 @@ RU 费用：2.98 RU
 
 ### <a name="understand-which-system-functions-use-the-index"></a>了解哪些系统函数使用索引
 
-如果表达式可以被转换为一系列字符串值，则该表达式可以使用索引， 否则不可使用索引。
-
-下面是一些可使用索引的常用字符串函数的列表：
+大多数系统函数都使用索引。 下面列出了一些使用索引的常用字符串函数：
 
 - STARTSWITH(str_expr1, str_expr2, bool_expr)  
 - CONTAINS(str_expr, str_expr, bool_expr)
@@ -217,7 +215,26 @@ RU 费用：2.98 RU
 
 ------
 
-即使系统函数不使用索引，查询的其他部分也仍可以使用索引。
+如果系统函数使用索引，并且仍有较高的 RU 费用，则可以尝试将 `ORDER BY` 添加到查询中。 在某些情况下，添加 `ORDER BY` 可以提高系统函数索引的利用率，特别是在查询长时间运行或跨多个页时。
+
+例如，考虑下面带有 `CONTAINS` 的查询。 `CONTAINS` 应该使用索引，但假设在添加相关索引后，在运行以下查询时，你仍然会看到非常高的 RU 费用：
+
+原始查询：
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+使用 `ORDER BY` 更新后的查询：
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>了解哪些聚合查询使用索引
 
@@ -497,5 +514,6 @@ WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 * [使用 .NET SDK 获取 SQL 查询执行指标](profile-sql-api-query.md)
 * [优化 Azure Cosmos DB 的查询性能](./sql-api-query-metrics.md)
 * [.NET SDK 性能提示](performance-tips.md)
+* [适用于 Java v4 SDK 的性能提示](performance-tips-java-sdk-v4-sql.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

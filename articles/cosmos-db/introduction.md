@@ -5,21 +5,21 @@ ms.service: cosmos-db
 ms.topic: overview
 origin.date: 10/23/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: 27881cf2930aab3ca87e04e5e25c66f70635d4a2
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: 66d9835fc05f61d3a072aa31e47f04a6527dbfcd
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598694"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230384"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 如今的应用程序需要具备高响应能力并始终联机。 若要实现低延迟和高可用性，需要在靠近用户的数据中心部署这些应用程序的实例。 应用程序需要实时响应高峰期的重大用量变化，存储不断增长的数据，并在数毫秒内向用户提供此数据。
 
-Azure Cosmos DB 是一种用于新式应用开发的完全托管的 NoSQL 数据库。 个位数的毫秒响应时间以及自动和即时的可伸缩性，可保证任何规模的速度。 [SLA 支持](https://www.azure.cn/support/sla/cosmos-db)的可用性和企业级安全性可确保业务连续性。 得益于中国各地的统包多主数据库数据分布以及适用于常用语言的开源 API 和 SDK，应用开发的速度增快且效率增高。 作为一项完全托管的服务，Azure Cosmos DB 使用自动管理、更新和修补，使你无需进行数据库管理。 它还通过经济高效的无服务器和自动缩放选项处理容量管理，这些选项可响应应用程序的需求，使容量与需求相匹配。
+Azure Cosmos DB 是一种用于新式应用开发的完全托管的 NoSQL 数据库。 个位数的毫秒响应时间以及自动和即时的可伸缩性，可保证任何规模的速度。 [SLA 支持](https://www.azure.cn/support/sla/cosmos-db)的可用性和企业级安全性可确保业务连续性。 得益于中国各地的统包多区域数据分布以及适用于常用语言的开源 API 和 SDK，应用开发的速度增快且效率增高。 作为一项完全托管的服务，Azure Cosmos DB 使用自动管理、更新和修补，使你无需进行数据库管理。 它还通过经济高效的无服务器和自动缩放选项处理容量管理，这些选项可响应应用程序的需求，使容量与需求相匹配。
 
 <!-- Not Avaialble [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
 

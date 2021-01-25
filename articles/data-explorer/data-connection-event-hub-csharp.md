@@ -7,13 +7,13 @@ ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 10/07/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: b593a4fd539d1aeda0243358efb597fe3e20fabb
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/22/2021
+ms.openlocfilehash: d5fd60be4a2ff3bab5ff131f0df5cfa78ed9abc9
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431194"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611701"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-c"></a>使用 C# 为 Azure 数据资源管理器创建事件中心数据连接
 
@@ -72,8 +72,9 @@ var location = "China East 2";
 var tableName = "StormEvents";
 var mappingRuleName = "StormEvents_CSV_Mapping";
 var dataFormat = DataFormat.CSV;
+var compression = "None";
 await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupName, clusterName, databaseName, dataConnectionName, 
-    new EventHubDataConnection(eventHubResourceId, consumerGroup, location: location, tableName: tableName, mappingRuleName: mappingRuleName, dataFormat: dataFormat));
+    new EventHubDataConnection(eventHubResourceId, consumerGroup, location: location, tableName: tableName, mappingRuleName: mappingRuleName, dataFormat: dataFormat, compression: compression));
 ```
 
 |**设置** | **建议的值** | **字段说明**|
@@ -92,6 +93,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 | eventHubResourceId | 资源 ID | 包含要引入的数据的事件中心的资源 ID。 |
 | consumerGroup | *$Default* | 事件中心的使用者组。|
 | location | *中国东部 2* | 数据连接资源的位置。|
+| compression | “Gzip”或“None” | 数据压缩的类型。 |
 
 ## <a name="generate-data"></a>生成数据
 

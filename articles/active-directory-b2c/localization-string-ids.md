@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/01/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: e334ecf5e27c2f542963c52efccf1d190c6a88f5
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 5d10881e9550b389d8bef5b4a523d4069c3585c1
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507123"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570540"
 ---
 # <a name="localization-string-ids"></a>本地化字符串 ID
 
@@ -538,6 +538,6 @@ Localization 元素使你能够在用户旅程的策略中支持多个区域设�
 
 有关本地化示例，请参阅以下文章：
 
-- [在 Azure Active Directory B2C 中使用自定义策略进行语言自定义](custom-policy-localization.md)
-- [在 Azure Active Directory B2C 中使用用户流进行语言自定义](user-flow-language-customization.md)
+- [在 Azure Active Directory B2C 中使用自定义策略进行语言自定义](language-customization.md)
+- [在 Azure Active Directory B2C 中使用用户流进行语言自定义](language-customization.md)
 

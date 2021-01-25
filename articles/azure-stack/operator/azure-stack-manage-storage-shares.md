@@ -4,16 +4,16 @@ description: 了解如何在 Azure Stack Hub 中监视和管理存储容量与�
 author: WenJason
 ms.topic: conceptual
 origin.date: 10/16/2020
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 7f4dc275bbc092551afe80bbc9b728da58e656b6
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 2158c613ab656c7ce709348f6f2532051a3a055a
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507960"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541892"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack Hub 的存储容量
 
@@ -333,4 +333,4 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解如何向用户提供 VM，请参阅[管理 Azure Stack Hub 的存储容量](./tutorial-offer-services.md?view=azs-2002)。
+若要详细了解如何向用户提供 VM，请参阅[管理 Azure Stack Hub 的存储容量](./tutorial-offer-services.md)。

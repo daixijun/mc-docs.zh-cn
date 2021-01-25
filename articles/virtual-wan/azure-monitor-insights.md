@@ -6,26 +6,26 @@ ms.service: virtual-wan
 ms.topic: conceptual
 origin.date: 09/22/2020
 author: rockboyfor
-ms.date: 11/02/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 11/02/2020
 ms.author: v-yeche
-ms.openlocfilehash: 18c405577645b810fdfecff056245ddbf289d1e6
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 58f304de070eb411b8ef9711c6f1270f3c7c29a9
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103963"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230270"
 ---
 <!--Verified Successfully-->
-# <a name="azure-monitor-insights-for-virtual-wan-preview"></a>虚拟 WAN 的 Azure Monitor 见解（预览版）
+# <a name="azure-monitor-insights-for-virtual-wan"></a>虚拟 WAN 的 Azure Monitor 见解
 
 用于 Azure 虚拟 WAN 的 [Azure Monitor 见解](../azure-monitor/insights/network-insights-overview.md)使用户和操作员能够查看通过自动发现的拓扑映射显示的虚拟 WAN 的状态。 资源状态在映射上的覆盖为你提供了虚拟 WAN 整体运行状况的快照视图。 可以通过对虚拟 WAN 门户资源配置页的一键式访问，在映射上导航资源。
 
 虚拟 WAN 资源级指标通过预打包的虚拟 WAN 指标工作簿进行收集和显示。 工作簿显示了虚拟 WAN、中心、网关和连接级别的指标。 本文将指导你完成使用用于虚拟 WAN 的 Azure Monitor 见解集中在一个位置查看虚拟 WAN 拓扑和指标的步骤。
 
 > [!NOTE]
-> 当前正在推出虚拟 WAN 门户中的“见解”菜单选项。在此菜单的推出过程中，可以使用用于网络的 Azure Monitor 访问虚拟 WAN 拓扑和指标工作簿。 有关详细信息，请参阅[用于网络的 Azure Monitor](../azure-monitor/insights/network-insights-overview.md)。 
+> “见解”菜单选项位于虚拟 WAN 门户的“监视”下。 可以使用用于网络的 Azure Monitor 访问虚拟 WAN 拓扑和指标工作簿。 有关详细信息，请参阅[用于网络的 Azure Monitor](../azure-monitor/insights/network-insights-overview.md)。 
 >
 
 ## <a name="before-you-begin"></a>准备阶段
@@ -40,7 +40,7 @@ ms.locfileid: "93103963"
 
 转到“Azure 门户” > “虚拟 WAN” 。 在左侧窗格的“监视器”菜单中，选择“见解(预览版)” 。 此时将显示“见解”视图。 其中显示了虚拟 WAN 依赖项映射和高级“指标”小型工作簿。
 
-图 1： **监视器 > 见解菜单**
+图 1：**监视器 > 见解菜单**
 
 :::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="显示“见解(预览版)”视图的屏幕截图。" lightbox="./media/azure-monitor-insights/monitor-menu.png":::
 
@@ -48,9 +48,9 @@ ms.locfileid: "93103963"
 
 资源状态以颜色编码，并叠加在映射中的资源图标上。 高级虚拟 WAN 指标（如中心容量和网关利用率）显示在小型工作簿中窗口的右侧。
 
-图 2： **见解视图**
+图 2：**见解视图**
 
-:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="显示“见解(预览版)”视图的屏幕截图。" lightbox="./media/azure-monitor-insights/insights-view.png":::
+:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="显示“见解”视图的屏幕截图。" lightbox="./media/azure-monitor-insights/insights-view.png":::
 
 <a name="dependency"></a>
 ## <a name="dependency-view"></a>“依赖项”视图
@@ -59,7 +59,7 @@ ms.locfileid: "93103963"
 
 图 3： **“VWAN 依赖项”视图**
 
-:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="显示“见解(预览版)”视图的屏幕截图。" lightbox="./media/azure-monitor-insights/dependency-map.png":::
+:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="显示“依赖项”视图的屏幕截图。" lightbox="./media/azure-monitor-insights/dependency-map.png":::
 
 依赖项视图映射将以下资源显示为连接图表：
 
@@ -73,15 +73,15 @@ ms.locfileid: "93103963"
 
 通过依赖项映射可以轻松地导航到每个资源的配置设置。 例如，可以将鼠标悬停在中心资源上，查看基本资源配置，如中心区域和中心前缀。 右键单击以访问中心资源的“Azure 门户”页。
 
-图 4： **导航到特定于资源的信息**
+图 4：**导航到特定于资源的信息**
 
-:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="显示“见解(预览版)”视图的屏幕截图。":::
+:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="显示如何导航到特定于资源的信息的屏幕截图。":::
 
 “依赖项”视图上的搜索和筛选栏提供了一种轻松的方法来搜索图形。 各种筛选器有助于将搜索范围缩小到特定路径和状态。
 
-图 5： **搜索和筛选**
+图 5：**搜索和筛选**
 
-:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="显示“见解(预览版)”视图的屏幕截图。" lightbox="./media/azure-monitor-insights/search-filter.png":::
+:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="显示搜索和筛选栏的屏幕截图。" lightbox="./media/azure-monitor-insights/search-filter.png":::
 
 <a name="detailed"></a>
 ## <a name="detailed-metrics"></a>详细指标
@@ -90,12 +90,11 @@ ms.locfileid: "93103963"
 
 **图 6：详细指标仪表板**
 
-:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="显示“见解(预览版)”视图的屏幕截图。" lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
+:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="显示详细指标仪表板的屏幕截图。" lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
 
 ## <a name="next-steps"></a>后续步骤
 
 * 若要了解详细信息，请参阅 [Azure Monitor 中的指标](../azure-monitor/platform/data-platform-metrics.md)。
 * 有关所有虚拟 WAN 指标的完整说明，请参阅[虚拟 WAN 日志和指标](logs-metrics.md)。
 
-<!-- Update_Description: new article about azure monitor insights -->
-<!--NEW.date: 11/02/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

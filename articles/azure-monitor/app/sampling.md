@@ -4,15 +4,15 @@ description: 如何使受控制的遥测数据的卷。
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 01/17/2020
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 148ddf750799b1e70b750b6b15af61cae43ca463
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: f8c564a502ad6f7c4871e5936a0838be609d434d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104334"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231032"
 ---
 # <a name="sampling-in-application-insights"></a>在 Application Insights 中采样
 
@@ -56,7 +56,7 @@ ms.locfileid: "97104334"
 * **引入采样** 在 Application Insights 服务终结点上发生。 它会以设置的采样率丢弃一些来自应用的遥测数据。 它不会减少应用发送的遥测流量，但可帮助保持在每月配额内。 引入采样的大优点是，无需重新部署应用就可设置它。 引入采样统一适用于所有服务器和客户端，但在运行任何其他类型的采样时，不会应用引入采样。
 
 > [!IMPORTANT]
-> 如果自适应或固定速率采样方法正在运行，将禁用引入采样。
+> 如果为遥测类型启用了自适应或固定速率采样方法，则将对该遥测禁用引入采样。 但是，从 SDK 级别的采样中排除的遥测类型仍会按门户中设置的速率进行引入采样。
 
 ## <a name="adaptive-sampling"></a>自适应采样
 
@@ -317,18 +317,12 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 1. 下载 [applicationinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
-1. 若要启用采样，请将以下内容添加到 `ApplicationInsights.json` 文件：
+1. 若要启用采样，请将以下内容添加到 `applicationinsights.json` 文件：
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "sampling": {
-        "fixedRate": {
-          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
-        }
-      }
-    }
+  "sampling": {
+    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
   }
 }
 ```
@@ -561,7 +555,7 @@ ASP.NET 和 ASP.NET Core SDK 中的默认采样行为是什么？
 
 * 如果 SDK 未执行采样，则对于过于特定量的任何遥测，自动运行引入采样。 例如，如果使用旧版 ASP.NET SDK 或 Java SDK，则此配置可正常运行。
 * 如果使用最新 ASP.NET 或 ASP.NET Core SDK（托管在 Azure 中或者自己的服务器上），则默认运行自适应采样，不过可按如上所述切换到固定速率采样。 使用固定速率采样，浏览器 SDK 会自动同步到示例相关的事件。 
-* 如果使用最新的 Java 代理，可以配置 `ApplicationInsights.json`（对于 Java SDK，配置 `ApplicationInsights.xml`）来启用固定速率采样。 默认情况下，采样处于关闭状态。 使用固定速率采样时，浏览器 SDK 和服务器会自动同步到样本相关的事件。
+* 如果使用最新的 Java 代理，可以配置 `applicationinsights.json`（对于 Java SDK，配置 `ApplicationInsights.xml`）来启用固定速率采样。 默认情况下，采样处于关闭状态。 使用固定速率采样时，浏览器 SDK 和服务器会自动同步到样本相关的事件。
 
 *我总是想要查看某些罕见的事件。如何让它们通过采样模块？*
 

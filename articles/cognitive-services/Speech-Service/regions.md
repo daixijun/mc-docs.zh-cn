@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 08/20/2020
-ms.date: 12/30/2020
+ms.date: 01/14/2021
 ms.author: v-tawe
 ms.custom: seodec18,references_regions
-ms.openlocfilehash: 6e3dfd9d7f17f91646b81d2045579da735df8833
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: 525586886a9b8cd003482c3272d530c75bf86959
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820314"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193231"
 ---
 # <a name="speech-service-supported-regions"></a>语音服务支持的区域
 
@@ -44,6 +44,8 @@ ms.locfileid: "97820314"
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
 如果使用 [语音 SDK](speech-sdk.md)，则区域由 **区域标识符** 指定（例如，作为 `SpeechConfig.FromSubscription` 的参数）。 请确保该区域与订阅的区域匹配。
+
+如果打算使用音频数据训练自定义模型，请使用[具有专用硬件的区域](custom-speech-overview.md#set-up-your-azure-account)之一进行更快的训练。 稍后可以使用 [REST API](https://chinaeast2.dev.cognitive.azure.cn/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) 将完全训练的模型复制到另一个区域。
 
 ### <a name="intent-recognition"></a>意向识别
 

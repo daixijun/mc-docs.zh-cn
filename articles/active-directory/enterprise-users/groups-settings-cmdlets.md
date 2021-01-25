@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 01/14/2021
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40ab5b04534730e4281915f21b3ac977ac439f76
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: ac17308057904eef372da28630254acd03adc912
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021584"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195270"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>用于配置组设置的 Azure Active Directory cmdlet
 
@@ -84,10 +84,11 @@ Microsoft 365 组设置使用 Settings 对象和 SettingsTemplate 对象配置�
    ```powershell
    $Setting = $Template.CreateDirectorySetting()
    ```  
-4. 然后更新使用准则值：
+4. 然后使用新值更新设置对象。 下面的两个示例更改了使用准则值并启用了敏感度标签。 根据需要在模板中设置这些设置或任何其他设置：
   
    ```powershell
    $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+   $Setting["EnableMIPLabels"] = "True"
    ```  
 5. 然后应用设置：
   
@@ -118,7 +119,7 @@ Microsoft 365 组设置使用 Settings 对象和 SettingsTemplate 对象配置�
    ```powershell
     Name                          Value
     ----                          -----
-    EnableMIPLabels               false
+    EnableMIPLabels               True
     CustomBlockedWordsList
     EnableMSStandardBlockedWords  False
     ClassificationDescriptions

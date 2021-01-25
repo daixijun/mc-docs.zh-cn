@@ -7,13 +7,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/08/2020
-ms.openlocfilehash: 5d56b38a3940169875dd377d7de9d2a5c25f6388
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/12/2021
+ms.openlocfilehash: 9f5f5202119aaf927cd6601365749b1d99d2f790
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104392"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231081"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 代理概述
 
@@ -132,27 +132,26 @@ InfluxData Telegraf 代理用于将性能数据从 Linux 计算机收集到 Azur
 | 操作系统 | Azure Monitor 代理 | Log Analytics 代理 | 依赖关系代理 | 诊断扩展 | 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                     |   | X |   |   |
-| CentOS Linux 8                                           |   | X |   |   |
-| CentOS Linux 7                                           | X | X |   | X |
-| CentOS Linux 7.8                                         | X | X | X | X |
-| CentOS Linux 7.6                                         | X | X | X | X |
+| CentOS Linux 8                                           |   | X | X |   |
+| CentOS Linux 7                                           | X | X | X | X |
 | CentOS Linux 6                                           |   | X |   |   |
-| CentOS Linux 6.5+                                        |   | X |   | X |
-| Debian 10                                                | X |   |   |   |
+| CentOS Linux 6.5+                                        |   | X | X | X |
 | Debian 9                                                 | X | X | x | X |
 | Debian 8                                                 |   | X | X | X |
 | Debian 7                                                 |   |   |   | X |
 | OpenSUSE 13.1+                                           |   |   |   | X |
+| Oracle Linux 8                                           |   | X |   |   |
 | Oracle Linux 7                                           | X | X |   | X |
 | Oracle Linux 6                                           |   | X |   |   |
 | Oracle Linux 6.4+                                        |   | X |   | X |
-| Red Hat Enterprise Linux Server 8                        |   | X |   |   |
+| Red Hat Enterprise Linux Server 8                        |   | X | X |   |
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                     |   | X | X | X |
-| SUSE Linux Enterprise Server 15                          | X | X |   |   |
+| SUSE Linux Enterprise Server 15.1                        |   | X |   |   |
+| SUSE Linux Enterprise Server 15                          | X | X | X |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
-| Ubuntu 20.04 LTS                                         |   | X |   |   |
+| Ubuntu 20.04 LTS                                         |   | X | X |   |
 | Ubuntu 18.04 LTS                                         | X | X | X | X |
 | Ubuntu 16.04 LTS                                         | X | X | X | X |
 | Ubuntu 14.04 LTS                                         |   | X |   | X |
@@ -163,17 +162,31 @@ InfluxData Telegraf 代理用于将性能数据从 Linux 计算机收集到 Azur
 
 | 分发 | OS 版本 | 内核版本 |
 |:---|:---|:---|
-|  Red Hat Linux 7   | 7.6     | 3.10.0-957  |
+|  Red Hat Linux 8   | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
+|                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
+|                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
+|  Red Hat Linux 7   | 7.9     | 3.10.0-1160 |
+|                    | 7.8     | 3.10.0-1136 |
+|                    | 7.7     | 3.10.0-1062 |
+|                    | 7.6     | 3.10.0-957  |
 |                    | 7.5     | 3.10.0-862  |
 |                    | 7.4     | 3.10.0-693  |
 | Red Hat Linux 6    | 6.10    | 2.6.32-754 |
 |                    | 6.9     | 2.6.32-696  |
-| CentOSPlus         | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
+| CentOS Linux 8     | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
+|                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
+|                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
+| CentOS Linux 7     | 7.9     | 3.10.0-1160 |
+|                    | 7.8     | 3.10.0-1136 |
+|                    | 7.7     | 3.10.0-1062 |
+| CentOS Linux 6     | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
 |                    | 6.9     | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-| Ubuntu Server      | 18.04   | 5.3.0-1020<br>5.0（包括 Azure 优化内核）<br>4.18 *<br>4.15* |
-|                    | 16.04.3 | 4.15.* |
+| Ubuntu Server      | 20.04   | 5.4\* |
+|                    | 18.04   | 5.3.0-1020<br>5.0（包括 Azure 优化内核）<br>4.18 *<br>4.15* |
+|                    | 16.04.3 | 4.15.\* |
 |                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-| SUSE Linux 12 Enterprise Server | 12 SP4 | 4.12.*（包括 Azure 优化内核） |
+| SUSE Linux 12 Enterprise Server | 15     | 4.12.14-150\*
+|                                 | 12 SP4 | 4.12.*（包括 Azure 优化内核） |
 |                                 | 12 SP3 | 4.4.* |
 |                                 | 12 SP2 | 4.4.* |
 | Debian                          | 9      | 4.9  | 

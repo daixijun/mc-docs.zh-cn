@@ -4,21 +4,21 @@ description: 了解如何使用 .NET 客户端库（版本 4）在 Azure Key Vau
 author: msmbaldwin
 ms.author: v-tawe
 origin.date: 09/23/2020
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: fecc69a37816cb4750f524186e454f7cc21309eb
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 06814bd8c0e2929b3331d261acf34e96cddfd2b2
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105435"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230873"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-net-sdk-v4"></a>快速入门：适用于 .NET 的 Azure Key Vault 证书客户端库 (SDK v4)
 
-适用于 .NET 的 Azure Key Vault 证书客户端库入门。 [Azure Key Vault](../general/overview.md) 是一项云服务，它为证书提供了安全的存储。 可以安全地存储密钥、密码、证书和其他证书。 可以通过 Azure 门户创建和管理 Azure Key Vault。 本快速入门介绍如何使用 .NET 客户端库在 Azure 密钥保管库中创建、检索和删除证书
+适用于 .NET 的 Azure Key Vault 证书客户端库入门。 [Azure Key Vault](../general/overview.md) 是一项云服务，它为证书提供了安全的存储。 可以安全地存储密钥、密码、证书和其他机密。 可以通过 Azure 门户创建和管理 Azure Key Vault。 本快速入门介绍如何使用 .NET 客户端库在 Azure 密钥保管库中创建、检索和删除证书
 
 Key Vault 客户端库资源：
 
@@ -110,7 +110,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS 或 Linux
@@ -138,7 +138,7 @@ using Azure.Security.KeyVault.Certificates;
 
 本快速入门使用登录用户向 Key Vault 进行身份验证，这是本地开发的首选方法。 对于部署到 Azure 的应用程序，应将托管标识分配给应用服务或虚拟机。有关详细信息，请参阅[托管标识概述](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。
 
-在下面的示例中，密钥保管库的名称将扩展为密钥保管库 URI，格式为“https://\<your-key-vault-name\>.vault.azure.cn”。 此示例使用 ['DefaultAzureCredential()' ](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential)类，该类允许在具有不同选项的不同环境中使用相同代码提供标识。 有关向密钥保管库进行身份验证的详细信息，请参阅[开发人员指南](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)。
+在下面的示例中，密钥保管库的名称将扩展为密钥保管库 URI，格式为“https://\<your-key-vault-name\>.vault.azure.cn”。 此示例使用 [Azure 标识库](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)的[“DefaultAzureCredential()”](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential)类，该类允许在具有不同选项的不同环境中使用相同代码提供标识。 有关向密钥保管库进行身份验证的详细信息，请参阅[开发人员指南](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)。
 
 ```csharp
 string keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
@@ -149,10 +149,10 @@ var client = new CertificateClient(new Uri(kvUri), new DefaultAzureCredential())
 
 ### <a name="save-a-certificate"></a>保存证书
 
-在此示例中，为简单起见，可以将自签名证书与默认颁发策略一起使用。 对于此任务，请使用 [StartCreateCertificateAsync](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync) 方法。 该方法的首个参数接受证书名和证书策略[证书策略](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates.certificatepolicy)。
+在此示例中，为简单起见，可以将自签名证书与默认颁发策略一起使用。 对于此任务，请使用 [StartCreateCertificateAsync](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync) 方法。 该方法的参数接受证书名和证书策略[证书策略](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.certificates.certificatepolicy)。
 
 ```csharp
-CertificateOperation operation = await client.StartCreateCertificateAsync("MyCertificate", CertificatePolicy.Default);
+var operation = await client.StartCreateCertificateAsync("myCertificate", CertificatePolicy.Default);
 var certificate = await operation.WaitForCompletionAsync();
 ```
 

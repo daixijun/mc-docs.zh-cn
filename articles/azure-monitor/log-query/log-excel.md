@@ -5,17 +5,17 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/08/2020
-ms.openlocfilehash: 1dd98389d294b750e58e30a301a6af13a511be7a
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/12/2021
+ms.openlocfilehash: 5cbbf4f3ca2295a16c3db69610b243f54ec08b81
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105456"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231083"
 ---
 # <a name="integrate-log-analytics-and-excel"></a>集成 Log Analytics 和 Excel
 
-可以使用 M 查询和 Log Analytics API 来集成 Azure Monitor Log Analytics 和 Microsoft Excel。  进行此集成后，你可以将 500000 条记录发送到 Excel。
+可以使用 M 查询和 Log Analytics API 来集成 Azure Monitor Log Analytics 和 Microsoft Excel。 只要结果的总量不超过 61MiB，此集成便可以将多达 500,000 条记录发送到 Excel。
 
 > [!NOTE]
 > 由于 Excel 是本地客户端应用程序，因此本地硬件和软件限制会影响其性能以及其处理大型数据集的能力。
@@ -97,6 +97,9 @@ in AnalyticsQuery
  
 
    :::image type="content" source="media/log-excel/excel-query-result.png" alt-text="Excel 中的查询结果" border="true":::
+
+> [!Note]
+> 如果记录数小于预期值，则结果的量可能超出了 61MiB 限制。 请尝试在查询中使用 `project` 或 `project-away` 将列限制为所需的列。
 
 ##  <a name="refreshing--data"></a>刷新数据
 

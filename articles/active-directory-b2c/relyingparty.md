@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/21/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: dc907819daa4e484aec10efb0f75018d9dad7b69
-ms.sourcegitcommit: 2944f818f2849202724a237555dce3a2fcb47a49
+ms.openlocfilehash: fd2af12423b897d1e72d85fc44bc777463746a72
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90828785"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570571"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -77,8 +77,35 @@ RelyingParty 元素指定用户旅程，以执行当前对 Azure Active Director
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | 信赖方应用的默认用户旅程。 |
+| 终结点 | 0:1 | 终结点的列表。 有关详细信息，请参阅 [UserInfo 终结点](userinfo-endpoint.md)。 |
 | UserJourneyBehaviors | 0:1 | 用户旅程行为的范围。 |
 | TechnicalProfile | 1:1 | 信赖方应用支持的技术配置文件。 该技术配置文件提供了信赖方应用与 Azure AD B2C 联系的协定。 |
+
+## <a name="endpoints"></a>终结点
+
+Endpoints 元素包含以下元素：
+
+| 元素 | 出现次数 | 说明 |
+| ------- | ----------- | ----------- |
+| 端点 | 1:1 | 对终结点的引用。|
+
+Endpoint 元素包含以下属性：
+
+| 属性 | 必需 | 说明 |
+| --------- | -------- | ----------- |
+| ID | 是 | 终结点的唯一标识符。|
+| UserJourneyReferenceId | 是 | 策略中用户旅程的标识符。 有关详细信息，请参阅[用户旅程](userjourneys.md)  | 
+
+以下示例显示了具有 [UserInfo 终结点](userinfo-endpoint.md)的信赖方：
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <Endpoints>
+    <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
+  </Endpoints>
+  ...
+```
 
 ## <a name="defaultuserjourney"></a>DefaultUserJourney
 
@@ -102,7 +129,7 @@ B2C_1A_TrustFrameWorkBase 或 B2C_1A_TrustFrameworkExtensionPolicy：
 
 DefaultUserJourney 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | ReferenceId | 是 | 策略中用户旅程的标识符。 有关详细信息，请参阅[用户旅程](userjourneys.md) |
 
@@ -117,16 +144,16 @@ UserJourneyBehaviors 元素包含下列元素：
 | SessionExpiryInSeconds | 0:1 | 身份验证成功后，存储在用户浏览器上指定为整数的 Azure AD B2C 会话 Cookie 的生存期。 |
 | JourneyInsights | 0:1 | 要使用的 Azure Application Insights 检测密钥。 |
 | ContentDefinitionParameters | 0:1 | 要追加到内容定义负载 URI 的键值对列表。 |
-|ScriptExecution| 0:1| 支持的 [JavaScript](javascript-samples.md) 执行模式。 可能的值：`Allow` 或 `Disallow`（默认值）。
+|ScriptExecution| 0:1| 支持的 [JavaScript](javascript-and-page-layout.md) 执行模式。 可能的值：`Allow` 或 `Disallow`（默认值）。
 
 ### <a name="singlesignon"></a>SingleSignOn
 
 SingleSignOn 元素包含在以下属性中：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | 作用域 | 是 | 单一登录行为的范围。 可能的值：`Suppressed`、`Tenant`、`Application` 或 `Policy`。 `Suppressed` 值指示禁止此行为，并且系统会始终提示用户选择标识提供者。  `Tenant` 值指示该行为适用于租户中的所有策略。 例如，不会提示在两个策略旅程中导航租户的用户选择标识提供者。 `Application` 值指示该行为适用于发出请求的应用程序的所有策略。 例如，不会提示在应用程序的两个策略旅程中导航的用户选择标识提供者。 `Policy` 值指示该行为仅适用于一个策略。 例如，当在策略之间切换时，会提示在两个策略旅程中导航信任框架的用户选择标识提供者。 |
-| KeepAliveInDays | 是 | 控制用户保持登录状态的时间长短。 将此值设置为 0 会关闭 KMSI 功能。 |
+| KeepAliveInDays | 是 | 控制用户保持登录状态的时间长短。 将此值设置为 0 会关闭 KMSI 功能。 有关详细信息，请参阅[使我保持登录状态](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi)。 |
 |EnforceIdTokenHintOnLogout| 否|  强制将以前颁发的 ID 令牌传递到注销终结点，作为最终用户当前与客户端进行的身份验证会话的提示。 可能的值为 `false`（默认）或 `true`。 有关详细信息，请参阅[使用 OpenID Connect 进行 Web 登录](openid-connect.md)。  |
 
 
@@ -134,7 +161,7 @@ SingleSignOn 元素包含在以下属性中：
 
 JourneyInsights 元素包含以下属性：
 
-| 属性 | 必须 | 说明 |
+| 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | TelemetryEngine | 是 | 值必须是 `ApplicationInsights`。 |
 | InstrumentationKey | 是 | 一个字符串，其中包含 application insights 元素的检测密钥。 |
@@ -142,6 +169,8 @@ JourneyInsights 元素包含以下属性：
 | ClientEnabled | 是 | 可能的值：`true` 或 `false`。 如果是 `true`，则发送用于跟踪页面视图和客户端错误的 Application Insights 客户端脚本。 |
 | ServerEnabled | 是 | 可能的值：`true` 或 `false`。 如果是 `true`，则将现有 UserJourneyRecorder JSON 作为自定义事件发送到 Application Insights。 |
 | TelemetryVersion | 是 | 值必须是 `1.0.0`。 |
+
+有关详细信息，请参阅[收集日志](troubleshoot-with-application-insights.md)
 
 ## <a name="contentdefinitionparameters"></a>ContentDefinitionParameters
 
@@ -162,6 +191,8 @@ ContentDefinitionParameters 元素包含以下属性：
 | 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
 | 名称 | 是 | 键值对的名称。 |
+
+有关详细信息，请参阅[使用自定义策略配置包含动态内容的 UI](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 
@@ -200,10 +231,11 @@ Protocol 元素包含以下属性：
 | KeyEncryptionMethod| 否 | 指示 Azure AD B2C 对用来加密数据的密钥副本进行加密时使用的方法。 此元数据控制 SAML 响应中 `<EncryptedKey>` 元素的值。 可能的值：` Rsa15`（默认值）- RSA 公钥加密标准 (PKCS) 版本 1.5 算法；` RsaOaep` - RSA 最佳非对称加密填充 (OAEP) 加密算法。 |
 | UseDetachedKeys | 否 |  可能的值：`true` 或 `false`（默认值）。 如果将值设置为 `true`，则 Azure AD B2C 会更改已加密断言的格式。 使用分离的密钥会将加密的断言添加为 EncrytedAssertion 的子元素而不是 EncryptedData 的子元素。 |
 | WantsSignedResponses| 否 | 指示 Azure AD B2C 是否对 SAML 响应的 `Response` 部分进行签名。 可能的值：`true`（默认值）或 `false`。  |
+| RemoveMillisecondsFromDateTime| 否 | 指示是否将从 SAML 响应中的日期/时间值（包括 IssueInstant、NotBefore、NotOnOrAfter 和 AuthnInstant）中删除毫秒值。 可能的值：`false`（默认值）或 `true`。  |
 
 ### <a name="outputclaims"></a>OutputClaims
 
-OutputClaims 元素包含以下元素：
+OutputClaims  元素包含以下元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |

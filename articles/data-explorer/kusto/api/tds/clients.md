@@ -9,17 +9,19 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 origin.date: 10/30/2019
-ms.date: 07/01/2020
-ms.openlocfilehash: bba119a5ec6834d339514bdfead6ef34642f07f8
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 01/22/2021
+ms.openlocfilehash: d3cf2bb23bece3067f8bbf3bafac28b8d1ca12ce
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226303"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611594"
 ---
 # <a name="ms-tds-clients-and-azure-data-explorer"></a>MS-TDS 客户端和 Azure 数据资源管理器
 
 Azure 数据资源管理器为 MS-SQL 客户端实现了与 TDS 兼容的终结点。 兼容性在协议级别实现。 任何可以连接到采用 Azure Active Directory (Azure AD) 身份验证的 SQL Azure 数据库的库或应用程序，都可以与 Azure 数据资源管理器服务器一起使用。 因此，你可以使用服务器域名，就像它是 SQL Azure 服务器一样。
+
+Azure 数据资源管理器不支持使用用户名和密码进行基本身份验证。 必须将 Azure Active Directory 与下面列出的所有客户端配合使用。 
 
 Azure 数据资源管理器实现了 T-SQL 的一个子集和 SQL Server 模拟的一个子集。 有关详细信息，请参阅[已知问题](./sqlknownissues.md)，以了解 SQL Server 实现的 T-SQL 与 Azure 数据资源管理器实现的 T-SQL 之间的差异。
 

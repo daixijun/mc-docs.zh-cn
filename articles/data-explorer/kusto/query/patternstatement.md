@@ -8,15 +8,15 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
+ms.date: 01/22/2021
 zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: d6cfdb57936f40718cf5879f9970f18c76fd8ef1
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 58122e7bafd1a354e8685afa3b68ede8daca0f7a
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590904"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611597"
 ---
 # <a name="pattern-statement"></a>pattern 语句
 
@@ -47,7 +47,7 @@ app("ApplicationX").StartEvents
 
 此查询会在 Kusto 中生成错误，指示无法解析接下来的模式调用：`app("ApplicationX")["StartEvents"]` 和 `app("ApplicationX")["StopEvents"]`。
 
-## <a name="syntax"></a>语法
+## <a name="syntax-of-pattern-declaration"></a>模式声明的语法
 
 `declare` `pattern` *PatternName*
 
@@ -68,7 +68,7 @@ app("ApplicationX").StartEvents
 
 为每个匹配的模式提供的表达式是表名或对 [let 语句](letstatement.md)的引用。
 
-## <a name="syntax"></a>语法
+## <a name="syntax-of-pattern-definition"></a>模式定义的语法
 
 `declare` `pattern` *PatternName* = `(`*ArgName* `:` *ArgType* [`,` ... ]`)` [`[` *PathName* `:` *PathArgType* `]`] `{`
 &nbsp;&nbsp;&nbsp;&nbsp; `(` *ArgValue1* [`,` *ArgValue2* ... ] `)` [ `.[` *PathValue `]` ] `=` `{`  *expression*  `};` &nbsp;&nbsp;&nbsp;&nbsp; [ &nbsp;&nbsp;&nbsp;&nbsp; `(` *ArgValue1_2* [`,` *ArgValue2_2* ... ] `)` [ `.[` *PathValue_2* `]` ] `=` `{`  *expression_2*  `};` &nbsp;&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;&nbsp;&nbsp; ] `}`

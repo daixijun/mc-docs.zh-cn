@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/06/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 4f540b839aa7acaeb18a356ff8f039cde65a982c
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.openlocfilehash: 52b08a168237544393bbd75fe2d76920b91c4df4
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515904"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611650"
 ---
 # <a name="create-table"></a>.create table
 
@@ -45,4 +45,4 @@ ms.locfileid: "88515904"
 ```
 
 > [!NOTE]
-> 若要创建多个表，请使用 [.create tables](create-tables-command.md) 命令以提高性能并降低群集负载。
+> 若要创建多个表，请使用 [`.create tables`](create-tables-command.md) 命令以提高性能并降低群集负载。

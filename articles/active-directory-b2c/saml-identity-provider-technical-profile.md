@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/04/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 5026688f790a0e1179ac759943070a65dd0d374f
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 0c938a46ca7f2acd66bd2e5bd7cbf50052982eda
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326442"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570630"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自定义策略中定义 SAML 标识提供者技术配置文件
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) 为 SAML 2.0 标识提供者提供支持。 本文介绍了与支持此标准化协议的声明提供程序进行交互的技术配置文件的详细信息。 使用 SAML 技术配置文件，可以与基于 SAML 的标识提供者联合。 这样用户就可以使用其现有的社交或企业标识登录。
+Azure Active Directory B2C (Azure AD B2C) 为 SAML 2.0 标识提供者提供支持。 本文介绍了与支持此标准化协议的声明提供程序进行交互的技术配置文件的详细信息。 使用 SAML 技术配置文件，可以与基于 SAML 的标识提供者（例如 [Salesforce](identity-provider-salesforce-saml.md)）联合， 这样用户就可以使用其现有的社交或企业标识登录。
 
 ## <a name="metadata-exchange"></a>元数据交换
 
@@ -110,8 +110,8 @@ SAML 断言：
 ```xml
 <saml:Subject>
   <saml:NameID SPNameQualifier="http://your-idp.com/unique-identifier" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">david@contoso.com</saml:NameID>
-    <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-      <SubjectConfirmationData InResponseTo="_cd37c3f2-6875-4308-a9db-ce2cf187f4d1" NotOnOrAfter="2020-02-15T16:23:23.137Z" Recipient="https://your-tenant.b2clogin.cn/your-tenant.partner.onmschina.cn/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" />
+  <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+    <SubjectConfirmationData InResponseTo="_cd37c3f2-6875-4308-a9db-ce2cf187f4d1" NotOnOrAfter="2020-02-15T16:23:23.137Z" Recipient="https://your-tenant.b2clogin.cn/your-tenant.partner.onmschina.cn/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" />
     </SubjectConfirmation>
   </saml:SubjectConfirmation>
 </saml:Subject>
@@ -152,7 +152,7 @@ SAML 断言：
 
 **OutputClaimsTransformations** 元素可能包含用于修改输出声明或生成新输出声明的 **OutputClaimsTransformation** 元素集合。
 
-## <a name="metadata"></a>Metadata
+## <a name="metadata"></a>元数据
 
 | 属性 | 必需 | 说明 |
 | --------- | -------- | ----------- |
@@ -168,6 +168,7 @@ SAML 断言：
 | IncludeAuthnContextClassReferences | 否 | 指定一个或多个可标识身份验证上下文类的 URI 引用。 例如，如果只允许用户使用用户名和密码登录，请将值设置为 `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`。 若要允许用户在受保护会话 (SSL/TLS) 期间通过用户名和密码登录，请指定 `PasswordProtectedTransport`。 查看标识提供者的文档，了解受支持的 **AuthnContextClassRef** URI。 以逗号分隔列表的形式指定多个 URI。 |
 | IncludeKeyInfo | 否 | 指定在将绑定设置为 `HTTP-POST` 时，SAML 身份验证请求是否包含证书的公钥。 可能的值：`true` 或 `false`。 |
 | IncludeClaimResolvingInClaimsHandling  | 否 | 对于输入和输出声明，指定[声明解析](claim-resolver-overview.md)是否包含在技术配置文件中。 可能的值：`true` 或 `false`（默认值）。 若要使用技术配置文件中的声明解析程序，请将此项设为 `true`。 |
+|SingleLogoutEnabled| 否| 指示在登录过程中技术配置文件是否尝试从联合标识提供者注销。 有关详细信息，请参阅 [Azure AD B2C 会话注销](session-behavior.md#sign-out)。可能的值为 `true`（默认）或 `false`。|
 
 ## <a name="cryptographic-keys"></a>加密密钥
 
@@ -210,4 +211,11 @@ SAML 断言：
       <Metadata>
      …
 ```
+
+## <a name="next-steps"></a>后续步骤
+
+请参阅以下文章，了解在 Azure AD B2C 中使用 SAML 标识提供者的示例：
+
+- [使用自定义策略将 ADFS 添加为 SAML 身份提供程序](identity-provider-adfs.md)
+- [通过 SAML 使用 Salesforce 帐户登录](identity-provider-salesforce-saml.md)
 

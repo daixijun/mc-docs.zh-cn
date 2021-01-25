@@ -1,27 +1,27 @@
 ---
 title: 安全概述
 titleSuffix: Azure Cognitive Search
-description: Azure 认知搜索符合 SOC 2、HIPAA 和其他认证的要求。 在筛选器表达式中通过用户和组安全标识符进行连接和数据加密、身份验证和标识访问。
+description: 了解 Azure 认知搜索中用于保护终结点、内容和操作的安全功能。
 manager: nitinme
 author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 08/01/2020
-ms.date: 09/10/2020
+origin.date: 12/15/2020
+ms.date: 01/14/2021
 ms.custom: references_regions
-ms.openlocfilehash: 79ec75e51332bc17c6726917bd2797e163503114
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.openlocfilehash: 88b8048c8a00edb56444e3c7ff53df8a9adda7dc
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96430995"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194770"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Azure 认知搜索中的安全性 - 概述
 
 本文介绍 Azure 认知搜索中可以保护内容和操作的关键安全功能。
 
-+ 在存储层上，对保存到磁盘的所有服务托管内容（包括索引、同义词映射以及索引器、数据源和技能组的定义）都内置了静态加密。 Azure 认知搜索还支持添加客户管理的密钥 (CMK)，以对索引内容进行双重加密。 对于 2020 年 8 月 1 日后创建的服务，CMK 加密延伸到临时磁盘上的数据，以对索引内容进行完全双重加密。
++ 在存储层上，已为保存到磁盘的所有服务托管内容（包括索引、同义词映射以及索引器、数据源和技能组的定义）内置了静态加密。 Azure 认知搜索还支持添加客户管理的密钥 (CMK)，以对索引内容进行双重加密。 对于 2020 年 8 月 1 日后创建的服务，CMK 加密延伸到临时磁盘上的数据，以对索引内容进行完全双重加密。
 
 + 入站安全性通过不断提升的安全性级别来保护搜索服务终结点：从请求所使用的 API 密钥到防火墙中的入站规则，再到全面保护服务不受公共 Internet 影响的专用终结点。
 
@@ -38,6 +38,8 @@ Watch this fast-paced video for an overview of the security architecture and eac
 ## <a name="encrypted-transmissions-and-storage"></a>加密的传输和存储
 
 在 Azure 认知搜索中，加密从连接和传输开始，一直延伸到磁盘上存储的内容。 对于公共 Internet 上的搜索服务，Azure 认知搜索会侦听 HTTPS 端口 443。 客户端到服务的所有连接都使用 TLS 1.2 加密。 不支持更早的版本（1.0 或 1.1）。
+
+:::image type="content" source="media/search-security-overview/encryption-at-rest-cmk.png" alt-text="描述在每个服务参与级别上不同类型的安全性的图表":::
 
 <!-- For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-models.md). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Those services have their own levels of encryption support separate from Azure Cognitive Search. -->
 
@@ -93,9 +95,11 @@ Watch this fast-paced video for an overview of the security architecture and eac
 
 To further control access to your search service, you can create inbound firewall rules that allow access to specific IP address or a range of IP addresses. All client connections must be made through an allowed IP address, or the connection is denied.
 
+:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="sample architecture diagram for ip restricted access":::
+
 You can use the portal to [configure inbound access](service-configure-firewall.md).
 
-Alternatively, you can use the management REST APIs. API version 2020-03-13, with the [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) parameter, allows you to restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.  -->
+Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.  -->
 
 <!-- ### Private access ->
 
@@ -111,7 +115,7 @@ For multitenancy solutions requiring security boundaries at the index level, suc
 
 ## User access
 
-How a user accesses an index and other objects is determined by the type of API key on the request. Most developers create and assign [*query keys*](search-security-api-keys.md) for client-side search requests. A query key grants read-only access to searchable content within the index.
+How a user accesses an index and other objects is determined by the type of API key on the request. Most developers create and assign [query keys](search-security-api-keys.md) for client-side search requests. A query key grants read-only access to searchable content within the index.
 
 If you require granular, per-user control over search results, you can build security filters on your queries, returning documents associated with a given security identity. Instead of predefined roles and role assignments, identity-based access control is implemented as a *filter* that trims search results of documents and content based on identities. The following table describes two approaches for trimming search results of unauthorized content.
 
@@ -134,6 +138,12 @@ In contrast, admin rights over content hosted on the service, such as the abilit
 
 Azure Cognitive Search has been certified compliant for multiple global, regional, and industry-specific standards for both the public cloud and Azure Government. For the complete list, download the [**Microsoft Azure Compliance Offerings** whitepaper](https://aka.ms/azurecompliance) from the official Audit reports page.
 -->
+
+Azure Policy 是 Azure 中内置的一项功能，可帮助你管理对多个标准（包括 Azure 安全基准的标准）的符合性。 对于众所周知的基准，Azure Policy 提供了内置定义，这些定义既提供了标准，又提供了解决非符合性的可操作响应。
+
+对于 Azure 认知搜索，当前有一个内置定义。 它用于诊断日志记录。 使用此内置功能，你可以分配一个策略来标识缺少诊断日志记录的任何搜索服务，然后将其启用。
+
+<!-- For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md). -->
 
 ## <a name="see-also"></a>另请参阅
 

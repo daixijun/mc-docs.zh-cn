@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 06/14/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 9ed87c68ab843cc8b1f8f299eff0804e2c9c0453
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 88558e79ccdb2d208122987d5bc4f43c481588cc
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106011"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611325"
 ---
 # <a name="execute-database-script"></a>.execute database script
 
@@ -29,8 +29,8 @@ ms.locfileid: "93106011"
 
 ### <a name="parameters"></a>parameters
 
-* *Control-commands-script* ：包含一个或多个控制命令的文本。
-* *数据库作用域* ：脚本应用于作为请求上下文一部分指定的“数据库作用域”。
+* *Control-commands-script*：包含一个或多个控制命令的文本。
+* *数据库作用域*：脚本应用于作为请求上下文一部分指定的“数据库作用域”。
 
 ### <a name="optional-properties"></a>可选属性
 
@@ -55,7 +55,7 @@ ms.locfileid: "93106011"
 >* 命令按它们在输入脚本中出现的顺序依次执行。
 >* 脚本执行是非事务性的，出错时不执行回滚。 建议在使用 `.execute database script` 时使用幂等形式的命令。
 >* 命令的默认行为 - 在第一个错误处失败，可以使用属性参数对其进行更改。
->* 不执行只读控制命令（.show 命令），并报告状态 `Skipped`。
+>* 不执行只读控制命令（`.show` 命令），并报告状态 `Skipped`。
 
 ## <a name="example"></a>示例
 

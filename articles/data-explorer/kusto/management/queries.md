@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/23/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: a9c04c1efd3e7c3dec91320ad42fe57d161bf41e
-ms.sourcegitcommit: c17e965d4ffd82fd7cd86b2648fcb0053a65df00
+ms.date: 01/22/2021
+ms.openlocfilehash: 8735e076f6ef5880449c21484375bdeaabadd153
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470338"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611423"
 ---
 # <a name="queries-management"></a>查询管理
 
@@ -22,8 +22,9 @@ ms.locfileid: "86470338"
 
 `.show` `queries` 命令返回已达到最终状态的查询列表，并且调用该命令的用户有权查看：
 
-- [数据库管理员或数据库监视员](../management/access-control/role-based-authorization.md)可以查看在他们的数据库上调用的任何命令。
-- 其他用户只能看到由他们调用的查询。
+
+* [数据库管理员或数据库监视员](../management/access-control/role-based-authorization.md)可以查看在他们的数据库上调用的任何命令。
+* 其他用户只能看到由他们调用的查询。
 
 **语法**
 
@@ -39,21 +40,23 @@ ms.locfileid: "86470338"
 .show running queries
 ```
 
-- (1) 返回调用用户当前正在执行的查询（需要读取访问权限）。
+* (1) 返回调用用户当前正在执行的查询（需要读取访问权限）。
 
 ## <a name="cancel-query"></a>.cancel 查询
 
-`.cancel` `query` 命令开始尽力尝试取消同一用户先前启动的特定查询。
+`.cancel` `query` 命令会开始尽力尝试取消特定正在运行的查询。
 
-- 集群管理员可以取消任何正在运行的查询。
-- 数据库管理员可以取消对其具有管理员访问权限的数据库调用的任何正在运行的查询。
-- 其他用户只能取消他们启动的查询。
+* 集群管理员可以取消任何正在运行的查询。
+* 数据库管理员可以取消对其具有管理员访问权限的数据库调用的任何正在运行的查询。
+* 所有主体都可以取消他们启动的正在运行的查询。
 
 **语法**
 
-`.cancel` `query` _ClientRequestId_
+`.cancel` `query` *ClientRequestId* [`with` `(` `reason` `=` *ReasonPhrase* `)`]
 
-- “ClientRequestId”是原始查询 ClientRequestId 字段的值，形式为 `string` 文本。
+* ClientRequestId 是正在运行的查询的 `ClientRequestId` 属性的值，作为 `string` 文本。
+
+* *ReasonPhrase*：如果已指定，则为描述取消正在运行的查询的原因的 `string` 文本。 如果查询成功取消，则此信息将包含在查询结果中。
 
 **示例**
 

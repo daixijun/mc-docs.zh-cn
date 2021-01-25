@@ -8,32 +8,32 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/19/2019
-ms.date: 07/01/2020
-ms.openlocfilehash: d0ae66829078c58c4c721cfda16219e7e91b4317
-ms.sourcegitcommit: c17e965d4ffd82fd7cd86b2648fcb0053a65df00
+ms.date: 01/22/2021
+ms.openlocfilehash: f23d5966cd5c405411907f07e6a08eef1d872b85
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470484"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611653"
 ---
 # <a name="commands-and-queries-management"></a>命令和查询管理
 
-## <a name="show-commands-and-queries"></a>.show commands-and-queries
+## <a name="show-commands-and-queries"></a>.show commands-and-queries 
 
 `.show` `commands-and-queries` 返回一个表，其中包含已达到最终状态的管理员命令和查询。 这些命令和查询的可用时间为 30 天。
 
-此命令的输出中显示的信息类似于 [.show commands](commands.md) 和 [.show queries](queries.md) 命令，但是它实际上上允许你以简单方式联接两个结果集。
+此命令的输出中显示的信息类似于 [`.show` 命令](commands.md)和 [`.show` 查询](queries.md)，但是它实际上上允许你以简单方式联接两个结果集。
 
 **语法**
 
 `.show` `commands-and-queries`
-
+ 
 **输出**
-
+ 
 输出架构如下所示：
 
 | ColumnName               | ColumnType |
-| ------------------------ | ---------- |
+|--------------------------|------------|
 | ClientActivityId         | string     |
 | CommandType              | string     |
 | 文本                     | string     |

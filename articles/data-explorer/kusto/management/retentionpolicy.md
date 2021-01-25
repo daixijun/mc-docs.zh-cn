@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: f1639ef4e0f0b6ac30aed3a97a64e1b61dc5e0af
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 8629d51f9b6c5118bb1e6af510e419177977cff1
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104278"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611309"
 ---
 # <a name="retention-policy"></a>保留策略
 
@@ -39,24 +39,24 @@ ms.locfileid: "93104278"
 
 保留策略包括以下属性：
 
-* **SoftDeletePeriod** ：
+* **SoftDeletePeriod**：
     * 保证数据可查询的时间跨度。 时间段从引入数据的时间开始度量。
     * 默认为 `100 years`。
     * 更改表或数据库的软删除时段时，新值将同时应用于现有数据和新数据。
-* **可恢复性** ：
+* **可恢复性**：
     * 删除数据后的数据可恢复性（启用/禁用）。
     * 默认为 `Enabled`。
     * 如果设置为 `Enabled`，则数据可以在软删除后的 14 天内被恢复。
 
 ## <a name="control-commands"></a>控制命令
 
-* 使用 [.show 策略保留](../management/retention-policy.md)以显示数据库、表或[具体化视图](materialized-views/materialized-view-overview.md)的当前保留策略。
-* 使用 [.alter 策略保留](../management/retention-policy.md)以更改数据库、表或[具体化视图](materialized-views/materialized-view-overview.md)的当前保留策略。
+* 使用 [`.show policy retention`](../management/retention-policy.md) 显示数据库、表或[具体化视图](materialized-views/materialized-view-overview.md)的当前保留策略。
+* 使用 [`.alter policy retention`](../management/retention-policy.md) 更改数据库、表或[具体化视图](materialized-views/materialized-view-overview.md)的当前保留策略。
 
 ## <a name="defaults"></a>默认值
 
 默认情况下，在创建数据库或表时，不定义保留策略。 通常，将创建数据库，然后立即由其创建者根据已知要求设置其保留策略。
-对尚未设置策略的数据库或表的保留策略运行 [show 命令](../management/retention-policy.md)时，`Policy` 显示为 `null`。
+对尚未设置策略的数据库或表的保留策略运行 [`.show` 命令](../management/retention-policy.md)时，`Policy` 显示为 `null`。
 
 可以使用以下命令应用默认的保留策略（具有上述默认值）。
 
@@ -99,7 +99,7 @@ ms.locfileid: "93104278"
 .alter-merge materialized-view ViewName policy retention softdelete = 7d 
 ```
 
-* *选项 2* ：为每个表设置一个表级别的保留策略，其软删除期为七天，并禁用可恢复性。
+* *选项 2*：为每个表设置一个表级别的保留策略，其软删除期为七天，并禁用可恢复性。
 
 ```kusto
 .alter-merge table MyTable1 policy retention softdelete = 7d recoverability = disabled
@@ -121,7 +121,7 @@ ms.locfileid: "93104278"
 .alter-merge table MySpecialTable policy retention softdelete = 14d recoverability = enabled
 ```
 
-* *选项 2* ：为每个表设置一个表级别保留策略，并设置相关的软删除期和可恢复性。
+* *选项 2*：为每个表设置一个表级别保留策略，并设置相关的软删除期和可恢复性。
 
 ```kusto
 .alter-merge table MyTable1 policy retention softdelete = 7d recoverability = disabled
@@ -133,7 +133,7 @@ ms.locfileid: "93104278"
 
 将表 `MyTable1` 和 `MyTable2` 设置为具有七天的软删除期，并且 `MySpecialTable` 无限期地保留其数据。
 
-* *选项 1* ：为 `MySpecialTable` 设置数据库级别的保留策略，并设置一个软删除期为 100 年的表级别保留策略（默认保留策略）。
+* *选项 1*：为 `MySpecialTable` 设置数据库级别的保留策略，并设置一个软删除期为 100 年的表级别保留策略（默认保留策略）。
 
 ```kusto
 .delete table MyTable1 policy retention   // optional, only if the table previously had its policy set
@@ -142,7 +142,7 @@ ms.locfileid: "93104278"
 .alter table MySpecialTable policy retention "{}" // this sets the default retention policy
 ```
 
-* *选项 2* ：对于表 `MyTable1` 和表 `MyTable2`，设置表级别的保留策略，并验证 `MySpecialTable` 的数据库级别和表级别策略未设置。
+* *选项 2*：对于表 `MyTable1` 和表 `MyTable2`，设置表级别的保留策略，并验证 `MySpecialTable` 的数据库级别和表级别策略未设置。
 
 ```kusto
 .delete database MyDatabase policy retention   // optional, only if the database previously had its policy set
@@ -151,7 +151,7 @@ ms.locfileid: "93104278"
 .alter-merge table MyTable2 policy retention softdelete = 7d
 ```
 
-* *选项 3* ：对于表 `MyTable1` 和表 `MyTable2`，设置表级别的保留策略。 为表 `MySpecialTable` 设置一个软删除期为 100 年的表级别保留策略（默认保留策略）。
+* *选项 3*：对于表 `MyTable1` 和表 `MyTable2`，设置表级别的保留策略。 为表 `MySpecialTable` 设置一个软删除期为 100 年的表级别保留策略（默认保留策略）。
 
 ```kusto
 .alter-merge table MyTable1 policy retention softdelete = 7d

@@ -3,15 +3,15 @@ title: Azure Functions 的 Azure 表存储输入绑定
 description: 了解如何在 Azure Functions 中使用 Azure 表存储输入绑定。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 01/04/2021
+ms.date: 01/12/2021
 ms.author: v-junlch
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 97d57b39608dd5ab9b31fcb089c9ddbb11da050d
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: eb1355fef6bb5b5d79a4f5090c1c0201c31e5227
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022309"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195261"
 ---
 # <a name="azure-table-storage-input-bindings-for-azure-functions"></a>Azure Functions 的 Azure 表存储输入绑定
 
@@ -296,48 +296,6 @@ public class Person : TableEntity
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-以下示例演示 *function.json* 文件中的一个表输入绑定以及使用该绑定的 [JavaScript 脚本](functions-reference-node.md)代码。 该函数使用队列触发器来读取单个表行。 
-
-*function.json* 文件指定 `partitionKey` 和 `rowKey`。 `rowKey` 值“{queueTrigger}”指示行键来自队列消息字符串。
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "personEntity",
-      "type": "table",
-      "tableName": "Person",
-      "partitionKey": "Test",
-      "rowKey": "{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
-}
-```
-
-[配置](#configuration)部分解释了这些属性。
-
-JavaScript 代码如下所示：
-
-```javascript
-module.exports = function (context, myQueueItem) {
-    context.log('Node.js queue trigger function processed work item', myQueueItem);
-    context.log('Person entity name: ' + context.bindings.personEntity.Name);
-    context.done();
-};
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 以下示例显示了一个 HTTP 触发函数，该函数返回表存储中指定分区中的 person 对象列表。 在此示例中，分区键将从 http 路由中提取，表名和连接将从函数设置中提取。 
@@ -407,6 +365,89 @@ public Person[] get(
 }
 ```
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+以下示例演示 *function.json* 文件中的一个表输入绑定以及使用该绑定的 [JavaScript 脚本](functions-reference-node.md)代码。 该函数使用队列触发器来读取单个表行。 
+
+*function.json* 文件指定 `partitionKey` 和 `rowKey`。 `rowKey` 值“{queueTrigger}”指示行键来自队列消息字符串。
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[配置](#configuration)部分解释了这些属性。
+
+JavaScript 代码如下所示：
+
+```javascript
+module.exports = function (context, myQueueItem) {
+    context.log('Node.js queue trigger function processed work item', myQueueItem);
+    context.log('Person entity name: ' + context.bindings.personEntity.Name);
+    context.done();
+};
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+下面的函数使用队列触发器读取单个表行作为函数的输入。
+
+在此示例中，绑定配置为表的 `partitionKey` 指定一个显式值，并使用了一个要传递给 `rowKey` 的表达式。 `rowKey` 表达式 `{queueTrigger}` 指示行键来自队列消息字符串。
+
+_function.json_ 中的绑定配置：
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "MyQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "PersonEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+_run.ps1_ 中的 PowerShell 代码：
+
+```powershell
+param($MyQueueItem, $PersonEntity, $TriggerMetadata)
+Write-Host "PowerShell queue trigger function processed work item: $MyQueueItem"
+Write-Host "Person entity name: $($PersonEntity.Name)"
+```
+
+
 ---
 
 ## <a name="attributes-and-annotations"></a>特性和注释
@@ -473,14 +514,18 @@ public Person[] get(
 
 C# 脚本不支持特性。
 
+# <a name="java"></a>[Java](#tab/java)
+
+在 [Java 函数运行时库](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)中，对其值将来自表存储的参数使用 `@TableInput` 注释。  可以将此注释与本机 Java 类型、POJO 或使用了 `Optional<T>` 的可为 null 的值一起使用。
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript 不支持特性。
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-# <a name="java"></a>[Java](#tab/java)
+PowerShell 不支持特性。
 
-在 `Java functions runtime library`中，对其值将来自表存储的参数使用 `@TableInput` 注释。  可以将此注释与本机 Java 类型、POJO 或使用了 `Optional<T>` 的可为 null 的值一起使用。
 
 ---
 
@@ -490,7 +535,7 @@ JavaScript 不支持特性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|type | 不适用 | 必须设置为 `table`。 在 Azure 门户中创建绑定时，会自动设置此属性。|
+|type  | 不适用 | 必须设置为 `table`。 在 Azure 门户中创建绑定时，会自动设置此属性。|
 |**direction** | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建绑定时，会自动设置此属性。 |
 |**name** | 不适用 | 表示函数代码中的表或实体的变量的名称。 | 
 |**tableName** | **TableName** | 表的名称。| 
@@ -530,13 +575,18 @@ JavaScript 不支持特性。
   > [!NOTE]
   > [Functions v2 运行时](functions-versions.md)不支持 `IQueryable`。 一种替代方法是[使用 CloudTable paramName 方法参数](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable)通过 Azure 存储 SDK 来读取表。 如果在尝试绑定到 `CloudTable` 时出现错误消息，请确保引用[正确的存储 SDK 版本](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x)。
 
+# <a name="java"></a>[Java](#tab/java)
+
+使用 [TableInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) 特性可以访问触发了函数的表行。
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 设置 `filter` 和 `take` 属性。 不要设置 `partitionKey` 或 `rowKey`。 使用 `context.bindings.<BINDING_NAME>` 访问输入一个或多个输入表实体。 反序列化的对象具有 `RowKey` 和 `PartitionKey` 属性。
 
-# <a name="java"></a>[Java](#tab/java)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-使用 `TableInput` 特性可以访问触发了函数的表行。
+数据将传递给 function.json 文件中 `name` 键所指定的输入参数。 通过指定 `partitionKey` 和 `rowKey`，可以筛选到特定记录。 有关更多详细信息，请参阅 [PowerShell 示例](#example)。
+
 
 ---
 

@@ -8,15 +8,15 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
+ms.date: 01/22/2021
 zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 55a89b2400c260b575c11e69e6985c465af7a9ea
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 28f7e5d9748d755e5b484baff85aaea258325c19
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590527"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611504"
 ---
 # <a name="cross-database-and-cross-cluster-queries"></a>跨数据库和跨群集查询
 
@@ -62,6 +62,9 @@ union Table1, cluster("OtherCluster").database("OtherDb").Table2 | project ...
 
 database("OtherDb1").Table1 | join cluster("OtherCluster").database("OtherDb2").Table2 on Key | join Table3 on Key | extend ...
 ```
+
+> [!IMPORTANT]
+> 如果群集位于不同的租户中，则可能需要编辑 `trustedExternalTenants` 属性。 不受信任的外部租户可能会出现“未经授权的错误(401)”失败。 有关详细信息，请参阅[如何允许其他租户的主体访问群集](../../cross-tenant-query-and-commands.md)。
 
 “限定的名称”显示为 [联合运算符](./unionoperator.md) 的操作数时，可以使用通配符来指定多个表和多个数据库。 群集名称中不允许使用通配符。
 
@@ -122,7 +125,7 @@ database("OtherDb").MyView("exception") | extend CalCol=database("OtherDb").MyCa
 
 * 远程函数必须返回表格架构。 标量函数仅能在同一个集群中访问。
 * 远程函数仅能接受标量参数。 获取一个或多个表参数的函数只能在同一群集中访问。
-* 远程函数的架构必须是已知的，并且参数不变。 有关详细信息，请参阅[跨群集查询和架构更改](../concepts/crossclusterandschemachanges.md)。
+* 出于性能原因，远程实体的架构在初始调用后由调用群集缓存。 因此，对远程实体所做的更改可能会导致与缓存的架构信息不匹配，从而可能会导致查询失败。 有关详细信息，请参阅[跨群集查询和架构更改](../concepts/crossclusterandschemachanges.md)。
 
 以下跨群集调用有效。
 
@@ -184,6 +187,6 @@ cluster("OtherCluster").database("OtherDb").GetDataPivot()
 
 ::: zone pivot="azuremonitor"
 
-Azure Monitor 中不支持跨数据库查询和跨群集查询。
+Azure Monitor 中不支持跨数据库查询和跨群集查询。 有关跨多个工作区和应用的查询，请参阅 [Azure Monitor 中的跨工作区查询](/azure-monitor/log-query/cross-workspace-query)。
 
 ::: zone-end

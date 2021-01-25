@@ -4,14 +4,14 @@ description: 为新的实时应用程序手动设置 Application Insights 监视
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 12/02/2019
-ms.date: 12/01/2020
+ms.date: 01/12/2021
 ms.author: v-johya
-ms.openlocfilehash: d7513d0b87307e1a983b36dbd36c6954404ca93a
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 5e682bdffe532024997a2cb36682fe9b8b951b36
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431758"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230429"
 ---
 # <a name="create-an-application-insights-resource"></a>创建 Application Insights 资源
 
@@ -32,6 +32,7 @@ Azure Application Insights 在 Azure 资源中显示有关应用程序的数据�
    | **名称**      | `Unique value` | 名称，用于标识要监视的应用。 |
    | **资源组**     | `myResourceGroup`      | 用于托管 App Insights 数据的新资源组或现有资源组的名称。 |
    | **区域** | `China North` | 选择离你近的位置或离托管应用的位置近的位置。 |
+   | **资源模式** | `Classic` 或 `Workspace-based` | 基于工作区的资源当前为公共预览版，用于将 Application Insights 遥测发送到常用 Log Analytics 工作区。 有关详细信息，请参阅[有关基于工作区的资源的文章](create-workspace-resource.md)。
 
 > [!NOTE]
 > 虽然可以在不同资源组中使用相同的资源名称，但使用全局唯一名称会有好处。 如果打算[执行跨资源查询](../log-query/cross-workspace-query.md#identifying-an-application)，这将很有用，因为它可以简化所需的语法。
@@ -46,7 +47,8 @@ Azure Application Insights 在 Azure 资源中显示有关应用程序的数据�
 
 检测密钥用于标识要与遥测数据关联的资源。 你需要复制检测密钥并将其添加到应用程序的代码中。
 
-![单击并复制检测密钥](./media/create-new-resource/instrumentation-key.png)
+> [!IMPORTANT]
+> 新的 Azure 区域要求使用连接字符串而不是检测密钥。 [连接字符串](./sdk-connection-string.md?tabs=net)用于标识要与遥测数据关联的资源。 它还允许你修改可供你的资源将其用作遥测目标的终结点。 你需要复制连接字符串，并将其添加到应用程序的代码或环境变量中。
 
 ## <a name="install-the-sdk-in-your-app"></a>在应用中安装 SDK
 

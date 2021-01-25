@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 origin.date: 11/25/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 3b9f772c02387de048c5a0c050f25036ec6ab55c
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: d85ac0d879231ebc52c2db77a8689224a6d04380
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850613"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230539"
 ---
 <!--Verify sucessfully-->
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 简介：表 API
@@ -24,7 +24,7 @@ ms.locfileid: "96850613"
 [Azure Cosmos DB](introduction.md) 提供的表 API 适用于为 Azure 表存储编写且需要以下高级功能的应用程序：
 
 * [统包式多区域分布](distribute-data-globally.md)。
-* 中国的[专用吞吐量](partitioning-overview.md)。
+* 中国各地[专用吞吐量](partitioning-overview.md)（使用预配的吞吐量时）。
 * 99% 的情况下低至个位数的毫秒级延迟。
 * 保证高可用性。
 * 自动编制辅助索引。
@@ -48,7 +48,7 @@ ms.locfileid: "96850613"
 | 索引 | 仅对 PartitionKey 和 RowKey 建立主索引。 没有辅助索引。 | 默认情况下，自动对所有属性完成编制索引，不进行索引管理。 |
 | 查询 | 执行查询时使用主键的索引，否则进行扫描。 | 查询可以利用属性的自动索引缩短查询时间。 |
 | 一致性 | 在主要区域内实现强一致性。 在辅助区域内实现最终一致性。 | [五个定义完善的一致性级别](consistency-levels.md)可基于应用程序需要权衡可用性、延迟、吞吐量和一致性。 |
-| 定价 | 存储优化。 | 吞吐量优化。 |
+| 定价 | 基于使用量。 | 提供[基于使用量](serverless.md)和[预配容量](set-throughput.md)两种模式。 |
 | SLA | 可用性为 99.9% 至 99.99%，具体取决于复制策略。 | 单区域帐户的读取可用性为 99.999%、写入可用性为 99.99%，多区域帐户的写入可用性为 99.999%。 [综合性 SLA](https://www.azure.cn/support/sla/cosmos-db/)：涵盖可用性、延迟、吞吐量和一致性。 |
 
 ## <a name="get-started"></a>入门

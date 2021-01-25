@@ -4,14 +4,14 @@ description: 使用 Application Insights 监视 Node.js 服务的性能并诊断
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 03/14/2019
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.author: v-johya
-ms.openlocfilehash: 9c7eff7e742bbe4ab38618c4d26f2207de70bc08
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: b7ca3cf62dd8a76c92e25d17408d7687e56b5838
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104759"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231048"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>使用 Application Insights 监视 Node.js 服务和应用
 
@@ -45,6 +45,9 @@ Node.js SDK 可以自动监视传入和传出的 HTTP 请求、异常和某些�
 ###  <a name="set-up-the-nodejs-sdk"></a>设置 Node.js SDK
 
 将 SDK 包括到应用中，使之能够收集数据。
+
+> [!IMPORTANT]
+> 新的 Azure 区域要求使用连接字符串而不是检测密钥。 [连接字符串](./sdk-connection-string.md?tabs=nodejs)用于标识要与遥测数据关联的资源。 它还允许你修改可供你的资源将其用作遥测目标的终结点。 你需要复制连接字符串，并将其添加到应用程序的代码或环境变量中。
 
 1. 从最新创建的资源中复制资源的检测密钥（也称 ikey）。 Application Insights 使用 ikey 将数据映射到 Azure 资源。 必须在环境变量或代码中指定 ikey，然后 SDK 才能使用该 ikey。  
 
@@ -86,7 +89,7 @@ SDK 会自动收集有关 Node.js 运行时和一些常见第三方模块的遥�
 
 * 继续使用应用程序。 通过更多操作生成更多遥测。
 * 在门户资源视图中单击“刷新”。 图表会定期自行刷新，但手动刷新会强制图表立刻刷新。
-* 验证[所需传出端口](./ip-addresses.md)是否已打开。
+* 验证所需传出端口是否已打开。
 * 使用[搜索](./diagnostic-search.md)查找特定事件。
 * 查看[常见问题][FAQ]。
 

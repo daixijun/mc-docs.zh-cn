@@ -9,14 +9,14 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 01/14/2021
 ms.author: v-junlch
-ms.openlocfilehash: 9272db2ecb7340c77ead3df1ce504dbfad6a311a
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.openlocfilehash: f43a625552f89f2b710f65188933a3b6a57bdbfe
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647589"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195066"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>自定义开发应用的 Azure 门户注册字段
 
@@ -24,7 +24,7 @@ ms.locfileid: "88647589"
 
 ## <a name="register-a-new-application"></a>注册新应用程序
 
--   若要注册新应用程序，请导航到 [Azure 门户](https://portal.azure.cn)。
+-   若要注册新应用程序，请导航到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 
 -   在左侧导航窗格中，单击“Azure Active Directory” 
 

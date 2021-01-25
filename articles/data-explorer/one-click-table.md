@@ -7,15 +7,15 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 09/06/2020
-ms.date: 10/30/2020
-ms.openlocfilehash: fad4dd810abbf94ab599210b4a786673eff8d2c5
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/19/2021
+ms.openlocfilehash: 5c16c6a50612eee91e37bf43edcb8fd8f7d93158
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96430843"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611300"
 ---
-# <a name="create-a-table-in-azure-data-explorer-preview"></a>在 Azure 数据资源管理器中创建表（预览）
+# <a name="create-a-table-in-azure-data-explorer"></a>在 Azure 数据资源管理器中创建表
 
 创建表是 Azure 数据资源管理器中[数据引入](ingest-data-overview.md)和[查询](write-queries.md)过程中的一个重要步骤。 [在 Azure 数据资源管理器中创建群集和数据库后](create-cluster-database-portal.md)，可以创建一个表。 下文介绍如何使用 Azure 数据资源管理器 Web UI 快速轻松地创建表和架构映射。 
 
@@ -27,7 +27,7 @@ ms.locfileid: "96430843"
 
 ## <a name="create-a-table"></a>创建表
 
-1. 在 Web UI 的左侧菜单中，右键单击数据库名称“ExampleDB”，并选择“创建表(预览)” 。
+1. 在 Web UI 的左侧菜单中，右键单击数据库名称，并选择“创建表”。
 
     :::image type="content" source="./media/one-click-table/create-table.png" alt-text="使用 Azure 数据资源管理器 Web UI 创建表":::
 
@@ -57,7 +57,7 @@ ms.locfileid: "96430843"
     * 如果使用的是 blob：
         * 在“链接到存储”字段中，添加容器的 [SAS URL](/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container)，可以选择输入样本大小。 
 
-2. 选择“编辑架构”以继续转到“架构”选项卡 。
+1. 选择“编辑架构”以继续转到“架构”选项卡 。
 
 ### <a name="edit-schema"></a>编辑架构
 
@@ -71,7 +71,7 @@ ms.locfileid: "96430843"
 1. 在“映射”中，为此表的架构映射输入名称。 
     > [!TIP]
     >  表名称可以包含字母数字字符和下划线。 不支持空格、特殊字符和连字符。
-2. 选择“创建”  。
+1. 选择“创建”  。
 
 ## <a name="create-table-completed-window"></a>“创建表已完成”窗口
 

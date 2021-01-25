@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/18/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
-ms.custom: aaddev
-ms.openlocfilehash: ae85965d252e27ecde8626ceb22533f0b8e792fb
-ms.sourcegitcommit: 7646936d018c4392e1c138d7e541681c4dfd9041
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: da921734826ae8a4259e76ec15ca45e69759b15a
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88647681"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195162"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>将 JavaScript 单页应用从隐式授权迁移到授权代码流
 
@@ -41,7 +41,7 @@ MSAL.js 2.x 支持浏览器中的授权代码流（而不是隐式授权流）�
 
 对于当前配置了 Web 平台重定向 URI 的应用注册，请按照以下步骤进行操作：
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)，然后选择“Azure Active Directory”租户。
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>，然后选择“Azure Active Directory”租户。
 1. 在“应用注册”中，选择应用程序，然后选择“身份验证” 。
 1. 在 Web 平台磁贴下的“重定向 URI”中，选择指示“应该迁移 URI”的警告横幅 。
 

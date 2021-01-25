@@ -3,14 +3,14 @@ title: 使用 PowerShell 函数以远程方式管理本地资源
 description: 了解如何在 Azure 中继中配置混合连接，以便将 PowerShell 函数应用连接到本地资源，然后将其用来以远程方式管理本地资源。
 author: eamono
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
-ms.openlocfilehash: 8fbdb307373cace8d6ebaa4375e62147de523fde
-ms.sourcegitcommit: f1a76ee3242698123a3d77f44c860db040b48f70
+ms.openlocfilehash: 5ee0fec0f2a5682a2dc3ad1384007244f562fed6
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84563754"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195241"
 ---
 # <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>在 Azure Functions 和应用服务混合连接中使用 PowerShell 管理混合环境
 
@@ -72,7 +72,7 @@ cmd.exe /C $Cmd
 
     | 设置      | 建议的值  | 说明 |
     | ------------ | ---------------- | ----------- |
-    | [存储帐户](../storage/common/storage-account-create.md) |  全局唯一名称 |  创建函数应用使用的存储帐户。 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。 也可使用现有帐户，但该帐户必须符合[存储帐户要求](../azure-functions/functions-scale.md#storage-account-requirements)。 |
+    | [存储帐户](../storage/common/storage-account-create.md) |  全局唯一名称 |  创建函数应用使用的存储帐户。 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。 也可使用现有帐户，但该帐户必须符合[存储帐户要求](../azure-functions/storage-considerations.md#storage-account-requirements)。 |
     |**操作系统**| 首选操作系统 | 系统会根据你的运行时堆栈选择为你预先选择一个操作系统，但你可以根据需要更改该设置。 |
     | **[计划类型](../azure-functions/functions-scale.md)** | **应用服务计划** | 选择“应用服务计划”。 按应用服务计划运行时，必须管理[函数应用的缩放](../azure-functions/functions-scale.md)。  |
 
@@ -82,7 +82,7 @@ cmd.exe /C $Cmd
 
     | 设置      | 建议的值  | 说明 |
     | ------------ | ---------------- | ----------- |
-    | Application Insights| 默认 | 当前不支持|
+    | **[Application Insights](../azure-functions/functions-monitoring.md)** | 默认 | 在最近的受支持的区域中，创建一个具有相同应用名称的 Application Insights 资源。 通过展开此设置或选择“新建”，可以更改 Application Insights 名称或在 [Azure 地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)中选择要存储数据的其他区域。 |
 
     :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-monitoring.png" alt-text="创建函数应用 - 监视。" border="true":::
 
@@ -294,9 +294,10 @@ Invoke-Command -ComputerName $HybridEndpoint `
 * $HybridEndpoint
 * $RemoteServer
 
-在上面的两个方案中，可以在 Azure Functions 和混合连接中使用 PowerShell 连接和管理本地环境。 建议你深入了解[混合连接](../app-service/app-service-hybrid-connections.md)。
+在上面的两个方案中，可以在 Azure Functions 和混合连接中使用 PowerShell 连接和管理本地环境。 建议你深入了解[混合连接](../app-service/app-service-hybrid-connections.md)和[函数中的 PowerShell](./functions-reference-powershell.md)。
 
+## <a name="next-steps"></a>后续步骤
 
-<!-- Update_Description: wording update -->
-
+> [!div class="nextstepaction"] 
+> [详细了解如何使用 PowerShell 函数](functions-reference-powershell.md)
 

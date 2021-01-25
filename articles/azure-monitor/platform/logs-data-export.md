@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/07/2020
-ms.openlocfilehash: cae2137552143d6f7febb74b8b9c02c310c82f52
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/12/2021
+ms.openlocfilehash: 044c2de7a6e02de0ffd268782e823495aa1959dc
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104731"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230980"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor 中的 Log Analytics 工作区数据导出功能（预览版）
 使用 Azure Monitor 中的 Log Analytics 工作区数据导出功能，可以在收集 Log Analytics 工作区中所选表的数据时，将数据持续导出到 Azure 存储帐户或 Azure 事件中心。 本文提供了有关此功能的详细信息以及在工作区中配置数据导出的步骤。
@@ -65,6 +65,7 @@ Log Analytics 工作区数据导出会持续从 Log Analytics 工作区导出数
 
 存储帐户 Blob 路径为 WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json。 由于追加 Blob 在存储中的写入限制为 50K，如果追加的数量很大，则导出的 Blob 的数量可能会增加。 在这种情况下，Blob 的命名模式将为 PT1H_#.json，其中 # 是增量 Blob 计数。
 
+<!--Not available in MC: resource-logs-blob-format.md-->
 存储帐户数据格式为 JSON Lines。 这意味着每个记录将由换行符分隔，JSON 记录之间没有外部记录数组和逗号。 
 
 [![存储示例数据](./media/logs-data-export/storage-data.png)](./media/logs-data-export/storage-data.png#lightbox)
@@ -119,24 +120,37 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 
 不可用
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+空值
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 使用以下 CLI 命令查看工作区中的表。 它可帮助复制所需的表并将其包含在数据导出规则中。
 
 ```azurecli
-az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
+az monitor log-analytics workspace table list --resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
 ```
 
 使用以下命令通过 CLI 创建有关导出到存储帐户的数据导出规则。
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountId
+$storageAccountResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountResourceId
 ```
 
-使用以下命令通过 CLI 创建有关导出到事件中心的数据导出规则。
+使用以下命令通过 CLI 创建有关导出到事件中心的数据导出规则。 为每个表创建一个单独的事件中心。
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
+$eventHubsNamespacesResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesResourceId
+```
+
+通过 CLI 使用以下命令，以便创建有关将数据导出到特定事件中心的数据导出规则。 所有表都将导出到所提供的事件中心名称。 
+
+```azurecli
+$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventHubName/eventhub-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubResourceId
 ```
 
 # <a name="rest"></a>[REST](#tab/rest)
@@ -200,13 +214,197 @@ PUT https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resource
   }
 }
 ```
+
+# <a name="template"></a>[模板](#tab/json)
+
+通过模板使用以下命令，以便创建有关将数据导出到存储帐户的数据导出规则。
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "defaultValue": "workspace-name",
+            "type": "String"
+        },
+        "workspaceLocation": {
+            "defaultValue": "workspace-region",
+            "type": "string"
+        },
+        "storageAccountRuleName": {
+            "defaultValue": "storage-account-rule-name",
+            "type": "string"
+        },
+        "storageAccountResourceId": {
+            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('workspaceLocation')]",
+            "resources": [
+                {
+                  "type": "microsoft.operationalinsights/workspaces/dataexports",
+                  "apiVersion": "2020-08-01",
+                  "name": "[concat(parameters('workspaceName'), '/' , parameters('storageAccountRuleName'))]",
+                  "dependsOn": [
+                      "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+                  ],
+                  "properties": {
+                      "destination": {
+                          "resourceId": "[parameters('storageAccountResourceId')]"
+                      },
+                      "tableNames": [
+                          "Heartbeat",
+                          "InsightsMetrics",
+                          "VMConnection",
+                          "Usage"
+                      ],
+                      "enable": true
+                  }
+              }
+            ]
+        }
+    ]
+}
+```
+
+通过模板使用以下命令，以便创建有关将数据导出到事件中心的数据导出规则。 为每个表创建一个单独的事件中心。
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "defaultValue": "workspace-name",
+            "type": "String"
+        },
+        "workspaceLocation": {
+            "defaultValue": "workspace-region",
+            "type": "string"
+        },
+        "eventhubRuleName": {
+            "defaultValue": "event-hub-rule-name",
+            "type": "string"
+        },
+        "namespacesResourceId": {
+            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/microsoft.eventhub/namespaces/namespaces-name",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('workspaceLocation')]",
+            "resources": [
+              {
+                  "type": "microsoft.operationalinsights/workspaces/dataexports",
+                  "apiVersion": "2020-08-01",
+                  "name": "[concat(parameters('workspaceName'), '/', parameters('eventhubRuleName'))]",
+                  "dependsOn": [
+                      "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+                  ],
+                  "properties": {
+                      "destination": {
+                          "resourceId": "[parameters('namespacesResourceId')]"
+                      },
+                      "tableNames": [
+                          "Usage",
+                          "Heartbeat"
+                      ],
+                      "enable": true
+                  }
+              }
+            ]
+        }
+    ]
+}
+```
+
+通过模板使用以下命令，以便创建有关将数据导出到特定事件中心的数据导出规则。 所有表都将导出到所提供的事件中心名称。
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "defaultValue": "workspace-name",
+            "type": "String"
+        },
+        "workspaceLocation": {
+            "defaultValue": "workspace-region",
+            "type": "string"
+        },
+        "eventhubRuleName": {
+            "defaultValue": "event-hub-rule-name",
+            "type": "string"
+        },
+        "namespacesResourceId": {
+            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/microsoft.eventhub/namespaces/namespaces-name",
+            "type": "String"
+        },
+        "eventhubName": {
+            "defaultValue": "event-hub-name",
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('workspaceLocation')]",
+            "resources": [
+              {
+                  "type": "microsoft.operationalinsights/workspaces/dataexports",
+                  "apiVersion": "2020-08-01",
+                  "name": "[concat(parameters('workspaceName'), '/', parameters('eventhubRuleName'))]",
+                  "dependsOn": [
+                      "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+                  ],
+                  "properties": {
+                      "destination": {
+                          "resourceId": "[parameters('namespacesResourceId')]",
+                          "metaData": {
+                              "eventHubName": "[parameters('eventhubName')]"
+                          }
+                      },
+                      "tableNames": [
+                          "Usage",
+                          "Heartbeat"
+                      ],
+                      "enable": true
+                  }
+              }
+            ]
+        }
+    ]
+}
+```
+
 ---
 
-## <a name="view-data-export-configuration"></a>查看数据导出配置
+## <a name="view-data-export-rule-configuration"></a>查看数据导出规则配置
 
 # <a name="azure-portal"></a>[Azure 门户](#tab/portal)
 
 不可用
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+空值
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -223,11 +421,20 @@ az monitor log-analytics workspace data-export show --resource-group resourceGro
 ```rest
 GET https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+
+# <a name="template"></a>[模板](#tab/json)
+
+空值
+
 ---
 
 ## <a name="disable-an-export-rule"></a>禁用导出规则
 
 # <a name="azure-portal"></a>[Azure 门户](#tab/portal)
+
+不可用
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 不可用
 
@@ -241,7 +448,7 @@ az monitor log-analytics workspace data-export update --resource-group resourceG
 
 # <a name="rest"></a>[REST](#tab/rest)
 
-使用以下请求通过 REST API 禁用数据导出规则。 该请求应使用持有者令牌授权。
+如果在特定时间段（例如执行测试时）不需要保留数据，可以禁用导出规则来停止导出。 使用以下请求通过 REST API 禁用数据导出规则。 该请求应使用持有者令牌授权。
 
 ```rest
 PUT https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
@@ -261,6 +468,11 @@ Content-type: application/json
     }
 }
 ```
+
+# <a name="template"></a>[模板](#tab/json)
+
+如果在特定时间段（例如执行测试时）不需要保留数据，可以禁用导出规则来停止导出。 在模板中设置 ```"enable": false``` 以禁用数据导出。
+
 ---
 
 ## <a name="delete-an-export-rule"></a>删除导出规则
@@ -268,6 +480,10 @@ Content-type: application/json
 # <a name="azure-portal"></a>[Azure 门户](#tab/portal)
 
 不可用
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+空值
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -284,6 +500,11 @@ az monitor log-analytics workspace data-export delete --resource-group resourceG
 ```rest
 DELETE https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+
+# <a name="template"></a>[模板](#tab/json)
+
+空值
+
 ---
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>查看工作区中的所有数据导出规则
@@ -291,6 +512,10 @@ DELETE https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resou
 # <a name="azure-portal"></a>[Azure 门户](#tab/portal)
 
 不可用
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+空值
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -307,12 +532,17 @@ az monitor log-analytics workspace data-export list --resource-group resourceGro
 ```rest
 GET https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
 ```
+
+# <a name="template"></a>[模板](#tab/json)
+
+空值
+
 ---
 
 ## <a name="unsupported-tables"></a>不受支持的表
 如果数据导出规则包含不受支持的表，配置不会失败，但不会导出该表的任何数据。 如果该表在之后得到支持，则将在那时导出其数据。
 
-如果数据导出规则包含不存在的表，操作会失败并出现错误 ```Table <tableName> does not exist in the workspace.```
+如果数据导出规则包含不存在的表，操作会失败并出现错误“工作区中不存在表 <tableName>”。
 
 
 ## <a name="supported-tables"></a>受支持的表

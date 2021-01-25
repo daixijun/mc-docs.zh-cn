@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 11/23/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 048d668f9ccd6cff042e63902ba9cd8a68d663ce
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 73eefe561034d4a7924a7d9915c4337820b2ffa2
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96508811"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195230"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>快速入门：调用受 Microsoft 标识平台保护的 ASP.NET Web API
 
@@ -48,32 +48,30 @@ ms.locfileid: "96508811"
 
 若要手动注册应用，请选择要在其中创建应用的 Azure Active Directory (Azure AD) 租户。
 
-1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn)。
+1. 使用工作或学校帐户登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
 1. 如果帐户位于多个 Azure AD 租户中，请在右上角选择你的个人资料，然后选择“切换目录”。
 1. 将门户会话更改为所需的 Azure AD 租户。
 
 ### <a name="register-the-todolistservice-app"></a>注册 TodoListService 应用
 
-1. 转到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)门户。
-1. 选择“新注册”。
-1. “注册应用程序”页出现后，请输入应用程序的注册信息：
-
-    1. 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称。 例如，输入 AppModelv2-NativeClient-DotNet-TodoListService。
-    1. 在“支持的帐户类型”下，选择“任何组织目录中的帐户” 。
-    1. 选择“注册”以创建应用程序。
-
+1. 登录到 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>。
+1. 如果有权访问多个租户，请使用顶部菜单中的“目录 + 订阅”筛选器:::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::，选择要在其中注册应用程序的租户。
+1. 搜索并选择“Azure Active Directory”  。
+1. 在“管理”下，选择“应用注册” > “新建注册”  。
+1. 输入应用程序的名称（例如 `AppModelv2-NativeClient-DotNet-TodoListService`）。 应用的用户可能会看到此名称，你稍后可对其进行更改。
+1. 在“支持的帐户类型”下，选择“任何组织目录中的帐户” 。
+1. 选择“注册”以创建应用程序。
 1. 在应用的“概述”页上，找到“应用程序(客户端) ID”值，然后记下该值以供后续使用 。 你将需要使用该值为此项目配置 Visual Studio 配置文件（即 TodoListService\Web.config 文件中的 `ClientId`）。
+1. 在“管理”下，选择“公开 API” > “添加范围”  。 通过选择“保存并继续”来接受建议的应用程序 ID URI (`api://{clientId}`)，然后输入以下信息：
 
-1. 在“公开 API”部分，选择“添加范围”，通过选择“保存并继续”来接受建议的应用程序 ID URI (`api://{clientId}`)，然后输入以下信息  ：
-
-    1. 对于“范围名称”，请输入“access_as_user” 。
+    1. 对于“范围名称”，输入 `access_as_user`。
     1. 对于“谁能同意?”，请确保选择了“管理员和用户”选项 。
-    1. 在“管理员同意显示名称”框中，输入“以用户身份访问 TodoListService” 。
-    1. 在“管理员同意说明”框中，输入“以用户身份访问 TodoListService Web API” 。
-    1. 在“用户同意显示名称”框中，输入“以用户身份访问 TodoListService” 。
-    1. 在“用户同意说明”框中，输入“以用户身份访问 TodoListService Web API” 。
+    1. 在“管理员同意显示名称”框中，输入 `Access TodoListService as a user`。
+    1. 在“管理员同意说明”框中，输入 `Accesses the TodoListService web API as a user`。
+    1. 在“用户同意显示名称”框中，输入 `Access TodoListService as a user`。
+    1. 在“用户同意说明”框中，输入 `Accesses the TodoListService web API as a user`。
     1. 对于“状态”，保留“启用” 。
-    1. 选择“添加范围”。
+1. 选择“添加范围”。
 
 ### <a name="configure-the-service-project"></a>配置服务项目
 
@@ -120,7 +118,7 @@ ms.locfileid: "96508811"
 
     1. 在“平台配置”下，选择“添加平台”按钮 。
     1. 对于“移动和桌面应用程序”，选择“移动和桌面应用程序” 。
-    1. 对于“重定向 URI”，请选择“https://login.partner.microsoftonline.cn/common/oauth2/nativeclient”复选框 。
+    1. 对于“重定向 URI”，请选择“ https://login.partner.microsoftonline.cn/common/oauth2/nativeclient ”复选框 。
     1. 选择“配置” 。
 
 1. 选择“API 权限”，然后执行以下操作：

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/21/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 28884fe547e0ee577f91c27f8df8de8373eb3bb9
-ms.sourcegitcommit: 2944f818f2849202724a237555dce3a2fcb47a49
+ms.openlocfilehash: 2a0bc1c01db1e9b67934d1d9c9970a7fc483cb37
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90828779"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570632"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自定义策略中定义 OpenID Connect 技术配置文件
 
@@ -67,6 +67,7 @@ Azure Active Directory B2C (Azure AD B2C) 为 [OpenID Connect](https://openid.ne
 | IdTokenAudience | 否 | id_token 的受众。 如果指定了此项，Azure AD B2C 将检查标识提供者返回的令牌中的 `aud` 声明是否与 IdTokenAudience 元数据中指定的声明相同。  |
 | METADATA | 是 | 指向 OpenID Connect 标识提供者配置文档的 URL，也称为 OpenID 众所周知的配置终结点。 URL 可以包含 `{tenant}` 表达式，该表达式将替换为租户名称。  |
 | authorization_endpoint | 否 | 指向 OpenID Connect 标识提供者配置授权终结点的 URL。 authorization_endpoint 元数据的值优先于 OpenID 众所周知的配置终结点中指定的 `authorization_endpoint`。 URL 可以包含 `{tenant}` 表达式，该表达式将替换为租户名称。 |
+| end_session_endpoint | 否 | 结束会话终结点的 URL。 authorization_endpoint 元数据的值优先于 OpenID 众所周知的配置终结点中指定的 `end_session_endpoint`。 |
 | 颁发者 | 否 | OpenID Connect 标识提供者的唯一标识符。 颁发者元数据的值优先于 OpenID 众所周知的配置终结点中指定的 `issuer`。  如果指定了此项，Azure AD B2C 将检查标识提供者返回的令牌中的 `iss` 声明是否与颁发者元数据中指定的声明相同。 |
 | ProviderName | 否 | 标识提供者的名称。  |
 | response_types | 否 | 符合 OpenID Connect Core 1.0 规范的响应类型。 可能的值：`id_token`、`code` 或 `token`。 |
@@ -74,12 +75,13 @@ Azure Active Directory B2C (Azure AD B2C) 为 [OpenID Connect](https://openid.ne
 | scope | 否 | 根据 OpenID Connect Core 1.0 规范定义的请求的范围。 例如 `openid`、`profile` 和 `email`。 |
 | HttpBinding | 否 | 预期的 HTTP 绑定，绑定到访问令牌和声明令牌终结点。 可能的值：`GET` 或 `POST`。  |
 | ValidTokenIssuerPrefixes | 否 | 一个密钥，可以在使用多租户标识提供者（例如 Azure Active Directory）时用于登录到每个租户。 |
-| UsePolicyInRedirectUri | 否 | 指示在构造重定向 URI 时是否要使用策略。 在标识提供者中配置应用程序时，需指定重定向 URI。 重定向 URI 指向 Azure AD B2C `https://{your-tenant-name}.b2clogin.cn/{your-tenant-name}.partner.onmschina.cn/oauth2/authresp`。  如果指定 `false`，需为每个使用的策略添加重定向 URI。 例如：`https://{your-tenant-name}.b2clogin.cn/{your-tenant-name}.partner.onmschina.cn/{policy-name}/oauth2/authresp`。 |
+| UsePolicyInRedirectUri | 否 | 指示在构造重定向 URI 时是否要使用策略。 在标识提供者中配置应用程序时，需指定重定向 URI。 重定向 URI 指向 Azure AD B2C `https://{your-tenant-name}.b2clogin.cn/{your-tenant-name}.partner.onmschina.cn/oauth2/authresp`。  如果指定 `true`，需为每个使用的策略添加重定向 URI。 例如：`https://{your-tenant-name}.b2clogin.cn/{your-tenant-name}.partner.onmschina.cn/{policy-name}/oauth2/authresp`。 |
 | MarkAsFailureOnStatusCode5xx | 否 | 指示在 Http 状态代码处于 5xx 范围内的情况下，是否应将对外部服务的请求标记为失败。 默认为 `false`。 |
 | DiscoverMetadataByTokenIssuer | 否 | 指示是否应使用 JWT 令牌中的颁发者来发现 OIDC 元数据。 |
 | IncludeClaimResolvingInClaimsHandling  | 否 | 对于输入和输出声明，指定[声明解析](claim-resolver-overview.md)是否包含在技术配置文件中。 可能的值：`true` 或 `false`（默认值）。 若要使用技术配置文件中的声明解析程序，请将此项设为 `true`。 |
-|token_endpoint_auth_method| 否| 指定 Azure AD B2C 如何向令牌终结点发送身份验证标头。 可能的值：`client_secret_post`（默认值）和 `client_secret_basic`（公共预览版）。 有关详细信息，请参阅 [OpenID Connect 客户端身份验证部分](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)。 |
-
+| token_endpoint_auth_method | 否 | 指定 Azure AD B2C 如何向令牌终结点发送身份验证标头。 可能的值：`client_secret_post`（默认值）和 `client_secret_basic`（公共预览版）。 有关详细信息，请参阅 [OpenID Connect 客户端身份验证部分](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)。 |
+| token_signing_algorithm | 否 | 当 token_endpoint_auth_method 元数据设置为 `private_key_jwt` 时，用于客户端断言的签名算法。 可能的值：`RS256`（默认值）。 |
+| SingleLogoutEnabled | 否 | 指示在登录过程中技术配置文件是否尝试从联合标识提供者注销。 有关详细信息，请参阅 [Azure AD B2C 会话注销](session-overview.md#sign-out)。可能的值为 `true`（默认）或 `false`。 |
 
 ```xml
 <Metadata>
@@ -89,7 +91,7 @@ Azure Active Directory B2C (Azure AD B2C) 为 [OpenID Connect](https://openid.ne
   <Item Key="response_mode">form_post</Item>
   <Item Key="scope">openid profile email</Item>
   <Item Key="HttpBinding">POST</Item>
-  <Item Key="UsePolicyInRedirectUri">0</Item>
+  <Item Key="UsePolicyInRedirectUri">false</Item>
   <Item Key="client_id">Your Microsoft application client ID</Item>
 </Metadata>
 ```
@@ -110,11 +112,15 @@ Azure Active Directory B2C (Azure AD B2C) 为 [OpenID Connect](https://openid.ne
 
 | Attribute | 必需 | 说明 |
 | --------- | -------- | ----------- |
-| client_secret | 是 | 标识提供者应用程序的客户端机密。 只有在将 **response_types** 元数据设置为 `code` 的情况下，才需要加密密钥。 在这种情况下，Azure AD B2C 会再次进行调用，以便用授权代码来交换访问令牌。 如果元数据已设置为 `id_token`，则可省略加密密钥。  |
+| client_secret | 是 | 标识提供者应用程序的客户端机密。 仅当 response_types 元数据设置为 `code` 且 token_endpoint_auth_method 设置为 `client_secret_post` 或 `client_secret_basic` 时，才需要此加密密钥。 在这种情况下，Azure AD B2C 会再次进行调用，以便用授权代码来交换访问令牌。 如果元数据已设置为 `id_token`，则可省略加密密钥。  |
+| assertion_signing_key | 是 | 将用于为客户端断言签名的 RSA 私钥。 只有在将 token_endpoint_auth_method 元数据设置为 `private_key_jwt` 的情况下，才需要此加密密钥。 |
 
 ## <a name="redirect-uri"></a>重定向 URI
 
 配置标识提供者的重定向 URI 时，请输入 `https://{your-tenant-name}.b2clogin.cn/{your-tenant-name}.partner.onmschina.cn/oauth2/authresp`。 确保将 `{your-tenant-name}` 替换为你的租户名称。 重定向 URI 需要采用全小写形式。
 
-<!-- Update_Description: wording update -->
+示例:
+
+- [使用 Azure AD 帐户登录](identity-provider-azure-ad-single-tenant.md)
+- [让用户使用自定义策略登录到多租户 Azure AD 标识提供者](identity-provider-azure-ad-multi-tenant.md)
 

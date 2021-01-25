@@ -5,16 +5,16 @@ description: 了解 Azure Stack Hub 上的 SQL 资源提供程序维护操作。
 author: WenJason
 ms.topic: article
 origin.date: 9/22/2020
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 6db622bd186159164e05453699f4dce6b0b57e4b
-ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
+ms.openlocfilehash: 039024c05a07415e60e1dc2902ba239b3cf45de7
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97894364"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541862"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 
@@ -187,6 +187,10 @@ $session | Remove-PSSession
 ```
 
 ## <a name="collect-diagnostic-logs"></a>收集诊断日志
+
+Azure Stack Hub 提供了多种方式来收集和保存诊断日志并将其发送到 Azure 支持。 从版本 1.1.93 开始，SQL 资源提供程序支持从 Azure Stack Hub 环境收集日志的标准方式。 有关详细信息，请参阅[诊断日志收集](diagnostic-log-collection.md)。
+
+从版本 1.1.93 开始，SQL 资源提供程序支持从 Azure Stack Hub 环境收集日志的标准方式。 如果使用的是较旧版本，则建议将 SQL 资源提供程序更新到最新版本。
 
 若要从锁定的 VM 收集日志，请使用 PowerShell Just Enough Administration (JEA) 终结点 *DBAdapterDiagnostics*。 此终结点提供以下命令：
 

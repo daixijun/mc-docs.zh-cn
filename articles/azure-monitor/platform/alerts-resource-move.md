@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.author: v-johya
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 08/20/2020
+ms.date: 01/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 7b3fca5e5202bcc10791210949d8f9407ffa141a
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: 3e49f727980a6c7dc490a62ffe50d643c5f6f967
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457381"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230981"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>如何在警报规则或操作规则的目标资源移动到其他 Azure 区域时对这些规则进行更新
 
@@ -58,9 +58,9 @@ ms.locfileid: "89457381"
 
 Azure 资源发出的指标是区域性的。 每次将资源移到新区域时，它就会开始在该新区域中发出指标。 因此，需要更新或重新创建基于指标的任何警报规则，使其指向正确区域中的当前指标流。
 
-此说明同时适用于[指标警报规则](alerts-metric-overview.md)和[可用性测试警报规则](../app/monitor-web-app-availability.md)。
+此说明同时适用于[指标警报规则](alerts-metric-overview.md)和可用性测试警报规则。
 
-如果移动了范围中的**所有**资源，则无需重新创建规则。 可以直接更新警报规则的任何字段（例如警报规则说明），然后将其保存。
+如果移动了范围中的 **所有** 资源，则无需重新创建规则。 可以直接更新警报规则的任何字段（例如警报规则说明），然后将其保存。
 如果仅移动了范围中的某些资源，则需要从现有规则中删除已移动的资源，并创建一个仅涵盖已移动资源的新规则。
 
 ## <a name="procedures-to-fix-problems"></a>解决问题的过程

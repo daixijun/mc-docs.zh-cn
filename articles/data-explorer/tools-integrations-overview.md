@@ -8,13 +8,13 @@ ms.reviewer: olgolden
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 07/08/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: 13ebef6bab93641be6ec6bc81890035d2ca41caf
-ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
+ms.date: 01/22/2021
+ms.openlocfilehash: 321681d1683e75451bde2c6963fabe76438611f1
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98193280"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611462"
 ---
 # <a name="azure-data-explorer-tools-and-integrations-overview"></a>Azure 数据资源管理器工具和集成概述
 
@@ -31,7 +31,6 @@ Azure 数据资源管理器提供不同的工具和集成，以实现数据引�
 ### <a name="azure-data-explorer-ingestion-tools"></a>Azure 数据资源管理器引入工具
 
 * [LightIngest](lightingest.md) - 一种帮助实用程序，可以将数据临时引入 Azure 数据资源管理器
-
 <!--
 * One-click Ingestion: [overview](ingest-data-one-click.md) and ingest data [from a container to a new table](one-click-ingestion-new-table.md)
 or [from a local file to an existing table](one-click-ingestion-existing-table.md)
@@ -63,6 +62,13 @@ Azure 数据资源管理器中有几种工具可用于运行查询。
     * 其他主题包括[选项](kusto/tools/kusto-explorer-options.md)、[故障排除](kusto/tools/kusto-explorer-troubleshooting.md)、[键盘快捷方式](kusto/tools/kusto-explorer-shortcuts.md)、[代码重构](kusto/tools/kusto-explorer-refactor.md)、[代码导航](kusto/tools/kusto-explorer-codenav.md)和[代码分析](kusto/tools/kusto-explorer-code-analyzer.md)
 * [Web UI](web-query-data.md)
 * [Kusto.Cli](kusto/tools/kusto-cli.md)
+
+### <a name="query-open-source-repositories"></a>查询开源存储库
+
+以下开源存储库包含 Kusto 查询语言 (KQL) 分析器和编辑器的源代码：
+
+* [Kusto 查询语言分析器](https://github.com/microsoft/Kusto-Query-Language) - Kusto 查询语言分析器和语义树的 .NET core 存储库。
+* [用于 Monaco 编辑器的 Kusto 查询语言插件](https://github.com/Azure/monaco-kusto) - 一种 Kusto 查询语言编辑器，可以嵌入基于 Web 和 electron 的应用程序中。 
 
 ### <a name="query-integrations"></a>查询集成
 

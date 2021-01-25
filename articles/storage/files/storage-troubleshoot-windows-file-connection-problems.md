@@ -5,15 +5,15 @@ author: WenJason
 ms.service: storage
 ms.topic: troubleshooting
 origin.date: 09/13/2019
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 2098e085d63977dbf8bdb22815ca12619ce18d20
-ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
+ms.openlocfilehash: efd63432b69d7feae3cb7a81e35b79a56fe9f196
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97894402"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163157"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>在 Windows 中排查 Azure 文件存储问题 (SMB)
 
@@ -103,7 +103,7 @@ TcpTestSucceeded : True
 
 如果客户端上已启用 NTLMv1 通信，可能会出现系统错误 53 或 87。 Azure 文件仅支持 NTLMv2 身份验证。 启用 NTLMv1 将创建安全级别较低的客户端。 因此，Azure 文件的通信受阻。 
 
-若要确定错误是否由此造成，请验证以下注册表子项的值是否设置为 3：
+若要确定这是否是错误原因，请验证以下注册表子项是否未设为小于 3 的值：
 
 **HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel**
 

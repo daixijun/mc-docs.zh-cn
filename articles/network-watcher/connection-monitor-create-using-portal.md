@@ -1,7 +1,7 @@
 ---
-title: 创建连接监视器预览版 - Azure 门户
+title: 创建连接监视器 - Azure 门户
 titleSuffix: Azure Network Watcher
-description: 本文介绍了如何使用 Azure 门户在连接监视器预览版中创建监视器。
+description: 本文介绍如何使用 Azure 门户在连接监视器中创建监视器。
 services: network-watcher
 documentationcenter: na
 ms.service: network-watcher
@@ -9,27 +9,27 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/30/2020
+origin.date: 11/23/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 10/19/2020
 ms.author: v-yeche
-ms.openlocfilehash: fef6b247d41c73d5d3e558a4cedc4e10fe484f59
-ms.sourcegitcommit: abc264824023c7cb7abf74898fc1b375e730545f
+ms.openlocfilehash: e65f959ac31d6a4f726cc7663378e5b2a26d689e
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96231356"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230481"
 ---
 <!--Verified successfully whole articles from renamed articles-->
-# <a name="create-a-monitor-in-connection-monitor-preview-by-using-the-azure-portal"></a>使用 Azure 门户在连接监视器预览版中创建监视器
+# <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>使用 Azure 门户在连接监视器中创建监视器
 
-了解如何使用连接监视器预览版监视资源之间的通信。 本文介绍了如何使用 Azure 门户创建监视器。 连接监视器支持混合部署和 Azure 云部署。
+了解如何使用连接监视器监视资源之间的通信。 本文介绍了如何使用 Azure 门户创建监视器。 连接监视器支持混合部署和 Azure 云部署。
 
 ## <a name="before-you-begin"></a>准备阶段 
 
-在使用连接监视器预览版创建的连接监视器中，可以将本地计算机和 Azure VM 添加为源。 这些连接监视器还可以监视与终结点的连接。 终结点可以位于 Azure 上，也可以位于任何其他 URL 或 IP 上。
+在使用连接监视器创建的连接监视器中，可以将本地计算机和 Azure VM 添加为源。 这些连接监视器还可以监视与终结点的连接。 终结点可以位于 Azure 上，也可以位于任何其他 URL 或 IP 上。
 
 以下是一些可助你入门的定义：
 
@@ -50,16 +50,16 @@ ms.locfileid: "96231356"
 
 ## <a name="create-a-connection-monitor"></a>创建连接监视器
 
-若要使用 Azure 门户在连接监视器预览版中创建监视器，请执行以下操作：
+若要使用 Azure 门户在连接监视器中创建监视器，请执行以下操作：
 
 1. 在 Azure 门户主页上，转到“网络观察程序”。
-1. 在左侧窗格的“监视”部分，选择“连接监视器(预览版)” 。
+1. 在左侧窗格的“监视”部分，选择“连接监视器” 。
 
-    你会看到在连接监视器预览版中创建的所有连接监视器。 若要查看在经典连接监视器中创建的连接监视器，请转到“连接监视器”选项卡。
+    你会看到在连接监视器中创建的所有连接监视器。 若要查看在经典连接监视器中创建的连接监视器，请转到“连接监视器”选项卡。
 
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="屏幕截图显示了在连接监视器预览版中创建的连接监视器。":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="该屏幕截图显示了在连接监视器中创建的连接监视器。":::
 
-1. 在“连接监视器(预览版)”仪表板的左上角选择“创建” 。
+1. 在“连接监视器”仪表板的左上角选择“创建” 。
 
 1. 在“基本信息”选项卡上，为连接监视器输入信息： 
     * **连接监视器名称**：输入你的连接监视器的名称。 使用针对 Azure 资源的标准命名规则。
@@ -86,14 +86,15 @@ ms.locfileid: "96231356"
 1. 先在“查看 + 创建”选项卡上查看基本信息和测试组，再创建连接监视器。 如果需要编辑连接监视器，可以返回到相应的选项卡来执行此操作。 
     
     :::image type="content" source="./media/connection-monitor-2-preview/review-create-cm.png" alt-text="屏幕截图显示了连接监视器中的“查看 + 创建”选项卡。":::
+   
     > [!NOTE] 
-    > “查看 + 创建”选项卡显示连接监视器预览版阶段每月的成本。 目前，“当前成本/月”列未显示任何费用。 连接监视器公开上市之后，此列才会显示每月费用。 
+    > “查看 + 创建”选项卡显示“连接监视器”阶段每月的成本。 目前，“当前成本/月”列未显示任何费用。 连接监视器公开上市之后，此列才会显示每月费用。 
     > 
-    > 即使在连接监视器预览版阶段，也仍然需要支付 Log Analytics 引入费用。
+    > 即使在“连接监视器”阶段，也仍然需要支付 Log Analytics 引入费用。
 
 1. 准备好创建连接监视器后，在“查看 + 创建”选项卡的底部，选择“创建” 。
 
-连接监视器预览版在后台创建连接监视器资源。
+连接监视器在后台创建连接监视器资源。
 
 ## <a name="create-test-groups-in-a-connection-monitor"></a><a name="create-test-groups-in-a-connection-monitor"></a>在连接监视器中创建测试组
 
@@ -103,7 +104,7 @@ ms.locfileid: "96231356"
 
 * **禁用测试组**：可以选中此复选框，为测试组指定的所有源和目标禁用监视。 默认情况下，此选择处于未选中状态。
 * **名称**：为测试组命名。
-* **来源**：如果在 Azure VM 和本地计算机上安装了代理，则可以将前二者均指定为源。 若要了解如何为源安装代理，请参阅[安装监视代理](https://docs.azure.cn/network-watcher/connection-monitor-preview#install-monitoring-agents)。
+* **来源**：如果在 Azure VM 和本地计算机上安装了代理，则可以将前二者均指定为源。 若要了解如何为源安装代理，请参阅[安装监视代理](./connection-monitor-overview.md#install-monitoring-agents)。
     * 若要选择 Azure 代理，请选择“Azure 终结点”选项卡。此处只能看到绑定到创建连接监视器时指定的区域的 VM。 默认情况下，会将 VM 分组到它们所属的订阅中。 已折叠这些组。 
 
         可以从“订阅”级别向下钻取到层次结构中的其他级别：
@@ -118,7 +119,7 @@ ms.locfileid: "96231356"
 
     * 若要选择本地代理，请选择“非 Azure 终结点”选项卡。默认情况下，代理按区域分组到工作区中。 所有这些工作区都配置了网络性能监视器。 
 
-        如果需要将网络性能监视器添加到工作区，请通过 [Azure 市场](https://market.azure.cn/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)获取。 有关如何添加网络性能监视器的信息，请参阅 [Azure Monitor 中的监视解决方案](https://docs.azure.cn/azure-monitor/insights/solutions)。 
+        如果需要将网络性能监视器添加到工作区，请通过 [Azure 市场](https://market.azure.cn/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)获取。 有关如何添加网络性能监视器的信息，请参阅 [Azure Monitor 中的监视解决方案](../azure-monitor/insights/solutions.md)。 
 
         在“创建连接监视器”下的“基本信息”选项卡上，已选择默认区域。  如果更改了区域，则可以在新区域的工作区中选择代理。 可选择一个或多个代理或子网。 在“子网”视图中，可以选择要监视的特定 IP。 如果你添加多个子网，则会创建一个自定义的本地网络“OnPremises_Network_1”。 还可以通过更改“分组依据”选择器来按代理分组。
 
@@ -140,7 +141,7 @@ ms.locfileid: "96231356"
 
     * 若要选择非 Azure 代理作为目标，请选择“非 Azure 终结点”选项卡。默认情况下，代理按区域分组到工作区中。 所有这些工作区都配置了网络性能监视器。 
 
-        如果需要将网络性能监视器添加到工作区，请通过 Azure 市场获取。 有关如何添加网络性能监视器的信息，请参阅 [Azure Monitor 中的监视解决方案](https://docs.azure.cn/azure-monitor/insights/solutions)。 
+        如果需要将网络性能监视器添加到工作区，请通过 Azure 市场获取。 有关如何添加网络性能监视器的信息，请参阅 [Azure Monitor 中的监视解决方案](../azure-monitor/insights/solutions.md)。 
 
         在“创建连接监视器”下的“基本信息”选项卡上，已选择默认区域。 ****  ****   如果更改了区域，则可以在新区域的工作区中选择代理。 可选择一个或多个代理或子网。 在“子网”视图中，可以选择要监视的特定 IP。 如果你添加多个子网，则会创建一个自定义的本地网络“OnPremises_Network_1”。  
 
@@ -182,7 +183,7 @@ ms.locfileid: "96231356"
 
 - **条件名称**：警报是基于 `Test Result(preview)` 指标创建的。 连接监视器测试结果失败时，警报规则将触发。 
 
-- **操作组名称**：你可以直接输入电子邮件，也可以通过操作组创建警报。 如果直接输入电子邮件，则会创建名为“NPM Email ActionGroup”的操作组。 电子邮件 ID 将添加到该操作组中。 如果选择使用操作组，则需要选择一个以前创建的操作组。 若要了解如何创建操作组，请参阅[在 Azure 门户中创建操作组](https://docs.azure.cn/azure-monitor/platform/action-groups)。 创建警报后，你可以[管理警报](https://docs.azure.cn/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal)。 
+- **操作组名称**：你可以直接输入电子邮件，也可以通过操作组创建警报。 如果直接输入电子邮件，则会创建名为“NPM Email ActionGroup”的操作组。 电子邮件 ID 将添加到该操作组中。 如果选择使用操作组，则需要选择一个以前创建的操作组。 若要了解如何创建操作组，请参阅[在 Azure 门户中创建操作组](../azure-monitor/platform/action-groups.md)。 创建警报后，你可以[管理警报](../azure-monitor/platform/alerts-metric.md#view-and-manage-with-azure-portal)。 
 
 - **警报规则名称**：连接监视器的名称。
 
@@ -201,8 +202,7 @@ ms.locfileid: "96231356"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 了解[如何分析监视数据并设置警报](https://docs.azure.cn/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)。
-* 了解[如何诊断网络中的问题](https://docs.azure.cn/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)。
+* 了解[如何分析监视数据并设置警报](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)。
+* 了解[如何诊断网络中的问题](./connection-monitor-overview.md#diagnose-issues-in-your-network)。
 
-<!-- Update_Description: new article about connection monitor create using portal -->
-<!--NEW.date: 11/30/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -7,17 +7,17 @@ ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 05/21/2019
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: af0e99525ac7a6ee9561b11c28b511ffba8a6eff
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 90b607acb7cddd594ed31ab58f007c9d9c68a564
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328894"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229867"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>快速入门：将现有的 MongoDB Node.js Web 应用迁移到 Azure Cosmos DB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -34,17 +34,20 @@ ms.locfileid: "94328894"
 在本快速入门中，你将使用 Azure 本地 Shell 以及从 GitHub 克隆的 MEAN（MongoDB、Express、Angular 和 Node.js）应用来创建和管理 Azure Cosmos DB for Mongo DB API 帐户。 Azure Cosmos DB 是一种多模型数据库服务，可让你通过多区域分布和水平缩放功能快速创建和查询文档、表、键/值和图数据库。
 
 ## <a name="prerequisites"></a>先决条件
-- 具有活动订阅的 Azure 帐户。 [免费创建一个](https://www.azure.cn/pricing/1rmb-trial/)。 你还可以将 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)与连接字符串 `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` 配合使用。
 
+- 具有活动订阅的 Azure 帐户。 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 你还可以将 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)与连接字符串配合使用 `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`。
+    
     <!--Not Available on [try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
 
 - [Node.js](https://nodejs.org/)，应具备 Node.js 的实践知识。
+
 - [Git](https://git-scm.com/downloads)。
-- [Azure CLI 2.0+](https://docs.azure.cn/cli/install-azure-cli)。
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 本文需要 Azure CLI 版本 2.0 或更高版本。
 
 <!--Not Avaialble on If you don't want to use Azure Cloud Shell-->
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
@@ -62,7 +65,7 @@ ms.locfileid: "94328894"
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。 
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。 
 
     ```bash
     git clone https://github.com/prashanthmadi/mean
@@ -83,17 +86,12 @@ npm start
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。
-
-<!--Not Available on  If you need to install or upgrade, see [Install Azure CLI]-->
-
 如果使用已安装的 Azure CLI，请使用 [az login](https://docs.azure.cn/cli/reference-index#az_login) 命令登录到 Azure 订阅，按屏幕说明操作。 
-
-<!--CORRECT ON When you are using an installed Azure CLI-->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
+az cloud set -n AzureChinaCloud
 az login 
 ``` 
 
@@ -265,6 +263,6 @@ git commit -m "configured MongoDB connection string"
 本快速入门介绍了如何使用 Azure 本地 Shell 创建 Azure Cosmos DB MongoDB API 帐户，以及如何创建和运行 MEAN.js 应用以将用户添加到该帐户。 现在可以将其他数据导入 Azure Cosmos DB 帐户了。
 
 > [!div class="nextstepaction"]
-> [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fcosmos-db%252ftoc.json%253ftoc%253d%252fcosmos-db%252ftoc.json)
+> [将 MongoDB 数据导入 Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fcosmos-db%2ftoc.json%253ftoc%253d%2fcosmos-db%2ftoc.json)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -1,17 +1,17 @@
 ---
-title: Azure Application Insights 代理故障排除和已知问题 | Microsoft Docs
+title: Azure Application Insights 代理故障排除和已知问题 | Azure Docs
 description: Application Insights 代理和故障排除已知问题的示例。 无需重新部署网站即可监视网站性能。 使用托管在本地、VM 或 Azure 上的 ASP.NET Web 应用。
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 04/23/2019
 ms.author: v-johya
-ms.date: 10/29/2020
-ms.openlocfilehash: 6e225b58ee3f694da8436c9046d02a98691686ad
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/12/2021
+ms.openlocfilehash: 9fb06213a687158d9d00ffa59256f5b6d0e06480
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106173"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230562"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Application Insights 代理（以前称为状态监视器 v2）故障排除
 
@@ -52,6 +52,11 @@ ms.locfileid: "93106173"
     0x0000000009b90000  0x4f000   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.ApplicationInsights.ExtensionsHost_x64.dll
     0x0000000004d20000  0xb2000   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.ApplicationInsights.Extensions.Base_x64.dll
     ```
+
+### <a name="powershell-versions"></a>PowerShell 版本
+此产品是使用 PowerShell v5.1 编写和测试的。
+此模块与 PowerShell 版本 6 或 7 不兼容。
+我们建议将 PowerShell v5.1 与较新版本一起使用。 有关详细信息，请参阅[将 PowerShell 7 与 PowerShell 5.1 并排使用](https://docs.microsoft.com/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51)。
 
 ### <a name="conflict-with-iis-shared-configuration"></a>与 IIS 共享配置冲突
 
@@ -144,10 +149,10 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 #### <a name="collecting-logs"></a>收集日志
 
 1. 在具有管理员权限的命令控制台中，运行 `iisreset /stop` 命令以禁用 IIS 和所有 Web 应用。
-2. 在 PerfView 中，选择“开始收集”  。
+2. 在 PerfView 中，选择“开始收集”。
 3. 在具有管理员权限的命令控制台中，运行 `iisreset /start` 命令以启动 IIS。
 4. 尝试浏览到你的应用。
-5. 在应用加载后，请返回到 PerfView，然后选择“停止收集”  。
+5. 在应用加载后，请返回到 PerfView，然后选择“停止收集”。
 
 
 

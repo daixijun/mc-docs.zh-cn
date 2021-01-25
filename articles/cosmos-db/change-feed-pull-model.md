@@ -7,17 +7,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 10/27/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: e8673fda08af44ecd8f76cc8610c8455dc0e6a7f
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: cbd86310f3cbba76792f44d6657c1e78bc8eb977
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598669"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231012"
 ---
 <!--Verified successfully, ONLY CHARACTERS CONTENT-->
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Azure Cosmos DB 中的更改源拉取模型
@@ -115,11 +115,12 @@ while (iteratorForThePartitionKey.HasMoreResults)
         FeedResponse<User> users = await iteratorForThePartitionKey.ReadNextAsync();
 
         foreach (User user in users)
-        {
-            Console.WriteLine($"Detected change for user with id {user.id}");
-        }
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
     }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }
@@ -157,11 +158,12 @@ while (iteratorA.HasMoreResults)
         FeedResponse<User> users = await iteratorA.ReadNextAsync();
 
         foreach (User user in users)
-        {
-            Console.WriteLine($"Detected change for user with id {user.id}");
-        }
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
     }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }
@@ -178,11 +180,12 @@ while (iteratorB.HasMoreResults)
         FeedResponse<User> users = await iteratorA.ReadNextAsync();
 
         foreach (User user in users)
-        {
-            Console.WriteLine($"Detected change for user with id {user.id}");
-        }
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
     }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }
@@ -205,11 +208,12 @@ while (iterator.HasMoreResults)
         continuation = users.ContinuationToken;
 
         foreach (User user in users)
-        {
-            Console.WriteLine($"Detected change for user with id {user.id}");
-        }
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
    }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }   

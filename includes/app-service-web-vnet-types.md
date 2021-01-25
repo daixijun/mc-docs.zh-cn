@@ -3,14 +3,14 @@ author: ccompy
 ms.service: app-service-web
 ms.topic: include
 origin.date: 10/01/2020
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-tawe
-ms.openlocfilehash: 4d7c29fadf3fabc1d739a75de86831c6c043fc88
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 3810e650123f41a778d8ed4fae9d7817cf033286
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105688"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230796"
 ---
 * 支持除独立定价计划以外的全部定价计划的多租户系统。
 * 部署到 VNet 中且支持独立定价计划应用的应用服务环境。
@@ -40,5 +40,5 @@ VNet 集成不支持某些功能，例如：
 无论使用哪个版本，VNet 集成都允许应用访问 VNet 中的资源，但不允许通过 VNet 对应用进行入站专用访问。 专用站点访问指的是仅可从专用网络（例如 Azure VNet）对应用进行访问。 VNet 集成只是为了从应用对 VNet 进行出站调用。
 
 <!--Links-->
-[ASEintro]: https://docs.azure.cn/app-service/environment/intro
-[Networkingfeatures]: https://docs.azure.cn/app-service/networking-features
+[ASEintro]: ../articles/app-service/environment/intro.md
+[Networkingfeatures]: ../articles/app-service/networking-features.md

@@ -1,5 +1,5 @@
 ---
-title: .create tables - Azure 数据资源管理器 | Microsoft Docs
+title: .create tables - Azure 数据资源管理器
 description: 本文介绍 Azure 数据资源管理器中的 .create tables。
 services: data-explorer
 author: orspod
@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 07/05/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 44db0254d285bc7d5b44831d1cc745965e41ad52
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.openlocfilehash: c16191668c77e840868f97a68f71da102a7df3c7
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515903"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611649"
 ---
 # <a name="create-tables"></a>.create tables
 

@@ -6,17 +6,17 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 origin.date: 11/16/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 12/07/2020
 ms.author: v-yeche
 ms.reviewer: thvankra
-ms.openlocfilehash: f1bbdd164a8a7ccd26c97384bef32bd9b2ffca97
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: a2be2321b006742f73cef58fc45e29bb5c5a2956
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598775"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230112"
 ---
 <!--Pending for Azure Databricks GA on 4th Dec 2020-->
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>使用 Azure Databricks 将数据从 Cassandra 迁移到 Azure Cosmos DB Cassandra API 帐户
@@ -46,7 +46,7 @@ Azure Cosmos DB 中的 Cassandra API 已成为在 Apache Cassandra 上运行的�
 
 ## <a name="provision-an-azure-databricks-cluster"></a>预配 Azure Databricks 群集
 
-可以按说明来[预配 Azure Databricks 群集](https://docs.azure.cn/databricks/scenarios/quickstart-create-databricks-workspace-portal)。 但是，请注意，Apache Cassandra 连接器目前不支持 Apache Spark 3.x。 你将需要使用受支持的 Apache Spark v2.x 版来预配 Databricks 运行时。 建议使用 Databricks 运行时 6.6 版：
+可以按说明来[预配 Azure Databricks 群集](https://docs.azure.cn/databricks/scenarios/quickstart-create-databricks-workspace-portal)。 但是，请注意，Apache Cassandra 连接器目前不支持 Apache Spark 3.x。 你将需要使用受支持的 Apache Spark v2.x 版来预配 Databricks 运行时。 我们建议选择一个 Databricks 运行时版本，该版本支持最新版本的 Spark 2.x，并且不能晚于 Scala 2.11 版本：
 
 :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Databricks 运行时":::
 
@@ -117,7 +117,7 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> `spark.cassandra.output.concurrent.writes` 和 `connections_per_executor_max` 配置对于避免[速率限制](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/)（对 Cosmos DB 的请求超过预配的吞吐量（[请求单位](https://docs.azure.cn/cosmos-db/request-units)）时发生）很重要。 你可能需要根据 Spark 群集中执行程序的数量，以及写入目标表的每条记录的大小（以及因此产生的 RU 开销）来调整这些设置。
+> `spark.cassandra.output.concurrent.writes` 和 `connections_per_executor_max` 配置对于避免[速率限制](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/)（对 Cosmos DB 的请求超过预配的吞吐量（[请求单位](./request-units.md)）时发生）很重要。 你可能需要根据 Spark 群集中执行程序的数量，以及写入目标表的每条记录的大小（以及因此产生的 RU 开销）来调整这些设置。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -126,5 +126,4 @@ DFfromNativeCassandra
 * [使用 Azure Cosmos DB Capacity Planner 估算 RU/秒](estimate-ru-with-capacity-planner.md)
 * [Azure Cosmos DB Cassandra API 中的弹性缩放](manage-scale-cassandra.md)
 
-<!-- Update_Description: new article about cassandra migrate cosmos db databricks -->
-<!--NEW.date: 12/07/2020-->
+<!-- Update_Description: update meta properties, wording update, update link -->

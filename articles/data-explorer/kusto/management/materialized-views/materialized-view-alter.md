@@ -8,13 +8,13 @@ ms.reviewer: yifats
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/30/2020
-ms.date: 10/30/2020
-ms.openlocfilehash: 47c5a5de623a19696ca9e5a482967508bb4fb7fd
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: f46eed0d0a071884c30e7db4bfdcaa4446028956
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106654"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611323"
 ---
 # <a name="alter-materialized-view"></a>.alter materialized-view
 
@@ -44,13 +44,13 @@ ms.locfileid: "93106654"
 
 ## <a name="properties"></a>属性
 
-`dimensionTables` 是 materialized-view alter 命令唯一支持的属性。 此属性应在查询引用维度表时使用。 有关详细信息，请参阅 [.create materialized-view](materialized-view-create.md) 命令。
+`dimensionTables` 是 materialized-view alter 命令唯一支持的属性。 此属性应在查询引用维度表时使用。 有关详细信息，请参阅 [`.create materialized-view`](materialized-view-create.md) 命令。
 
 ## <a name="use-cases"></a>用例
 
 * 向视图添加聚合 - 例如，通过将视图查询更改为 `T | summarize count(), min(Value), avg(Value) by Id`，将 `avg` 聚合添加到 `T | summarize count(), min(Value) by Id` 中。
 * 更改除 summarize 运算符之外的运算符。 例如，通过将 `T | summarize arg_max(Timestamp, *) by User` 更改为 `T | where User != 'someone' | summarize arg_max(Timestamp, *) by User` 来筛选掉某些记录。
-* 由于源表发生了更改，在不更改查询的情况下更改。 例如，假定 `T | summarize arg_max(Timestamp, *) by Id` 视图，它未设置为 `autoUpdateSchema`（请参阅 [.create materialized-view](materialized-view-create.md) 命令）。 如果在视图的源表中添加或删除了某列，则该视图将自动禁用。 使用完全相同的查询执行 alter 命令，以更改具体化视图的架构，使之与新表架构保持一致。 在更改后，仍必须使用 [enable materialized view](materialized-view-enable-disable.md) 命令显式启用该视图。
+* 由于源表发生了更改，在不更改查询的情况下更改。 例如，假定 `T | summarize arg_max(Timestamp, *) by Id` 视图，它未设置为 `autoUpdateSchema`（请参阅 [`.create materialized-view`](materialized-view-create.md) 命令）。 如果在视图的源表中添加或删除了某列，则该视图将自动禁用。 使用完全相同的查询执行 alter 命令，以更改具体化视图的架构，使之与新表架构保持一致。 在更改后，仍必须使用 [enable materialized view](materialized-view-enable-disable.md) 命令显式启用该视图。
 
 ## <a name="alter-materialized-view-limitations"></a>更改具体化视图的限制
 

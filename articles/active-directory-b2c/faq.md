@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 36f6ccf0257441743a9575b91831bc50cc02d6b1
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 2f7d2baa22984eb6e85456d3dafe7393b0bb0dd8
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507131"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570543"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常见问题 (FAQ)
 
@@ -39,7 +39,7 @@ Azure AD 和 Azure AD B2C 是独立的产品/服务，不能在同一租户中�
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>现在支持哪些社交标识提供者？ 计划在未来支持哪些？
 
-目前，我们支持多个社交标识提供者，包括 QQ（预览版）、WeChat（预览版）和 Weibo（预览版）。 我们会根据客户需求来评估是否增加对其他常见社交标识提供者的支持。
+目前，我们支持多个社交标识提供者，包括 GitHub（预览版）、QQ（预览版）、WeChat（预览版）和 Weibo（预览版）。 我们会根据客户需求来评估是否增加对其他常见社交标识提供者的支持。
 
 Azure AD B2C 还支持[自定义策略](custom-policy-overview.md)。 自定义策略允许你为支持 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 或 SAML 的任何标识提供者创建自己的策略。 查看我们的[自定义策略初学者包](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)，开始使用自定义策略。
 
@@ -50,6 +50,25 @@ Azure AD B2C 还支持[自定义策略](custom-policy-overview.md)。 自定义�
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>我有多个 Azure AD B2C 租户。 如何在 Azure 门户上管理它们？
 
 在 Azure 门户的左侧菜单中打开“Azure AD B2C”之前，必须切换到要管理的目录。 通过单击 Azure 门户右上方的标识切换目录，然后在出现的下拉列表中选择目录。
+
+### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>如何自定义 Azure AD B2C 发送的验证电子邮件（内容和“发件人:”字段）？
+
+可以使用[公司品牌功能](../active-directory/fundamentals/customize-branding.md)来自定义验证电子邮件的内容。 具体来说，可以自定义电子邮件的下列两个元素：
+
+* **横幅徽标**：显示在右下角。
+* **背景色**：显示在顶部。
+
+    ![自定义验证电子邮件的屏幕截图](./media/faq/company-branded-verification-email.png)
+
+电子邮件签名包含首次创建 Azure AD B2C 租户时提供的 Azure AD B2C 租户名称。 可以使用以下说明更改名称：
+
+1. 以全局管理员身份登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 打开“Azure Active Directory”边栏选项卡。
+1. 单击“属性”选项卡。
+1. 更改“名称”字段。
+1. 单击页顶部的“保存”。 
+
+目前没有办法更改电子邮件中的“发件人:”字段。
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>如何将我现有的用户名、密码和配置文件从数据库迁移到 Azure AD B2C？
 
@@ -91,7 +110,7 @@ Azure AD B2C 不适用于 SharePoint 外部合作伙伴共享的情况；请改�
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>我可以本地化 Azure AD B2C 所提供页面的 UI 吗？ 支持哪些语言？
 
-可以，请参阅[语言自定义](user-flow-language-customization.md)。 我们提供 36 种语言的翻译版本，并且你可以根据需要替代任何字符串。
+可以，请参阅[语言自定义](language-customization.md)。 我们提供 36 种语言的翻译版本，并且你可以根据需要替代任何字符串。
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincn-to-logincontosocom"></a>我可以在 Azure AD B2C 提供的注册和登录页面上使用自己的 URL 吗？ 例如，可以将 URL 从 contoso.b2clogin.cn 更改为 login.contoso.com 吗？
 

@@ -1,23 +1,26 @@
 ---
-title: 使用 OpenCensus Python 在 Azure Application Insights 中跟踪传入请求 | Microsoft Docs
+title: 使用 OpenCensus Python 在 Azure Application Insights 中跟踪传入请求 | Azure Docs
 description: 使用 OpenCensus Python 监视 Python 应用的请求调用。
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 939bdc8e07d459376447614686258b03a5c90e46
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: fadd9c2f4f8e1c589d273c59c16e7f016760d192
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104753"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231042"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>使用 OpenCensus Python 跟踪传入请求
 
 使用 OpenCensus Python 及其各种集成收集传入请求数据。 跟踪发送到基于常用 Web 框架 `django`、`flask` 和 `pyramid` 构建的 Web 应用程序的传入请求数据。 然后，将数据作为 `requests` 遥测发送到 Azure Monitor 下的 Application Insights。
 
 首先，使用最新版 [OpenCensus Python SDK](./opencensus-python.md) 检测 Python 应用程序。
+
+> [!NOTE]
+> 本文包含对术语“黑名单”的引用，Microsoft 不再使用该术语。 在从软件中删除该术语后，我们会将其从本文中删除。
 
 ## <a name="tracking-django-applications"></a>跟踪 Django 应用程序
 
@@ -175,7 +178,6 @@ OpenCensus 没有 FastAPI 的扩展。 若要编写自己的 FastAPI 中间件�
 ## <a name="next-steps"></a>后续步骤
 
 * [应用程序映射](./app-map.md)
-* [可用性](./monitor-web-app-availability.md)
 * [搜索](./diagnostic-search.md)
 * [日志（分析）查询](../log-query/log-query-overview.md)
 * [事务诊断](./transaction-diagnostics.md)

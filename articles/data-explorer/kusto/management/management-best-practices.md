@@ -1,6 +1,6 @@
 ---
-title: 架构设计的最佳做法 - Azure 数据资源管理器
-description: 本文介绍 Azure 数据资源管理器中架构设计的最佳做法。
+title: 架构管理的最佳做法 - Azure 数据资源管理器
+description: 本文介绍 Azure 数据资源管理器中架构管理的最佳做法。
 services: data-explorer
 author: orspod
 ms.author: v-tawe
@@ -8,15 +8,15 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/18/2020
-ms.date: 10/30/2020
-ms.openlocfilehash: acde2e52ce2e2ec694c95fa13c45cdb65c96b21e
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 7a5f889006c6e6207e29ae5aae80eb86e213181f
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106760"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611327"
 ---
-# <a name="best-practices-for-schema-design"></a>针对架构设计的最佳做法
+# <a name="best-practices-for-schema-management"></a>架构管理的最佳做法
 
 下面是要遵循的一些最佳做法。 它们可以提高管理命令的效率，对服务资源的影响较小。
 

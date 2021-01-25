@@ -5,17 +5,17 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 10/08/2020
-ms.date: 11/16/2020
+origin.date: 12/08/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 7f62714184342a28c0b2d69cf8679b8f911dff89
-ms.sourcegitcommit: c89f1adcf403f5845e785064350136698eed15b8
+ms.openlocfilehash: e9b562ee41f264ec5b98053fc7f70c86314dd550
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680341"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163181"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>配置 Azure 存储防火墙和虚拟网络
 
@@ -357,7 +357,7 @@ IP 网络规则仅适用于 **公共 Internet** IP 地址。 IP 规则不允许�
 > [!IMPORTANT]
 > 请务必[将默认规则设置](#change-the-default-network-access-rule)为“拒绝”，否则网络规则不会有任何效果。
 
-## <a name="exceptions"></a>例外
+## <a name="exceptions"></a>异常
 
 在大多数情况下，网络规则有助于为应用程序与数据之间的连接创建安全环境。 不过，某些应用程序依赖于无法通过虚拟网络或 IP 地址规则单独隔离的 Azure 服务。 但是，必须授予此类服务访问存储的权限，才能完全实现应用程序的功能。 在此类情况下，可以使用“允许受信任的 Microsoft 服务...”设置来允许此类服务访问数据、日志或分析。
 
@@ -393,9 +393,9 @@ IP 网络规则仅适用于 **公共 Internet** IP 地址。 IP 规则不允许�
 | Azure 数据工厂             | Microsoft.DataFactory/factories        | 用于通过 ADF 运行时访问存储帐户。 |
 | Azure 逻辑应用               | Microsoft.Logic/workflows              | 使逻辑应用能够访问存储帐户。 [了解详细信息](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity)。 |
 | Azure 机器学习服务 | Microsoft.MachineLearningServices      | 经过授权的 Azure 机器学习工作区将实验输出、模型和日志写入 Blob 存储并读取数据。  | 
-| Azure Synapse Analytics（以前称为 SQL 数据仓库）       | Microsoft.Sql                          | 允许使用 COPY 语句或 PolyBase 通过特定 SQL 数据库导入和导出数据。 [了解详细信息](../../azure-sql/database/vnet-service-endpoint-rule-overview.md)。 |
+| Azure Synapse Analytics       | Microsoft.Sql                          | 允许使用 COPY 语句或 PolyBase 通过特定 SQL 数据库导入和导出数据。 [了解详细信息](../../azure-sql/database/vnet-service-endpoint-rule-overview.md)。 |
 | Azure SQL 数据库       | Microsoft.Sql                          | 允许从存储帐户[导入](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage)数据，并将审核数据[写入](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md)防火墙后的存储帐户。 |
-| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | 允许从 Synapse Analytics 访问 Azure 存储中的数据。 |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | 允许从 Azure Synapse Analytics 访问 Azure 存储中的数据。 |
 
 
 ### <a name="storage-analytics-data-access"></a>存储分析数据访问

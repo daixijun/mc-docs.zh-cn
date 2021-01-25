@@ -8,15 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/23/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 45e43d9d8af16f428dbcfebe2da031e882c24cda
-ms.sourcegitcommit: 537d52cb783892b14eb9b33cf29874ffedebbfe3
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 94121712b7489c75302fdb064a7706b4935c990d
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471160"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570637"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>可用于 Azure AD B2C 的 Microsoft Graph 操作
 
@@ -57,10 +58,10 @@ ms.locfileid: "92471160"
 
 配置用于注册、登录、组合式注册和登录、密码重置和配置文件更新的预先生成的策略。
 
-- [列出用户流](https://docs.microsoft.com/graph/api/identityuserflow-list)
-- [创建用户流](https://docs.microsoft.com/graph/api/identityuserflow-post-userflows)
-- [获取用户流](https://docs.microsoft.com/graph/api/identityuserflow-get)
-- [删除用户流](https://docs.microsoft.com/graph/api/identityuserflow-delete)
+- [列出用户流](https://docs.microsoft.com/graph/api/identitycontainer-list-b2cuserflows)
+- [创建用户流](https://docs.microsoft.com/graph/api/identitycontainer-post-b2cuserflows)
+- [获取用户流](https://docs.microsoft.com/graph/api/b2cidentityuserflow-get)
+- [删除用户流](https://docs.microsoft.com/graph/api/b2cidentityuserflow-delete)
 
 ## <a name="custom-policies"></a>自定义策略
 
@@ -74,9 +75,9 @@ ms.locfileid: "92471160"
 
 ## <a name="policy-keys"></a>策略密钥
 
-Identity Experience Framework 存储着自定义策略中引用的机密，以在组件之间建立信任关系。 这些机密可以是对称或非对称密钥/值。 在 Azure 门户中，这些实体显示为 **策略密钥** 。
+Identity Experience Framework 存储着自定义策略中引用的机密，以在组件之间建立信任关系。 这些机密可以是对称或非对称密钥/值。 在 Azure 门户中，这些实体显示为 **策略密钥**。
 
-Microsoft Graph API 中策略密钥的顶层资源是[信任的框架密钥集](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset)。 每个 **密钥集** 都包含至少一个 **密钥** 。 若要创建密钥，请先创建一个空的密钥集，然后在密钥集中生成一个密钥。 你可以创建手动机密、上传证书或 PKCS12 密钥。 密钥可以是生成的机密、你定义的字符串或你上传的证书。 如果密钥集具有多个密钥，则只有其中一个密钥处于活动状态。
+Microsoft Graph API 中策略密钥的顶层资源是[信任的框架密钥集](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset)。 每个 **密钥集** 都包含至少一个 **密钥**。 若要创建密钥，请先创建一个空的密钥集，然后在密钥集中生成一个密钥。 你可以创建手动机密、上传证书或 PKCS12 密钥。 密钥可以是生成的机密、你定义的字符串或你上传的证书。 如果密钥集具有多个密钥，则只有其中一个密钥处于活动状态。
 
 ### <a name="trust-framework-policy-keyset"></a>信任框架策略密钥集
 
@@ -107,7 +108,7 @@ Microsoft Graph API 中策略密钥的顶层资源是[信任的框架密钥集](
 
 - [列出扩展属性](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
 
-Azure AD B2C 提供一个目录，其中可以保存每个用户的 100 个自定义属性。 对于用户流，可使用 Azure 门户管理这些扩展属性。 对于自定义策略，Azure AD B2C 在策略首次向扩展属性中写入值时替你创建属性。
+Azure AD B2C 提供一个目录，其中可以保存每个用户的 100 个自定义属性。 对于用户流，[可使用 Azure 门户管理](user-flow-custom-attributes.md)这些扩展属性。 对于自定义策略，Azure AD B2C 在策略首次向扩展属性中写入值时替你创建属性。
 
 ## <a name="audit-logs"></a>审核日志
 

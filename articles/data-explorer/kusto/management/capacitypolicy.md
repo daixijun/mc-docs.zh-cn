@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/12/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: f9bfcbb7bd5ee44ee176951620d6fd9e3e066389
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 9f2c782c3d228a00cc95c8800d01501e278822b6
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106014"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611715"
 ---
 # <a name="capacity-policy"></a>容量策略 
 
@@ -47,7 +47,7 @@ ms.locfileid: "93106014"
 |MinimumConcurrentOperationsPerNode |long    |单个节点上并发盘区合并/重新生成操作数的最小值。 默认值为 1 |
 |MaximumConcurrentOperationsPerNode |long    |单个节点上并发盘区合并/重新生成操作数的最大值。 默认值为 3 |
 
-群集总盘区合并容量（由 [.show capacity](../management/diagnostics.md#show-capacity) 显示）的计算方式为：
+群集总盘区合并容量（由 [`.show capacity`](../management/diagnostics.md#show-capacity) 显示）的计算方式为：
 
 `Number of nodes in cluster` x `Concurrent operations per node`
 
@@ -62,7 +62,7 @@ ms.locfileid: "93106014"
 |-----------------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------|
 |MaximumConcurrentOperationsPerNode |long    |单个节点上清除操作的并发重新生成盘区数的最大值 |
 
-群集总盘区清除重新生成容量（由 [.show capacity](../management/diagnostics.md#show-capacity) 显示）的计算方式为：
+群集总盘区清除重新生成容量（由 [`.show capacity`](../management/diagnostics.md#show-capacity) 显示）的计算方式为：
 
 `Number of nodes in cluster` x `MaximumConcurrentOperationsPerNode`
 
@@ -76,7 +76,7 @@ ms.locfileid: "93106014"
 |ClusterMaximumConcurrentOperations |long    |群集中并发导出操作数的最大值。                                           |
 |CoreUtilizationCoefficient         |Double  |计算导出容量时使用的核心百分比系数。 计算得出的结果将始终由 `ClusterMaximumConcurrentOperations` 进行标准化。 |
 
-群集总导出容量（由 [.show capacity](../management/diagnostics.md#show-capacity) 显示）的计算方式为：
+群集总导出容量（由 [`.show capacity`](../management/diagnostics.md#show-capacity) 显示）的计算方式为：
 
 Minimum(`ClusterMaximumConcurrentOperations`, `Number of nodes in cluster` * Maximum(1, `Core count per node` * `CoreUtilizationCoefficient`))
 
@@ -90,7 +90,7 @@ Minimum(`ClusterMaximumConcurrentOperations`, `Number of nodes in cluster` * Max
 |ClusterMinimumConcurrentOperations |long    |群集中并发盘区分区操作数的最小值。 默认值：1  |
 |ClusterMaximumConcurrentOperations |long    |群集中并发盘区分区操作数的最大值。 默认值：16 |
 
-群集总盘区分区容量（由 [.show capacity](../management/diagnostics.md#show-capacity) 显示）。
+群集总盘区分区容量（由 [`.show capacity`](../management/diagnostics.md#show-capacity) 显示）。
 
 在 [`ClusterMinimumConcurrentOperations`,`ClusterMaximumConcurrentOperations`] 范围内，系统会自动调整 `Concurrent operations` 的有效值，前提是分区操作的成功率高于 90%。
 
@@ -169,9 +169,9 @@ Maximum(`ClusterMaximumConcurrentOperations`, `Number of nodes in cluster` * `Ma
 > [!WARNING]
 > 更改容量策略之前，请咨询 Azure 数据资源管理器团队。
 
-* 使用 [.show cluster policy capacity](capacity-policy.md#show-cluster-policy-capacity) 显示群集当前的容量策略。
+* 使用 [`.show cluster policy capacity`](capacity-policy.md#show-cluster-policy-capacity) 显示群集的当前容量策略。
 
-* 使用 [.alter cluster policy capacity](capacity-policy.md#alter-cluster-policy-capacity) 更改群集的容量策略。
+* 使用 [`.alter cluster policy capacity`](capacity-policy.md#alter-cluster-policy-capacity) 更改群集的容量策略。
 
 ## <a name="throttling"></a>限制
 

@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 05/27/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: 2f1bb1e0b7db62893e1e9cda6c19f41198d12ecc
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 5659fce69140ecea5b9202ac913a32037f44ea7c
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106202"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611654"
 ---
 # <a name="scalar-function-types"></a>标量函数类型
 
@@ -85,6 +85,7 @@ ms.locfileid: "93106202"
 |[array_iif()](arrayifffunction.md)|按元素对数组应用 iif 函数。|
 |[array_index_of()](arrayindexoffunction.md)|搜索指定项的数组，并返回其位置。|
 |[array_length()](arraylengthfunction.md)|计算动态数组中的元素数。|
+|[array_reverse()](array-reverse-function.md)|反转动态数组中元素的顺序。|
 |[array_rotate_left()](array_rotate_leftfunction.md)|将动态数组中的值向左旋转。|
 |[array_rotate_right()](array_rotate_rightfunction.md)|将动态数组中的值向右旋转。|
 |[array_shift_left()](array_shift_leftfunction.md)|将动态数组中的值向左移动。|
@@ -288,6 +289,7 @@ ms.locfileid: "93106202"
 |-------------------------|--------------------------------------------------------|
 |[ipv4_compare()](ipv4-comparefunction.md)|比较两个 IPv4 字符串。|
 |[ipv4_is_match()](ipv4-is-matchfunction.md)|匹配两个 IPv4 字符串。|
+|[ipv4_is_private()](ipv4-is-privatefunction.md)|检查 IPv4 字符串地址是否属于一组专用网络 IP。|
 |[parse_ipv4()](parse-ipv4function.md)|将输入字符串转换为 long（带符号的 64 位）数字表示形式。|
 |[parse_ipv4_mask()](parse-ipv4-maskfunction.md)|将输入字符串和 IP 前缀掩码转换为 long（带符号的 64 位）数字表示形式。|
 |[ipv6_compare()](ipv6-comparefunction.md)|对两个 IPv4 或 IPv6 字符串进行比较。|

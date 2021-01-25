@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: afee77c09e92d3cea8756ac42f1beefd20167725
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: ef0836c824f9404a46818946b781dcd27af63781
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103995"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611639"
 ---
 # <a name="take-operator"></a>take 运算符
 
@@ -37,17 +37,14 @@ T | take 5
 
 （`take` 和 `limit` 是同义词。）
 
-## <a name="does-kusto-support-paging-of-query-results"></a>Kusto 是否支持对查询结果进行分页？
+## <a name="paging-of-query-results"></a>查询结果分页
 
-Kusto 不提供内置分页机制。
-
-Kusto 是一种复杂的服务，它可不断优化其存储的数据，以便提供针对大型数据集的极佳的查询性能。 尽管分页对于资源有限的无状态客户端是一种有用的机制，但它是将负担转移到必须跟踪客户端状态信息的后端服务。 因此，后端服务的性能和可伸缩性受到严重限制。
-
-对于分页支持，请实现以下功能之一：
+用于实现分页的方法包括：
 
 * 将查询结果导出到外部存储，并以分页方式列出生成的数据。
-
 * 编写中间层应用程序，该应用程序通过缓存 Kusto 查询的结果提供有状态分页 API。
+* 在[存储的查询结果](../management/stored-query-results.md#pagination)中使用分页。
+
 
 ## <a name="see-also"></a>请参阅
 

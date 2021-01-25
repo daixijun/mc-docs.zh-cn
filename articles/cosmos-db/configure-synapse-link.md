@@ -1,34 +1,27 @@
 ---
-title: 配置和使用 Azure Synapse Link for Azure Cosmos DB（预览版）
+title: 配置和使用 Azure Synapse Link for Azure Cosmos DB
 description: 了解如何为 Azure Cosmos DB 帐户启用 Synapse Link，创建启用了分析存储的容器，将 Azure Cosmos 数据库连接到 Synapse 工作区，并运行查询。
 ms.service: cosmos-db
 ms.topic: how-to
 origin.date: 08/31/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: references_regions
-ms.openlocfilehash: c5114a14d3d43eabe77ed0936cac84b50656920f
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: f23e895477fce312f258eefa2244c08858d7026b
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598662"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231009"
 ---
 <!--Verified successfully-->
-# <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>配置和使用 Azure Synapse Link for Azure Cosmos DB（预览版）
+# <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>配置和使用 Azure Synapse Link for Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) 是一种云原生混合事务和分析处理 (HTAP) 功能，可用于对 Azure Cosmos DB 中的操作数据运行准实时分析。 Synapse Link 在 Azure Cosmos DB 和 Azure Synapse Analytics 之间建立紧密的无缝集成。
-
-<!--MOONCAKE CUSTOMIZATION ON Azure Synapse Link-->
-
-> [!IMPORTANT]
-> 若要使用 Azure Synapse Link，请确保在支持的区域之一中预配 Azure Cosmos DB 帐户和 Azure Synapse Analytics 工作区。 Azure Synapse Link 当前在以下 Azure 区域中提供：中国东部、中国东部 2、中国北部、中国北部 2。
-
-<!--MOONCAKE CUSTOMIZATION ON Azure Synapse Link-->
 
 Azure Synapse Link 可用于 Azure Cosmos DB SQL API 容器或 Azure Cosmos DB API for Mongo DB 集合。 使用以下步骤，通过 Azure Synapse Link for Azure Cosmos DB 运行分析查询：
 
@@ -53,7 +46,7 @@ Azure Synapse Link 可用于 Azure Cosmos DB SQL API 容器或 Azure Cosmos DB A
 
 1. 从“功能”列表选择“Synapse Link”。
 
-    :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="查找 Synapse Link 预览功能":::
+    :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="查找 Synapse Link 功能":::
 
 1. 接下来，它会提示你在帐户上启用 Synapse Link。 选择“启用”。 此过程可能需要 1 到 5 分钟才能完成。
 
@@ -200,7 +193,7 @@ except exceptions.CosmosResourceExistsError:
     * 打开“规模和设置”窗口。
     * 在“设置”下，找到“分析存储生存时间”。
     * 选择“启用(无默认值)”或选择“启用”，然后设置一个 TTL 值 
-    * 单击“保存”  以保存更改。
+    * 单击“保存”以保存更改。
 
 #### <a name="net-sdk"></a>.NET SDK
 
@@ -249,7 +242,7 @@ container.replace(containerProperties).block();
 <a name="cosmosdb-synapse-link-samples"></a>
 ## <a name="getting-started-with-azure-synpase-link---samples"></a>Azure Synpase Link 入门 - 示例
 
-可以在 [GitHub](https://aka.ms/cosmosdb-synapselink-samples) 上找到有关 Azure Synapse Link 入门的示例。 这些示例展示了物联网和零售场景的端到端解决方案。 也可以在 [MongoDB](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/MongoDB) 文件夹下的同一存储库中找到与 Azure Cosmos DB API for MongoDB 对应的示例。 
+可以在 [GitHub](https://aka.ms/cosmosdb-synapselink-samples) 上找到有关 Azure Synapse Link 入门的示例。 这些示例展示了物联网和零售场景的端到端解决方案。 也可以在 [MongoDB](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples) 文件夹下的同一存储库中找到与 Azure Cosmos DB API for MongoDB 对应的示例。 
 
 ## <a name="next-steps"></a>后续步骤
 

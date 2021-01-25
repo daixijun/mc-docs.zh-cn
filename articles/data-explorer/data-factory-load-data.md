@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 04/15/2019
-ms.date: 09/24/2020
-ms.openlocfilehash: 109f4951a0dcdbded4177dfd509fc240f0309071
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/22/2021
+ms.openlocfilehash: 13da05f298636e8a118e869f46de02faa9fb7005
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431164"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611710"
 ---
 # <a name="copy-data-to-azure-data-explorer-by-using-azure-data-factory"></a>使用 Azure 数据工厂将数据复制到 Azure 数据资源管理器 
 
@@ -169,7 +169,8 @@ Azure 数据工厂是一个完全托管的基于云的数据集成服务。 可�
     * 选择“从 Azure 订阅”，然后在下拉列表中，选择你的 **Azure 订阅** 和 **群集**。 
 
         > [!NOTE]
-        > “群集”下拉控件只会列出与你的订阅关联的群集。
+        > * “群集”下拉控件只会列出与你的订阅关联的群集。
+        > * 群集必须具有适当的 [SKU](manage-cluster-choose-sku.md)，才能获得[最佳性能](data-factory-integration.md#performance)。
 
     * 选择“手动输入”，然后输入你的 **终结点**。
 

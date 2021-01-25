@@ -2,13 +2,13 @@
 title: 如何面向 Azure Functions 运行时版本
 description: Azure Functions 支持多个版本的运行时。 了解如何在 Azure 中指定函数应用的运行时版本。
 ms.topic: conceptual
-ms.date: 09/03/2020
-ms.openlocfilehash: 41b5399fe98680836f3579ec4bd1e873231adfba
-ms.sourcegitcommit: 2eb5a2f53b4b73b88877e962689a47d903482c18
+ms.date: 01/13/2021
+ms.openlocfilehash: 10b0381247f21a39c4bafdc41111f290693ce8c8
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89413935"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195250"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>如何面向 Azure Functions 运行时版本
 
@@ -16,7 +16,7 @@ ms.locfileid: "89413935"
 
 ## <a name="automatic-and-manual-version-updates"></a>自动和手动版本更新
 
-Azure Functions 允许你通过使用函数应用中的 `FUNCTIONS_EXTENSION_VERSION` 应用程序设置来针对特定版本的运行时。 函数应用将一直保留在指定的主版本上，直到显式选择迁移到新版本。 如果仅指定主版本，当运行时的新次要版本可用时，函数应用将自动更新到该版本。 新的次要版本不应引入中断性变更。 
+Azure Functions 允许你通过使用函数应用中的 `FUNCTIONS_EXTENSION_VERSION` 应用程序设置来针对 Windows 上特定版本的运行时。 函数应用将一直保留在指定的主版本上，直到显式选择迁移到新版本。 如果仅指定主版本，当运行时的新次要版本可用时，函数应用将自动更新到该版本。 新的次要版本不应引入中断性变更。 
 
 如果指定次要版本（例如，“2.0.12345”），则函数应用将被固定到该特定版本，直到显式更改它。 会定期从生产环境中删除旧的次要版本。 发生这种情况后，函数应用将在最新版本上运行，而不是在 `FUNCTIONS_EXTENSION_VERSION` 中设置的版本上运行。 因此，应快速解决需要特定次要版本来解决的任何函数应用问题，以便可以专注使用主要版本。 [应用服务公告](https://github.com/Azure/app-service-announcements/issues)中会公布次要版本删除信息。
 
@@ -129,4 +129,3 @@ Update-AzFunctionAppSetting -Name "<FUNCTION_APP>" -ResourceGroupName "<RESOURCE
 > [!div class="nextstepaction"]
 > [查看运行时版本的发行说明](https://github.com/Azure/azure-webjobs-sdk-script/releases)
 
-<!-- Update_Description: wording update -->

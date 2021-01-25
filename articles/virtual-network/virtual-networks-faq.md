@@ -7,21 +7,21 @@ documentationcenter: na
 manager: twooley
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/26/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 7c880ff339e76fe6d5e2539c90c467a914b0175c
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 8adfc2fa315a48580101a1f85f131879eeea24ac
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590839"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570671"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
@@ -39,15 +39,13 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 * 实现混合云方案。 利用 VNet 可灵活地支持一系列混合云方案。 可以安全地将基于云的应用程序连接到任何类型的本地系统，例如大型机和 Unix 系统。
 
 ### <a name="how-do-i-get-started"></a>如何开始？
-请访问[虚拟网络文档](/virtual-network/)帮助自己入门。 该内容提供了所有 VNet 功能的概述和部署信息。
+请访问[虚拟网络文档](https://docs.azure.cn/virtual-network/)帮助自己入门。 该内容提供了所有 VNet 功能的概述和部署信息。
 
 ### <a name="can-i-use-vnets-without-cross-premises-connectivity"></a>没有跨界连接的情况下是否可以使用 VNet？
 是的。 可以在不连接到本地的情况下使用 VNet。 例如，可以在 Azure VNet 中单独运行 Microsoft Windows Server Active Directory 域控制器和 SharePoint 场。
 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>是否可以在 VNet 之间或者 VNet 与本地数据中心之间执行 WAN 优化？
-是的。 可以通过 Azure 市场部署许多供应商提供 [WAN 优化网络虚拟设备](https://market.azure.cn/marketplace/apps?search=wan)。
-
-<!--MOONCAKE: CORRECT ON https://market.azure.cn/marketplace/apps?search=wan-->
+是的。 可以通过 Azure 市场部署许多供应商提供 [WAN 优化网络虚拟设备](https://market.azure.cn/marketplace/apps/filter?search=wan%20optimization)。
 
 ## <a name="configuration"></a><a name="configuration"></a>配置
 
@@ -269,11 +267,8 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 - Redis 缓存 
 - 应用程序网关 (v1) SKU
 - Service Fabric
-- SQL MI
 - API 管理
-    
-    <!--Not Available on - Active Directory Domain Service (ADDS)-->
-    
+- Active Directory 域服务 (ADDS)
 - 逻辑应用
 - HDInsight
 - Azure Batch
@@ -299,6 +294,9 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 
 ### <a name="can-i-peer-two-vnets-with-matching-or-overlapping-address-ranges"></a>是否可以将两个地址范围匹配或重叠的 VNet 对等互连？
 否。 要启用 VNet 对等互连，地址空间不得重叠。
+
+### <a name="can-i-peer-a-vnet-to-two-different-vnets-with-the-the-use-remote-gateway-option-enabled-on-both-the-peerings"></a>在两个对等互连上都启用了“使用远程网关”选项的情况下，是否可以将一个 VNet 与两个不同的 VNet 对等互连？
+不是。 只能在与其中一个 VNet 的对等互连上启用“使用远程网关”选项。
 
 ### <a name="how-much-do-vnet-peering-links-cost"></a>VNet 对等互连链接的费用如何？
 创建 VNet 对等互连连接不收费。 跨对等互连连接进行数据传输收费。 请[参阅此文](https://www.azure.cn/pricing/details/networking/)。
@@ -396,7 +394,7 @@ VNet 服务终结点有助于保护 Azure 服务资源。 VNet 资源通过网�
 要访问 Azure 服务，NSG 需要允许出站连接。 如果 NSG 对所有 Internet 出站流量开放，则服务端点流量应有效。 还可仅使用服务标签将出站流量限制为服务 IP。  
 
 ### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>设置服务终结点需要哪些权限？
-对虚拟网络拥有写入访问权限的用户可在虚拟网络上单独配置服务终结点。 若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有“Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action”权限。 此权限默认包含在内置的服务管理员角色中，可通过创建自定义角色进行修改。 详细了解内置角色以及如何将特定的权限分配到[自定义角色](/role-based-access-control/custom-roles?toc=%2fvirtual-network%2ftoc.json)。
+对虚拟网络拥有写入访问权限的用户可在虚拟网络上单独配置服务终结点。 若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有“Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action”权限。 此权限默认包含在内置的服务管理员角色中，可通过创建自定义角色进行修改。 详细了解内置角色以及如何将特定的权限分配到[自定义角色](https://docs.azure.cn/role-based-access-control/custom-roles?toc=%2fvirtual-network%2ftoc.json)。
 
 ### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>我是否可以通过 VNet 服务终结点筛选发往 Azure 服务的虚拟网络流量，以便仅允许特定的 Azure 服务资源？ 
 

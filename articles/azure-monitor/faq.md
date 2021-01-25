@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 01/23/2020
-ms.date: 01/06/2021
-ms.openlocfilehash: d2d55ec9bb718ae4fb77cb70161939ab978abac0
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.date: 01/14/2021
+ms.openlocfilehash: e802ec8af615227fd8992f93a71369593cc1a9e6
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023003"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230906"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 常见问题解答
 
@@ -42,9 +42,6 @@ ms.locfileid: "98023003"
 
 ### <a name="can-azure-monitor-monitor-on-premises-resources"></a>Azure Monitor 能否监视本地资源？
 可以，除了从 Azure 资源收集监视数据以外，Azure Monitor 还可从其他云和本地的虚拟机和应用程序中收集数据。 请参阅 [Azure Monitor 的监视数据源](platform/data-sources.md)。
-
-### <a name="what-ip-addresses-does-azure-monitor-use"></a>Azure Monitor 使用哪些 IP 地址？
-有关代理和其他外部资源访问 Azure Monitor 所需的 IP 地址和端口的列表，请参阅 [Application Insights 和 Log Analytics 使用的 IP 地址](app/ip-addresses.md)。 
 
 ## <a name="monitoring-data"></a>监视数据
 
@@ -207,7 +204,7 @@ WireData
 
 我无法从服务器获取任何数据：
 
-* [设置防火墙异常](app/ip-addresses.md)
+* 设置防火墙异常
 * [设置 ASP.NET 服务器](app/monitor-performance-live-website-now.md)
 * [设置 Java 服务器](app/java-agent.md)
 
@@ -267,6 +264,10 @@ WireData
 
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>如何更改项目向哪个 Azure 资源发送数据？
 在解决方案资源管理器中，右键单击 `ApplicationInsights.config` 并选择“更新 Application Insights”。 可在 Azure 中将数据发送到现有或新资源。 更新向导更改 ApplicationInsights.config 中的检测密钥，该密钥确定服务器 SDK 将数据发送到何处。 除非取消选中“更新全部”，否则它还将在网页中出现密钥的位置更改密钥。
+
+### <a name="do-new-azure-regions-require-the-use-of-connection-strings"></a>新的 Azure 区域是否需要使用连接字符串？
+
+新的 Azure 区域要求使用连接字符串而不是检测密钥。 [连接字符串](./app/sdk-connection-string.md)用于标识要与遥测数据关联的资源。 它还允许你修改可供你的资源将其用作遥测目标的终结点。 你需要复制连接字符串，并将其添加到应用程序的代码或环境变量中。
 
 ### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>能否在 Azure 资源管理器部署中使用 `providers('Microsoft.Insights', 'components').apiVersions[0]`？
 
@@ -377,7 +378,6 @@ WireData
 ### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> 我是否已在 Application Insights 中启用所有内容？
 | 应看到 | 如何获取 | 为何需要它 |
 | --- | --- | --- |
-| 可用性图表 |[Web 测试](app/monitor-web-app-availability.md) |知道 Web 应用已启动 |
 | 服务器应用性能：响应时间、... |[将 Application Insights 添加到项目](app/asp-net.md)或[在服务器上安装 AI 状态监视器](app/monitor-performance-live-website-now.md)（或编写自己的代码以[跟踪依赖项](app/api-custom-events-metrics.md#trackdependency)） |检测性能问题 |
 | 依赖项遥测 |[在服务器上安装 AI 状态监视器](app/monitor-performance-live-website-now.md) |诊断数据库或其他外部组件问题 |
 | 获取异常的堆栈跟踪 |[在代码中插入 TrackException 调用](app/asp-net-exceptions.md)（但有些会自动报告） |检测和诊断异常 |
@@ -460,9 +460,6 @@ Azure 警报仅出现在指标上。 创建一个每当事件发生时都跨越�
 - ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
 - TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
-
-在[此处](app/ip-addresses.md)查看服务和 IP 地址的完整列表。
-
 #### <a name="firewall-exception"></a>防火墙例外
 
 允许 Web 服务器将遥测发送到我们的终结点。 
@@ -515,13 +512,6 @@ Azure 警报仅出现在指标上。 创建一个每当事件发生时都跨越�
 ```
  
 
-### <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>是否可以在 Intranet 服务器上运行可用性 Web 测试？
-
-我们的 [Web 测试](app/monitor-web-app-availability.md)可在遍布全球的各个接入点上运行。 可运用以下两种解决方案：
-
-* 防火墙门 - 允许从[长且可更改的 Web 测试代理列表](app/ip-addresses.md)中请求自己的服务器。
-* 编写自己的代码，从 Intranet 内部向服务器发送定期请求。 可以为此运行 Visual Studio Web 测试。 测试人员可以使用 TrackAvailability() API 将结果发送到 Application Insights。
-
 ### <a name="how-long-does-it-take-for-telemetry-to-be-collected"></a>收集遥测数据需要多长时间？
 
 大多数 Application Insights 数据的延迟小于 5 分钟。 有些数据可能需要更长的时间，通常是较大的日志文件。 有关详细信息，请参阅 [Application Insights SLA](https://www.azure.cn/support/sla/monitor/index.html)。
@@ -570,7 +560,7 @@ Azure 警报仅出现在指标上。 创建一个每当事件发生时都跨越�
 
 ### <a name="what-does-ga-mean-in-the-context-of-opentelemetry"></a>在 OpenTelemetry 中，GA 意味着什么？
 
-OpenTelemetry 社区在[此处](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302)定义了正式发布 (GA)。 但是，OpenTelemetry 的 GA 并不意味着与现有 Application Insights SDK 具有功能奇偶一致性。 Azure Monitor 将继续向需要[预聚合指标](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics)、[实时指标](app/live-stream.md)、[自适应采样](app/sampling.md#adaptive-sampling)、[探查器](app/profiler-overview.md)和[快照调试程序](app/snapshot-debugger.md)功能的客户推荐我们当前的 Application Insights SDK，直到 OpenTelemetry SDK 达到功能成熟。
+OpenTelemetry 社区在[此处](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302)定义了正式发布 (GA)。 但是，OpenTelemetry 的“GA”并不意味着与现有 Application Insights SDK 具有功能奇偶一致性。 Azure Monitor 将继续向需要[预聚合指标](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics)、[实时指标](app/live-stream.md)、[自适应采样](app/sampling.md#adaptive-sampling)、[探查器](app/profiler-overview.md)和[快照调试程序](app/snapshot-debugger.md)功能的客户推荐我们当前的 Application Insights SDK，直到 OpenTelemetry SDK 达到功能成熟。
 
 ### <a name="can-i-use-preview-builds-in-production-environments"></a>我是否可以在生产环境中使用预览版？
 
@@ -578,7 +568,7 @@ OpenTelemetry 社区在[此处](https://medium.com/opentelemetry/ga-planning-f0f
 
 ### <a name="whats-the-difference-between-opentelemetry-sdk-and-auto-instrumentation"></a>OpenTelemetry SDK 和自动检测之间有何区别？
 
-OpenTelemetry 规范定义了 [SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/glossary.md#telemetry-sdk)。 简而言之，SDK 是一种特定于语言的包，可跨应用程序的各个组件收集遥测数据并将数据通过导出程序发送到 Azure Monitor。
+OpenTelemetry 规范定义了 [SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/glossary.md#telemetry-sdk)。 简而言之，“SDK”是一种特定于语言的包，可跨应用程序的各个组件收集遥测数据并将数据通过导出程序发送到 Azure Monitor。
 
 自动检测（有时称为字节码注入、无代码或基于代理）的概念指在不更改代码的情况下检测应用程序的功能。 例如，查看 [OpenTelemetry Java 自动检测自述文件](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/master/README.md)了解详细信息。
 

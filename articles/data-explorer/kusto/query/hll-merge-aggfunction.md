@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 04/15/2019
-ms.date: 10/29/2020
-ms.openlocfilehash: e36549fbeb6fa2e7faaea80e2d87b85504314d31
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 6b2aa044a2db6617d000bc428c0613ed88bc35bf
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103887"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611549"
 ---
 # <a name="hll_merge-aggregation-function"></a>hll_merge()（聚合函数）
 
@@ -38,4 +38,4 @@ ms.locfileid: "93103887"
  
 **提示**
 
-1) 使用函数 [dcount_hll] (dcount-hllfunction.md) 根据 `hll` / `hll-merge` 聚合函数计算 `dcount`。
+1) 使用函数 [dcount_hll](dcount-hllfunction.md) 根据 `hll` / `hll-merge` 聚合函数计算 `dcount`。

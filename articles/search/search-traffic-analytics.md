@@ -7,15 +7,15 @@ manager: nitinme
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 03/18/2020
-ms.date: 11/27/2020
+origin.date: 12/18/2020
+ms.date: 01/14/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: aae9af7ee769d399e08e3ceecbeafceeb1b3c488
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 2357a9caa7e9dcb75fc6173a156972110c1ffa0f
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300176"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194760"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>收集遥测数据以用于分析搜索流量
 
@@ -30,7 +30,7 @@ ms.locfileid: "96300176"
 
 若要为搜索流量分析提供有用的指标，必须记录搜索应用程序用户发出的一些信号。 这些信号表示用户感兴趣的内容以及他们认为相关的内容。 对于搜索流量分析，这些信号包括：
 
-+ 用户生成的搜索事件：只有用户发起的搜索查询才是需要关注的。 用于填充 Facet、附加内容或任何内部信息的搜索查询都不重要，它们会扭曲结果并造成结果有偏差。
++ 用户生成的搜索事件：只有用户发起的搜索查询才是需要关注的。 其他搜索请求（例如用于填充方面或检索内部信息的搜索请求）并不重要。 请确保只检测用户启动的事件，以避免结果中出现扭曲或偏差。
 
 + 用户生成的单击事件：在搜索结果页上，单击事件通常意味着某个文档是特定搜索查询的相关结果。
 
@@ -38,7 +38,7 @@ ms.locfileid: "96300176"
 
 ## <a name="add-search-traffic-analytics"></a>添加搜索流量分析
 
-在 Azure 认知搜索服务的[门户](https://portal.azure.cn)页中，“搜索流量分析”页面包含一个用于遵循此遥测模式的速查表。 在此页中，可以选择或创建一个 Application Insights 资源，获取检测密钥，复制可以根据你的解决方案改编的代码片段，并下载基于模式中反映的架构生成的 Power BI 报表。
+在 Azure 认知搜索服务的[门户](https://portal.azure.cn)页中，打开“搜索流量分析”页，以访问用于遵循此遥测模式的速查表。 在此页中，可以选择或创建一个 Application Insights 资源，获取检测密钥，复制可以根据你的解决方案改编的代码片段，并下载基于模式中反映的架构生成的 Power BI 报表。
 
 ![门户中的“搜索流量分析”页](media/search-traffic-analytics/azuresearch-trafficanalytics.png "门户中的“搜索流量分析”页")
 
@@ -72,7 +72,7 @@ ms.locfileid: "96300176"
 
 **使用 C#**
 
-对于 C#，如果项目是 ASP.NET，则可以在应用程序配置（例如 appsettings.json）中找到 InstrumentationKey。 如果你不确定密钥的位置，请再次参考注册说明。
+对于 C#，如果项目是 ASP.NET，则应在应用程序配置（例如 appsettings.json）中定义 InstrumentationKey。 如果你不确定密钥的位置，请再次参考注册说明。
 
 ```csharp
 private static TelemetryClient _telemetryClient;
@@ -99,14 +99,31 @@ window.appInsights=appInsights;
 
 为了将搜索请求与单击相关联，必须具有一个将这两个不同事件关联起来的相关性 ID。 使用 HTTP 标头请求搜索 ID 时，Azure 认知搜索将提供该 ID。
 
-使用搜索 ID 可将 Azure 认知搜索为请求本身发出的指标关联到在 Application Insights 中记录的自定义指标。  
+使用搜索 ID 可将 Azure 认知搜索为请求本身发出的指标关联到在 Application Insights 中记录的自定义指标。
 
-**使用 C#**
+**使用 C#（较新的 v11 SDK）**
+
+```csharp
+// This sample uses the .NET SDK https://www.nuget.org/packages/Azure.Search.Documents
+
+var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>));
+
+// Use HTTP headers so that you can get the search ID from the response
+var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
+var response = await client.searchasync(searchText: searchText, searchOptions: options, customHeaders: headers);
+string searchId = string.Empty;
+if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
+{
+    searchId = headerValues.FirstOrDefault();
+}
+```
+
+**使用 C#（较旧的 v10 SDK）**
 
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>));
 
 // Use HTTP headers so that you can get the search ID from the response
 var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
@@ -241,4 +258,4 @@ appInsights.trackEvent("Click", {
 
 你可以查找有关 [Application Insights](../azure-monitor/app/app-insights-overview.md) 的更多信息并访问[定价页面](https://www.azure.cn/pricing/details/monitor/)来详细了解其各种服务层级。
 
-了解有关创建出色报告的详细信息。 有关详细信息，请参阅 [Power BI Desktop 入门](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)。
+了解有关创建出色报告的详细信息。 有关详细信息，请参阅 [Power BI Desktop 入门](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)。

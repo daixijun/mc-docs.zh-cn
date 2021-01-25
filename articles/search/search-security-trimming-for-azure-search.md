@@ -1,20 +1,20 @@
 ---
 title: 用于修整结果的安全筛选器
 titleSuffix: Azure Cognitive Search
-description: 使用安全筛选器和用户标识的 Azure 认知搜索搜索结果的文档级别安全特权。
+description: 了解如何使用安全筛选器和用户标识实现 Azure 认知搜索搜索结果的文档级别安全权限。
 manager: nitinme
 author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 06/04/2020
-ms.date: 09/10/2020
-ms.openlocfilehash: 9983283926c56dfa4e079ab8f0534b4b0df17ae8
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+origin.date: 12/16/2020
+ms.date: 01/14/2021
+ms.openlocfilehash: d98cfa015ea4d9ee024e686a9d20782ccc2608be
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96430992"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194765"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>用于在 Azure 认知搜索中修整结果的安全筛选器
 
@@ -63,7 +63,7 @@ ms.locfileid: "96430992"
   
 向索引的 URL 终结点发出 HTTP POST 请求。 HTTP 请求的正文是一个 JSON 对象，包含要添加的文档：
 
-```
+```http
 POST https://[search service].search.azure.cn/indexes/securedfiles/docs/index?api-version=2020-06-30  
 Content-Type: application/json
 api-key: [admin key]
@@ -111,17 +111,18 @@ api-key: [admin key]
 ```
 
 有关添加或更新文档的完整详细信息，可以阅读[编辑文档](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)。
-   
+
 ## <a name="apply-the-security-filter"></a>应用安全筛选器
 
 若要基于 `group_ids` 访问权限修整文档，应发出包含 `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` 筛选器的搜索查询，其中，'group_id1, group_id2,...' 是搜索请求发出者所属的组。
+
 此筛选器匹配其 `group_ids` 字段包含某个给定标识符的所有文档。
 有关使用 Azure 认知搜索搜索文档的完整详细信息，可以阅读[搜索文档](https://docs.microsoft.com/rest/api/searchservice/search-documents)。
 请注意，此示例演示如何使用 POST 请求搜索文档。
 
 发出 HTTP POST 请求：
 
-```
+```http
 POST https://[service name].search.azure.cn/indexes/securedfiles/docs/search?api-version=2020-06-30
 Content-Type: application/json  
 api-key: [admin or query key]
@@ -153,12 +154,12 @@ api-key: [admin or query key]
  ]
 }
 ```
-## <a name="conclusion"></a>结论
 
-本文介绍了如何基于用户标识和 Azure 认知搜索 `search.in()` 函数筛选结果。 可以使用此函数传入请求用户的主体标识符，以将其与每个目标文档关联的主体标识符进行匹配。 处理搜索请求时，`search.in` 函数会筛选出任何用户主体都对其没有读访问权限的搜索结果。 主体标识符可以表示安全组、角色甚至用户自己的标识等信息。
- 
-## <a name="see-also"></a>另请参阅
+## <a name="next-steps"></a>后续步骤
 
-+ [使用 Azure 认知搜索筛选器进行基于 Active Directory 标识的访问控制](search-security-trimming-for-azure-search-with-aad.md)
-+ [Azure 认知搜索中的筛选器](search-filters.md)
-+ [Azure 认知搜索操作中的数据安全性和访问控制](search-security-overview.md)
+本文介绍了基于用户标识和 `search.in()` 函数筛选结果的模式。 可以使用此函数传入请求用户的主体标识符，以将其与每个目标文档关联的主体标识符进行匹配。 处理搜索请求时，`search.in` 函数会筛选出任何用户主体都对其没有读访问权限的搜索结果。 主体标识符可以表示安全组、角色甚至用户自己的标识等信息。
+
+对于基于 Active Directory 的替代模式，或者要重新访问其他安全功能，请参阅以下链接。
+
+* [用于使用 Active Directory 标识修剪结果的安全筛选器](search-security-trimming-for-azure-search-with-aad.md)
+* [Azure 认知搜索中的安全性](search-security-overview.md)

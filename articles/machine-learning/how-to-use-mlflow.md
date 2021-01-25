@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f4470f73a98d442c844e8d17bcf2bf9f26ea588a
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 0a096634b46870977369af493d02eae3927f39aa
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022914"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230930"
 ---
 # <a name="train-and-track-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>使用 MLflow 和 Azure 机器学习训练和跟踪 ML 模型（预览版）
 
@@ -65,6 +65,7 @@ ms.locfileid: "98022914"
 * 安装 `azureml-mlflow` 包。 
     * 此包会自动引入 [Azure 机器学习 Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) 的 `azureml-core`，它为 MLflow 访问工作区提供了连接。
 * [创建 Azure 机器学习工作区](how-to-manage-workspace.md)。
+    * 查看[使用工作区执行 MLflow 操作所需的访问权限](how-to-assign-roles.md#mlflow-operations)。
 
 ## <a name="track-local-runs"></a>跟踪本地运行
 
@@ -210,6 +211,8 @@ run.get_metrics()
 
 使用支持 MLflow 模型注册表的 [Azure 机器学习模型注册表](concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere)注册和跟踪模型。 Azure 机器学习模型与 MLflow 模型架构一致，从而可以轻松地在不同的工作流之间导出和导入这些模型。 与 MLflow 相关的元数据（如运行 ID）还使用注册的模型进行标记，以进行跟踪。 用户可以提交训练运行、注册和部署 MLflow 运行生成的模型。 
 
+如果要一步部署和注册生产就绪模型，请参阅[部署和注册 MLflow 模型](how-to-deploy-mlflow-models.md)。
+
 若要注册并查看运行中的模型，请执行以下步骤：
 
 1. 运行完成后，调用 `register_model()` 方法。
@@ -257,7 +260,7 @@ run.get_metrics()
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 MLflow 部署模型](how-to-deploy-models-with-mlflow.md)。
+* [使用 MLflow 部署模型](how-to-deploy-mlflow-models.md)。
 * 监视生产模型中的[数据偏移](./how-to-enable-data-collection.md)。
 * [使用 MLflow 跟踪 Azure Databricks 运行](how-to-use-mlflow-azure-databricks.md)。
 * [管理模型](concept-model-management-and-deployment.md)。

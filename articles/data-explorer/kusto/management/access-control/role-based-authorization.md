@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/14/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 005d845a37108b04a3d1670f2bef75bd8bebca11
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 01/22/2021
+ms.openlocfilehash: f8342183daf6af927e8f7ad4854a72767dfd3e79
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226177"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611424"
 ---
 # <a name="role-based-authorization-in-kusto"></a>Kusto 中基于角色的授权
 
@@ -36,3 +36,6 @@ Kusto 引擎服务具有以下角色：
 |函数管理员             |可以更改函数、删除函数或向其他主体授予管理员权限                                                                         |
 |表管理员                |可以在特定表的范围内执行任何操作                                                                                                           |
 |表引入器             |可以在特定表的范围内引入数据，但不能查询数据                                                                                 |
+
+> [!NOTE]
+> 若要授予来自其他租户的主体对群集的访问权限，请参阅[允许跨租户查询和命令](../../../cross-tenant-query-and-commands.md)。

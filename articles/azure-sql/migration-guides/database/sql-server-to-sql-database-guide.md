@@ -11,12 +11,12 @@ ms.author: v-jay
 ms.reviewer: MashaMSFT
 origin.date: 11/06/2020
 ms.date: 01/04/2021
-ms.openlocfilehash: 8ea00c8f9f45ff5e647c7f285595f22414a69fe0
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: e5fcc29d45e84a1577b41ef437519e4656352710
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830446"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541816"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>迁移指南：将 SQL Server 到 SQL 数据库
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -95,12 +95,9 @@ ms.locfileid: "97830446"
 - [使用 PowerShell 执行规模化评估](https://docs.microsoft.com/sql/dma/dma-consolidatereports)
 - [使用 Power BI 分析评估报告](https://docs.microsoft.com/sql/dma/dma-consolidatereports#dma-reports)
 
-> [!IMPORTANT]
-> 还可以使用 [DMA 命令行实用工具](https://docs.microsoft.com/sql/dma/dma-commandline)自动执行对多个数据库（尤其是大型数据库）运行的规模化评估，并将评估上传到 [Azure Migrate](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) 以进一步进行分析和目标准备。
+=## 迁移
 
-## <a name="migrate"></a>迁移
-
-完成与预迁移阶段相关联的任务后，便可以执行架构和数据迁移。 
+完成与预迁移阶段相关的任务后，便可以执行架构和数据迁移。 
 
 使用所选的[迁移方法](sql-server-to-sql-database-overview.md#compare-migration-options)迁移你的数据。 
 
@@ -141,19 +138,19 @@ ms.locfileid: "97830446"
 
 ## <a name="data-sync-and-cutover"></a>数据同步和直接转换
 
-使用将数据更改持续地从源复制/同步到目标的迁移选项时，源数据和架构可能会变化并偏离目标。 请确保在数据同步过程中捕获对源的所有更改，并在迁移过程中将其应用到目标。 
+当使用将数据更改持续从源复制/同步到目标的迁移选项时，源数据和架构可能会变化并偏离目标。 请确保在数据同步过程中捕获对源的所有更改，并在迁移过程中将其应用到目标。 
 
 验证源和目标上的数据是否相同后，可以从源环境直接转换到目标环境。 请务必与业务/应用程序团队一起计划直接转换过程，以确保在直接转换时的最小中断不会影响业务连续性。 
 
 > [!IMPORTANT]
-> 若要详细了解使用 DMS 在迁移过程中进行直接转换的相关具体步骤，请参阅[执行迁移直接转换](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover)。
+> 有关与使用 DMS 进行迁移时执行直接转换相关的特定步骤的详细信息，请参阅[执行直接转换迁移](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover)。
 
 
 ## <a name="post-migration"></a>迁移后
 
-成功完成迁移阶段后，执行一系列的迁移后任务，确保一切顺利高效地进行。 
+成功完成迁移阶段后，执行一系列的迁移后任务，确保一切顺利高效地运行。 
 
-迁移后阶段对于协调任何数据准确性问题、验证完整性以及解决工作负荷的性能问题至关重要。 
+迁移后阶段对于协调任何数据准确性问题、验证完整性以及解决工作负载的性能问题至关重要。 
 
 ### <a name="remediate-applications"></a>修正应用程序 
 
@@ -183,16 +180,16 @@ ms.locfileid: "97830446"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关在执行各种数据库和数据迁移方案及专门任务时可为你提供帮助的矩阵（包含 Azure 提供的与第三方提供的服务和工具），请参阅[数据迁移服务和工具](../../../dms/dms-tools-matrix.md)。
+- 有关在执行各种数据库和数据迁移方案及专门任务时可为你提供帮助的 Azure 与第三方服务和工具的矩阵，请参阅[数据迁移服务和工具](../../../dms/dms-tools-matrix.md)。
 
 - 若要详细了解 SQL 数据库，请参阅：
     - [Azure SQL 数据库概述](../../database/sql-database-paas-overview.md)
    - [Azure 总拥有成本计算器](https://azure.cn/pricing/calculator/) 
 
 
-- 若要详细了解云迁移的框架和采用周期，请参阅
+- 有关云迁移的框架和采用周期的详细信息，请参阅
    -  [适用于 Azure 的云采用框架](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [为迁移到 Azure 的工作负荷计算成本和调整大小的最佳做法](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [为迁移到 Azure 的工作负载计算成本和调整大小的最佳做法](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 - 若要评估应用程序访问层，请参阅 [Data Access Migration Toolkit（预览版）](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
 - 若要详细了解如何执行数据访问层 A/B 测试，请参阅[数据库实验助手](https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview)。

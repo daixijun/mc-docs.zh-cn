@@ -8,13 +8,13 @@ ms.reviewer: yifats
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/30/2020
-ms.date: 10/30/2020
-ms.openlocfilehash: 26ae92f16a6d869599d170c691d31228b689ddfb
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 03d2d14d9bd51de5d91e6b44f2e930d026d459be
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106574"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611320"
 ---
 # <a name="drop-materialized-view"></a>.drop materialized-view 
 
@@ -57,4 +57,4 @@ ms.locfileid: "93106574"
 |文件夹|string|具体化视图文件夹。
 |DocString|string|具体化视图的文档字符串。
 |AutoUpdateSchema|bool|视图是否已启用自动更新。
-|EffectiveDateTime|datetime|视图的生效日期时间，在创建期间确定（请参阅 [.create materialized-view](materialized-view-create.md#create-materialized-view)）
+|EffectiveDateTime|datetime|视图的生效日期时间，在创建期间确定（请参阅 [`.create materialized-view`](materialized-view-create.md#create-materialized-view)）

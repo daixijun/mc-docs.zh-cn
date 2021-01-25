@@ -1,5 +1,5 @@
 ---
-title: 在搜索框中添加自动完成和建议
+title: 将自动完成添加到搜索框
 titleSuffix: Azure Cognitive Search
 description: 通过创建建议器并构建可以使用已完成的字词或短语自动完成搜索框的请求，在 Azure 认知搜索中启用“边键入边搜索”查询操作。 你还可以返回建议的匹配项。
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/24/2020
-ms.date: 12/10/2020
+ms.date: 01/14/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 244d6bf4039ae6832fba7f7f0a2a73daac1c9777
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 2d18d8e010e5c446c1114d87476f647d6837b25b
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004184"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194700"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>向客户端应用添加自动完成和建议
 

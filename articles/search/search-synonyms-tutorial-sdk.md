@@ -7,15 +7,15 @@ author: HeidiSteen
 ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
-origin.date: 11/05/2020
-ms.date: 11/27/2020
+origin.date: 12/18/2020
+ms.date: 01/14/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ce1305210f4ec3d1ced429c96c89d14d1139c45e
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: d74be910c001878cc5e86e32cc7bfeed7dcad7f6
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300374"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194759"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>示例：使用 C# 为 Azure 认知搜索添加同义词
 
@@ -95,6 +95,8 @@ static void Main(string[] args)
 
 在 `RunQueriesWithNonExistentTermsInIndex` 中，使用“five star”、“internet”和“economy AND hotel”发出搜索查询。
 
+短语查询（如“five star”）必须用引号括起来，并且可能还需要转义字符，具体取决于客户端。
+
 ```csharp
 Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
 results = searchClient.Search<Hotel>("\"five star\"", searchOptions);
@@ -147,7 +149,7 @@ WriteDocuments(results);
 
 上传同义词映射并对索引进行更新，允许其使用同义词映射以后，再次调用 `RunQueriesWithNonExistentTermsInIndex` 会获得如下输出：
 
-```
+```dos
 Search the entire index for the phrase "five star":
 
 Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concierge]

@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 01/23/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: e5a1c9a76a2ff886468cc32e4864670aca4d52f0
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: cb78a457d503b6ff11805a9cc0ab3410536ecca7
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104609"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611711"
 ---
 # <a name="make_list-aggregation-function"></a>make_list()（聚合函数）
 
@@ -24,7 +24,7 @@ ms.locfileid: "93104609"
 
 ## <a name="syntax"></a>语法
 
-`summarize` `make_list(`*Expr* [`,` *MaxSize* ]`)`
+`summarize` `make_list(`*Expr* [`,` *MaxSize*]`)`
 
 ## <a name="arguments"></a>参数
 
@@ -32,7 +32,7 @@ ms.locfileid: "93104609"
 * MaxSize 是对返回元素最大数目的可选整数限制（默认值是 1048576）。 MaxSize 值不能超过 1048576。
 
 > [!NOTE]
-> 函数 `makelist()` 的旧版和已过时变体的默认限制为 MaxSize = 128。
+> `makelist()` 是 `make_list` 函数的旧的过时版本。 旧版本的默认限制为 MaxSize = 128。
 
 ## <a name="returns"></a>返回
 

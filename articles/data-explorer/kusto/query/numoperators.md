@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: feac6f9efaa0569dafb586d5016942014fe0ae4d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: cdb6988afec87d393e1f05c31e08b7385f44d267
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103852"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611610"
 ---
 # <a name="numerical-operators"></a>数值运算符
 
@@ -37,10 +37,13 @@ ms.locfileid: "93103852"
 `in`           |等于某个元素       |[请参阅此处](inoperator.md)
 `!in`          |不等于任何元素   |[请参阅此处](inoperator.md)
 
+> [!NOTE]
+> 若要从一种数值类型转换为另一种数值类型，请使用 `to*()` 函数。 有关示例，请参阅 [`tolong()`](tolongfunction.md) 和 [`toint()`](tointfunction.md)。
+
 **与模数运算符有关的注释**
 
 两个数字的取模始终在 Kusto 中返回一个小的非负数。
-因此，两个数字的取模（“N” % “D”）如下 ：0 &le; ( *N* % *D* ) &lt; abs( *D* ).
+因此，两个数字的取模（“N” % “D”）如下 ：0 &le; (*N* % *D*) &lt; abs(*D*).
 
 例如，以下查询：
 

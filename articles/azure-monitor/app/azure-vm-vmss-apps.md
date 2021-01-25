@@ -4,14 +4,14 @@ description: 针对 Azure VM 和 Azure 虚拟机规模集进行应用程序性�
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 08/26/2019
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.author: v-johya
-ms.openlocfilehash: 643db22dba0cab6499ec58cca901e1005e6eb067
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 254a0d19b4925e88022a21bef7b1db5ddb4f799b
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104895"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230831"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>在 Azure 虚拟机和 Azure 虚拟机规模集上部署 Azure Monitor Application Insights 代理
 
@@ -20,7 +20,7 @@ ms.locfileid: "97104895"
 本文逐步讲解如何通过 Application Insights 代理启用 Application Insights 监视，并提供有关如何自动完成大规模部署过程的初步指导。
 
 > [!IMPORTANT]
-> 在 Azure VM 和 VMSS 上运行的 APS.NET 应用程序的 Azure Application Insights 代理当前为公共预览版。 若要监视本地运行的 ASP.Net 应用程序，请使用[用于本地服务器的 Azure Application Insights 代理](/azure-monitor/app/status-monitor-v2-overview)。该代理已正式发布，是完全受支持的。
+> 在 Azure VM 和 VMSS 上运行的 ASP.NET 应用程序的 Azure Application Insights 代理当前为公共预览版。 若要监视本地运行的 ASP.Net 应用程序，请使用[用于本地服务器的 Azure Application Insights 代理](/azure-monitor/app/status-monitor-v2-overview)。该代理已正式发布，是完全受支持的。
 > 用于 Azure VM 和 VMSS 的预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 有些功能可能不受支持，有些功能可能受到限制。
 > 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/)。
 
@@ -180,5 +180,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.ApplicationMonitoringWi
 
 ## <a name="next-steps"></a>后续步骤
 * 了解如何[将应用程序部署到 Azure 虚拟机规模集](../../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md)。
-* [设置可用性 Web 测试](monitor-web-app-availability.md)，以便在终结点关闭时发出警报。
 

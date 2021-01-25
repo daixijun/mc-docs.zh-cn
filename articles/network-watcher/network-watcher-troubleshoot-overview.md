@@ -4,29 +4,29 @@ titleSuffix: Azure Network Watcher
 description: 此页概述了网络观察程序资源故障排除功能
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/19/2017
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 82ec30df919189fbe158d910e0e1db7e8b573756
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: c02c5bfff4c9cbe6bd3356e7e665a2a61427bd5f
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548071"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230860"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>在 Azure 网络观察程序中进行资源故障排除简介
 
 虚拟网关在 Azure 中的本地资源和其他虚拟网络之间提供连接。 监视网关及其连接对于确保通信不中断至关重要。 网络观察程序提供对网关和连接进行故障排除的功能。 可通过门户、PowerShell、Azure CLI 或 REST API 调用该功能。 调用后，网络观察程序将对网关或连接的运行状况进行诊断，并返回相应的结果。 该请求是一个长时间运行的事务。 诊断完成后，将返回结果。
 
-![portal][2]
+![屏幕截图显示了网络观察程序 VPN 诊断。][2]
 
 ## <a name="results"></a>结果
 
@@ -108,7 +108,7 @@ ms.locfileid: "87548071"
 > [!NOTE]
 > 在某些情况下，仅部分日志文件写入到存储中。
 
-有关从 Azure 存储帐户下载文件的说明，请参阅[通过 .NET 开始使用 Azure Blob 存储](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 可以使用的另一个工具是存储资源管理器。 有关存储资源管理器的详细信息可以在此链接中找到：[存储资源管理器](https://storageexplorer.com/)
+有关从 Azure 存储帐户下载文件的说明，请参阅[通过 .NET 开始使用 Azure Blob 存储](../storage/blobs/storage-quickstart-blobs-dotnet.md)。 可以使用的另一个工具是存储资源管理器。 有关存储资源管理器的详细信息可以在此链接中找到：[存储资源管理器](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
@@ -210,6 +210,9 @@ Elapsed Time            330 sec
 |         6    ikeext               ike_sa_management_c3162  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
+
+## <a name="considerations"></a>注意事项 
+* CLI Bug：如果使用 Azure CLI 运行命令，则 VPN 网关和存储帐户必须位于同一资源组中。 具有不同资源组中资源的客户可以改为使用 PowerShell 或 Azure 门户。  
 
 ## <a name="next-steps"></a>后续步骤
 

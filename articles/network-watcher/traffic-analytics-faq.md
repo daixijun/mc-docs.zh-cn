@@ -8,18 +8,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/08/2018
+origin.date: 01/04/2021
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: e8fb6b32c222068d5ff3fe58b214c64bd8e479b6
-ms.sourcegitcommit: 6b499ff4361491965d02bd8bf8dde9c87c54a9f5
+ms.openlocfilehash: 3784b3acc7eaeaf48fcef96de94e4cae4b7b02e0
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94328162"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230807"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常见问题解答
 
@@ -60,7 +60,7 @@ ms.locfileid: "94328162"
 
 3. 若要列出分配给特定用户的所有角色，请使用 **Get-AzRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**。 
 
-如果未看到任何输出，请与相应的订阅管理员联系以获取运行命令的权限。 有关详细信息，请参阅[使用 Azure PowerShell 添加或删除 Azure 角色分配](https://docs.azure.cn/role-based-access-control/role-assignments-powershell)。
+如果未看到任何输出，请与相应的订阅管理员联系以获取运行命令的权限。 有关详细信息，请参阅[使用 Azure PowerShell 添加或删除 Azure 角色分配](../role-based-access-control/role-assignments-powershell.md)。
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>流量分析在哪些 Azure 区域中可用？
 
@@ -213,7 +213,7 @@ armclient post "https://management.chinacloudapi.cn/subscriptions/<NSG subscript
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>流量分析多久处理一次数据？
 
-请参阅“流量分析架构和数据聚合”文档中的[“数据聚合”部分](/network-watcher/traffic-analytics-schema#data-aggregation)
+请参阅“流量分析架构和数据聚合”文档中的[“数据聚合”部分](./traffic-analytics-schema.md#data-aggregation)
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>流量分析如何确定 IP 是恶意 IP？ 
 
@@ -225,7 +225,7 @@ armclient post "https://management.chinacloudapi.cn/subscriptions/<NSG subscript
 - 可以在流量分析中使 Log Analytics 的短链接。 
 - 使用[此处记录的架构](traffic-analytics-schema.md)编写查询 
 - 单击“新建警报规则”以创建警报
-- 请参阅[日志警报文档](https://docs.azure.cn/azure-monitor/platform/alerts-log)以创建警报
+- 请参阅[日志警报文档](../azure-monitor/platform/alerts-log.md)以创建警报
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>如何检查哪些 VM 接收的本地流量最多？
 
@@ -240,7 +240,7 @@ AzureNetworkAnalytics_CL
 | render timechart
 ```
 
-  对于 IP：
+对于 IP：
 
 ```
 AzureNetworkAnalytics_CL
@@ -363,5 +363,8 @@ destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_
 - 若要移至拓扑视图中其他突出显示的节点，请使用 `Shift+Right arrow` 键向前移动。 
 - 在突出显示的节点上，焦点会移至节点的“信息工具框”。 默认情况下，焦点会移至“信息工具框”中的“更多详细信息”按钮 。 若要进一步在“框”视图中移动，可分别使用 `Right arrow` 和 `Left arrow` 键向前和向后移动。 按 `Enter` 的效果与在“信息工具框”中选择聚焦的按钮相同。
 - 选择任何此类节点时，可通过按 `Shift+Left arrow` 键逐个访问其所有连接。 焦点将移至该连接的“信息工具框”。 在任何时候，都可通过再次按 `Shift+Right arrow`，将焦点移回该节点。
+
+## <a name="are-classic-nsgs-supported"></a>是否支持经典 NSG？
+否，流量分析不支持经典 NSG。 建议将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器，因为经典资源将[弃用](https://docs.azure.cn/virtual-machines/classic-vm-deprecation)。 请参阅本文了解[如何迁移](https://docs.azure.cn/virtual-machines/migration-classic-resource-manager-overview)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

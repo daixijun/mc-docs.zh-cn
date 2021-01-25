@@ -1,19 +1,20 @@
 ---
 title: Azure Batch 中的节点和池
 description: 从开发的角度来了解计算节点和池及其在 Azure Batch 工作流中的运用。
+ms.service: batch
 ms.topic: conceptual
 origin.date: 11/20/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 06/28/2020
 ms.author: v-yeche
-ms.openlocfilehash: 3ffcda12fb29c5d2241a1ef170b5ce9b4fb51a12
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: b18cb3060db8fdb891e8aba328ae5f0eac54ee7b
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746597"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230938"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch 中的节点和池
 
@@ -68,6 +69,9 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 ## <a name="configurations"></a>配置
 
 Batch 中提供了两种类型的池配置。
+
+> [!IMPORTANT]
+> 应使用“虚拟机配置”而不是“云服务配置”来配置池。 “虚拟机配置”池支持所有 Batch 功能，并且正在添加新功能。 “云服务配置”池不支持所有功能，也没有计划任何新功能。
 
 ### <a name="virtual-machine-configuration"></a>虚拟机配置
 

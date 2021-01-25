@@ -7,13 +7,13 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/08/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 1da43a6f89c48578c1cf90d9cf1498e5434e3cbc
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: a3844263f6a16cf419dea893070519126c3ec1dc
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105111"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611286"
 ---
 # <a name="quantize_fl"></a>quantize_fl()
 
@@ -33,7 +33,7 @@ ms.locfileid: "93105111"
 * num_bins：所需的箱数。
 * in_cols：动态数组，其中包含要量化的列的名称。
 * out_cols：动态数组，其中包含分箱值各自的输出列的名称。
-* labels：包含标签名称的动态数组。 此参数是可选的。 如果未提供 *Labels* ，将使用箱范围。
+* labels：包含标签名称的动态数组。 此参数是可选的。 如果未提供 *Labels*，将使用箱范围。
 
 ## <a name="usage"></a>使用情况
 
@@ -84,7 +84,7 @@ union
 
 # <a name="persistent"></a>[Persistent](#tab/persistent)
 
-如果是永久使用，请使用 [.create 函数](../management/create-function.md)。 创建函数需要有[数据库用户权限](../management/access-control/role-based-authorization.md)。
+如果是永久使用，请使用 [`.create function`](../management/create-function.md)。 创建函数需要有[数据库用户权限](../management/access-control/role-based-authorization.md)。
 
 ### <a name="one-time-installation"></a>一次性安装
 

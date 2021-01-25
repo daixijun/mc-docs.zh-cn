@@ -4,16 +4,16 @@ description: 了解如何向 Azure Stack Hub 添加公共 IP 地址。
 author: WenJason
 ms.topic: article
 origin.date: 05/28/2020
-ms.date: 06/22/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: d4f80dbb8add7d9bd4a829b3711ef6c0307b35b5
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 9c13d211c5f959ccdd9db2fa46967bb30dfda0ff
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096499"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541887"
 ---
 # <a name="add-public-ip-addresses"></a>添加公共 IP 地址
 
@@ -45,10 +45,10 @@ ms.locfileid: "85096499"
 4. 找到“资源提供程序”磁贴，单击网络资源提供程序。
 5. 单击“公共 IP 池用量”磁贴。
 6. 单击“添加 IP 池”按钮。
-7. 提供 IP 池的名称。 所选的名称有助于轻松识别 IP 池。 最好是使名称与地址范围相同，但这不是必需的。
+7. 提供 IP 池的名称。 所选的名称有助于轻松识别 IP 池。 不能在此字段中使用特殊字符（如 "/"）。 最好是使名称与地址范围相同，但这不是必需的。
 8. 以 CIDR 表示法输入要添加的地址块。 例如：192.168.203.0/24
 9. 在“地址范围(CIDR 块)”字段中提供有效的 CIDR 范围以后，“开始 IP 地址”、“结束 IP 地址”和“可用 IP 地址”字段会自动填充。 这些字段为只读字段，并且是自动生成的，因此在不修改“地址范围”字段中的值的情况下，不能更改这些字段。
-10. 查看边栏选项卡上的信息并确认一切正确以后，请选择“确定”，以提交所做的更改并将地址范围添加到 Azure Stack Hub****。
+10. 查看边栏选项卡上的信息并确认一切正确以后，请选择“确定”，以提交所做的更改并将地址范围添加到 Azure Stack Hub。
 
 
 ## <a name="next-steps"></a>后续步骤 

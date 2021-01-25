@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 440ec456c5a72a575fd2274f87f9f6bc4ab79f1b
-ms.sourcegitcommit: c17e965d4ffd82fd7cd86b2648fcb0053a65df00
+ms.date: 01/22/2021
+ms.openlocfilehash: 4c296b80410adda514ab93d8b8fbea30d9ff145b
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470483"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611665"
 ---
 # <a name="database-cursors"></a>数据库游标
 
@@ -22,10 +22,10 @@ ms.locfileid: "86470483"
 
 数据库游标旨在解决下述两个重要方案的问题：
 
-- 只要查询指示“相同数据集”，就可以多次重复相同的查询并获得相同的结果。
+* 只要查询指示“相同数据集”，就可以多次重复相同的查询并获得相同的结果。
 
-- 能够进行“恰好一次”查询。 此查询仅“看到”先前查询未看到的数据（因为那时该数据不可用）。
-  例如，可以使用该查询来循环访问表中所有新到达的数据，而不必担心处理同一记录两次或错误地跳过记录。
+* 能够进行“恰好一次”查询。 此查询仅“看到”先前查询未看到的数据（因为那时该数据不可用）。
+   例如，可以使用该查询来循环访问表中所有新到达的数据，而不必担心处理同一记录两次或错误地跳过记录。
 
 数据库游标在查询语言中表示为 `string` 类型的标量值。 应将实际值视为不透明值。除了保存其值或使用下面所述的游标函数外，不支持任何其他操作。
 
@@ -33,20 +33,20 @@ ms.locfileid: "86470483"
 
 Kusto 提供三个函数来帮助实现上述两个方案：
 
-- [cursor_current()](../query/cursorcurrent.md)：使用此函数可检索数据库游标的当前值。
-  可以使用此值作为其他两个函数的参数。
-  此函数还有一个同义词，即 `current_cursor()`。
+* [cursor_current()](../query/cursorcurrent.md)：使用此函数可检索数据库游标的当前值。
+   可以使用此值作为其他两个函数的参数。
+   此函数还有一个同义词，即 `current_cursor()`。
 
-- [cursor_after(rhs:string)](../query/cursorafterfunction.md)：此特殊函数可用于启用了 [IngestionTime 策略](ingestiontime-policy.md)的表记录。 它将返回 `bool` 类型的标量值，指示记录的 `ingestion_time()` 数据库游标值是否在 `rhs` 数据库游标值之后。
+* [cursor_after(rhs:string)](../query/cursorafterfunction.md)：此特殊函数可用于启用了 [IngestionTime 策略](ingestiontime-policy.md)的表记录。 它将返回 `bool` 类型的标量值，指示记录的 `ingestion_time()` 数据库游标值是否在 `rhs` 数据库游标值之后。
 
-- [cursor_before_or_at(rhs:string)](../query/cursorbeforeoratfunction.md)：此特殊函数可用于启用了 [IngestionTime 策略](ingestiontime-policy.md)的表记录。 它将返回 `bool` 类型的标量值，指示记录的 `ingestion_time()` 数据库游标值是否在 `rhs` 数据库游标值之后。
+* [cursor_before_or_at(rhs:string)](../query/cursorbeforeoratfunction.md)：此特殊函数可用于启用了 [IngestionTime 策略](ingestiontime-policy.md)的表记录。 它返回一个 `bool` 类型的标量值，指示记录的 `ingestion_time()` 数据库游标值是在 `rhs` 数据库游标值之前还是在该值处。
 
-这两个特殊函数（`cursor_after` 和 `cursor_before_or_at`）也有副作用：使用这两个函数时，Kusto 会将**数据库游标的当前值**发送到查询的 `@ExtendedProperties` 结果集。 游标的属性名称为 `Cursor`，其值为一个 `string`。
+这两个特殊函数（`cursor_after` 和 `cursor_before_or_at`）也有副作用：使用这两个函数时，Kusto 会将 **数据库游标的当前值** 发送到查询的 `@ExtendedProperties` 结果集。 游标的属性名称为 `Cursor`，其值为一个 `string`。 
 
 例如：
 
 ```json
-{ "Cursor": "636040929866477946" }
+{"Cursor" : "636040929866477946"}
 ```
 
 ## <a name="restrictions"></a>限制
@@ -67,7 +67,7 @@ Kusto 提供三个函数来帮助实现上述两个方案：
 // [Once] Enable the IngestionTime policy on table Employees
 .set table Employees policy ingestiontime true
 
-// [Once] Get all the data that the Employees table currently holds
+// [Once] Get all the data that the Employees table currently holds 
 Employees | where cursor_after('')
 
 // The query above will return the database cursor value in
@@ -76,7 +76,7 @@ Employees | where cursor_after('')
 
 // [Many] Get all the data that was added to the Employees table
 // since the previous query was run using the previously-returned
-// database cursor
+// database cursor 
 Employees | where cursor_after('636040929866477946') // -> 636040929866477950
 
 Employees | where cursor_after('636040929866477950') // -> 636040929866479999

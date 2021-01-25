@@ -6,15 +6,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
 origin.date: 11/18/2019
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: 1c1d180559d06fd432f9f391df9bb1323f405a13
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 712417eefd4b608947dde3b28edeb53f7f95744d
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850756"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163227"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>优化 Azure Data Lake Storage Gen2 性能
 
@@ -22,11 +22,11 @@ Azure Data Lake Storage Gen2 支持使用高吞吐量进行 I/O 密集型分析�
 
 ![Data Lake Storage Gen2 性能](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-Data Lake Storage Gen2 可进行缩放，以便为所有分析方案提供必要的吞吐量。 默认情况下，Data Lake Storage Gen2 帐户自动提供足够的吞吐量来满足广泛用例的需求。 对于客户达到默认限制的情况，可联系 [Azure 支持部门](https://support.azure.cn/zh-cn/support/contact/)配置 Data Lake Storage Gen2 帐户，以获得更多吞吐量。
+Data Lake Storage Gen2 可进行缩放，以便为所有分析方案提供必要的吞吐量。 默认情况下，Data Lake Storage Gen2 帐户在其默认配置中提供足够的吞吐量，以满足广泛类别用例的需要。 对于客户达到默认限制的情况，可联系 [Azure 支持部门](https://support.azure.cn/zh-cn/support/contact/)配置 Data Lake Storage Gen2 帐户，以获得更多吞吐量。
 
 ## <a name="data-ingestion"></a>数据引入
 
-将数据从源系统引入 Data Lake Storage Gen2 时，源硬件、源网络硬件以及与 Data Lake Storage Gen2 的网络连接可能成为瓶颈，请务必考虑到这一点。  
+将数据从源系统引入 Data Lake Storage Gen2 时，源硬件、源网络硬件或与 Data Lake Storage Gen2 的网络连接可能成为瓶颈，请务必考虑到这一点。  
 
 ![此图显示了将源系统中的数据引入到 Data Lake Storage Gen2 时要考虑的因素。](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
@@ -44,7 +44,7 @@ Data Lake Storage Gen2 可进行缩放，以便为所有分析方案提供必要
 
 解决上述源硬件和网络连接瓶颈后，即可配置引入工具。 下表概述了几种常用引入工具的关键设置，并提供了关于这些工具的详尽性能优化文章。  若要深入了解方案应使用何种工具，请参阅这篇[文章](data-lake-storage-data-scenarios.md)。
 
-| 工具               | 设置     | 更多详细信息                                                                 |
+| 工具               | 设置 | 更多详细信息                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [链接](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure 数据工厂| parallelCopies    | [链接](../../data-factory/copy-activity-performance.md)                          |

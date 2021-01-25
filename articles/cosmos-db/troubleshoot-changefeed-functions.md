@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 origin.date: 03/13/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 78dc8263de51cf90eee775d03f0ce506a5a220fd
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: a675f4ef29b74ef7be65e57c8d8fbb32c6dc43de
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850833"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230162"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>诊断和排查使用适用于 Cosmos DB 的 Azure Functions 触发器时出现的问题
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -86,16 +86,18 @@ Azure 函数失败并出现错误消息“源集合 'collection-name' (在数据
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>触发器中缺少某些更改
 
-如果你发现 Azure 函数未拾取 Azure Cosmos 容器中发生的某些更改，则需要执行一个初始调查步骤。
+如果发现 Azure Cosmos 容器中发生的某些更改未被 Azure 函数获取，或者在复制时目标中缺少某些更改，请按照以下步骤操作。
 
 当 Azure 函数收到更改时，它通常会处理这些更改，并可能会选择性地将结果发送到另一个目标。 调查丢失更改的问题时，请确保度量在引入时间点（启动 Azure 函数时）收到的更改，而不要度量目标上的更改。 
 
 如果目标中缺少某些更改，可能意味着在收到更改后执行 Azure 函数期间发生了某种错误。
 
-在这种情况下，最佳措施是在代码中以及在可能正在处理更改的循环中添加 `try/catch` 块，以检测特定的项子集中出现的任何失败，并相应地对其进行处理（将这些项发送到另一个存储以做进一步的分析或重试）。 
+在这种情况下，最佳措施是在代码中以及在可能正在处理更改的循环中添加 `try/catch` 块，以检测特定的项子集中出现的任何失败，并相应地对其进行处理（将这些项发送到另一个存储以做进一步的分析或重试）。
 
 > [!NOTE]
 > 默认情况下，如果在代码执行期间发生未经处理的异常，则适用于 Cosmos DB 的 Azure Functions 触发器不会重试一批更改。 这意味着，更改未抵达目标的原因是无法处理它们。
+
+如果目标是另一个 Cosmos 容器，并且你正在执行更新插入操作来复制项，请验证受监视容器和目标容器上的分区键定义是否相同。 由于此配置差异，更新插入操作可能会将多个源项保存为目标中的一个项。
 
 如果你发现触发器根本未收到某些更改，则最常见的情形是有另一个 Azure 函数正在运行  。 该函数可能是部署在 Azure 中的另一个 Azure 函数，或者是在开发人员计算机本地运行的、采用 **完全相同配置**（相同的受监视容器和租约容器）的 Azure 函数，并且此 Azure 函数正在窃取你的 Azure 函数预期要处理的更改子集。
 

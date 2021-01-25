@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 12/10/2020
-ms.date: 12/30/2020
+origin.date: 01/08/2021
+ms.date: 01/14/2021
 ms.author: v-tawe
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1e60552bd281aadcf466dce5a13751e7dc22064d
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: 2ddbf8c3d1e76fe3034f2b30d92381d7d5d9739c
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820281"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193225"
 ---
 # <a name="speech-to-text-rest-api"></a>语音转文本 REST API
 
@@ -60,6 +60,9 @@ REST API v3.0 包含以下功能：
 * 适用于短音频的语音转文本 REST API 仅返回最终结果。 不提供部分结果。
 
 如果必须为应用程序发送更长的音频，请考虑使用[语音 SDK](speech-sdk.md) 或[语音转文本 REST API v3.0](#speech-to-text-rest-api-v30)。
+
+> [!TIP]
+> 请参阅[此文](sovereign-clouds.md)，了解 Azure 中国终结点。
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 

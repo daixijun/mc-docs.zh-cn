@@ -9,13 +9,13 @@ ms.service: data-explorer
 ms.topic: reference
 ms.custom: has-adal-ref
 origin.date: 03/18/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 6964d930cae1c06650af6db6b628ea61c4deaa6d
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 2da938fe337aa650a22187b984d9c3db5eea8361
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105228"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611709"
 ---
 # <a name="kusto-ingest-client-library"></a>Kusto 引入客户端库 
 
@@ -72,7 +72,7 @@ ms.locfileid: "93105228"
 
 ## <a name="ingestion-best-practices"></a>引入最佳做法
 
-[引入最佳做法](kusto-ingest-best-practices.md)提供了有关引入的 COG 和吞吐量 POV。
+[引入最佳做法](kusto-ingest-best-practices.md)提供了有关引入的 COGS（所售货物成本）和吞吐量 POV。
 
 * **线程安全性 -** Kusto 引入客户端实现是线程安全的，可以重复使用。 无需为单个或多个引入操作创建 `KustoQueuedIngestClient` 类的实例。 每个目标 Kusto 群集的每个用户进程需要 `KustoQueuedIngestClient` 的单个实例。 运行多个实例会适得其反，可能会导致数据管理群集上出现 DoS。
 
@@ -84,7 +84,7 @@ ms.locfileid: "93105228"
 * **引入权限 -** 
 [Kusto 引入权限](kusto-ingest-client-permissions.md)解释了使用 `Kusto.Ingest` 包成功进行引入所需的权限设置。
 
-* **用法 -** 如前所述，建议用于 Kusto 的可持续大规模引入解决方案的基础应该是 **KustoQueuedIngestClient** 。
+* **用法 -** 如前所述，建议用于 Kusto 的可持续大规模引入解决方案的基础应该是 **KustoQueuedIngestClient**。
 为了最大限度地减少 Kusto 服务上的不必要负载，建议你为每个 Kusto 群集的每个进程使用 Kusto 引入客户端（排队引入或直接引入）的单个实例。 Kusto 引入客户端实现是线程安全的，并且是完全可重入的。
 
 ## <a name="next-steps"></a>后续步骤

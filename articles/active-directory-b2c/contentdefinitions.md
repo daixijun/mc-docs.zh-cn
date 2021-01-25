@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/04/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 46eda75622e494f433b609e4d4f4d182d9a03392
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: f2710f434b1f730a762fdfe9c1ce90a2b44a8c9e
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326456"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570512"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -90,7 +90,7 @@ ms.locfileid: "94326456"
 
 ### <a name="select-a-page-layout"></a>选择页面布局
 
-在 `elements` 和页面类型之间插入 `contract` 即可启用 [JavaScript 客户端代码](javascript-samples.md)。 例如，`urn:com:microsoft:aad:b2c:elements:contract:page-name:version` 。
+在 `elements` 和页面类型之间插入 `contract` 即可启用 [JavaScript 客户端代码](javascript-and-page-layout.md)。 例如，`urn:com:microsoft:aad:b2c:elements:contract:page-name:version` 。
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -234,5 +234,9 @@ ms.locfileid: "94326456"
 | **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **个人资料更新页面** - 显示用户在更新其个人资料时可以访问的窗体。 除了密码输入字段之外，此页面类似于社交帐户注册页面。 |
 | **api.signuporsignin** | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **统一注册或登录页面** - 处理用户注册和登录过程。 用户可以使用企业标识提供者、社交标识提供者本地帐户。 |
  
+## <a name="next-steps"></a>后续步骤
 
-<!-- Update_Description: wording update -->
+有关使用内容定义自定义用户界面的示例，请参阅：
+
+[使用自定义策略自定义应用程序的用户界面](customize-ui-with-html.md)
+

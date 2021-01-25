@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 origin.date: 12/16/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/25/2021
 ms.testscope: no
 ms.testdate: 07/13/2020
 ms.author: v-yeche
-ms.openlocfilehash: ead3c3f76b3393cb5025298d9b828aa86545ad5c
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 356c3d5ac065017a6c67e45d5e7684006e80226b
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021513"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570666"
 ---
 <!--Verified successfully-->
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>在 Azure Kubernetes 服务中使用托管标识
@@ -31,6 +31,14 @@ ms.locfileid: "98021513"
 
 ## <a name="limitations"></a>限制
 
+<!--MOONCAKE CUSTOMIZE on 01/11/2021-->
+<!--Not Available on az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview-->
+<!--Not Available on az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview-->
+
+* 只有在 Azure 中国云上创建群集时，才能启用具有托管标识的 AKS 群集。
+
+    <!--MOONCAKE CUSTOMIZE on 01/11/2021-->
+    
 * 在群集升级操作期间，托管标识暂时不可用。
 * 不支持启用了托管标识的群集的租户移动/迁移。
 * 如果群集启用了 `aad-pod-identity`，节点托管标识 (NMI) pod 将修改节点的 iptable，以拦截对 Azure 实例元数据终结点的调用。 此配置意味着对元数据终结点发出的任何请求都将被 NMI 拦截，即使 pod 不使用 `aad-pod-identity`。 可以将 AzurePodIdentityException CRD 配置为通知 `aad-pod-identity` 应在不使用 NMI 进行出任何处理的情况下，代理与 CRD 中定义的标签匹配的 pod 所发起的对元数据终结点的任何请求。 应通过配置 AzurePodIdentityException CRD 在 `aad-pod-identity` 中排除在 _kube-system_ 命名空间中具有 `kubernetes.azure.com/managedby: aks` 标签的系统 pod。 有关详细信息，请参阅[禁用特定 pod 或应用程序的 aad-pod-identity](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)。

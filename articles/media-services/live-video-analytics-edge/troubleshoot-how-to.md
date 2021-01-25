@@ -5,13 +5,13 @@ author: WenJason
 ms.topic: how-to
 ms.author: v-jay
 origin.date: 12/04/2020
-ms.date: 01/11/2021
-ms.openlocfilehash: 1b10ccf5696cdcf73d8acfe7075777fd9a5f3d3b
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.date: 01/18/2021
+ms.openlocfilehash: f5b890bd7a3e559042775c685ead9919dc49cdcf
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023209"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231060"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>对 IoT Edge 上的实时视频分析进行故障排除
 
@@ -66,6 +66,8 @@ az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device 
     * 406 - IoT Edge 设备脱机或不发送状态报告。
     * 500 - IoT Edge 运行时中出现了一个错误。
 
+    > [!TIP]
+    > 如果在环境中运行 Azure IoT Edge 模块时遇到问题，请使用 [Azure IoT Edge 标准诊断步骤](/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)作为故障排除和诊断的指南。
 ### <a name="post-deployment-direct-method-error-code"></a>后期部署：直接方法错误代码
 1. 如果收到状态 `501 code`，请检查以确保直接方法名称正确。 如果方法名称和请求有效负载准确，则应获得结果，并显示成功代码 =200。 
 1. 如果请求有效负载不准确，将显示状态 `400 code` 以及指示错误代码和消息的响应有效负载，这些错误代码和消息应该有助于诊断直接方法调用的问题。
@@ -94,6 +96,8 @@ IoT Edge 模块的容器日志应包含诊断信息，以帮助调试模块运�
 * [实时视频分析或任何其他自定义 IoT Edge 模块无法将消息发送到边缘中心，出现 404 错误](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-fails-to-send-a-message-to-edgehub-with-404-error)。
 * [IoT Edge 模块部署成功，然后从设备中消失](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device)。
 
+    > [!TIP]
+    > 如果在环境中运行 Azure IoT Edge 模块时遇到问题，请使用 [Azure IoT Edge 标准诊断步骤](/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)作为故障排除和诊断的指南。
 ### <a name="live-video-analytics-working-with-external-modules"></a>用于外部模块的实时视频分析
 
 通过媒体图扩展处理器的实时视频分析可以扩展媒体图，以使用 HTTP 或 gRPC 协议发送和接收来自其他 IoT Edge 模块的数据。 作为[特定示例](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension)，媒体图可以通过 HTTP 协议将视频帧作为图像发送到外部推理模块（如 Yolo v3），并接收基于 JSON 的分析结果。 在这种拓扑中，事件的目标主要是 IoT 中心。 如果在中心上看不到推理事件，请检查以下各项：
@@ -302,7 +306,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 若要将 gRPC 服务器与实时视频分析配合使用，可以使用共享内存来获得最佳性能。 此操作要求使用由编程语言/环境公开的 Linux 共享内存功能。 
 
 1. 打开 Linux 共享内存句柄。
-1. 收到帧后，访问共享内存中的地址偏移。
+1. 收到帧后，访问共享内存中的地址偏移量。
 1. 确认帧处理完成，使实时视频分析可以回收其内存。
 
    > [!NOTE]

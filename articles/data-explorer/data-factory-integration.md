@@ -8,13 +8,13 @@ ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 01/20/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 5f194a2046607174ebd360e978ed2fc5bb0190f7
-ms.sourcegitcommit: f3fee8e6a52e3d8a5bd3cf240410ddc8c09abac9
+ms.date: 01/22/2021
+ms.openlocfilehash: a49bb1849a3a8b80517038aab67629c764e0028e
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91146454"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611630"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>将 Azure 数据资源管理器与 Azure 数据工厂集成
 
@@ -30,11 +30,12 @@ Azure 数据工厂复制活动用于在数据存储之间传输数据。 支持�
 Azure IR (Integration Runtime) 支持使用 Azure 数据资源管理器在 Azure 内部复制数据，自承载 IR 支持使用 Azure 数据资源管理器从/向本地或配置了访问控制的网络（例如 Azure 虚拟网络）中的数据存储复制数据。 有关详细信息，请参阅[要使用哪个 IR](/data-factory/concepts-integration-runtime#determining-which-ir-to-use)
  
 > [!TIP]
-> 使用复制活动以及创建**链接服务**或**数据集**时，请选择数据存储“Azure 数据资源管理器(Kusto)”，而不要选择旧数据存储“Kusto”。   
+> 使用复制活动以及创建 **链接服务** 或 **数据集** 时，请选择数据存储“Azure 数据资源管理器(Kusto)”，而不要选择旧数据存储“Kusto”。   
 
 ### <a name="lookup-activity"></a>查找活动
  
 查找活动用于在 Azure 数据资源管理器中执行查询。 查询结果将作为查找活动的输出返回，可以在管道中的下一个活动中使用，具体如 [ADF 查找文档](/data-factory/control-flow-lookup-activity#use-the-lookup-activity-result-in-a-subsequent-activity)中所述。  
+
 除了将响应大小限制为 5,000 行和 2 MB 以外，该活动还将查询超时限制为 1 小时。
 
 ### <a name="command-activity"></a>命令活动
@@ -66,7 +67,7 @@ Azure IR (Integration Runtime) 支持使用 Azure 数据资源管理器在 Azure
 |---|---|---|
 | **流程说明** | ADF 对 Kusto 执行查询，处理结果，然后将结果发送到目标数据存储。 <br>（**ADX > ADF > 接收器数据存储**） | ADF 将 `.export` 控制命令发送到 Azure 数据资源管理器，后者执行该命令，然后将数据直接发送到目标数据存储。 <br>（**ADX > 接收器数据存储**） |
 | **支持的目标数据存储** | 有多种[支持的数据存储](/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLSv2、Azure Blob、SQL 数据库 |
-| **“性能”** | 集中式 | <ul><li>分布式（默认配置），从多个节点同时导出数据</li><li>速度更快，COGS 成本效益更高。</li></ul> |
+| **“性能”** | 集中式 | <ul><li>分布式（默认配置），从多个节点同时导出数据</li><li>速度更快且更具 COGS（所售货物成本）效益。</li></ul> |
 | **服务器限制** | 可以提高/禁用[查询限制](kusto/concepts/querylimits.md)。 默认情况下，ADF 查询包含： <ul><li>500,000 条记录或 64 MB 的大小限制。</li><li>10 分钟时间限制。</li><li>`noTruncation` 设置为 false。</li></ul> | 默认情况下，可提高或禁用查询限制： <ul><li>禁用大小限制。</li><li>将服务器超时提高至 1 小时。</li><li>`MaxMemoryConsumptionPerIterator` 和 `MaxMemoryConsumptionPerQueryPerNode` 提高至最大值（5 GB，TotalPhysicalMemory/2）。</li></ul>
 
 > [!TIP]
@@ -98,7 +99,7 @@ Azure IR (Integration Runtime) 支持使用 Azure 数据资源管理器在 Azure
 | **创建链接服务** | 数据库导航 | 数据库查看者 <br>使用 ADF 的已登录用户需获得授权才能读取数据库元数据。 | 用户可以手动提供数据库名称。 |
 | | 测试连接 | 数据库监视者或表引入者  <br>服务主体需获得授权才能执行数据库级别的 `.show` 命令或表级别的引入。 | <ul><li>TestConnection 验证与群集的连接，而不验证与数据库的连接。 即使数据库不存在，此命令也可能会成功。</li><li>拥有表管理员权限并不足够。</li></ul>|
 | **创建数据集** | 表导航 | 数据库监视者 <br>使用 ADF 的已登录用户必须获得授权才能执行数据库级别的 `.show` 命令。 | 用户可以手动提供表名称。|
-| **创建数据集**或**复制活动** | 预览数据 | 数据库查看者 <br>服务主体必须获得授权才能读取数据库元数据。 | | 
+| **创建数据集** 或 **复制活动** | 预览数据 | 数据库查看者 <br>服务主体必须获得授权才能读取数据库元数据。 | | 
 |   | 导入架构 | 数据库查看者 <br>服务主体必须获得授权才能读取数据库元数据。 | 当 ADX 是表格到表格复制的源时，ADF 会自动导入架构，即使用户未显式导入架构也是如此。 |
 | **ADX 用作接收器** | 创建按名称的列映射 | 数据库监视者 <br>服务主体必须获得授权才能执行数据库级别的 `.show` 命令。 | <ul><li>所有必需的操作将使用“表引入者”角色。</li><li> 某些可选操作可能会失败。</li></ul> |
 |   | <ul><li>在表中创建 CSV 映射</li><li>删除映射</li></ul>| 表引入者或数据库管理员  <br>服务主体必须获得授权才能对表进行更改。 | |
@@ -116,7 +117,7 @@ Azure IR (Integration Runtime) 支持使用 Azure 数据资源管理器在 Azure
 |---|---|
 | **组件的地理邻近性** | 将所有组件放在同一区域：<ul><li>源和接收器数据存储。</li><li>ADF 集成运行时。</li><li>ADX 群集。</li></ul>确保最起码你自己的集成运行时位于 ADX 群集所在的同一区域。 |
 | **DIU 数** | ADF 使用的每 4 个 DIU 有 1 个 VM。 <br>仅当源是包含多个文件的基于文件的存储时，增加 DIU 才有作用。 然后，每个 VM 将并行处理一个不同的文件。 因此，复制单个大文件比复制多个小文件的延迟更高。|
-|**ADX 群集的数量和 SKU** | 使用大量的 ADX 节点会大幅增加引入处理时间。|
+|**ADX 群集的数量和 SKU** | 使用大量的 ADX 节点会大幅增加引入处理时间。 使用 dev SKU 会严重限制性能|
 | **并行度** |    若要从数据库中复制大量数据，请将数据分区，然后使用 ForEach 循环并行复制每个分区，或使用[“从数据库批量复制到 Azure 数据资源管理器”模板](data-factory-template.md)。 注意：复制活动中的“设置” > “并行度”与 ADX 无关。  |
 | **数据处理复杂性** | 延迟根据源文件格式、列映射和压缩而有所不同。|
 | **运行集成运行时的 VM** | <ul><li>对于 Azure 复制，无法更改 ADF VM 和计算机 SKU。</li><li> 对于本地到 Azure 的复制，请确定托管自承载 IR 的 VM 是否足够强大。</li></ul>|
@@ -166,7 +167,7 @@ ABC   DEF<br/>
     * 使用 Azure 数据工厂的 JSON 编辑器手动编辑管道定义。 在“映射”中，执行以下操作：
        * 删除为每个子项创建的多个映射，并添加单个可将对象类型映射到表列的映射。
        * 在右方括号后面添加一个逗号，后跟：<br/>
-       `"mapComplexValuesToString": true`。
+       `"mapComplexValuesToString": true`.
 
 ### <a name="specify-additionalproperties-when-copying-to-azure-data-explorer"></a>在复制到 Azure 数据资源管理器时指定 AdditionalProperties
 

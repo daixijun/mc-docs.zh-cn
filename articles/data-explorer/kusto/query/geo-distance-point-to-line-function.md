@@ -8,13 +8,13 @@ ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/11/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 5badb6815e002ec30847f5c94112754930a75f6a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 66c4c435d42557fad308bc31880a47741644d78d
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105222"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611647"
 ---
 # <a name="geo_distance_point_to_line"></a>geo_distance_point_to_line()
 
@@ -50,7 +50,8 @@ dynamic({"type":"MultiLineString","coordinates": [ [ line_1, line_2 ,..., line_N
 * 边缘长度必须小于 180 度。 将选择两个顶点之间的最短边缘。
 
 > [!TIP]
-> 为了获得更好的性能，请使用文字直线。
+> * 为了获得更好的性能，请使用文字直线。
+> * 如果你想要知道一个或多个点到多条线之间的最短距离，请考虑将这些线折叠成一条多线。 请参阅下面的[示例](#examples)。
 
 ## <a name="examples"></a>示例
 
@@ -92,6 +93,32 @@ nyc_taxi
 | where geo_distance_point_to_line(pickup_longitude, pickup_latitude, MadisonAve) <= 0.1
 | take 100
 | render scatterchart with (kind=map) // map rendering available in Kusto Explorer desktop
+```
+
+下面的示例将多个行折叠成一个多行并查询这个多行。 此查询将查找发生在曼哈顿所有公路 10 公里外的所有出租车接客事件。
+
+:::image type="content" source="images/geo-distance-point-to-line-function/lines-folding.png" alt-text="行折叠":::
+
+```kusto
+let ManhattanRoads =
+    datatable(features:dynamic)
+    [
+        dynamic({"type":"Feature","properties":{"Label":"145thStreetBrg"},"geometry":{"type":"MultiLineString","coordinates":[[[-73.9322259,40.8194635],[-73.9323259,40.8194743],[-73.9323973,40.8194779]]]}}),
+        dynamic({"type":"Feature","properties":{"Label":"W120thSt"},"geometry":{"type":"MultiLineString","coordinates":[[[-73.9619541,40.8104844],[-73.9621542,40.8105725],[-73.9630542,40.8109455],[-73.9635902,40.8111714],[-73.9639492,40.8113174],[-73.9640502,40.8113705]]]}}),
+        dynamic({"type":"Feature","properties":{"Label":"1stAve"},"geometry":{"type":"MultiLineString","coordinates":[[[-73.9704124,40.748033],[-73.9702043,40.7480906],[-73.9696892,40.7487346],[-73.9695012,40.7491976],[-73.9694522,40.7493196]],[[-73.9699932,40.7488636],[-73.9694522,40.7493196]],[[-73.9694522,40.7493196],[-73.9693113,40.7494946],[-73.9688832,40.7501056],[-73.9686562,40.7504196],[-73.9684231,40.7507476],[-73.9679832,40.7513586],[-73.9678702,40.7514986]],[[-73.9676833,40.7520426],[-73.9675462,40.7522286],[-73.9673532,40.7524976],[-73.9672892,40.7525906],[-73.9672122,40.7526806]]]}})
+        // ... more roads ...
+    ];
+let allRoads=toscalar(
+    ManhattanRoads
+    | project road_coordinates=features.geometry.coordinates
+    | summarize make_list(road_coordinates)
+    | project multipolygon = pack("type","MultiLineString", "coordinates", list_road_coordinates));
+nyc_taxi
+| project pickup_longitude, pickup_latitude
+| where pickup_longitude != 0 and pickup_latitude != 0
+| where geo_distance_point_to_line(pickup_longitude, pickup_latitude, todynamic(allRoads)) > 10000
+| take 10
+| render scatterchart with (kind=map)
 ```
 
 由于 LineString 输入无效，以下示例将返回 null 结果。

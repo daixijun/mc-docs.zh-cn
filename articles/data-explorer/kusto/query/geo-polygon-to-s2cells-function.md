@@ -8,39 +8,40 @@ ms.reviewer: mbrichko
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 05/10/2020
-ms.date: 08/06/2020
-ms.openlocfilehash: c326f3241632d2c81de5465f6d7fd363954b8b9b
-ms.sourcegitcommit: 7ceeca89c0f0057610d998b64c000a2bb0a57285
+ms.date: 01/22/2021
+ms.openlocfilehash: dd39aa023c13838486b6aa19b5f7cf0cdeb7673d
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841754"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611555"
 ---
 # <a name="geo_polygon_to_s2cells"></a>geo_polygon_to_s2cells()
 
-计算覆盖地球上的多边形或多多边形的 S2 单元标记。
+计算覆盖地球上的多边形或多多边形的 S2 单元标记。 此函数是一种有用的地理空间加入工具。
 
-详细了解 [S2 单元层次结构](https://s2geometry.io/devguide/s2cell_hierarchy)。
+详细了解 [S2 单元格层次结构](https://s2geometry.io/devguide/s2cell_hierarchy)。
 
-**语法**
+## <a name="syntax"></a>语法
 
 `geo_polygon_to_s2cells(`*polygon*`, `*level*`)`
 
-**参数**
+## <a name="arguments"></a>参数
 
 * polygon：采用 [GeoJSON 格式](https://tools.ietf.org/html/rfc7946)的 [dynamic](./scalar-data-types/dynamic.md) 数据类型的多边形或多多边形。 
 * level：可选的 `int`，用于定义所请求的单元级别。 支持的值范围为 [0, 30]。 如果未指定，则使用默认值 `11`。
 
-**返回**
+## <a name="returns"></a>返回
 
 覆盖多边形或多多边形的 S2 单元标记字符串的数组。 如果 polygon 或 level 无效，或者单元计数超出限制，则查询会产生 null 结果。
 
 > [!NOTE]
 >
-> * 在将坐标与可能包含这些坐标的多边形进行匹配时，使用 S2 单元标记来覆盖多边形会很有用。
+> * 在将坐标与可能包含这些坐标的多边形进行匹配以及将多边形与多边形匹配时，使用 S2 单元标记来覆盖多边形会很有用。
 > * 覆盖标记的多边形具有相同的 S2 单元级别。
 > * 每个多边形的最大标记计数为 65536。
 > * 用于在地球上进行测量的大地基准是一个球体。 多边形边缘是球体上的测地线。
+> * 如果输入多边形边缘是直笛卡尔线，请考虑使用 [geo_polygon_densify()](geo-polygon-densify-function.md) 以将平面边缘转换为测地线。
 
 **使用 S2 单元标记覆盖多边形的动机**
 
@@ -97,7 +98,7 @@ Polygons | extend dummy=1
 > [!WARNING]
 > 使用小面积单元覆盖大面积多边形可能会导致产生大量的覆盖单元。 因此，查询可能会返回 null。
 
-**示例**
+## <a name="examples"></a>示例
 
 下面的示例将坐标归类为多边形。
 
@@ -134,6 +135,27 @@ Polygons
 |-73.9741|40.7914|上西区|
 |-73.995|40.734|格林尼治村|
 |-73.9584|40.7688|上东区|
+
+下面的示例筛选掉与感兴趣的多边形区域不相交的多边形。 最大误差是 s2cell 长度的对角线。 本示例基于夜间光栅文件中的多边形地球。
+
+```kusto
+let intersection_level_hint = 7;
+let area_of_interest = dynamic({"type": "Polygon","coordinates": [[[-73.94966125488281,40.79698248639272],[-73.95841598510742,40.800426144169315],[-73.98124694824219,40.76806170936614],[-73.97283554077148,40.7645513650551],[-73.94966125488281,40.79698248639272]]]});
+let area_of_interest_covering = geo_polygon_to_s2cells(area_of_interest, intersection_level_hint);
+EarthAtNight
+| project value = features.properties.DN, polygon = features.geometry
+| extend covering = geo_polygon_to_s2cells(polygon, intersection_level_hint)
+| mv-apply c = covering to typeof(string) on
+(
+    summarize is_intersects = anyif(1, array_index_of(area_of_interest_covering, c) != -1)
+)
+| where is_intersects == 1
+| count
+```
+
+|计数|
+|---|
+|83|
 
 使用级别 5 的 S2 单元覆盖某个多边形时需要的单元数。
 

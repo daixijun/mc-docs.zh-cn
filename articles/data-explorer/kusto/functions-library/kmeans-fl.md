@@ -7,13 +7,13 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/18/2020
-ms.date: 10/30/2020
-ms.openlocfilehash: 442e1b1156dad7dd404562ee423a9cbdf383ea6a
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 59b13bbed6c61f594016b2ad941e09764f5cb4bb
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106710"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611276"
 ---
 # <a name="kmeans_fl"></a>kmeans_fl()
 
@@ -35,7 +35,7 @@ ms.locfileid: "93106710"
 
 ## <a name="usage"></a>使用情况
 
-`kmeans_fl()` 是用户定义的[表格函数](../query/functions/user-defined-functions.md#tabular-function)，将使用 [invoke 运算符](../query/invokeoperator.md)来应用。 可以在查询中嵌入其代码，或将其安装在数据库中。 用法选项有两种：临时使用和永久使用。 有关示例，请参阅下面的选项卡。
+`kmeans_fl()` 是用户定义的[表格函数](../query/functions/user-defined-functions.md#tabular-function)，将使用 [invoke 运算符](../query/invokeoperator.md)来应用。 可以在查询中嵌入该函数的代码，或者在数据库中安装该函数。 用法选项有两种：临时使用和永久使用。 有关示例，请参阅下面的选项卡。
 
 # <a name="ad-hoc"></a>[临时](#tab/adhoc)
 
@@ -77,7 +77,7 @@ OccupancyDetection
 
 # <a name="persistent"></a>[Persistent](#tab/persistent)
 
-如果是永久使用，请使用 [.create 函数](../management/create-function.md)。 创建函数需要[数据库用户权限](../management/access-control/role-based-authorization.md)。
+如果是永久使用，请使用 [`.create function`](../management/create-function.md)。 创建函数需要有[数据库用户权限](../management/access-control/role-based-authorization.md)。
 
 ### <a name="one-time-installation"></a>一次性安装
 

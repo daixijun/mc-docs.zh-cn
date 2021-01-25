@@ -5,15 +5,15 @@ author: anthonychu
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 03/01/2019
-ms.date: 10/19/2020
+ms.date: 01/14/2021
 ms.author: v-tawe
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: c1145f1e22d89ecfce4327a281b46923bca9cfb7
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: 26ba08554958e9faa109babecd7504be9fc7cdd3
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170795"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193283"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>使用 Azure SignalR 服务进行 Azure Functions 开发和配置
 
@@ -50,7 +50,7 @@ Azure Functions 应用程序可以利用 [Azure SignalR 服务绑定](../azure-f
 
 ### <a name="handle-messages-sent-from-signalr-service"></a>处理从 SignalR 服务发送的消息
 
-使用 SignalR 触发器绑定来处理从 SignalR 服务发送的消息。 可在客户端发送消息或客户端连接或断开连接时通过触发功能收到通知。
+使用 SignalR 触发器绑定来处理从 SignalR 服务发送的消息。 可在客户端发送消息或客户端连接或断开连接时收到通知。
 
 有关详细信息，请参阅 [SignalR 触发器绑定参考](../azure-functions/functions-bindings-signalr-service-trigger.md)。
 

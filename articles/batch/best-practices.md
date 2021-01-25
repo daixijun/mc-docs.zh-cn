@@ -4,17 +4,17 @@ description: 了解开发 Azure Batch 解决方案的最佳做法和有用技巧
 ms.service: batch
 origin.date: 12/18/2020
 author: rockboyfor
-ms.date: 01/11/2021
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 06/29/2020
 ms.author: v-yeche
 ms.topic: conceptual
-ms.openlocfilehash: 4984c30e37557e0fd925a060f0ba11065ba7f260
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: ed8f627668249da6b7583b21db3ebb840cf700b8
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021843"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230388"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 最佳做法
 
@@ -30,6 +30,9 @@ ms.locfileid: "98021843"
 ### <a name="pool-configuration-and-naming"></a>池配置和命名
 
 - **池分配模式** 创建 Batch 帐户时，可以在两种池分配模式之间进行选择：**Batch 服务** 或 **用户订阅**。 在大部分情况下，应使用默认的 Batch 服务模式，使用此模式时，池在幕后在 Batch 托管的订阅中分配。 在备用的“用户订阅”模式下，会在创建池后直接在订阅中创建 Batch VM 和其他资源。 用户订阅帐户主要用于实现重要但却不太多见的方案。 有关用户订阅模式的详细信息，请参阅[用户订阅模式的其他配置](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)。
+
+- “cloudServiceConfiguration”或“virtualMachineConfiguration”。
+    应使用“virtualMachineConfiguration”。 “virtualMachineConfiguration”池支持所有 Batch 功能。 “cloudServiceConfiguration”池并非支持所有功能，也没有计划新的功能。
 
 - **确定用于池映射的作业时考虑作业和任务运行时间。**
     如果作业主要包括短时间运行的任务，且预期的任务总计数较小，因此作业的总预期运行时间不长，那么，请不要为每个作业分配新池。 节点的分配时间会缩减作业运行时间。

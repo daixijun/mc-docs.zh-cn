@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/23/2018
-ms.date: 10/29/2020
-ms.openlocfilehash: 7f8ac1458fe53e72ce55a12ce996e571a5354c07
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: cc65a2818d34b4303d5b2367b28831ae6d430bcd
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103888"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611553"
 ---
 # <a name="gettype"></a>gettype()
 

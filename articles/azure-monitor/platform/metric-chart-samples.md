@@ -5,15 +5,15 @@ author: Johnnytechn
 services: azure-monitor
 origin.date: 01/29/2019
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/12/2021
 ms.author: v-johya
 ms.subservice: metrics
-ms.openlocfilehash: 348f09207cfa046db59362ff8ce051cde2ff24ab
-ms.sourcegitcommit: bd6a558e3d81f01c14dc670bc1cf844c6fb5f6dc
+ms.openlocfilehash: ee177787ef9bb61db12ca16ae51da14709b2783a
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89457415"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229933"
 ---
 # <a name="metric-chart-examples"></a>指标图表示例 
 
@@ -25,31 +25,22 @@ Azure 平台提供了[一千多个指标](./metrics-supported.md)，其中许多
 
 此图表显示应用服务的 CPU 是否在可接受范围内，并按实例对其进行分解，以确定负载是否得到正确分发。 可以从图表上看到，在上午 6 点之前，应用在单个服务器实例上运行，然后通过添加另一个实例进行纵向扩展。
 
-![按服务器实例划分的平均 CPU 百分比折线图](./media/metric-chart-samples/cpu-by-instance.png)
+![按服务器实例划分的平均 CPU 百分比折线图](./media/metrics-charts/cpu-by-instance.png)
 
 ### <a name="how-to-configure-this-chart"></a>如何配置此图表？
 
 选择应用服务资源，并找到“CPU 百分比”  指标。 然后单击“应用拆分”  ，并选择“实例”  维度。
 
-## <a name="application-availability-by-region"></a>各个区域的应用程序可用性
+<!--Not available in MC-->
+## <a name="volume-of-failed-storage-account-transactions-by-api-name"></a>按 API 名称划分的失败存储帐户事务量
 
-查看各个区域的应用程序可用性，以确定哪些地理位置遇到问题。 此图表显示 Application Insights 可用性指标。 可以看到，受监视的应用程序没有遇到来自美国东部数据中心的可用性问题，但它正在经历来自美国西部和东亚的部分可用性问题。
+存储帐户资源遇到了过多失败的事务量。 可以使用事务指标来确定哪个 API 负责过多失败。 请注意，以下图表在拆分时配置了相同的维度（API 名称），并按失败的响应类型进行筛选：
 
-![各个位置的平均可用性图表](./media/metric-chart-samples/availability-run-location.png)
-
-### <a name="how-to-configure-this-chart"></a>如何配置此图表？
-
-首先需要启用网站的 [Application Insights 可用性](../app/monitor-web-app-availability.md)监视。 在此之后，选择 Application Insights 资源并选择可用性指标。 在“运行位置”  维度上应用拆分。
-
-## <a name="volume-of-storage-account-transactions-by-api-name"></a>按 API 名称划分的存储帐户事务量
-
-存储帐户资源遇到了过多事务量。 可以使用事务指标来确定哪个 API 负责过多负载。 请注意，下面的图表在筛选和拆分中配置了相同维度（API 名称），以将视图缩小到只包含感兴趣的 API 调用：
-
-![API 事务条形图](./media/metric-chart-samples/transactions-by-api.png)
+![API 事务条形图](./media/metrics-charts/split-and-filter-example.png)
 
 ### <a name="how-to-configure-this-chart"></a>如何配置此图表？
 
-在指标选取器中，选择你的存储帐户和“事务”  指标。 将图表类型切换为“条形图”  。 单击“应用拆分”  并选择“API 名称”  维度。 然后单击“添加筛选器”  ，再次选择“API 名称”  维度。 在筛选器对话框中，选择要在图表上显示的 API。
+在指标选取器中，选择你的存储帐户和“事务”指标。 将图表类型切换为“条形图”。 单击“应用拆分”并选择“API 名称”维度。 然后单击“添加筛选器”，再次选择“API 名称”维度。 在筛选器对话框中，选择要在图表上显示的 API。
 
 ## <a name="next-steps"></a>后续步骤
 

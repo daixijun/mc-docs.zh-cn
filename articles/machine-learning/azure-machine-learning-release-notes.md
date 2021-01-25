@@ -9,17 +9,29 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 93656521378a4ce77f56a13cd6d86805b17426cb
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 6668d2e138a7f6748b5caa4652be46c2877d7df9
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022792"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230692"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure 机器学习发行说明
 
 本文介绍 Azure 机器学习的版本。  有关完整的 SDK 参考内容，请访问 Azure 机器学习的[适用于 Python 的主要 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 参考页。
 
+## <a name="2020-12-31"></a>2020-12-31
+### <a name="azure-machine-learning-studio-notebooks-experience-december-update"></a>Azure 机器学习工作室笔记本体验（12 月更新）
++ **新功能**
+  + 用户文件名搜索。 用户现在可以搜索保存在工作区中的所有文件。
+  + 每个笔记本单元格并行支持 Markdown。 在笔记本单元格中，用户现在可以视需要选择并排查看已呈现的 markdown 和 markdown 语法。
+  + 单元格状态栏。 状态栏指明了代码单元格处于何种状态、单元格运行是否成功以及运行所需的时间。 
+   
++ **Bug 修复与改进**
+  + 改进了页面加载时间
+  + 提高了性能 
+  + 提高了速度和内核可靠性
+  
 ## <a name="2020-12-07"></a>2020-12-07
 
 ### <a name="azure-machine-learning-sdk-for-python-v1190"></a>用于 Python 的 Azure 机器学习 SDK v1.19.0

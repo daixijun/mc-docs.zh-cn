@@ -1,52 +1,24 @@
 ---
-title: 排查 Azure Application Insights 可用性测试问题 | Microsoft Docs
+title: 排查 Azure Application Insights 可用性测试问题
 description: 排查 Azure Application Insights 中的 Web 测试问题。 当网站不可用或响应速度缓慢时接收警报。
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
 origin.date: 09/19/2019
-ms.date: 10/29/2020
+ms.date: 01/12/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 4a3adebd56446ec7dbdf52950ee516afbdfaac48
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.openlocfilehash: 705a1a585f1ba54ed1ebe31f5efb04e3a8535dec
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103621"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230907"
 ---
 # <a name="troubleshooting"></a>故障排除
 
 本文将有助于排查使用可用性监视时可能出现的常见问题。
 
-## <a name="ssltls-errors"></a>SSL/TLS 错误
-
-|症状/错误消息| 可能的原因|
-|--------|------|
-|无法创建 SSL/TLS 安全通道  | SSL 版本。 仅支持 TLS 1.0、1.1 和 1.2。 **不支持 SSLv3。**
-|TLSv1.2 记录层：警报（级别：严重，说明：错误记录 MAC）| 请查看 StackExchange 线程以了解[详细信息](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake)。
-|无法连接到 CDN（内容分发网络）的 URL | 这可能是由于 CDN 上的错误配置导致的 |  
-
-### <a name="possible-workaround"></a>可能的解决方法
-
-* 如果遇到问题的 URL 始终指向依赖资源，建议对 Web 测试禁用“分析从属请求”。
-
-## <a name="test-fails-only-from-certain-locations"></a>测试仅在某些位置失败
-
-|症状/错误消息| 可能的原因|
-|----|---------|
-|连接尝试失败，因为已连接方在一段时间后尚未做出正确的响应  | 某些位置的测试代理正被防火墙阻止。|
-|    |正在通过（负载均衡器、异地流量管理器、Azure Express Route）重新路由某些 IP 地址。 
-|    |如果使用的是 Azure ExpressRoute，则在[发生非对称路由](../../expressroute/expressroute-asymmetric-routing.md)时，存在着数据包可能被丢弃的情况。|
-
-## <a name="test-failure-with-a-protocol-violation-error"></a>测试失败，出现违反协议错误
-
-|症状/错误消息| 可能的原因| 可能的解决方法 |
-|----|---------|-----|
-|服务器违反了协议。 节=ResponseHeader 详细信息=CR 必须后跟 LF | 检测到格式不正确的标头时，会发生这种情况。 具体来说，某些标头可能没有使用 CRLF 来指示行尾，这违反了 HTTP 规范。 Application Insights 强制实施此 HTTP 规范，并使用格式错误的标头导致响应失败。| a. 请与网站主机提供商/CDN 提供商联系以修复故障服务器。 <br> b. 如果失败的请求是资源（例如，样式文件、图像、脚本），则可以考虑禁止分析依赖请求。 请记住，如果执行此操作，你将无法监视这些文件的可用性。
-
-> [!NOTE]
-> 在 HTTP 标头验证比较宽松的浏览器上，URL 可能不会失败。 有关该问题的详细说明，请参阅此博客文章： http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
-
+<!--Not available in MC: ## Troubleshooting report steps for ping tests-->
 ## <a name="common-troubleshooting-questions"></a>常见故障排除问题
 
 ### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>站点看似正常，但我看见测试失败了？ 为何 Application Insights 会向我发出警报？
@@ -55,7 +27,7 @@ ms.locfileid: "93103621"
 
    * 若要降低暂时性网络问题等各方面因素导致的干扰，请确保选中“测试故障时允许重试”配置。 也可从多个位置进行测试并对警报规则阈值进行相应的管理，防止在出现特定于位置的问题时引发不必要的警报。
 
-   * 单击可用性体验中的任意红点或搜索资源管理器中的任意可用性故障，以查看我们报告失败的详细原因。 测试结果以及相关的服务器端遥测数据（如果启用）应该有助于了解测试失败的原因。 暂时性问题的常见原因是网络或连接问题。
+   * 单击可用性散点图体验中的任意红点或搜索资源管理器中的任意可用性故障，以查看我们报告失败的详细原因。 测试结果以及相关的服务器端遥测数据（如果启用）应该有助于了解测试失败的原因。 暂时性问题的常见原因是网络或连接问题。
 
    * 测试是否超时？ 我们在 2 分钟后中止测试。 如果你的 ping 或多步骤测试花费的时间超过 2 分钟，我们会将其报告为失败。 请考虑将测试分成多个可在较短持续时间内完成的测试。
 
@@ -71,7 +43,7 @@ ms.locfileid: "93103621"
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>我收到了 403 禁止访问的错误，这是什么意思？
 
-此错误表示你需要添加防火墙例外以允许可用性代理测试目标 URL。 有关要允许的代理 IP 地址的完整列表，请参阅 [IP 异常文章](./ip-addresses.md#availability-tests)。
+此错误表示你需要添加防火墙例外以允许可用性代理测试目标 URL。
 
 ### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>间歇性测试失败，出现违反协议错误？
 
@@ -97,7 +69,7 @@ ms.locfileid: "93103621"
 
    下面是两种可能的解决方案：
 
-   * 请将防火墙配置为允许从[我们的 Web 测试代理 IP 地址](./ip-addresses.md)发出的传入请求。
+   * 请将防火墙配置为允许从我们的 Web 测试代理 IP 地址发出的传入请求。
    * 编写自己的代码，定期测试内部服务器。 在防火墙后的测试服务器上以后台进程的方式运行该代码。 测试进程可以通过核心 SDK 包中的 [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API 将其结果发送到 Application Insights。 这要求测试服务器能够以传出访问的方式访问 Application Insights 引入终结点，但与允许传入请求相比，这种方式的安全风险要小得多。 结果将显示在“可用性 Web 测试”边栏选项卡中，但是与通过门户创建的测试相比，体验会略微简化。 自定义可用性测试还会在“分析”、“搜索”和“指标”中显示为可用性结果。
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>上传多步骤 Web 测试失败
@@ -134,6 +106,4 @@ ms.locfileid: "93103621"
 ## <a name="next-steps"></a>后续步骤
 
 * [多步骤 Web 测试](availability-multistep.md)
-* [URL ping 测试](monitor-web-app-availability.md)
-
 

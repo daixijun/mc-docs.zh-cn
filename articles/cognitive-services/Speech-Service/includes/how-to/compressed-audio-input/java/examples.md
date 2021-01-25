@@ -3,16 +3,16 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 03/09/2020
-ms.date: 08/03/2020
+ms.date: 01/14/2021
 ms.author: v-tawe
-ms.openlocfilehash: 5c59a314dba34b380678bd68c2f9b50d80d5675e
-ms.sourcegitcommit: 3821704fee67315badba49cf628af2aa68d98f28
+ms.openlocfilehash: e96549ee81c05ebdde1da58f6e405eb1d4a20543
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "89317427"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195374"
 ---
-若要以压缩音频格式流式传输到语音服务，请创建 `PullAudioInputStream` 或 `PushAudioInputStream`。 然后，从流类的实例创建 `AudioConfig`，并指定流的压缩格式。
+若要将语音 SDK 配置为接受压缩音频输入，请创建 `PullAudioInputStream` 或 `PushAudioInputStream`。 然后，从流类的实例创建 `AudioConfig`，并指定流的压缩格式。
 
 让我们假设你有一个名为 `pullStream` 的输入流类，并且使用 OPUS/OGG。 你的代码可能如下所示：
 

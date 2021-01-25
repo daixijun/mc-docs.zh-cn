@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: c833654b8f32376e44769cf453272ea8ac8bd3de
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 0a7efdd97df21754d677d49dac383818be12bd8d
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021991"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230587"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>自动化机器学习中的数据特征化
 
@@ -48,7 +48,7 @@ ms.locfileid: "98021991"
 
 |特征化配置 | 说明|
 ------------- | ------------- |
-|`"featurization": 'auto'`| 指定在预处理过程中自动执行[数据护栏和特征化步骤](#featurization)。 此设置为默认设置。|
+|`"featurization": 'auto'`| 指定在预处理过程中自动执行[数据护栏](#data-guardrails)和[特征化步骤](#featurization)。 此设置为默认设置。|
 |`"featurization": 'off'`| 指定不自动执行特征化步骤。|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| 指定将使用自定义特征化步骤。 [了解如何自定义特征化](#customize-featurization)。|
 
@@ -68,9 +68,6 @@ ms.locfileid: "98021991"
 |_*生成更多特征**_ |对于日期时间特征：年、月、日、星期、年日期、季、年周、小时、分钟、秒。<br><br> 对于预测任务，将创建以下附加的日期/时间特征：ISO 年份、半年、字符串形式的日历月份、周、字符串形式的周几、一季中的日期、一年中的日期、AM/PM（如果是中午 (12 pm) 之前的时间，则此项为 0，否则为 1）、字符串形式的 AM/PM、一天中的小时（12 小时制）<br/><br/>对于文本特征：基于单元语法、双元语法和三元语法的字词频率。 详细了解[如何通过 BERT 执行此操作](#bert-integration)。|
 |转换和编码|将唯一值较少的数字特征转换为分类特征。<br/><br/>将为低基数分类特征使用 One-hot 编码。 将为高基数分类特征使用 One-hot-hash 编码。|
 |单词嵌入*|文本特征化器使用预先训练的模型将文本标记的矢量转换为句子矢量。 每个单词在文档中的嵌入矢量与其余矢量聚合在一起，以生成文档特征矢量。|
-|目标编码|对于分类特征，此步骤将每个类别映射到回归问题的平均目标值，并映射到分类问题的每个类的类概率。 应用基于频率的加权和 k 折交叉验证，以减少稀疏数据类别导致的映射过度拟合与干扰。|
-|文本目标编码|对于文本输入，将使用带有词袋的堆叠线性模型来生成每个类的概率。|
-|证据权重 (WoE)|将 WoE 计算为分类列与目标列的关联度量。 WoE 的计算公式为类内概率与类外概率的比的对数。 此步骤为每个类生成一个数字特征列，无需显式插补缺失值和处理离群值。|
 |群集距离|基于所有数字列训练 k 平均聚类模型。 生成 k 个新特征（每个聚类一个新数字特征），这些特征包含每个样本与每个聚类质心之间的距离。|
 
 ## <a name="data-guardrails"></a>数据护栏

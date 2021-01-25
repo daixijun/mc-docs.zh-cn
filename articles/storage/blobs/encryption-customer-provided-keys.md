@@ -5,22 +5,22 @@ description: 针对 Azure Blob 存储发出请求的客户端可以选择基于�
 services: storage
 author: WenJason
 ms.service: storage
-origin.date: 09/17/2020
-ms.date: 11/16/2020
+origin.date: 12/14/2020
+ms.date: 01/18/2021
 ms.topic: conceptual
 ms.author: v-jay
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e00e645a07dbcee8bbc5963d50f874078d098b6a
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: a8d012054d7d90606bb637a8fc8ff98ebba62181
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552977"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163189"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>在对 Blob 存储的请求中提供加密密钥
 
-针对 Azure Blob 存储发出请求的客户端可以选择基于每个请求提供加密密钥。 在请求中包含加密密钥可以精细控制 Blob 存储操作的加密设置。 客户提供的密钥可以存储在 Azure Key Vault 或其他密钥存储中。
+针对 Azure Blob 存储发出请求的客户端可以选择基于每个请求提供 AES-256 加密密钥。 在请求中包含加密密钥可以精细控制 Blob 存储操作的加密设置。 客户提供的密钥可以存储在 Azure Key Vault 或其他密钥存储中。
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -46,7 +46,7 @@ Azure 存储不会存储或管理客户端连同请求一起发送的加密密�
 |---------------|-------------|
 |`x-ms-encryption-key` |对于写入和读取请求都是必需的。 Base64 编码的 AES-256 加密密钥值。 |
 |`x-ms-encryption-key-sha256`| 对于写入和读取请求都是必需的。 加密密钥的 Base64 编码 SHA256。 |
-|`x-ms-encryption-algorithm` | 对于写入请求是必需的，对于读取请求是可选的。 指定在通过给定密钥加密数据时要使用的算法。 必须是 AES256。 |
+|`x-ms-encryption-algorithm` | 对于写入请求是必需的，对于读取请求是可选的。 指定在通过给定密钥加密数据时要使用的算法。  此标头的值必须为 `AES256`。 |
 
 在请求中指定加密密钥是可选操作。 但是，如果为写入操作指定上面列出的标头之一，则必须指定所有这些标头。
 

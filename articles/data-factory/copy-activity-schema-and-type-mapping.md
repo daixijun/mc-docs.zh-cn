@@ -9,15 +9,15 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-origin.date: 02/13/2020
-ms.date: 05/11/2020
+origin.date: 06/22/2020
+ms.date: 01/25/2021
 ms.author: v-jay
-ms.openlocfilehash: d12303a6f48bb40d11bf205d8d01583b27cefc5b
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: 88aaedc8f0411f8927c65d2e006af23ca25b4853
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829982"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541867"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>复制活动中的架构和数据类型映射
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

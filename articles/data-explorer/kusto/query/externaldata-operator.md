@@ -8,17 +8,31 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/24/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: acfe58b5f269e35e7667b63cccb4a38475f17c85
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+zone_pivot_group_filename: zone-pivot-groups.json
+zone_pivot_groups: kql-flavors
+ms.openlocfilehash: fea560cbb70925e74509d6503bfab2f96bfe2b2b
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105157"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611305"
 ---
 # <a name="externaldata-operator"></a>externaldata 运算符
 
 `externaldata` 运算符返回一个表，该表的架构是在查询自身中定义的，并且该表的数据是从外部存储项目（如 Azure Blob 存储中的 Blob 或 Azure Data Lake Storage 中的文件）中读取的。
+
+::: zone pivot="azuredataexplorer"
+
+::: zone-end
+
+::: zone pivot="azuremonitor"
+
+> [!NOTE]
+> 在 Azure Monitor 中，`externaldata` 运算符的使用应该仅限于小型引用表。 它并非为大数据量而设计。 如果需要大容量，最好将它们作为自定义日志引入。
+
+::: zone-end
+
 
 ## <a name="syntax"></a>语法
 
@@ -28,12 +42,12 @@ ms.locfileid: "93105157"
 
 ## <a name="arguments"></a>参数
 
-* *ColumnName* , *ColumnType* ：这些参数定义表的架构。
-  该语法与定义 [.create table](../management/create-table-command.md) 中的表时所使用的语法相同。
+* *ColumnName*, *ColumnType*：这些参数定义表的架构。
+  该语法与定义 [`.create table`](../management/create-table-command.md) 中的表时所使用的语法相同。
 
 * StorageConnectionString：[存储连接字符串](../api/connection-strings/storage.md)，用于描述包含要返回的数据的存储项目。
 
-* *PropertyName* , *PropertyValue* , ...：其他属性（如 [引入属性](../../ingestion-properties.md)下面所列），描述如何解释从存储中检索到的数据。
+* *PropertyName*, *PropertyValue*, ...：其他属性（如 [引入属性](../../ingestion-properties.md)下面所列），描述如何解释从存储中检索到的数据。
 
 当前支持的属性包括：
 

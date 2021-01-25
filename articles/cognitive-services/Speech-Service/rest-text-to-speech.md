@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 03/23/2020
-ms.date: 12/30/2020
+origin.date: 01/08/2021
+ms.date: 01/14/2021
 ms.author: v-tawe
 ms.custom: references_regions
-ms.openlocfilehash: 037a4d4b3d41d9733d87cf35bf042c2a39c6e942
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: eb5a963e439b06a5294a2280edad4f5560e07d3c
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820266"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193229"
 ---
 # <a name="text-to-speech-rest-api"></a>文本转语音 REST API
 
@@ -34,6 +34,9 @@ ms.locfileid: "97820266"
 使用此 API 之前，请了解：
 
 * 文本转语音 REST API 需要授权标头。 这意味着，需要完成令牌交换才能访问该服务。 有关详细信息，请参阅[身份验证](#authentication)。
+
+> [!TIP]
+> 请参阅[此文](sovereign-clouds.md)，了解 Azure 中国终结点。
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -53,7 +56,10 @@ ms.locfileid: "97820266"
 
 | 标头 | 说明 | 必需/可选 |
 |--------|-------------|---------------------|
-| `Authorization` | 前面带有单词 `Bearer` 的授权令牌。 有关详细信息，请参阅[身份验证](#authentication)。 | 必须 |
+| `Ocp-Apim-Subscription-Key` | 语音服务订阅密钥。 | 此标头或 `Authorization` 是必需的。 |
+| `Authorization` | 前面带有单词 `Bearer` 的授权令牌。 有关详细信息，请参阅[身份验证](#authentication)。 | 此标头或 `Ocp-Apim-Subscription-Key` 是必需的。 |
+
+
 
 ### <a name="request-body"></a>请求正文
 
@@ -67,7 +73,7 @@ ms.locfileid: "97820266"
 GET /cognitiveservices/voices/list HTTP/1.1
 
 Host: chinaeast2.tts.speech.azure.cn
-Authorization: Bearer [Base64 access_token]
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 ```
 
 ### <a name="sample-response"></a>示例响应
@@ -188,7 +194,7 @@ Authorization: Bearer [Base64 access_token]
 | `Authorization` | 前面带有单词 `Bearer` 的授权令牌。 有关详细信息，请参阅[身份验证](#authentication)。 | 必须 |
 | `Content-Type` | 指定所提供的文本的内容类型。 接受的值：`application/ssml+xml`。 | 必须 |
 | `X-Microsoft-OutputFormat` | 指定音频输出格式。 有关接受值的完整列表，请参阅[音频输出](#audio-outputs)。 | 必须 |
-| `User-Agent` | 应用程序名称。 提供的值必须少于 255 个字符。 | 必须 |
+| `User-Agent` | 应用程序名称。 提供的值必须少于 255 个字符。 | 必需 |
 
 ### <a name="audio-outputs"></a>音频输出
 

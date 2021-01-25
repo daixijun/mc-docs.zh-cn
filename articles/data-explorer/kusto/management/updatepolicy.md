@@ -7,14 +7,14 @@ ms.author: v-tawe
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
-origin.date: 02/19/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: bc81d3ad764eaae9e846d7cc70add9f9cbc90cfe
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+origin.date: 08/04/2020
+ms.date: 01/22/2021
+ms.openlocfilehash: 5acaf4885807a74d1ff79ad035400c42a63c3b55
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105113"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611477"
 ---
 # <a name="update-policy-overview"></a>更新策略概述
 
@@ -41,6 +41,7 @@ ms.locfileid: "93105113"
 * 在策略的 `Query` 部分中或由 `Query` 部分引用的函数中引用 `Source` 表时：
    * 不要使用表的限定名称。 请改用 `TableName`。 
    * 不要使用 `database("DatabaseName").TableName` 或 `cluster("ClusterName").database("DatabaseName").TableName`。
+* 有关流式引入中的更新策略限制，请参阅[流式引入限制](../../ingest-data-streaming.md#limitations)。 
 
 > [!WARNING]
 > 在更新策略中定义不正确的查询会妨碍数据引入源表中。
@@ -67,10 +68,10 @@ ms.locfileid: "93105113"
 
 用于控制更新策略的命令包括：
 
-* [.show table *TableName* policy update](update-policy.md#show-update-policy) 显示某个表的当前更新策略。
-* [.alter table *TableName* policy update](update-policy.md#alter-update-policy) 设置某个表的当前更新策略。
-* [.alter table *TableName* policy update](update-policy.md#alter-merge-table-tablename-policy-update) 追加到某个表的当前更新策略。
-* [.delete table *TableName* policy update](update-policy.md#delete-table-tablename-policy-update) 删除某个表的当前更新策略。
+* [`.show table *TableName* policy update`](update-policy.md#show-update-policy) 显示表的当前更新策略。
+* [`.alter table *TableName* policy update`](update-policy.md#alter-update-policy) 设置表的当前更新策略。
+* [`.alter-merge table *TableName* policy update`](update-policy.md#alter-merge-table-tablename-policy-update) 追加到表的当前更新策略。
+* [`.delete table *TableName* policy update`](update-policy.md#delete-table-tablename-policy-update) 追加到表的当前更新策略。
 
 ## <a name="update-policy-is-initiated-following-ingestion"></a>更新策略在引入后启动
 
@@ -107,7 +108,7 @@ ms.locfileid: "93105113"
 
 ### <a name="evaluate-resource-usage"></a>评估资源使用情况
 
-在以下情况下，使用 [.show queries](../management/queries.md) 来评估资源使用情况（CPU、内存等的使用情况）：
+在以下情况下，使用 [`.show queries`](../management/queries.md) 来评估资源使用情况（CPU、内存等的使用情况）：
 * 源表名称（更新策略的 `Source` 属性）为 `MySourceTable`。
 * 更新策略的 `Query` 属性调用名为 `MyFunction()` 的函数。
 
@@ -123,7 +124,7 @@ MyFunction()
 
 默认情况下，无法运行更新策略不会影响将数据引入源表。 但是，如果将更新策略定义为 `IsTransactional`:true，则无法运行更新策略会导致无法将数据引入到源表中。 在某些情况下，数据成功引入到源表中，但更新策略在数据引入到目标表时失败。
 
-可以使用 [.show ingestion failures 命令](../management/ingestionfailures.md)检索更新策略时发生的故障。
+可以使用 [`.show ingestion failures` 命令](../management/ingestionfailures.md)检索更新策略时发生的故障。
  
 ```kusto
 .show ingestion failures 

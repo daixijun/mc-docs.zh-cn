@@ -7,13 +7,13 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/08/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: f1fa4cfcbe82b2d989eaf46172d251d9c83e59e6
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: c7d2acc6fa4330e8157bedf3c8b361821e2c9e90
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105115"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611584"
 ---
 # <a name="series_rolling_fl"></a>series_rolling_fl()
 
@@ -109,7 +109,7 @@ demo_make_series1
 
 # <a name="persistent"></a>[Persistent](#tab/persistent)
 
-如果是永久使用，请使用 [.create 函数](../management/create-function.md)。 创建函数需要有[数据库用户权限](../management/access-control/role-based-authorization.md)。
+如果是永久使用，请使用 [`.create function`](../management/create-function.md)。 创建函数需要有[数据库用户权限](../management/access-control/role-based-authorization.md)。
 
 ### <a name="one-time-installation"></a>一次性安装
 
@@ -179,7 +179,7 @@ demo_make_series1
     | render timechart
     ```
     
-    :::image type="content" source="images/series-rolling-fl/graph-rolling-15.png" alt-text="描述了 9 个元素的滚动中值的图形" border="false":::
+    :::image type="content" source="images/series-rolling-fl/graph-rolling-15.png" alt-text="描述了 15 个元素的滚动最小值、最大值和第 75 个百分位的图形" border="false":::
 
 1. 计算滚动剪裁平均值
         
@@ -196,5 +196,5 @@ demo_make_series1
     | render linechart
     ```
     
-    :::image type="content" source="images/series-rolling-fl/rolling-trimmed-mean.png" alt-text="描述了 9 个元素的滚动中值的图形" border="false":::
+    :::image type="content" source="images/series-rolling-fl/rolling-trimmed-mean.png" alt-text="描述了滚动剪裁平均值的图形" border="false":::
     

@@ -4,7 +4,6 @@ titleSuffix: Azure Network Watcher
 description: 本文介绍如何使用 Azure 网络观察程序创建警报触发的数据包捕获
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.devlang: na
@@ -12,16 +11,17 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: b808006bb9baf4c819d70f8e5ecc4e43d376c07a
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 92649f9e2bceedd66cb4ec8efdb00e8c79e52669
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300774"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231113"
 ---
 <!--Verify Failed: at 'Select Function app settings > Go to App Service Editor.' -->
 <!--Global article is not up-to-date: Some pictures are not suitable with the content -->
@@ -35,7 +35,7 @@ Azure 中部署的资源全天候运行。 但你和你的同事无法全天候�
 
 在 Azure 生态系统中使用网络观察程序、警报和函数，可以主动使用数据和工具做出响应，解决网络中的问题。
 
-![方案][scenario]
+![关系图显示了虚拟机上的网络观察程序扩展，该扩展流向“发送的TCP 段数 > 100”错误，该错误流向 Azure Functions，后者流向网络观察程序扩展。][scenario]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -43,7 +43,7 @@ Azure 中部署的资源全天候运行。 但你和你的同事无法全天候�
 
 * 最新版本的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 * 网络观察程序的现有实例。 [创建网络观察程序的实例](network-watcher-create.md)（如果还没有这样一个实例的话）。
-* 在网络观察程序所在的同一区域中的现有虚拟机，装有 [Windows 扩展](../virtual-machines/windows/extensions-nwa.md)或 [Linux 虚拟机扩展](../virtual-machines/linux/extensions-nwa.md)。
+* 在网络观察程序所在的同一区域中的现有虚拟机，装有 [Windows 扩展](../virtual-machines/extensions/network-watcher-windows.md)或 [Linux 虚拟机扩展](../virtual-machines/extensions/network-watcher-linux.md)。
 
 ## <a name="scenario"></a>方案
 
@@ -97,7 +97,7 @@ Azure 中部署的资源全天候运行。 但你和你的同事无法全天候�
     |**为函数命名**|AlertPacketCapturePowerShell|函数的名称|
     |**授权级别**|函数|函数的授权级别|
 
-![函数示例][functions1]
+    ![函数示例][functions1]
 
 > [!NOTE]
 > PowerShell 模板处于试验阶段且没有完全支持。
@@ -116,13 +116,13 @@ Azure 中部署的资源全天候运行。 但你和你的同事无法全天候�
 
     该示例提供 Azure PowerShell 模块的本地路径。 在稍后的步骤中将使用这些文件夹。 此方案中使用的模块包括：
 
-   * Az.Network
+    * Az.Network
 
-   * Az.Accounts
+    * Az.Accounts
 
-   * Az.Resources
+    * Az.Resources
 
-     ![PowerShell 文件夹][functions5]
+        ![PowerShell 文件夹][functions5]
 
 1. 选择“函数应用设置” > “转到应用服务编辑器” 。
 
@@ -207,8 +207,8 @@ $Encryptedpassword
     New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
     ```
 
-   > [!NOTE]
-   > 创建应用程序时使用的密码应与先前在保存密钥文件时创建的密码相同。
+    > [!NOTE]
+    > 创建应用程序时使用的密码应与先前在保存密钥文件时创建的密码相同。
 
 1. 在 Azure 门户中，选择“订阅”。 选择要使用的订阅，然后选择“访问控制(IAM)”。
 
@@ -270,60 +270,60 @@ $Encryptedpassword
 以下示例为 PowerShell 代码，可在函数中使用。 存在需要为 subscriptionId、resourceGroupName 和 storageAccountName 替换的值  。
 
 ```powershell
-            #Import Azure PowerShell modules required to make calls to Network Watcher
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Accounts\Az.Accounts.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Network\Az.Network.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Resources\Az.Resources.psd1" -Global
+#Import Azure PowerShell modules required to make calls to Network Watcher
+Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Accounts\Az.Accounts.psd1" -Global
+Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Network\Az.Network.psd1" -Global
+Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Resources\Az.Resources.psd1" -Global
 
-            #Process alert request body
-            $requestBody = Get-Content $req -Raw | ConvertFrom-Json
+#Process alert request body
+$requestBody = Get-Content $req -Raw | ConvertFrom-Json
 
-            #Storage account ID to save captures in
-            $storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
+#Storage account ID to save captures in
+$storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
 
-            #Packet capture vars
-            $packetcapturename = "PSAzureFunction"
-            $packetCaptureLimit = 10
-            $packetCaptureDuration = 10
+#Packet capture vars
+$packetcapturename = "PSAzureFunction"
+$packetCaptureLimit = 10
+$packetCaptureDuration = 10
 
-            #Credentials
-            $tenant = $env:AzureTenant
-            $pw = $env:AzureCredPassword
-            $clientid = $env:AzureClientId
-            $keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key"
+#Credentials
+$tenant = $env:AzureTenant
+$pw = $env:AzureCredPassword
+$clientid = $env:AzureClientId
+$keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key"
 
-            #Authentication
-            $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
-            $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
-            Connect-AzAccount -Environment AzureChinaCloud -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+#Authentication
+$secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
+$credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
+Connect-AzAccount -Environment AzureChinaCloud -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
-            #Get the VM that fired the alert
-            if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
-            {
-                Write-Output ("Subscription ID: {0}" -f $requestBody.context.subscriptionId)
-                Write-Output ("Resource Group:  {0}" -f $requestBody.context.resourceGroupName)
-                Write-Output ("Resource Name:  {0}" -f $requestBody.context.resourceName)
-                Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
+#Get the VM that fired the alert
+if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
+{
+    Write-Output ("Subscription ID: {0}" -f $requestBody.context.subscriptionId)
+    Write-Output ("Resource Group:  {0}" -f $requestBody.context.resourceGroupName)
+    Write-Output ("Resource Name:  {0}" -f $requestBody.context.resourceName)
+    Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
-                #Get the Network Watcher in the VM's region
-                $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
+    #Get the Network Watcher in the VM's region
+    $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
 
-                #Get existing packetCaptures
-                $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
+    #Get existing packetCaptures
+    $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
 
-                #Remove existing packet capture created by the function (if it exists)
-                $packetCaptures | %{if($_.Name -eq $packetCaptureName)
-                { 
-                    Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
-                }}
+    #Remove existing packet capture created by the function (if it exists)
+    $packetCaptures | %{if($_.Name -eq $packetCaptureName)
+    { 
+        Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
+    }}
 
-                #Initiate packet capture on the VM that fired the alert
-                if ((Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
-                    echo "Initiating Packet Capture"
-                    New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
-                    Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
-                }
-            } 
+    #Initiate packet capture on the VM that fired the alert
+    if ((Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
+        echo "Initiating Packet Capture"
+        New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
+        Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
+    }
+} 
  ``` 
 #### <a name="retrieve-the-function-url"></a>检索函数 URL 
 1. 创建函数后，请将警报配置为调用与该函数相关联的 URL。 若要获取此值，请从 Function App 中复制函数 URL。
@@ -342,7 +342,7 @@ $Encryptedpassword
 
 ### <a name="create-the-alert-rule"></a>创建警报规则
 
-转到现有虚拟机，然后添加警报规则。 有关配置警报的更详细文档，请参阅[在 Azure Monitor 中为 Azure 服务创建警报 - Azure 门户](../monitoring-and-diagnostics/insights-alerts-portal.md)。 在“警报规则”边栏选项卡中输入以下值，然后选择“确定” 。
+转到现有虚拟机，然后添加警报规则。 有关配置警报的更详细文档，请参阅[在 Azure Monitor 中为 Azure 服务创建警报 - Azure 门户](../azure-monitor/platform/alerts-classic-portal.md)。 在“警报规则”边栏选项卡中输入以下值，然后选择“确定” 。
 
   |**设置** | **值** | **详细信息** |
   |---|---|---|
@@ -355,7 +355,7 @@ $Encryptedpassword
   |**Webhook**|[函数应用中的 Webhook URL]| 来自前面步骤创建的函数应用的 Webhook URL。|
 
 > [!NOTE]
-> 默认情况下不启用 TCP 段计量。 请访问[启用监视和诊断](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)，详细了解如何启用其他指标。
+> 默认情况下不启用 TCP 段计量。 请访问[启用监视和诊断](../azure-monitor/overview.md)，详细了解如何启用其他指标。
 
 ## <a name="review-the-results"></a>查看结果
 
@@ -365,11 +365,11 @@ $Encryptedpassword
 
 如果捕获文件存储在本地，可以通过登录到虚拟机，检索捕获文件。
 
-有关从 Azure 存储帐户下载文件的说明，请参阅[通过 .NET 开始使用 Azure Blob 存储](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 另一个可以使用的工具是[存储资源管理器](https://storageexplorer.com/)。
+有关从 Azure 存储帐户下载文件的说明，请参阅[通过 .NET 开始使用 Azure Blob 存储](../storage/blobs/storage-quickstart-blobs-dotnet.md)。 另一个可以使用的工具是[存储资源管理器](https://storageexplorer.com/)。
 
 下载捕获后，可以使用能够读取 **.cap** 文件的任何工具来查看捕获。 下面提供了其中两个工具的链接：
 
-- [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
+- [Microsoft Message Analyzer](https://docs.microsoft.com/message-analyzer/microsoft-message-analyzer-operating-guide)
 - [WireShark](https://www.wireshark.org/)
 
 ## <a name="next-steps"></a>后续步骤
@@ -380,22 +380,22 @@ $Encryptedpassword
 [1-1]: ./media/network-watcher-alert-triggered-packet-capture/figure1-1.png
 [2]: ./media/network-watcher-alert-triggered-packet-capture/figure2.png
 [3]: ./media/network-watcher-alert-triggered-packet-capture/figure3.png
-[functions1]:./media/network-watcher-alert-triggered-packet-capture/functions1.png
-[functions2]:./media/network-watcher-alert-triggered-packet-capture/functions2.png
-[functions3]:./media/network-watcher-alert-triggered-packet-capture/functions3.png
+[functions1]: ./media/network-watcher-alert-triggered-packet-capture/functions1.png
+[functions2]: ./media/network-watcher-alert-triggered-packet-capture/functions2.png
+[functions3]: ./media/network-watcher-alert-triggered-packet-capture/functions3.png
 
-<!--Not Available on [functions4]:./media/network-watcher-alert-triggered-packet-capture/functions4.png-->
+<!--Not Available on [functions4]: ./media/network-watcher-alert-triggered-packet-capture/functions4.png-->
 
-[functions5]:./media/network-watcher-alert-triggered-packet-capture/functions5.png
-[functions6]:./media/network-watcher-alert-triggered-packet-capture/functions6.png
-[functions7]:./media/network-watcher-alert-triggered-packet-capture/functions7.png
-[functions8]:./media/network-watcher-alert-triggered-packet-capture/functions8.png
-[functions9]:./media/network-watcher-alert-triggered-packet-capture/functions9.png
-[functions10]:./media/network-watcher-alert-triggered-packet-capture/functions10.png
-[functions11]:./media/network-watcher-alert-triggered-packet-capture/functions11.png
-[functions12]:./media/network-watcher-alert-triggered-packet-capture/functions12.png
-[functions13]:./media/network-watcher-alert-triggered-packet-capture/functions13.png
-[functions14]:./media/network-watcher-alert-triggered-packet-capture/functions14.png
-[scenario]:./media/network-watcher-alert-triggered-packet-capture/scenario.png
+[functions5]: ./media/network-watcher-alert-triggered-packet-capture/functions5.png
+[functions6]: ./media/network-watcher-alert-triggered-packet-capture/functions6.png
+[functions7]: ./media/network-watcher-alert-triggered-packet-capture/functions7.png
+[functions8]: ./media/network-watcher-alert-triggered-packet-capture/functions8.png
+[functions9]: ./media/network-watcher-alert-triggered-packet-capture/functions9.png
+[functions10]: ./media/network-watcher-alert-triggered-packet-capture/functions10.png
+[functions11]: ./media/network-watcher-alert-triggered-packet-capture/functions11.png
+[functions12]: ./media/network-watcher-alert-triggered-packet-capture/functions12.png
+[functions13]: ./media/network-watcher-alert-triggered-packet-capture/functions13.png
+[functions14]: ./media/network-watcher-alert-triggered-packet-capture/functions14.png
+[scenario]: ./media/network-watcher-alert-triggered-packet-capture/scenario.png
 
 <!-- Update_Description: update meta properties, wording update, update link -->

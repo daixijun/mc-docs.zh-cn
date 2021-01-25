@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: d275e8fe81d63b6bc91f19416eee2d9e59363407
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.openlocfilehash: e60e0b1c53ce10f3aae2bd3f9555932f1d014e53
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516082"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611425"
 ---
 # <a name="ingestionbatching-policy-command"></a>IngestionBatching 策略命令
 
@@ -24,7 +24,13 @@ ms.locfileid: "88516082"
 
 如果没有为某个实体设置策略，则该实体会查找更高层次结构级别的策略。如果所有策略都设置为 NULL，则会使用默认值。 
 
-此策略的最低限制为 10 秒，建议不要使用大于 15 分钟的值。
+**IngestionBatching 限制：**
+
+| 类型 | 默认 | 最小值 | 最大值
+|---|---|---|---|
+| 项数 | 1000 | 1 | 2000 |
+| 数据大小 (MB) | 1000 | 100 | 1000 |
+| 时间 | 5 分钟 | 10 秒 | 15 分钟 |
 
 ## <a name="displaying-the-ingestionbatching-policy"></a>显示 IngestionBatching 策略
 

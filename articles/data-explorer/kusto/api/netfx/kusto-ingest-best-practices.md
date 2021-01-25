@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/16/2019
-ms.date: 07/01/2020
-ms.openlocfilehash: 8de23882d84a77802ad5485c53a99032b5a3f3e0
-ms.sourcegitcommit: 9bc3e55f01e0999f05e7b4ebaea95f3ac91d32eb
+ms.date: 01/22/2021
+ms.openlocfilehash: b6219bb441fa0fcacc9b62588126dd3acc2be5d6
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226263"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611702"
 ---
 # <a name="kusto-ingest-client-library---best-practices"></a>Kusto 引入客户端库 - 最佳做法
 
@@ -34,7 +34,7 @@ ms.locfileid: "86226263"
 
 如果以大区块的方式执行引入，引入效果最佳。 
 * 它消耗的资源最少
-* 它生成在最大程度上进行了 COGS 优化的数据分片，并产生最佳数据事务
+* 它生成在最大程度上进行了 COGS（所售货物成本）优化的数据分片，并产生最佳数据事务
 
 我们建议，使用 Kusto.Ingest 库引入数据或直接将数据引入到引擎的客户按每批 100 MB 到 1 GB（未压缩）的数据量分批发送数据
 * 当直接使用引擎时，上限对帮助减少引入过程使用的内存量非常重要 
@@ -57,7 +57,7 @@ ms.locfileid: "86226263"
 
 ## <a name="optimizing-for-cogs"></a>针对 COGS 进行优化
 
-使用 Kusto 客户端库将数据引入 Azure 数据资源管理器仍是最便宜且最可靠的选项。 我们强烈建议客户查看其引入方法，并利用 Azure 存储定价，该定价将使 blob 事务明显经济高效。
+使用 Kusto 客户端库将数据引入 Azure 数据资源管理器仍是最便宜且最可靠的选项。 我们强烈建议客户查看其引入方法，以针对 COGS（所售货物成本）进行优化，并利用 Azure 存储定价，该定价将使 blob 事务明显经济高效。
 
 * **限制引入数据区块的数量**。
     为了更好地控制 Azure 数据资源管理器引入成本并减少每月费用，请限制引入数据区块（文件/blob/流）的数量。
@@ -69,5 +69,5 @@ ms.locfileid: "86226263"
 * **避免在将 `FlushImmediately` 标志设置为 `true` 时发送要引入的数据**。 另外，请避免发送设置了 `ingest-by`/`drop-by` 标记的小区块。 如果使用这些方法，这些方法将：
      * 阻止服务在引入过程中正确聚合数据
      * 在引入后导致不必要的存储事务
-     * 影响 COGS
+     * 影响 COGS 
      * 可能会导致群集的引入或查询性能下降（如果过度使用）

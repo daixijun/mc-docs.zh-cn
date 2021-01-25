@@ -10,12 +10,12 @@ ms.topic: how-to
 origin.date: 10/01/2020
 ms.date: 11/27/2020
 ms.author: v-tawe
-ms.openlocfilehash: 5720849d2c1985f41b6415f8b763979ddc367748
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: bc33ee98d827877971a199ffd75300c8524f050d
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300992"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611488"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>如何启用 Key Vault 日志记录
 
@@ -66,7 +66,7 @@ Set-AzContext -SubscriptionId "<subscriptionID>"
 
 尽管可以使用现有的存储帐户来保存日志，但我们将专门创建一个新的存储帐户来保存密钥保管库日志。 
 
-为了进一步简化管理，我们还使用了包含 Key Vault 的同一个资源组。 在 [Azure CLI 快速入门](quick-create-cli.md)和 [Azure PowerShell 快速入门](quick-create-powershell.md)中，此资源组名为 myResourceGroup，位置为 eastus。 在适当的情况下，请将这些值替换为自己的值。 
+为了进一步简化管理，我们还使用了包含 Key Vault 的同一个资源组。 在 [Azure CLI 快速入门](quick-create-cli.md)和 [Azure PowerShell 快速入门](quick-create-powershell.md)中，此资源组名为 myResourceGroup，位置为 chinaeast2。 在适当的情况下，请将这些值替换为自己的值。 
 
 我们还需要提供存储帐户名称。 存储帐户名称必须唯一的，长度介于 3 到 24 个字符，只能使用数字和小写字母。  最后，我们将创建“Standard_LRS”SKU 的存储帐户。
 
@@ -79,7 +79,7 @@ az storage account create --name "<your-unique-storage-account-name>" -g "myReso
 在 Azure PowerShell 中使用 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount?view=azps-4.7.0) cmdlet。 你将需要提供与资源组相对应的位置。
 
 ```powershell
- New-AzStorageAccount -ResourceGroupName myResourceGroup -Name "<your-unique-storage-account-name>" -Type "Standard_LRS" -Location "eastus"
+ New-AzStorageAccount -ResourceGroupName myResourceGroup -Name "<your-unique-storage-account-name>" -Type "Standard_LRS" -Location "chinaeast2"
 ```
 
 无论哪种情况，请注意存储帐户的“id”。 Azure CLI 操作在输出中返回“id”。 若要使用 Azure PowerShell 获取“id”，请使用 [Get-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccount?view=azps-4.7.0)，然后将输出分配给变量 $sa。 然后，你可以看到具有 $sa.id 的存储帐户。（下文中还将使用“$sa.Context”属性。）

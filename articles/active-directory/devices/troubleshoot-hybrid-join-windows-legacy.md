@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 01/14/2021
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90e543dc2b7447efc4f985c177397eca51388345
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 7f8ab9fb4ac21e47d9f7a0c46e9df47fd72edac4
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023493"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195273"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>排查已加入混合 Azure Active Directory 的下层设备问题 
 
@@ -44,6 +44,7 @@ ms.locfileid: "98023493"
 - 由于操作系统的重新安装或手动重新注册，在用户信息选项卡上也可能会出现同一设备的多个条目。
 - 设备的初始注册/加入配置为在登录或锁定/解锁时执行尝试。 可能会有 5 分钟的延迟，由任务计划程序任务触发。 
 - 对于 Windows 7 SP1 或 Windows Server 2008 R2 SP1，请确保安装 [KB4284842](https://support.microsoft.com/help/4284842)。 此更新可防止将来因客户更改密码后无法访问受保护密钥而导致身份验证失败。
+- 混合 Azure AD 联接可能会在用户更改其 UPN 后失败，从而破坏无缝 SSO 身份验证过程。 在加入过程中，你可能会看到它仍在将旧的 UPN 发送到 Azure AD，除非清除浏览器会话 Cookie 或者用户显式注销并删除旧的 UPN。
 
 ## <a name="step-1-retrieve-the-registration-status"></a>步骤 1：检索注册状态 
 

@@ -7,13 +7,13 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/08/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: b0b84f06b428c12fe347c3db48a5a55cc5eed90c
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: bf9d1d791e5f532fb1d07391b372ffddac2c3dbd
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105533"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611672"
 ---
 # <a name="series_moving_avg_fl"></a>series_moving_avg_fl()
 
@@ -63,7 +63,7 @@ demo_make_series1
 
 # <a name="persistent"></a>[Persistent](#tab/persistent)
 
-如果是永久使用，请使用 [.create 函数](../management/create-function.md)。 创建函数需要[数据库用户权限](../management/access-control/role-based-authorization.md)。
+如果是永久使用，请使用 [`.create function`](../management/create-function.md)。 创建函数需要[数据库用户权限](../management/access-control/role-based-authorization.md)。
 
 ### <a name="one-time-installation"></a>一次性安装
 

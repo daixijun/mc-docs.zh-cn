@@ -8,13 +8,13 @@ ms.reviewer: kedamari
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 05/12/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 1de820fe5f9887b34ea57a335b23df3d4a4dbde8
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 1b047a5c6534b16973d3f38aff94864545e45b3a
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103560"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611658"
 ---
 # <a name="data-purge"></a>数据清除
 
@@ -43,10 +43,12 @@ ms.locfileid: "93103560"
      * 群集的数据区中的记录分布情况 
      * 群集中的节点数  
      * 它为清除操作准备的备用容量
-     * 几个其他因素：阶段 2 的持续时间可能短至几秒，也可能长达数小时。
+     * 其他几个因素
+     
+    阶段 2 的持续时间可能短至几秒，也可能长达数小时。
 1. 阶段 3：（硬删除）复查可能包含“有害”数据的所有存储项目，并从存储中删除它们。 此阶段至少要在前一阶段完成 5 天后执行，但要在初始命令执行后的 30 天内执行。 设置这些时间线是为了满足数据隐私要求。
 
-发出 `.purge` 命令会触发此过程，此过程需要几天的时间才能完成。 如果符合谓词条件的记录的密度足够大，则此过程将有效地重新引入表中的所有数据。 此重新引入会显著影响性能和 COGS。
+发出 `.purge` 命令会触发此过程，此过程需要几天的时间才能完成。 如果符合谓词条件的记录的密度足够大，则此过程将有效地重新引入表中的所有数据。 此重新引入会显著影响性能和 COGS（所售货物成本）。
 
 ## <a name="purge-limitations-and-considerations"></a>清除限制和注意事项
 
@@ -124,9 +126,9 @@ ms.locfileid: "93103560"
 
 **Purge 谓词限制**
 
-* 谓词必须是一个简单的选择（例如， *where [ColumnName] == 'X'*  / *where [ColumnName] in ('X', 'Y', 'Z') and [OtherColumn] == 'A'* ）。
+* 谓词必须是一个简单的选择（例如，*where [ColumnName] == 'X'*  / *where [ColumnName] in ('X', 'Y', 'Z') and [OtherColumn] == 'A'* ）。
 * 多个筛选器必须使用“and”进行组合，而不是使用单独的 `where` 子句（例如，请使用 `where [ColumnName] == 'X' and  OtherColumn] == 'Y'` 而非 `where [ColumnName] == 'X' | where [OtherColumn] == 'Y'`）。
-* 谓词不能引用正在清除的表 ( *TableName* ) 以外的表。 谓词只能包含选择语句 (`where`)。 它无法投影表中的特定列（运行“ *`table` | Predicate* ”时的输出架构必须与表架构匹配）。
+* 谓词不能引用正在清除的表 (*TableName*) 以外的表。 谓词只能包含选择语句 (`where`)。 它无法投影表中的特定列（运行“ *`table` | Predicate*”时的输出架构必须与表架构匹配）。
 * 不支持系统函数（例如 `ingestion_time()`、`extent_id()`）。
 
 #### <a name="example-two-step-purge"></a>示例：两步清除
@@ -200,7 +202,7 @@ ms.locfileid: "93103560"
 
 **输出**
 
-此命令的输出与“show purges *OperationId* ”命令的输出相同，它显示正在取消的清除操作的更新后状态。 如果尝试成功，则操作状态将更新为 `Abandoned`。 否则，操作状态不会更改。 
+此命令的输出与“show purges *OperationId*”命令的输出相同，它显示正在取消的清除操作的更新后状态。 如果尝试成功，则操作状态将更新为 `Abandoned`。 否则，操作状态不会更改。 
 
 |`OperationId` |`DatabaseName` |`TableName` |`ScheduledTime` |`Duration` |`LastUpdatedOn` |`EngineOperationId` |`State` |`StateDetails` |`EngineStartTime` |`EngineDuration` |`Retries` |`ClientRequestId` |`Principal`
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|

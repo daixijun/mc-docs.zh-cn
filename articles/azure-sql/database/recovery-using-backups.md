@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, sstein, danil
 origin.date: 11/13/2020
-ms.date: 12/14/2020
-ms.openlocfilehash: 56028df3917f071fe3594e17125a3c5a9d48eeca
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.date: 01/25/2021
+ms.openlocfilehash: fea45fe5d322990b4f8678a198e3fc6b9f1d204c
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830154"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541902"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>使用自动数据库备份进行恢复 - Azure SQL 托管实例和 SQL 托管实例
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -96,7 +96,7 @@ ms.locfileid: "97830154"
   ![SQL 托管实例的数据库还原选项的屏幕截图。](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
-> 若要以编程方式从备份还原数据库，请参阅[使用自动备份以编程方式执行恢复](recovery-using-backups.md)。
+> 若要以编程方式从备份还原数据库，请参阅[使用自动备份以编程方式恢复](recovery-using-backups.md)。
 
 ## <a name="deleted-database-restore"></a>已删除的数据库还原
 
@@ -249,7 +249,7 @@ ms.locfileid: "97830154"
 
 #### <a name="sql-managed-instance"></a>SQL 托管实例
 
-若要使用 Azure CLI 还原托管实例数据库，请参阅 [az sql midb restore](/cli/sql/midb#az-sql-midb-restore)
+若要使用 Azure CLI 还原托管实例数据库，请参阅 [az sql midb restore](/cli/sql/midb#az-sql-midb-restore)。
 
 ## <a name="summary"></a>摘要
 

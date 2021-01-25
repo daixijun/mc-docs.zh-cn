@@ -3,7 +3,6 @@ title: 分析 Azure 网络安全组流日志 - Graylog | Azure
 description: 了解如何在 Azure 中使用网络观察程序与 Graylog 来管理和分析网络安全组流日志。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 tags: azure-resource-manager
 ms.service: network-watcher
 ms.devlang: na
@@ -11,16 +10,17 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/19/2017
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 8ebdbee8c95461a1d4f609056cc8689cb8f250ce
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: d6ded7debc3b20568707281859684a11a3790e54
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548035"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231107"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>在 Azure 中使用网络观察程序与 Graylog 来管理和分析网络安全组流日志
 
@@ -41,7 +41,7 @@ ms.locfileid: "87548035"
 
 ### <a name="enable-network-security-group-flow-logging"></a>启用网络安全组流日志记录
 
-对于本方案，必须在帐户的至少一个网络安全组上启用网络安全组流日志记录。 有关启用网络安全组流日志的说明，请参阅以下文章： [网络安全组流日志记录简介](network-watcher-nsg-flow-logging-overview.md)。
+对于本方案，必须在帐户的至少一个网络安全组上启用网络安全组流日志记录。 有关启用网络安全组流日志的说明，请参阅以下文章：[网络安全组流日志记录简介](network-watcher-nsg-flow-logging-overview.md)。
 
 ### <a name="setting-up-graylog"></a>安装 Graylog
 
@@ -187,7 +187,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
     确保将输入绑定到配置 Graylog 服务器的 IP。 IP 地址应与 Logstash 配置文件 UDP 输出中的 **host** 字段匹配。 默认端口应是 *12201*。 确保端口与 Logstash 配置文件中指定的 UDP 输出中的 **port** 字段匹配。
 
-    :::image type="content" source="./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png" alt-text="输入":::
+    :::image type="content" source="./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png" alt-text="屏幕截图显示了 Graylog 输入，其中包含用于启动和查找输入的选项。":::
 
     启动输入后，应会看到它显示在“本地输入”部分中，如下图所示：
 
@@ -201,11 +201,11 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 等待一段时间让 Graylog 服务器收集消息后，可以搜索整个消息。 若要检查正在发送到 Graylog 服务器的消息，请在“输入”配置页中，单击所创建的 GELF UDP 输入的“显示收到的消息”按钮。  随后会定向到如下图所示的屏幕： 
 
-:::image type="content" source="./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png" alt-text="直方图":::
+:::image type="content" source="./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png" alt-text="屏幕截图显示了 Graylog 服务器，其中显示了搜索结果、直方图和消息。":::
 
 单击蓝色的“%{Message}”链接会展开每条消息，显示每个流元组的参数，如下图所示：
 
-:::image type="content" source="./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png" alt-text="消息":::
+:::image type="content" source="./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png" alt-text="屏幕截图显示了来自 Graylog 服务器的消息详细信息。":::
 
 默认情况下，如果未选择要搜索的特定消息字段，会将所有消息字段包含在搜索中。 如果想要搜索特定的消息（例如， 来自特定源 IP 的流元组），可以根据[文档](https://docs.graylog.org/en/2.2/pages/queries.html)中所述使用 Graylog 搜索查询语言
 
@@ -219,7 +219,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 2. 在此处，请单击绿色的“创建仪表板”按钮，并在简短表单中填写仪表板的标题和说明。 单击“保存”按钮创建新仪表板。 随后会出现如下图所示的仪表板：
 
-    :::image type="content" source="./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png" alt-text="仪表板":::
+    :::image type="content" source="./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png" alt-text="屏幕截图显示了 Graylog 服务器仪表板，其中包含用于创建和编辑仪表板的选项。":::
 
 ### <a name="add-widgets"></a>添加小组件
 
@@ -247,6 +247,6 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 ## <a name="next-steps"></a>后续步骤
 
-访问 [使用 Power BI 可视化网络安全组流日志](network-watcher-visualize-nsg-flow-logs-power-bi.md)，了解如何使用 Power BI 可视化网络安全组流日志。
+访问[使用 Power BI 可视化网络安全组流日志](network-watcher-visualize-nsg-flow-logs-power-bi.md)，了解如何使用 Power BI 可视化网络安全组流日志。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

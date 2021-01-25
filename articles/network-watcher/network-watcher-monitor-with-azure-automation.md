@@ -4,23 +4,23 @@ titleSuffix: Azure Network Watcher
 description: 本文介绍如何使用 Azure 自动化和网络观察程序诊断本地连接
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 08/10/2020
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: 91fb9148991dbd9f090be11407d6415d99d117ea
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: 842fdfd9a8e3f7f2850fe09c1d0172e996c0757f
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87547985"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231099"
 ---
 <!--Verify Successfully-->
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>使用网络观察程序故障排除功能监视 VPN 网关
@@ -46,7 +46,7 @@ ms.locfileid: "87547985"
 
 - 在 Azure 中有一个 Azure 自动化帐户。 请确保自动化帐户具有最新模块，同时确保具有 AzureRM.Network 模块。 如果需要将 AzureRM.Network 模块添加到自动化帐户，可以在模块库中找到此模块。
 - 必须在 Azure 自动化中配置一组凭据。 在 [Azure 自动化安全性](../automation/automation-security-overview.md)中了解详细信息。
-- 在 Azure 自动化中定义有效的 SMTP 服务器（Office 365、本地电子邮件或其他服务器）和凭据
+- 在 Azure 自动化中定义有效的 SMTP 服务器（Microsoft 365、本地电子邮件或其他服务器）和凭据
 - 在 Azure 配置的虚拟网络网关。
 - 现有存储帐户，其中具有一个存储登录信息的现有容器。
 
@@ -55,7 +55,7 @@ ms.locfileid: "87547985"
 
 ### <a name="create-the-runbook"></a>创建 Runbook
 
-配置示例的第一个步骤是创建 Runbook。 本示例使用运行方式帐户。 若要了解运行方式帐户，请访问[使用 Azure 运行方式帐户进行 Runbook 身份验证](../automation/automation-create-runas-account.md)
+配置示例的第一个步骤是创建 Runbook。 本示例使用运行方式帐户。 若要了解运行方式帐户，请访问[使用 Azure 运行方式帐户进行 Runbook 身份验证](../automation/manage-runas-account.md)
 
 ### <a name="step-1"></a>步骤 1
 
@@ -89,7 +89,7 @@ ms.locfileid: "87547985"
 
 ```powershell
 # Set these variables to the proper values for your environment
-$o365AutomationCredential = "<Office 365 account>"
+$automationCredential = "<work or school account>"
 $fromEmail = "<from email address>"
 $toEmail = "<to email address>"
 $smtpServer = "<smtp.office365.com>"
@@ -103,8 +103,8 @@ $storageAccountName = "<storage account name>"
 $storageAccountResourceGroup = "<resource group name>"
 $storageAccountContainer = "<container name>"
 
-# Get credentials for Office 365 account
-$cred = Get-AutomationPSCredential -Name $o365AutomationCredential
+# Get credentials for work or school account
+$cred = Get-AutomationPSCredential -Name $automationCredential
 
 # Get the connection "AzureRunAsConnection "
 $servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName

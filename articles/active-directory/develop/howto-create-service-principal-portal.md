@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: eee406262e8b920d38ca51671d81b561bfa0dea6
-ms.sourcegitcommit: 59810f8eba5e430d85a595e346d3b7fb6e4a0102
+ms.openlocfilehash: 26ef8b643cd6f7a3892a9603cad444cef3051ef0
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94501774"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195001"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体
 
@@ -75,7 +75,7 @@ ms.locfileid: "94501774"
 
 我们直接介绍如何创建标识。 如果遇到问题，请查看[所需权限](#permissions-required-for-registering-an-app)，确保帐户可以创建标识。
 
-1. 通过 [Azure 门户](https://portal.azure.cn)登录到 Azure 帐户。
+1. 通过 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>登录到你的 Azure 帐户。
 1. 选择“Azure Active Directory” 。
 1. 选择“应用注册” 。
 1. 选择“新注册”。
@@ -181,7 +181,7 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 ## <a name="configure-access-policies-on-resources"></a>在资源上配置访问策略
 请记住，可能需要对应用程序需要访问的资源配置附加权限。 例如，你还必须[更新密钥保管库的访问策略](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies)，以使应用程序能够访问密钥、机密或证书。
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，导航到密钥保管库并选择“访问策略”。
+1. 在 <a href="https://portal.azure.cn/" target="_blank">Azure 门户<span class="docon docon-navigate-external x-hidden-focus"></span></a>中，导航到密钥保管库并选择“访问策略”。
 1. 选择“添加访问策略”，然后选择要授予应用程序的密钥、机密和证书权限。  选择之前创建的服务主体。
 1. 选择“添加”以添加访问策略，然后选择“保存”以提交更改。
     ![添加访问策略](./media/howto-create-service-principal-portal/add-access-policy.png)

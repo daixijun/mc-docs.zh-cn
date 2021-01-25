@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: Johnnytechn
 origin.date: 11/27/2019
 ms.author: v-johya
-ms.date: 11/10/2020
+ms.date: 01/12/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: f080a6efcaaca7a10fac27f8b6f7ef93e3b0d157
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 8676f057c32c300bcb91c55494b85789a5ceef55
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637922"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231046"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用情况和成本
 
@@ -31,7 +31,10 @@ ms.locfileid: "94637922"
 
 用于[对自定义指标维度启用警报](./pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)的 Application Insights 选项也可能会产生额外的费用，因为这可能会导致创建其他预聚合指标。 请[详细了解](./pre-aggregated-metrics-log-metrics.md) Application Insights 中基于日志的预聚合指标，以及有关 Azure Monitor 自定义指标的[定价](https://www.azure.cn/pricing/details/monitor/)。
 
-<!--Not available in MC: ### Workspace-based Application Insights-->
+### <a name="workspace-based-application-insights"></a>基于工作区的 Application Insights
+
+对于将数据发送到 Log Analytics 工作区的 Application Insights 资源（称为[基于工作区的 Application Insights 资源](create-workspace-resource.md)），数据引入和保留的计费由 Application Insights 数据所在的工作区完成。 这样，客户除了能够使用“即用即付”定价模型之外，还能使用 Log Analytics [定价模型](../platform/manage-cost-storage.md#pricing-model)的所有选项，其中包括“预留产能”。 Log Analytics 还提供了更多数据保留选项，包括[按数据类型保留](../platform/manage-cost-storage.md#retention-by-data-type)。 工作区中的 Application Insights 数据类型具有 90 天的保留期，无需支付费用。 使用 Web 测试以及启用自定义指标维度警报时，仍通过 Application Insights 来报告。 了解如何使用[使用情况和估计成本](../platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs)和 [Log Analytics 查询](#data-volume-for-workspace-based-application-insights-resources)跟踪 Log Analytics 中的数据引入和保留成本。 
+
 ## <a name="estimating-the-costs-to-manage-your-application"></a>估算应用程序的管理成本
 
 如果尚未使用 Application Insights，可以使用 [Azure Monitor 定价计算器](https://www.azure.cn/pricing/calculator/?service=monitor)来估算使用 Application Insights 的成本。 首先在搜索框中输入“Azure Monitor”，然后单击生成的 Azure Monitor 磁贴。 将页面向下滚动到“Azure Monitor”，然后从“类型”下拉列表中选择“Application Insights”。  可以在这里输入每月要收集的数据的 GB 数，因此问题是 Application Insights 在监视应用程序时会收集多少数据量。
@@ -64,9 +67,6 @@ E. 设置每日数据量上限。
 
 若要更深入地调查 Application Insights 使用情况，请打开“指标”页，添加名为“数据点容量”的指标，然后选择“应用拆分”选项以按“遥测项类型”拆分数据。
 
-Application Insights 费用将添加到 Azure 帐单。 可以在 Azure 门户的“成本管理 + 计费”部分或在 [Azure 计费门户](https://account.windowsazure.cn/Subscriptions)中查看 Azure 帐单的详细信息。  若要详细了解如何将它用于 Application Insights，请[参阅下文](#viewing-application-insights-usage-on-your-azure-bill)。 
-
-![在左侧菜单中，选择“账单”](./media/pricing/02-billing.png)
 
 ### <a name="using-data-volume-metrics"></a>使用数据量指标
 <a id="understanding-ingested-data-volume"></a>
@@ -77,8 +77,7 @@ Application Insights 费用将添加到 Azure 帐单。 可以在 Azure 门户�
 
 ### <a name="queries-to-understand-data-volume-details"></a>用于了解数据量详细信息的查询
 
-可通过两种方法调查 Application Insights 的数据量。 第一种方法是使用 `systemEvents` 表中的聚合信息，第二种方法是使用每个引入事件中都提供的 `_BilledSize` 属性。 
-<!--Not available in MC: Workspace-based Application Insights-->
+可通过两种方法调查 Application Insights 的数据量。 第一种方法是使用 `systemEvents` 表中的聚合信息，第二种方法是使用每个引入事件中都提供的 `_BilledSize` 属性。 `systemEvents` 不会提供 [workspace-based-application-insights](#data-volume-for-workspace-based-application-insights-resources) 的数据大小信息。
 
 #### <a name="using-aggregated-data-volume-information"></a>使用聚合数据量信息
 
@@ -130,8 +129,48 @@ dependencies
 | render barchart  
 ```
 
-<!--Not available in MC: Workspace-based Application Insights-->
-<!--Not available in MC: ## Viewing Application Insights usage on your Azure billd-->
+#### <a name="data-volume-for-workspace-based-application-insights-resources"></a>基于工作区的 Application Insights 资源的数据量
+
+若要查看过去一周内工作区中所有[基于工作区的 Application Insights 资源](create-workspace-resource.md)的数据量趋势，请转到 Log Analytics 工作区并运行以下查询：
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
+| summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
+| render areachart
+```
+
+若要按类型查询基于工作区的特定 Application Insights 资源的数据量趋势，请在 Log Analytics 工作区中使用以下查询：
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now())
+| where _ResourceId contains "<myAppInsightsResourceName>"
+| summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
+| render areachart
+```
+
+<!--Not available in MC: ## Viewing Application Insights usage on your Azure bill-->
 ## <a name="managing-your-data-volume"></a>管理数据量
 
 可以使用以下方法管理发送的数据量：
@@ -297,8 +336,6 @@ Application Insights 资源的默认保留期为 90 天。 可以为每个 Appli
 
 * [采样](./sampling.md)
 
-[api]: app-insights-api-custom-events-metrics.md
-[apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: ./app-insights-overview.md
 [pricing]: https://www.azure.cn/pricing/details/monitor/
 <!--Correct on links: https://www.azure.cn/pricing/details/monitor/ -->

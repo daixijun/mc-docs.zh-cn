@@ -4,15 +4,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 origin.date: 04/04/2020
-ms.date: 11/20/2020
+ms.date: 01/14/2021
 ms.author: v-tawe
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 25f06b5a102c4ffad90b9b0dce004a20d354114e
-ms.sourcegitcommit: c2c9dc65b886542d220ae17afcb1d1ab0a941932
+ms.openlocfilehash: d4ec30b60d0648dbc2abde74d5361de8d46894b4
+ms.sourcegitcommit: 93063f9b8771b8e895c3bcdf218f5e3af14ef537
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94978760"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195365"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -89,6 +89,12 @@ intent_recognizer.add_intents(intents)
 ```
 
 此示例使用 `add_intents()` 函数添加显式定义的意向的列表。 如果要从模型中添加所有意向，请使用 `add_all_intents(model)` 并传递模型。
+
+> [!NOTE]
+> 你可以通过将终结点 URL 传递到 FromEndpoint 方法来创建 LanguageUnderstandingModel。
+> 语音 SDK 仅支持 LUIS v2.0 终结点，LUIS v2.0 终结点始终遵循以下两种模式之一：
+> * `https://{AzureResourceName}.cognitiveservices.azure.cn/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.azure.cn/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 
 ## <a name="recognize-an-intent"></a>识别意向
 

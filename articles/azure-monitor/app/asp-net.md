@@ -4,15 +4,15 @@ description: 为托管在本地或 Azure 中的 ASP.NET 网站配置性能、可
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 05/08/2019
-ms.date: 12/01/2020
-ms.custom: contperfq1
+ms.date: 01/12/2021
+ms.custom: contperf-fy21q1
 ms.author: v-johya
-ms.openlocfilehash: 6cf5b5523d3a403e76f1e0543b9f37d1ac52dcf1
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: 2051009579702c71f67dfd22c5308a0ec0a50eed
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432445"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230833"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>为 ASP.NET 网站配置 Application Insights
 
@@ -27,7 +27,11 @@ ms.locfileid: "96432445"
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
 
-- 创建基于工作区的 Application Insights 资源。
+- 创建[基于工作区的 Application Insights 资源](create-workspace-resource.md)。
+
+> [!IMPORTANT]
+> 新的 Azure 区域要求使用连接字符串而不是检测密钥。 [连接字符串](./sdk-connection-string.md?tabs=net)用于标识要与遥测数据关联的资源。 它还允许你修改可供你的资源将其用作遥测目标的终结点。 你需要复制连接字符串，并将其添加到应用程序的代码或环境变量中。
+
 
 ## <a name="create-a-basic-aspnet-web-app"></a>创建基本的 ASP.NET Web 应用
 
@@ -361,7 +365,6 @@ ms.locfileid: "96432445"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 添加综合事务，以通过[可用性监视](monitor-web-app-availability.md)来测试你的网站是否可从世界各地进行访问。
 * [配置采样](sampling.md)以帮助降低遥测流量和数据存储费用。
 
 

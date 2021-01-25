@@ -3,14 +3,14 @@ title: Azure Functions JavaScript 开发者参考
 description: 了解如何使用 JavaScript 开发函数。
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 01/13/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 946333d964d3de71fbf28b0ca91d6da5ddd3301d
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 978c72592d0d02f6e93ea8e26a154864074dc052
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507768"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195030"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -20,7 +20,7 @@ ms.locfileid: "96507768"
 
 | 入门 | 概念| 指导式学习 |
 | -- | -- | -- | 
-| <ul><li>[使用 Visual Studio Code 的 Node.js 函数](./create-first-function-vs-code-node.md)</li><li>[使用终端/命令提示符的 Node.js 函数](./create-first-function-cli-java.md)</li></ul> | <ul><li>[开发人员指南](functions-reference.md)</li><li>[托管选项](functions-scale.md)</li><li>[TypeScript 函数](#typescript)</li><li>[性能&nbsp;注意事项](functions-best-practices.md)</li></ul> | <ul><li>[创建无服务器应用程序](https://docs.microsoft.com/learn/paths/create-serverless-applications/)</li><li>[将 Node.js 和 Express API 重构到无服务器 API](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[使用 Visual Studio Code 的 Node.js 函数](./create-first-function-vs-code-node.md)</li><li>[使用终端/命令提示符的 Node.js 函数](./create-first-function-cli-node.md)</li></ul> | <ul><li>[开发人员指南](functions-reference.md)</li><li>[托管选项](functions-scale.md)</li><li>[TypeScript 函数](#typescript)</li><li>[性能&nbsp;注意事项](functions-best-practices.md)</li></ul> | <ul><li>[创建无服务器应用程序](https://docs.microsoft.com/learn/paths/create-serverless-applications/)</li><li>[将 Node.js 和 Express API 重构到无服务器 API](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>JavaScript 函数基础知识
 
@@ -493,7 +493,7 @@ HTTP 和 webhook 触发器以及 HTTP 输出绑定使用请求和响应对象来
 
 ## <a name="scaling-and-concurrency"></a>缩放和并发
 
-默认情况下，Azure Functions 会自动监视应用程序上的负载，并按需为 Node.js 创建更多主机实例。 Functions 针对不同触发器类型使用内置（用户不可配置）阈值来确定何时添加实例，例如 QueueTrigger 的消息和队列大小。 有关详细信息，请参阅[消耗计划和高级计划的工作原理](functions-scale.md#how-the-consumption-and-premium-plans-work)。
+默认情况下，Azure Functions 会自动监视应用程序上的负载，并按需为 Node.js 创建更多主机实例。 Functions 针对不同触发器类型使用内置（用户不可配置）阈值来确定何时添加实例，例如 QueueTrigger 的消息和队列大小。 有关详细信息，请参阅[消耗计划和高级计划的工作原理](event-driven-scaling.md)。
 
 此缩放行为足以满足多个 Node.js 应用程序的需求。 对于占用大量 CPU 的应用程序，可使用多个语言工作进程进一步提高性能。
 
@@ -517,6 +517,11 @@ FUNCTIONS_WORKER_PROCESS_COUNT 适用于 Functions 在横向扩展应用程序�
 
 对于 Windows 函数应用，通过将 `WEBSITE_NODE_DEFAULT_VERSION` [应用设置](functions-how-to-use-azure-function-app-settings.md#settings)设为受支持的 LTS 版本（例如 `~12`）来针对 Azure 中的版本进行操作。
 
+对于 Linux 函数应用，请运行以下 Azure CLI 命令更新 Node 版本。
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## <a name="dependency-management"></a>依赖项管理
 若要在 JavaScript 代码中使用社区库（如下面的示例所示），需要确保在 Azure 中的 Function App 上安装所有依赖项。

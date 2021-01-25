@@ -7,13 +7,14 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 08/13/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: ced8d0c17efd8c2e90188a593fabdb6b81a65ebd
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/19/2021
+ms.localizationpriority: high
+ms.openlocfilehash: 08bd97390f5fc27ee836ed7cfffb20eef00a4637
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431054"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611515"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>将数据从事件中心引入到 Azure 数据资源管理器
 
@@ -127,7 +128,7 @@ Azure 数据资源管理器可从事件中心引入（加载数据），是一�
     | 事件中心命名空间 | 唯一的命名空间名称 | 先前选择的用于标识命名空间的名称。 |
     | 事件中心 | *test-hub* | 你创建的事件中心。 |
     | 使用者组 | *test-group* | 在创建的事件中心定义的使用者组。 |
-    | 事件系统属性 | 选择相关属性 | [事件中心系统属性](/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations)。 如果每个事件消息有多个记录，则系统属性将添加到第一个记录中。 添加系统属性时，[创建](kusto/management/create-table-command.md)或[更新](kusto/management/alter-table-command.md)表架构和[映射](kusto/management/mappings.md)以包括所选属性。 |
+    | 事件系统属性 | 选择相关属性 | [事件中心系统属性](/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations)。 添加系统属性时，[创建](kusto/management/create-table-command.md)或[更新](kusto/management/alter-table-command.md)表架构和[映射](kusto/management/mappings.md)以包括所选属性。 有关系统属性限制的详细信息，请参阅[事件系统属性映射](#event-system-properties-mapping)。 |
     | 压缩 | *无* | 事件中心消息有效负载的压缩类型。 支持的压缩类型：None、GZip。|
     
 #### <a name="target-table"></a>目标表
@@ -152,12 +153,9 @@ Azure 数据资源管理器可从事件中心引入（加载数据），是一�
 
 ### <a name="event-system-properties-mapping"></a>事件系统属性映射
 
-> [!Note]
-> * 单记录事件支持系统属性。
-> * 对于 `csv` 映射，属性将添加到记录的开头。 对于 `json` 映射，将根据下拉列表中显示的名称添加属性。
+[!INCLUDE [event-hub-system-mapping](includes/event-hub-system-mapping.md)]
 
 如果在表的“数据源”部分选择了“事件系统属性”，则必须在表架构和映射中包含[系统属性](ingest-data-event-hub-overview.md#system-properties)。
-
 
 ## <a name="copy-the-connection-string"></a>复制连接字符串
 
@@ -215,7 +213,7 @@ Azure 数据资源管理器可从事件中心引入（加载数据），是一�
     ![消息结果集](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > * Azure 数据资源管理器具有用于数据引入的聚合（批处理）策略，旨在优化引入过程。 默认情况下，该策略配置为 5 分钟或 500 MB 数据，因此你可能会遇到延迟。 有关聚合选项，请参阅[批处理策略](kusto/management/batchingpolicy.md)。 
+    > * Azure 数据资源管理器具有用于数据引入的聚合（批处理）策略，旨在优化引入过程。 默认批处理策略配置为在批满足以下条件之一时封装批：最大延迟时间为 5 分钟、总大小为 1G 或 1000 个 blob。 因此，你可能会遇到延迟。 有关详细信息，请参阅[批处理策略](kusto/management/batchingpolicy.md)。 
     > * 事件中心引入包括 10 秒或 1 MB 的事件中心响应时间。 
     > * 配置表以支持流式处理并消除响应时间延迟。 请参阅[流式处理策略](kusto/management/streamingingestionpolicy.md)。 
 

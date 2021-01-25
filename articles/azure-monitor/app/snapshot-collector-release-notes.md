@@ -4,13 +4,13 @@ description: Application Insights Snapshot Debugger 使用的 Microsoft.Applicat
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/11/2020
-ms.openlocfilehash: de730c67408666f595ab7ae2015707ea248b95dc
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/12/2021
+ms.openlocfilehash: 9d082ae88d9870625dc2cecb9774fad60c67043a
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105485"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231028"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Microsoft.ApplicationInsights.SnapshotCollector 的发行说明
 
@@ -18,9 +18,19 @@ ms.locfileid: "97105485"
 
 [详细了解](./snapshot-debugger.md)适用于 .NET 应用程序的 Application Insights Snapshot Debugger。
 
-对于 bug 报告和反馈，请在 GitHub 上通过 https://github.com/microsoft/ApplicationInsights-dotnet 提出问题
+对于 bug 报告和反馈，请在 GitHub 上通过 https://github.com/microsoft/ApplicationInsights-SnapshotCollector 提出问题
 
 ## <a name="release-notes"></a>发行说明
+
+## <a name="1375"></a>[1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
+用于从 1.4.0-pre 版本向后移植修补程序的若干修正发布。
+### <a name="bug-fixes"></a>Bug 修复
+- 修复[关闭时的 ObjectDisposedException](https://github.com/microsoft/ApplicationInsights-dotnet/issues/2097)。
+
+## <a name="1374"></a>[1.3.7.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.4)
+用于解决在测试 Azure 应用服务的无代码附加方案时发现的问题的若干修正发布。
+### <a name="changes"></a>更改
+- netcoreapp3.0 目标现在依赖于 Microsoft.ApplicationInsights.AspNetCore > = 2.1.1（以前是 > = 2.1.2）。
 
 ## <a name="1373"></a>[1.3.7.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.3)
 用于解决几个具有重大影响的问题的若干修正发布。
@@ -30,9 +40,9 @@ ms.locfileid: "97105485"
 
 ## <a name="137"></a>[1.3.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7)
 ### <a name="changes"></a>更改
-SnapshotCollector 的 netcoreapp2.0 目标依赖 Microsoft.ApplicationInsights.AspNetCore >= 2.1.1（再一次）。 这会将行为恢复为 1.3.5 之前的行为。 我们尝试在 1.3.6 中对其进行升级，但它破坏了某些 Azure 应用服务场景。
+- SnapshotCollector 的 netcoreapp2.0 目标依赖 Microsoft.ApplicationInsights.AspNetCore >= 2.1.1（再一次）。 这会将行为恢复为 1.3.5 之前的行为。 我们尝试在 1.3.6 中对其进行升级，但它破坏了某些 Azure 应用服务场景。
 ### <a name="new-features"></a>新增功能
-Snapshot Collector 从 APPLICATIONINSIGHTS_CONNECTION_STRING 环境变量或 TelemetryConfiguration 读取和分析 ConnectionString。 这主要用于设置用于连接到快照服务的终结点。 有关详细信息，请参阅[连接字符串文档](./sdk-connection-string.md)。
+- Snapshot Collector 从 APPLICATIONINSIGHTS_CONNECTION_STRING 环境变量或 TelemetryConfiguration 读取和分析 ConnectionString。 这主要用于设置用于连接到快照服务的终结点。 有关详细信息，请参阅[连接字符串文档](./sdk-connection-string.md)。
 ### <a name="bug-fixes"></a>Bug 修复
 - 切换为对所有目标使用 HttpClient，但 net45 除外，因为在某些环境中由于不兼容的 SecurityProtocol（需要 TLS 1.2）导致 WebRequest 失败。
 

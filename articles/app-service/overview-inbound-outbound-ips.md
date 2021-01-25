@@ -3,19 +3,19 @@ title: 入站/出站 IP 地址
 description: 了解如何在 Azure 应用服务中使用入站和出站 IP 地址、这些地址何时更改以及如何查找应用的地址。
 ms.topic: article
 origin.date: 08/25/2020
-ms.date: 10/19/2020
+ms.date: 01/18/2021
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 33b0764e58ba5049c4d7d445c5dd69d0ef0b6dca
-ms.sourcegitcommit: e2e418a13c3139d09a6b18eca6ece3247e13a653
+ms.openlocfilehash: eeb2e6dd49e689ea94d6b641f3e999e149feecb6
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170837"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230494"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure 应用服务中的入站和出站 IP 地址
 
-[Azure 应用服务](overview.md)是一个多租户服务（[应用服务环境](environment/intro.md)除外）。 不在应用服务环境中（不在[隔离层](https://www.azure.cn/pricing/details/app-service/)中）的应用与其他应用共享网络基础结构。 因此，应用的入站和出站 IP 地址可能不同，在某些情况下甚至可能会更改。 
+[Azure 应用服务](overview.md)是一个多租户服务（[应用服务环境](environment/intro.md)除外）。 不在应用服务环境中（不在[隔离层](https://www.azure.cn/pricing/details/app-service/)中）的应用与其他应用共享网络基础结构。 因此，应用的入站和出站 IP 地址可能不同，在某些情况下甚至可能会更改。
 
 [应用服务环境](environment/intro.md)使用专用网络基础结构，因此，应用服务环境中运行的应用将获取静态专用 IP 地址用于入站和出站连接。
 
@@ -31,7 +31,9 @@ ms.locfileid: "92170837"
 
 - 删除应用，然后在其他资源组中重新创建它（部署单元可能会更改）。
 - 删除资源组和区域组合中的最后一个应用，然后重新创建它（部署单元可能会更改）。
-- 删除现有基于 IP 的 TLS/SSL 绑定，例如在证书续订期间（请参阅[续订证书](configure-ssl-certificate.md#renew-certificate)）。
+- 删除基于 IP 的现有 TLS/SSL 绑定。
+
+<!--Not Available on  [Renew certificate](configure-ssl-certificate.md#renew-certificate)-->
 
 ## <a name="find-the-inbound-ip"></a>找到入站 IP
 

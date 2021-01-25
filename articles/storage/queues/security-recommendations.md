@@ -2,21 +2,21 @@
 title: 适用于队列存储的安全建议
 titleSuffix: Azure Storage
 description: 了解适用于队列存储的安全建议。 实施此指南将有助于你履行我们的共享职责模型中描述的安全职责。
-services: storage
 author: WenJason
+services: storage
+ms.author: v-jay
+origin.date: 03/11/2020
+ms.date: 01/18/2021
+ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-origin.date: 03/11/2020
-ms.date: 12/14/2020
-ms.author: v-jay
 ms.custom: security-recommendations
-ms.openlocfilehash: 71e6c8bd89ea641fdf81a4387c8083ab047ed2dd
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: f8855e22c70d6fee793b7e29e2bce6957648cc95
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850734"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163192"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>适用于队列存储的安全建议
 

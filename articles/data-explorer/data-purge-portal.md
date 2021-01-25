@@ -7,13 +7,13 @@ ms.reviewer: kedamari
 ms.service: data-explorer
 ms.topic: how-to
 origin.date: 05/12/2020
-ms.date: 09/24/2020
-ms.openlocfilehash: 0003a018ce910314831426c09e4560161004895f
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+ms.date: 01/22/2021
+ms.openlocfilehash: f18e0239e6ad0b5c7d746fc3781a9155e1a967f1
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431156"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611634"
 ---
 # <a name="enable-data-purge-on-your-azure-data-explorer-cluster"></a>在 Azure 数据资源管理器群集上启用数据清除
 
@@ -21,7 +21,7 @@ ms.locfileid: "96431156"
 
 Azure 数据资源管理器支持删除单个记录。 通过 `.purge` 命令删除数据可保护个人数据，且不应在其他情况下使用。 它不是为支持频繁的删除请求或删除大量数据而设计的，并且可能会对服务的性能产生重大影响。
 
-执行 `.purge` 命令会触发一个可能需要几天时间才能完成的过程。 如果应用了 `predicate` 的记录的“密度”很大，该过程会重新引入表中的所有数据。 此过程会极大影响性能和 COGS。 有关详细信息，请参阅 [Azure 数据资源管理器中的数据清除](kusto/concepts/data-purge.md)。
+执行 `.purge` 命令会触发一个可能需要几天时间才能完成的过程。 如果应用了 `predicate` 的记录的“密度”很大，该过程会重新引入表中的所有数据。 此过程会显著影响性能和 COGS（所售货物成本）。 有关详细信息，请参阅 [Azure 数据资源管理器中的数据清除](kusto/concepts/data-purge.md)。
 
 ## <a name="methods-of-invoking-purge-operations"></a>清除操作调用方法 
 

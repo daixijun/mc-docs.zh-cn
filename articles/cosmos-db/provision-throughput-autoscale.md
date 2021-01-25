@@ -3,19 +3,19 @@ title: 在自动缩放模式下创建 Azure Cosmos 容器和数据库。
 description: 了解好处、用例、以及如何在自动缩放模式下预配 Azure Cosmos 数据库和容器。
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 06/04/2020
+origin.date: 12/11/2020
 author: rockboyfor
-ms.date: 12/07/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/10/2020
 ms.author: v-yeche
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 0a2e851e2ce41c02c0a226aadb6fa679c1b10833
-ms.sourcegitcommit: bbe4ee95604608448cf92dec46c5bfe4b4076961
+ms.openlocfilehash: d113406a52db5182c2ef695ff755ba07a9d41ecb
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96598521"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230087"
 ---
 <!--Verified successfully-->
 <!--Latest content-->
@@ -65,7 +65,7 @@ ms.locfileid: "96598521"
 
 ## <a name="enable-autoscale-on-existing-resources"></a>对现有资源启用自动缩放
 
-使用 [Azure 门户](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container)在现有数据库或容器上启用自动缩放。 随时可以在自动缩放与标准（手动）预配吞吐量之间切换。 有关详细信息，请参阅[此文档](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work)。 目前对于所有 API，只能使用 Azure 门户在现有资源上启用自动缩放。
+使用 [Azure 门户](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container)、[Azure 资源管理器模板](how-to-provision-autoscale-throughput.md#azure-resource-manager)、[CLI](how-to-provision-autoscale-throughput.md#azure-cli) 或 [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) 在现有数据库或容器上启用自动缩放。 随时可以在自动缩放与标准（手动）预配吞吐量之间切换。 有关详细信息，请参阅[此文档](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work)。
 
 <a name="autoscale-limits"></a>
 ## <a name="throughput-and-storage-limits-for-autoscale"></a>自动缩放的吞吐量和存储限制

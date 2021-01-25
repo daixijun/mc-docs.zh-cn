@@ -2,14 +2,14 @@
 title: Durable Functions 中的扇出/扇入方案 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 扩展中实现扇出/扇入方案。
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 01/13/2021
 ms.author: v-junlch
-ms.openlocfilehash: 011f63c462d3c9184f9c950d620b9e6a1eca3ae8
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 67c691b048a1fc9114de5d915fc35e0a214a8e78
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "78266067"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195046"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Durable Functions 中的扇出/扇入方案 - 云备份示例
 
@@ -21,9 +21,9 @@ ms.locfileid: "78266067"
 
 在此示例中，函数会将指定目录下的所有文件以递归方式上传到 Blob 存储。 它们还会统计已上传的字节总数。
 
-可以编写单个函数来处理所有这些操作。 会遇到的主要问题是**可伸缩性**。 单个函数执行只能在单个虚拟机上运行，因此，吞吐量会受到该 VM 的吞吐量限制。 另一个问题是**可靠性**。 如果中途失败或者整个过程花费的时间超过 5 分钟，则备份可能以部分完成状态失败。 然后，需要重新开始备份。
+可以编写单个函数来处理所有这些操作。 会遇到的主要问题是 **可伸缩性**。 单个函数执行只能在单个虚拟机上运行，因此，吞吐量会受到该 VM 的吞吐量限制。 另一个问题是 **可靠性**。 如果中途失败或者整个过程花费的时间超过 5 分钟，则备份可能以部分完成状态失败。 然后，需要重新开始备份。
 
-更可靠的方法是编写两个正则函数：一个函数枚举文件并将文件名添加到队列，另一个函数从队列读取数据并将文件上传到 Blob 存储。 此方法可以提高吞吐量和可靠性，但需要预配和管理队列。 更重要的是，如果想要执行其他任何操作，例如报告已上传的字节总数，则这种做法会明显增大**状态管理**和**协调**的复杂性。
+更可靠的方法是编写两个正则函数：一个函数枚举文件并将文件名添加到队列，另一个函数从队列读取数据并将文件上传到 Blob 存储。 此方法可以提高吞吐量和可靠性，但需要预配和管理队列。 更重要的是，如果想要执行其他任何操作，例如报告已上传的字节总数，则这种做法会明显增大 **状态管理** 和 **协调** 的复杂性。
 
 Durable Functions 方法提供前面所述的所有优势，并且其系统开销极低。
 
@@ -49,34 +49,34 @@ Durable Functions 方法提供前面所述的所有优势，并且其系统开�
 
 下面的代码可实现业务流程协调程序函数：
 
-```C#
-[FunctionName("E2_BackupSiteContent")]
-public static async Task<long> Run(
-    [OrchestrationTrigger] IDurableOrchestrationContext backupContext)
-{
-    string rootDirectory = backupContext.GetInput<string>()?.Trim();
-    if (string.IsNullOrEmpty(rootDirectory))
-    {
-        rootDirectory = Directory.GetParent(typeof(BackupSiteContent).Assembly.Location).FullName;
-    }
+```csharp
+        [FunctionName("E2_BackupSiteContent")]
+        public static async Task<long> Run(
+            [OrchestrationTrigger] IDurableOrchestrationContext backupContext)
+        {
+            string rootDirectory = backupContext.GetInput<string>()?.Trim();
+            if (string.IsNullOrEmpty(rootDirectory))
+            {
+                rootDirectory = Directory.GetParent(typeof(BackupSiteContent).Assembly.Location).FullName;
+            }
 
-    string[] files = await backupContext.CallActivityAsync<string[]>(
-        "E2_GetFileList",
-        rootDirectory);
+            string[] files = await backupContext.CallActivityAsync<string[]>(
+                "E2_GetFileList",
+                rootDirectory);
 
-    var tasks = new Task<long>[files.Length];
-    for (int i = 0; i < files.Length; i++)
-    {
-        tasks[i] = backupContext.CallActivityAsync<long>(
-            "E2_CopyFileToBlob",
-            files[i]);
-    }
+            var tasks = new Task<long>[files.Length];
+            for (int i = 0; i < files.Length; i++)
+            {
+                tasks[i] = backupContext.CallActivityAsync<long>(
+                    "E2_CopyFileToBlob",
+                    files[i]);
+            }
 
-    await Task.WhenAll(tasks);
+            await Task.WhenAll(tasks);
 
-    long totalBytes = tasks.Sum(t => t.Result);
-    return totalBytes;
-}
+            long totalBytes = tasks.Sum(t => t.Result);
+            return totalBytes;
+        }
 ```
 
 请注意 `await Task.WhenAll(tasks);` 行。 对 `E2_CopyFileToBlob` 函数的所有单个调用都未处于等待状态，这使它们可以并行运行。  将此任务数组传递给 `Task.WhenAll` 时，会获得所有复制操作完成之前不会完成的任务。  如果熟悉 .NET 中的任务并行库 (TPL) 的话，则对此过程也不会陌生。 差别在于，这些任务可在多个虚拟机上同时运行，Durable Functions 扩展可确保端到端执行能够弹性应对进程回收。
@@ -87,7 +87,7 @@ public static async Task<long> Run(
 
 此函数为业务流程协调程序函数使用标准的 *function.json*。
 
-```JSON
+```json
 {
   "bindings": [
     {
@@ -101,7 +101,7 @@ public static async Task<long> Run(
 
 下面的代码可实现业务流程协调程序函数：
 
-```JavaScript
+```javascript
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context){
@@ -144,18 +144,18 @@ module.exports = df.orchestrator(function*(context){
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-```C#
-[FunctionName("E2_GetFileList")]
-public static string[] GetFileList(
-    [ActivityTrigger] string rootDirectory, 
-    ILogger log)
-{
-    log.LogInformation($"Searching for files under '{rootDirectory}'...");
-    string[] files = Directory.GetFiles(rootDirectory, "*", SearchOption.AllDirectories);
-    log.LogInformation($"Found {files.Length} file(s) under {rootDirectory}.");
+```csharp
+        [FunctionName("E2_GetFileList")]
+        public static string[] GetFileList(
+            [ActivityTrigger] string rootDirectory, 
+            ILogger log)
+        {
+            log.LogInformation($"Searching for files under '{rootDirectory}'...");
+            string[] files = Directory.GetFiles(rootDirectory, "*", SearchOption.AllDirectories);
+            log.LogInformation($"Found {files.Length} file(s) under {rootDirectory}.");
 
-    return files;
-}
+            return files;
+        }
 ```
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
@@ -176,7 +176,7 @@ public static string[] GetFileList(
 
 下面是实现：
 
-```JavaScript
+```javascript
 const readdirp = require("readdirp");
 
 module.exports = function (context, rootDirectory) {
@@ -201,6 +201,7 @@ module.exports = function (context, rootDirectory) {
     );
 };
 ```
+
 此函数使用 `readdirp` 模块（版本 2.x）以递归方式读取目录结构。
 
 ---
@@ -212,34 +213,35 @@ module.exports = function (context, rootDirectory) {
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-```C#
-[FunctionName("E2_CopyFileToBlob")]
-public static async Task<long> CopyFileToBlob(
-    [ActivityTrigger] string filePath,
-    Binder binder,
-    ILogger log)
-{
-    long byteCount = new FileInfo(filePath).Length;
+```csharp
+        [FunctionName("E2_CopyFileToBlob")]
+        public static async Task<long> CopyFileToBlob(
+            [ActivityTrigger] string filePath,
+            Binder binder,
+            ILogger log)
+        {
+            long byteCount = new FileInfo(filePath).Length;
 
-    // strip the drive letter prefix and convert to forward slashes
-    string blobPath = filePath
-        .Substring(Path.GetPathRoot(filePath).Length)
-        .Replace('\\', '/');
-    string outputLocation = $"backups/{blobPath}";
+            // strip the drive letter prefix and convert to forward slashes
+            string blobPath = filePath
+                .Substring(Path.GetPathRoot(filePath).Length)
+                .Replace('\\', '/');
+            string outputLocation = $"backups/{blobPath}";
 
-    log.LogInformation($"Copying '{filePath}' to '{outputLocation}'. Total bytes = {byteCount}.");
+            log.LogInformation($"Copying '{filePath}' to '{outputLocation}'. Total bytes = {byteCount}.");
 
-    // copy the file contents into a blob
-    using (Stream source = File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
-    using (Stream destination = await binder.BindAsync<CloudBlobStream>(
-        new BlobAttribute(outputLocation, FileAccess.Write)))
-    {
-        await source.CopyToAsync(destination);
-    }
+            // copy the file contents into a blob
+            using (Stream source = File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream destination = await binder.BindAsync<CloudBlobStream>(
+                new BlobAttribute(outputLocation, FileAccess.Write)))
+            {
+                await source.CopyToAsync(destination);
+            }
 
-    return byteCount;
-}
+            return byteCount;
+        }
 ```
+
 > [!NOTE]
 > 需要安装 `Microsoft.Azure.WebJobs.Extensions.Storage` NuGet 包才能运行示例代码。
 
@@ -267,9 +269,10 @@ public static async Task<long> CopyFileToBlob(
   ]
 }
 ```
+
 JavaScript 实现使用[适用于 Node 的 Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 将文件上传到 Azure Blob 存储。
 
-```JavaScript
+```javascript
 const fs = require("fs");
 const path = require("path");
 const storage = require("azure-storage");
@@ -317,7 +320,7 @@ module.exports = function (context, filePath) {
 
 ## <a name="run-the-sample"></a>运行示例
 
-可以通过发送以下 HTTP POST 请求来启动业务流程。
+可以通过发送以下 HTTP POST 请求在 Windows 上启动业务流程。
 
 ```
 POST http://{host}/orchestrators/E2_BackupSiteContent

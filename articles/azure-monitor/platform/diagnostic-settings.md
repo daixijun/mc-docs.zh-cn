@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.author: v-johya
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 ms.subservice: logs
-ms.openlocfilehash: 410317eb02b7e905b2a5c22fd8eef3afa3c97485
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 12d0499510db18900e5cb94e9aa64a664045e2ed
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104738"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230030"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>创建诊断设置以将平台日志和指标发送到不同的目标
 Azure 中的[平台日志](platform-logs-overview.md)（包括 Azure 活动日志和资源日志）提供 Azure 资源及其所依赖的 Azure 平台的详细诊断和审核信息。 默认情况下会收集[平台指标](data-platform-metrics.md)，它们通常存储在 Azure Monitor 指标数据库中。 本文详细介绍如何创建和配置诊断设置，以将平台指标和平台日志发送到不同的目标。

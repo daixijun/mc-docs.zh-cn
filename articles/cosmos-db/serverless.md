@@ -5,25 +5,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/25/2020
 author: rockboyfor
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 6185bac69e27e10606b98e30c7e117607eb2aea2
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 6e2b34e513227fb092c937f959db14c56ccc1bf2
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850849"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230070"
 ---
 <!--Waiting for PM comments on release-->
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB 无服务器（预览版）
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-> [!IMPORTANT]
-> Azure Cosmos DB 无服务器目前处于预览状态。 此预览版不附带服务级别协议，我们不建议将其用于生产工作负荷。 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/subscription-agreement/)。
-
-Azure Cosmos DB 无服务器让你以一种基于消耗的方式使用 Azure Cosmos 帐户，在这种方式下，你只需为数据库操作所消耗的请求单位和数据所消耗的存储空间付费。 在无服务器模式下使用 Azure Cosmos DB 时不涉及最低费用。
+Azure Cosmos DB 无服务器让你以一种基于消耗的方式使用 Azure Cosmos 帐户，在这种方式下，你只需为数据库操作所消耗的请求单位和数据所消耗的存储空间付费。 无服务器容器可以每秒处理数千个请求，无需你支付最低费用，也不需要你进行容量规划。
 
 > [!IMPORTANT] 
 > 你是否有任何关于无服务器的反馈？ 我们想听一听！ 可以随意向 Azure Cosmos DB 无服务器团队发送消息：[azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com)。
@@ -35,18 +32,14 @@ Azure Cosmos DB 无服务器让你以一种基于消耗的方式使用 Azure Cos
 
 ## <a name="use-cases"></a>用例
 
-Azure Cosmos DB 无服务器最适合你预计会出现以下情况的方案：
+Azure Cosmos DB 无服务器最适合你预期会有“间歇性流量和不可预测的流量”且空闲时间较长的情况。 因为在这种情况下预配容量不是必需的，而且可能会成本过高，所以在以下用例中应考虑使用 Azure Cosmos DB 无服务器：
 
-- **低流量、间歇性流量和不可预测的流量**：因为在这类情况下预配容量不是必需的，并且可能会导致成本高昂
-- 中等性能：因为无服务器容器具有[特定性能特征](#performance)
-
-出于这些原因，对于以下类型的工作负荷，应考虑使用 Azure Cosmos DB 无服务器：
-
-- 开发
-- 测试
-- 原型制作
-- 概念证明
-- 具有低流量的非关键应用程序
+- Azure Cosmos DB 入门
+- 运行的应用程序具有
+    - 突发性、难以预测的间歇性流量，或者
+    - 平均流量与峰值流量之比很低 (<10%)
+- 开发、测试新的应用程序，对新的应用程序进行原型设计，并在流量模式未知的生产环境中运行该应用程序
+- 与无服务器计算服务（如 [Azure Functions](../azure-functions/functions-overview.md)）集成
 
 有关如何选择最适合于用例的产品/服务的详细指南，请参阅[如何在预配吞吐量与无服务器之间进行选择](throughput-serverless.md)。
 
@@ -77,16 +70,10 @@ Azure Cosmos DB 无服务器最适合你预计会出现以下情况的方案：
 
 使用 Azure Monitor 时，可以找到相同的图表，如[此处](monitor-request-unit-usage.md)所述。 请注意，Azure Monitor 允许设置[警报](../azure-monitor/platform/alerts-metric-overview.md)，可用于在请求单位消耗量超过特定阈值时通知你。
 
-## <a name="performance"></a><a name="performance"></a>性能
+<a name="performance"></a>
+## <a name="performance"></a>性能
 
-无服务器资源会产生与预配吞吐量资源提供的性能特征不同的特定性能特征：
-
-- **可用性**：在无服务器产品/服务公开发布之后，如果未使用可用性区域（区域冗余），则无服务器容器可用性的服务级别协议 (SLA) 为 99.9%。 使用可用性区域时，SLA 为 99.99%。
-- **延迟**：在无服务器产品/服务公开发布之后，无服务器容器延迟的服务级别目标 (SLO) 对于点读取为 10 毫秒或更少，对于写入为 30 毫秒或更少。 点读取操作包含按其 ID 和分区键值提取单个项。
-- 突发性：在无服务器产品/服务公开发布之后，无服务器容器突发性的服务级别目标 (SLO) 为 95%。 这意味着至少在 95% 的时间内可以获得最大突发性。
-
-> [!NOTE]
-> 与任何 Azure 预览版一样，Azure Cosmos DB 无服务器不包括在服务级别协议 (SLA) 中。 上面提到的性能特征作为此产品/服务在公开发布时提供的功能的预览版进行提供。
+无服务器资源会产生与预配吞吐量资源提供的性能特征不同的特定性能特征。 在无服务器产品/服务公开发布之后，无服务器容器延迟的服务级别目标 (SLO) 对于点读取为 10 毫秒或更少，对于写入为 30 毫秒或更少。 点读取操作包含按其 ID 和分区键值提取单个项。
 
 ## <a name="next-steps"></a>后续步骤
 

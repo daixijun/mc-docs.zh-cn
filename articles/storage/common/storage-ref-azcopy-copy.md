@@ -4,17 +4,17 @@ description: 本文提供有关 azcopy copy 命令的参考信息。
 author: WenJason
 ms.service: storage
 ms.topic: reference
-origin.date: 07/24/2020
-ms.date: 11/16/2020
+origin.date: 12/11/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 9c019992f60d0ca877b8fd23902aa91e52ccb903
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 4bb01f192d6ad7ca41b421d64d2f1a3488d29658
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552906"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163212"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -258,6 +258,8 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.chinaclou
  - copy 命令的帮助。
 
 **--include-after** 字符串 - 只包括在给定日期/时间或之后修改的文件。 该值应为 ISO8601 格式。 如果未指定时区，则假定该值位于运行 AzCopy 的计算机的本地时区中。 例如，`2020-08-19T15:04:00Z` 表示 UTC 时间，`2020-08-19` 表示本地时区的午夜 (00:00)。 与 AzCopy 10.5 一样，此标志仅适用于文件，不适用于文件夹，因此当将此标志与 `--preserve-smb-info` 或 `--preserve-smb-permissions` 一起使用时，将不会复制文件夹属性。
+
+ “--include-before”字符串只包括在给定日期/时间或之前修改的文件。 该值应为 ISO8601 格式。 如果未指定时区，则假定该值位于运行 AzCopy 的计算机的本地时区中。 例如 `2020-08-19T15:04:00Z` 表示 UTC 时间，`2020-08-19` 表示本地时区的午夜 (00:00)。 从 AzCopy 10.7 开始，此标志仅适用于文件，不适用于文件夹，因此当将此标志与 `--preserve-smb-info` 或 `--preserve-smb-permissions` 一起使用时，将不会复制文件夹属性。
 
 **--include-attributes** 字符串 -（仅限 Windows）包括其属性与属性列表相匹配的文件。 例如：A;S;R
 

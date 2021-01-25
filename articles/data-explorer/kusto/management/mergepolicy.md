@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/19/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 1c40c037dacea3d3bdc82fb3324923e5ec7b54cd
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: f7a86526798ee0aa8516aa1230d078d26bbd0d8f
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106117"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611306"
 ---
 # <a name="merge-policy"></a>合并策略
 
@@ -35,37 +35,62 @@ ms.locfileid: "93106117"
 
 合并策略包含以下属性：
 
-* **RowCountUpperBoundForMerge** ：
-    * 默认值：
-      * 对于 2020 年 6 月以前设置的策略，默认值为 0（无限制）。
-      * 对于自 2020 年 6 月起设置的策略，默认值为 16,000,000。
+* **RowCountUpperBoundForMerge**：
+    * 默认为 16,000,000。
     * 合并盘区允许的最大行数。
     * 适用于合并操作，不适用于重新生成。  
-* **OriginalSizeMBUpperBoundForMerge** ：
+* **OriginalSizeMBUpperBoundForMerge**：
     * 默认为 0（无限制）。
     * 合并盘区允许的最大原始大小 (MB)。
     * 适用于合并操作，不适用于重新生成。  
-* **MaxExtentsToMerge** ：
+* **MaxExtentsToMerge**：
     * 默认为 100。
     * 允许在单个操作中合并的最大盘区数量。
     * 适用于合并操作。
-* **LoopPeriod** ：
+* **LoopPeriod**：
     * 默认为 01:00:00（1 小时）。
     * 数据管理服务在开始合并或重新生成操作的两次连续迭代之间等待的最长时间。
     * 适用于合并和重新生成操作。
-* **AllowRebuild** ：
+* **AllowRebuild**：
     * 默认为“true”。
     * 定义是否已启用 `Rebuild` 操作（在这种情况下，其优先级高于 `Merge` 操作）。
-* **AllowMerge** ：
+* **AllowMerge**：
     * 默认为“true”。
     * 定义是否已启用 `Merge` 操作，在这种情况下，其优先级低于 `Rebuild` 操作。
-* **MaxRangeInHours** ：
-    * 默认为 8。
-        * [具体化视图](materialized-views/materialized-view-overview.md)中默认保留 14 天，除非在具体化视图的有效[保留策略](retentionpolicy.md)中禁用了可恢复性。
+* **MaxRangeInHours**：
+    * 默认为 24。
     * 最大允许的任意两个不同盘区的创建时间之间的差异（以小时为单位），如超过，将无法进行合并。
     * 时间戳源于盘区创建，且不与盘区中包含的实际数据相关。
     * 适用于合并和重新生成操作。
+    * 在[具体化视图](materialized-views/materialized-view-overview.md)中：默认为 336（14 天），除非在具体化视图的有效[保留策略](retentionpolicy.md)中禁用了可恢复性。
     * 应根据有效的[保留策略](./retentionpolicy.md)“SoftDeletePeriod”或[缓存策略](./cachepolicy.md)“DataHotSpan”值来设置此值 。 取 SoftDeletePeriod 和 DataHotSpan 中的较低值 。 将 MaxRangeInHours 值设置为在其 2-3% 之间。 请参阅[示例](#maxrangeinhours-examples)。
+* Lookback：
+    * 定义考虑重新生成/合并盘区的时间跨度。
+    * 支持的值： 
+      * `Default` - 系统管理的默认值。 这是建议的默认值。
+      * `All` - 包括所有盘区（热和冷）。
+      * `HotCache` - 仅包含热盘区。
+      * `Custom` - 只包括使用年限低于所提供的 `CustomPeriod` 的盘区。 `CustomPeriod` 是一个时间跨度值。
+
+## <a name="default-policy-example"></a>默认策略示例
+
+以下示例演示了默认策略：
+
+```json
+{
+  "RowCountUpperBoundForMerge": 16000000,
+  "OriginalSizeMBUpperBoundForMerge": 0,
+  "MaxExtentsToMerge": 100,
+  "LoopPeriod": "01:00:00",
+  "MaxRangeInHours": 8,
+  "AllowRebuild": true,
+  "AllowMerge": true,
+  "Lookback": {
+    "Kind": "Default",
+    "CustomPeriod": null
+  }
+}
+```
 
 ## <a name="maxrangeinhours-examples"></a>MaxRangeInHours 示例
 

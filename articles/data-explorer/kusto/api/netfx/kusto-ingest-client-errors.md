@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 10/30/2019
-ms.date: 10/29/2020
-ms.openlocfilehash: 289b21997a3210b6ad8f2a3a0528fd949430f7c3
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: f7d49693d4bd8e8cd5a19376276e71e41daf7306
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105324"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611700"
 ---
 # <a name="kustoingest-errors-and-exceptions"></a>Kusto.Ingest 错误和异常
 在客户端上处理引入时发生的任何错误都通过 C# 异常来指示。
@@ -68,40 +68,7 @@ ms.locfileid: "93105324"
 
 为了便于以编程方式处理引入失败，我们对失败消息进行了扩充，在其中包含了数值错误代码 (`IngestionErrorCode enumeration`)。
 
-|ErrorCode                                      |Reason                                                        |
-|-----------------------------------------------|--------------------------------------------------------------|
-|未知                                        | 发生未知错误|
-|Stream_LowMemoryCondition                      | 操作用尽了内存|
-|Stream_WrongNumberOfFields                     | CSV 文档包含不一致的字段数|
-|Stream_InputStreamTooLarge                     | 提交的用于引入的文档超出了允许的大小|
-|Stream_NoDataToIngest                          | 找不到要引入的数据流|
-|Stream_DynamicPropertyBagTooLarge              | 引入的数据中的某个动态列包含太多的唯一属性|
-|Download_SourceNotFound                        | 从 Azure 存储下载源失败 - 未找到源|
-|Download_AccessConditionNotSatisfied           | 从 Azure 存储下载源失败 - 访问被拒绝|
-|Download_Forbidden                             | 从 Azure 存储下载源失败 - 不允许访问|
-|Download_AccountNotFound                       | 从 Azure 存储下载源失败 - 未找到帐户|
-|Download_BadRequest                            | 从 Azure 存储下载源失败 - 请求不正确|
-|Download_NotTransient                          | 从 Azure 存储下载源失败 - 非暂时性错误|
-|Download_UnknownError                          | 从 Azure 存储下载源失败 - 未知错误|
-|UpdatePolicy_QuerySchemaDoesNotMatchTableSchema| 调用更新策略失败。 查询架构与表架构不匹配|
-|UpdatePolicy_FailedDescendantTransaction       | 调用更新策略失败。 后代事务性更新策略失败|
-|UpdatePolicy_IngestionError                    | 调用更新策略失败。 发生引入错误|
-|UpdatePolicy_UnknownError                      | 调用更新策略失败。 发生未知错误|
-|BadRequest_MissingJsonMappingtFailure          | 没有使用 jsonMapping 参数引入 JSON 模式|
-|BadRequest_InvalidBlob                         | 引擎无法打开和读取非 zip blob|
-|BadRequest_EmptyBlob                           | 空 blob|
-|BadRequest_EmptyArchive                        | zip 文件不包含任何已存档的元素|
-|BadRequest_EmptyBlobUri                        | 指定的 blob URI 为空|
-|BadRequest_DatabaseNotExist                    | 数据库不存在|
-|BadRequest_TableNotExist                       | 表不存在|
-|BadRequest_InvalidKustoIdentityToken           | Kusto 标识令牌无效|
-|BadRequest_UriMissingSas                       | 源自未知 Blob 存储的 Blob 路径未包含 SAS|
-|BadRequest_FileTooLarge                        | 尝试引入的文件太大|
-|BadRequest_NoValidResponseFromEngine           | 未收到引入命令的有效回复|
-|BadRequest_TableAccessDenied                   | 被拒绝访问表|
-|BadRequest_MessageExhausted                    | 消息已用尽|
-|General_BadRequest                             | 常规错误请求。 在引入到不存在的数据库/表时可能会提示|
-|General_InternalServerError                    | 发生了内部服务器错误|
+有关引入错误代码的完整列表，请参阅 [Azure 数据资源管理器中的引入错误代码](../../../error-codes.md)。
 
 ## <a name="detailed-exceptions-reference"></a>详细的异常参考信息
 
@@ -109,7 +76,7 @@ ms.locfileid: "93105324"
 
 当数据管理群集未返回任何队列时引发
 
-基类：[异常](https://msdn.microsoft.com/library/system.exception(v=vs.110).aspx)
+基类：[异常](https://docs.microsoft.com/dotnet/api/system.exception)
 
 |字段名称 |类型     |含义
 |-----------|---------|------------------------------|
@@ -123,7 +90,7 @@ ms.locfileid: "93105324"
 
 当数据管理群集未返回任何 blob 容器时引发
 
-基类：[异常](https://msdn.microsoft.com/library/system.exception(v=vs.110).aspx)
+基类：[异常](https://docs.microsoft.com/dotnet/api/system.exception)
 
 |字段名称   |类型     |含义       
 |-------------|---------|------------------------------|
@@ -136,7 +103,7 @@ ms.locfileid: "93105324"
 
 在多次配置了某个引入属性时引发
 
-基类：[异常](https://msdn.microsoft.com/library/system.exception(v=vs.110).aspx)
+基类：[异常](https://docs.microsoft.com/dotnet/api/system.exception)
 
 |字段名称   |类型     |含义       
 |-------------|---------|------------------------------------|
@@ -146,7 +113,7 @@ ms.locfileid: "93105324"
 
 将消息发布到队列失败时引发
 
-基类：[异常](https://msdn.microsoft.com/library/system.exception(v=vs.110).aspx)
+基类：[异常](https://docs.microsoft.com/dotnet/api/system.exception)
 
 |字段名称   |类型     |含义       
 |-------------|---------|---------------------------------|
@@ -219,13 +186,11 @@ ms.locfileid: "93105324"
 
 引入期间出现一个或多个错误时引发
 
-基类：[AggregateException](https://msdn.microsoft.com/library/system.aggregateexception(v=vs.110).aspx)
+基类：[AggregateException](https://docs.microsoft.com/dotnet/api/system.aggregateexception)
 
 |字段名称      |类型                             |含义       
 |----------------|---------------------------------|-----------------------|
 |IngestionErrors | IList<IngestClientException>    | 尝试引入时出现的错误，以及与之相关的源
 |IsGlobalError   | bool                            | 指示是否所有源都发生了此异常
 
-## <a name="next-steps"></a>后续步骤
 
-有关原生代码中的错误的详细信息，请参阅[原生代码中的错误](../../concepts/errorsinnativecode.md)。

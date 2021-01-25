@@ -8,20 +8,20 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 11/02/2020
-ms.date: 12/10/2020
+ms.date: 01/14/2021
 ms.custom: references_regions
-ms.openlocfilehash: 9ef244989898fd62a927cc328502518bbfeae7df
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.openlocfilehash: 2a6efa595c3b53c612efa3b26b6a18fc073a8f41
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004182"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194771"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>在 Azure 认知搜索中配置客户管理的密钥以用于数据加密
 
-Azure 认知搜索会自动使用[服务托管的密钥](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components)对已编制索引的内容进行静态加密。 如果需要更多保护，可以使用在 Azure Key Vault 中创建和管理的密钥，通过一个额外的加密层来补充默认加密。 本文将指导你完成设置 CMK 加密的步骤。
+Azure 认知搜索会自动使用[服务托管的密钥](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components)对已编制索引的内容进行静态加密。 如果需要更多保护，可以使用在 Azure Key Vault 中创建和管理的密钥，通过一个额外的加密层来补充默认加密。 本文将指导你完成设置客户管理的密钥加密的步骤。
 
-CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你可以创建自己的加密密钥并将其存储在 Key Vault 中，或使用 Azure Key Vault 的 API 来生成加密密钥。 使用 Azure Key Vault，还可以在[启用日志记录](../key-vault/general/logging.md)的情况下审核密钥使用情况。  
+客户管理的密钥加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你可以创建自己的加密密钥并将其存储在 Key Vault 中，或使用 Azure Key Vault 的 API 来生成加密密钥。 使用 Azure Key Vault，还可以在[启用日志记录](../key-vault/general/logging.md)的情况下审核密钥使用情况。  
 
 使用客户管理的密钥进行的加密是在创建单个索引或同义词映射时应用于这些对象的，而不是在搜索服务级别本身上指定的。 只有新对象才能加密。 无法加密已存在的内容。
 
@@ -32,14 +32,14 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 
 ## <a name="double-encryption"></a>双重加密
 
-对于 2020 年 8 月 1 日之后在特定区域创建的服务，CMK 加密的范围包括目前在以下区域提供的临时磁盘（实现[完全双重加密](search-security-overview.md#double-encryption)）： 
+对于 2020 年 8 月 1 日之后在特定区域创建的服务，客户管理的密钥加密的范围包括目前在以下区域提供的临时磁盘（实现[完全双重加密](search-security-overview.md#double-encryption)）： 
 
 + 中国东部 2
 ## <a name="prerequisites"></a>先决条件
 
 本方案中使用了以下工具和服务。
 
-+ [可计费层](search-sku-tier.md#tiers)（任何区域中的“基本”层或更高层）上的 [Azure 认知搜索](search-create-service-portal.md)。
++ [可计费层](search-sku-tier.md#tier-descriptions)（任何区域中的“基本”层或更高层）上的 [Azure 认知搜索](search-create-service-portal.md)。
 + [Azure Key Vault](../key-vault/general/overview.md)，你可以使用 [Azure 门户](../key-vault//general/quick-create-portal.md)、[Azure CLI](../key-vault//general/quick-create-cli.md) 或 [Azure PowerShell](../key-vault//general/quick-create-powershell.md) 来创建密钥保管库。 与 Azure 认知搜索位于同一订阅中。 密钥保管库必须启用“软删除”和“清除保护”。 
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)。 如果没有，请[设置新租户](../active-directory/develop/quickstart-create-new-tenant.md)。
 
@@ -50,7 +50,7 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 
 ## <a name="1---enable-key-recovery"></a>1 - 启用密钥恢复
 
-删除你的 Azure Key Vault 密钥后，无人可以检索你的数据，这是使用客户管理的密钥进行的加密的本质决定的。 若要防止意外删除 Key Vault 密钥造成数据丢失，必须在密钥保管库上启用“软删除”和“清除保护”。 默认情况下会启用“软删除”，因此，只有在你特意禁用了此功能时才会遇到问题。 “清除保护”在默认情况下未启用，但它是 Azure 认知搜索 CMK 加密所必需的。 有关详细信息，请参阅[软删除](../key-vault/general/soft-delete-overview.md)和[清除保护](../key-vault/general/soft-delete-overview.md#purge-protection)概述。
+删除你的 Azure Key Vault 密钥后，无人可以检索你的数据，这是使用客户管理的密钥进行的加密的本质决定的。 若要防止意外删除 Key Vault 密钥造成数据丢失，必须在密钥保管库上启用“软删除”和“清除保护”。 默认情况下会启用“软删除”，因此，只有在你特意禁用了此功能时才会遇到问题。 “清除保护”在默认情况下未启用，但它是认知搜索中客户管理的密钥加密所必需的。 有关详细信息，请参阅[软删除](../key-vault/general/soft-delete-overview.md)和[清除保护](../key-vault/general/soft-delete-overview.md#purge-protection)概述。
 
 可以使用门户、PowerShell 或 Azure CLI 命令设置这两项属性。
 
@@ -264,7 +264,7 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
   "name" : "datasource1",
   "type" : "azureblob",
   "credentials" :
-  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.chinacloudapi.cn"
   },
   "container" : { "name" : "containername" },
   "encryptionKey": {
@@ -290,7 +290,7 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
   "name" : "datasource1",
   "type" : "azureblob",
   "credentials" :
-  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.chinacloudapi.cn"
   },
   "container" : { "name" : "containername" },
   "encryptionKey": {
@@ -371,7 +371,7 @@ CMK 加密依赖于 [Azure Key Vault](../key-vault/general/overview.md)。 你�
 
 ## <a name="work-with-encrypted-content"></a>使用加密内容
 
-使用 CMK 加密时，你会注意到，由于额外的加密/解密工作，索引编制和查询会出现相应的延迟。 Azure 认知搜索不记录加密活动，但你可以通过密钥保管库日志记录监视密钥访问。 建议在配置密钥保管库的过程中[启用日志记录](../key-vault/general/logging.md)。
+使用客户管理的密钥加密时，你会注意到，由于额外的加密/解密工作，索引编制和查询会出现相应的延迟。 Azure 认知搜索不记录加密活动，但你可以通过密钥保管库日志记录监视密钥访问。 建议在配置密钥保管库的过程中[启用日志记录](../key-vault/general/logging.md)。
 
 应每隔一段时间就进行密钥轮换。 每当轮换密钥时，请务必遵循此顺序：
 

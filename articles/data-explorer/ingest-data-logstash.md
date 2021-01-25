@@ -6,18 +6,21 @@ ms.author: v-tawe
 ms.reviewer: takamara
 ms.service: data-explorer
 ms.topic: how-to
-origin.date: 06/03/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: ae860f74d633c5dbe78443433f67d6c721135524
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+origin.date: 11/26/2020
+ms.date: 01/19/2021
+ms.openlocfilehash: e84743fd8e21206ef1eb0b8a5a462305e8e9b6f6
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96431175"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611691"
 ---
-# <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>将数据从 Logstash 引入 Azure 数据资源管理器
+# <a name="ingest-data-from-logstash-to-azure-data-explorer-preview"></a>将数据从 Logstash 引入 Azure 数据资源管理器（预览版）
 
 [Logstash](https://www.elastic.co/products/logstash) 是一个开源服务器端数据处理管道，可以同时从多个源引入数据、转换数据，然后将数据发送到你偏好的“储存”中。 在本文中，你要将该数据发送到 Azure 数据资源管理器 - 用于日志和遥测数据的快速且高度可缩放的数据探索服务。 首先你将在测试群集中创建一个表和数据映射，然后指示 Logstash 将数据发送到该表，并验证结果。
+
+> [!NOTE]
+> 此连接器目前仅支持 json 数据格式。
 
 ## <a name="prerequisites"></a>必备条件
 

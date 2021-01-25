@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 01/23/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 50593b2d57b66183e21877c3e5c4203d00ab96af
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 88cb8ec85704b727ca1cb332fa5ba6e5c2ede8f1
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105781"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611464"
 ---
 # <a name="make_set-aggregation-function"></a>make_set()（聚合函数）
 
@@ -24,7 +24,7 @@ ms.locfileid: "93105781"
 
 ## <a name="syntax"></a>语法
 
-`summarize` `make_set(`*Expr* [`,` *MaxSize* ]`)`
+`summarize` `make_set(`*Expr* [`,` *MaxSize*]`)`
 
 ## <a name="arguments"></a>参数
 
@@ -32,7 +32,7 @@ ms.locfileid: "93105781"
 * MaxSize 是对返回元素最大数目的可选整数限制（默认值是 1048576）。 MaxSize 值不能超过 1048576。
 
 > [!NOTE]
-> 函数 `makeset()` 的旧版和已过时变体的默认限制为 MaxSize = 128。
+> `makeset()` 是 `make_set` 函数的旧的过时版本。 旧版本的默认限制为 MaxSize = 128。
 
 ## <a name="returns"></a>返回
 

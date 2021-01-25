@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: e8b09c96a492a25c93336ed989b5f11bddb8dac8
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: d5c055392114aa44d075c98c15cc889681915e23
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021801"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230683"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>管理和增大 Azure 机器学习资源的配额
 
@@ -51,7 +51,9 @@ Azure 使用限制和配额来防止由于欺诈导致的预算超支，并遵�
 + Azure 存储
 
 > [!IMPORTANT]
-> 限制随时会变化。 有关最新信息，请参阅 [Azure 订阅与服务限制、配额和约束](../azure-resource-manager/management/azure-subscription-service-limits.md)（适用于所有 Azure 项目）。
+> 限制随时会变化。 有关最新信息，请参阅 [Azure 机器学习中的服务限制](resource-limits-quotas-capacity.md)。
+
+
 
 ### <a name="azure-machine-learning-assets"></a>Azure 机器学习资产
 每个工作区都适用以下资产限制。 
@@ -204,3 +206,6 @@ Azure 存储的限制是每个订阅在每个区域中的存储帐户数不能�
 
 :::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="屏幕截图显示了专用终结点和专用 DNS 配额增大请求。":::
 
+## <a name="next-steps"></a>后续步骤
+
++ [Azure 机器学习服务限制](resource-limits-quotas-capacity.md)

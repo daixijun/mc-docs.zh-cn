@@ -4,22 +4,21 @@ description: 将诊断和使用情况数据导出到 Azure 中的存储，然后
 ms.topic: conceptual
 author: Johnnytechn
 origin.date: 07/25/2019
-ms.date: 11/10/2020
+ms.date: 01/12/2021
 ms.author: v-johya
-ms.openlocfilehash: edcaa7f2913632324a19f2e9b522a5181ecbe6c5
-ms.sourcegitcommit: d30cf549af09446944d98e4bd274f52219e90583
+ms.openlocfilehash: 83506f6a870d66bd210f8ec884541bc6d5709984
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94638048"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231054"
 ---
 # <a name="export-telemetry-from-application-insights"></a>从 Application Insights 导出遥测数据
 想要将遥测数据保留超过标准保留期限？ 或者要以某种专业方式处理这些数据？ 连续导出很适合此目的。 可以使用 JSON 格式将 Application Insights 门户中显示的事件导出到 Azure 中的存储。 可以从该存储中下载这些数据，并编写所需的代码来处理这些数据。  
 
 > [!NOTE]
-> 只有经典 Application Insights 资源支持连续导出。
+> 只有经典 Application Insights 资源支持连续导出。 [基于工作区的 Application Insights 资源](./create-workspace-resource.md)必须使用[诊断设置](./create-workspace-resource.md#export-telemetry)。
 >
-<!--Not available in MC: workspace-based application insights-->
 
 在设置连续导出之前，请考虑一些备选方法：
 
@@ -41,6 +40,9 @@ ms.locfileid: "94638048"
 * [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)。
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a> 创建连续导出
+
+> [!NOTE]
+> 应用程序每天导出的数据不能超过 3TB。 如果每天导出的数据超过 3TB，则导出将被禁用。 若要无限制地导出，请使用[基于诊断设置的导出](#diagnostic-settings-based-export)。
 
 1. 在应用左侧配置下的 Application Insights 资源中，打开“连续导出”，并选择“添加”：
 
@@ -64,7 +66,7 @@ ms.locfileid: "94638048"
 
 |名称 | 说明 |
 |:----|:------|
-| [可用性](export-data-model.md#availability) | 报告[可用性 Web 测试](./monitor-web-app-availability.md)。  |
+| [可用性](export-data-model.md#availability) | 报告可用性 Web 测试。  |
 | [事件](export-data-model.md#events) | [TrackEvent()](./api-custom-events-metrics.md#trackevent) 生成的自定义事件。 
 | [异常](export-data-model.md#exceptions) |报告服务器和浏览器中发生的[异常](./asp-net-exceptions.md)。
 | [消息](export-data-model.md#trace-messages) | 由 [TrackTrace](./api-custom-events-metrics.md#tracktrace) 和[日志记录适配器](./asp-net-trace-logs.md)发送。
@@ -92,7 +94,7 @@ ms.locfileid: "94638048"
 
 不包含其他计算的指标。 例如，不会导出平均 CPU 使用率，但会导出用来计算平均值的原始遥测数据。
 
-该数据还包含已设置的任何[可用性 Web 测试](./monitor-web-app-availability.md)的结果。
+该数据还包含已设置的任何可用性 Web 测试的结果。
 
 > [!NOTE]
 > **采样。** 如果应用程序发送大量数据，采样功能可能会运行，并只发送一小部分生成的遥测数据。 [了解有关采样的详细信息。](./sampling.md)
@@ -212,6 +214,19 @@ private IEnumerable<T> DeserializeMany<T>(string folderName)
 * [流分析示例](export-stream-analytics.md)
 * [使用流分析导出到 SQL][exportasa]
 * [属性类型和值的详细数据模型参考。](export-data-model.md)
+
+## <a name="diagnostic-settings-based-export"></a>基于诊断设置的导出
+
+基于诊断设置的导出使用与连续导出不同的架构。 它还支持连续导出不支持的功能：
+
+* 具有 vnet、防火墙和专用链接的 Azure 存储帐户。
+* 导出到事件中心。
+
+若要迁移到基于诊断设置的导出，请执行以下操作：
+
+1. 禁用当前连续导出。
+2. [将应用程序迁移到基于工作区](convert-classic-resource.md)。
+3. [启用诊断设置导出](create-workspace-resource.md#export-telemetry)。 从 Application Insights 资源中选择“诊断设置”>“添加诊断设置”。
 
 <!--Link references-->
 

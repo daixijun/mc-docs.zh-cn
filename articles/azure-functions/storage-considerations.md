@@ -2,13 +2,13 @@
 title: Azure Functions 的存储注意事项
 description: 了解 Azure Functions 的要求和存储数据加密。
 ms.topic: conceptual
-ms.date: 01/04/2021
-ms.openlocfilehash: 9ea8573b8a4c6883c0ead8e65ecc4a5041d92ad7
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.date: 01/13/2021
+ms.openlocfilehash: d979db24831fc2ddfde0768126ef80c8506d0eca
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98021690"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195249"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure Functions 的存储注意事项
 
@@ -18,7 +18,7 @@ ms.locfileid: "98021690"
 |存储服务  | 函数用法  |
 |---------|---------|
 | [Azure Blob 存储](../storage/blobs/storage-blobs-introduction.md)     | 维护绑定状态和函数密钥。  <br/>还由 [Durable Functions 中的任务中心](durable/durable-functions-task-hubs.md)使用。 |
-| [Azure 文件](../storage/files/storage-files-introduction.md)  | 文件共享，用于存储和运行[消耗计划](functions-scale.md#consumption-plan)和[高级计划](functions-scale.md#premium-plan)中的函数应用代码。 |
+| [Azure 文件](../storage/files/storage-files-introduction.md)  | 文件共享，用于存储和运行[消耗计划](consumption-plan.md)和[高级计划](functions-premium-plan.md)中的函数应用代码。 |
 | [Azure 队列存储](../storage/queues/storage-queues-introduction.md)     | 由 [Durable Functions 中的任务中心](durable/durable-functions-task-hubs.md)使用。   |
 | [Azure 表存储](../storage/tables/table-storage-overview.md)  |  由 [Durable Functions 中的任务中心](durable/durable-functions-task-hubs.md)使用。       |
 
@@ -58,6 +58,12 @@ ms.locfileid: "98021690"
 ## <a name="storage-data-encryption"></a>存储数据加密
 
 [!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
+
+### <a name="in-region-data-residency"></a>区域内数据驻留
+
+当必须将所有客户数据保留在单个区域内时，与函数应用关联的存储帐户必须是具有[区域内冗余](../storage/common/storage-redundancy.md)的存储帐户。 区域内冗余存储帐户还必须与 [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection) 一起使用。
+
+其他由平台管理的客户数据只有托管在内部负载均衡的应用服务环境（简称 ASE）中时才会存储在该区域内。 若要了解详细信息，请参阅 [ASE 区域冗余](../app-service/environment/zone-redundancy.md#in-region-data-residency)。
 
 ## <a name="next-steps"></a>后续步骤
 

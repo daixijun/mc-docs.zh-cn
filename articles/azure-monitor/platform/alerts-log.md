@@ -5,14 +5,14 @@ author: Johnnytechn
 ms.author: v-johya
 ms.topic: conceptual
 origin.date: 4/27/2018
-ms.date: 12/08/2020
+ms.date: 01/12/2021
 ms.subservice: alerts
-ms.openlocfilehash: c2e970f5951f5a663d480562429ba21db941759e
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: 0004a0f948d1720250b9e9b1759753d8c3563997
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104465"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230800"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理日志警报
 
@@ -34,7 +34,7 @@ ms.locfileid: "97104465"
 
 以下是开始编写警报查询的步骤：
 
-1. 转到想要对其发出警报的资源。
+1. 转到想要对其发出警报的资源。 请考虑尽可能通过选择订阅或资源组范围来设置多个资源的警报规则。 对多个资源发出警报可降低成本，并减少管理多个警报规则的需要。
 1. 在“监视器”下，选择“日志” 。
 1. 查询可以指示问题的日志数据。 可以使用[警报查询示例主题](../log-query/example-queries.md)来了解可发现的内容或[开始编写你自己的查询](../log-query/log-analytics-tutorial.md)。 此外，[了解如何创建优化的警报查询](alerts-log-query.md)。
 1. 按“+ 新建预警规则”按钮启动警报创建流。
@@ -156,7 +156,7 @@ ms.locfileid: "97104465"
     1. 如果需要，可以选择[按维度拆分警报](alerts-unified-log.md#split-by-alert-dimensions)： 
        - 资源 ID 列（如果已检测到）将自动选中，并将触发的警报的上下文更改为记录的资源。 
        - 可以取消选择资源 ID 列以触发针对订阅或资源组的警报。 如果查询结果基于交叉资源，则取消选择非常有用。 例如，用于检查资源组中是否 80% 的虚拟机的 CPU 使用率都很高的查询。
-       - 对于使用维度表的任何数字或文本列类型，还可以最多选择六个附加的拆分。
+       - 对于使用维度表的任何数字或文本列类型，还可以最多选择六个更多拆分。
        - 警报根据基于唯一组合的拆分单独触发，警报有效负载包括此信息。
     
         ![选择聚合参数和拆分](./media/alerts-log/select-aggregation-parameters-and-splitting.png)
@@ -313,7 +313,7 @@ az cloud set -n AzureChinaCloud
 
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file mylogalerttemplate.json \

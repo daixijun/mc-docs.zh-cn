@@ -8,13 +8,13 @@ ms.author: v-tawe
 ms.service: cognitive-search
 ms.topic: conceptual
 origin.date: 10/22/2020
-ms.date: 12/10/2020
-ms.openlocfilehash: 8ebc69ce2843832c2e8bd6f898bcd62695461585
-ms.sourcegitcommit: 8f438bc90075645d175d6a7f43765b20287b503b
+ms.date: 01/14/2021
+ms.openlocfilehash: eea75675207c8b993384e4e261176458be0fc835
+ms.sourcegitcommit: 01cd9148f4a59f2be4352612b0705f9a1917a774
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97004181"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98194779"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>创建和管理 Azure 认知搜索服务的 API 密钥
 
@@ -89,6 +89,7 @@ API 密钥是随机生成的数字和字母所组成的字符串。 通过[基�
 通过门户或管理层创建新的密钥后，只要在请求中提供这些新密钥，就会恢复对内容（索引、索引器、数据源、同义词映射）的访问权限。
 
 ## <a name="secure-api-keys"></a>保护 API 密钥
+
 通过门户或 Resource Manager 界面（PowerShell 或命令行接口）以限制访问，从而保护密钥安全。 如前所述，订阅管理员可以查看和重新生成所有 API 密钥。 作为预防措施，查看角色分配以了解谁有权访问管理密钥。
 
 + 在服务仪表板中，依次单击“访问控制(IAM)”和“角色分配”选项卡可查看服务的角色分配。

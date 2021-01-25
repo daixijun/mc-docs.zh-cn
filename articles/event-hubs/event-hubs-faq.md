@@ -3,14 +3,14 @@ title: 常见问题 - Azure 事件中心 | Microsoft Docs
 description: 本文提供了有关 Azure 事件中心的常见问题 (FAQ) 和解答的列表。
 ms.topic: article
 origin.date: 10/27/2020
-ms.date: 12/02/2020
+ms.date: 01/14/2021
 ms.author: v-tawe
-ms.openlocfilehash: cb2c34bcb2b4b441564ed567ad0a3540ed92ee13
-ms.sourcegitcommit: f436acd1e2a0108918a6d2ee9a1aac88827d6e37
+ms.openlocfilehash: 3b2150e7e290625244f52bd8e7cbca1800d9082c
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509081"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541819"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -139,16 +139,16 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
         :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="“支持请求”页面":::
 
 如果超出 40 TU，事件中心可提供名为“事件中心专用群集”的基于资源/容量的模型。 专用群集按容量单位 (CU) 销售。
-<!-- ## Dedicated clusters
+## <a name="dedicated-clusters"></a>专用群集
 
-### What are Event Hubs Dedicated clusters?
-Event Hubs Dedicated clusters offer single-tenant deployments for customers with most demanding requirements. This offering builds a capacity-based cluster that is not bound by throughput units. It means that you could use the cluster to ingest and stream your data as dictated by the CPU and memory usage of the cluster. For more information, see [Event Hubs Dedicated clusters](event-hubs-dedicated-overview.md).
+### <a name="what-are-event-hubs-dedicated-clusters"></a>什么是事件中心专用群集？
+事件中心专用群集提供单租户部署来满足苛刻的客户要求。 此产品/服务会构建一个不受限于吞吐量单位的基于容量的群集。 这意味着，可以使用该群集，根据群集的 CPU 和内存用量情况来引入和流式传输数据。 有关详细信息，请参阅[事件中心专用群集](event-hubs-dedicated-overview.md)。
 
-### How do I create an Event Hubs Dedicated cluster?
-For step-by-step instructions and more information on setting up an Event Hubs dedicated cluster, see the [Quickstart: Create a dedicated Event Hubs cluster using Azure portal](event-hubs-dedicated-cluster-create-portal.md). 
+### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>如何创建事件中心专用群集？
+有关设置事件中心专用群集的分步说明和详细信息，请参阅[快速入门：使用 Azure 门户创建事件中心专用群集](event-hubs-dedicated-cluster-create-portal.md)。 
 
 
-[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)] -->
+[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 
 
 ## <a name="partitions"></a>分区
@@ -225,6 +225,8 @@ For step-by-step instructions and more information on setting up an Event Hubs d
 有关可能的事件中心异常的列表，请参阅[异常概述](event-hubs-messaging-exceptions.md)。
 
 <!-- Not Full Available  ### Diagnostic logs -->
+
+事件中心支持两种类型的[诊断日志](event-hubs-diagnostic-logs.md) - 捕获错误日志和操作日志 - 这两种日志都用 json 表示并可以通过 Azure 门户启用。
 
 ### <a name="support-and-sla"></a>支持和 SLA
 

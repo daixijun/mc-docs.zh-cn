@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 04/01/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 28f0e6c0415f18a0c3e88f34e5ce42ee1150c6a0
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 0daf3321645727a38f4bd0ef4b65b1ea8cc97d9b
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106015"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611713"
 ---
 # <a name="callout-policy"></a>标注策略
 
@@ -23,7 +23,7 @@ Azure 数据资源管理器群集可以在许多不同的方案中与外部服�
 
 标注策略在群集级别进行管理，分为以下类型。
 * `kusto` - 控制 Azure 数据资源管理器跨群集查询。
-* `sql` - 控制 [SQL 插件](../query/sqlrequestplugin.md)。
+* `sql` - 控制 [SQL 插件](../query/sqlrequestplugin.md)和 [mysql_request 插件](../query/mysqlrequest-plugin.md)。
 * `cosmosdb` - 控制 [CosmosDB 插件](../query/cosmosdb-plugin.md)。
 * `sandbox_artifacts` - 控制沙盒插件 ([python](../query/pythonplugin.md) | [R](../query/rplugin.md))。
 * `external_data` - 通过[外部表](../query/schema-entities/externaltables.md)或 [externaldata](../query/externaldata-operator.md) 运算符控制对外部数据的访问。

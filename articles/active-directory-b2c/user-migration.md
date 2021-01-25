@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 9e195111670c263b7be30d1ffd5bfbf66f694011
-ms.sourcegitcommit: dd2bc914f6fc2309f122b1c7109e258ceaa7c868
+ms.openlocfilehash: 3370b4b01d870f3c3186c89e156adaf5c24fc55b
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87297721"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570607"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>将用户迁移到 Azure AD B2C
 
@@ -43,7 +43,7 @@ ms.locfileid: "87297721"
 - 密码是以单向加密格式存储的（例如，使用哈希函数）。
 - 旧式标识提供者以你无法访问的方式存储了密码。 例如，标识提供者通过调用 Web 服务来验证凭据。
 
-无缝迁移流仍需将用户帐户预迁移，但随后需使用自定义策略来查询某个 [REST API](custom-policy-rest-api-intro.md)（由你创建），以便在每个用户首次登录时设置其密码。
+无缝迁移流仍需将用户帐户预迁移，但随后需使用[自定义策略](custom-policy-get-started.md)来查询某个 [REST API](custom-policy-rest-api-intro.md)（由你创建），以便在每个用户首次登录时设置其密码。
 
 因此，无缝迁移流包括两个阶段：预迁移和设置凭据。 
 
@@ -73,16 +73,16 @@ ms.locfileid: "87297721"
 
 无缝迁移方法使用你自己的自定义 REST API 根据旧标识提供者验证用户的凭据。
 
-**必须保护 REST API，使其免遭暴力破解攻击。** 攻击者可能会提交多个密码，最终猜出用户的凭据。 为了帮助抵御此类攻击，请在登录尝试次数超过特定的阈值时，停止向 REST API 提供请求。 此外，请保护 Azure AD B2C 与 REST API 之间的通信。 
+**必须保护 REST API，使其免遭暴力破解攻击。** 攻击者可能会提交多个密码，最终猜出用户的凭据。 为了帮助抵御此类攻击，请在登录尝试次数超过特定的阈值时，停止向 REST API 提供请求。 此外，请保护 Azure AD B2C 与 REST API 之间的通信。 若要了解如何保护用于生产的 RESTful API，请参阅[保护 RESTful API](secure-rest-api.md)。
 
 ### <a name="user-attributes"></a>用户属性
 
 并非要将旧标识提供者中的所有信息都迁移到 Azure AD B2C 目录。 在迁移之前，请确定要存储在 Azure AD B2C 中的适当用户属性集。
 
-- **要**存储在 Azure AD B2C 中
+- **要** 存储在 Azure AD B2C 中
   - 用户名、密码、电子邮件地址、电话号码、会员号/标识符。
   - 隐私策略和最终用户许可协议的同意标记。
-- **不要**存储在 Azure AD B2C 中
+- **不要** 存储在 Azure AD B2C 中
   - 敏感数据，例如信用卡号、社会安全号码 (SSN)、医疗记录，或其他由政府或行业法规实体管制的数据。
   - 营销或沟通偏好、用户行为和见解。
 
@@ -90,7 +90,7 @@ ms.locfileid: "87297721"
 
 在启动迁移过程之前，请借机清理目录。
 
-- 确定要存储在 Azure AD B2C 中的用户属性集，仅迁移所需的属性。 如有需要，可以创建自定义属性来存储有关用户的更多数据。
+- 确定要存储在 Azure AD B2C 中的用户属性集，仅迁移所需的属性。 如有需要，可以创建[自定义属性](user-flow-custom-attributes.md)来存储有关用户的更多数据。
 - 如果从包含多个身份验证源的环境迁移（例如，每个应用程序具有自身的用户目录），请迁移到 Azure AD B2C 中的统一帐户。
 - 如果多个应用程序具有不同的用户名，可以使用标识集合将其全部存储在 Azure AD B2C 用户帐户中。 对于密码，请让用户选择密码，并在目录中设置该密码。 例如，使用无缝迁移时，只应在 Azure AD B2C 帐户中存储所选的密码。
 - 在迁移之前删除未使用的用户帐户，或者不迁移已过时的帐户。

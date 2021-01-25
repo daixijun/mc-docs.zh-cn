@@ -7,16 +7,16 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 11/03/2020
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: bbff7b868a0c9ee5fbc49833406a6f106ad70f3d
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 2421e8c1f2351eaea3366be600fa8ace44d051fb
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153077"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163205"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>配置对容器和 blob 的匿名公共读取访问
 
@@ -54,7 +54,7 @@ Azure 存储支持对容器和 blob 进行可选的匿名公共读取访问。 �
 
 若要允许或禁止对存储帐户的公共访问，请配置帐户的 **AllowBlobPublicAccess** 属性。 此属性适用于使用 Azure 资源管理器部署模型创建的所有存储帐户。 有关详细信息，请参阅[存储帐户概述](../common/storage-account-overview.md)。
 
-默认情况下，不会设置 **AllowBlobPublicAccess** 属性。在你显式设置此属性之前，它不会返回值。 当此属性值为 null 或为 true 时，存储帐户允许公共访问。
+默认情况下，不会为存储帐户设置 AllowBlobPublicAccess 属性，在你显式设置此属性之前，它不会返回值。 当此属性值为 null 或为 true 时，存储帐户允许公共访问。
 
 # <a name="azure-portal"></a>[Azure 门户](#tab/portal)
 

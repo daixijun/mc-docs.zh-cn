@@ -1,26 +1,26 @@
 ---
 title: 可视化 Azure NSG 流日志 - Power BI
 titleSuffix: Azure Network Watcher
-description: 本页介绍如何使用 Power BI 可视化 NSG 流日志。
+description: 了解如何使用 Power BI 可视化网络安全组流日志，以允许你查看有关 Azure 网络观察程序中 IP 流量的信息。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/22/2017
-ms.date: 08/10/2020
+origin.date: 01/07/2021
+author: rockboyfor
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 08/03/2020
 ms.author: v-yeche
-ms.openlocfilehash: f9f006856990a7f5bd5cde7a99666c32b8f4e62b
-ms.sourcegitcommit: 3eadca6821ef679d8ac6ca2dc46d6a13aac211cd
+ms.openlocfilehash: 79cd29743e14b8becdc77860f475694199be4adc
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87548068"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98229851"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>使用 Power BI 可视化网络安全组流日志
 

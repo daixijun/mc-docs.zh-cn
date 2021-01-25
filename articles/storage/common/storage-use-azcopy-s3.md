@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: how-to
 origin.date: 07/27/2020
-ms.date: 08/24/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 261078f40dccf5e0d5b0130731985cf57588c16f
-ms.sourcegitcommit: ecd6bf9cfec695c4e8d47befade8c462b1917cf0
+ms.openlocfilehash: d86c3250803720119903438fe97969ac68ff4a2e
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88753379"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163129"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>使用 AzCopy 将数据从 Amazon S3 复制到 Azure 存储
 
@@ -45,7 +45,7 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 |--------|-----------|
 | **Windows** | `set AWS_ACCESS_KEY_ID=<access-key>`<br>`set AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
-| **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
+| **macOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
 ## <a name="copy-objects-directories-and-buckets"></a>复制对象、目录和桶
 
@@ -156,10 +156,10 @@ AzCopy 执行以下步骤：
 
 2. 将字符串 `rename_` 添加到新的有效键的开头。
 
-   此键将用于保存原始元数据的**值**。
+   此键将用于保存原始元数据的 **值**。
 
 3. 将字符串 `rename_key_` 添加到新的有效键的开头。
-   此键将用于保存原始元数据的无效**键**。
+   此键将用于保存原始元数据的无效 **键**。
    可以使用此键在 Azure 端尝试恢复元数据，因为元数据键作为值保留在 Blob 存储服务中。
 
 ## <a name="next-steps"></a>后续步骤
@@ -168,7 +168,7 @@ AzCopy 执行以下步骤：
 
 - [AzCopy 入门](storage-use-azcopy-v10.md)
 
-- [使用 AzCopy 和 Blob 存储传输数据](storage-use-azcopy-blobs.md)
+- [传输数据](storage-use-azcopy-v10.md#transfer-data)
 
 - [使用 AzCopy 和文件存储传输数据](storage-use-azcopy-files.md)
 

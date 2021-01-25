@@ -5,19 +5,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-origin.date: 08/12/2020
+origin.date: 12/18/2020
 author: rockboyfor
-ms.date: 11/16/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: 09/28/2020
 ms.author: v-yeche
 ms.custom: devx-track-java
-ms.openlocfilehash: 9e09420b5d702c0af23517240028b2ffa75038ea
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: f7c0b2f474371f52b79444c8ddb8312903095810
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552841"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230182"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Java SDK：发行说明和资源
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "94552841"
 这是适用于 SQL API 的原始 Azure Cosmos DB 同步 Java SDK v2，支持同步操作。
 
 > [!IMPORTANT]  
-> 这不是最新的 Azure Cosmos DB Java SDK！ 请考虑将 [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) 用于项目。 若要升级，请按照[迁移到 Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) 指南和 [Reactor 与 RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 指南中的说明进行操作。 
+> 这不是最新的 Azure Cosmos DB Java SDK！ 请考虑将 [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) 用于项目。 若要升级，请按照[迁移到 Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) 指南和 [Reactor 与 RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) 指南中的说明进行操作。 
 >
 
 | |  |
@@ -57,6 +57,14 @@ ms.locfileid: "94552841"
 |受支持的最小运行时|[Java 开发工具包 (JDK) 7+](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## <a name="release-notes"></a>发行说明
+
+<a name="2.6.1"></a>
+### <a name="261"></a>2.6.1
+* 修复了通过服务互操作处理查询时的 bug。
+
+<a name="2.6.0"></a>
+### <a name="260"></a>2.6.0
+* 添加了对从时间点查询更改源的支持。
 
 <a name="2.5.1"></a>
 ### <a name="251"></a>2.5.1
@@ -212,7 +220,7 @@ ms.locfileid: "94552841"
 
 <a name="1.9.5"></a>
 ### <a name="195"></a>1.9.5
-* 添加了对聚合查询（COUNT、MIN、MAX、SUM、AVG）的支持。 请参阅[聚合支持](sql-query-aggregates.md)。
+* 添加了对聚合查询（COUNT、MIN、MAX、SUM、AVG）的支持。 请参阅[聚合支持](sql-query-aggregate-functions.md)。
 * 添加了对更改源的支持。
 * 通过 RequestOptions.setPopulateQuotaInfo 添加了对集合配额信息的支持。
 * 通过 RequestOptions.setScriptLoggingEnabled 添加了对存储过程脚本日志记录的支持。
@@ -324,6 +332,8 @@ Azure 会在停用 SDK 时至少提前 12 个月发出通知，以便用户顺�
 
 | 版本 | 发布日期 | 停用日期 |
 | --- | --- | --- |
+| [2.6.1](#2.6.1) |2020 年 12 月 17 日 |--- |
+| [2.6.0](#2.6.0) |2020 年 7 月 16 日 |--- |
 | [2.5.1](#2.5.1) |2020 年 6 月 3 日 |--- |
 | [2.5.0](#2.5.0) |2020 年 5 月 12 日 |--- |
 | [2.4.7](#2.4.7) |2020 年 2 月 20 日 |--- |
@@ -384,6 +394,6 @@ Azure 会在停用 SDK 时至少提前 12 个月发出通知，以便用户顺�
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>另请参阅
-若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
+若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服务页。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

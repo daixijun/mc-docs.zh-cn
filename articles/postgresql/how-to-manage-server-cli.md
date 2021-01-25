@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: how-to
 origin.date: 9/22/2020
-ms.date: 10/19/2020
-ms.openlocfilehash: 2c3651c7f3b676b6eb4f6435f9ccc6fb22145b63
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.date: 01/18/2021
+ms.openlocfilehash: 79c03b15e450a5f14fdbe6491bbabee52ed8ceda
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432102"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230665"
 ---
 # <a name="manage-an-azure-database-for-postgresql-single-server-using-the-azure-cli"></a>使用 Azure CLI 管理 Azure Database for PostgreSQL 单一服务器
 
@@ -59,7 +59,7 @@ storage-size | 6144 | 服务器的存储容量（以 MB 为单位）。 最小�
 
 
 ## <a name="manage-postgresql-databases-on-a-server"></a>管理服务器上的 PostgreSQL 数据库。
-可以使用以下任何命令来创建、删除、列出和查看服务器上数据库的数据库属性
+可以使用以下任何命令来创建、删除、列出和查看服务器上数据库的数据库属性。
 
 | Cmdlet | 使用情况| 说明 |
 | --- | ---| --- |

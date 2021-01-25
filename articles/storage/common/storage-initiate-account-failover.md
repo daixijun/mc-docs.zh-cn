@@ -6,18 +6,18 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 06/11/2020
-ms.date: 11/16/2020
+origin.date: 12/29/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 56e595b517fe2f7c6c5cd408352bb6bcbc1d5729
-ms.sourcegitcommit: 16af84b41f239bb743ddbc086181eba630f7f3e8
+ms.openlocfilehash: c26728e2f73d472ac48cda9d076e1b5965d217ce
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94589647"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163184"
 ---
 # <a name="initiate-a-storage-account-failover"></a>启动存储帐户故障转移
 
@@ -37,6 +37,12 @@ ms.locfileid: "94589647"
 - 异地冗余存储 (GRS) 或读取访问异地冗余存储 (RA-GRS)
 
 有关 Azure 存储冗余的详细信息，请参阅 [Azure 存储冗余](storage-redundancy.md)。
+
+请记住，帐户故障转移不支持以下功能和服务：
+
+- 目前不支持 ADLS Gen2 存储帐户（已启用分层命名空间的帐户）。
+- 无法对包含高级块 blob 的存储帐户执行故障转移。 支持高级块 blob 的存储帐户暂不支持异地冗余。
+- 无法对包含任何已启用 [WORM 不可变性策略](../blobs/storage-blob-immutable-storage.md)的容器执行故障转移。 已解锁/锁定的基于时间的保留或法定保留策略会阻止故障转移，以便保持合规性。
 
 ## <a name="initiate-the-failover"></a>启动故障转移
 

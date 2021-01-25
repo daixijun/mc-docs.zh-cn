@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 07/02/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: f2a2056de4a9433b59a6db6841f168e8416dff66
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.openlocfilehash: cc30e71c1efeb8c9f4af12befa6659c502c43f9d
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556525"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611718"
 ---
 # <a name="alter-extent-tags"></a>.alter 盘区标记
 
@@ -34,8 +34,8 @@ ms.locfileid: "88556525"
 
 `async`（可选）：以异步方式执行命令。
    * 返回操作 ID (Guid)。 
-   * 可以监视操作的状态。 使用 [.show operations](operations.md#show-operations) 命令。
-   * 可以检索成功执行的结果。 使用 [.show operation details](operations.md#show-operation-details) 命令。
+   * 可以监视操作的状态。 使用 [`.show operations`](operations.md#show-operations) 命令。
+   * 可以检索成功执行的结果。 使用 [`.show operation details`](operations.md#show-operation-details) 命令。
 
 ## <a name="restrictions"></a>限制
 

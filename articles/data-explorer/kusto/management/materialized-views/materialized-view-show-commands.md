@@ -8,13 +8,13 @@ ms.reviewer: yifats
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 08/30/2020
-ms.date: 10/30/2020
-ms.openlocfilehash: 72dc2613194333a58e9ddcab485855b64dafe1d3
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 1ffef08a7d1bc5d02445e6f2c47d5d16e9b1dbd3
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106758"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611313"
 ---
 # <a name="show-materialized-views-commands"></a>.show materialized-views 命令
 
@@ -57,7 +57,7 @@ ms.locfileid: "93106758"
 |文件夹|string|具体化视图文件夹。
 |DocString|string|具体化视图的文档字符串。
 |AutoUpdateSchema|bool|视图是否已启用自动更新。
-|EffectiveDateTime|datetime|视图的生效日期时间，在创建期间确定（请参阅 [.create materialized-view](materialized-view-create.md#create-materialized-view)）。
+|EffectiveDateTime|datetime|视图的生效日期时间，在创建期间确定（请参阅 [`.create materialized-view`](materialized-view-create.md#create-materialized-view)）。
 
 ## <a name="show-materialized-view-schema"></a>.show materialized-view schema
 

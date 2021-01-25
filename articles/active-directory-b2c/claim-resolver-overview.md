@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/04/2020
+ms.date: 01/18/2021
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 0a50e53481f3683e84265b24b086b6de0075d35c
-ms.sourcegitcommit: 33f2835ec41ca391eb9940edfcbab52888cf8a01
+ms.openlocfilehash: 3cce4e6ce2b15040c3cc5d46c098c0c4b0cb8af6
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94326464"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570519"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>关于 Azure Active Directory B2C 自定义策略中的声明解析程序
 
@@ -72,12 +72,12 @@ Azure Active Directory B2C (Azure AD B2C) [自定义策略](custom-policy-overvi
 | {OIDC:LoginHint} |  `login_hint` 查询字符串参数。 | someone@contoso.com |
 | {OIDC:MaxAge} | `max_age`。 | 空值 |
 | {OIDC:Nonce} |`Nonce` 查询字符串参数。 | defaultNonce |
-| {OIDC:Password}| 资源所有者密码凭据流用户的密码。| password1| 
+| {OIDC:Password}| [资源所有者密码凭据流](ropc-custom.md)用户的密码。| password1| 
 | {OIDC:Prompt} | `prompt` 查询字符串参数。 | 登录 |
 | {OIDC:RedirectUri} |`redirect_uri` 查询字符串参数。 | https://jwt.ms |
 | {OIDC:Resource} |`resource` 查询字符串参数。 | 空值 |
 | {OIDC:Scope} |`scope` 查询字符串参数。 | openid |
-| {OIDC:Username}| 资源所有者密码凭据流用户的用户名。| emily@contoso.com| 
+| {OIDC:Username}| [资源所有者密码凭据流](ropc-custom.md)用户的用户名。| emily@contoso.com| 
 
 ### <a name="context"></a>上下文
 
@@ -88,7 +88,7 @@ Azure Active Directory B2C (Azure AD B2C) [自定义策略](custom-policy-overvi
 | {Context:DateTimeInUtc} |UTC 格式的日期时间。  | 2018/10/10 中午 12:00 |
 | {Context:DeploymentMode} |策略部署模式。  | 生产 |
 | {Context:IPAddress} | 用户 IP 地址。 | 11.111.111.11 |
-| {Context:KMSI} | 指示是否选中 `Keep me signed in` 复选框。 |  是 |
+| {Context:KMSI} | 指示是否选中了“[使我保持登录状态](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi)”复选框。 |  是 |
 
 ### <a name="claims"></a>声明 
 
@@ -185,7 +185,7 @@ Azure Active Directory B2C (Azure AD B2C) [自定义策略](custom-policy-overvi
 
 ### <a name="dynamic-ui-customization"></a>动态 UI 自定义
 
-通过 Azue AD B2C，可将查询字符串参数传递给 HTML 内容定义终结点，以便动态呈现页面内容。 例如，此功能允许基于从 Web 或移动应用程序传递的自定义参数，更改 Azure AD B2C 注册或登录页面上的背景图像。 此外，还可以根据语言参数本地化 HTML 页，或者根据客户端 ID 更改内容。
+通过 Azue AD B2C，可将查询字符串参数传递给 HTML 内容定义终结点，以便动态呈现页面内容。 例如，此功能允许基于从 Web 或移动应用程序传递的自定义参数，更改 Azure AD B2C 注册或登录页面上的背景图像。 有关详细信息，请参阅[使用 Azure Active Directory B2C 中的自定义策略动态配置 UI](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)。 此外，还可以根据语言参数本地化 HTML 页，或者根据客户端 ID 更改内容。
 
 以下示例传入了名为 **campaignId** 且值为 `Hawaii` 的查询字符串参数、**language** 代码 `en-US` 以及表示客户端 ID 的 **app**：
 
@@ -218,7 +218,7 @@ Azure Active Directory B2C (Azure AD B2C) [自定义策略](custom-policy-overvi
 
 ### <a name="application-insights-technical-profile"></a>Application Insights 技术配置文件
 
-使用 Azure Application Insights 和声明解析程序，可以了解用户行为。 在 Application Insights 技术配置文件中，将向 Azure Application Insights 发送保留的输入声明。 下面的示例将向 Azure Application Insights 发送策略 ID、相关 ID、语言 ID 和客户端 ID。
+使用 Azure Application Insights 和声明解析程序，可以了解用户行为。 在 Application Insights 技术配置文件中，将向 Azure Application Insights 发送保留的输入声明。 有关详细信息，请参阅[使用 Application Insights 在 Azure AD B2C 过程中跟踪用户行为](analytics-with-application-insights.md)。 下面的示例将向 Azure Application Insights 发送策略 ID、相关 ID、语言 ID 和客户端 ID。
 
 ```xml
 <TechnicalProfile Id="AzureInsights-Common">

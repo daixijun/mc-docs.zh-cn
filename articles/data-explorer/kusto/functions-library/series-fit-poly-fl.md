@@ -7,13 +7,13 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 09/08/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 86393924e7e4edfe9bf7f850ff401848a28281b2
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 7b36d787f0f8920047b0a8ee3d06ecc68097ab7a
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104458"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611269"
 ---
 # <a name="series_fit_poly_fl"></a>series_fit_poly_fl()
 
@@ -30,7 +30,7 @@ ms.locfileid: "93104458"
 
 ## <a name="syntax"></a>语法
 
-`T | invoke series_fit_poly_fl(`*y_series*`,` *y_fit_series*`,` *fit_coeff*`,` *degree*`, [`*x_series*`,` *x_istime* ]`)`
+`T | invoke series_fit_poly_fl(`*y_series*`,` *y_fit_series*`,` *fit_coeff*`,` *degree*`, [`*x_series*`,` *x_istime*]`)`
   
 ## <a name="arguments"></a>参数
 
@@ -100,7 +100,7 @@ demo_make_series1
 
 # <a name="persistent"></a>[Persistent](#tab/persistent)
 
-如果是永久使用，请使用 [.create 函数](../management/create-function.md)。  创建函数需要有[数据库用户权限](../management/access-control/role-based-authorization.md)。
+如果是永久使用，请使用 [`.create function`](../management/create-function.md)。  创建函数需要有[数据库用户权限](../management/access-control/role-based-authorization.md)。
 
 ### <a name="one-time-installation"></a>一次性安装
 

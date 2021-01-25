@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 0b263225a4a57ded3a332d176eb776a655e86711
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 17b5a8562b0f1ea9c135200f463550ed5c7d8d05
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105032"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611602"
 ---
 # <a name="partition-operator"></a>partition 运算符
 
@@ -28,27 +28,27 @@ T | partition by Col1 { U | where Col2=toscalar(Col1) }
 
 ## <a name="syntax"></a>语法
 
-*T* `|` `partition` [ *PartitionParameters* ] `by` *Column* `(` *ContextualSubquery* `)`
+*T* `|` `partition` [*PartitionParameters*] `by` *Column* `(` *ContextualSubquery* `)`
 
-*T* `|` `partition` [ *PartitionParameters* ] `by` *Column* `{` *Subquery* `}`
+*T* `|` `partition` [*PartitionParameters*] `by` *Column* `{` *Subquery* `}`
 
 ## <a name="arguments"></a>参数
 
-* *T* ：要由运算符处理其数据的表格源。
+* *T*：要由运算符处理其数据的表格源。
 
-* *Column* ：T 中某个列的名称，其值决定了如何对输入表进行分区。 请参阅下文中的 **说明** 。
+* *Column*：T 中某个列的名称，其值决定了如何对输入表进行分区。 请参阅下文中的 **说明**。
 
 * ContextualSubquery：一个表格表达式，其源是 `partition` 运算符的源，其作用域为单个键值。
 
 * Subquery：没有源的表格表达式。 键值可通过 `toscalar()` 调用获得。
 
-* PartitionParameters：零个或零个以上的（使用空格进行分隔的）参数，它们控制运算符的行为，格式为： *Name* `=` *Value* 。 支持以下参数：
+* PartitionParameters：零个或零个以上的（使用空格进行分隔的）参数，它们控制运算符的行为，格式为：*Name* `=` *Value*。 支持以下参数：
 
   |名称               |值         |说明|
   |-------------------|---------------|-----------|
   |`hint.materialized`|`true`,`false` |如果设置为 `true`，将对 `partition` 运算符的源进行具体化（默认值：`false`）|
-  |`hint.concurrency`|*数字*|提示系统应并行执行 `partition` 运算符的多少个并发子查询。 *默认* ：群集的单个节点上的 CPU 核心数（2 到 16 个）。|
-  |`hint.spread`|*数字*|提示系统并发的 `partition` 子查询执行应使用多少个节点。 *默认* ：1.|
+  |`hint.concurrency`|*数字*|提示系统要并行运行的分区数量。 *默认*：16.|
+  |`hint.spread`|*数字*|提示系统如何在群集节点之间分配分区（例如：如果有 N 个分区，并且扩展提示设置为 P，则 N 个分区将由 P 个不同的群集节点平等并行/顺序地处理，具体取决于并发提示）。 *默认*：1.|
 
 ## <a name="returns"></a>返回
 

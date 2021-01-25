@@ -6,19 +6,19 @@ author: Johnnytechn
 origin.date: 05/24/2019
 ms.custom: devx-track-java
 ms.author: v-johya
-ms.date: 12/07/2020
-ms.openlocfilehash: b72324650d80c7610be815a2d52e380c119ab8b2
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.date: 01/12/2021
+ms.openlocfilehash: 795028b0f4408d0ed9ec0bf0176f4b427e0d15e4
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104449"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230571"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>快速入门：Java Web 项目中的 Application Insights 入门
 
 
 > [!CAUTION]
-> 自 2020 年 11 月起，对于监视 Java 应用程序，我们建议使用 Azure Monitor Application Insights 3.0 代理进行自动检测。 有关如何入门的详细信息，请参阅 [Application Insights Java 3.0 代理](./java-in-process-agent.md)。
+> 自 2020 年 11 月起，对于监视 Java 应用程序，我们建议使用 Azure Monitor Application Insights Java 3.0 代理进行自动检测。 有关如何入门的详细信息，请参阅 [Application Insights Java 3.0 代理](./java-in-process-agent.md)。
 
 在本快速入门中，你将使用 Application Insights SDK 检测请求、跟踪依赖项、收集性能计数器、诊断性能问题和异常，并编写代码以跟踪用户对应用执行的操作。
 
@@ -31,6 +31,8 @@ Application Insights 是面向 Web 开发人员的可扩展分析服务，可帮
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>获取 Application Insights 检测密钥
 
+> [!IMPORTANT]
+> 新的 Azure 区域要求使用连接字符串而不是检测密钥。 [连接字符串](./sdk-connection-string.md?tabs=java)用于标识要与遥测数据关联的资源。 它还允许你修改可供你的资源将其用作遥测目标的终结点。 你需要复制连接字符串，并将其添加到应用程序的代码或环境变量中。
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 在 Azure 门户中，创建 Application Insights 资源。 将应用程序类型设置为 Java Web 应用程序。
 
@@ -281,7 +283,6 @@ Application Insights Java SDK 现支持 [W3C 分布式跟踪](https://w3c.github
 好了，现在正在从 Web 服务发送遥测数据。 若要获取应用程序的 360 度全方位视图，可以添加更多监视：
 
 * [将遥测添加到网页][usage]，用于监视页面视图和用户指标。
-* [设置 Web 测试][availability]，确保应用程序处于活动状态且能够做出响应。
 
 ## <a name="send-your-own-telemetry"></a>发送自己的遥测数据
 安装 SDK 后，可以使用 API 发送自己的遥测数据。
@@ -289,10 +290,6 @@ Application Insights Java SDK 现支持 [W3C 分布式跟踪](https://w3c.github
 * [跟踪自定义事件和指标][api]，了解用户正在对应用程序执行的操作。
 * [搜索事件和日志][diagnostic]以帮助诊断问题。
 
-## <a name="availability-web-tests"></a>可用性 Web 测试
-Application Insights 可以定期测试网站，检查网站是否正常运行且做出响应。
-
-[详细了解如何设置可用性 Web 测试。][availability]
 
 ## <a name="questions-problems"></a>存在疑问？ 遇到问题？
 [Java 故障排除](java-troubleshoot.md)
@@ -309,7 +306,6 @@ Application Insights 可以定期测试网站，检查网站是否正常运行�
 
 [api]: ./api-custom-events-metrics.md
 [apiexceptions]: ./api-custom-events-metrics.md#trackexception
-[availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
 [metrics]: ../platform/metrics-charts.md

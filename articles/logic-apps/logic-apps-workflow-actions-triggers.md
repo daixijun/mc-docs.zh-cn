@@ -10,12 +10,12 @@ ms.date: 11/16/2020
 ms.testscope: yes
 ms.testdate: 02/24/2020
 ms.author: v-yeche
-ms.openlocfilehash: c4e2b700ed2985d12c1692a7f3c0d233c342c977
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: d35eaf5c92bd1e2985203779d1e8e8f6b0d12629
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552282"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231111"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>有关 Azure 逻辑应用中触发器和操作类型的架构参考指南
 
@@ -507,7 +507,7 @@ ms.locfileid: "94552282"
 
 | Value | 类型 | 说明 | 
 |-------|------|-------------| 
-| <start-date-time-with-format-YYYY-MM-DDThh:mm:ss> | String | 采用以下格式的启动日期和时间： <p>如果指定时区，则为 YYYY-MM-DDThh:mm:ss <p>-或- <p>如果不指定时区，则为 YYYY-MM-DDThh:mm:ssZ <p>例如，如果需要 2017 年 9 月 18 日下午 2:00，则指定“2017-09-18T14:00:00”并指定时区（如“太平洋标准时间”），或仅指定“2017-09-18T14:00:00Z”，而不指定时区。 <p>**注意：** 此开始时间在未来最长为 49 年，并且必须遵循 [UTC 日期时间格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)的 [ISO 8601 日期时间规范](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但没有 [UTC 时差](https://en.wikipedia.org/wiki/UTC_offset)。 如果未指定时区，则必须在末尾添加字母“Z”（无空格）。 这个“Z”指等效的[航海时间](https://en.wikipedia.org/wiki/Nautical_time)。 <p>对于简单计划，开始时间指首次运行时间；对于复杂计划，触发器的激发时间不会早于开始时间。 有关启动日期和时间的详细信息，请参阅[创建和计划定期运行任务](../connectors/connectors-native-recurrence.md)。 | 
+| <start-date-time-with-format-YYYY-MM-DDThh:mm:ss> | String | 采用以下格式的启动日期和时间： <p>如果指定时区，则为 YYYY-MM-DDThh:mm:ss <p>-或- <p>如果不指定时区，则为 YYYY-MM-DDThh:mm:ssZ <p>例如，如果需要 2017 年 9 月 18 日下午 2:00，则指定“2017-09-18T14:00:00”并指定时区（如“太平洋标准时间”），或仅指定“2017-09-18T14:00:00Z”，而不指定时区。 <p>**注意：** 此开始时间在未来最长为 49 年，并且必须遵循 UTC 日期时间格式的 [ISO 8601 日期时间规范](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)，但没有 [UTC 时差](https://en.wikipedia.org/wiki/UTC_offset)。 如果未指定时区，则必须在末尾添加字母“Z”（无空格）。 这个“Z”指等效的[航海时间](https://en.wikipedia.org/wiki/Nautical_time)。 <p>对于简单计划，开始时间指首次运行时间；对于复杂计划，触发器的激发时间不会早于开始时间。 有关启动日期和时间的详细信息，请参阅[创建和计划定期运行任务](../connectors/connectors-native-recurrence.md)。 | 
 | <time-zone> | String | 仅当指定启动时间时才适用，因为此触发器不接受 [UTC 时差](https://en.wikipedia.org/wiki/UTC_offset)。 指定要应用的时区。 | 
 | <one-or-more-hour-marks> | 整数或整数数组 | 如果为 `frequency` 指定“Day”或“Week”，可以从 0 到 23 范围内指定一个或多个整数（用逗号分隔），作为一天中要运行工作流的时间点。 <p>例如，如果指定“10”、“12”和“14”，则会将上午 10 点、中午 12 点和下午 2 点作为小时标记。 | 
 | <one-or-more-minute-marks> | 整数或整数数组 | 如果为 `frequency` 指定“Day”或“Week”，可以从 0 到 59 范围内指定一个或多个整数（用逗号分隔），作为要运行工作流的分钟。 <p>例如，可以指定“30”作为分钟标记并使用前面示例中的当天小时时间，这样，便可以指定10:30 AM、12:30 PM 和 2:30 PM 作为开始时间。 | 
@@ -516,6 +516,8 @@ ms.locfileid: "94552282"
 | <max-runs-queue> | Integer | 当工作流已运行最大数量的实例（可基于 `runtimeConfiguration.concurrency.runs` 属性进行更改）时，任何新运行的实例都会被放入此队列（最多达到[默认限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)）。 若要更改此默认限制，请参阅[更改等待的运行限制](#change-waiting-runs)。 | 
 | <operation-option> | String | 通过设置 `operationOptions` 属性可更改默认行为。 有关详细信息，请参阅[操作选项](#operation-options)。 | 
 |||| 
+
+<!--Not Available on  [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)-->
 
 *示例 1*
 
@@ -1022,7 +1024,6 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 
 *示例 1*
 
-
 此操作定义合并 `abcdefg ` 与尾随空格和值 `1234`：
 
 ```json
@@ -1445,7 +1446,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 
 * 工作流可在任意位置使用 Response 操作，但 Foreach 循环和 Until 循环（包括序列循环和并行分支）内除外 。 
 
-* 仅当 Response 操作所需的所有操作都在 [HTTP 请求超时限制](../logic-apps/logic-apps-limits-and-config.md#request-limits)内完成时，原始 HTTP 请求才会获取工作流的响应。
+* 仅当 Response 操作所需的所有操作都在 [HTTP 超时限制](../logic-apps/logic-apps-limits-and-config.md#http-limits)内完成时，原始请求才会获取工作流的响应。
 
     但是，如果工作流调用另一个逻辑应用作为嵌套工作流，则父级工作流在嵌套工作流完成之前将处于等待状态，而不管嵌套工作流完成需要多久时间。
 
@@ -2247,8 +2248,10 @@ ID,Product_Name
 | <action-inputs> | 各种 | 要运行的操作的输入 | 
 | <condition> | String | 当循环中的所有操作都运行完成后要计算的条件或表达式 | 
 | <loop-count> | Integer | 针对操作可运行的最大循环数的限制。 有关默认限制和最大限制的详细信息，请参阅 [Azure 逻辑应用的限制和配置](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 | 
-| <loop-timeout> | String | 针对循环可运行的最长时间的限制。 默认 `timeout` 值为 `PT1H`，即要求的 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601)。 |
+| <loop-timeout> | String | 针对循环可运行的最长时间的限制。 默认 `timeout` 值为 `PT1H`，即要求的 ISO 8601 格式。 |
 |||| 
+
+<!--Not Available on [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601)-->
 
 > [!NOTE]
 > 如果表达式依赖于 Until 循环中任何操作的输出，请确保考虑到该操作导致的任何失败。
@@ -2303,7 +2306,7 @@ ID,Product_Name
 
 ## <a name="change-asynchronous-duration"></a>更改异步持续时间
 
-对于触发器和操作，均可通过添加 `limit.timeout` 属性的方式将异步模式的持续时间限制为指定时间间隔。 这样，如果该指定间隔结束时操作尚未完成，则会使用 `ActionTimedOut` 代码将操作的状态标记为 `Cancelled`。 `timeout` 属性使用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)。
+对于触发器和操作，均可通过添加 `limit.timeout` 属性的方式将异步模式的持续时间限制为指定时间间隔。 这样，如果该指定间隔结束时操作尚未完成，则会使用 `ActionTimedOut` 代码将操作的状态标记为 `Cancelled`。 `timeout` 属性使用 ISO 8601 格式。
 
 ```json
 "<trigger-or-action-name>": {
@@ -2342,7 +2345,6 @@ ID,Product_Name
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | 以同步方式而非异步方式运行基于 HTTP 的操作。 <p><p>若要设置此选项，请参阅[同步运行操作](#disable-asynchronous-pattern)。 | 操作： <p>[ApiConnection](#apiconnection-action), <br />[HTTP](#http-action)、 <br />[响应](#response-action) | 
 | `IncludeAuthorizationHeadersInOutputs` | String | 对于[启用 Azure Active Directory 开放式身份验证 (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) 的逻辑应用，若要授予对基于请求的触发器终结点的入站调用的访问权限，请在触发器输出中包含来自 OAuth 访问令牌的 `Authorization` 标头。 有关详细信息，请参阅[在 Request 触发器输出中包含“Authorization”标头](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header)。 | 触发器： <p>[Request](#request-trigger)、 <br>[HTTP Webhook](#http-webhook-trigger) | 
-| `OptimizedForHighThroughput` | String | 将针对每 5 分钟的操作执行数的[默认限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)更改为[最大限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 <p><p>若要设置此选项，请参阅[在高吞吐量模式下运行](#run-high-throughput-mode)。 | 所有操作 | 
 | `Sequential` | String | 每次运行一个“for each”循环迭代，而不是同时并行运行所有迭代。 <p>此选项与将 `runtimeConfiguration.concurrency.repetitions` 属性设置为 `1` 的作用相同。 可以设置其中任一属性，但不能同时设置二者。 <p><p>若要设置此选项，请参阅[按顺序运行“for each”循环](#sequential-for-each)。| 操作： <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | 按顺序对每个逻辑应用实例运行此触发器，并在等待上一个活动运行完成后，再触发下一个逻辑应用实例。 <p><p>此选项与将 `runtimeConfiguration.concurrency.runs` 属性设置为 `1` 的作用相同。 可以设置其中任一属性，但不能同时设置二者。 <p>若要设置此选项，请参阅[按顺序触发实例](#sequential-trigger)。 | 所有触发器 | 
 ||||
@@ -2382,11 +2384,13 @@ ID,Product_Name
 
         1. 在逻辑应用中要添加超时的操作的右上角选择省略号 ( **...** ) 按钮，然后选择“设置”。
 
-           ![打开操作设置](./media/logic-apps-workflow-actions-triggers/action-settings.png)
+            ![打开操作设置](./media/logic-apps-workflow-actions-triggers/action-settings.png)
 
-        1. 在“超时”下，指定 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)的超时持续时间。
+        1. 在“超时”下，指定 ISO 8601 格式的超时持续时间。
+         
+            <!--Not Available on [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)-->
 
-           ![指定超时持续时间](./media/logic-apps-workflow-actions-triggers/timeout.png)
+            ![指定超时持续时间](./media/logic-apps-workflow-actions-triggers/timeout.png)
 
 * 若要按顺序运行逻辑应用，请使用代码视图编辑器或设计器将触发器的并发度设置为 `1`。 请确保不要在代码视图编辑器中将触发器的 `operationOptions` 属性也设置为 `SingleInstance`。 否则会出现验证错误。 有关详细信息，请参阅[按顺序触发实例](#sequential-trigger)。
 
@@ -2652,24 +2656,6 @@ ID,Product_Name
    "type": "Http",
    "inputs": { "<action-inputs>" },
    "operationOptions": "DisableAsyncPattern",
-   "runAfter": {}
-}
-```
-
-<a name="run-high-throughput-mode"></a>
-
-### <a name="run-in-high-throughput-mode"></a>在高吞吐量模式下运行
-
-对于单个逻辑应用定义，每 5 分钟执行的操作数具有[默认限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 若要将此限制提高到可能的[最大值](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)，请将 `operationOptions` 属性设为 `OptimizedForHighThroughput`。 此设置将逻辑应用置于“高吞吐量”模式之中。
-
-> [!NOTE]
-> 高吞吐量模式处于预览状态。 此外，还可根据需要在多个逻辑应用之间分配工作负荷。
-
-```json
-"<action-name>": {
-   "type": "<action-type>",
-   "inputs": { "<action-inputs>" },
-   "operationOptions": "OptimizedForHighThroughput",
    "runAfter": {}
 }
 ```

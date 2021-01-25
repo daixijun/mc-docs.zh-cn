@@ -3,23 +3,25 @@ title: Azure Cosmos DB 中的一致性级别
 description: Azure Cosmos DB 提供五种一致性级别来帮助在最终一致性、可用性和延迟之间做出取舍。
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 10/12/2020
+origin.date: 12/09/2020
 author: rockboyfor
-ms.date: 11/09/2020
+ms.date: 01/18/2021
 ms.testscope: no
 ms.testdate: ''
 ms.author: v-yeche
-ms.openlocfilehash: 58ba80a6f89b00b12501aed2c5d96fd59d4e4f76
-ms.sourcegitcommit: 7a5c52be6a673649ce3c845d19a9fc9b0c508734
+ms.openlocfilehash: 7af023bd8c5d2ed5a1a4176abdf5a3a53c5d751e
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915124"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230014"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的一致性级别
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 依赖于复制实现高可用性和/或低延迟的分布式数据库必须在 PACLC 定理定义的读取一致性、可用性、延迟和吞吐量之间进行基本权衡。 非常一致性模型的可线性化是数据可编程性的黄金标准。 但是，由于数据必须跨远距离进行复制和提交，因此写入延迟较高，从而增加了高昂的成本。 由于数据无法在每个区域中复制和提交，因此非常一致性也可能因可用性降低（在失败期间）而受到影响。 最终一致性提供了更高的可用性和更好的性能，但更难对应用程序编程，因为数据可能不会在所有区域完全一致。
+
+<!--Not Available on [PACLC theorem](https://en.wikipedia.org/wiki/PACELC_theorem)-->
 
 目前市场上大多数商业用途的分布式 NoSQL 数据库只能提供非常一致性和最终一致性。 Azure Cosmos DB 提供五个妥善定义的级别。 按最强到最弱的顺序，级别分别为：
 
@@ -46,6 +48,9 @@ Azure Cosmos DB 为常用数据库提供对与线路协议兼容的 API 的本�
 ## <a name="configure-the-default-consistency-level"></a>配置默认一致性级别
 
 随时都可在 Azure Cosmos DB 帐户中配置默认的一致性级别。 在帐户中配置的默认一致性级别适用于该帐户下的所有 Azure Cosmos 数据库和容器。 针对某个容器或数据库发出的所有读取和查询默认使用指定的一致性级别。 有关详细信息，请参阅如何[配置默认一致性级别](how-to-manage-consistency.md#configure-the-default-consistency-level)。 还可以覆盖特定请求的默认一致性级别，若要了解详细信息，请参阅如何[覆盖默认一致性级别](how-to-manage-consistency.md?#override-the-default-consistency-level)一文。
+
+> [!IMPORTANT]
+> 更改默认的一致性级别后，需要重新创建任何 SDK 实例。 这可以通过重启应用程序来完成。 这可确保 SDK 使用新的默认一致性级别。
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>与一致性级别关联的保证
 
@@ -161,7 +166,9 @@ Azure Cosmos DB 可保证 100% 的读取请求满足所选一致性级别的一�
 
 在多区域分布式数据库环境中，当发生区域范围的服务中断时，一致性级别与数据持续性之间存在直接关系。 制定业务连续性计划时，需了解应用程序在中断事件发生后完全恢复之前的最大可接受时间。 应用程序完全恢复所需的时间称为 **恢复时间目标** (**RTO**)。 此外，还需要了解从中断事件恢复时，应用程序可忍受最近数据更新丢失的最长期限。 可以承受更新丢失的时限称为 **恢复点目标** (**RPO**)。
 
-下表定义了当发生区域范围的服务中断时，一致性模型与数据持续性之间的关系。 需要注意的是，在分布式系统中，即使具有非常一致性，根据 [CAP 定理](https://en.wikipedia.org (THIS WEB SITE IS NOT AVAILABLE ON AZURE CHINA CLOUD)  (THIS WEB SITE IS NOT AVAILABLE ON AZURE CHINA CLOUD) /wiki/CAP_theorem)，也不可能拥有 RPO 和 RTO 为零的分布式数据库。
+下表定义了当发生区域范围的服务中断时，一致性模型与数据持续性之间的关系。 请务必注意，在分布式系统中，由于 CAP 定理的存在，即使一致性较高，也不可能存在 RPO 和 RTO 为零的分布式数据库。
+
+<!--Not Avaialble on [CAP Theorem](https://en.wikipedia.org/wiki/CAP_theorem)-->
 
 |**区域**|**复制模式**|**一致性级别**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
@@ -188,7 +195,7 @@ Azure Cosmos DB 可保证 100% 的读取请求满足所选一致性级别的一�
 
 - [Azure Cosmos DB 提供的五个一致性级别的高级 TLA+ 规范](https://github.com/Azure/azure-cosmos-tla)
     
-<!--Not Available on - [Replicated Data Consistency Explained Through Baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)-->
+    <!--Not Available on - [Replicated Data Consistency Explained Through Baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)-->
 
 - [Doug Terry 借助棒球阐释复制数据一致性（白皮书）](https://www.microsoft.com/research/publication/replicated-data-consistency-explained-through-baseball/)
 - [弱一致性重复数据的会话保证](https://dl.acm.org/citation.cfm?id=383631)

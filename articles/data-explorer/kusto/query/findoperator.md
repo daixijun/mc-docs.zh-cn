@@ -8,15 +8,15 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 10/29/2020
+ms.date: 01/22/2021
 zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: kql-flavors
-ms.openlocfilehash: 9de5e3a959730bcb9dbe0e15836516b28cfe4ed7
-ms.sourcegitcommit: 39288459139a40195d1b4161dfb0bb96f5b71e8e
+ms.openlocfilehash: 313057ad985de3f9c96cf3439f4a46ec514243fd
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94590698"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611626"
 ---
 # <a name="find-operator"></a>find 运算符
 
@@ -41,6 +41,9 @@ find in (cluster('cluster_name').database('MyDB*'.*)) where Fruit == "apple"
 ```kusto
 find in (Table1, Table2, Table3) where Fruit=="apple"
 ```
+
+> [!NOTE]
+> `find` 运算符实际上比特定于列的文本筛选效率低。 当列已知时，建议使用 [where 运算符](whereoperator.md)。 当工作区包含大量表和列，并且扫描的数据量大、查询的时间范围大时，查找将无法正常工作。
 
 ::: zone-end
 

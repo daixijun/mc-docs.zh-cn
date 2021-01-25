@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 03/24/2020
-ms.date: 10/29/2020
-ms.openlocfilehash: 643802a23a47b8e9903f874ae5ba4ab21bd6a65c
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: 5198642ae5c4c8a3067a7bb60f700a19889a8539
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93106338"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611624"
 ---
 # <a name="infer_storage_schema-plugin"></a>infer_storage_schema 插件
 
@@ -75,3 +75,18 @@ evaluate infer_storage_schema(options)
 |CslSchema|
 |---|
 |app_id:string, user_id:long, event_time:datetime, country:string, city:string, device_type:string, device_vendor:string, ad_network:string, campaign:string, site_id:string, event_type:string, event_name:string, organic:string, days_from_install:int, revenue:real|
+
+在外部表定义中使用返回的架构：
+
+```kusto
+.create external table MobileEvents(
+    app_id:string, user_id:long, event_time:datetime, country:string, city:string, device_type:string, device_vendor:string, ad_network:string, campaign:string, site_id:string, event_type:string, event_name:string, organic:string, days_from_install:int, revenue:real
+)
+kind=blob
+partition by (dt:datetime = bin(event_time, 1d), app:string = app_id)
+pathformat = ('app=' app '/dt=' datetime_pattern('yyyyMMdd', dt))
+dataformat = parquet
+(
+    h@'https://storageaccount.blob.core.chinacloudapi.cn/MovileEvents;secretKey'
+)
+```

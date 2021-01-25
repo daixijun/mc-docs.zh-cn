@@ -11,12 +11,12 @@ ms.topic: overview
 origin.date: 11/23/2020
 ms.date: 12/30/2020
 ms.author: v-tawe
-ms.openlocfilehash: 52232386722ffbe86728f8ab1aeb6907f2aa3e9b
-ms.sourcegitcommit: eb742dcade404c9909d01e2570188f0bc4076992
+ms.openlocfilehash: 6d6e43691b86612867cce954ed21f4e00dbc35de
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820283"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611693"
 ---
 # <a name="what-is-the-speech-service"></a>什么是语音服务？
 
@@ -83,7 +83,7 @@ ms.locfileid: "97820283"
 
 每个订阅有两个密钥；可在应用程序中使用任意一个密钥。 若要将密钥复制/粘贴到代码编辑器或其他区域，请选择每个密钥旁边的复制按钮，切换窗口以将剪贴板内容粘贴到所需区域。
 
-此外，请复制 `LOCATION` 值，这是你用于 SDK 调用的区域 ID（例如 `westus`、`westeurope`）。
+此外，请复制 `LOCATION` 值，这是你用于 SDK 调用的区域 ID（例如 `chinaeast2`）。
 
 > [!IMPORTANT]
 > 这些订阅密钥用于访问认知服务 API。 不要共享你的密钥。 安全存储密钥 - 例如，使用 Azure Key Vault。 此外，我们建议定期重新生成这些密钥。 发出 API 调用只需一个密钥。 重新生成第一个密钥时，可以使用第二个密钥来持续访问服务。

@@ -6,14 +6,14 @@ ms.author: v-tawe
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: how-to
-origin.date: 07/10/2019
-ms.date: 09/30/2020
-ms.openlocfilehash: 0b5ca3b126ec5c2b53f77603a933ce7e6afa9327
-ms.sourcegitcommit: 87b6bb293f39c5cfc2db6f38547220a13816d78f
+origin.date: 12/03/2020
+ms.date: 01/19/2021
+ms.openlocfilehash: 6582c12f893393c5acecfd73d91e35fcab71b193
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96430847"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611501"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>使用 Power BI 的 Azure 数据资源管理器连接器直观显示数据
 
@@ -77,7 +77,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
     ![登录](media/power-bi-connector/sign-in.png)
 
-1. 在“导航器”屏幕上，展开  **Samples** 数据库，选择“StormEvents”，然后选择“编辑”。  
+1. 在“导航器”屏幕上，展开 **Samples** 数据库，选择“StormEvents”，然后选择“转换数据”。 
 
     ![选择表](media/power-bi-connector/select-table.png)
 

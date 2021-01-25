@@ -3,15 +3,15 @@ title: Azure Functions 的 Azure Blob 存储输入绑定
 description: 了解如何向某个 Azure 函数提供 Azure Blob 存储输入绑定数据。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 11/30/2020
+ms.date: 01/12/2021
 ms.author: v-junlch
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 38a3cb5791b7f91f04d1dd69f0fcb9c58f45ebd1
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 73fd57c490437e26c3053eb90a1ff081b5a13375
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507701"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195183"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Functions 的 Azure Blob 存储输入绑定
 
@@ -85,55 +85,6 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-<!--Same example for input and output. -->
-
-下面的示例展示了 function.json  文件中的 blob 输入和输出绑定，以及使用这些绑定的 [JavaScript 代码](functions-reference-node.md)。 该函数创建 Blob 的副本。 该函数由包含要复制的 Blob 名称的队列消息触发。 新 Blob 名为 *{originalblobname}-Copy*。
-
-在 *function.json* 文件中，`queueTrigger` 元数据属性用于指定 `path` 属性中的 Blob 名称：
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "myInputBlob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    },
-    {
-      "name": "myOutputBlob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-[配置](#configuration)部分解释了这些属性。
-
-JavaScript 代码如下所示：
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputBlob = context.bindings.myInputBlob;
-    context.done();
-};
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 本部分包含以下示例：
@@ -190,6 +141,84 @@ module.exports = function(context) {
 
 在 [Java 函数运行时库](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)中，对其值将来自 Blob 的参数使用 `@BlobInput` 注释。  可以将此注释与本机 Java 类型、POJO 或使用了 `Optional<T>` 的可为 null 的值一起使用。
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+<!--Same example for input and output. -->
+
+下面的示例展示了 function.json  文件中的 blob 输入和输出绑定，以及使用这些绑定的 [JavaScript 代码](functions-reference-node.md)。 该函数创建 Blob 的副本。 该函数由包含要复制的 Blob 名称的队列消息触发。 新 Blob 名为 *{originalblobname}-Copy*。
+
+在 *function.json* 文件中，`queueTrigger` 元数据属性用于指定 `path` 属性中的 Blob 名称：
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[配置](#configuration)部分解释了这些属性。
+
+JavaScript 代码如下所示：
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputBlob = context.bindings.myInputBlob;
+    context.done();
+};
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+以下示例显示了 function.json 文件中定义的 Blob 输入绑定，该绑定使传入的 blob 数据可供 [PowerShell](functions-reference-powershell.md) 函数使用。
+
+下面是 json 配置：
+
+```json
+{
+  "bindings": [
+    {
+      "name": "InputBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "source/{name}",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
+
+下面是函数代码：
+
+```powershell
+# Input bindings are passed in via param block.
+param([byte[]] $InputBlob, $TriggerMetadata)
+
+Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($InputBlob.Length) bytes"
+```
+
 ---
 
 ## <a name="attributes-and-annotations"></a>特性和注释
@@ -231,13 +260,18 @@ public static void Run(
 
 C# 脚本不支持特性。
 
+# <a name="java"></a>[Java](#tab/java)
+
+使用 `@BlobInput` 特性可以访问触发函数的 blob。 如果将字节数组与特性一起使用，请将 `dataType` 设置为 `binary`。 有关详细信息，请参阅[输入示例](#example)。
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript 不支持特性。
 
-# <a name="java"></a>[Java](#tab/java)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-使用 `@BlobInput` 特性可以访问触发函数的 blob。 如果将字节数组与特性一起使用，请将 `dataType` 设置为 `binary`。 有关详细信息，请参阅[输入示例](#example)。
+PowerShell 不支持特性。
+
 
 ---
 
@@ -267,13 +301,18 @@ JavaScript 不支持特性。
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+使用 `@BlobInput` 特性可以访问触发函数的 blob。 如果将字节数组与特性一起使用，请将 `dataType` 设置为 `binary`。 有关详细信息，请参阅[输入示例](#example)。
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 使用 `context.bindings.<NAME>` 访问 blob 数据，其中 `<NAME>` 与 function.json 中定义的值匹配。
 
-# <a name="java"></a>[Java](#tab/java)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-使用 `@BlobInput` 特性可以访问触发函数的 blob。 如果将字节数组与特性一起使用，请将 `dataType` 设置为 `binary`。 有关详细信息，请参阅[输入示例](#example)。
+通过与 function.json 文件中绑定名称参数指定的名称匹配的字符串参数访问 Blob 数据。
+
 
 ---
 

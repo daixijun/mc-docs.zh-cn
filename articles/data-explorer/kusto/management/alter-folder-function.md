@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/11/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: f5b17ffb69a8223b709851a95881469fc6d9855c
-ms.sourcegitcommit: c17e965d4ffd82fd7cd86b2648fcb0053a65df00
+ms.date: 01/22/2021
+ms.openlocfilehash: 19ef3a6e55c8d03971a7a5a1b531b179f30dba26
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470514"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611717"
 ---
 # <a name="alter-function-folder"></a>.alter function folder
 
@@ -25,7 +25,7 @@ ms.locfileid: "86470514"
 > [!NOTE]
 > * 需要[数据库管理员权限](../management/access-control/role-based-authorization.md)
 > * 允许最初创建该函数的[数据库用户](../management/access-control/role-based-authorization.md)修改函数。 
-> * 如果该函数不存在，将返回错误。 若要创建新函数，请参阅 [.create function](create-function.md)
+> * 如果该函数不存在，将返回错误。 若要创建新函数，请参阅 [`.create function`](create-function.md)
 
 |输出参数 |类型 |说明
 |---|---|--- 

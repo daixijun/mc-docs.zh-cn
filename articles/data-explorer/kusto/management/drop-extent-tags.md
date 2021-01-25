@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 07/02/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 8aac96974bb296f068f6ab95fa75c80e33f32e4c
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.openlocfilehash: 16896e62ce22dd5d8592901d93bb138cc2c524b7
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556486"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611326"
 ---
 # <a name="drop-extent-tags"></a>.drop 盘区标记
 
@@ -37,8 +37,8 @@ ms.locfileid: "88556486"
 
 `async`（可选）：以异步方式执行该命令。
    * 返回操作 ID (Guid)。
-   * 可以监视操作的状态。 请使用 [.show operations](operations.md#show-operations) 命令。
-   * 请使用 [.show operation details](operations.md#show-operation-details) 命令来检索成功执行的结果。
+   * 可以监视操作的状态。 使用 [`.show operations`](operations.md#show-operations) 命令。
+   * 使用 [`.show operation details`](operations.md#show-operation-details) 命令检索成功执行的结果。
 
 ## <a name="restrictions"></a>限制
 

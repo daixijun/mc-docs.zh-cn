@@ -8,13 +8,13 @@ ms.reviewer: alexans
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/13/2020
-ms.date: 09/30/2020
-ms.openlocfilehash: b75fd54d6cff671839010d73f2cd1fe1d1947eb8
-ms.sourcegitcommit: 93309cd649b17b3312b3b52cd9ad1de6f3542beb
+ms.date: 01/22/2021
+ms.openlocfilehash: b6c45a37728a3be00b877123c695fc1de7724b5b
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93105310"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611666"
 ---
 # <a name="top-nested-operator"></a>top-nested 运算符
 
@@ -31,11 +31,11 @@ T | top-nested 3 of Location with others="Others" by sum(MachinesNumber), top-ne
 
 ## <a name="syntax"></a>语法
 
-*T* `|` `top-nested` *TopNestedClause2* [`,` *TopNestedClause2* ...]
+*T* `|` `top-nested` *TopNestedClause2* [`,` *TopNestedClause2*...]
 
 其中 TopNestedClause 具有以下语法：
 
-[ *N* ] `of` [ *`ExprName`* `=`] *`Expr`* [`with` `others` `=` *`ConstExpr`* ] `by` [ *`AggName`* `=`] *`Aggregation`* [`asc` | `desc`]
+[*N*] `of` [ *`ExprName`* `=`] *`Expr`* [`with` `others` `=` *`ConstExpr`* ] `by` [ *`AggName`* `=`] *`Aggregation`* [`asc` | `desc`]
 
 ## <a name="arguments"></a>参数
 
@@ -75,7 +75,7 @@ T | top-nested 3 of Location with others="Others" by sum(MachinesNumber), top-ne
 
 * 其中一列保存 Aggregation 计算的结果（列名为 AggregationName，如果指定了的话） 
 
-## <a name="notes"></a>说明
+## <a name="notes"></a>注释
 
 不输出未指定为 `Expr` 值的输入列。
 若要获取特定级别的所有值，请添加一个聚合计数：
@@ -93,8 +93,8 @@ T | top-nested 3 of Location with others="Others" by sum(MachinesNumber), top-ne
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto
 StormEvents
-| top-nested 2 of State by sum(BeginLat),
-  top-nested 3 of Source by sum(BeginLat),
+| top-nested 2 of State       by sum(BeginLat),
+  top-nested 3 of Source      by sum(BeginLat),
   top-nested 1 of EndLocation by sum(BeginLat)
 ```
 
@@ -114,9 +114,7 @@ Use the option 'with others':
 StormEvents
 | top-nested 2 of State with others = "All Other States" by sum(BeginLat),
   top-nested 3 of Source by sum(BeginLat),
-  top-nested 1 of EndLocation with others = "All Other End Locations" by  sum(BeginLat)
-
-
+  top-nested 1 of EndLocation with others = "All Other End Locations" by sum(BeginLat)
 ```
 
 |状态|aggregated_State|Source|aggregated_Source|EndLocation|aggregated_EndLocation|
@@ -150,13 +148,15 @@ StormEvents
 |---|
 |1149279.5923|
 
-
 请求在顶部嵌套结果中设置另一列 (EventType)。
 
 <!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
 ```kusto
 StormEvents
-| top-nested 2 of State by sum(BeginLat),    top-nested 2 of Source by sum(BeginLat),    top-nested 1 of EndLocation by sum(BeginLat), top-nested of EventType  by tmp = max(1)
+| top-nested 2 of State       by sum(BeginLat),
+  top-nested 2 of Source      by sum(BeginLat),
+  top-nested 1 of EndLocation by sum(BeginLat),
+  top-nested   of EventType   by tmp = max(1)
 | project-away tmp
 ```
 
@@ -203,3 +203,17 @@ StormEvents
 |KANSAS|公用|ASHLAND|446.4218|1|
 |KANSAS|公用|PROTECTION|446.11|2|
 |KANSAS|公用|MEADE STATE PARK|371.1|3|
+
+以下示例返回每个美国州的两个最新事件，以及每个事件的一些信息。
+请注意，对于只需要通过运算符传播而没有任何选择逻辑的列，请使用 `max(1)`（然后将其抛弃）。
+
+<!-- csl: https://help.kusto.chinacloudapi.cn:443/Samples -->
+```kusto
+StormEvents
+| top-nested of State by Ignore0=max(1),
+  top-nested 2 of StartTime by Ignore1=max(StartTime),
+  top-nested of EndTime by Ignore2=max(1),
+  top-nested of EpisodeId by Ignore3=max(1)
+| project-away Ignore*
+| order by State asc, StartTime desc
+```

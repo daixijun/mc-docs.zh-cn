@@ -1,27 +1,26 @@
 ---
-title: 创建具有静态公共 IP 地址的 VM - Azure 门户 | Azure
+title: 创建具有静态公共 IP 地址的 VM - Azure 门户
 description: 了解如何使用 Azure 门户创建具有静态公共 IP 地址的 VM。
 services: virtual-network
 documentationcenter: na
-manager: digimobile
+manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/08/2018
+origin.date: 11/12/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.testscope: yes
 ms.testdate: 10/26/2020
 ms.author: v-yeche
-ms.openlocfilehash: 697426680942fe40d45460298f9a693e3a66320d
-ms.sourcegitcommit: b6fead1466f486289333952e6fa0c6f9c82a804a
+ms.openlocfilehash: 39f85cac96bef9fb07ad1f4f2dba750568123909
+ms.sourcegitcommit: 292892336fc77da4d98d0a78d4627855576922c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96300897"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570676"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>使用 Azure 门户创建具有静态公共 IP 地址的虚拟机
 
@@ -35,13 +34,15 @@ ms.locfileid: "96300897"
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-1. 在门户左上方的搜索框中搜索“虚拟机”。
+<!--MOONCAKE CUSTOMIZATION  ON Windows Server 2019 Datacenter - Gen1 TILL 01/182021-->
+
+1. 在门户的左上方，选择“创建资源”，在搜索框中搜索“Windows Server 2019 Datacenter”。
     
     <!--Not Available on select **Create a resource** > **Compute** > **Virtual machine**-->
     
-2. 在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
-    
-    <!--CORRECT ON Windows Server 2016 Datacenter - Gen1 TILL 11/27/2020-->
+2. 在搜索结果中选择“Windows Server 2019 Datacenter”，并选择“创建”。
+
+    在“创建虚拟机”中，在“基本信息”选项卡中键入或选择值：
     
     | 设置 | 值                                          |
     |-----------------------|----------------------------------|
@@ -52,7 +53,7 @@ ms.locfileid: "96300897"
     | 虚拟机名称 | 输入“myVM” |
     | 区域 | 选择“中国东部” |
     | 可用性选项 | 选择“无需基础结构冗余” |
-    | 映像 | 选择“Windows Server 2016 Datacenter - Gen1” |
+    | 映像 | 选择“Windows Server 2019 Datacenter - Gen1” |
     | Azure Spot 实例 | 请选择“否” |
     | 大小 | 选择 VM 大小或采用默认设置 |
     | **管理员帐户** |  |
@@ -61,7 +62,7 @@ ms.locfileid: "96300897"
     | 确认密码 | 重新输入密码 |
 
 3. 选择“网络”选项卡，或选择“下一步: **磁盘”，然后选择“下一步:** 网络”。
-  
+
 4. 在“网络”选项卡中，选择或输入：
 
     | 设置 | 值 |
@@ -96,16 +97,17 @@ ms.locfileid: "96300897"
 * 将公共 IP 地址从动态更改为静态。
 * 使用专用 IP 地址。
 
-公共 IP 地址会产生[少许费用](https://www.azure.cn/pricing/details/ip-addresses)。 每个订阅可以使用的公共 IP 地址数有[限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+公共 IP 地址会产生[少许费用](https://www.azure.cn/pricing/details/ip-addresses/)。 每个订阅可以使用的公共 IP 地址数有[限制](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
 添加到后端池时，虚拟机的公共 IP 地址的 SKU 必须与 Azure 负载均衡器的公共 IP SKU 相匹配。 有关详细信息，请参阅 [Azure 负载均衡器](../load-balancer/skus.md)。
 
-可以下载 Azure [中国](https://www.microsoft.com/download/details.aspx?id=57062)云的范围（前缀）列表。
+可以下载 Azure [中国](https://www.microsoft.com/download/confirmation.aspx?id=57062)云的范围（前缀）列表。
+
+<!--CORRECT ON confirmation.aspx?id=57062-->
 
 - 详细了解[静态公共 IP 地址](virtual-network-ip-addresses-overview-arm.md#allocation-method)。
 - 详细了解 Azure 中的[公共 IP 地址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)。
 - 详细了解所有[公共 IP 地址设置](virtual-network-public-ip-address.md#create-a-public-ip-address)。
 - 详细了解[专用 IP 地址](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses)以及如何为 Azure 虚拟机分配[静态公共 IP 地址](virtual-network-network-interface-addresses.md#add-ip-addresses)。
-
 
 <!-- Update_Description: update meta properties, wording update, update link -->

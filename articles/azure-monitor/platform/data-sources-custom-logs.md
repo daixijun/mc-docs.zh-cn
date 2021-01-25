@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: Johnnytechn
 ms.author: v-johya
-ms.date: 12/07/2020
+ms.date: 01/12/2021
 origin.date: 09/26/2019
-ms.openlocfilehash: 81e90289f0e1ae9c7ed9d7665d3e369fffbcfd4f
-ms.sourcegitcommit: d8dad9c7487e90c2c88ad116fff32d1be2f2a65d
+ms.openlocfilehash: df08b9de82ae859c722999bd755024acdcdf6dee
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97104327"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230895"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>在 Azure Monitor 中使用 Log Analytics 代理收集自定义日志
 

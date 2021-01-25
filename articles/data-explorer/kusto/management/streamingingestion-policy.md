@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/24/2020
-ms.date: 08/18/2020
-ms.openlocfilehash: 0baf0c01ae7dfbc20fad26d5f289cfdf86c0c327
-ms.sourcegitcommit: f4bd97855236f11020f968cfd5fbb0a4e84f9576
+ms.date: 01/22/2021
+ms.openlocfilehash: 1bdea8c8d920a2dbdb99c40a0d4142400a513b23
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516066"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611480"
 ---
 # <a name="streaming-ingestion-policy-command"></a>流式引入策略命令
 
@@ -102,7 +102,7 @@ ms.locfileid: "88516066"
 
 **返回**
 
-此命令删除表或数据库 streamingestion 策略对象，然后返回相应的 [.show policy streamingingestion](#display-the-policy) 命令的输出。
+此命令删除表或数据库 streamingestion 策略对象，然后返回相应的 [`.show policy streamingingestion`](#display-the-policy) 命令的输出。
 
 **示例**
 

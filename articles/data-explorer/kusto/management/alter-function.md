@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: reference
 origin.date: 02/11/2020
-ms.date: 07/01/2020
-ms.openlocfilehash: 88ab07c85b173714147164d69dfb9e37a5d042d9
-ms.sourcegitcommit: c17e965d4ffd82fd7cd86b2648fcb0053a65df00
+ms.date: 01/22/2021
+ms.openlocfilehash: ca3a6e02d14ba32fa9c93db38679100ced9c3747
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86470508"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611716"
 ---
 # <a name="alter-function"></a>.alter function
 
@@ -36,7 +36,7 @@ ms.locfileid: "86470508"
 |DocString|String|用于 UI 目的的函数说明。
 
 > [!NOTE]
-> * 如果该函数不存在，将返回错误。 若要创建新函数，请参阅 [.create 函数](create-function.md)
+> * 如果该函数不存在，将返回错误。 若要创建新函数，请参阅 [`.create function`](create-function.md)
 > * 需要[数据库管理员权限](../management/access-control/role-based-authorization.md)
 > * 允许最初创建该函数的[数据库用户](../management/access-control/role-based-authorization.md)修改函数。 
 > * `let` 语句并不支持所有的 Kusto 类型。 支持的类型为：字符串、长整型、日期时间、时间跨度和双精度型。

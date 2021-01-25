@@ -5,15 +5,15 @@ author: WenJason
 ms.service: storage
 ms.topic: troubleshooting
 origin.date: 11/16/2020
-ms.date: 12/14/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: f607b930f1198565e9b953b9b45fe13ac859fdf1
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 682a9606634da2b818e748b05303dbff18c994b5
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850787"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163154"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>排查 Azure 文件共享性能问题
 
@@ -47,7 +47,7 @@ ms.locfileid: "96850787"
 ### <a name="solution"></a>解决方案
 
 - 如果使用的是标准文件共享，请在存储帐户上启用[大型文件共享](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal)。 大型文件共享支持每个共享最多 10,000 IOPS。
-- 如果使用的是高级文件共享，请增加预配的文件共享大小，以便提高 IOPS 限制。 若要了解详细信息，请参阅 [Azure 文件存储规划指南](./storage-files-planning.md#understanding-provisioning-for-premium-file-shares)中的“了解高级文件共享的预配”部分。
+- 如果使用的是高级文件共享，请增加预配的文件共享大小，以便提高 IOPS 限制。 若要了解详细信息，请参阅[了解高级文件共享的预配](./understanding-billing.md#provisioned-billing)。
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>原因 2：元数据或命名空间工作负载繁重
 
@@ -75,11 +75,12 @@ ms.locfileid: "96850787"
 
 ### <a name="cause"></a>原因
 
-客户端虚拟机 (VM) 所在的区域可能与文件共享所在的区域不同。
+客户端虚拟机 (VM) 所在的区域可能与文件共享所在的区域不同。 高延迟的其他原因可能是由于客户端或网络造成的延迟。
 
 ### <a name="solution"></a>解决方案
 
 - 从与文件共享位于同一区域的 VM 运行应用程序。
+- 对于存储帐户，通过 Azure 门户中的 Azure Monitor 查看事务指标 SuccessE2ELatency 和 SuccessServerLatency。 SuccessE2ELatency 和 SuccessServerLatency 指标值之间的较大差异表示可能由网络或客户端引起的延迟。 请参阅 Azure 文件存储监视数据参考中的[事务指标](/common/monitor-storage-reference#transaction-metrics)。
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>客户端无法实现网络支持的最大吞吐量
 

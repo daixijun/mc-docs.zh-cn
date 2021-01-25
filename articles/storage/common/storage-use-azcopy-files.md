@@ -4,20 +4,20 @@ description: 使用 AzCopy 和文件存储传输数据。 AzCopy 是一个命令
 author: WenJason
 ms.service: storage
 ms.topic: how-to
-origin.date: 07/27/2020
-ms.date: 11/16/2020
+origin.date: 12/08/2020
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 7b19781ea42f14ecb6ed19c55091467081f7cbe1
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 6e12397c9f11e11cf7fb75e6d02abe68a5417a95
+ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552080"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98163059"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>使用 AzCopy 和文件存储传输数据 
 
-AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 或文件。 本文包含适用于 Azure 文件存储的示例命令。
+AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制文件。 本文包含适用于 Azure 文件存储的示例命令。
 
 在开始之前，请参阅 [AzCopy 入门](storage-use-azcopy-v10.md)一文下载 AzCopy 并熟悉该工具。
 
@@ -54,8 +54,6 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 > |---|---|
 > |将访问控制列表 (ACL) 与文件一起复制。|**--preserve-smb-permissions**=\[true\|false\]|
 > |将 SMB 属性信息与文件一起复制。|**--preserve-smb-info**=\[true\|false\]|
-> |将文件作为追加 Blob 或页 Blob 上传。|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
-> |上传到特定访问层（如存档层）。|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
 > 
 > 有关完整列表，请参阅[选项](storage-ref-azcopy-copy.md#options)。
 
@@ -77,7 +75,7 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>?<SAS-token>' --recursive` |
+| **语法** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-name><SAS-token>' --recursive` |
 | **示例** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.chinacloudapi.cn/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' --recursive` |
 
 若要复制到文件共享中的某个目录，只需在命令字符串中指定该目录的名称。
@@ -94,7 +92,7 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy '<local-directory-path>/*' 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<directory-path>?<SAS-token>` |
+| **语法** | `azcopy copy '<local-directory-path>/*' 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<directory-path><SAS-token>` |
 | **示例** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.chinacloudapi.cn/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
 > [!NOTE]
@@ -110,7 +108,7 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-or-directory-name>?<SAS-token>' --include-path <semicolon-separated-file-list>` |
+| **语法** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-or-directory-name><SAS-token>' --include-path <semicolon-separated-file-list>` |
 | **示例** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.chinacloudapi.cn/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-path 'photos;documents\myFile.txt'` |
 
 在此示例中，AzCopy 将传输 `C:\myDirectory\photos` 目录和 `C:\myDirectory\documents\myFile.txt` 文件。 需要包含 `--recursive` 选项才能传输 `C:\myDirectory\photos` 目录中的所有文件。
@@ -123,7 +121,7 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-or-directory-name>?<SAS-token>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
+| **语法** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-or-directory-name><SAS-token>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
 | **示例** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.chinacloudapi.cn/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-pattern 'myFile*.txt;*.pdf*'` |
 
 还可以使用 `--exclude-pattern` 选项来排除文件。 有关详细信息，请参阅 [azcopy copy](storage-ref-azcopy-copy.md) 参考文档。
@@ -136,7 +134,7 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-or-directory-name>?<SAS-token>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **语法** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-or-directory-name><SAS-token>'  --include-after <Date-Time-in-ISO-8601-format>` |
 | **示例** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.chinacloudapi.cn/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-after '2020-08-19T15:04:00Z'` |
 
 如需详细的参考，请查看 [azcopy copy](storage-ref-azcopy-copy.md) 参考文档。
@@ -171,14 +169,14 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<file-path>?<SAS-token>' '<local-file-path>'` |
+| **语法** | `azcopy copy 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<file-path><SAS-token>' '<local-file-path>'` |
 | **示例** | `azcopy copy 'https://mystorageaccount.file.core.chinacloudapi.cn/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory\myTextFile.txt'` |
 
 ### <a name="download-a-directory"></a>下载目录
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<directory-path>?<SAS-token>' '<local-directory-path>' --recursive` |
+| **语法** | `azcopy copy 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<directory-path><SAS-token>' '<local-directory-path>' --recursive` |
 | **示例** | `azcopy copy 'https://mystorageaccount.file.core.chinacloudapi.cn/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory'  --recursive` |
 
 此示例将生成名为 `C:\myDirectory\myFileShareDirectory` 的目录，其中包含所有已下载的文件。
@@ -189,7 +187,7 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/*?<SAS-token>' '<local-directory-path>/'` |
+| **语法** | `azcopy copy 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/*<SAS-token>' '<local-directory-path>/'` |
 | **示例** | `azcopy copy 'https://mystorageaccount.file.core.chinacloudapi.cn/myfileshare/myFileShareDirectory/*?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory'` |
 
 > [!NOTE]
@@ -205,10 +203,10 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-or-directory-name>?<SAS-token>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
+| **语法** | `azcopy copy 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-or-directory-name><SAS-token>' '<local-directory-path>'  --include-path <semicolon-separated-file-list>` |
 | **示例** | `azcopy copy 'https://mystorageaccount.file.core.chinacloudapi.cn/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive` |
 
-在此示例中，AzCopy 将传输 `https://mystorageaccount.file.core.chinacloudapi.cn/myFileShare/myDirectory/photos` 目录和 `https://mystorageaccount.file.core.chinacloudapi.cn/myFileShare/myDirectory/documents/myFile.txt` 文件。 需要包含 `--recursive` 选项才能传输 `https://mystorageaccount.file.core.chinacloudapi.cn/myFileShare/myDirectory/photos` 目录中的所有文件。
+在此示例中，AzCopy 将传输 `https://mystorageaccount.file.core.chinacloudapi.cn/myFileShare/myDirectory/photos` 目录和 `https://mystorageaccount.file.core.chinacloudapi.cn/myFileShare/myDirectory/documents/myFile.txt` 文件。 包含 `--recursive` 选项才能传输 `https://mystorageaccount.file.core.chinacloudapi.cn/myFileShare/myDirectory/photos` 目录中的所有文件。
 
 还可以使用 `--exclude-path` 选项来排除文件。 有关详细信息，请参阅 [azcopy copy](storage-ref-azcopy-copy.md) 参考文档。
 
@@ -218,8 +216,8 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.chinacloudapi.cn/<container-or-directory-name>?<SAS-token>' '<local-directory-path>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
-| **示例** | `azcopy copy 'https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/FileDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
+| **语法** | `azcopy copy 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-or-directory-name><SAS-token>' '<local-directory-path>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
+| **示例** | `azcopy copy 'https://mystorageaccount.file.core.chinacloudapi.cn/myfileshare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'` |
 
 还可以使用 `--exclude-pattern` 选项来排除文件。 有关详细信息，请参阅 [azcopy copy](storage-ref-azcopy-copy.md) 参考文档。
 
@@ -237,11 +235,24 @@ AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 
 
 如需详细的参考，请查看 [azcopy copy](storage-ref-azcopy-copy.md) 参考文档。
 
+#### <a name="download-from-a-share-snapshot"></a>从共享快照下载
+
+可以通过引用共享快照的 DateTime 值来下载特定版本的文件或目录。 若要详细了解共享快照，请参阅 [Azure 文件存储的共享快照概述](/storage/files/storage-snapshots-files)。 
+
+|    |     |
+|--------|-----------|
+| **语法** | `azcopy copy 'https://<storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<file-path-or-directory-name><SAS-token>&sharesnapshot=<DateTime-of-snapshot>' '<local-file-or-directory-path>'` |
+| **示例**（下载文件） | `azcopy copy 'https://mystorageaccount.file.core.chinacloudapi.cn/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt'` |
+| **示例**（下载目录） | `azcopy copy 'https://mystorageaccount.file.core.chinacloudapi.cn/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory'  --recursive`|
+
+
 ## <a name="copy-files-between-storage-accounts"></a>在存储帐户之间复制文件
 
 可以使用 AzCopy 将文件复制到其他存储帐户。 复制操作是同步的，因此，当命令返回时，表示已复制所有文件。
 
 AzCopy 使用[服务器到服务器](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [API](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)，因此，数据会直接在存储服务器之间复制。 这些复制操作不会占用计算机的网络带宽。 可以通过设置 `AZCOPY_CONCURRENCY_VALUE` 环境变量的值来提高这些操作的吞吐量。 有关详细信息，请参阅[优化吞吐量](storage-use-azcopy-configure.md#optimize-throughput)。
+
+还可以通过引用共享快照的 DateTime 值来复制文件的特定版本。 若要详细了解共享快照，请参阅 [Azure 文件存储的共享快照概述](/storage/files/storage-snapshots-files)。 
 
 本部分包含以下示例：
 
@@ -258,8 +269,6 @@ AzCopy 使用[服务器到服务器](https://docs.microsoft.com/rest/api/storage
 > |---|---|
 > |将访问控制列表 (ACL) 与文件一起复制。|**--preserve-smb-permissions**=\[true\|false\]|
 > |将 SMB 属性信息与文件一起复制。|**--preserve-smb-info**=\[true\|false\]|
-> |将文件复制为追加 Blob 或页 Blob。|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
-> |复制到特定访问层（如存档层）。|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
 > 
 > 有关完整列表，请参阅[选项](storage-ref-azcopy-copy.md#options)。
 
@@ -267,29 +276,36 @@ AzCopy 使用[服务器到服务器](https://docs.microsoft.com/rest/api/storage
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy 'https://<source-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<file-path>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<file-path>?<SAS-token>'` |
+| **语法** | `azcopy copy 'https://<source-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<file-path><SAS-token>' 'https://<destination-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<file-path><SAS-token>'` |
 | **示例** | `azcopy copy 'https://mysourceaccount.file.core.chinacloudapi.cn/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.chinacloudapi.cn/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D'` |
+| **示例**（共享快照） | `azcopy copy 'https://mysourceaccount.file.core.chinacloudapi.cn/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.chinacloudapi.cn/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D'` |
 
 ### <a name="copy-a-directory-to-another-storage-account"></a>将目录复制到另一个存储帐户
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy 'https://<source-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<directory-path>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>?<SAS-token>' --recursive` |
-| **示例** | `azcopy copy 'https://mysourceaccount.file.core.chinacloudapi.cn/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.chinacloudapi.cn/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+| **语法** | `azcopy copy 'https://<source-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<directory-path><SAS-token>' 'https://<destination-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name><SAS-token>' --recursive` |
+| **示例** | `azcopy copy 'https://mysourceaccount.file.core.chinacloudapi.cn/myFileShare/myFileDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.chinacloudapi.cn/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+| **示例**（共享快照） | `azcopy copy 'https://mysourceaccount.file.core.chinacloudapi.cn/myFileShare/myFileDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.chinacloudapi.cn/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+
 
 ### <a name="copy-a-file-share-to-another-storage-account"></a>将文件共享复制到另一个存储帐户
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy 'https://<source-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>?<SAS-token>' --recursive` |
+| **语法** | `azcopy copy 'https://<source-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name><SAS-token>' --recursive` |
 | **示例** | `azcopy copy 'https://mysourceaccount.file.core.chinacloudapi.cn/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.chinacloudapi.cn/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+| **示例**（共享快照） | `azcopy copy 'https://mysourceaccount.file.core.chinacloudapi.cn/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.chinacloudapi.cn/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+
 
 ### <a name="copy-all-file-shares-directories-and-files-to-another-storage-account"></a>将所有文件共享、目录和文件复制到另一个存储帐户
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy copy 'https://<source-storage-account-name>.file.core.chinacloudapi.cn/?<SAS-token>' 'https://<destination-storage-account-name>.file.core.chinacloudapi.cn/?<SAS-token>' --recursive'` |
+| **语法** | `azcopy copy 'https://<source-storage-account-name>.file.core.chinacloudapi.cn/<SAS-token>' 'https://<destination-storage-account-name>.file.core.chinacloudapi.cn/<SAS-token>' --recursive'` |
 | **示例** | `azcopy copy 'https://mysourceaccount.file.core.chinacloudapi.cn?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.chinacloudapi.cn?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+| **示例**（共享快照） | `azcopy copy 'https://mysourceaccount.file.core.chinacloudapi.cn?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.chinacloudapi.cn?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+
 
 ## <a name="synchronize-files"></a>同步文件
 
@@ -320,7 +336,7 @@ AzCopy 使用[服务器到服务器](https://docs.microsoft.com/rest/api/storage
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy sync 'https://<source-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>?<SAS-token>' --recursive` |
+| **语法** | `azcopy sync 'https://<source-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name><SAS-token>' --recursive` |
 | **示例** | `azcopy sync 'https://mysourceaccount.file.core.chinacloudapi.cn/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.chinacloudapi.cn/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
 ### <a name="update-a-directory-with-changes-to-a-directory-in-another-file-share"></a>使用对另一个文件共享中的目录所做的更改来更新某个目录
@@ -329,7 +345,7 @@ AzCopy 使用[服务器到服务器](https://docs.microsoft.com/rest/api/storage
 
 |    |     |
 |--------|-----------|
-| **语法** | `azcopy sync 'https://<source-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<directory-name>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<directory-name>?<SAS-token>' --recursive` |
+| **语法** | `azcopy sync 'https://<source-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<directory-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.chinacloudapi.cn/<file-share-name>/<directory-name><SAS-token>' --recursive` |
 | **示例** | `azcopy sync 'https://mysourceaccount.file.core.chinacloudapi.cn/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.chinacloudapi.cn/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
 ### <a name="update-a-file-share-to-match-the-contents-of-a-share-snapshot"></a>更新文件共享，使之与共享快照的内容匹配
@@ -349,8 +365,6 @@ AzCopy 使用[服务器到服务器](https://docs.microsoft.com/rest/api/storage
 
 - [AzCopy 入门](storage-use-azcopy-v10.md)
 
-- [使用 AzCopy 和 Blob 存储传输数据](storage-use-azcopy-blobs.md)
-
-- [使用 AzCopy 和 Amazon S3 Bucket 传输数据](storage-use-azcopy-s3.md)
+- [传输数据](storage-use-azcopy-v10.md#transfer-data)
 
 - [对 AzCopy 进行配置、优化和故障排除](storage-use-azcopy-configure.md)

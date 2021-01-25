@@ -3,14 +3,14 @@ title: 在 Azure 门户中创建第一个函数
 description: 了解如何使用 Azure 门户创建第一个可无服务器执行的 Azure Function。
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 01/12/2021
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: e6e77bd0eff746d3c71c635f881e4c4403dbcfc2
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 6397db12aa700cbade60ae0a9a50d1da12c84655
+ms.sourcegitcommit: 88173d1dae28f89331de5f877c5b3777927d67e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98022323"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195198"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 门户中创建第一个函数
 
@@ -67,7 +67,7 @@ Azure Functions 用于在无服务器环境中运行代码，无需先创建虚�
 
     ![浏览器中的函数响应。](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    请求 URL 包含通过 HTTP 访问函数默认所需的密钥。
+    如果请求 URL 包含[访问密钥](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`)，则意味着在创建函数时选择“Function”而不是“Anonymous”访问级别。 在这种情况下，应改为追加 `&name=<your_name>`。
 
 1. 运行函数时，会在日志中写入跟踪信息。 若要查看跟踪输出，请返回到门户中的“代码 + 测试”页，并展开页面底部的“日志”箭头。
 

@@ -3,18 +3,18 @@ title: Azure Stack Hub 概述
 description: Azure Stack Hub 的概述，以及如何使用它在数据中心运行 Azure 服务。
 author: WenJason
 ms.topic: overview
-origin.date: 04/20/2020
-ms.date: 08/31/2020
+origin.date: 01/08/2021
+ms.date: 01/18/2021
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: a983290ab0af5960a0ed70aac7de9ce57761e59c
-ms.sourcegitcommit: 4e2d781466e54e228fd1dbb3c0b80a1564c2bf7b
+ms.openlocfilehash: ee2a111ab5d2d6aad3e7616a8dc7508a2657d410
+ms.sourcegitcommit: e1edc6ef84dbbda1da4e0a42efa3fd62eee033d1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88867861"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541865"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack Hub 概述
 
@@ -27,6 +27,9 @@ Azure 为开发人员提供多功能的平台用于生成新型应用。 但是�
 - **边缘解决方案和断开连接的解决方案**。 在 Azure Stack Hub 本地处理数据，然后在 Azure 中聚合以作进一步分析，并在两者之间使用共同的应用逻辑，以此满足延迟和连接要求。 甚至可以在断开 Internet 连接且不与 Azure 建立连接的情况下部署 Azure Stack Hub。 示例环境包括工厂车间、游轮和矿井。
 
 - **满足各种法规要求的云应用**。 可在 Azure 中开发和部署应用，并能够完全灵活地在 Azure Stack Hub 本地进行部署，以满足法规或政策要求。 无需更改任何代码。 应用示例包括全球审计、财务报告、外汇交易、在线游戏和费用报告。
+
+   > [!IMPORTANT]
+   > Azure Stack Hub 是客户完全拥有和控制的本地设备。 客户访问并控制他们存储在 Azure Stack Hub 中的数据。 Azure 不会访问 Azure Stack Hub 环境中存储的任何客户数据。
 
 - **本地云应用模型**。 使用 Azure 服务、容器、无服务器体系结构和微服务体系结构来更新和扩展现有应用或生成新的应用。 在云中 Azure 和本地 Azure Stack Hub 之间使用一致的 DevOps 流程，以加速任务关键型核心应用的现代化。
 
@@ -44,15 +47,15 @@ Azure Stack Hub 体系结构允许在远程位置的边缘，或者在间歇性�
 
 Azure Stack Hub 集成系统通过 Azure 与硬件合作伙伴的合作关系提供，它创建的解决方案兼顾云时代的创新与计算管理的简化。 由于 Azure Stack Hub 以集成式硬件和软件系统的形式提供，因此你可以获得所需的灵活性和控制度，以及云中的创新能力。 
 
-Azure Stack Hub 集成系统的大小范围为 4-16 台服务器（称为“缩放单元”）**。 集成系统由硬件合作伙伴和 Azure 共同提供支持。 下图显示了缩放单元示例。 
+Azure Stack Hub 集成系统的大小范围为 4-16 台服务器（称为“缩放单元”）。 集成系统由硬件合作伙伴和 Azure 共同提供支持。 下图显示了缩放单元示例。 
 
-![显示 Azure Stack Hub 集成系统的关系图](./media/azure-stack-overview/azure-stack-integrated-system.svg)上获取。 
+![显示 Azure Stack Hub 集成系统的关系图](./media/azure-stack-overview/azure-stack-integrated-system.svg). 
 
 <!---add info and image on regions, etc--->
 
 ### <a name="connection-models"></a>连接模型
 
-可以选择在**已连接**到 Internet（和 Azure）时或者与之**断开连接**时部署 Azure Stack Hub。 
+可以选择在 **已连接** 到 Internet（和 Azure）时或者与之 **断开连接** 时部署 Azure Stack Hub。 
 
 > 有关详细信息，请参阅有关[联网](azure-stack-connected-deployment.md)和[离线](azure-stack-disconnected-deployment.md)部署模型的注意事项。
 
@@ -69,11 +72,11 @@ Azure Stack Hub 使用与 Azure 相同的操作模型。 Azure Stack Hub 操作�
 
 ![显示 Azure Stack Hub 作业角色的关系图](./media/azure-stack-overview/azure-stack-job-roles.svg)
 
-可以通过管理员门户、用户门户或 [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) 来管理 Azure Stack Hub。 每个 Azure Stack Hub 门户由 Azure 资源管理器的单独实例提供支持。 **Azure Stack Hub 操作员**可以使用管理员门户来管理 Azure Stack Hub，以及执行如下所述的操作：创建租户套餐，保持集成式系统的运行状况及监视其状态。 用户门户提供自助服务体验让用户使用云资源，例如虚拟机 (VM)、存储帐户和 Web 应用。
+可以通过管理员门户、用户门户或 [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) 来管理 Azure Stack Hub。 每个 Azure Stack Hub 门户由 Azure 资源管理器的单独实例提供支持。 **Azure Stack Hub 操作员** 可以使用管理员门户来管理 Azure Stack Hub，以及执行如下所述的操作：创建租户套餐，保持集成式系统的运行状况及监视其状态。 用户门户提供自助服务体验让用户使用云资源，例如虚拟机 (VM)、存储帐户和 Web 应用。
 
 > 有关使用管理门户管理 Azure Stack Hub 的详细信息，请参阅 [Azure Stack Hub 管理员门户快速入门](azure-stack-manage-portals.md)。
 
-Azure Stack Hub 操作员可以提供 [VM](./tutorial-offer-services.md?view=azs-2002)、[Web 应用](azure-stack-app-service-overview.md)、高度可用的 [SQL Server](azure-stack-tutorial-sql.md)。 他们还可以使用 [Azure Stack Hub 快速入门 Azure 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates)来部署 SharePoint、Exchange 等。 
+Azure Stack Hub 操作员可以提供 [VM](./tutorial-offer-services.md)、[Web 应用](azure-stack-app-service-overview.md)、高度可用的 [SQL Server](azure-stack-tutorial-sql.md)。 他们还可以使用 [Azure Stack Hub 快速入门 Azure 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates)来部署 SharePoint、Exchange 等。 
 
 操作员可以通过[管理员门户](azure-stack-manage-portals.md)或 [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) 来管理 Azure Stack Hub。 可以使用计划、配额、套餐和订阅来配置 Azure Stack Hub，以向租户[提供服务](service-plan-offer-subscription-overview.md)。 租户用户可以订阅多个套餐。 套餐可以包含一个或多个计划，计划可以包含一个或多个服务。 操作员还可以管理容量以及对警报做出响应。
 

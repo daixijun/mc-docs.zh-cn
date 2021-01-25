@@ -4,14 +4,14 @@ description: 介绍 ACR 任务。ACR 任务是 Azure 容器注册表中的功能
 ms.topic: article
 origin.date: 08/12/2020
 author: rockboyfor
-ms.date: 11/30/2020
+ms.date: 01/18/2021
 ms.author: v-yeche
-ms.openlocfilehash: 4f0744d613def9dc4a9bc659a73f757fda1434b3
-ms.sourcegitcommit: ea52237124974eda84f8cef4bf067ae978d7a87d
+ms.openlocfilehash: fc318d8c0db8dc8283c59bcb2bfe84a18776bd49
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024551"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230622"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>使用 ACR 任务自动执行容器映像的生成和维护
 
