@@ -11,12 +11,12 @@ origin.date: 06/17/2020
 ms.date: 01/18/2021
 ms.author: v-jay
 ms.custom: security-recommendations
-ms.openlocfilehash: 71667df8712aa544cf2ff15331caa194aca192a3
-ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
+ms.openlocfilehash: d41e9903f4f714e570ea15ed951a679166a113e2
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98163074"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629062"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>适用于 Blob 存储的安全建议
 
@@ -66,7 +66,7 @@ Azure 安全中心会定期分析 Azure 资源的安全状态，以识别潜在�
 
 | 建议 | 注释 | 安全中心 |
 |-|----|--|
-| 跟踪请求的授权方式 | 启用 Azure 存储日志记录以跟踪对 Azure 存储发出的每个请求的授权方式。 日志可指示请求是匿名提出的，还是使用 OAuth 2.0 令牌、共享密钥或共享访问签名 (SAS) 提出的。 有关详细信息，请参阅[通过 Azure Monitor 监视 Azure Blob 存储](/common/monitor-storage)或[采用经典监视的 Azure 存储分析日志记录](../common/storage-analytics-logging.md)。 | - |
+| 跟踪请求的授权方式 | 启用 Azure 存储日志记录以跟踪对 Azure 存储发出的每个请求的授权方式。 日志可指示请求是匿名提出的，还是使用 OAuth 2.0 令牌、共享密钥或共享访问签名 (SAS) 提出的。 有关详细信息，请参阅[通过 Azure Monitor 监视 Azure Blob 存储](/storage/common/monitor-storage)或[采用经典监视的 Azure 存储分析日志记录](../common/storage-analytics-logging.md)。 | - |
 | 在 Azure Monitor 中设置警报 | 配置日志警报，以便按设置的频率评估资源日志，并根据结果触发警报。 有关详细信息，请参阅 [Azure Monitor 中的日志警报](../../azure-monitor/platform/alerts-unified-log.md)。 | - |
 
 ## <a name="next-steps"></a>后续步骤

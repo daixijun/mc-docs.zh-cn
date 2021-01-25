@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06814bd8c0e2929b3331d261acf34e96cddfd2b2
-ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
+ms.openlocfilehash: ab16d6fa930210424caba95d0daec1c96b67064d
+ms.sourcegitcommit: 7be0e8a387d09d0ee07bbb57f05362a6a3c7b7bc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98230873"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611613"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-net-sdk-v4"></a>快速入门：适用于 .NET 的 Azure Key Vault 证书客户端库 (SDK v4)
 
@@ -269,11 +269,11 @@ Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
 ### <a name="purge-a-key-vault"></a>清除 Key Vault
 
 ```azurecli
-az keyvault purge --location eastus --name <your-unique-keyvault-name>
+az keyvault purge --location chinaeast2 --name <your-unique-keyvault-name>
 ```
 
 ```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
+Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location chinaeast2
 ```
 
 ### <a name="delete-a-resource-group"></a>删除资源组
