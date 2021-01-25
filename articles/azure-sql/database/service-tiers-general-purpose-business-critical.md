@@ -13,12 +13,12 @@ ms.author: v-jay
 ms.reviewer: sashan, moslake
 origin.date: 12/14/2020
 ms.date: 01/04/2021
-ms.openlocfilehash: 795624b1561c4e7360023271c92b2b135b2a038b
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: 2352495a30d3786959eb7803150125ea684904bc
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830262"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629078"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL 数据库和 Azure SQL 托管实例服务层级
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -59,7 +59,7 @@ Azure SQL 数据库还有一个服务层级：
 |**只读副本**| | 0 内置 <br> 0 - 4 使用[异地复制](active-geo-replication-overview.md) | 0 - 4 内置 | 1 内置，包含在价格中 <br> 0 - 4 使用[异地复制](active-geo-replication-overview.md) |
 |**定价/计费** | SQL 数据库 | [vCore、保留存储和备份存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>IOPS 不收取费用。 | [每个副本的 vCore 和已用存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>尚未收费的 IOPS。 | [vCore、保留存储和备份存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>IOPS 不收取费用。 |
 || SQL 托管实例 | [vCore、保留存储和备份存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>IOPS 不收取费用| 空值 | [vCore、保留存储和备份存储](https://azure.cn/pricing/details/sql-database/)收费。 <br/>IOPS 不收取费用。| 
-|**折扣模型**| | [Azure 混合权益](../azure-hybrid-benefit.md)（在开发/测试订阅中不可用）<br/>[提前支付](/billing/billing-sign-up-azure-account-and-get-a-pia-subscription)开发/测试订阅| [Azure 混合权益](../azure-hybrid-benefit.md)（在开发/测试订阅中不可用）<br/>[提前支付](/billing/billing-sign-up-azure-account-and-get-a-pia-subscription)开发/测试订阅| [Azure 混合权益](../azure-hybrid-benefit.md)（在开发/测试订阅中不可用）<br/>[提前支付](/billing/billing-sign-up-azure-account-and-get-a-pia-subscription)开发/测试订阅|
+|**折扣模型**| | [Azure 混合权益](../azure-hybrid-benefit.md)（在开发/测试订阅中不可用）<br/>[提前支付](/billing/billing-recharge-an-existing-pia-subscription)开发/测试订阅| [Azure 混合权益](../azure-hybrid-benefit.md)（在开发/测试订阅中不可用）<br/>[提前支付](/billing/billing-recharge-an-existing-pia-subscription)开发/测试订阅| [Azure 混合权益](../azure-hybrid-benefit.md)（在开发/测试订阅中不可用）<br/>[提前支付](/billing/billing-recharge-an-existing-pia-subscription)开发/测试订阅|
 
 有关详细信息，请参阅 [Azure SQL 数据库 (vCore)](resource-limits-vcore-single-databases.md)、[单一 Azure SQL 数据库 (DTU)](resource-limits-dtu-single-databases.md)、[共用 Azure SQL 数据库 (DTU)](resource-limits-dtu-single-databases.md) 和 [Azure SQL 托管实例](../managed-instance/resource-limits.md)页，了解服务层级之间的详细差异。
 

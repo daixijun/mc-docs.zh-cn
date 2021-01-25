@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 5f0a493741dac853fc5c2b107ac9450d81aafbb0
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 3c40289d6f669575255a7a5a5c23fc5f28b8619a
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850769"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629083"
 ---
 # <a name="reacting-to-blob-storage-events"></a>响应 Blob 存储事件
 
@@ -59,7 +59,7 @@ Azure 存储事件允许应用程序响应事件，例如 Blob 的创建和删�
 
 ## <a name="filtering-events"></a>筛选事件
 
-可以按事件类型、容器名称或已创建/删除的对象的名称来[筛选 Blob 事件](/cli/eventgrid/event-subscription?view=azure-cli-latest)。 事件网格中的筛选器与主题的开头或结尾匹配，因此具有匹配的主题的事件会转到订阅服务器。
+可以按事件类型、容器名称或已创建/删除的对象的名称来[筛选 Blob 事件](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription)。 事件网格中的筛选器与主题的开头或结尾匹配，因此具有匹配的主题的事件会转到订阅服务器。
 
 若要详细了解如何应用筛选器，请参阅[筛选事件网格的事件](../../event-grid/how-to-filter-events.md)。
 

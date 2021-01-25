@@ -8,12 +8,12 @@ origin.date: 04/20/2020
 ms.date: 06/22/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 13f4f1fd1d4b19bdb80c473663bc53bfd3914d8f
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 21c18cdb24b5b1dc0d583f562c58da0e5d4c5dd6
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096847"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629086"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>排查向 Azure Stack Hub 部署 Kubernetes 的问题
 
@@ -165,4 +165,3 @@ ms.locfileid: "85096847"
 
 [将 Kubernetes 群集添加到市场（面向 Azure Stack Hub 操作员）](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
 
-[Azure 上的 Kubernetes](/container-service/kubernetes/container-service-kubernetes-walkthrough)

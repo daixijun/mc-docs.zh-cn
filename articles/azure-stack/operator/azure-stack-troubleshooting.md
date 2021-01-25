@@ -9,12 +9,12 @@ ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: bb1f5b180b332d29cad1534eaa62bc44dc897d48
-ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
+ms.openlocfilehash: 7878e27da1afef045b2d80de2ea31c1e9f52fa72
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97894345"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629081"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack Hub 中的问题
 
@@ -63,10 +63,6 @@ ms.locfileid: "97894345"
 Azure Stack Hub 中的用户可以是订阅、资源组或服务的每个实例的读者、所有者或参与者。
 
 * [Azure Stack Hub 管理 RBAC](azure-stack-manage-permissions.md)
-
-如果 Azure 资源的内置角色不能满足组织的特定需求，则你可以创建自己的自定义角色。 对于本教程，你将使用 Azure PowerShell 创建名为 Reader Support Tickets 的自定义角色。
-
-* [教程：使用 Azure PowerShell 为 Azure 资源创建自定义角色](/role-based-access-control/tutorial-custom-role-powershell)
 
 ### <a name="manage-usage-and-billing-as-a-csp"></a>以 CSP 身份管理使用情况和计费
 

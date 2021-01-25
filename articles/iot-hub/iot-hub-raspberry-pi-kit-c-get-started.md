@@ -12,12 +12,12 @@ origin.date: 02/14/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 06/08/2019
-ms.openlocfilehash: 02743c9b51b5c9950cf2183ec44ac0f74020f56f
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 7d127f2cfc90c22f5dc47fb39d835df94adb507c
+ms.sourcegitcommit: bb7497d5a11e8fb506907221ff65a18e6c523372
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747192"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98692052"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (C)
 
@@ -84,7 +84,7 @@ ms.locfileid: "96747192"
 准备用于安装 Raspbian 映像的 microSD 卡。
 
 1. 下载 Raspbian。
-   1. [下载 Raspbian Stretch with Desktop](https://www.raspberrypi.org/downloads/raspbian/)（.zip 文件）。
+   1. [下载 Raspbian Stretch with Desktop](https://www.raspberrypi.org/software/)（.zip 文件）。
    1. 将 Raspbian 映像提取到计算机上的一个文件夹中。
 1. 将 Raspbian 安装到 microSD 卡。
    1. [下载并安装 Etcher SD 卡刻录机实用工具](https://etcher.io/)。

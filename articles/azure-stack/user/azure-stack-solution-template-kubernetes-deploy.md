@@ -8,12 +8,12 @@ ms.date: 06/22/2020
 ms.author: v-jay
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 8b6dbb4728d422621573fb316a88474672f7bbee
-ms.sourcegitcommit: d86e169edf5affd28a1c1a4476d72b01a7fb421d
+ms.openlocfilehash: 84998aa9cc134fee91221cb6dde8b562d3f569ca
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096849"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629085"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>部署 Kubernetes，将容器与 Azure Stack Hub 配合使用
 
@@ -60,4 +60,3 @@ ms.locfileid: "85096849"
 
 [使用 Active Directory 联合身份验证服务 (AD FS) 将 Kubernetes 部署到 Azure Stack Hub](azure-stack-solution-template-kubernetes-adfs.md)
 
-[Azure 上的 Kubernetes](/container-service/kubernetes/container-service-kubernetes-walkthrough)

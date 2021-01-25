@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 origin.date: 06/02/2020
 ms.date: 01/04/2021
 ms.author: v-jay
-ms.openlocfilehash: add3618d77942d9aaaf97ef93b2d7bc481d861da
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: 17c26a1630d924c199c356264b2a20d3bbc5f3cf
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830376"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629077"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>群集配置最佳做法（Azure VM 上的 SQL Server）
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "97830376"
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>调整故障转移群集网络阈值
 
-使用 SQL Server AlwaysOn 在 Azure VM 中运行 Windows 故障转移群集节点时，建议将群集设置更改为更宽松的监视状态。  这将使群集更稳定、更可靠。  请参阅[使用 SQL AlwaysOn 的 IaaS - 调整故障转移群集网络阈值](https://docs.microsoft.com/windows-server/troubleshoot/iaas-sql-failover-cluser)了解有关详细信息。
+使用 SQL Server AlwaysOn 在 Azure VM 中运行 Windows 故障转移群集节点时，建议将群集设置更改为更宽松的监视状态。  这将使群集更稳定、更可靠。  请参阅[使用 SQL AlwaysOn 的 IaaS - 调整故障转移群集网络阈值](https://docs.microsoft.com/windows-server/troubleshoot/iaas-sql-failover-cluster)了解有关详细信息。
 
 ## <a name="quorum"></a>Quorum
 

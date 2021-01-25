@@ -11,12 +11,12 @@ ms.workload: big-data
 origin.date: 11/26/2019
 ms.date: 03/02/2020
 ms.author: v-yiso
-ms.openlocfilehash: 726e41b40d3255c516a1dcbd4e8c3d08576442b9
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: facbc06d74c8c9f77c0214337f456b74d79bc788
+ms.sourcegitcommit: bb7497d5a11e8fb506907221ff65a18e6c523372
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552595"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98692093"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>将 Apache Kafka on HDInsight 与 Azure IoT 中心配合使用
 
@@ -199,7 +199,7 @@ ms.locfileid: "94552595"
 
         2. 若要获取 `service` 策略的连接字符串，请使用以下命令：
 
-            ```azure-cli
+            ```azurecli
             az iot hub show-connection-string --name myhubname --policy-name service --query "connectionString"
             ```
 

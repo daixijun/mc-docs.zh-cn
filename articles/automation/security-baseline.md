@@ -8,12 +8,12 @@ origin.date: 06/22/2020
 ms.date: 12/07/2020
 ms.author: v-jay
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 66e740ff77fb27eb17b6846e8739eb7d55d3c1c2
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: b39f130bf809c9f10383feee80f59978ee6787f9
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747253"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629067"
 ---
 # <a name="azure-security-baseline-for-automation"></a>适用于自动化的 Azure 安全基线
 
@@ -341,7 +341,7 @@ ms.locfileid: "96747253"
 
 **指导**：使用配置了多重身份验证的 PAW 来登录并配置生产环境中的 Azure 自动化帐户资源。
 
-* [了解特权访问工作站](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [了解特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
 * [如何在 Azure 中启用 MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -453,7 +453,7 @@ ms.locfileid: "96747253"
 
 * [了解 Azure 传输中的加密](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Azure 自动化 TLS 1.2 强制实施](https://azure.microsoft.com/updates/azure-automation-tls12-enforcement/)
+* [Azure 自动化 TLS 1.2 强制实施](/active-directory/hybrid/reference-connect-tls-enforcement)
 
 **Azure 安全中心监视**：是
 
@@ -1091,7 +1091,7 @@ ms.locfileid: "96747253"
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 * [关于建立自己的安全事件响应流程的指南](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1105,9 +1105,9 @@ ms.locfileid: "96747253"
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2：创建事件评分和优先级设定过程
 
-**指南**：安全中心向每个警报分配一个严重性，帮助你优先处理应首先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
+**指导**：安全中心为每条警报分配严重性，以帮助你优先处理应该最先调查的警报。 严重性取决于安全中心在发出警报时所依据的检测结果和分析结果的置信度，以及导致发出警报的活动的恶意企图的置信度。
 
-此外，请明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。 你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
+此外，请用标记明确标记订阅（例如 生产、非生产）并创建命名系统来对 Azure 资源进行明确标识和分类，特别是处理敏感数据的资源。 你的责任是根据发生事件的 Azure 资源和环境的关键性确定修正警报的优先级。
 
 * [Azure 安全中心中的安全警报](../security-center/security-center-alerts-overview.md)
 

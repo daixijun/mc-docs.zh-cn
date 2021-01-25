@@ -12,12 +12,12 @@ origin.date: 03/13/2020
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 04/06/2020
-ms.openlocfilehash: 09ecf85fecadecf22ad60ffa74d5d9b516e376ca
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: 9aca251d8e523b4e8455b3c4991910ee548c5107
+ms.sourcegitcommit: bb7497d5a11e8fb506907221ff65a18e6c523372
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746824"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98692095"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Node.js)
 
@@ -82,7 +82,7 @@ ms.locfileid: "96746824"
 
 1. 下载 Raspbian。
 
-   a. [Raspbian Buster with desktop](https://www.raspberrypi.org/downloads/raspbian/)（.zip 文件）。
+   a. [Raspbian Buster with desktop](https://www.raspberrypi.org/software/)（.zip 文件）。
 
    b. 将 Raspbian 映像解压缩到计算机的某个文件夹中。
 

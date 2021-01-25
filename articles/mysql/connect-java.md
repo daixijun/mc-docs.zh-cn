@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.devlang: java
 origin.date: 08/17/2020
 ms.date: 11/23/2020
-ms.openlocfilehash: 65e0ab77ef5a0243fa37bf78b2a56c57ec28b30c
-ms.sourcegitcommit: 5df3a4ca29d3cb43b37f89cf03c1aa74d2cd4ef9
+ms.openlocfilehash: f04da53c97d950daa54d07915d35ff8552b35a4e
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432506"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629066"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql"></a>快速入门：将 Java 和 JDBC 与 Azure Database for MySQL 配合使用
 
@@ -25,7 +25,7 @@ JDBC 是标准的 Java API，用于连接到传统的关系数据库。
 ## <a name="prerequisites"></a>先决条件
 
 - 一个 Azure 帐户。 如果没有帐户，可[获取试用帐户](https://www.microsoft.com/china/azure/index.html?fromtype=cn)。
-- [Azure CLI](/cli/azure/install-azure-cli)。
+- [Azure CLI](/cli/install-azure-cli)。
 - 一个受支持的 [Java 开发工具包](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)，版本 8。
 - [Apache Maven](https://maven.apache.org/) 生成工具。
 

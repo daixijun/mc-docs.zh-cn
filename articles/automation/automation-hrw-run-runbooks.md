@@ -6,12 +6,12 @@ ms.subservice: process-automation
 origin.date: 10/06/2020
 ms.date: 12/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3b0578702ba032079cd33173fdc1e63ff8b88cc3
-ms.sourcegitcommit: ac1cb9a6531f2c843002914023757ab3f306dc3e
+ms.openlocfilehash: e56a0b40d436e0c831d6a08e95578b4f88721dc2
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746611"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629058"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>在混合 Runbook 辅助角色中运行 Runbook
 
@@ -60,7 +60,7 @@ Azure 虚拟机上的混合 Runbook 辅助角色可以使用托管标识来向 A
 2. 在 VM 上配置 Azure 资源的托管标识。 请参阅[使用 Azure 门户在 VM 上配置 Azure 资源托管标识](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)。
 3. 授予 VM 对资源管理器中资源组的访问权限。 请参见[使用 Windows VM 系统分配的托管标识访问资源管理器](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)。
 4. 在 VM 上安装混合 Runbook 辅助角色。 请参阅[部署 Windows 混合 Runbook 辅助角色](automation-windows-hrw-install.md)或[部署 Linux 混合 Runbook 辅助角色](automation-linux-hrw-install.md)。
-5. 更新 Runbook，将 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet 与 `Identity` 参数一起使用，以便对 Azure 资源进行身份验证。 此配置减少了使用运行方式帐户以及执行关联帐户管理的需求。
+5. 更新 Runbook，将 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet 与 `Identity` 参数一起使用，以便对 Azure 资源进行身份验证。 此配置减少了使用运行方式帐户以及执行关联帐户管理的需求。
 
     ```powershell
     # Connect to Azure using the managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker

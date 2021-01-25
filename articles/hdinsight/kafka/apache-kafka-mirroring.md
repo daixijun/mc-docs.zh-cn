@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 11/29/2019
 ms.date: 03/23/2020
 ms.author: v-yiso
-ms.openlocfilehash: 2411a60c9e84ff63dbad57e22156817470c96fec
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: d11e5bf1e89c1165cdbecfcc1c283d45ed1020c4
+ms.sourcegitcommit: bb7497d5a11e8fb506907221ff65a18e6c523372
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94552641"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98692068"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker 通过 Kafka on HDInsight 复制 Apache Kafka 主题
 
@@ -105,13 +105,13 @@ ms.locfileid: "94552641"
 1. 选择“服务” > “Kafka”。  单击“配置”选项卡 。
 1. 将以下配置行添加到底部的 **kafka-env template** 节。 选择“保存”。
 
-        ```
-        # Configure Kafka to advertise IP addresses instead of FQDN
-        IP_ADDRESS=$(hostname -i)
-        echo advertised.listeners=$IP_ADDRESS
-        sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
-        echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
-        ```
+    ```
+    # Configure Kafka to advertise IP addresses instead of FQDN
+    IP_ADDRESS=$(hostname -i)
+    echo advertised.listeners=$IP_ADDRESS
+    sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    ```
 
     1. 在“保存配置”屏幕上输入备注，然后单击“保存”。
     1. 如果出现配置警告提示，请单击“仍然继续”。
@@ -121,15 +121,17 @@ ms.locfileid: "94552641"
         ![重启 Kafka 节点](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>将 Kafka 配置为侦听所有网络接口。
-    1. 不要关闭“服务” > “Kafka”下的“配置”选项卡。 在“Kafka 代理”部分，将“侦听器”属性设置为 `PLAINTEXT://0.0.0.0:9092`。
-    1. 选择“保存”。
-    1. 依次选择“重启”、“确认全部重启”。
+
+1. 不要关闭“服务” > “Kafka”下的“配置”选项卡。 在“Kafka 代理”部分，将“侦听器”属性设置为 `PLAINTEXT://0.0.0.0:9092`。
+1. 选择“保存”。
+1. 依次选择“重启”、“确认全部重启”。
 
 ### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>记下主要群集的代理 IP 地址和 Zookeeper 地址。
-    1. 在 Ambari 仪表板上选择“主机”。
-    1. 记下代理和 Zookeeper 的 IP 地址。 代理节点主机名的前两个字母为 **wn**，Zookeeper 节点主机名的前两个字母为 **zk**。
 
-        ![查看 IP 地址](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+1. 在 Ambari 仪表板上选择“主机”。
+1. 记下代理和 Zookeeper 的 IP 地址。 代理节点主机名的前两个字母为 **wn**，Zookeeper 节点主机名的前两个字母为 **zk**。
+
+    ![查看 IP 地址](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
 1. 对第二个群集 **kafka-secondary-cluster** 重复上述三个步骤：配置 IP 播发、设置侦听器并记下代理和 Zookeeper 的 IP 地址。
 

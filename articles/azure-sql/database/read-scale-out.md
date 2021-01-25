@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 09/03/2020
 ms.date: 12/14/2020
-ms.openlocfilehash: ca9c309da7757268220c200d1c29624699581327
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: fa3a2788e8c72dffeb978948fa12f3767b14177f
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830151"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629084"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>使用只读副本卸载只读的查询工作负荷
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -147,7 +147,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 
 在 Azure PowerShell 中管理读取横向扩展需要安装 Azure PowerShell 2016 年 12 月版或更高版本。 有关最新的 PowerShell 版本，请参阅 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
-在 Azure PowerShell 中调用 [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet，并为 `-ReadScale` 参数传入所需的值（`Enabled` 或 `Disabled`），即可禁用或重新启用读取扩展。
+在 Azure PowerShell 中调用 [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) cmdlet，并为 `-ReadScale` 参数传入所需的值（`Enabled` 或 `Disabled`），即可禁用或重新启用读取扩展。
 
 若要对现有数据库禁用读取扩展（请将尖括号中的项替换为环境的正确值，并删除尖括号）：
 

@@ -8,12 +8,12 @@ origin.date: 09/02/2020
 ms.date: 12/14/2020
 ms.author: v-jay
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: eda33f6c5c20cbc088477317b4ff371a30279401
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: dc12689ce83c6db844be9b5bc26997ed31e0a477
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850904"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629051"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---single-server"></a>适用于 Azure Database for PostgreSQL 单一服务器的 Azure 安全基线
 
@@ -292,18 +292,6 @@ Azure Database for PostgreSQL 不支持内置基于角色的访问控制，但�
 - [如何在 Azure 安全中心监视标识和访问](../security-center/security-center-identity-access.md)
 
 **Azure 安全中心监视**：是
-
-**责任**：客户
-
-### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6：使用由 Azure 管理的安全工作站执行管理任务
-
-**指南**：将特权访问工作站 (PAW) 与为登录和配置 Azure 资源而配置的多重身份验证 (MFA) 结合使用。
-
-- [了解特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
-
-- [如何在 Azure 中启用 MFA](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Azure 安全中心监视**：不适用
 
 **责任**：客户
 
@@ -825,7 +813,7 @@ Microsoft 反恶意软件会在支持 Azure 服务（例如，Azure Database for
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 - [如何在 Azure 安全中心配置工作流自动化](../security-center/security-center-planning-and-operations-guide.md)
 

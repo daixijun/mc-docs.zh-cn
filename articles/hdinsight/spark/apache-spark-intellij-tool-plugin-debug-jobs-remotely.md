@@ -13,12 +13,12 @@ ms.topic: article
 origin.date: 11/28/2017
 ms.date: 10/28/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3f39e8909de06cb44b89488cda05e2e03ced8828
-ms.sourcegitcommit: 5f07189f06a559d5617771e586d129c10276539e
+ms.openlocfilehash: 0d54a752c85a6afa6b2cc4bb61a9cd86b561bd71
+ms.sourcegitcommit: bb7497d5a11e8fb506907221ff65a18e6c523372
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94551975"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98692077"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>使用 Azure Toolkit for IntelliJ 通过 VPN 在 HDInsight 中远程调试 Apache Spark 应用程序
 
@@ -144,7 +144,7 @@ ms.locfileid: "94551975"
     若要将这些文件添加到项目，请将这些文件复制到项目树中的 **/src** 文件夹下（例如 `<your project directory>\src`）。
 6. 更新 `core-site.xml` 文件以进行以下更改：
 
-   a. 替换加密的密钥。 `core-site.xml` 文件包含与群集关联的存储帐户的已加密密钥。 在已添加到项目的 `core-site.xml` 文件中，将已加密密钥替换为与默认存储帐户关联的实际存储密钥。 有关详细信息，请参阅[管理存储访问密钥](../../storage/common/storage-create-storage-account.md#)。
+   a. 替换加密的密钥。 `core-site.xml` 文件包含与群集关联的存储帐户的已加密密钥。 在已添加到项目的 `core-site.xml` 文件中，将已加密密钥替换为与默认存储帐户关联的实际存储密钥。 有关详细信息，请参阅[管理存储帐户访问密钥](../../storage/common/storage-account-keys-manage.md)。
 
     ```xml
     <property>
@@ -293,16 +293,17 @@ ms.locfileid: "94551975"
 * [Apache Spark 与 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
 * [Apache Spark 与机器学习：通过 HDInsight 中的 Spark 使用 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
-* [使用 HDInsight 中的 Apache Spark 分析网站日志](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [使用 HDInsight 中的 Apache Spark 分析网站日志](./apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序
-* [使用 Scala 创建独立的应用程序](../hdinsight-apache-spark-create-standalone-application.md)
+
+* [使用 Scala 创建独立的应用程序](./apache-spark-create-standalone-application.md)
 * [使用 Apache Livy 在 Apache Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和扩展
 * [使用 Azure Toolkit for IntelliJ 为 HDInsight 群集创建 Apache Spark 应用程序](apache-spark-intellij-tool-plugin.md)
 * [使用 Azure Toolkit for IntelliJ 通过 SSH 远程调试 Apache Spark 应用程序](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [使用 Azure Toolkit for Eclipse 中的 HDInsight 工具创建 Apache Spark 应用程序](../hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [使用 Azure Toolkit for Eclipse 中的 HDInsight 工具创建 Apache Spark 应用程序](./apache-spark-eclipse-tool-plugin.md)
 * [在 HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Apache Spark 群集中可用于 Jupyter Notebook 的内核](apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](apache-spark-jupyter-notebook-use-external-packages.md)

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 origin.date: 11/17/2020
 ms.date: 01/04/2021
 ms.author: v-jay
-ms.openlocfilehash: ad2408cef8f017ab53a92e213d16efbcd256c21f
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: 12263a81258c2732f7784565277e0927da007d31
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830187"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629089"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>排查自承载集成运行时问题
 
@@ -77,8 +77,7 @@ Azure 数据工厂 v2 自承载 IR 支持通配符证书。 发生此问题的�
 并发作业数的限制取决于计算机的逻辑核心和内存。 尝试将值下调（如调整为 24），然后查看结果。
 
 > [!TIP] 
-> - 若要详细了解逻辑核心计数以及如何确定计算机的逻辑核心计数，请参阅[在 Windows 10 上查找 CPU 中的核心数的四种方法](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/)。
-> - 要了解如何计算 math.log，请转到[对数计算器](https://www.rapidtables.com/calc/math/Log_Calculator.html)。
+> 要了解如何计算 math.log，请转到[对数计算器](https://www.rapidtables.com/calc/math/Log_Calculator.html)。
 
 
 ### <a name="self-hosted-ir-high-availability-ha-ssl-certificate-issue"></a>自承载 IR 高可用性 (HA) SSL 证书问题

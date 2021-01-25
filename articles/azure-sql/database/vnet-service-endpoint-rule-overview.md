@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: vanto, genemi
 origin.date: 11/14/2019
 ms.date: 01/04/2021
-ms.openlocfilehash: f7116920f226047fa464c1512a0a0fc31f1ec679
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: ba35eedff08419ea20d00e95b51bf0e86d29ae31
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829672"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629057"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>使用适用于 Azure SQL 数据库中的服务器的虚拟网络服务终结点和规则
 
@@ -295,7 +295,7 @@ Blob 审核将审核日志推送到你自己的存储帐户。 如果此存储�
 [sql-db-firewall-rules-config-715d]:firewall-configure.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]:scripts/vnet-service-endpoint-rule-powershell-create.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]:scripts/vnet-service-endpoint-rule-powershell-create.md#a-verify-subnet-is-endpoint-ps-100
-[vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+[vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 [vm-virtual-network-service-endpoints-overview-649d]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [vpn-gateway-indexmd-608y]: ../../vpn-gateway/index.yml
 

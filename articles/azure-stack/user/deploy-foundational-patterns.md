@@ -8,12 +8,12 @@ ms.date: 07/20/2020
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: bf6bf562f287abf43e5966d435d7e94d1d6fb7fb
-ms.sourcegitcommit: e9ffd50aa5eaab402a94bfabfc70de6967fe6278
+ms.openlocfilehash: 3e18fe5210e5a42dc9560fe6f2745debbeee81dc
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86307426"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629073"
 ---
 # <a name="deploy-foundational-patterns-overview"></a>部署基础模式的概述
 
@@ -64,4 +64,4 @@ ms.locfileid: "86307426"
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure 混合模式和解决方案文档](/hybrid/app-solutions)
+[Azure 混合模式和解决方案文档](https://docs.microsoft.com/hybrid/app-solutions)

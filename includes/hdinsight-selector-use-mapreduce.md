@@ -1,17 +1,16 @@
 ---
-ms.openlocfilehash: 5c8eb8c050b18ac58eff0e2ecb0f17f092c5fccf
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 961ca049202f9e336a72043ab3cacf97d6e8406c
+ms.sourcegitcommit: bb7497d5a11e8fb506907221ff65a18e6c523372
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75466749"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98697980"
 ---
 > [!div class="op_single_selector"]
-> * [概述](~/articles/hdinsight/hadoop/hdinsight-use-mapreduce.md)
-> * [SSH](~/articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-ssh.md)
-> * [Curl](~/articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-curl.md)
-> * [PowerShell](~/articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-powershell.md)
-> * [.NET SDK](~/articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-dotnet-sdk.md)
-> * [远程桌面](~/articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-remote-desktop.md)
+> * [概述](../articles/hdinsight/hadoop/hdinsight-use-mapreduce.md)
+> * [SSH](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-ssh.md)
+> * [Curl](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-curl.md)
+> * [PowerShell](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-powershell.md)
+> * [.NET SDK](../articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-dotnet-sdk.md)
 > 
 >

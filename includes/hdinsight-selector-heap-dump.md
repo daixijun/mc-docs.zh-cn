@@ -1,13 +1,12 @@
 ---
-ms.openlocfilehash: 7e229b277ae6ff3185dbe3d1804b33397b3129bb
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: a19a9f4b11219e5ed4bc6abdc8eff270b8f954d1
+ms.sourcegitcommit: bb7497d5a11e8fb506907221ff65a18e6c523372
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75469777"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98698005"
 ---
 > [!div class="op_single_selector"]
 > * [Linux](~/articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-> * [Windows](~/articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dumps.md)
 > 
 >

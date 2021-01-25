@@ -8,12 +8,12 @@ origin.date: 04/23/2020
 ms.date: 01/18/2021
 ms.author: v-jay
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 008827c461696d5308a8949fa4f38fdb29eded37
-ms.sourcegitcommit: f086abe8bd2770ed10a4842fa0c78b68dbcdf771
+ms.openlocfilehash: 14ce161e136ecea1e821a30b19b8968760bd9586
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98163123"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629072"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>适用于 Azure 存储的 Azure 安全基线
 
@@ -262,18 +262,6 @@ ms.locfileid: "98163123"
 - [如何在 Azure 安全中心监视标识和访问](../../security-center/security-center-identity-access.md)
 
 **Azure 安全中心监视**：是
-
-**责任**：客户
-
-### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6：对所有管理任务使用专用计算机（特权访问工作站）
-
-**指导**：使用配置了 MFA 的 PAW（特权访问工作站）来登录并配置存储帐户资源。 
-
-- [了解特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
-
-- [如何在 Azure 中启用 MFA](../../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Azure 安全中心监视**：不适用
 
 **责任**：客户
 

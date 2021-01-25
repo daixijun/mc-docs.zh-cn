@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: ''
 origin.date: 03/12/2019
 ms.date: 12/21/2020
-ms.openlocfilehash: be4b77b59480201ff737d1423b70b5582c26c34d
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: 6b3d5c94060cbb44b715300734f135a25fb33e93
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829652"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629080"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Azure SQL 托管实例的托管 API 参考
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -76,7 +76,7 @@ ms.locfileid: "97829652"
 
 ## <a name="transact-sql-create-and-configure-instance-databases"></a>Transact-SQL：创建和配置实例数据库
 
-要在创建托管实例后创建和配置实例数据库，请使用以下 T-SQL 命令。 可以使用 Azure 门户、[SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio)、[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is)[Visual Studio Code](https://code.visualstudio.com/docs) 或可以连接到服务器并传递 Transact-SQL 命令的其他任何程序来发出这些命令。
+要在创建托管实例后创建和配置实例数据库，请使用以下 T-SQL 命令。 可以使用 Azure 门户、[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/use-sql-server-management-studio)、[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is)[Visual Studio Code](https://code.visualstudio.com/docs) 或可以连接到服务器并传递 Transact-SQL 命令的其他任何程序来发出这些命令。
 
 > [!TIP]
 > 有关介绍如何使用 Microsoft Windows 上的 SQL Server Management Studio 配置和连接到托管实例的快速入门，请参阅[快速入门：配置 Azure VM 以连接到 Azure SQL 托管实例](connect-vm-instance-configure.md)和[快速入门：配置从本地到 Azure SQL 托管实例的点到站点连接](point-to-site-p2s-configure.md)。

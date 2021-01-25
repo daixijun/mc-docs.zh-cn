@@ -10,12 +10,12 @@ ms.date: 11/30/2020
 ms.author: v-jay
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a0ef778194dfbd71c60004fd6b1e1addb7c3e040
-ms.sourcegitcommit: dabbf66e4507a4a771f149d9f66fbdec6044dfbf
+ms.openlocfilehash: 6784f79cfd95d7e71f7e25eac4e1abc2867731f7
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96153039"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629070"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 导入/导出服务将数据导入到 Azure 文件
 
@@ -166,7 +166,7 @@ ms.locfileid: "96153039"
 
 ### <a name="create-a-job"></a>创建作业
 
-1. 使用 [az extension add](/cli/azure/extension#az_extension_add) 命令添加 [az import-export](/cli/ext/import-export/import-export) 扩展：
+1. 使用 [az extension add](/cli/extension#az_extension_add) 命令添加 [az import-export](/cli/ext/import-export/import-export) 扩展：
 
     ```azurecli
     az extension add --name import-export
@@ -190,7 +190,7 @@ ms.locfileid: "96153039"
     az import-export location list
     ```
 
-1. 使用 [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) 命令获取你所在区域的位置：
+1. 使用 [az import-export location show](/cli/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) 命令获取你所在区域的位置：
 
     ```azurecli
     az import-export location show --location "China East"

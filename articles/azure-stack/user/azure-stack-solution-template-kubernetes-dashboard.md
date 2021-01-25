@@ -8,12 +8,12 @@ ms.date: 12/07/2020
 ms.author: v-jay
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: b132ce494acb0fe944b3af9e277e5f045186d0bd
-ms.sourcegitcommit: a1f565fd202c1b9fd8c74f814baa499bbb4ed4a6
+ms.openlocfilehash: 5b7e3aa488fa28e0711c297cb40befd388e2b827
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96507759"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629088"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>在 Azure Stack Hub 中访问 Kubernetes 仪表板 
 
@@ -137,4 +137,3 @@ Kubernetes 包含一个可用于基本管理操作的 Web 仪表板。 使用此
 
 [将 Kubernetes 群集添加到市场（面向 Azure Stack Hub 操作员）](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)  
 
-[Azure 上的 Kubernetes](/container-service/kubernetes/container-service-kubernetes-walkthrough)  

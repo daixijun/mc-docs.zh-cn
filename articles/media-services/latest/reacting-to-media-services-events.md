@@ -12,18 +12,18 @@ ms.topic: conceptual
 origin.date: 08/31/2020
 ms.date: 09/28/2020
 ms.author: v-jay
-ms.openlocfilehash: e4057205b5943e5ee8a3f603a3890403dcc54c3b
-ms.sourcegitcommit: 7ad3bfc931ef1be197b8de2c061443be1cf732ef
+ms.openlocfilehash: 8345dbf004a9056c23e77927d8c936486b57f7dc
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91244965"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629054"
 ---
 # <a name="handling-event-grid-events"></a>处理事件网格事件
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-媒体服务事件允许应用程序使用新式无服务器体系结构对不同事件（例如，作业状态更改事件）进行响应。 为此，它无需复杂的代码或高价低效的轮询服务。 相反，可以通过 [Azure 事件网格](/event-grid/)向事件处理程序（如 [Azure Functions](/functions/)、[Azure 逻辑应用](/logic-apps/)），甚至是向自己的 Webhook 推送事件，且仅需为已使用的内容付费。 有关定价的详细信息，请参阅[事件网格定价](https://azure.cn/pricing/details/event-grid/)。
+媒体服务事件允许应用程序使用新式无服务器体系结构对不同事件（例如，作业状态更改事件）进行响应。 为此，它无需复杂的代码或高价低效的轮询服务。 相反，可以通过 [Azure 事件网格](/event-grid/)向事件处理程序（如 [Azure Functions](/azure-functions/)、[Azure 逻辑应用](/logic-apps/)），甚至是向自己的 Webhook 推送事件，且仅需为已使用的内容付费。 有关定价的详细信息，请参阅[事件网格定价](https://azure.cn/pricing/details/event-grid/)。
 
 媒体服务事件的可用性与事件网格[可用性](../../event-grid/overview.md)相关联，当事件网格在其他地区可用时，媒体服务事件也同样可用。  
 

@@ -1,13 +1,12 @@
 ---
-ms.openlocfilehash: dace744a0d287e7f03976452f83ddf6f9c99e5dd
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: 887e519dc75fa902b75b096fb2d346bef3399b8b
+ms.sourcegitcommit: bb7497d5a11e8fb506907221ff65a18e6c523372
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "75466485"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98697936"
 ---
 > [!div class="op_single_selector"]
 > * [Linux cluster](~/articles/hdinsight/hadoop/apache-hadoop-run-samples-linux.md)
-> * [Windows cluster](~/articles/hdinsight/hdinsight-run-samples.md)
 > 
 >

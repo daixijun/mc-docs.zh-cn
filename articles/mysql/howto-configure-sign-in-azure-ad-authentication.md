@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 origin.date: 07/23/2020
 ms.date: 09/28/2020
-ms.openlocfilehash: 43d0e816c743815c090e8f0f733ff4abd74de1ba
-ms.sourcegitcommit: 71953ae66ddfc07c5d3b4eb55ff8639281f39b40
+ms.openlocfilehash: 35aabe28d2cf132f2c0231e6b0f762224b5cbfd3
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395580"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629079"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>使用 Azure Active Directory 进行 MySQL 的身份验证
 
@@ -60,7 +60,7 @@ ms.locfileid: "91395580"
 
 ### <a name="prerequisites"></a>先决条件
 
-请确保已[安装 Azure CLI](/clazure/install-azure-cli)。
+请确保已[安装 Azure CLI](/cli/install-azure-cli)。
 
 ### <a name="step-1-authenticate-with-azure-ad"></a>步骤 1：使用 Azure AD 进行身份验证
 

@@ -9,12 +9,12 @@ origin.date: 12/11/2020
 ms.date: 01/11/2021
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/11/2020
-ms.openlocfilehash: 3383d411f5686dc395e1512e56dd534d12416cdd
-ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
+ms.openlocfilehash: 91bae85a5b256ee8427f193718f900b527245a3f
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97894336"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629049"
 ---
 # <a name="event-hubs-on-azure-stack-hub-operator-overview"></a>Azure Stack Hub 上的事件中心操作员概述
 
@@ -29,7 +29,6 @@ ms.locfileid: "97894336"
 若要详细了解事件中心用户体验，请参阅 [Azure 事件中心文档](/event-hubs/)。 此文档适用于两个版本的事件中心，并且包含以下主题：
 
 - 有关[事件中心概念](/event-hubs/event-hubs-features)的详细信息
-- 如何[创建事件中心群集和命名空间](/event-hubs/event-hubs-dedicated-cluster-create-portal)
 - 如何创建[事件中心](/event-hubs/event-hubs-create#create-an-event-hub)
 - 如何[使用 Kafka 协议](/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs)进行流式传输
 

@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: ''
 origin.date: 12/17/2018
 ms.date: 01/04/2021
-ms.openlocfilehash: 01557079279e95c38116b69f2e3d7a54af93e176
-ms.sourcegitcommit: cf3d8d87096ae96388fe273551216b1cb7bf92c0
+ms.openlocfilehash: eec2a798335ec7c62edb981361359eaeef0c2804
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830049"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629055"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Azure SQL 数据库和 SQL 托管实例的多模型功能
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -82,7 +82,7 @@ JSON 是用于在新式 Web 与移动应用程序中交换数据的流行数据�
 如果具有 JSON 文本，可使用内置函数 [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql)、[JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql) 和 [ISJSON](https://docs.microsoft.com/sql/t-sql/functions/isjson-transact-sql)，从 JSON 中提取数据，或者验证 JSON 的格式是否正确。 使用 [JSON_MODIFY](https://docs.microsoft.com/sql/t-sql/functions/json-modify-transact-sql) 函数可以更新 JSON 文本中的值。 对于更高级的查询和分析，使用 [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql) 函数可将 JSON 对象数组转换成行集。 可对返回的结果集执行任何 SQL 查询。 最后，使用 [FOR JSON](https://docs.microsoft.com/sql/relational-databases/json/format-query-results-as-json-with-for-json-sql-server) 可将存储在关系表中的数据格式化为 JSON 文本。
 
 有关详细信息，请参阅[如何处理 JSON 数据](database/json-features.md)。
-[JSON](/sql/relational-databases/json/json-data-sql-server) 是 SQL Server 数据库引擎的核心功能。
+[JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) 是 SQL Server 数据库引擎的核心功能。
 
 ### <a name="when-to-use-a-json-capability"></a>何时使用 JSON 功能
 

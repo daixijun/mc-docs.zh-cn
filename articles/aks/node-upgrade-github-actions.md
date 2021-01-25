@@ -10,12 +10,12 @@ ms.date: 01/11/2021
 ms.testscope: yes|no
 ms.testdate: 01/11/2021null
 ms.author: v-yeche
-ms.openlocfilehash: 7f2d239942d7e2fad33bc49ba8202bd4c90f6037
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: 2f84720f78a9e2736a1b16d786ab1a7de3126850
+ms.sourcegitcommit: ab5613bd4ca33ff8eddd0b93de57a69835c0a951
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023457"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98626764"
 ---
 <!--Pending PM Review-->
 # <a name="apply-security-updates-to-azure-kubernetes-service-aks-nodes-automatically-using-github-actions"></a>使用 GitHub Actions 自动将安全更新应用于 Azure Kubernetes 服务 (AKS) 节点
@@ -164,7 +164,7 @@ ms.locfileid: "98023457"
           - name: Upgrade node images
             uses: Azure/cli@v1.0.0
             with:
-              inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only
+              inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only --yes
     ```
     
     > [!NOTE]

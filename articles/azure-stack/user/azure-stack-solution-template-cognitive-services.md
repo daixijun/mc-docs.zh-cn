@@ -8,12 +8,12 @@ ms.date: 01/11/2021
 ms.author: v-jay
 ms.reviewer: guanghu
 ms.lastreviewed: 10/09/2020
-ms.openlocfilehash: 28b584c6380cfc2cee54d1d61ac90befae8f764f
-ms.sourcegitcommit: 3f54ab515b784c9973eb00a5c9b4afbf28a930a9
+ms.openlocfilehash: fde44f8d57917eee2e80b93f94200eca898ad661
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97894444"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629087"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>将 Azure 认知服务部署到 Azure Stack Hub
 
@@ -247,8 +247,6 @@ print(faces)
 ```
 
 ## <a name="next-steps"></a>后续步骤
-
-[如何安装和运行计算机视觉 API 容器。](/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
 [如何安装和运行人脸 API 容器](/cognitive-services/face/face-how-to-install-containers)
 

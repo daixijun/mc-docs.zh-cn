@@ -8,18 +8,18 @@ origin.date: 09/02/2020
 ms.date: 12/14/2020
 ms.author: v-jay
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b4060445c7bdebc4755468d3e50d5c3a95cba68d
-ms.sourcegitcommit: a8afac9982deafcf0652c63fe1615ba0ef1877be
+ms.openlocfilehash: 4b748c71806b46ee23850caac0d4e4be8e0c0957
+ms.sourcegitcommit: a978c5f2c6b53494d67e7c3c5a44b2aa648219a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96850900"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629052"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>适用于 Azure Database for MySQL 的 Azure 安全基线
 
 适用于 Azure Database for MySQL 的 Azure 安全基线包含的建议可帮助你改进部署的安全状况。
 
-此服务的基线提取自 [Azure 安全基准版本 1.0](../security/benchmarks/overview.md)，该安全基准提供了有关如何在 Azure 上利用我们的最佳实践指南来保护云解决方案的建议。
+此服务的基线摘自 [Azure 安全基准版本 1.0](../security/benchmarks/overview.md)，其中提供了有关如何根据我们的最佳做法指导保护 Azure 上的云解决方案的建议。
 
 有关详细信息，请参阅 [Azure 安全基线概述](../security/benchmarks/security-baselines-overview.md)。
 
@@ -63,7 +63,7 @@ Azure 安全中心监视：不可用
 
 **指导**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -83,7 +83,7 @@ Azure 安全中心监视：不适用
 
 **指导**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -183,7 +183,7 @@ Azure 安全中心监视：不可用
 
 **指南**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -231,7 +231,7 @@ Azure 安全中心监视：不适用
 
 **指南**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -292,18 +292,6 @@ Azure Database for MySQL 不支持内置基于角色的访问控制，但你可�
 - [如何在 Azure 安全中心监视标识和访问](../security-center/security-center-identity-access.md)
 
 **Azure 安全中心监视**：是
-
-**责任**：客户
-
-### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6：使用由 Azure 管理的安全工作站执行管理任务
-
-指南：将特权访问工作站 (PAW) 与为登录和配置 Azure 资源而配置的多重身份验证 (MFA) 结合使用。
-
-- [了解特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
-
-- [如何在 Azure 中启用 MFA](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Azure 安全中心监视**：不适用
 
 **责任**：客户
 
@@ -481,7 +469,7 @@ Azure 对支持 Azure Database for MySQL 的基础系统执行漏洞管理。
 
 **指导**：不适用；此项指导适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -489,7 +477,7 @@ Azure 安全中心监视：不适用
 
 **指导**：不适用；此项指导适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -497,7 +485,7 @@ Azure 安全中心监视：不适用
 
 **指导**：不适用；此项指导适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -579,7 +567,7 @@ Azure 安全中心监视：不适用
 
 **指南**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -587,7 +575,7 @@ Azure 安全中心监视：不适用
 
 **指南**：不适用；此建议适用于计算资源和整个 Azure。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -595,7 +583,7 @@ Azure 安全中心监视：不适用
 
 **指南**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -619,7 +607,7 @@ Azure 安全中心监视：不适用
 
 **指导**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -637,7 +625,7 @@ Azure 安全中心监视：不适用
 
 **指南**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -645,7 +633,7 @@ Azure 安全中心监视：不适用
 
 **指导**：不适用；此建议适用于 Azure 应用服务或计算资源上运行的 Web 应用程序。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -671,7 +659,7 @@ Azure 安全中心监视：不适用
 
 **指南**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -691,7 +679,7 @@ Azure 安全中心监视：不适用
 
 **指南**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -711,7 +699,7 @@ Azure 安全中心监视：不适用
 
 **指南**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -729,7 +717,7 @@ Azure 安全中心监视：不适用
 
 **指导**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -747,7 +735,7 @@ Azure 安全中心监视：不适用
 
 **指南**：不适用；此建议适用于计算资源。
 
-Azure 安全中心监视：不适用
+**Azure 安全中心监视**：不适用
 
 责任：空值
 
@@ -847,7 +835,7 @@ Azure 安全中心监视：不适用
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1：创建事件响应指导
 
-**指导**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
+**指南**：为组织制定事件响应指南。 确保在书面的事件响应计划中定义人员职责，以及事件处理/管理从检测到事件后审查的各个阶段。
 
 - [如何在 Azure 安全中心配置工作流自动化](../security-center/security-center-planning-and-operations-guide.md)
 
