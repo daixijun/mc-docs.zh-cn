@@ -3,14 +3,15 @@ title: Azure Functions SendGrid 绑定
 description: Azure Functions SendGrid 绑定参考。
 author: craigshoemaker
 ms.topic: reference
-ms.date: 03/18/2020
+ms.custom: devx-track-csharp
+ms.date: 11/30/2020
 ms.author: v-junlch
-ms.openlocfilehash: cfb2de3f9d753f7edbf3f984ec3bcd74fdf4cd32
-ms.sourcegitcommit: c1ba5a62f30ac0a3acb337fb77431de6493e6096
+ms.openlocfilehash: aed1c565b5336d06268f192f7cf6ebd6edaa9900
+ms.sourcegitcommit: dfdb65cef6a6b089992644f075b9c3f444cb8e36
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "79546886"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98793971"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 绑定
 
@@ -40,6 +41,7 @@ ms.locfileid: "79546886"
 
 ```cs
 using SendGrid.Helpers.Mail;
+using System.Text.Json;
 
 ...
 
@@ -48,7 +50,7 @@ public static void Run(
     [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
     [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
 {
-var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
 message = new SendGridMessage();
 message.AddTo(emailObject.To);
@@ -70,15 +72,16 @@ public class OutgoingEmail
 
 ```cs
 using SendGrid.Helpers.Mail;
+using System.Text.Json;
 
 ...
 
 [FunctionName("SendEmail")]
-public static async void Run(
+public static async Task Run(
  [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
  [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] IAsyncCollector<SendGridMessage> messageCollector)
 {
- var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+ var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
  var message = new SendGridMessage();
  message.AddTo(emailObject.To);
@@ -104,7 +107,7 @@ public class OutgoingEmail
 
 以下示例演示 *function.json* 文件中的一个 SendGrid 输出绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。
 
-下面是 function.json  文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json 
 {
@@ -163,7 +166,7 @@ public class Message
 
 以下示例演示 *function.json* 文件中的一个 SendGrid 输出绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。
 
-下面是 function.json  文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json 
 {
@@ -188,7 +191,7 @@ JavaScript 代码如下所示：
 ```javascript
 module.exports = function (context, input) {
     var message = {
-         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
         from: { email: "sender@contoso.com" },
         subject: "Azure news",
         content: [{
@@ -293,15 +296,15 @@ JavaScript 不支持特性。
 
 下表列出了在 function.json 文件和 `SendGrid` 特性/注释中可用的绑定配置属性。
 
-| function.json 属性  | 特性/注释属性 | 说明 | 可选 |
+| function.json 属性 | 特性/注释属性 | 说明 | 可选 |
 |--------------------------|-------------------------------|-------------|----------|
 | type |不适用| 必须设置为 `sendGrid`。| 否 |
 | direction |不适用| 必须设置为 `out`。| 否 |
 | name |不适用| 在请求或请求正文的函数代码中使用的变量名称。 只有一个返回值时，此值为 `$return`。 | 否 |
-| apiKey | ApiKey | 包含 API 密钥的应用设置的名称。 如果未设置，默认应用设置名称为“AzureWebJobsSendGridApiKey”  。| 否 |
-| to| 目标 | 收件人的电子邮件地址。 | 是 |
-| 从| 源 | 发件人的电子邮件地址。 |  是 |
-| subject| 主题 | 电子邮件主题。 | 是 |
+| apiKey | ApiKey | 包含 API 密钥的应用设置的名称。 如果未设置，默认应用设置名称为“AzureWebJobsSendGridApiKey”。| 否 |
+| to| 如果 | 收件人的电子邮件地址。 | 是 |
+| from| 从 | 发件人的电子邮件地址。 |  是 |
+| subject| 使用者 | 电子邮件主题。 | 是 |
 | text| 文本 | 电子邮件内容。 | 是 |
 
 在绑定中可能会定义可选属性的默认值，并以编程方式添加或重写这些值。
@@ -328,9 +331,9 @@ JavaScript 不支持特性。
 }
 ```  
 
-|properties  |默认 | 说明 |
+|属性  |默认 | 说明 |
 |---------|---------|---------| 
-|从|不适用|所有函数的发件人电子邮件地址。| 
+|from|不适用|所有函数的发件人电子邮件地址。| 
 
 
 ## <a name="next-steps"></a>后续步骤
