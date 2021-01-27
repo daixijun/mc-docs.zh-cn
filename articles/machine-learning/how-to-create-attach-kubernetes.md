@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 47faa166e8e45353cb6156922e094cfba5d48e5c
-ms.sourcegitcommit: 79a5fbf0995801e4d1dea7f293da2f413787a7b9
+ms.openlocfilehash: f6a25a0c6c75155f6f45d5f70b476c5a20dd14d1
+ms.sourcegitcommit: c8ec440978b4acdf1dd5b7fda30866872069e005
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98023098"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98230679"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>创建并附加 Azure Kubernetes 服务群集
 
@@ -197,7 +197,7 @@ az ml computetarget create aks -n myaks
 
 有关详细信息，请参阅 [az ml computetarget create aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) 参考文档。
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 有关在门户中创建 AKS 群集的信息，请参阅[在 Azure 机器学习工作室中创建计算目标](how-to-create-attach-compute-studio.md#inference-clusters)。
 
@@ -274,11 +274,83 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 
 有关详细信息，请参阅 [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks) 参考文档。
 
-# <a name="portal"></a>[门户](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 有关在门户中附加 AKS 群集的信息，请参阅[在 Azure 机器学习工作室中创建计算目标](how-to-create-attach-compute-studio.md#inference-clusters)。
 
 ---
+
+## <a name="create-or-attach-an-aks-cluster-with-tls-termination"></a>创建或附加带有 TLS 终止的 AKS 群集
+[创建或附加 AKS 群集](how-to-create-attach-kubernetes.md)时，可以使用 **[AksCompute.provisioning_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 和 **[AksCompute.provisioning_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 配置对象来启用 TLS 终止。 两种方法都返回具有 enable_ssl 方法的配置对象，并且你可以使用 enable_ssl 方法来启用 TLS 。
+
+以下示例显示了如何在后台使用 Microsoft 证书通过自动 TLS 证书生成和配置来启用 TLS 终止。
+```python
+   from azureml.core.compute import AksCompute, ComputeTarget
+   
+   # Enable TLS termination when you create an AKS cluster by using provisioning_config object enable_ssl method
+
+   # Leaf domain label generates a name using the formula
+   # "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+   # where "######" is a random series of characters
+   provisioning_config.enable_ssl(leaf_domain_label = "contoso")
+   
+   # Enable TLS termination when you attach an AKS cluster by using attach_config object enable_ssl method
+
+   # Leaf domain label generates a name using the formula
+   # "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+   # where "######" is a random series of characters
+   attach_config.enable_ssl(leaf_domain_label = "contoso")
+
+
+```
+以下示例显示如何使用自定义证书和自定义域名启用 TLS 终止。 对于自定义域和证书，必须更新 DNS 记录以指向评分终结点的 IP 地址，请参阅[更新 DNS ](how-to-secure-web-service.md#update-your-dns)
+
+```python
+   from azureml.core.compute import AksCompute, ComputeTarget
+
+   # Enable TLS termination with custom certificate and custom domain when creating an AKS cluster
+   
+   provisioning_config.enable_ssl(ssl_cert_pem_file="cert.pem",
+                                        ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    
+   # Enable TLS termination with custom certificate and custom domain when attaching an AKS cluster
+
+   attach_config.enable_ssl(ssl_cert_pem_file="cert.pem",
+                                        ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+
+
+```
+>[!NOTE]
+> 有关如何保护 AKS 群集上的模型部署的详细信息，请参阅[使用 TLS 通过 Azure 机器学习保护 Web 服务](how-to-secure-web-service.md)
+
+## <a name="create-or-attach-an-aks-cluster-to-use-internal-load-balancer-with-private-ip"></a>创建或附加 AKS 群集以将内部负载均衡器与专用 IP 结合使用
+创建或附加 AKS 群集时，可以将群集配置为使用内部负载均衡器。 使用内部负载均衡器，向 AKS 的部署的评分终结点将在虚拟网络中使用专用 IP。 以下代码片段显示了如何为 AKS 集群配置内部负载均衡器。
+```python
+   
+   from azureml.core.compute.aks import AksUpdateConfiguration
+   from azureml.core.compute import AksCompute, ComputeTarget
+   
+   # When you create an AKS cluster, you can specify Internal Load Balancer to be created with provisioning_config object
+   provisioning_config = AksCompute.provisioning_configuration(load_balancer_type = 'InternalLoadBalancer')
+
+   # when you attach an AKS cluster, you can update the cluster to use internal load balancer after attach
+   aks_target = AksCompute(ws,"myaks")
+
+   # Change to the name of the subnet that contains AKS
+   subnet_name = "default"
+   # Update AKS configuration to use an internal load balancer
+   update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
+   aks_target.update(update_config)
+   # Wait for the operation to complete
+   aks_target.wait_for_completion(show_output = True)
+   
+   
+```
+>[!IMPORTANT]
+> Azure 机器学习不支持使用内部负载均衡器进行 TLS 终止。 内部负载均衡器具有专用 IP，该专用 IP 可以位于另一个网络上，并且可以撤回证书。 
+
+>[!NOTE]
+> 有关如何保护推理环境的详细信息，请参阅[保护 Azure 机器学习推理环境](how-to-secure-inferencing-vnet.md)
 
 ## <a name="detach-an-aks-cluster"></a>拆离 AKS 群集
 
@@ -307,7 +379,7 @@ az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 
 ---
 
-## <a name="troubleshooting"></a>疑难解答
+## <a name="troubleshooting"></a>故障排除
 
 ### <a name="update-the-cluster"></a>更新群集
 
