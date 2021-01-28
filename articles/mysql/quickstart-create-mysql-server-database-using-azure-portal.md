@@ -49,7 +49,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
    服务器名称 | **mydemoserver** | 输入唯一名称。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 必须包含 3 到 63 个字符。
    数据源 |**无** | 选择“无”，从头开始创建新的服务器  。 仅当从现有服务器的异地备份进行还原时，才选择“备份”。
    位置 |你所需的位置 | 从列表中选择一个位置。
-   版本 | 最新主版本| 使用最新主版本。 请参阅[所有受支持的版本](../postgresql/concepts-supported-versions.md)。
+   版本 | 最新主版本| 使用最新主版本。 请参阅[所有受支持的版本](../mysql/concepts-supported-versions.md)。
    计算 + 存储 | 使用默认值| 默认定价层是“常规用途”，其中包含 4 个 vCore 和 100 GB 存储  。 备份保留期设置为 7 天，并提供“异地冗余”备份选项 。<br/>查看[定价](https://azure.cn/pricing/details/mysql/)页，根据需要更新默认值。
    管理员用户名 | **mydemoadmin** | 输入服务器管理员用户名。 不能将“azure_superuser”、“admin”、“administrator”、“root”、“guest”或“public”用作管理员用户名     。
    Password | 密码 | 服务器管理员用户的新密码。 密码长度必须为 8 到 128 个字符，并包含大写字母或小写字母、数字和非字母数字字符（！、$、#、% 等）的组合。
